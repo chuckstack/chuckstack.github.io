@@ -36,16 +36,28 @@
     </main>
     <!-- ./ Main -->
 
-    <!-- Footer -->
-    <footer class="container">
-      <small
-        >Built with <a href="https://picocss.com">Pico</a> •
-        <a href="https://github.com/picocss/examples/blob/master/v2-html/index.html"
-          >Source code</a
-        ></small
-      >
-    </footer>
-    <!-- ./ Footer -->
+	<footer class="container">
+	  <small id="copyright"></small>
+	</footer>
+	<!-- ./ Footer -->
+	
+	<script>
+	  (function() {
+	    function addCopyright() {
+	      var currentYear = new Date().getFullYear();
+	      var copyrightText = "Copyright © " + currentYear + ", Example Corporation. All Rights Reserved.";
+	      var copyrightElement = document.getElementById('copyright');
+	      copyrightElement.textContent = copyrightText;
+	    }
+	
+	    // Run the function when the DOM is fully loaded
+	    if (document.readyState === "loading") {
+	      document.addEventListener("DOMContentLoaded", addCopyright);
+	    } else {
+	      addCopyright();
+	    }
+	  })();
+	</script>
 
   </body>
 </html>
