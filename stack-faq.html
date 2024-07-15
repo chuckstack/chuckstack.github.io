@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Stack FAQ</title>
+    <meta name="description" content="chuck-stack.org - stack frequently asked questions" />
+
+    <!-- Pico.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.0.6/css/pico.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="container">
+      <hgroup>
+        <h1><a href="/" class="contrast" >chuck-stack.org</a></h1> <!-- &#8962; - home icon -->
+        <p>build velocity and efficiency - not infrastructure</p>
+      </hgroup>
+      <div id="navigation-placeholder"></div>
+    </header>
+    <!-- ./ Header -->
+
+    <!-- Main -->
+    <main class="container">
+
+      <!-- introduction-->
+      <section id="introduction">
+        <h2>chuck-stack FAQ</h2>
+        <p> The purpose of this page is to answer frequently asked questions (FAQ) about the chuck-stack. </p>
+        <!-- Note: you can use either h3 or h3 depending on goals -->
+        <h4>How do we choose stack components?</h4>
+        <p> The chuck-stack has been cultivated over the last 25 years. Here are the guidelines for inclusion: </p>
+        <ul>
+            <li>Open source - or at least as open as possible.</li>
+            <li>Start simple - easy to understand and reason about. Nix pushes this concept a little (or a lot); however, the power and simplicity it creates is worth the extra effort.</li>
+            <li>Basic functionality - supports basics like CRUD (create, read, update and delete) with minimal effort.</li>
+            <li>Kind educator - needs someone in the community who makes the technology kind to the target audience.</li>
+            <li>Kind integrator - needs someone local to you digitally to help you leverage the tool.</li>
+            <li>Synergy - supports other tools in the stack. Example: runs on or integrates with PostgreSQL.</li>
+            <li>Simple architecture - not overly complicated relative to the tool's purpose.</li>
+            <li>Enterprise scalability - it needs to scale to support an organization of at least 1,000+ across multiple continents.</li>
+            <li>Enterprise testing and deployment - it needs to support team development where improvements can be development, tested and accepted in dedicated environments and easily migrated to production using CI/CD concepts or scripts.</li>
+            <li>Command Line Interface (CLI) centric - we love cli interfaces because they are accessible from anywhere.</li>
+            <li>REST centric - we love scriptable interfaces that can be called from anywhere.</li>
+        </ul>
+    </main>
+    <!-- ./ Main -->
+
+	<!-- Footer -->
+	<footer class="container">
+      <!-- Theme Picker -->
+      <nav>
+        <ul>
+          <li>
+            <details class="dropdown">
+              <summary role="button" class="secondary">Theme</summary>
+              <ul>
+                <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                <li><a href="#" data-theme-switcher="light">Light</a></li>
+                <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </nav>
+      <!-- ./ Theme Picker -->
+	  <!-- copyright ./ -->
+	  <small id="copyright"></small>
+	</footer>
+	<!-- ./ Footer -->
+
+    <!-- DRY compontents -->
+    <script src="js/load-common-elements.js"></script>
+	
+    <!-- Minimal theme switcher -->
+    <script src="js/minimal-theme-switcher.js"></script>
+
+    <!-- Copyright -->
+    <script src="js/copyright.js"></script>
+
+    <!-- Form validation -->
+    <script src="js/form-validation.js"></script>
+
+  </body>
+</html>
