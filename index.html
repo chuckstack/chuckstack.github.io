@@ -16,7 +16,28 @@
 
   <body>
     <!-- Header -->
-    <div id="header-placeholder"></div>
+    <header class="container">
+      <hgroup>
+        <h1><a href="/" class="contrast" >chuck-stack.org</a></h1> <!-- &#8962; - home icon -->
+        <p>build velocity and efficiency - not infrastructure</p>
+      </hgroup>
+      <nav>
+          <ul>
+              <li>
+                  <details class="dropdown">
+                    <summary>
+                      Navigation
+                    </summary>
+                    <ul>
+                      <li><a href="/">Home</a></li>
+                      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                      <li><a href="code-of-conduct.html">Code of Conduct</a></li>
+                    </ul>
+                  </details>
+              </li>
+          </ul>
+      </nav>
+    </header>
     <!-- ./ Header -->
 
     <!-- Main -->
@@ -85,13 +106,26 @@
     </main>
     <!-- ./ Main -->
 
-	<!-- Footer -->
-    <div id="footer-placeholder"></div>
+	<footer class="container">
+      <!-- ./ Theme Picker -->
+      <nav>
+        <ul>
+          <li>
+            <details class="dropdown">
+              <summary role="button" class="secondary">Theme</summary>
+              <ul>
+                <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                <li><a href="#" data-theme-switcher="light">Light</a></li>
+                <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </nav>
+	  <small id="copyright"></small>
+	</footer>
 	<!-- ./ Footer -->
 	
-    <!-- DRY details -->
-    <script src="js/load-common-elements.js"></script>
-
     <!-- Minimal theme switcher -->
     <script src="js/minimal-theme-switcher.js"></script>
 
