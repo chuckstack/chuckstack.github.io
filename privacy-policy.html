@@ -21,22 +21,7 @@
         <h1><a href="/" class="contrast" >chuck-stack.org</a></h1> <!-- &#8962; - home icon -->
         <p>build velocity and efficiency - not infrastructure</p>
       </hgroup>
-      <nav>
-          <ul>
-              <li>
-                  <details class="dropdown">
-                    <summary>
-                      Navigation
-                    </summary>
-                    <ul>
-                      <li><a href="/">Home</a></li>
-                      <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                      <li><a href="code-of-conduct.html">Code of Conduct</a></li>
-                    </ul>
-                  </details>
-              </li>
-          </ul>
-      </nav>
+      <div id="navigation-placeholder"></div>
     </header>
     <!-- ./ Header -->
 
@@ -76,8 +61,9 @@
     </main>
     <!-- ./ Main -->
 
+	<!-- Footer -->
 	<footer class="container">
-      <!-- ./ Theme Picker -->
+      <!-- Theme Picker -->
       <nav>
         <ul>
           <li>
@@ -92,9 +78,14 @@
           </li>
         </ul>
       </nav>
+      <!-- ./ Theme Picker -->
+	  <!-- copyright ./ -->
 	  <small id="copyright"></small>
 	</footer>
 	<!-- ./ Footer -->
+
+    <!-- DRY compontents -->
+    <script src="js/load-common-elements.js"></script>
 	
     <!-- Minimal theme switcher -->
     <script src="js/minimal-theme-switcher.js"></script>
