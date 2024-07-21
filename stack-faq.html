@@ -95,8 +95,20 @@
       </ol>
       <!-- ./ h3-principles -->
 
+      <!-- h3-status -->
+      <h3 id="status">What is the current status of chuck-stack?</h3>
+      <p> The short answer is: We have been deploying the chuck-stack for more that 10 years. Some parts of the start are in early alpha. Other parts reached production 15 years ago. Here is a more detailed answer: </p>
+      <ul>
+          <li>iDempiere ERP is the oldest member of the stack. We started using it in 2001.</li>
+          <li>Metabase BI has been in production for us for the last 4 years.</li>
+          <li>Nushell has been in production for us for the last 2 years.</li>
+          <li>dbt has been in production for about 6 months. Note that we have used various ETL tools for the last 10 years. </li>
+          <li>The AI tools like aichat, are relatively new. Being able to use these tools to change how people interact with data is also new. This style of UI development is in alpha. </li>
+      </ul>
+      <!-- ./ h3-status -->
+
       <!-- h3-erp -->
-      <h3 id="erp">Is chuck-stack ERP?</h3>
+      <h3 id="erp">Is chuck-stack an ERP?</h3>
       <p> No, not yet. Here are our thoughts about becoming an ERP:</p>
       <ul>
           <li>The biggest hurdle to becoming a viable ERP is data entry.</li>
@@ -104,7 +116,7 @@
           <li>Historically, ERP systems burden users is a sea of fields (representing the 90+ columns).</li>
           <li>We do NOT believe this is the best approach because a user will only need to modify about three fields in a newly drafted order. The remaining fields should just default from either the Business Partner settings or recent orders. Said another way, changing an order's defaults is the exception, not the rule.</li>
           <li>Improving the user experience for the above order scenario is currently our biggest challenge.</li>
-          <li>Another challenge will be to provide a viable accounting system. In the short term, we will use <a href="https://www.idempiere.org/">iDempiere</a>. In the long term, we will use AI and available references to create an accounting system that best supports our stack.</li>
+          <li>Another challenge will be to provide a viable accounting system. In the short term, we will use <a href="https://www.idempiere.org/">iDempiere</a>. In the long term, we will use AI and available references to create an accounting system that best supports our stack. Accounting is one of our strongest areas of our ERP practice.</li>
       </ul>
       <!-- ./ h3-erp -->
 
