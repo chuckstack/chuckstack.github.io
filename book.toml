@@ -1,0 +1,8 @@
+[book]
+authors = ["Chuck Boecking"]
+language = "en"
+multilingual = false
+src = "src-ls"
+
+[build]
+build-dir = "ls"
