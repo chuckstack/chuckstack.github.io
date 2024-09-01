@@ -1,5 +1,10 @@
 /* Base styles and content styles */
 
+
+/* --------------------------------------------------- */
+/* chuck-stack - see end of file for overridden values */
+/* --------------------------------------------------- */
+
 :root {
     /* Browser default font-size is 16px, this way 1 rem = 10px */
     font-size: 62.5%;
@@ -229,4 +234,22 @@ kbd {
 
 .result-no-output {
     font-style: italic;
+}
+
+/* --------------------------------------------------- */
+/* chuck-stack - overridden values                     */
+/* --------------------------------------------------- */
+
+:root {
+    /* Browser default font-size is 16px, this way 1 rem = 10px */
+    font-size: 80.5%;
+    color-scheme: var(--color-scheme);
+}
+
+html {
+    font-family: "Fira Sans", "Open Sans", sans-serif;
+    color: var(--fg);
+    background-color: var(--bg);
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
 }
