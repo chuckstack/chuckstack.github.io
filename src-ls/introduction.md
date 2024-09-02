@@ -1,6 +1,6 @@
 # Introduction
 
-chuck-stack is both a collection of tools and an application framework that help small to medium organizations manage data and processes.
+chuck-stack is both a collection of tools and an application framework that helps small to medium organizations manage data and processes.
 
 chuck-stack exists to solve a problem: ERP is too big, slow, expensive and complicated from almost every perspective (learn, configure, develop, audit, deploy, train, service, scale, enhance, etc...). chuck-stack represents a dramatic departure from the sea of window, tabs and fields found in most ERP and data management systems. Instead, chuck-stack provides a simplified, ai-focused interface created from a collection of off-the-shelf tools that help organizations manage data and process workflows from anywhere.
 
