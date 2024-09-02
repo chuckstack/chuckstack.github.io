@@ -4,4 +4,4 @@ here
 
 > some quote
 > 
-> chuck
+> \- *chuck*
