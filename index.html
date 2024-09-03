@@ -45,7 +45,34 @@
         <h2>Getting Started</h2>
         <p> For paid support and training <a href="https://buy.stripe.com/7sIbLIeeU3oT4IEfYY">Join Now</a>. To learn more about the stack-academy, view the <a href="./ls/stack-faq.html#what-is-the-stack-academy">Stack FAQ</a>.</p>
         <p> Not ready to join yet? That is OK! Submit your name and email to receive updates, releases, events, training and more.  </p>
-        <div id="stay-in-touch-placeholder"></div>
+
+        <form id="stayInTouchForm" hx-post="https://webhook.site/0132352a-e2de-4a5e-bc4d-f04f6e05add1" hx-trigger="submit" hx-target="#form-response">
+          <div class="grid">
+            <input
+              type="text"
+              name="firstname"
+              placeholder="First name"
+              aria-label="First name"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email address"
+              aria-label="Email address"
+              autocomplete="email"
+              required
+            />
+            <button type="submit">Get Team Updates</button>
+          </div>
+          <fieldset>
+            <label for="terms">
+              <input type="checkbox" role="switch" id="terms" name="terms" required />
+              I agree to the
+              <a href="privacy-policy.html" >Privacy Policy</a>
+            </label>
+          </fieldset>
+        </form>
       </section>
       <!-- ./ Form -->
 
