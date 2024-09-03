@@ -92,7 +92,7 @@
                 <ul class="chapter">
                     <li><a class="active" href="../">chuck-stack Home</a></li>
                 </ul>
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="stack-faq.html"><strong aria-hidden="true">2.</strong> chuck-stack FAQ</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">3.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">4.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">5.</strong> Privacy Policy</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="stack-faq.html"><strong aria-hidden="true">2.</strong> chuck-stack FAQ</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">3.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">4.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">5.</strong> Privacy Policy</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="postgres-conventions.html"><strong aria-hidden="true">6.</strong> Conventions</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -179,7 +179,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>chuck-stack is both a collection of tools and an application framework that help small to medium organizations manage data and processes.</p>
+<p>chuck-stack is both a collection of tools and an application framework that helps small to medium organizations manage data and processes.</p>
 <p>chuck-stack exists to solve a problem: ERP is too big, slow, expensive and complicated from almost every perspective (learn, configure, develop, audit, deploy, train, service, scale, enhance, etc...). chuck-stack represents a dramatic departure from the sea of window, tabs and fields found in most ERP and data management systems. Instead, chuck-stack provides a simplified, ai-focused interface created from a collection of off-the-shelf tools that help organizations manage data and process workflows from anywhere.</p>
 <p>The purpose of the chuck-stack is to help organizations:</p>
 <ul>
@@ -357,6 +357,47 @@
 <p>We use third-party services. See the third-party service's privacy policy if you have questions, comments or concerns.</p>
 <h2 id="contact"><a class="header" href="#contact">Contact</a></h2>
 <p>For data subject access requests, or any questions about this privacy notice, please contact contact@chuboe.com.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="postgresql-conventions"><a class="header" href="#postgresql-conventions">PostgreSQL Conventions</a></h1>
+<p>The purpose of this page is to describe the concepts and methodologies for creating PostgreSQL designs.</p>
+<h2 id="table-and-column-conventions"><a class="header" href="#table-and-column-conventions">Table and column conventions:</a></h2>
+<ul>
+<li>Tables use uuid as primary keys. The purpose of this decision is to make creating very large (and often replicated) systems easier to manage. Doing so also allows for clients to define their own uuid values and removing a potential centralized process.</li>
+<li>All tables have a single primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. Said another way, if you know the table_name and the record_uu of any given record, you can always find the details associated with that record. This convention also allows for maintaining centralized logs, attachments, and attributes.</li>
+<li>The search_key column is a user defined alphanumeric. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.</li>
+<li>Value is a text column that is often used with a search_key in a key-value pair.</li>
+<li>Document_no is a user defined alphanumeric. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true.</li>
+<li>The created column is a timestamp indicating when the record was created.</li>
+<li>The created_by_uu column is a uuid pointing to the database user/role that created the record.</li>
+<li>The updated column is a timestamp indicating when the record was last updated.</li>
+<li>The updated_by_uu column is a uuid pointing to the database user/role that last updated the record.</li>
+<li>The is_active column is a boolean that indicates if a record can be modified. is_active also acts as a soft-delete. If a record has an is_active=false, the record should be be returned as an option for selection in future lists and drop down fields.</li>
+<li>The is_default column is a boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.</li>
+<li>The is_processed column is a boolean that indicates of a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column.</li>
+<li>The is_template column is a boolean that indicates if a record exists for the purpose of cloning records.</li>
+<li>when naming columns the noun comes first and the adjective comes next. Example: stack_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically. TODO: needs more example like stack_business_partner_ship_to_uu.</li>
+<li>concept of function =&gt; create_from vs create_into -- attempt to support both when possible</li>
+<li>use text (over varchar with unspecified length)</li>
+<li>link tables always have a single primary uuid key. TODO: this is a dup</li>
+<li>link table have the suffix _lnk</li>
+<li>consider using the column's description/comment to hold column_label and column_description</li>
+<li>comment on column wf_process.name is '{"column_label": "Name", "column_description": "Name describing the record"}';</li>
+<li>select pg_catalog.col_description(c.oid, col.ordinal_position::int)::json-&gt;&gt;'column_label' ...</li>
+<li>see sql/readme.md for more details</li>
+</ul>
+<h2 id="sample-table"><a class="header" href="#sample-table">Sample Table</a></h2>
+<pre><code class="language-sql">CREATE TABLE stack_xxx (
+  stack_xxx_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  created TIMESTAMP NOT NULL DEFAULT now(),
+  search_key VARCHAR(255) NOT NULL,
+  name TEXT NOT NULL,
+  value TEXT NOT NULL,
+  description TEXT,
+  is_default BOOLEAN DEFAULT false,
+  is_processed BOOLEAN DEFAULT false,
+  is_active BOOLEAN DEFAULT true
+);
+COMMENT ON TABLE stack_xxx IS 'Table that contains xxx';
+</code></pre>
 
                     </main>
 
@@ -375,6 +416,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
