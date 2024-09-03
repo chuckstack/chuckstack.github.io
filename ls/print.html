@@ -92,7 +92,7 @@
                 <ul class="chapter">
                     <li><a class="active" href="../">chuck-stack Home</a></li>
                 </ul>
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="stack-faq.html"><strong aria-hidden="true">2.</strong> chuck-stack FAQ</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">3.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">4.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">5.</strong> Privacy Policy</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="postgres-conventions.html"><strong aria-hidden="true">6.</strong> Conventions</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="stack-faq.html"><strong aria-hidden="true">2.</strong> Stack FAQ</a></li><li class="chapter-item expanded "><a href="stack-tools.html"><strong aria-hidden="true">3.</strong> Stack Tools</a></li><li class="chapter-item expanded "><a href="postgres-conventions.html"><strong aria-hidden="true">4.</strong> Conventions</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">5.</strong> Chapter 1</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">6.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">7.</strong> Privacy Policy</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -286,6 +286,149 @@
 <li>Workflow is critical to data management. However, workflow is notoriously difficult. The concepts can be difficult to learn. The applications are often difficult to install and maintain, and they are either too complicated or overly simple. It is incredibly difficult to create a workflow architecture that is both generic enough and easy enough for broad adoption. AI will change the workflow landscape. What was previously tedious, is becoming a conversation.</li>
 <li>Attributes and attribute sets are critical to data management. Being able to tag anything with an attribute, or a set of attributes is one of the most common actions in data management.</li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chuck-stack-tools"><a class="header" href="#chuck-stack-tools">chuck-stack Tools</a></h1>
+<p>The purpose of this page is to help you understand what tools we choose to include in the chuck-stack and why we chose them. The chuck-stack has been cultivated over the last 25 years. Much effort, testing and production use has gone into this list of tools and its selection criteria.</p>
+<h2 id="selection-criteria-summary"><a class="header" href="#selection-criteria-summary">Selection Criteria Summary</a></h2>
+<p>When choosing our stack tools, we:</p>
+<ul>
+<li>Focus on commonly used and well understood tools to make AI augmentation easier. The better AI understands a tool, the more AI can do the work for you.</li>
+<li>Choose tools that build on one another: PostgreSQL =&gt; PostgREST =&gt; Nushell =&gt; AIChat =&gt; Zellij...</li>
+<li>Select tools that allow unlimited usage and scale massively.</li>
+</ul>
+<h2 id="selection-criteria-details"><a class="header" href="#selection-criteria-details">Selection Criteria Details</a></h2>
+<p>Here are the more detailed guidelines for inclusion:</p>
+<ul>
+<li>Commonly used - and well understood to make AI augmentation easier.</li>
+<li>Open source - or at least as open as possible.</li>
+<li>Start simple - easy to understand and reason about. Nix pushes this concept a little (or a lot); however, the power and simplicity it creates is worth the extra effort.</li>
+<li>Basic functionality - supports basics like CRUD (create, read, update and delete) with minimal effort.</li>
+<li>Kind educator - needs someone in the community who makes the technology kind to the target audience.</li>
+<li>Kind integrator - needs someone local to you digitally to help you leverage the tool.</li>
+<li>Synergy - supports other tools in the stack. Example: runs on or integrates with PostgreSQL.</li>
+<li>Simple architecture - not overly complicated relative to the tool's purpose.</li>
+<li>Enterprise scalability - it needs to scale to support an organization of at least 1,000+ across multiple continents.</li>
+<li>Enterprise testing and deployment - it needs to support team development where improvements can be development, tested and accepted in dedicated environments and easily migrated to production using CI/CD concepts or scripts.</li>
+<li>Command Line Interface (CLI) centric - we love cli interfaces because they are accessible from anywhere.</li>
+<li>REST centric - we love scriptable interfaces that can be called from anywhere (not just the cli).</li>
+</ul>
+<h2 id="most-important-tools"><a class="header" href="#most-important-tools">Most Important Tools</a></h2>
+<p>Below are the most important stack tools.</p>
+<h3 id="linux-and-postgresql"><a class="header" href="#linux-and-postgresql">Linux and PostgreSQL</a></h3>
+<p><a href="https://www.linux.org/">Linux</a> and <a href="https://www.postgresql.org/">PostgreSQL</a> are at the heart of the stack. Both are phenomenally well understand and established open source projects that form much of our world's digital backbone. Here is why they are important to the stack:</p>
+<ul>
+<li>Scale massively</li>
+<li>Provide great documented and community support</li>
+<li>Offer a rich ecosystem of plugins and enhancements</li>
+<li>Manage users, roles, authentication and authorization as well as any platform</li>
+<li>Deploy almost anywhere</li>
+<li>Maintain just about any type of data</li>
+</ul>
+<h3 id="postgrest"><a class="header" href="#postgrest">PostgREST</a></h3>
+<p><a href="https://postgrest.org/">PostgREST</a> is a secret weapon that allows us to build a fully-qualified and secure REST API directly on top of a PostgreSQL database schema and users/roles. If you can build a good database with functions, you can build a good REST API.</p>
+<h3 id="githubcom"><a class="header" href="#githubcom">Github.com</a></h3>
+<p><a href="https://github.com/">Github.com</a> is the most valuable platform for managing work instructions and organizational knowledge. Here is why it is so important to the stack:</p>
+<ul>
+<li>The world's smartest people performing some of the most difficult work across the greatest distances use github to manage their instructions. If it works for them, it should easily support your team!</li>
+<li>It offers both issue tracking and discussions.</li>
+<li>It provides both project management and kanban board organization.</li>
+<li>It supports automation based on changes to content or instructions.</li>
+<li>It is priced significantly less than other enterprise productivity tools.</li>
+<li>It makes more AI tools available to your team to understand and improve your processes.</li>
+<li>Once your team understands how to collectively contribute to the instructions that runs your organization, operations will never look the same again!</li>
+</ul>
+<h3 id="aichat"><a class="header" href="#aichat">AIChat</a></h3>
+<p><a href="https://github.com/sigoden/aichat">AIChat</a> is a command line AI tool that helps you create and simplify organizational operations. Here is how it can help you:</p>
+<ul>
+<li>With one command, it can take your entire organization's work instructions and make it so that anyone can ask questions and improve your processes.</li>
+<li>Create training material and quizzes about your operations to ensure compliance.</li>
+<li>Help your IT department create more self-service tools with PostgreSQL and PostgREST.</li>
+<li>Automate complex operations using simple human language.</li>
+<li>Digest images, extract structured data from images, create images based on work instructions.</li>
+<li>Connect to almost any AI LLM model (like chatGPT, Claude and Gemini).</li>
+</ul>
+<h3 id="nushell"><a class="header" href="#nushell">Nushell</a></h3>
+<p><a href="https://www.nushell.sh">Nushell</a> is both a scripting language and a command line shell to transform data and automate processes. Here is how it can help you:</p>
+<ul>
+<li>Create full-featured cli applications with just a few lines of code.</li>
+<li>Call on external API (including PostgREST) to integration external system and data.</li>
+<li>Call your cli applications from AIChat with minimal configuration.</li>
+<li>Compose more complex workflows using data pipelines.</li>
+<li>Expose your cli applications to power users to support self-help automation with the assistance of AIChat.</li>
+</ul>
+<h3 id="zellij"><a class="header" href="#zellij">Zellij</a></h3>
+<p><a href="https://zellij.dev/">Zellij</a> is a terminal workspace manager. Here is how it can help you:</p>
+<ul>
+<li>Easily manage multiple windows and tabs in a single ssh session.</li>
+<li>Create complex layouts that can be immediately launched to show the desired data based on role.</li>
+<li>Create plugins to automate repetitive tasks.</li>
+<li>Persist sessions between connections.</li>
+<li>Gives you the features you expect to find in window toolkit environment without writing any code.</li>
+</ul>
+<h2 id="complete-list-of-tools"><a class="header" href="#complete-list-of-tools">Complete List of Tools</a></h2>
+<p>Here are the tools we use almost every day:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Linux">Linux (compute)</a>: best tool to run applications on just about any platform in the world.</li>
+<li><a href="https://www.postgresql.org/">PostgreSQL (data)</a>: best tool for managing "data" database with best performance and enterprise features.</li>
+<li><a href="https://postgrest.org/">PostgREST (API)</a>: PostgreSQL tool for exposing an OpenAPI compliant REST interface directly out of your database.</li>
+<li><a href="https://github.com/">GitHub (code, information, collaboration)</a>: best tool for managing information, instructions and discussions. It provides most options for AI amplification.</li>
+<li><a href="https://github.com/sigoden/aichat">aichat (AI)</a>: command line AI chat and execution tool that include saves sessions, rag, function-calling and more.</li>
+<li><a href="https://www.nushell.sh/">Nushell (system and data)</a>: Terminal shell with designed to understand and manipulate structured data.</li>
+<li><a href="https://www.zellij.dev/">Zellij (UI)</a>: terminal workspace environment for managing information and transactions.</li>
+<li><a href="https://www.getdbt.com/">dbt (ETL)</a>: tool to transform transactional data into a form than can be consumed by BI or AI or ...</li>
+<li><a href="https://www.metabase.com/">Metabase (BI)</a>: BI tool for visualizing and publishing data. Used if GitHub discussions is not good enough.</li>
+<li><a href="https://passwordstore.org/">Pass (secrets)</a>: is a command line tool that helps you manage secrets/passwords with gpg. It is simple, scriptable, auditable, distributed and secure. <a href="https://gnupg.org/">gpg</a> is an encryption program that provides cryptographic privacy and authentication for data communication. The Pass repository is available on almost all platforms. It integrates well with github.</li>
+<li><a href="https://www.zabbix.com/">Zabbix (monitoring)</a>: monitor resources and respond to events.</li>
+<li><a href="https://linuxcontainers.org/incus/docs/main/">Incus (virtualization)</a>: container and virtual machine (VM) tool to develop, test and deploy IT applications.</li>
+<li><a href="https://www.idempiere.org/">iDempiere (ERP)</a>: ERP for managing orders, inventory, invoices, payments, accounting and much of the data you need to execute operations in your organization.</li>
+</ul>
+<p>He are the tools we want to use more:</p>
+<ul>
+<li><a href="https://postgresml.org/">PostgresML (AI)</a>: PostgreSQL tool for AI training and inferencing directly out of your database.</li>
+<li><a href="https://ollama.com/">Ollama (AI)</a>: AI tool for running generative AI (LLM) models locally.</li>
+<li><a href="https://www.crowdsec.net/">CrowdSec (security)</a>: Proactively block known malicious IPs and activities.</li>
+<li><a href="https://nixos.org/">NixOS (Linux OS)</a>: specific distribution of Linux delivering the most control and compute options. Nix represents the easiest way to describe, deploy and maintain desktops and servers.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="postgresql-conventions"><a class="header" href="#postgresql-conventions">PostgreSQL Conventions</a></h1>
+<p>The purpose of this page is to describe the concepts and methodologies for creating PostgreSQL designs.</p>
+<h2 id="table-and-column-conventions"><a class="header" href="#table-and-column-conventions">Table and column conventions:</a></h2>
+<ul>
+<li>Tables use uuid as primary keys. The purpose of this decision is to make creating very large (and often replicated) systems easier to manage. Doing so also allows for clients to define their own uuid values and removing a potential centralized process.</li>
+<li>All tables have a single primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. Said another way, if you know the table_name and the record_uu of any given record, you can always find the details associated with that record. This convention also allows for maintaining centralized logs, attachments, and attributes.</li>
+<li>The search_key column is a user defined alphanumeric. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.</li>
+<li>Value is a text column that is often used with a search_key in a key-value pair.</li>
+<li>Document_no is a user defined alphanumeric. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true.</li>
+<li>The created column is a timestamp indicating when the record was created.</li>
+<li>The created_by_uu column is a uuid pointing to the database user/role that created the record.</li>
+<li>The updated column is a timestamp indicating when the record was last updated.</li>
+<li>The updated_by_uu column is a uuid pointing to the database user/role that last updated the record.</li>
+<li>The is_active column is a boolean that indicates if a record can be modified. is_active also acts as a soft-delete. If a record has an is_active=false, the record should be be returned as an option for selection in future lists and drop down fields.</li>
+<li>The is_default column is a boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.</li>
+<li>The is_processed column is a boolean that indicates of a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column.</li>
+<li>The is_template column is a boolean that indicates if a record exists for the purpose of cloning records.</li>
+<li>when naming columns the noun comes first and the adjective comes next. Example: stack_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically. TODO: needs more example like stack_business_partner_ship_to_uu.</li>
+<li>concept of function =&gt; create_from vs create_into -- attempt to support both when possible</li>
+<li>use text (over varchar with unspecified length)</li>
+<li>link tables always have a single primary uuid key. TODO: this is a dup</li>
+<li>link table have the suffix _lnk</li>
+<li>consider using the column's description/comment to hold column_label and column_description</li>
+<li>comment on column wf_process.name is '{"column_label": "Name", "column_description": "Name describing the record"}';</li>
+<li>select pg_catalog.col_description(c.oid, col.ordinal_position::int)::json-&gt;&gt;'column_label' ...</li>
+<li>see sql/readme.md for more details</li>
+</ul>
+<h2 id="sample-table"><a class="header" href="#sample-table">Sample Table</a></h2>
+<pre><code class="language-sql">CREATE TABLE stack_xxx (
+  stack_xxx_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  created TIMESTAMP NOT NULL DEFAULT now(),
+  search_key VARCHAR(255) NOT NULL,
+  name TEXT NOT NULL,
+  value TEXT NOT NULL,
+  description TEXT,
+  is_default BOOLEAN DEFAULT false,
+  is_processed BOOLEAN DEFAULT false,
+  is_active BOOLEAN DEFAULT true
+);
+COMMENT ON TABLE stack_xxx IS 'Table that contains xxx';
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
 <p>here</p>
 <blockquote>
@@ -357,47 +500,6 @@
 <p>We use third-party services. See the third-party service's privacy policy if you have questions, comments or concerns.</p>
 <h2 id="contact"><a class="header" href="#contact">Contact</a></h2>
 <p>For data subject access requests, or any questions about this privacy notice, please contact contact@chuboe.com.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="postgresql-conventions"><a class="header" href="#postgresql-conventions">PostgreSQL Conventions</a></h1>
-<p>The purpose of this page is to describe the concepts and methodologies for creating PostgreSQL designs.</p>
-<h2 id="table-and-column-conventions"><a class="header" href="#table-and-column-conventions">Table and column conventions:</a></h2>
-<ul>
-<li>Tables use uuid as primary keys. The purpose of this decision is to make creating very large (and often replicated) systems easier to manage. Doing so also allows for clients to define their own uuid values and removing a potential centralized process.</li>
-<li>All tables have a single primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. Said another way, if you know the table_name and the record_uu of any given record, you can always find the details associated with that record. This convention also allows for maintaining centralized logs, attachments, and attributes.</li>
-<li>The search_key column is a user defined alphanumeric. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.</li>
-<li>Value is a text column that is often used with a search_key in a key-value pair.</li>
-<li>Document_no is a user defined alphanumeric. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true.</li>
-<li>The created column is a timestamp indicating when the record was created.</li>
-<li>The created_by_uu column is a uuid pointing to the database user/role that created the record.</li>
-<li>The updated column is a timestamp indicating when the record was last updated.</li>
-<li>The updated_by_uu column is a uuid pointing to the database user/role that last updated the record.</li>
-<li>The is_active column is a boolean that indicates if a record can be modified. is_active also acts as a soft-delete. If a record has an is_active=false, the record should be be returned as an option for selection in future lists and drop down fields.</li>
-<li>The is_default column is a boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.</li>
-<li>The is_processed column is a boolean that indicates of a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column.</li>
-<li>The is_template column is a boolean that indicates if a record exists for the purpose of cloning records.</li>
-<li>when naming columns the noun comes first and the adjective comes next. Example: stack_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically. TODO: needs more example like stack_business_partner_ship_to_uu.</li>
-<li>concept of function =&gt; create_from vs create_into -- attempt to support both when possible</li>
-<li>use text (over varchar with unspecified length)</li>
-<li>link tables always have a single primary uuid key. TODO: this is a dup</li>
-<li>link table have the suffix _lnk</li>
-<li>consider using the column's description/comment to hold column_label and column_description</li>
-<li>comment on column wf_process.name is '{"column_label": "Name", "column_description": "Name describing the record"}';</li>
-<li>select pg_catalog.col_description(c.oid, col.ordinal_position::int)::json-&gt;&gt;'column_label' ...</li>
-<li>see sql/readme.md for more details</li>
-</ul>
-<h2 id="sample-table"><a class="header" href="#sample-table">Sample Table</a></h2>
-<pre><code class="language-sql">CREATE TABLE stack_xxx (
-  stack_xxx_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  created TIMESTAMP NOT NULL DEFAULT now(),
-  search_key VARCHAR(255) NOT NULL,
-  name TEXT NOT NULL,
-  value TEXT NOT NULL,
-  description TEXT,
-  is_default BOOLEAN DEFAULT false,
-  is_processed BOOLEAN DEFAULT false,
-  is_active BOOLEAN DEFAULT true
-);
-COMMENT ON TABLE stack_xxx IS 'Table that contains xxx';
-</code></pre>
 
                     </main>
 

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Stack FAQ</title>
+        <title>Stack Tools</title>
 
 
         <!-- Custom HTML head -->
@@ -91,7 +91,7 @@
                 <ul class="chapter">
                     <li><a class="active" href="../">chuck-stack Home</a></li>
                 </ul>
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="stack-faq.html" class="active"><strong aria-hidden="true">2.</strong> Stack FAQ</a></li><li class="chapter-item expanded "><a href="stack-tools.html"><strong aria-hidden="true">3.</strong> Stack Tools</a></li><li class="chapter-item expanded "><a href="postgres-conventions.html"><strong aria-hidden="true">4.</strong> Conventions</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">5.</strong> Chapter 1</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">6.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">7.</strong> Privacy Policy</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="stack-faq.html"><strong aria-hidden="true">2.</strong> Stack FAQ</a></li><li class="chapter-item expanded "><a href="stack-tools.html" class="active"><strong aria-hidden="true">3.</strong> Stack Tools</a></li><li class="chapter-item expanded "><a href="postgres-conventions.html"><strong aria-hidden="true">4.</strong> Conventions</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">5.</strong> Chapter 1</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">6.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">7.</strong> Privacy Policy</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -177,12 +177,17 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="stack-faq"><a class="header" href="#stack-faq">Stack FAQ</a></h1>
-<p>The purpose of this page is to answer frequently asked questions (FAQ) about the chuck-stack.</p>
-<h2 id="is-chuck-stack-really-the-name-of-the-project"><a class="header" href="#is-chuck-stack-really-the-name-of-the-project">Is chuck-stack really the name of the project?</a></h2>
-<p>Yes and no... Naming a project is hard. chuck-stack is a good starting name given that Chuck Boecking has spent the last 25 years immersed in small-to-medium business ERP, data management, and IT. This project started as result of what we believe to be safe, usable, reliable and performant. If the community believes there is a better name to represent this project, then we will change the name accordingly. That will be a good day!</p>
-<h2 id="how-do-we-choose-stack-components"><a class="header" href="#how-do-we-choose-stack-components">How do we choose stack components?</a></h2>
-<p>The chuck-stack has been cultivated over the last 25 years. Here are the guidelines for inclusion:</p>
+                        <h1 id="chuck-stack-tools"><a class="header" href="#chuck-stack-tools">chuck-stack Tools</a></h1>
+<p>The purpose of this page is to help you understand what tools we choose to include in the chuck-stack and why we chose them. The chuck-stack has been cultivated over the last 25 years. Much effort, testing and production use has gone into this list of tools and its selection criteria.</p>
+<h2 id="selection-criteria-summary"><a class="header" href="#selection-criteria-summary">Selection Criteria Summary</a></h2>
+<p>When choosing our stack tools, we:</p>
+<ul>
+<li>Focus on commonly used and well understood tools to make AI augmentation easier. The better AI understands a tool, the more AI can do the work for you.</li>
+<li>Choose tools that build on one another: PostgreSQL =&gt; PostgREST =&gt; Nushell =&gt; AIChat =&gt; Zellij...</li>
+<li>Select tools that allow unlimited usage and scale massively.</li>
+</ul>
+<h2 id="selection-criteria-details"><a class="header" href="#selection-criteria-details">Selection Criteria Details</a></h2>
+<p>Here are the more detailed guidelines for inclusion:</p>
 <ul>
 <li>Commonly used - and well understood to make AI augmentation easier.</li>
 <li>Open source - or at least as open as possible.</li>
@@ -197,7 +202,60 @@
 <li>Command Line Interface (CLI) centric - we love cli interfaces because they are accessible from anywhere.</li>
 <li>REST centric - we love scriptable interfaces that can be called from anywhere (not just the cli).</li>
 </ul>
-<h2 id="what-are-the-chuck-stack-tools"><a class="header" href="#what-are-the-chuck-stack-tools">What are the chuck-stack tools?</a></h2>
+<h2 id="most-important-tools"><a class="header" href="#most-important-tools">Most Important Tools</a></h2>
+<p>Below are the most important stack tools.</p>
+<h3 id="linux-and-postgresql"><a class="header" href="#linux-and-postgresql">Linux and PostgreSQL</a></h3>
+<p><a href="https://www.linux.org/">Linux</a> and <a href="https://www.postgresql.org/">PostgreSQL</a> are at the heart of the stack. Both are phenomenally well understand and established open source projects that form much of our world's digital backbone. Here is why they are important to the stack:</p>
+<ul>
+<li>Scale massively</li>
+<li>Provide great documented and community support</li>
+<li>Offer a rich ecosystem of plugins and enhancements</li>
+<li>Manage users, roles, authentication and authorization as well as any platform</li>
+<li>Deploy almost anywhere</li>
+<li>Maintain just about any type of data</li>
+</ul>
+<h3 id="postgrest"><a class="header" href="#postgrest">PostgREST</a></h3>
+<p><a href="https://postgrest.org/">PostgREST</a> is a secret weapon that allows us to build a fully-qualified and secure REST API directly on top of a PostgreSQL database schema and users/roles. If you can build a good database with functions, you can build a good REST API.</p>
+<h3 id="githubcom"><a class="header" href="#githubcom">Github.com</a></h3>
+<p><a href="https://github.com/">Github.com</a> is the most valuable platform for managing work instructions and organizational knowledge. Here is why it is so important to the stack:</p>
+<ul>
+<li>The world's smartest people performing some of the most difficult work across the greatest distances use github to manage their instructions. If it works for them, it should easily support your team!</li>
+<li>It offers both issue tracking and discussions.</li>
+<li>It provides both project management and kanban board organization.</li>
+<li>It supports automation based on changes to content or instructions.</li>
+<li>It is priced significantly less than other enterprise productivity tools.</li>
+<li>It makes more AI tools available to your team to understand and improve your processes.</li>
+<li>Once your team understands how to collectively contribute to the instructions that runs your organization, operations will never look the same again!</li>
+</ul>
+<h3 id="aichat"><a class="header" href="#aichat">AIChat</a></h3>
+<p><a href="https://github.com/sigoden/aichat">AIChat</a> is a command line AI tool that helps you create and simplify organizational operations. Here is how it can help you:</p>
+<ul>
+<li>With one command, it can take your entire organization's work instructions and make it so that anyone can ask questions and improve your processes.</li>
+<li>Create training material and quizzes about your operations to ensure compliance.</li>
+<li>Help your IT department create more self-service tools with PostgreSQL and PostgREST.</li>
+<li>Automate complex operations using simple human language.</li>
+<li>Digest images, extract structured data from images, create images based on work instructions.</li>
+<li>Connect to almost any AI LLM model (like chatGPT, Claude and Gemini).</li>
+</ul>
+<h3 id="nushell"><a class="header" href="#nushell">Nushell</a></h3>
+<p><a href="https://www.nushell.sh">Nushell</a> is both a scripting language and a command line shell to transform data and automate processes. Here is how it can help you:</p>
+<ul>
+<li>Create full-featured cli applications with just a few lines of code.</li>
+<li>Call on external API (including PostgREST) to integration external system and data.</li>
+<li>Call your cli applications from AIChat with minimal configuration.</li>
+<li>Compose more complex workflows using data pipelines.</li>
+<li>Expose your cli applications to power users to support self-help automation with the assistance of AIChat.</li>
+</ul>
+<h3 id="zellij"><a class="header" href="#zellij">Zellij</a></h3>
+<p><a href="https://zellij.dev/">Zellij</a> is a terminal workspace manager. Here is how it can help you:</p>
+<ul>
+<li>Easily manage multiple windows and tabs in a single ssh session.</li>
+<li>Create complex layouts that can be immediately launched to show the desired data based on role.</li>
+<li>Create plugins to automate repetitive tasks.</li>
+<li>Persist sessions between connections.</li>
+<li>Gives you the features you expect to find in window toolkit environment without writing any code.</li>
+</ul>
+<h2 id="complete-list-of-tools"><a class="header" href="#complete-list-of-tools">Complete List of Tools</a></h2>
 <p>Here are the tools we use almost every day:</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Linux">Linux (compute)</a>: best tool to run applications on just about any platform in the world.</li>
@@ -214,72 +272,23 @@
 <li><a href="https://linuxcontainers.org/incus/docs/main/">Incus (virtualization)</a>: container and virtual machine (VM) tool to develop, test and deploy IT applications.</li>
 <li><a href="https://www.idempiere.org/">iDempiere (ERP)</a>: ERP for managing orders, inventory, invoices, payments, accounting and much of the data you need to execute operations in your organization.</li>
 </ul>
-<p>Here are the tools we want to use more:</p>
+<p>He are the tools we want to use more:</p>
 <ul>
 <li><a href="https://postgresml.org/">PostgresML (AI)</a>: PostgreSQL tool for AI training and inferencing directly out of your database.</li>
 <li><a href="https://ollama.com/">Ollama (AI)</a>: AI tool for running generative AI (LLM) models locally.</li>
 <li><a href="https://www.crowdsec.net/">CrowdSec (security)</a>: Proactively block known malicious IPs and activities.</li>
 <li><a href="https://nixos.org/">NixOS (Linux OS)</a>: specific distribution of Linux delivering the most control and compute options. Nix represents the easiest way to describe, deploy and maintain desktops and servers.</li>
 </ul>
-<h2 id="what-are-the-project-guiding-principles"><a class="header" href="#what-are-the-project-guiding-principles">What are the project guiding principles?</a></h2>
-<p>Here are the chuck-stack design and implementation first principles in order. If you cannot accomplish these principles, little else matters.</p>
-<ol>
-<li>Protect an organization's revenue stream and people! This needs to be the CEO mantra with any system change.</li>
-<li>Deliver enjoyable systems that a) put the right data in the hands of the right users, b) make the user's job as easy as possible, and c) help users prevent mistakes!</li>
-<li>Deploy infrastructure that is safe, reliable and performant - in that order! If a system is not safe, reliability does not matter. If it is not reliable, performance does not matter.</li>
-<li>Write as little code as is possible. Every line of code is a liability that will cost you in the future. It must be documented, tested, reviewed and maintained. If you can use an existing tool that meets the <a href="https://www.chuck-stack.org/stack-faq.html#how-choose">chuck-stack guidelines</a> in place of writing code, do it!</li>
-<li>Support self service by giving users the tools to automate tasks within their roles without direct intervention from IT!</li>
-</ol>
-<h2 id="what-is-the-stack-academy"><a class="header" href="#what-is-the-stack-academy">What is the stack-academy?</a></h2>
-<p>The stack-academy is an online support infrastructure for the chuck-stack. We believe in a cooperative approach to learning, support and innovation. As a group, we establish the principles and collectively create an open source platform that values simplicity, stability and self-service.</p>
-<p>Here are the details:</p>
-<ul>
-<li>What is the purpose of the stack-academy? We want to accelerate your learning curve and provide an interactive environment to overcome challenges.</li>
-<li>Do you need to join to use the chuck-stack? No.</li>
-<li>Do you need to join to get prioirty support? Yes.</li>
-<li>Is there a way to get phone support? Yes, we hold multiple online meetings per week where anyone can bring any topic.</li>
-<li>What is the minimum purchase? The stack-academy is a monthly subscription. The minimum purchase is one month. You may join and cancel as many times as is needed to accomplish your goals.</li>
-<li>Are there special pricing considerations for individuals (students or aspiring integrators)? Yes. Complete this form for consideration.</li>
-<li>How do I join? <a href="https://buy.stripe.com/7sIbLIeeU3oT4IEfYY">click here</a></li>
-</ul>
-<h2 id="what-is-the-current-status-of-chuck-stack"><a class="header" href="#what-is-the-current-status-of-chuck-stack">What is the current status of chuck-stack?</a></h2>
-<p>The short answer is: We have been deploying the chuck-stack for more that 10 years. Some parts of the start are in early alpha. Other parts reached production 15 years ago. Here is a more detailed answer:</p>
-<ul>
-<li><a href="https://www.idempiere.org/">iDempiere ERP</a> is the oldest member of the stack. We started deploying it on Linux as early as 2001.</li>
-<li>We started deploying <a href="https://www.postgresql.org/">PostgreSQL</a> on Linux in 2011.</li>
-<li><a href="https://www.metabase.com/">Metabase</a> BI has been in production for us for the last 4 years.</li>
-<li><a href="https://www.nushell.sh/">Nushell</a> has been in production for us for the last 2 years.</li>
-<li><a href="https://www.getdbt.com/">dbt</a> has been in production for about 6 months. Note that we have used various ETL tools for the last 10 years.</li>
-<li>The AI tools like <a href="https://github.com/sigoden/aichat">aichat</a>, are relatively new. Being able to use these tools to change how people interact with data is also new. This style of UI development is in alpha.</li>
-</ul>
-<h2 id="is-chuck-stack-an-erp"><a class="header" href="#is-chuck-stack-an-erp">Is chuck-stack an ERP?</a></h2>
-<p>No, not yet. Here are our thoughts about becoming an ERP:</p>
-<ul>
-<li>The biggest hurdle to becoming a viable ERP is data entry.</li>
-<li>It is common for an order header to have 90+ columns.</li>
-<li>Historically, ERP systems burden users with a sea of fields (representing the 90+ columns).</li>
-<li>We do NOT believe this is the best approach because a user will only need to modify three or so fields in a newly drafted order. The remaining fields should just default from either the Business Partner settings or recent orders. Said another way, changing many defaults is the exception, not the rule.</li>
-<li>Improving the user experience for the above order scenario is currently our biggest challenge.</li>
-<li>Another challenge will be to provide a viable accounting system. In the short term, we will use <a href="https://www.idempiere.org/">iDempiere</a>. In the long term, we will use AI and available references to create an accounting system that best supports our stack. Accounting is one of our strongest areas of our ERP practice.</li>
-</ul>
-<h2 id="what-is-capability-sandboxing"><a class="header" href="#what-is-capability-sandboxing">What is capability sandboxing?</a></h2>
-<p>Capability Sandboxing is the act of defining roles so well that you can consider them a contract and enabling the system to ensure role created automation stays within the confines of the contract.</p>
-<h2 id="what-are-the-most-important-pieces-of-the-chuck-stack"><a class="header" href="#what-are-the-most-important-pieces-of-the-chuck-stack">What are the most important pieces of the chuck-stack?</a></h2>
-<p>The two most important pieces of the chuck-stack application are workflow and attributes.</p>
-<ul>
-<li>Workflow is critical to data management. However, workflow is notoriously difficult. The concepts can be difficult to learn. The applications are often difficult to install and maintain, and they are either too complicated or overly simple. It is incredibly difficult to create a workflow architecture that is both generic enough and easy enough for broad adoption. AI will change the workflow landscape. What was previously tedious, is becoming a conversation.</li>
-<li>Attributes and attribute sets are critical to data management. Being able to tag anything with an attribute, or a set of attributes is one of the most common actions in data management.</li>
-</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="stack-faq.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="stack-tools.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="postgres-conventions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -289,11 +298,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="stack-faq.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="stack-tools.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="postgres-conventions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
