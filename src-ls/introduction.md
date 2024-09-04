@@ -16,6 +16,8 @@ The purpose of the chuck-stack is to help organizations:
 - Identify and deploy AI-enabled, self-service tools that drive innovation from everyone in your organization
 - Build an internal and external community of support and innovation
 
+If we succeed executing our purpose, we will give small and medium sized organizations a competitive advantage against both its peers as well as larger organizations.
+
 ## Education
 
 TODO stack-academy
