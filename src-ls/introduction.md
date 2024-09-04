@@ -8,6 +8,8 @@ chuck-stack exists to solve a problem: many (if not most) small to medium organi
 chuck-stack provides a better way to manage the processes and data in your organization. We deliver a simplified, ai-focused application created from a collection of off-the-shelf tools that help organizations focus on what matters most - its people and value proposition to the world. 
 <!-- /copied_from_home_page -->
 
+## Purpose
+
 The purpose of the chuck-stack is to help organizations:
 
 - Increase transactional velocity and efficiency

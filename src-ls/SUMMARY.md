@@ -1,6 +1,7 @@
 # Summary
 
 - [Introduction](./introduction.md)
+- [Picture of Success](./picture-success.md)
 - [Stack FAQ](./stack-faq.md)
 - [Stack Tools](./stack-tools.md)
 - [Conventions](./postgres-conventions.md)
