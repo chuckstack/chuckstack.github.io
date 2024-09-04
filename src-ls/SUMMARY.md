@@ -5,6 +5,7 @@
 - [Stack FAQ](./stack-faq.md)
 - [Stack Tools](./stack-tools.md)
 - [Conventions](./postgres-conventions.md)
+- [Project History](./project-history.md)
 
 - [Chapter 1](./chapter_1.md)
 

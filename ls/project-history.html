@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Conventions</title>
+        <title>Project History</title>
 
 
         <!-- Custom HTML head -->
@@ -91,7 +91,7 @@
                 <ul class="chapter">
                     <li><a class="active" href="../">chuck-stack Home</a></li>
                 </ul>
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="picture-success.html"><strong aria-hidden="true">2.</strong> Picture of Success</a></li><li class="chapter-item expanded "><a href="stack-faq.html"><strong aria-hidden="true">3.</strong> Stack FAQ</a></li><li class="chapter-item expanded "><a href="stack-tools.html"><strong aria-hidden="true">4.</strong> Stack Tools</a></li><li class="chapter-item expanded "><a href="postgres-conventions.html" class="active"><strong aria-hidden="true">5.</strong> Conventions</a></li><li class="chapter-item expanded "><a href="project-history.html"><strong aria-hidden="true">6.</strong> Project History</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">7.</strong> Chapter 1</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">8.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">9.</strong> Privacy Policy</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="picture-success.html"><strong aria-hidden="true">2.</strong> Picture of Success</a></li><li class="chapter-item expanded "><a href="stack-faq.html"><strong aria-hidden="true">3.</strong> Stack FAQ</a></li><li class="chapter-item expanded "><a href="stack-tools.html"><strong aria-hidden="true">4.</strong> Stack Tools</a></li><li class="chapter-item expanded "><a href="postgres-conventions.html"><strong aria-hidden="true">5.</strong> Conventions</a></li><li class="chapter-item expanded "><a href="project-history.html" class="active"><strong aria-hidden="true">6.</strong> Project History</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">7.</strong> Chapter 1</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">8.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">9.</strong> Privacy Policy</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -177,57 +177,39 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="postgresql-conventions"><a class="header" href="#postgresql-conventions">PostgreSQL Conventions</a></h1>
-<p>The purpose of this page is to describe the concepts and methodologies for creating PostgreSQL designs.</p>
-<h2 id="table-and-column-conventions"><a class="header" href="#table-and-column-conventions">Table and column conventions:</a></h2>
-<ul>
-<li>Tables use uuid as primary keys. The purpose of this decision is to make creating very large (and often replicated) systems easier to manage. Doing so also allows for clients to define their own uuid values and removing a potential centralized process.</li>
-<li>All tables have a single primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. Said another way, if you know the table_name and the record_uu of any given record, you can always find the details associated with that record. This convention also allows for maintaining centralized logs, attachments, and attributes.</li>
-<li>The search_key column is a user defined alphanumeric. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.</li>
-<li>Value is a text column that is often used with a search_key in a key-value pair.</li>
-<li>Document_no is a user defined alphanumeric. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true.</li>
-<li>The created column is a timestamp indicating when the record was created.</li>
-<li>The created_by_uu column is a uuid pointing to the database user/role that created the record.</li>
-<li>The updated column is a timestamp indicating when the record was last updated.</li>
-<li>The updated_by_uu column is a uuid pointing to the database user/role that last updated the record.</li>
-<li>The is_active column is a boolean that indicates if a record can be modified. is_active also acts as a soft-delete. If a record has an is_active=false, the record should be be returned as an option for selection in future lists and drop down fields.</li>
-<li>The is_default column is a boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.</li>
-<li>The is_processed column is a boolean that indicates of a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column.</li>
-<li>The is_template column is a boolean that indicates if a record exists for the purpose of cloning records.</li>
-<li>when naming columns the noun comes first and the adjective comes next. Example: stack_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically. TODO: needs more example like stack_business_partner_ship_to_uu.</li>
-<li>concept of function =&gt; create_from vs create_into -- attempt to support both when possible</li>
-<li>use text (over varchar with unspecified length)</li>
-<li>link tables always have a single primary uuid key. TODO: this is a dup</li>
-<li>link table have the suffix _lnk</li>
-<li>consider using the column's description/comment to hold column_label and column_description</li>
-<li>comment on column wf_process.name is '{"column_label": "Name", "column_description": "Name describing the record"}';</li>
-<li>select pg_catalog.col_description(c.oid, col.ordinal_position::int)::json-&gt;&gt;'column_label' ...</li>
-<li>see sql/readme.md for more details</li>
-</ul>
-<h2 id="sample-table"><a class="header" href="#sample-table">Sample Table</a></h2>
-<pre><code class="language-sql">CREATE TABLE stack_xxx (
-  stack_xxx_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  created TIMESTAMP NOT NULL DEFAULT now(),
-  search_key VARCHAR(255) NOT NULL,
-  name TEXT NOT NULL,
-  value TEXT NOT NULL,
-  description TEXT,
-  is_default BOOLEAN DEFAULT false,
-  is_processed BOOLEAN DEFAULT false,
-  is_active BOOLEAN DEFAULT true
-);
-COMMENT ON TABLE stack_xxx IS 'Table that contains xxx';
-</code></pre>
+                        <h1 id="project-history"><a class="header" href="#project-history">Project History</a></h1>
+<p>The purpose of this page is to give you the back story behind how chuck-stack.org came to exist.</p>
+<h2 id="people"><a class="header" href="#people">People</a></h2>
+<p>chuck-stack.org was created by Chuck Boecking.</p>
+<h2 id="founding-beliefs"><a class="header" href="#founding-beliefs">Founding Beliefs</a></h2>
+<p>The chuck-stack project was created based on Chuck's beliefs that:</p>
+<ol>
+<li>Conversation computing is better than presenting users with a sea of window, tabs and field.</li>
+<li>The terminal is the fastest, most robust, economical, stable and secure medium to manage data and processes.</li>
+<li>AI will fundamentally change how users will interact with software and the terminal will help lead the way.</li>
+<li>Humans will fight to be relevant, and a new breed of superclerks will emerge to drive automation and efficiency in roles.</li>
+</ol>
+<h2 id="before-chuck-stack"><a class="header" href="#before-chuck-stack">Before chuck-stack</a></h2>
+<p>Chuck has a MS degree in electrical engineering from Texas A&amp;M University.</p>
+<p>Chuck worked as an engineer at National Instruments as it grew from just over $200M to $400M in annual revenue.</p>
+<p>Chuck worked as the Director of It and HR at Velocity Electronics as it grew from $500K to $40M in annual revenue. The systems that Chuck installed eventually supported over $800M in annual global revenue.</p>
+<p>Chuck spent 23 years supporting the iDempiere open source ERP code base and project.</p>
+<h2 id="idempiere-backstory"><a class="header" href="#idempiere-backstory">iDempiere Backstory</a></h2>
+<p>iDempiere started life as Compiere (also an open source ERP project). ADempiere was created as a fork from Compiere. iDempiere was created as a fork from ADempiere.</p>
+<p>The iDempiere codebase played a significant part of Chuck's professional career. It was the foundation for Velocity's ERP system.</p>
+<h2 id="erp-academy"><a class="header" href="#erp-academy">ERP Academy</a></h2>
+<p>iDempiere was at the heart of Chuck's ERP Academy for 11 years where Chuck created over 800 videos on the topic of open source ERP and teaching students from over 60 countries.</p>
+<p>During this time, Chuck lead 7 medium-sized iDempiere deployments and assisted in over 30 more deployments. Just as important as the deployments are the students that did not deploy iDempiere. The academy was based on guiding users to a true and natural fit. If iDempiere was not the best tool, our mission was to determine that opinion as quickly as possible. This deep appreciation for someone's time and efforts was a cornerstone of the academy's success.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="stack-tools.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="postgres-conventions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="project-history.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="chapter_1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -237,11 +219,11 @@ COMMENT ON TABLE stack_xxx IS 'Table that contains xxx';
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="stack-tools.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="postgres-conventions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="project-history.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="chapter_1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
