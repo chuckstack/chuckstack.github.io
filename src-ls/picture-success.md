@@ -14,7 +14,7 @@ There is a big problem with enterprise applications (like ERP) built over the la
 
 ## ChatGPT Showed Us a Better Way
 
-ChatGPT re-introduced an amazingly simple yet effective user interface that offered one field: the command line. In the command line, you can type whatever you wish. ChatGPT is often smart enough to understand what you want and find a way to do it for you all from one command line.
+ChatGPT re-introduced an amazingly simple yet effective user interface that offered one field: the command line. In the command line, you can type whatever you wish. ChatGPT is often smart enough to understand what you want and find a way to do it for you all from one field.
 
 ## Simple Example
 
