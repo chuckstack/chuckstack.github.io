@@ -74,4 +74,5 @@ If you want to supercharge your organization by filling it with superclerks, do 
 - Mobilize your technology team to install self-help tools like the chuck-stack.
 - Hire smart people to do smart work.
 
-If you want to learn more, join the stack-academy. TODO: link and details
+If you want to learn more, join the stack-academy. 
+<!-- TODO: link and details for academy-->
