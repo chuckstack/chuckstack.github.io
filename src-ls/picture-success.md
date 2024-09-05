@@ -6,7 +6,7 @@ Imagine a world where your operations team wrote work instructions and both your
 
 ## How is This Possible
 
-Modern AI has a magical ability to understand and use our language to offer valuable opinions and execute tasks. More specifically, it understands work instructions (role, task, and tool definitions), and it can help us automate our organizations, increased velocity and improve efficiency.
+Modern AI has a magical ability to understand and use our language to offer valuable opinions and execute tasks. More specifically, it understands work instructions (role, task, and tool definitions), and it can help us automate our organizations, increase velocity and improve efficiency.
 
 ## Problem - Too Many Window and Fields
 
@@ -14,11 +14,11 @@ There is a big problem with enterprise applications (like ERP) built over the la
 
 ## ChatGPT Showed Us a Better Way
 
-ChatGPT re-introduced an amazingly simple yet effective user interface that offered one field: the command line. In the command line, you can type whatever you wish. ChatGPT is often smart enough to understand what you want and find a way to do it for you all from one field.
+ChatGPT re-introduced an amazingly simple yet effective user interface that offered one field: the command line. In the command line, you can type whatever you wish. ChatGPT is often smart enough to understand what you want and finds a way to help you - all from one field.
 
 ## Simple Example
 
-If you were to type the following into ChatGPT:
+If you were to type the following into AI chatbot:
 
 > show me the weather in Berlin and London
 
