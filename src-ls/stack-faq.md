@@ -10,43 +10,43 @@ Yes and no... Naming a project is hard. chuck-stack is a good starting name give
 
 The chuck-stack has been cultivated over the last 25 years. Here are the guidelines for inclusion:
 
--   Commonly used - and well understood to make AI augmentation easier.
--   Open source - or at least as open as possible.
--   Start simple - easy to understand and reason about. Nix pushes this concept a little (or a lot); however, the power and simplicity it creates is worth the extra effort.
--   Basic functionality - supports basics like CRUD (create, read, update and delete) with minimal effort.
--   Kind educator - needs someone in the community who makes the technology kind to the target audience.
--   Kind integrator - needs someone local to you digitally to help you leverage the tool.
--   Synergy - supports other tools in the stack. Example: runs on or integrates with PostgreSQL.
--   Simple architecture - not overly complicated relative to the tool's purpose.
--   Enterprise scalability - it needs to scale to support an organization of at least 1,000+ across multiple continents.
--   Enterprise testing and deployment - it needs to support team development where improvements can be development, tested and accepted in dedicated environments and easily migrated to production using CI/CD concepts or scripts.
--   Command Line Interface (CLI) centric - we love cli interfaces because they are accessible from anywhere.
--   REST centric - we love scriptable interfaces that can be called from anywhere (not just the cli).
+- Commonly used - and well understood to make AI augmentation easier.
+- Open source - or at least as open as possible.
+- Start simple - easy to understand and reason about. Nix pushes this concept a little (or a lot); however, the power and simplicity it creates is worth the extra effort.
+- Basic functionality - supports basics like CRUD (create, read, update and delete) with minimal effort.
+- Kind educator - needs someone in the community who makes the technology kind to the target audience.
+- Kind integrator - needs someone local to you digitally to help you leverage the tool.
+- Synergy - supports other tools in the stack. Example: runs on or integrates with PostgreSQL.
+- Simple architecture - not overly complicated relative to the tool's purpose.
+- Enterprise scalability - it needs to scale to support an organization of at least 1,000+ across multiple continents.
+- Enterprise testing and deployment - it needs to support team development where improvements can be development, tested and accepted in dedicated environments and easily migrated to production using CI/CD concepts or scripts.
+- Command Line Interface (CLI) centric - we love cli interfaces because they are accessible from anywhere.
+- REST centric - we love scriptable interfaces that can be called from anywhere (not just the cli).
 
 ## What are the chuck-stack tools?
 
 Here are the tools we use almost every day:
 
--   [Linux (compute)](https://en.wikipedia.org/wiki/Linux): best tool to run applications on just about any platform in the world.
--   [PostgreSQL (data)](https://www.postgresql.org/): best tool for managing "data" database with best performance and enterprise features.
--   [PostgREST (API)](https://postgrest.org/): PostgreSQL tool for exposing an OpenAPI compliant REST interface directly out of your database.
--   [GitHub (code, information, collaboration)](https://github.com/): best tool for managing information, instructions and discussions. It provides most options for AI amplification.
--   [aichat (AI)](https://github.com/sigoden/aichat): command line AI chat and execution tool that include saves sessions, rag, function-calling and more.
--   [Nushell (system and data)](https://www.nushell.sh/): Terminal shell with designed to understand and manipulate structured data.
--   [Zellij (UI)](https://www.zellij.dev/): terminal workspace environment for managing information and transactions.
--   [dbt (ETL)](https://www.getdbt.com/): tool to transform transactional data into a form than can be consumed by BI or AI or ...
--   [Metabase (BI)](https://www.metabase.com/): BI tool for visualizing and publishing data. Used if GitHub discussions is not good enough.
--   [Pass (secrets)](https://passwordstore.org/): is a command line tool that helps you manage secrets/passwords with gpg. It is simple, scriptable, auditable, distributed and secure. [gpg](https://gnupg.org/) is an encryption program that provides cryptographic privacy and authentication for data communication. The Pass repository is available on almost all platforms. It integrates well with github.
--   [Zabbix (monitoring)](https://www.zabbix.com/): monitor resources and respond to events.
--   [Incus (virtualization)](https://linuxcontainers.org/incus/docs/main/): container and virtual machine (VM) tool to develop, test and deploy IT applications.
--   [iDempiere (ERP)](https://www.idempiere.org/): ERP for managing orders, inventory, invoices, payments, accounting and much of the data you need to execute operations in your organization.
+- [Linux (compute)](https://en.wikipedia.org/wiki/Linux): best tool to run applications on just about any platform in the world.
+- [PostgreSQL (data)](https://www.postgresql.org/): best tool for managing "data" database with best performance and enterprise features.
+- [PostgREST (API)](https://postgrest.org/): PostgreSQL tool for exposing an OpenAPI compliant REST interface directly out of your database.
+- [GitHub (code, information, collaboration)](https://github.com/): best tool for managing information, instructions and discussions. It provides most options for AI amplification.
+- [aichat (AI)](https://github.com/sigoden/aichat): command line AI chat and execution tool that include saves sessions, rag, function-calling and more.
+- [Nushell (system and data)](https://www.nushell.sh/): Terminal shell with designed to understand and manipulate structured data.
+- [Zellij (UI)](https://www.zellij.dev/): terminal workspace environment for managing information and transactions.
+- [dbt (ETL)](https://www.getdbt.com/): tool to transform transactional data into a form than can be consumed by BI or AI or ...
+- [Metabase (BI)](https://www.metabase.com/): BI tool for visualizing and publishing data. Used if GitHub discussions is not good enough.
+- [Pass (secrets)](https://passwordstore.org/): is a command line tool that helps you manage secrets/passwords with gpg. It is simple, scriptable, auditable, distributed and secure. [gpg](https://gnupg.org/) is an encryption program that provides cryptographic privacy and authentication for data communication. The Pass repository is available on almost all platforms. It integrates well with github.
+- [Zabbix (monitoring)](https://www.zabbix.com/): monitor resources and respond to events.
+- [Incus (virtualization)](https://linuxcontainers.org/incus/docs/main/): container and virtual machine (VM) tool to develop, test and deploy IT applications.
+- [iDempiere (ERP)](https://www.idempiere.org/): ERP for managing orders, inventory, invoices, payments, accounting and much of the data you need to execute operations in your organization.
 
 Here are the tools we want to use more:
 
--   [PostgresML (AI)](https://postgresml.org/): PostgreSQL tool for AI training and inferencing directly out of your database.
--   [Ollama (AI)](https://ollama.com/): AI tool for running generative AI (LLM) models locally.
--   [CrowdSec (security)](https://www.crowdsec.net/): Proactively block known malicious IPs and activities.
--   [NixOS (Linux OS)](https://nixos.org/): specific distribution of Linux delivering the most control and compute options. Nix represents the easiest way to describe, deploy and maintain desktops and servers.
+- [PostgresML (AI)](https://postgresml.org/): PostgreSQL tool for AI training and inferencing directly out of your database.
+- [Ollama (AI)](https://ollama.com/): AI tool for running generative AI (LLM) models locally.
+- [CrowdSec (security)](https://www.crowdsec.net/): Proactively block known malicious IPs and activities.
+- [NixOS (Linux OS)](https://nixos.org/): specific distribution of Linux delivering the most control and compute options. Nix represents the easiest way to describe, deploy and maintain desktops and servers.
 
 ## What are the project guiding principles?
 
@@ -64,13 +64,23 @@ The stack-academy is an online support infrastructure for the chuck-stack. We be
 
 Here are the details:
 
--   What is the purpose of the stack-academy? We want to accelerate your learning curve and provide an interactive environment to overcome challenges.
--   Do you need to join to use the chuck-stack? No.
--   Do you need to join to get prioirty support? Yes.
--   Is there a way to get phone support? Yes, we hold multiple online meetings per week where anyone can bring any topic.
--   What is the minimum purchase? The stack-academy is a monthly subscription. The minimum purchase is one month. You may join and cancel as many times as is needed to accomplish your goals.
--   Are there special pricing considerations for individuals (students or aspiring integrators)? Yes. Complete this form for consideration.
--   How do I join? [click here](https://buy.stripe.com/7sIbLIeeU3oT4IEfYY)
+- What is the purpose of the stack-academy? We want to accelerate your learning curve and provide an interactive environment to overcome challenges.
+- Do you need to join to use the chuck-stack? No.
+- Do you need to join to get prioirty support? Yes.
+- Is there a way to get phone support? Yes, we hold multiple online meetings per week where anyone can bring any topic.
+- What is the minimum purchase? The stack-academy is a monthly subscription. The minimum purchase is one month. You may join and cancel as many times as is needed to accomplish your goals.
+- Are there special pricing considerations for individuals (students or aspiring integrators)? Yes. Complete this form for consideration.
+- How do I join? [click here](https://buy.stripe.com/7sIbLIeeU3oT4IEfYY)
+
+## What is a Superclerk?
+
+A superclerk is someone performing a role that demonstrates above average capabilities and propels the whole team to next level performance. The best way to describe a superclerk is by example. Imagine a team of AP and AR clerks. The team spends the majority of the day transcribing data. A superclerk emerges thinking there must be a better way. The superclerk does the following:
+
+- Ties AI to their email to classify which emails contain new invoices.
+- Automates sending the invoice to Google's AI document service for data extraction.
+- Automates mapping the extracted details into a format for invoice upload in the ERP.
+
+It is important to note that most IT departments could do the same; however, it is also important to note that most IT departments are severely understaffed and behind on existing projects. Identifying superclerks and giving them the tools to automate their roles changes the game and can create an order of magnitude of improvement in both velocity and efficiency.
 
 ## What is the current status of chuck-stack?
 

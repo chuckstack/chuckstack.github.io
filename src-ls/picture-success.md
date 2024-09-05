@@ -1,7 +1,7 @@
 # Picture of Success
 
 <!-- copied_from_home_page -->
-Imagine a world where your operations team wrote work instructions and your system and people magically executed those work instructions for you. Image a world where IT no longer builds tools but instead helps your people build it themselves while ensuring everyone is bound by their documented roles. You do not need to imagine much longer.
+Imagine a world where your operations team wrote work instructions and both your system and people magically executed those work instructions for you with near perfection. Image a world where IT no longer builds tools but instead helps your people build logic themselves while ensuring everyone is bound by their documented roles. You do not need to imagine much longer.
 <!-- /copied_from_home_page -->
 
 ## How is This Possible

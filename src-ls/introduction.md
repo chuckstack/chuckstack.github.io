@@ -18,11 +18,30 @@ The purpose of the chuck-stack is to help organizations:
 
 If we succeed executing our purpose, we will give small and medium sized organizations a competitive advantage against both its peers as well as larger organizations.
 
+## Solution Summary
+
+The chuck-stack consists of two parts:
+
+1. Collection of tools: Linux, PostgreSQL, PostgREST, Nushell, AIChat, Zellij, plus more... that all come together to create a full-featured platform. There is no secret or proprietary sauce. Instead, it is pure open source synergy!
+2. Application framework: executing best practices with the above tools and teaching AI to automate the fundamentals of your organization.
+
 ## Education
 
-TODO stack-academy
+The stack-academy exists to help your organization achieve success as quickly as possible. It's an online support infrastructure that teaches organizations how to execute best practices using the chuck-stack tools. It helps you find, teach and foster superclerk talent.
+
+[Learn More...]() 
+<!-- TODO: finish learn more link -->
+<!-- TODO: link to superclerk definition -->
 
 ## Why chuck-stack is Important
+
+There is not much like the chuck-stack on the market. There is no private equity or seed funding manipulating the market in hopes of a windfall sale. The chuck-stack built on basic principles and fundamentals to make the world a better place.
+
+- Find good tools
+- Create best practices
+- Teach anyone who will listen
+- Invest in people worthy of your time and effort
+- Strive for continuous improvement
 
 We believe in a cooperative approach to learning, support and innovation. As a group, we establish the principles and collectively create an open source platform that values simplicity, stability and self-service.
 
