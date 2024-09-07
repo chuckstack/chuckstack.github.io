@@ -92,7 +92,7 @@
                 <ul class="chapter">
                     <li><a class="active" href="../">chuck-stack Home</a></li>
                 </ul>
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="picture-success.html"><strong aria-hidden="true">2.</strong> Picture of Success</a></li><li class="chapter-item expanded "><a href="stack-faq.html"><strong aria-hidden="true">3.</strong> Stack FAQ</a></li><li class="chapter-item expanded "><a href="stack-tools.html"><strong aria-hidden="true">4.</strong> Stack Tools</a></li><li class="chapter-item expanded "><a href="postgres-conventions.html"><strong aria-hidden="true">5.</strong> Conventions</a></li><li class="chapter-item expanded "><a href="project-history.html"><strong aria-hidden="true">6.</strong> Project History</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">7.</strong> Chapter 1</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">8.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">9.</strong> Privacy Policy</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="picture-success.html"><strong aria-hidden="true">2.</strong> Picture of Success</a></li><li class="chapter-item expanded "><a href="stack-faq.html"><strong aria-hidden="true">3.</strong> Stack FAQ</a></li><li class="chapter-item expanded "><a href="stack-tools.html"><strong aria-hidden="true">4.</strong> Stack Tools</a></li><li class="chapter-item expanded "><a href="postgres-conventions.html"><strong aria-hidden="true">5.</strong> Conventions</a></li><li class="chapter-item expanded "><a href="roadmap.html"><strong aria-hidden="true">6.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="project-history.html"><strong aria-hidden="true">7.</strong> Project History</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">8.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">9.</strong> Privacy Policy</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -425,10 +425,10 @@
 </ul>
 <h3 id="postgrest"><a class="header" href="#postgrest">PostgREST</a></h3>
 <p><a href="https://postgrest.org/">PostgREST</a> is a secret weapon that allows us to build a fully-qualified and secure REST API directly on top of a PostgreSQL database schema and users/roles. If you can build a good database with functions, you can build a good REST API.</p>
-<h3 id="githubcom"><a class="header" href="#githubcom">Github.com</a></h3>
-<p><a href="https://github.com/">Github.com</a> is the most valuable platform for managing work instructions and organizational knowledge. Here is why it is so important to the stack:</p>
+<h3 id="git-github-gitlab-gitea"><a class="header" href="#git-github-gitlab-gitea">Git (Github, Gitlab, Gitea)</a></h3>
+<p>Git is a source code control system. The ecosystem that developed around git revolutionized how code/instructions are created and delivered. Features from providers like <a href="https://github.com">Github</a>, <a href="https://gitlab.com/">Gitlab</a> and <a href="https://gitea.com/">Gitea</a> help teams manage the life cycle around data and automation.</p>
+<p>The world's smartest people performing some of the most difficult work across the greatest distances use tools like github to manage their instructions. If it works for them, it should easily support your team! These products typically offer the following features:</p>
 <ul>
-<li>The world's smartest people performing some of the most difficult work across the greatest distances use github to manage their instructions. If it works for them, it should easily support your team!</li>
 <li>It offers both issue tracking and discussions.</li>
 <li>It provides both project management and kanban board organization.</li>
 <li>It supports automation based on changes to content or instructions.</li>
@@ -480,6 +480,7 @@
 <li><a href="https://www.zabbix.com/">Zabbix (monitoring)</a>: monitor resources and respond to events.</li>
 <li><a href="https://linuxcontainers.org/incus/docs/main/">Incus (virtualization)</a>: container and virtual machine (VM) tool to develop, test and deploy IT applications.</li>
 <li><a href="https://www.idempiere.org/">iDempiere (ERP)</a>: ERP for managing orders, inventory, invoices, payments, accounting and much of the data you need to execute operations in your organization.</li>
+<li><a href="https://mattermost.com/">Mattermost</a>: Open soruce collaboration tool (similar to slack and github discussions). It can be backed by PostgreSQL and run locally; therefore, it fits quite well in the chuck-stack.</li>
 </ul>
 <p>He are the tools we want to use more:</p>
 <ul>
@@ -529,6 +530,12 @@
 );
 COMMENT ON TABLE stack_xxx IS 'Table that contains xxx';
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
+<p>The purpose of this page is to describe the application framework progress and deployment roadmap.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<!-- TODO: link to goals -->
+<p>It is important to understand that the chuck-stack is not a typical project. The goals of the project are to support small and medium sized businesses by bringing together existing tools to create a platform. As such, most of the advancements of this project relate more to configuration and deployment rather than coding.</p>
+<h2 id="milestones"><a class="header" href="#milestones">Milestones</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="project-history"><a class="header" href="#project-history">Project History</a></h1>
 <p>The purpose of this page is to give you the back story behind how chuck-stack.org came to exist.</p>
 <h2 id="people"><a class="header" href="#people">People</a></h2>
@@ -553,17 +560,7 @@ COMMENT ON TABLE stack_xxx IS 'Table that contains xxx';
 <p>iDempiere was at the heart of Chuck's ERP Academy for 11 years where Chuck created over 800 videos on the topic of open source ERP and teaching students from over 60 countries.</p>
 <p>During this time, Chuck lead 7 medium-sized iDempiere deployments and assisted in over 30 more deployments. Just as important as the deployments are the students that did not deploy iDempiere. The academy was based on guiding users to a true and natural fit. If iDempiere was not the best tool, our mission was to determine that opinion as quickly as possible.</p>
 <p>This deep appreciation for someone's time and efforts was a cornerstone of the academy's success.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
-<p>here</p>
-<blockquote>
-<p>some quote</p>
-<p>- <em>chuck</em></p>
-</blockquote>
-<p><a href="https://www.google.com">some link</a></p>
-<div class="table-wrapper"><table><thead><tr><th>Header1</th><th>Header2</th></tr></thead><tbody>
-<tr><td>abc</td><td>def</td></tr>
-</tbody></table>
-</div><div style="break-before: page; page-break-before: always;"></div><h1 id="code-of-conduct"><a class="header" href="#code-of-conduct">Code of Conduct</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="code-of-conduct"><a class="header" href="#code-of-conduct">Code of Conduct</a></h1>
 <p>This document explains one of the ways we will create a welcoming global community. Welcome to the team; please make others feel welcome as well!</p>
 <h2 id="email"><a class="header" href="#email">EMail</a></h2>
 <p>contact@chuboe.com</p>

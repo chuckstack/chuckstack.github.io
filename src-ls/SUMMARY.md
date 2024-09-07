@@ -8,7 +8,7 @@
 - [Roadmap](./roadmap.md)
 - [Project History](./project-history.md)
 
-- [Chapter 1](./chapter_1.md)
+<!-- - [Chapter 1](./chapter_1.md) -->
 
 ---
 
