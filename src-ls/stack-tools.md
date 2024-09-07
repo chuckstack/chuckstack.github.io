@@ -46,11 +46,12 @@ Below are the most important stack tools.
 
 [PostgREST](https://postgrest.org/) is a secret weapon that allows us to build a fully-qualified and secure REST API directly on top of a PostgreSQL database schema and users/roles. If you can build a good database with functions, you can build a good REST API.
 
-### Github.com
+### Git (Github, Gitlab, Gitea)
 
-[Github.com](https://github.com/) is the most valuable platform for managing work instructions and organizational knowledge. Here is why it is so important to the stack:
+Git is a source code control system. The ecosystem that developed around git revolutionized how code/instructions are created and delivered. Features from providers like [Github](https://github.com), [Gitlab](https://gitlab.com/) and [Gitea](https://gitea.com/) help teams manage the life cycle around data and automation.
 
-- The world's smartest people performing some of the most difficult work across the greatest distances use github to manage their instructions. If it works for them, it should easily support your team!
+The world's smartest people performing some of the most difficult work across the greatest distances use tools like github to manage their instructions. If it works for them, it should easily support your team! These products typically offer the following features:
+
 - It offers both issue tracking and discussions.
 - It provides both project management and kanban board organization.
 - It supports automation based on changes to content or instructions.
@@ -106,6 +107,7 @@ Here are the tools we use almost every day:
 - [Zabbix (monitoring)](https://www.zabbix.com/): monitor resources and respond to events.
 - [Incus (virtualization)](https://linuxcontainers.org/incus/docs/main/): container and virtual machine (VM) tool to develop, test and deploy IT applications.
 - [iDempiere (ERP)](https://www.idempiere.org/): ERP for managing orders, inventory, invoices, payments, accounting and much of the data you need to execute operations in your organization.
+- [Mattermost](https://mattermost.com/): Open soruce collaboration tool (similar to slack and github discussions). It can be backed by PostgreSQL and run locally; therefore, it fits quite well in the chuck-stack.
 
 He are the tools we want to use more:
 
