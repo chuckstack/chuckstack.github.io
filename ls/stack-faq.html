@@ -91,7 +91,7 @@
                 <ul class="chapter">
                     <li><a class="active" href="../">chuck-stack Home</a></li>
                 </ul>
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="picture-success.html"><strong aria-hidden="true">2.</strong> Picture of Success</a></li><li class="chapter-item expanded "><a href="stack-faq.html" class="active"><strong aria-hidden="true">3.</strong> Stack FAQ</a></li><li class="chapter-item expanded "><a href="stack-tools.html"><strong aria-hidden="true">4.</strong> Stack Tools</a></li><li class="chapter-item expanded "><a href="postgres-conventions.html"><strong aria-hidden="true">5.</strong> Conventions</a></li><li class="chapter-item expanded "><a href="roadmap.html"><strong aria-hidden="true">6.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="project-history.html"><strong aria-hidden="true">7.</strong> Project History</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">8.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">9.</strong> Privacy Policy</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="picture-success.html"><strong aria-hidden="true">2.</strong> Picture of Success</a></li><li class="chapter-item expanded "><a href="stack-faq.html" class="active"><strong aria-hidden="true">3.</strong> Stack FAQ</a></li><li class="chapter-item expanded "><a href="stack-tools.html"><strong aria-hidden="true">4.</strong> Stack Tools</a></li><li class="chapter-item expanded "><a href="stack-application.html"><strong aria-hidden="true">5.</strong> Stack Application</a></li><li class="chapter-item expanded "><a href="postgres-conventions.html"><strong aria-hidden="true">6.</strong> Conventions</a></li><li class="chapter-item expanded "><a href="roadmap.html"><strong aria-hidden="true">7.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="project-history.html"><strong aria-hidden="true">8.</strong> Project History</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">9.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">10.</strong> Privacy Policy</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -308,6 +308,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

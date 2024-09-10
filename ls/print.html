@@ -92,7 +92,7 @@
                 <ul class="chapter">
                     <li><a class="active" href="../">chuck-stack Home</a></li>
                 </ul>
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="picture-success.html"><strong aria-hidden="true">2.</strong> Picture of Success</a></li><li class="chapter-item expanded "><a href="stack-faq.html"><strong aria-hidden="true">3.</strong> Stack FAQ</a></li><li class="chapter-item expanded "><a href="stack-tools.html"><strong aria-hidden="true">4.</strong> Stack Tools</a></li><li class="chapter-item expanded "><a href="postgres-conventions.html"><strong aria-hidden="true">5.</strong> Conventions</a></li><li class="chapter-item expanded "><a href="roadmap.html"><strong aria-hidden="true">6.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="project-history.html"><strong aria-hidden="true">7.</strong> Project History</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">8.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">9.</strong> Privacy Policy</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="picture-success.html"><strong aria-hidden="true">2.</strong> Picture of Success</a></li><li class="chapter-item expanded "><a href="stack-faq.html"><strong aria-hidden="true">3.</strong> Stack FAQ</a></li><li class="chapter-item expanded "><a href="stack-tools.html"><strong aria-hidden="true">4.</strong> Stack Tools</a></li><li class="chapter-item expanded "><a href="stack-application.html"><strong aria-hidden="true">5.</strong> Stack Application</a></li><li class="chapter-item expanded "><a href="postgres-conventions.html"><strong aria-hidden="true">6.</strong> Conventions</a></li><li class="chapter-item expanded "><a href="roadmap.html"><strong aria-hidden="true">7.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="project-history.html"><strong aria-hidden="true">8.</strong> Project History</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">9.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">10.</strong> Privacy Policy</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -489,6 +489,30 @@
 <li><a href="https://www.crowdsec.net/">CrowdSec (security)</a>: Proactively block known malicious IPs and activities.</li>
 <li><a href="https://nixos.org/">NixOS (Linux OS)</a>: specific distribution of Linux delivering the most control and compute options. Nix represents the easiest way to describe, deploy and maintain desktops and servers.</li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chuck-stack-application-framework"><a class="header" href="#chuck-stack-application-framework">chuck-stack Application Framework</a></h1>
+<p>chuck-stack uses the above tools to create an application framework for data and process management. Here are the framework goals:</p>
+<ul>
+<li>Minimize application framework code and complexity by using off-the-shelf tools that are easily understood by people and AI..</li>
+<li>Minimize the effort to create new business logic. Ideally, a single command will create the template for you. AI will draft the code for you.</li>
+<li>Maximize who in an organization can automate business logic by supporting role-based contracts where role boundaries are well defined and AI can help ensure proper <a href="./stack-faq.html#what-is-capability-sandboxing">capability sandboxing</a> and data integrity.</li>
+</ul>
+<p>Data management goes beyond simple CRUD (create, read, update and delete) database operations. The system needs to make the right data available to the right person at the right time to make their jobs easier. There are two key process features that make this vision a reality: 1) workflow and 2) attribute tagging. Here are the details:</p>
+<h2 id="workflow"><a class="header" href="#workflow">Workflow</a></h2>
+<p>Workflow is critical to data and process management. However, workflow is notoriously difficult. The concepts can be difficult to learn. The applications are often difficult to install and maintain, and they are either too complicated or overly simple. It is incredibly difficult to create a workflow architecture that is both generic enough and easy enough for broad adoption. AI will change the workflow landscape. What was previously tedious, is becoming a conversation.</p>
+<!-- TODO: consider calling this User Facing Workflows to differentiate from developer workflows like events and functions. Or, consider labeling the below bullets with user/developer/system. -->
+<p>Here are the important types of workflow.</p>
+<ul>
+<li>Journal workflow: everyone in an organization should be able to record the events in an organization. More...</li>
+<li>Discussion workflow: everyone in an organization should be able to collaborate with others in an organization. More...</li>
+<li>To-do workflow: everyone in an organization should be able to manage a simple list of tasks. More...</li>
+<li>Checklist workflow: roles in an organization often have periodic prescribed tasks. Checklists are a predefined and templated to-do tasks. More...</li>
+<li>Queue workflow: as people manipulate data, some records will reach a state of importance. Queues are defined views into data that match a specific pattern automatically. When the pattern is found, present the user or role with the matching records.  More...</li>
+<li>Notice workflow: events happen, and sometimes users and systems need to be notified. The notification workflow provides information based on the events that occur in an organization.  More...</li>
+<li>Ad-hoc request workflow: users and systems often know what needs to happen and who needs to perform the action based on the events that occur in an organization. This is often referred to as institutional knowledge of action. Ad-hoc request workflows allow users or services to request action from a particular user, role or service.  More...</li>
+<li>Complex request workflow: There are times when an organization needs a formal, multi-step, orchestrated process where a request follows a pre-defined path. Consider calling this 'Orchestrated Request' workflow.</li>
+</ul>
+<h2 id="attribute-tagging"><a class="header" href="#attribute-tagging">Attribute Tagging</a></h2>
+<p>xxx</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postgresql-conventions"><a class="header" href="#postgresql-conventions">PostgreSQL Conventions</a></h1>
 <p>The purpose of this page is to describe the concepts and methodologies for creating PostgreSQL designs.</p>
 <h2 id="schema"><a class="header" href="#schema">Schema</a></h2>
@@ -681,6 +705,22 @@ COMMENT ON TABLE stack_some_table IS 'Table that contains some data';
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

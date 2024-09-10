@@ -4,6 +4,7 @@
 - [Picture of Success](./picture-success.md)
 - [Stack FAQ](./stack-faq.md)
 - [Stack Tools](./stack-tools.md)
+- [Stack Application](./stack-application.md)
 - [Conventions](./postgres-conventions.md)
 - [Roadmap](./roadmap.md)
 - [Project History](./project-history.md)
