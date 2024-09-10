@@ -39,16 +39,16 @@ The stack-academy exists to help your organization achieve success as quickly as
 
 ## Why chuck-stack is Important
 
-There is not much like the chuck-stack on the market. There is NO chuck-steak private equity or venture capitalist manipulating the market in hopes of extracting customer profits and executing a windfall sale. The chuck-stack built on basic principles and fundamentals to make the world a better place.
+There is not much like the chuck-stack on the market. There is NO private equity or venture capitalist manipulating the market in hopes of extracting customer profits and executing a windfall chuck-stack sale. Instead, the chuck-stack is built on basic principles and fundamentals to make the world a better place for organizations with a purpose for good. The principles are pretty straight forward:
 
 - Find good tools
-- Create best practices
+- Publish best practices and welcome feedback
 - Teach anyone who will listen
 - Invest in people worthy of your time and effort
 - Strive for continuous improvement
 - Tell the truth
 
-We believe in a cooperative approach to learning, support and innovation. As a group, we establish the principles and collectively create an open source platform that values simplicity, stability and self-service.
+We believe in a cooperative approach to learning, support and innovation. We work off of principles, and we collectively create an open source platform that values simplicity, stability and self-service.
 
 > "Creative technicals using thinly veiled systems will dominate the next 10+ years. We must give users the tools to automate tasks within their roles without direct intervention from IT!"
 >
