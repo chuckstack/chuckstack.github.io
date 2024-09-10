@@ -58,6 +58,8 @@ This sections lists the mandatory and optional columns found in chuck-stack tabl
 
 ### Optional Columns
 - `is_active` - boolean that indicates if a record can be modified. is_active also acts as a soft-delete. If a record has an is_active=false, the record should be be returned as an option for selection in future lists and drop down fields. This column must be present to update it after the initial save; therefore, it appears in most tables.
+- `name` - text column representing the name of the record.
+- `description` - text column representing the description of the record.
 - `search_key` - user defined text column. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.
 - `value` - text column that is often used along with a `search_key` in a key-value pair.
 - `document_no` - user defined text column. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor -->
@@ -80,12 +82,14 @@ CREATE TABLE stack_some_table (
   updated TIMESTAMP NOT NULL DEFAULT now(),
   updated_by_uu uuid NOT NULL,
   search_key TEXT NOT NULL,
-  name TEXT NOT NULL,
   value TEXT NOT NULL,
+  name TEXT NOT NULL,
   description TEXT,
   is_default BOOLEAN DEFAULT false,
   is_processed BOOLEAN DEFAULT false,
-  is_active BOOLEAN DEFAULT true
+  is_active BOOLEAN DEFAULT true,
+  CONSTRAINT fk_some_table_created_by FOREIGN KEY (created_by_uu) REFERENCES stack_user(stack_user_uu),
+  CONSTRAINT fk_some_table_updated_by FOREIGN KEY (updated_by_uu) REFERENCES stack_user(stack_user_uu)
 );
-COMMENT ON TABLE stack_xxx IS 'Table that contains some data';
+COMMENT ON TABLE stack_some_table IS 'Table that contains some data';
 ```
