@@ -2,37 +2,84 @@
 
 The purpose of this page is to describe the concepts and methodologies for creating PostgreSQL designs.
 
-## Table and column conventions:
-- Tables use uuid as primary keys. The purpose of this decision is to make creating very large (and often replicated) systems easier to manage. Doing so also allows for clients to define their own uuid values and removing a potential centralized process.
-- All tables have a single primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. Said another way, if you know the table_name and the record_uu of any given record, you can always find the details associated with that record. This convention also allows for maintaining centralized logs, attachments, and attributes.
-- The search_key column is a user defined alphanumeric. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.
-- Value is a text column that is often used with a search_key in a key-value pair.
-- Document_no is a user defined alphanumeric. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true.
-- The created column is a timestamp indicating when the record was created.
-- The created_by_uu column is a uuid pointing to the database user/role that created the record.
-- The updated column is a timestamp indicating when the record was last updated.
-- The updated_by_uu column is a uuid pointing to the database user/role that last updated the record.
-- The is_active column is a boolean that indicates if a record can be modified. is_active also acts as a soft-delete. If a record has an is_active=false, the record should be be returned as an option for selection in future lists and drop down fields.
-- The is_default column is a boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.
-- The is_processed column is a boolean that indicates of a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column. 
-- The is_template column is a boolean that indicates if a record exists for the purpose of cloning records.
-- when naming columns the noun comes first and the adjective comes next. Example: stack_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically. TODO: needs more example like stack_business_partner_ship_to_uu.
-- concept of function => create_from vs create_into -- attempt to support both when possible
-- use text (over varchar with unspecified length)
-- link tables always have a single primary uuid key. TODO: this is a dup
-- link table have the suffix _lnk
-- consider using the column's description/comment to hold column_label and column_description
- - comment on column wf_process.name is '{"column_label": "Name", "column_description": "Name describing the record"}';
- - select pg_catalog.col_description(c.oid, col.ordinal_position::int)::json->>'column_label' ...
- - see sql/readme.md for more details
+## Schema
+
+We use multiple PostgreSQL schemas to create a expose our application logic to the rest of the system.
+
+### Private Schema 
+
+We start with a private schema where we define our data model. It is labelled `private` as a convention because no outside system should interact with this internal schema directly. Said another way, the private schema is used to insulate internal details from the outside world.
+
+### Public Schemas
+
+We create at least one public schema. The purpose of the public schemas are to expose a semantically controlled interface. More on [semantic versioning](https://en.wikipedia.org/wiki/Software_versioning). It is possible to maintain multiple public schemas simultaneously in situations where you need two or more major versions versions available at the same time.
+
+If you support a single exposed schema, you can name the publicly available schema something like `public` or `api`. If you plan to support multiple schemas simultaneously, you can include the major version number in the schema name like `public_v1` or `public_v2`. It is not common to support multiple versions at the same time; however, it does happen.
+
+The separation between private and public schemas allows you to change the private data and logic representations while publicly maintaining semantic version control. 
+
+The artifacts in a public schema will most commonly begin as simple pass-through views and functions. Minor and patch releases will most likely introduce more complexity the public schema. Major releases might give you an opportunity to simply the public schema since you can introduce breaking changes to the public api.
+
+## Table Conventions
+
+This section discuss how we create tables in the private schema.
+
+- Tables use a uuid column as the primary key. The purpose of this decision is to make creating very large (and often replicated) systems easier to manage. Doing so also allows for clients to define their own uuid values and removes a potential centralized process.
+- All tables have a single primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. Said another way, if you know the table_name and the record_uu of any given record, you can always find the details associated with that record. This convention also allows us to create many features that are shared across all records in all tables. These features include centralized logs, attachments, and attributes.
+- All core chuck-stack tables will begin with `stack_`. Example: `stack_business_partner`.
+- Your organization should chose a table prefix that resembles your organization's name if you wish to add new tables or new columns. Example: the Good-Care Medical organization could have a prefix of `gcm_`.
+- Link tables should have a table name suffix of `_link`. <!-- TODO: add link table to definitions -->
+- Tables should have comments that describe the purpose of the table. Because AI is so proficient at understanding SQL DDL, we can define both how the table operates and why it exists in the same location. Because SQL is self describing, we can query table comments to obtain help documentation is not extra effort.
+
+## Column Conventions
+
+- Primary uuid key (`_uu` suffix) - All tables have a single primary key per the above discussion. 
+- Foreign keys end with a `_uu` suffix. Example `stack_some_other_table_uu`. There are times when this convention is not possible due to multiple references to the same table. What a duplicate is needed, add an adjective before the `_uu` suffix. Examples: `stack_business_partner_ship_to_uu` and `stack_business_partner_bill_to_uu`.
+- When naming columns the noun comes first and the adjective comes next. Example: stack_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically. <!-- TODO: create a list of abbreviations like wf, asi, etc... -->
+- Use columns of type text (instead of varchar with unspecified length). Only choose a varchar with a specific length when there is a compelling reason to do so. Even then try not to...
+- Boolean values must have a default value defined at the table level.
+- Consider using the column's description/comment to hold column_label and column_description
+  - comment on column wf_process.name is '{"column_label": "Name", "column_description": "Name describing the record"}';
+  - select pg_catalog.col_description(c.oid, col.ordinal_position::int)::json->>'column_label' ...
+  - see sql/readme.md for more details
+
+## Table Standard Column
+This sections lists the mandatory and optional columns found in chuck-stack tables. Notice that coding and naming by convention plays a role in primary key name and foreign key relationships. As you will see below, you know the primary key column name as a function of the table name. You know the foreign key table name as a function of the foreign key column name.
+
+### Mandatory Columns
+
+- primary key - The primary key column bears the name of the table with a `_uu` suffix. Example: `stack_some_table_uu`
+- `stack_tenant_uu` - foreign key reference to the tenant that owns the record <!-- TODO: define tenant and add link here -->
+- `stack_org_uu` - financial set of books that owns the record <!-- TODO: define org and add link here -->
+- `created` - timestamp indicating when the record was created.
+- `created_by_uu` - uuid foreign key reference to the database user/role that created the record.
+- `updated` - timestamp indicating when the record was last updated.
+- `updated_by_uu` - uuid foreign key reference to the database user/role that last updated the record.
+
+### Optional Columns
+- `is_active` - boolean that indicates if a record can be modified. is_active also acts as a soft-delete. If a record has an is_active=false, the record should be be returned as an option for selection in future lists and drop down fields. This column must be present to update it after the initial save; therefore, it appears in most tables.
+- `search_key` - user defined text column. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.
+- `value` - text column that is often used along with a `search_key` in a key-value pair.
+- `document_no` - user defined text column. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor -->
+- `is_default` - boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.
+- `is_processed` - boolean that indicates of a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column. 
+- `is_template` boolean that indicates if a record exists for the purpose of cloning to create new records.
+
+
+## Function Conventions
+
+- concept of function => create_from vs create_into -- attempt to support both when possible <!-- TODO: better define these terms -->
 
 ## Sample Table
 
 ```sql
-CREATE TABLE stack_xxx (
-  stack_xxx_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+CREATE TABLE stack_some_table (
+  stack_some_table_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   created TIMESTAMP NOT NULL DEFAULT now(),
-  search_key VARCHAR(255) NOT NULL,
+  created_by_uu uuid NOT NULL,
+  updated TIMESTAMP NOT NULL DEFAULT now(),
+  updated_by_uu uuid NOT NULL,
+  search_key TEXT NOT NULL,
   name TEXT NOT NULL,
   value TEXT NOT NULL,
   description TEXT,
@@ -40,5 +87,5 @@ CREATE TABLE stack_xxx (
   is_processed BOOLEAN DEFAULT false,
   is_active BOOLEAN DEFAULT true
 );
-COMMENT ON TABLE stack_xxx IS 'Table that contains xxx';
+COMMENT ON TABLE stack_xxx IS 'Table that contains some data';
 ```
