@@ -290,45 +290,9 @@
 <h2 id="is-chuck-stack-really-the-name-of-the-project"><a class="header" href="#is-chuck-stack-really-the-name-of-the-project">Is chuck-stack really the name of the project?</a></h2>
 <p>Yes and no... Naming a project is hard. chuck-stack is a good starting name given that Chuck Boecking has spent the last 25 years immersed in small-to-medium business ERP, data management, and IT. This project started as result of what we believe to be safe, usable, reliable and performant. If the community believes there is a better name to represent this project, then we will change the name accordingly. That will be a good day!</p>
 <h2 id="how-do-we-choose-stack-components"><a class="header" href="#how-do-we-choose-stack-components">How do we choose stack components?</a></h2>
-<p>The chuck-stack has been cultivated over the last 25 years. Here are the guidelines for inclusion:</p>
-<ul>
-<li>Commonly used - and well understood to make AI augmentation easier.</li>
-<li>Open source - or at least as open as possible.</li>
-<li>Start simple - easy to understand and reason about. Nix pushes this concept a little (or a lot); however, the power and simplicity it creates is worth the extra effort.</li>
-<li>Basic functionality - supports basics like CRUD (create, read, update and delete) with minimal effort.</li>
-<li>Kind educator - needs someone in the community who makes the technology kind to the target audience.</li>
-<li>Kind integrator - needs someone local to you digitally to help you leverage the tool.</li>
-<li>Synergy - supports other tools in the stack. Example: runs on or integrates with PostgreSQL.</li>
-<li>Simple architecture - not overly complicated relative to the tool's purpose.</li>
-<li>Enterprise scalability - it needs to scale to support an organization of at least 1,000+ across multiple continents.</li>
-<li>Enterprise testing and deployment - it needs to support team development where improvements can be development, tested and accepted in dedicated environments and easily migrated to production using CI/CD concepts or scripts.</li>
-<li>Command Line Interface (CLI) centric - we love cli interfaces because they are accessible from anywhere.</li>
-<li>REST centric - we love scriptable interfaces that can be called from anywhere (not just the cli).</li>
-</ul>
+<p>See <a href="./stack-tools.html">stack-tools</a>.</p>
 <h2 id="what-are-the-chuck-stack-tools"><a class="header" href="#what-are-the-chuck-stack-tools">What are the chuck-stack tools?</a></h2>
-<p>Here are the tools we use almost every day:</p>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Linux">Linux (compute)</a>: best tool to run applications on just about any platform in the world.</li>
-<li><a href="https://www.postgresql.org/">PostgreSQL (data)</a>: best tool for managing "data" database with best performance and enterprise features.</li>
-<li><a href="https://postgrest.org/">PostgREST (API)</a>: PostgreSQL tool for exposing an OpenAPI compliant REST interface directly out of your database.</li>
-<li><a href="https://github.com/">GitHub (code, information, collaboration)</a>: best tool for managing information, instructions and discussions. It provides most options for AI amplification.</li>
-<li><a href="https://github.com/sigoden/aichat">aichat (AI)</a>: command line AI chat and execution tool that include saves sessions, rag, function-calling and more.</li>
-<li><a href="https://www.nushell.sh/">Nushell (system and data)</a>: Terminal shell with designed to understand and manipulate structured data.</li>
-<li><a href="https://www.zellij.dev/">Zellij (UI)</a>: terminal workspace environment for managing information and transactions.</li>
-<li><a href="https://www.getdbt.com/">dbt (ETL)</a>: tool to transform transactional data into a form than can be consumed by BI or AI or ...</li>
-<li><a href="https://www.metabase.com/">Metabase (BI)</a>: BI tool for visualizing and publishing data. Used if GitHub discussions is not good enough.</li>
-<li><a href="https://passwordstore.org/">Pass (secrets)</a>: is a command line tool that helps you manage secrets/passwords with gpg. It is simple, scriptable, auditable, distributed and secure. <a href="https://gnupg.org/">gpg</a> is an encryption program that provides cryptographic privacy and authentication for data communication. The Pass repository is available on almost all platforms. It integrates well with github.</li>
-<li><a href="https://www.zabbix.com/">Zabbix (monitoring)</a>: monitor resources and respond to events.</li>
-<li><a href="https://linuxcontainers.org/incus/docs/main/">Incus (virtualization)</a>: container and virtual machine (VM) tool to develop, test and deploy IT applications.</li>
-<li><a href="https://www.idempiere.org/">iDempiere (ERP)</a>: ERP for managing orders, inventory, invoices, payments, accounting and much of the data you need to execute operations in your organization.</li>
-</ul>
-<p>Here are the tools we want to use more:</p>
-<ul>
-<li><a href="https://postgresml.org/">PostgresML (AI)</a>: PostgreSQL tool for AI training and inferencing directly out of your database.</li>
-<li><a href="https://ollama.com/">Ollama (AI)</a>: AI tool for running generative AI (LLM) models locally.</li>
-<li><a href="https://www.crowdsec.net/">CrowdSec (security)</a>: Proactively block known malicious IPs and activities.</li>
-<li><a href="https://nixos.org/">NixOS (Linux OS)</a>: specific distribution of Linux delivering the most control and compute options. Nix represents the easiest way to describe, deploy and maintain desktops and servers.</li>
-</ul>
+<p>See <a href="./stack-tools.html">stack-tools</a>.</p>
 <h2 id="what-are-the-project-guiding-principles"><a class="header" href="#what-are-the-project-guiding-principles">What are the project guiding principles?</a></h2>
 <p>Here are the chuck-stack design and implementation first principles in order. If you cannot accomplish these principles, little else matters.</p>
 <ol>
@@ -388,18 +352,18 @@
 <h2 id="selection-criteria-details"><a class="header" href="#selection-criteria-details">Selection Criteria Details</a></h2>
 <p>Here are the more detailed guidelines for inclusion:</p>
 <ul>
-<li>Commonly used - and well understood to make AI augmentation easier.</li>
-<li>Open source - or at least as open as possible.</li>
-<li>Start simple - easy to understand and reason about. Nix pushes this concept a little (or a lot); however, the power and simplicity it creates is worth the extra effort.</li>
-<li>Basic functionality - supports basics like CRUD (create, read, update and delete) with minimal effort.</li>
-<li>Kind educator - needs someone in the community who makes the technology kind to the target audience.</li>
-<li>Kind integrator - needs someone local to you digitally to help you leverage the tool.</li>
-<li>Synergy - supports other tools in the stack. Example: runs on or integrates with PostgreSQL.</li>
-<li>Simple architecture - not overly complicated relative to the tool's purpose.</li>
-<li>Enterprise scalability - it needs to scale to support an organization of at least 1,000+ across multiple continents.</li>
-<li>Enterprise testing and deployment - it needs to support team development where improvements can be development, tested and accepted in dedicated environments and easily migrated to production using CI/CD concepts or scripts.</li>
-<li>Command Line Interface (CLI) centric - we love cli interfaces because they are accessible from anywhere.</li>
-<li>REST centric - we love scriptable interfaces that can be called from anywhere (not just the cli).</li>
+<li><strong>Commonly used</strong> - and well understood to make AI augmentation easier.</li>
+<li><strong>Open source</strong> - or at least as open as possible.</li>
+<li><strong>Start simple</strong> - easy to understand and reason about. Nix pushes this concept a little (or a lot); however, the power and simplicity it creates is worth the extra effort.</li>
+<li><strong>Basic functionality</strong> - supports basics like CRUD (create, read, update and delete) with minimal effort.</li>
+<li><strong>Kind educator</strong> - needs someone in the community who makes the technology kind to the target audience.</li>
+<li><strong>Kind integrator</strong> - needs someone local to you digitally to help you leverage the tool.</li>
+<li><strong>Synergy</strong> - supports other tools in the stack. Example: runs on or integrates with PostgreSQL.</li>
+<li><strong>Simple architecture</strong> - not overly complicated relative to the tool's purpose.</li>
+<li><strong>Enterprise scalability</strong> - it needs to scale to support an organization of at least 1,000+ across multiple continents.</li>
+<li><strong>Enterprise testing and deployment</strong> - it needs to support team development where improvements can be development, tested and accepted in dedicated environments and easily migrated to production using CI/CD concepts or scripts.</li>
+<li><strong>Command Line Interface (CLI) centric</strong> - we love cli interfaces because they are accessible from anywhere.</li>
+<li><strong>REST centric</strong> - we love scriptable interfaces that can be called from anywhere (not just the cli).</li>
 </ul>
 <h2 id="most-important-tools"><a class="header" href="#most-important-tools">Most Important Tools</a></h2>
 <p>Below are the most important stack tools.</p>
