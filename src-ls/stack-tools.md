@@ -26,6 +26,7 @@ Here are the more detailed guidelines for inclusion:
 - **Enterprise testing and deployment** - it needs to support team development where improvements can be development, tested and accepted in dedicated environments and easily migrated to production using CI/CD concepts or scripts.
 - **Command Line Interface (CLI) centric** - we love cli interfaces because they are accessible from anywhere.
 - **REST centric** - we love scriptable interfaces that can be called from anywhere (not just the cli).
+- **Globally deployed** - supports any organization in an corner of the world on almost any hosting platform.
 
 ## Most Important Tools
 
