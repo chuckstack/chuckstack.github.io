@@ -33,7 +33,7 @@ The stack-academy exists to help your organization achieve success as quickly as
 - Teach your operations team how to best prepare for AI automation and AI safety.
 - Teach your users how to start thinking about automation in their role.
 
-[Learn More...]() 
+[Learn More...](./stack-academy.md) 
 <!-- TODO: finish learn more link -->
 <!-- TODO: link to superclerk definition -->
 

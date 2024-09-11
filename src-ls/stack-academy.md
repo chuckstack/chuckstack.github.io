@@ -1,8 +1,12 @@
 # stack-academy
 
-The stack-academy is an online support infrastructure for the chuck-stack tools and application framework. We believe in a cooperative approach to learning, support and innovation. We establish the principles and collectively create an open source platform that values simplicity, stability and self-service.
+The stack-academy exists to help your organization achieve success as quickly as possible. It's an online support infrastructure that teaches organizations how to install and use the tools, leverage best practices, and foster superclerk talent.
 
-Here are the details:
+- Teach your technical staff to best introduce the tools with your existing infrastructure.
+- Teach your operations team how to best prepare for AI automation and AI safety.
+- Teach your users how to start thinking about automation in their role.
+
+Here are the most common questions:
 
 - What is the purpose of the stack-academy? We want to accelerate your learning curve and provide an interactive environment to overcome challenges.
 - Do you need to join to use the chuck-stack? No.
