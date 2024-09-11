@@ -27,7 +27,7 @@ The chuck-stack consists of two parts:
 
 ## Education
 
-The stack-academy exists to help your organization achieve success as quickly as possible. It's an online support infrastructure that teaches organizations how to install and use the tools, leverage best practices, and foster superclerk talent.
+The stack-academy exists to help your organization achieve success as quickly as possible. It's an online support infrastructure that teaches organizations how to install and use the tools, leverage best practices, and foster [superclerk](./terminology.md#superclerk) talent.
 
 - Teach your technical staff to best introduce the tools with your existing infrastructure.
 - Teach your operations team how to best prepare for AI automation and AI safety.
