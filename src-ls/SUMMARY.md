@@ -6,6 +6,7 @@
 - [Stack Tools](./stack-tools.md)
 - [Stack Application](./stack-application.md)
 - [Conventions](./postgres-conventions.md)
+- [Terminology](./terminology.md)
 - [Roadmap](./roadmap.md)
 - [Project History](./project-history.md)
 
