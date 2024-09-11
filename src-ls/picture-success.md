@@ -58,11 +58,11 @@ The above command shows what can happen when you develop superclerks and you giv
 - aichat is a command that communicates with ChatGPT or Claude to perform AI work.
 - -r is the aichat argument that allows the clerk to pass in pre-existing work instructions.
 
-You do not need to understand the details of the above scenario; however, you DO need to understand that a single person (superclerk) can write the above one-line string to perform the work of hundreds or even thousands or people hours. This is the power of the chuck-stack!
+You do not need to understand the details of the above scenario; however, you DO need to understand that a single person (superclerk) can write the above one-line string to perform the work of hundreds or even thousands or people hours. This is the power of a purposeful organization using the chuck-stack to find and promote superclerks!
 
 ## All You Need are Work Instructions
 
-ChatGPT (and LLM in general) are very good at understanding languages. This ability goes far beyond English and Spanish. SQL (databases) is a language. If you write it down, LLM can understand what you want. This is true for both English work instructions and code like SQL.
+ChatGPT (and LLMs in general) are very good at understanding languages. This ability goes far beyond English and Spanish. SQL (databases) is a language. If you write it down, LLM can understand what you want. This is true for both English work instructions and code like SQL, python and rust.
 
 This brings us full circle back to the picture of success:
 
@@ -74,5 +74,5 @@ If you want to supercharge your organization by filling it with superclerks, do 
 - Mobilize your technology team to install self-help tools like the chuck-stack.
 - Hire smart people to do smart work.
 
-If you want to learn more, join the stack-academy. 
+If you want to learn more, join the [stack-academy](./stack-academy.md). 
 <!-- TODO: link and details for academy-->
