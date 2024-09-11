@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>chuck-stack.org - minimal tech stack for small to medium organizations</title>
+    <meta name="description" content="helping organizations increase velocity/efficiency, deploy ai-enabled self-service tools, build a community of support." />
+
+    <!-- Pico.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.0.6/css/pico.min.css"
+    />
+    <script src="js/htmx.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="container">
+      <hgroup>
+        <h1><a href="/" class="contrast" >chuck-stack.org</a></h1> <!-- &#8962; - home icon -->
+        <p>build velocity and efficiency - not infrastructure</p>
+      </hgroup>
+      <div id="navigation-placeholder"></div>
+    </header>
+    <!-- ./ Header -->
+
+    <!-- Main -->
+    <main class="container">
+
+      <!-- Form -->
+      <section id="stay-in-touch">
+        <h2>Getting Started</h2>
+        <p> For priority support and training <a href="https://buy.stripe.com/7sIbLIeeU3oT4IEfYY">Join Now</a>. To learn more about the stack-academy, view the <a href="./ls/stack-academy.html">Stack Academy</a> page.</p>
+        <p> Not ready to join yet? That is OK! Submit your name and email to receive updates, releases, events, training and more.  </p>
+
+        <form id="stayInTouchForm" hx-post="https://webhook.site/0132352a-e2de-4a5e-bc4d-f04f6e05add1" hx-trigger="submit" hx-target="#form-response" hx-indicator="#loading" hx-swap="outerHTML">
+          <div class="grid">
+            <input
+              type="text"
+              name="firstname"
+              placeholder="First name"
+              aria-label="First name"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email address"
+              aria-label="Email address"
+              autocomplete="email"
+              required
+            />
+            <button type="submit">Get Team Updates</button>
+          </div>
+          <fieldset>
+            <label for="terms">
+              <input type="checkbox" role="switch" id="terms" name="terms" required />
+              I agree to the
+              <a href="./ls/privacy-policy.html" >Privacy Policy</a>
+            </label>
+          </fieldset>
+          <div id="form-response"></div>
+          <div id="loading" class="htmx-indicator">Loading...</div>
+        </form>
+      </section>
+      <!-- /Form -->
+
+
+    </main>
+    <!-- /Main -->
+
+	<!-- Footer -->
+	<footer class="container">
+      <!-- Theme Picker -->
+      <nav>
+        <ul>
+          <li>
+            <details class="dropdown">
+              <summary role="button" class="secondary">Theme</summary>
+              <ul>
+                <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                <li><a href="#" data-theme-switcher="light">Light</a></li>
+                <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </nav>
+      <!-- /Theme Picker -->
+	  <!-- copyright/ -->
+	  <small id="copyright"></small>
+	</footer>
+	<!-- /Footer -->
+
+    <!-- DRY components/ -->
+    <script src="js/load-common-elements.js"></script>
+	
+    <!-- Minimal theme switcher/ -->
+    <script src="js/minimal-theme-switcher.js"></script>
+
+    <!-- Copyright/ -->
+    <script src="js/copyright.js"></script>
+
+    <!-- Form validation/ -->
+    <script src="js/form-validation.js"></script>
+
+  </body>
+</html> 

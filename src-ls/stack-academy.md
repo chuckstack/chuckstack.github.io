@@ -1,5 +1,7 @@
 # stack-academy
 
+To join the stack-academy, [click here](https://buy.stripe.com/7sIbLIeeU3oT4IEfYY). Not ready to join; however, you want to stay connected, [click here](../learn-more.html).
+
 The stack-academy exists to help your organization achieve success as quickly as possible. It's an online support infrastructure that teaches organizations how to install and use the tools, leverage best practices, and foster superclerk talent.
 
 - Teach your technical staff to best introduce the tools with your existing infrastructure.
@@ -14,5 +16,6 @@ Here are the most common questions:
 - Is there a way to get phone support? Yes, we hold multiple online meetings per week where anyone can bring any topic.
 - What is the minimum purchase? The stack-academy is a monthly subscription. The minimum purchase is one month. You may join and cancel as many times as is needed to accomplish your goals.
 - Are there special pricing considerations for individuals (students or aspiring integrators)? Yes. Complete this form for consideration.
-- How do I join? [click here](https://buy.stripe.com/7sIbLIeeU3oT4IEfYY)
+
+We look forward to working wth your organization! [Join Now](https://buy.stripe.com/7sIbLIeeU3oT4IEfYY)
 
