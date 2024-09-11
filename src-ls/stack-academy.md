@@ -1,4 +1,4 @@
-# stack-academy?
+# stack-academy
 
 The stack-academy is an online support infrastructure for the chuck-stack tools and application framework. We believe in a cooperative approach to learning, support and innovation. We establish the principles and collectively create an open source platform that values simplicity, stability and self-service.
 
