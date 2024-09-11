@@ -34,8 +34,15 @@ The stack-academy exists to help your organization achieve success as quickly as
 - Teach your users how to start thinking about automation in their role.
 
 [Learn More...](./stack-academy.md) 
-<!-- TODO: finish learn more link -->
-<!-- TODO: link to superclerk definition -->
+
+## chuck-stack Customers
+
+Deploying enterprise systems is not easy. Small and mid-sized organizations often need additional help to ensure success. We support both organizations:
+
+- Integrators - organizations with the specialty of enterprise system deployment and support.
+- End-users - organizations who will use the chuck-stack in its operations.
+
+Both types of customers are vitally important to ensuring our mutual success. Both customers are welcome and supported in the [stack-academy](./stack-academy.md) and in our community.
 
 ## Why chuck-stack is Important
 

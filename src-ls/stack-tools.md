@@ -7,7 +7,7 @@ The purpose of this page is to help you understand what tools we choose to inclu
 When choosing our stack tools, we:
 
 - Focus on commonly used and well understood tools to make AI augmentation easier. The better AI understands a tool, the more AI can do the work for you.
-- Choose tools that build on one another: PostgreSQL => PostgREST => Nushell => AIChat => Zellij...
+- Choose tools that build on one another: Incus => Linux => PostgreSQL => PostgREST => Nushell => AIChat => Zellij...
 - Select tools that allow unlimited usage and scale massively.
 
 ## Selection Criteria Details

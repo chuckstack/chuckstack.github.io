@@ -18,7 +18,7 @@ See [stack-tools](./stack-tools.md).
 
 Here are the chuck-stack design and implementation first principles in order. If you cannot accomplish these principles, little else matters.
 
-1.  Protect an organization's revenue stream and people! This needs to be the CEO mantra with any system change.
+1.  Protect an organization's revenue stream and people! This needs to be leadership's mantra with any system change.
 2.  Deliver enjoyable systems that a) put the right data in the hands of the right users, b) make the user's job as easy as possible, and c) help users prevent mistakes!
 3.  Deploy infrastructure that is safe, reliable and performant - in that order! If a system is not safe, reliability does not matter. If it is not reliable, performance does not matter.
 4.  Write as little code as is possible. Every line of code is a liability that will cost you in the future. It must be documented, tested, reviewed and maintained. If you can use an existing tool that meets the [chuck-stack guidelines](https://www.chuck-stack.org/stack-faq.html#how-choose) in place of writing code, do it!
@@ -34,7 +34,7 @@ See [superclerk](./terminology.html#superclerk).
 
 ## What is the current status of chuck-stack?
 
-The short answer is: We have been deploying the chuck-stack for more that 10 years. Some parts of the start are in early alpha. Other parts reached production 15 years ago. Here is a more detailed answer:
+The short answer is: We have been deploying the chuck-stack for more that 10 years. Some parts of the stack are in early alpha. Other parts reached production 15 years ago. Here is a more detailed answer:
 
 -   [iDempiere ERP](https://www.idempiere.org/) is the oldest member of the stack. We started deploying it on Linux as early as 2001.
 -   We started deploying [PostgreSQL](https://www.postgresql.org/) on Linux in 2011.
@@ -56,9 +56,9 @@ No, not yet. Here are our thoughts about becoming an ERP:
 
 ## What is capability sandboxing?
 
-Capability Sandboxing is the act of defining roles so well that you can consider them a contract and enabling the system to ensure role created automation stays within the confines of the contract.
+Capability Sandboxing is the act of defining roles so well that you can consider them to be a contract and enabling the system to ensure role created automation stays within the confines of the contract.
 
-## What are the most important pieces of the chuck-stack?
+## What are the most important pieces of the chuck-stack application framework?
 
 The two most important pieces of the chuck-stack application are workflow and attributes.
 

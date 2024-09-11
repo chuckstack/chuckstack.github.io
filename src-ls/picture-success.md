@@ -18,15 +18,15 @@ ChatGPT re-introduced an amazingly simple yet effective user interface that offe
 
 ## Simple Example
 
-If you were to type the following into AI chatbot:
+If you were to type the following into an AI chatbot:
 
 > show me the weather in Berlin and London
 
 - The system is smart enough to look for existing tools that can offer real-time weather.
-- It is smart enough to know that you want to call the get-weather-tool for both cities.
+- It is smart enough to know that you want to call the get-weather-tool for all the listed cities.
 - And, it is smart enough to format the output is a human readable way.
 
-These same concepts are true for most foundational large language models (LLM) like Claude and ChatGPT.
+These same concepts are true for most foundational large language models (LLMs) like Claude and ChatGPT.
 
 ## Better Example
 
@@ -56,13 +56,13 @@ The above command shows what can happen when you develop superclerks and you giv
 - query-invalid-customer-address.sql contains the query to get 300k addresses to validate.
 - get entries is a nushell command that extracts the entries.
 - aichat is a command that communicates with ChatGPT or Claude to perform AI work.
-- -r is the aichat argument that allows the clerk to pass in pre-existing work instructions.
+- -r is the aichat argument that allows the clerk to pass in the pre-existing work instructions that defines a valid address.
 
 You do not need to understand the details of the above scenario; however, you DO need to understand that a single person (superclerk) can write the above one-line string to perform the work of hundreds or even thousands or people hours. This is the power of a purposeful organization using the chuck-stack to find and promote superclerks!
 
 ## All You Need are Work Instructions
 
-ChatGPT (and LLMs in general) are very good at understanding languages. This ability goes far beyond English and Spanish. SQL (databases) is a language. If you write it down, LLM can understand what you want. This is true for both English work instructions and code like SQL, python and rust.
+ChatGPT (and LLMs in general) are very good at understanding languages. This ability goes far beyond English and Spanish. SQL (databases) is a language. If you write it down, a LLM can understand what you want. This is true for both English work instructions and code like SQL, python and rust.
 
 This brings us full circle back to the picture of success:
 
