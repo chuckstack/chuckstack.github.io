@@ -8,7 +8,7 @@ The stack-academy exists to help your organization achieve success as quickly as
 - Teach your operations team how to best prepare for AI automation and AI safety.
 - Teach your users how to start thinking about automation in their role.
 
-stack-academy is more than just technical training. Changing systems is difficult. We help you understand how to create the most benefit with the least effort. We help you implement your plan get the most of AI. We help you hire the right people to fill the [superclerk](./terminology.html#superclerk) promise.
+stack-academy is more than just technical training. Changing systems is difficult. We help you understand how to create the most benefit with the least effort. We help you implement your plan get the most from AI. We help you hire the right people to fill the [superclerk](./terminology.html#superclerk) promise.
 
 Here are the most common questions:
 
