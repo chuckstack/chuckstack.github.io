@@ -5,6 +5,7 @@
 - [Stack FAQ](./stack-faq.md)
 - [Stack Tools](./stack-tools.md)
 - [Stack Application](./stack-application.md)
+- [Stack Academy](./stack-academy.md)
 - [Conventions](./postgres-conventions.md)
 - [Terminology](./terminology.md)
 - [Roadmap](./roadmap.md)
