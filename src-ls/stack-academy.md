@@ -1,12 +1,14 @@
 # stack-academy
 
-To join the stack-academy, [click here](https://buy.stripe.com/7sIbLIeeU3oT4IEfYY). Not ready to join; however, you want to stay connected, [click here](../learn-more.html).
+To join the stack-academy, [click here](https://buy.stripe.com/7sIbLIeeU3oT4IEfYY). Not ready to join... We can always [stay connected](../learn-more.html) to learn more.
 
 The stack-academy exists to help your organization achieve success as quickly as possible. It's an online support infrastructure that teaches organizations how to install and use the tools, leverage best practices, and foster superclerk talent.
 
 - Teach your technical staff to best introduce the tools with your existing infrastructure.
 - Teach your operations team how to best prepare for AI automation and AI safety.
 - Teach your users how to start thinking about automation in their role.
+
+stack-academy is more than just technical training. Changing systems is difficult. We help you understand how to create the most benefit with the least effort. We help you implement your plan get the most of AI. We help you hire the right people to fill the [superclerk](./terminology.html#superclerk) promise.
 
 Here are the most common questions:
 
