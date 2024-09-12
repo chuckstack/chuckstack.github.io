@@ -1,7 +1,7 @@
 # Introduction
 
 <!-- copied_from_home_page -->
-**What makes us special?** <u><i>conversational enterprise computing</i></u> on an open source technology stack... We are tired of ERP's hitting organizations with thousands of barely relevant fields that overly complicate processes. We offer a better way to support enterprise data.
+**What makes us special?** <u><i>conversational enterprise computing</i></u> on an open source technology stack... We are tired of ERP's hitting organizations with thousands of barely relevant fields that overly complicate processes. We offer a better way to support enterprise data and build [superclerk](./ls/terminology.html#superclerk) talent.
 
 chuck-stack is both a collection of tools and an application framework that help small to medium organizations manage data and processes.
 
