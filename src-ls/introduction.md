@@ -1,11 +1,13 @@
 # Introduction
 
 <!-- copied_from_home_page -->
+**What makes us special?** <u><i>conversational enterprise computing</i></u> on an open source technology stack... We are tired of ERP's hitting customers with thousands of barely relevant fields that overly complicate processes. We offer a better way to support enterprise data.
+
 chuck-stack is both a collection of tools and an application framework that help small to medium organizations manage data and processes.
 
-chuck-stack exists to solve a problem: many (if not most) small to medium organizations do not have the knowledge and resources to automate their processes. This is largely because ERP and most development frameworks are too big, slow, expensive and complicated from almost every perspective (learn, configure, develop, audit, deploy, train, service, scale, enhance, etc...).
+**chuck-stack exists to solve a problem:** many (if not most) small to medium organizations do not have the knowledge and resources to automate their processes. This is largely because ERP and most development frameworks are too big, slow, expensive and complicated from almost every perspective (learn, configure, develop, audit, deploy, train, service, scale, enhance, etc...).
 
-chuck-stack provides a better way to manage the processes and data in your organization. We deliver a simplified, ai-focused application created from a collection of off-the-shelf tools that help organizations focus on what matters most - its people and value proposition to the world. 
+We deliver a simplified, ai-focused application created from a collection of off-the-shelf tools that help organizations focus on what matters most - its people and value proposition to the world.
 <!-- /copied_from_home_page -->
 
 ## Purpose
