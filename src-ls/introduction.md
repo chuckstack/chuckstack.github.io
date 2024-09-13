@@ -3,7 +3,7 @@
 <!-- copied_from_home_page -->
 **What makes us special?** <u><i>conversational enterprise computing</i></u> on an open source technology stack... We are tired of ERP's hitting organizations with thousands of barely relevant fields that over complicate processes. We offer a better way for small and medium organizations to manage data, automate processes and build [superclerk](./terminology.html#superclerk) talent.
 
-chuck-stack is a collection of well understood tools, an application framework and business best practices that puts self-help automation in the hands of the people who actually do the work. With the chuck-stack, everyday clerks use AI and well-formed work instructions to remove complexity and automate tasks. What was tedious becomes scripted. Scripts become menu options. Options connect to form data pipelines.
+chuck-stack is a collection of well understood tools, an application framework and business best practices that put self-help automation in the hands of the people who actually do the work. With the chuck-stack, everyday clerks use AI and well-formed work instructions to remove complexity and automate tasks. What was tedious becomes scripted. Scripts become menu options. Options connect to form data pipelines.
 
 We transform 20+ person departments of clerks into 2-person teams of [superclerks](./terminology.html#superclerk). We give operational managers the power to guide their teams with just a few words. We ensure those words are considered in every action.
 
