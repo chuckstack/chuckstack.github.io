@@ -2,6 +2,7 @@
 
 <!-- copied_from_home_page -->
 **What makes us special?** <u><i>conversational enterprise computing</i></u> on an open source technology stack... We are tired of ERP's hitting organizations with thousands of barely relevant fields that over complicate processes. We offer a better way for small and medium organizations to manage data, automate processes and build [superclerk](./terminology.html#superclerk) talent.
+<!-- /copied_from_home_page -->
 
 chuck-stack is a collection of: 
 
@@ -19,7 +20,6 @@ We help organizations focus on what matters most - its people and value proposit
 **chuck-stack exists to solve a problem:** many (if not most) small to medium organizations do not have the knowledge and resources to automate their processes. This is largely because ERP and most development frameworks are too big, slow, expensive and complicated from almost every perspective (learn, configure, develop, audit, deploy, train, service, scale, enhance, etc...).
 -->
 
-<!-- /copied_from_home_page -->
 
 ## Purpose
 
