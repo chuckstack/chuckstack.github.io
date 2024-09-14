@@ -7,8 +7,8 @@
 chuck-stack is a collection of: 
 
 1. [well understood tools](./stack-tools.md)
-2. [application framework](./stack-application.md)
-3. [business best practices](./best-practices.md)
+1. [business best practices](./best-practices.md)
+1. [application framework](./stack-application.md)
 
 ...that puts self-help automation in the hands of the people who actually do the work. With the chuck-stack, everyday clerks use AI and well-formed work instructions to remove complexity and automate tasks. What was tedious becomes scripted. Scripts become menu options. Options connect to form data pipelines.
 
@@ -33,10 +33,11 @@ If we succeed executing our purpose, we will give small and medium sized organiz
 
 ## Solution Summary
 
-The chuck-stack consists of two parts:
+The chuck-stack consists of three parts:
 
-1. Collection of [tools](stack-tools.md): Linux, PostgreSQL, PostgREST, Nushell, AIChat, Zellij, plus more... that all come together to create a full-featured platform. There is no secret or proprietary sauce. Instead, it is pure open source synergy!
-2. Application framework: executing best practices with the above tools and teaching AI to automate the fundamentals of your organization.
+1. [Collection of Tools](./stack-tools.md): Linux, PostgreSQL, PostgREST, Nushell, AIChat, Zellij, plus more... that all come together to create a full-featured platform. There is no secret or proprietary sauce. Instead, it is pure open source synergy!
+1. [Best Practices](./best-practices.md): make the chuck-stack vision possible. These practices include both organizational and technical topics.
+1. [Application Framework](./stack-application.md): executing best practices with the above tools and teaching AI to automate the fundamentals of your organization.
 
 ## Education
 
