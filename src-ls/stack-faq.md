@@ -32,6 +32,10 @@ See the [stack-academy](./stack-academy.md) page.
 
 See [superclerk](./terminology.html#superclerk).
 
+## Saving Heartbeats
+
+What does this mean? We have a precious few moments on this Earth. We will do everything in our power to preserve your time so that you may spend your remaining "heartbeats" on something that really matters to you.
+
 ## What is the current status of chuck-stack?
 
 The short answer is: We have been deploying the chuck-stack for more that 10 years. Some parts of the stack are in early alpha. Other parts reached production 15 years ago. Here is a more detailed answer:
