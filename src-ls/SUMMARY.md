@@ -2,6 +2,7 @@
 
 - [Introduction](./introduction.md)
 - [Picture of Success](./picture-success.md)
+- [Getting Started](./getting-started.md)
 - [Stack FAQ](./stack-faq.md)
 - [Stack Tools](./stack-tools.md)
 - [Stack Application](./stack-application.md)
