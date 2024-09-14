@@ -43,7 +43,7 @@ Work instructions are documents that state who does what and how. There are thre
 
 `Tasks` are easiest work instruction type to start with. It describes how a person or system performs an action. The easiest way to describe tasks is with bullets. Just start writing.
 
-Many of the tasks to be performed will use tools. You will be tempted to include tool instructions in your tasks. Don't do it!  If you have a task that depends on a tool, reference it so that someone can find the dedicated tool instructions.
+Many of the tasks require the use of tools. You will be tempted to include tool instructions in your tasks. Don't do it!  If you have a task that depends on a tool, reference it so that someone can find the dedicated tool instructions.
 
 Here is a best practices example of a task work instruction referring to a tool:
 > Find open orders using the ERP => Sales Order window => "Today's Open Order" search option. <u>Learn more...</u>
