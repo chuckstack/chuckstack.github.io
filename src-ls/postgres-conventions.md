@@ -1,6 +1,16 @@
 # PostgreSQL Conventions
 
-The purpose of this page is to describe the concepts and methodologies for creating PostgreSQL designs.
+The purpose of this page is to describe the concepts and methodologies for creating PostgreSQL designs. Consistent use of conventions create clarity. Here are the values that drive our conventions:
+
+<!-- TODO: these bullets need improvement -->
+- Consistency for clarity
+- Purpose driven
+- Reduce development time
+- Reduce development environment complexity
+- Reduce learning time
+- Reduce complexity
+- Maximize use of conventions
+- Minimize the number of expertise needed to articulate a design
 
 ## Schema
 
