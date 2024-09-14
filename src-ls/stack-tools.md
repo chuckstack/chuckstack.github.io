@@ -109,6 +109,7 @@ Here are the tools we use almost every day:
 - [Incus (virtualization)](https://linuxcontainers.org/incus/docs/main/): container and virtual machine (VM) tool to develop, test and deploy IT applications.
 - [iDempiere (ERP)](https://www.idempiere.org/): ERP for managing orders, inventory, invoices, payments, accounting and much of the data you need to execute operations in your organization.
 - [Mattermost](https://mattermost.com/): Open soruce collaboration tool (similar to slack and github discussions). It can be backed by PostgreSQL and run locally; therefore, it fits quite well in the chuck-stack.
+- [rsync.net](https://rsync.net): is an off-site storage service. This is a unique item on the list in that it is not open source. It is, however, pretty fantastic! It uses rsync as the client, which is already installed on almost all Linux servers. It costs the same as AWS S3. And, it gives you immutable backups without any additional configuration. Said another say, it is easy, reasonably priced and works as intended out of the box.
 
 He are the tools we want to use more:
 

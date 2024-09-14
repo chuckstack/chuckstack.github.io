@@ -240,7 +240,7 @@
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="picture-of-success"><a class="header" href="#picture-of-success">Picture of Success</a></h1>
 <!-- copied_from_home_page -->
-<p>Imagine a world where your operations team writes work instructions and both your system and people magically execute those work instructions with near perfection. Image a world where IT no longer builds tools but instead helps people build logic themselves while ensuring everyone is bound by their roles. You do not need to imagine much longer.</p>
+<p>Imagine a world where your operations team writes <a href="./best-practices.html#organization-best-practices">work instructions</a> and both your system and people magically execute those work instructions with near perfection. Image a world where IT no longer builds tools but instead helps people build logic themselves while ensuring everyone is bound by their roles. You do not need to imagine much longer.</p>
 <!-- /copied_from_home_page -->
 <h2 id="how-is-this-possible"><a class="header" href="#how-is-this-possible">How is This Possible</a></h2>
 <p>Modern AI has a magical ability to understand and use our language to offer valuable opinions and execute tasks. More specifically, it understands work instructions (role, task, and tool definitions), and it can help us automate our organizations, increase velocity and improve efficiency.</p>
@@ -447,6 +447,7 @@
 <li><a href="https://linuxcontainers.org/incus/docs/main/">Incus (virtualization)</a>: container and virtual machine (VM) tool to develop, test and deploy IT applications.</li>
 <li><a href="https://www.idempiere.org/">iDempiere (ERP)</a>: ERP for managing orders, inventory, invoices, payments, accounting and much of the data you need to execute operations in your organization.</li>
 <li><a href="https://mattermost.com/">Mattermost</a>: Open soruce collaboration tool (similar to slack and github discussions). It can be backed by PostgreSQL and run locally; therefore, it fits quite well in the chuck-stack.</li>
+<li><a href="https://rsync.net">rsync.net</a>: is an off-site storage service. This is a unique item on the list in that it is not open source. It is, however, pretty fantastic! It uses rsync as the client, which is already installed on almost all Linux servers. It costs the same as AWS S3. And, it gives you immutable backups without any additional configuration. Said another say, it is easy, reasonably priced and works as intended out of the box.</li>
 </ul>
 <p>He are the tools we want to use more:</p>
 <ul>
@@ -643,6 +644,8 @@ COMMENT ON TABLE stack_some_table IS 'Table that contains some data';
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="terminology"><a class="header" href="#terminology">Terminology</a></h1>
 <p>The purpose of this page is to define terminology used in the chuck-stack.org.</p>
+<h2 id="entity"><a class="header" href="#entity">Entity</a></h2>
+<p>An entity is often a legal or taxation group. A single <a href="./terminology.html#tenant">tenant</a> can have many entities. An entity can belong to only one tenant.</p>
 <h2 id="superclerk"><a class="header" href="#superclerk">SuperClerk</a></h2>
 <p>A superclerk is someone performing a role who desires to better automate and perfect their role thus propeling the whole team to a new level performance. A superclerk seeks out the tools and the opportunity to do more. A superclerk can be anyone with a job to do. They can be an AP/AR Clerk, Sales Representative, Machinist, Controller, Manager, etc...</p>
 <p>The best way to describe a superclerk is by example. Imagine a team of AP and AR clerks. The team spends the majority of the day transcribing data. A superclerk emerges thinking there must be a better way. The superclerk does the following:</p>
@@ -652,6 +655,10 @@ COMMENT ON TABLE stack_some_table IS 'Table that contains some data';
 <li>Automates mapping the extracted details into a format for invoice upload in the ERP.</li>
 </ul>
 <p>It is important to note that most IT departments could do the same; however, it is also important to note that most IT departments are severely understaffed and behind on existing projects. Identifying superclerks and giving them the tools to automate their roles changes the game and can create an order of magnitude of improvement in both velocity and efficiency.</p>
+<h2 id="tenant"><a class="header" href="#tenant">Tenant</a></h2>
+<p>A tenant is a group of one or more <a href="./terminology.html#entity">entities</a>. There are times when a single organization manages completely disparate entities. When these entities do not share any aspect of their businesses, the organization will create the different entities in separate tenants.</p>
+<p>The chuck-stack is multi-tenant software without being multi-tenant SaaS. A single instance of the chuck-stack can support multiple tenants; however, there is no reason for us to try and create a single, monolithic service trying to cater all organizations in the world. Monolithic SaaS service carry inherent risks that make them susceptible to data breaches and cross-contamination.</p>
+<p>Our goal is to use well tested and commonly understood networking services to create isolated tenants of the chuck-stack.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
 <p>The purpose of this page is to describe the application framework progress and deployment roadmap.</p>
 <h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
