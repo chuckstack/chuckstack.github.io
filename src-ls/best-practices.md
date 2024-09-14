@@ -1,6 +1,6 @@
 # chuck-stack Best Practices
 
-Best practices make the chuck-stack vision possible. This pages is broken down into two types of best practices:
+Best practices make the chuck-stack vision possible. This page is broken down into two types of best practices:
 
 1. [Organization](./best-practices.md#organization-best-practices)
 2. [Technology](./best-practices.md#technology-best-practices)
