@@ -6,11 +6,11 @@
 
 chuck-stack is a collection of: 
 
-1. well understood tools
-2. application framework
-3. business best practices
+1. [well understood tools](./stack-tools.md)
+2. [application framework](./stack-application.md)
+3. [business best practices](./best-practices.md)
 
-That puts self-help automation in the hands of the people who actually do the work. With the chuck-stack, everyday clerks use AI and well-formed work instructions to remove complexity and automate tasks. What was tedious becomes scripted. Scripts become menu options. Options connect to form data pipelines.
+...that puts self-help automation in the hands of the people who actually do the work. With the chuck-stack, everyday clerks use AI and well-formed work instructions to remove complexity and automate tasks. What was tedious becomes scripted. Scripts become menu options. Options connect to form data pipelines.
 
 We transform 20+ person departments of clerks into 2-person teams of [superclerks](./terminology.html#superclerk). We give operational managers the power to guide their teams with just a few words. We ensure those words are considered in every action.
 
