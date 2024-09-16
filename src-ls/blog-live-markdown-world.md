@@ -1,4 +1,4 @@
-# We Live in a Markdown World
+# We Live in a Markdown World Blog
 
 - Published: 2024-09-16
 - Updated: 2024-09-16
