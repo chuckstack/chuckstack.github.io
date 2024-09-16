@@ -13,6 +13,11 @@
 - [Roadmap](./roadmap.md)
 - [Project History](./project-history.md)
 
+---
+
+- [Blog](./blog.md)
+  - [We Live in a Markdown World](./blog-live-markdown-world.md)
+
 <!-- - [Chapter 1](./chapter_1.md) -->
 
 ---

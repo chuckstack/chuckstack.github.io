@@ -5,6 +5,8 @@ Best practices make the chuck-stack vision possible. This page is broken down in
 1. [Organization](./best-practices.md#organization-best-practices)
 2. [Technology](./best-practices.md#technology-best-practices)
 
+It is worth noting the chuck-stack.org site was created as an AI-first website, and it is intended be a pinnacle example of how to write for both humans and AI augmentation. Said another way, it should offer a great example of organization and technology best practices.
+
 ## Organization Best Practices
 
 The single best thing you can do to accelerate AI adoption is to implement basic quality practices. If you do not have a quality program/book already, the following should be your first version:
