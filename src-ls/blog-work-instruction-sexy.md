@@ -73,7 +73,7 @@ Business basics have not changed.
 
 What's changed is how we do it. If you can do what this article suggests, it stands to reason that you will greatly increase the value of your organization. Better documentation with more automation results in more value. Anyone can make 1 + 1 = 2. It takes synergy (like with work instruction + automation) to make 1 + 1 = 11. That is what we do. 
 
-We take easy to understand concepts and [tools](./stack-tools.md) and create synergy that drives your operational and transactional velocity and efficiency. We make you more valuable!
+We take easy to understand [concepts](./best-practices.md) and [tools](./stack-tools.md) and create synergy that drives your operational and transactional velocity and efficiency. We make you more valuable!
 
 ## Learn More
 
