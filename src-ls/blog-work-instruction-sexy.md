@@ -50,13 +50,13 @@ I am often asked to help with systems training. My first question is: do you hav
 
 Hopefully I have convinced you to immediately start writing concise, AI-supported work instructions. However, there is more.. Not only will you gain operational velocity and efficiency from creating work instructions as discussed above, you also gain the ability to automate your organization.
 
-AI will continue to perform more and more work for you. AI's current role mostly centers around thought labor; however, with tools like [AIChat](./tool-aichat.md), AI is starting to interact with systems and people on our behalf. Clear and concise work instructions do not just apply to humans. One of AI's greatest strength is to read and apply knowledge. It only make sense that an AI can read and act on your work instructions.
+AI will continue to perform more and more work for you. AI's current role mostly centers around thought labor; however, with tools like [AIChat](./tool-aichat.md), AI is starting to interact with systems and people on our behalf. Clear and concise work instructions do not apply solely to humans. One of AI's greatest strength is to read and apply knowledge. It only make sense that an AI can read and act on your work instructions.
 
-However, not all systems are created equal. When you are forced to use a mouse to interact with the system, AI is limited in what it can do. Since the last 20 years of software was largely build around a mouse, simply saying "AI go do..." does not work in many cases. Luckily, the last 10 years have ushered in the concept if APIs where systems can talk to systems. AI can very much talk to systems via an API.
+However, not all systems are created equal. When you are forced to use a mouse to interact with the system, AI is limited in what it can do. Since the last 20 years of software was largely build around a mouse, simply saying "AI go do..." does not work in many cases. Luckily, the last 10 years have ushered in the concept of APIs where systems can talk to systems. AI can very much talk to systems via an API.
 
 The chuck-stack brings AI interaction to a whole new level. There is little distinction between what a human can do versus what an AI can do. Said another way, chuck-stack enables everyday clerks to use AI and well-formed work instructions to remove complexity and automate tasks. What was tedious becomes scripted. Scripts become menu options. Options connect to form data pipelines.
 
-Conversational enterprise computing (the chuck-stack) will change how you thing about business basics. As a result, I hope the mouse enjoys a pleasant retirement. 
+Conversational enterprise computing (the chuck-stack) will change how you think about business basics. As a result, I hope the mouse enjoys a pleasant retirement. 
 
 [Learn more...](./picture-success.md)
 
@@ -64,11 +64,16 @@ I think you are starting to understand the big picture. Now, let's tie these con
 
 ## Let's get Sexy
 
-Business basics have not changed. Say what we do. Do what we said we would do. Prove that we did it. Focus on continuous improvement. Welcome feedback!
+Business basics have not changed.
+- Say what we do. 
+- Do what we said we would do. 
+- Prove that we did it. 
+- Focus on continuous improvement. 
+- Welcome feedback!
 
 What's changed is how we do it. If you can do what this article suggests, it stands to reason that you will greatly increase the value of your organization. Better documentation with more automation results in more value. Anyone can make 1 + 1 = 2. It takes synergy (like with work instruction + automation) to make 1 + 1 = 11. That is what we do. 
 
-We take easy to understand concepts and tools and create synergy that drives your operational and transactional velocity and efficiency. We make you more valuable!
+We take easy to understand concepts and [tools](./stack-tools.md) and create synergy that drives your operational and transactional velocity and efficiency. We make you more valuable!
 
 ## Learn More
 
