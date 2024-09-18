@@ -21,6 +21,7 @@
 ---
 
 - [Blog](./blog.md)
+  - [Work Instructions Make your Organization Sexy](./blog-work-instruction-sexy.md)
   - [We Live in a Markdown World](./blog-live-markdown-world.md)
 
 <!-- - [Chapter 1](./chapter_1.md) -->
