@@ -510,7 +510,8 @@
 <ul>
 <li>Nix is appreciably harder to learn and get up and running as a virtualisation platform.</li>
 <li>Incus covers many more virtualisation scenarios than Nix.</li>
-<li>Nix is a great virtualisation solution when you need high-volume and resource sensitive application hosting. Replit's use of Nix is a good example of when Nix is preferable. (<a href="https://blog.replit.com/nix_web_app">Quick link...</a>)</li>
+<li>Nix is a great virtualisation solution when you need a specialized, high-volume and resource sensitive application hosting solution. Replit's use of Nix is a good example of when Nix is preferable. (<a href="https://blog.replit.com/nix_web_app">Quick link...</a>)</li>
+<li>A Nix solution can easily be deployed inside Incus.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="linux"><a class="header" href="#linux">Linux</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postgresql"><a class="header" href="#postgresql">PostgreSQL</a></h1>
@@ -949,22 +950,6 @@ COMMENT ON TABLE stack_some_table IS 'Table that contains some data';
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
