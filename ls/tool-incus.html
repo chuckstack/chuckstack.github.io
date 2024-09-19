@@ -177,7 +177,47 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="incus"><a class="header" href="#incus">Incus</a></h1>
+                        <h1 id="incus---virtualisation"><a class="header" href="#incus---virtualisation">Incus - Virtualisation</a></h1>
+<p>We are leading with Incus and virtualisation because we feel that virtualisation is a critical part of your stack. You can use any virtualisation tool you wish. It does not "need" to be Incus. You can use AWS, GCP, Azure, etc... You simply need some form of virtualisation.</p>
+<p>Discussion Points:</p>
+<ul>
+<li>What is Incus</li>
+<li>Why we love Incus</li>
+<li>Types of virtualisation (including Docker)</li>
+<li>Its relation to Nix</li>
+</ul>
+<h2 id="what-is-incus"><a class="header" href="#what-is-incus">What is Incus</a></h2>
+<p><a href="https://linuxcontainers.org/incus/docs/main/">Incus</a> allows you to take any single computer or collection/cluster of computers and turn them into a virtualisation platform.</p>
+<h2 id="why-we-love-incus"><a class="header" href="#why-we-love-incus">Why We Love Incus</a></h2>
+<p>There is a long list of reasons why we love Incus:</p>
+<ul>
+<li>It is commonly used and well documented.</li>
+<li>It is open source.</li>
+<li>You can get up and running with Incus in a meaningful way in minutes.</li>
+<li>It does its job (virtualisation) quite well.</li>
+<li>It helps you deploy applications in a manner that is safe, reliable and performant.</li>
+<li>You can start with a single computer and naturally grow to a global cluster.</li>
+<li>It uses commonly understood Linux and networking concepts.</li>
+<li>It has an incredible educator in Stéphane Graber.</li>
+<li>It has a vibrant online support community.</li>
+<li>It supports multiple types of virtualisation in a single application: Docker, Linux containers, virtual machines and Nix.</li>
+<li>It is both CLI and API first to help support AI and automation.</li>
+<li>It offers a reasonably simple architecture given the nature of its purpose.</li>
+<li>It scales massively for small to medium organizations.</li>
+<li>It can be deployed in every corner of the world.</li>
+<li>It can be deployed in hybrid cloud scenarios.</li>
+<li>And, most importantly it has great synergy with the rest of the chuck-stack.</li>
+</ul>
+<h2 id="types-of-virtualisation"><a class="header" href="#types-of-virtualisation">Types of Virtualisation</a></h2>
+<p>One of the greatest benefits of Incus is that it gives you so many Virtualisation options in a single package. Incus maintains current container and virtual machine images for commonly used Linux operating systems including: Debian, Ubuntu, NixOS, Alpine, Arch, etc... You can add DockerHub as an Incus image repository; therefore, you can launch almost any image with almost no additional effort, infrastructure or nesting when using Incus.</p>
+<h2 id="incus-relation-to-nix"><a class="header" href="#incus-relation-to-nix">Incus Relation to Nix</a></h2>
+<p>Nix is a compelling option for virtualisation. If the chuck-stack already uses Nix, why add Incus in addition to Nix?</p>
+<p>Here are our thoughts:</p>
+<ul>
+<li>Nix is appreciably harder to learn and get up and running as a virtualisation platform.</li>
+<li>Incus covers many more virtualisation scenarios than Nix.</li>
+<li>Nix is a great virtualisation solution when you need high-volume and resource sensitive application hosting. Replit's use of Nix is a good example of when Nix is preferable. (<a href="https://blog.replit.com/nix_web_app">Quick link...</a>)</li>
+</ul>
 
                     </main>
 
@@ -208,6 +248,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

@@ -199,6 +199,7 @@
 <li><strong>Simple architecture</strong> - not overly complicated relative to the tool's purpose.</li>
 <li><strong>Enterprise scalability</strong> - it needs to scale to support an organization of at least 1,000+ across multiple continents.</li>
 <li><strong>Enterprise testing and deployment</strong> - it needs to support team development where improvements can be development, tested and accepted in dedicated environments and easily migrated to production using CI/CD concepts or scripts.</li>
+<li><strong>Safe, reliable and performant</strong> - if a system is not safe, reliability does not matter. If it is not reliable, performance does not matter.</li>
 <li><strong>Command Line Interface (CLI) centric</strong> - we love cli interfaces because they are accessible from anywhere.</li>
 <li><strong>REST centric</strong> - we love scriptable interfaces that can be called from anywhere (not just the cli).</li>
 <li><strong>Globally deployed</strong> - supports any organization in an corner of the world on almost any hosting platform.</li>
@@ -312,6 +313,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

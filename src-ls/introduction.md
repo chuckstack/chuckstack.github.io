@@ -58,6 +58,17 @@ Deploying enterprise systems is not easy. Small and mid-sized organizations ofte
 
 Both types of customers are vitally important to ensuring our mutual success. Both customers are welcome and supported in the [stack-academy](./stack-academy.md) and in our community.
 
+## chuck-stack Guiding Principles
+
+Here are the chuck-stack design and implementation first principles in order. If you cannot accomplish these principles, little else matters.
+
+- Protect an organization's revenue stream and people! This needs to be leadership's mantra with any system change.
+- Deliver enjoyable systems that a) put the right data in the hands of the right users, b) make the user's job as easy as possible, and c) help users prevent mistakes!
+- Deploy infrastructure that is safe, reliable and performant - in that order! If a system is not safe, reliability does not matter. If it is not reliable, performance does not matter.
+- Write as little code as is possible. Every line of code is a liability that will cost you in the future. It must be documented, tested, reviewed and maintained. If you can use an existing tool that meets the [chuck-stack guidelines](./stack-tools.md#selection-criteria-summary) in place of writing code, do it!
+- Support self service by giving [superclerks](./terminology.md#superclerk) the tools to automate tasks within their roles without direct intervention from IT!
+
+
 ## Why chuck-stack is Important
 
 There is not much like the chuck-stack on the market. There is NO private equity or venture capitalist manipulating the market in hopes of extracting customer profits and executing a windfall chuck-stack sale. Instead, the chuck-stack is built on basic principles and fundamentals to make the world a better place for organizations with a purpose for good. The principles are pretty straight forward:

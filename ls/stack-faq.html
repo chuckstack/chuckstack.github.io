@@ -186,14 +186,7 @@
 <h2 id="what-are-the-chuck-stack-tools"><a class="header" href="#what-are-the-chuck-stack-tools">What are the chuck-stack tools?</a></h2>
 <p>See <a href="./stack-tools.html">stack-tools</a>.</p>
 <h2 id="what-are-the-project-guiding-principles"><a class="header" href="#what-are-the-project-guiding-principles">What are the project guiding principles?</a></h2>
-<p>Here are the chuck-stack design and implementation first principles in order. If you cannot accomplish these principles, little else matters.</p>
-<ol>
-<li>Protect an organization's revenue stream and people! This needs to be leadership's mantra with any system change.</li>
-<li>Deliver enjoyable systems that a) put the right data in the hands of the right users, b) make the user's job as easy as possible, and c) help users prevent mistakes!</li>
-<li>Deploy infrastructure that is safe, reliable and performant - in that order! If a system is not safe, reliability does not matter. If it is not reliable, performance does not matter.</li>
-<li>Write as little code as is possible. Every line of code is a liability that will cost you in the future. It must be documented, tested, reviewed and maintained. If you can use an existing tool that meets the <a href="https://www.chuck-stack.org/stack-faq.html#how-choose">chuck-stack guidelines</a> in place of writing code, do it!</li>
-<li>Support self service by giving users the tools to automate tasks within their roles without direct intervention from IT!</li>
-</ol>
+<p>See <a href="./introduction.html#chuck-stack-guiding-principles">chuck-stack guiding principles</a></p>
 <h2 id="what-is-the-stack-academy"><a class="header" href="#what-is-the-stack-academy">What is the stack-academy?</a></h2>
 <p>See the <a href="./stack-academy.html">stack-academy</a> page.</p>
 <h2 id="what-is-a-superclerk"><a class="header" href="#what-is-a-superclerk">What is a Superclerk?</a></h2>
@@ -258,6 +251,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

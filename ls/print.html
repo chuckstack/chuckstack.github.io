@@ -224,6 +224,15 @@
 <li>End-users - organizations who will use the chuck-stack in its operations.</li>
 </ul>
 <p>Both types of customers are vitally important to ensuring our mutual success. Both customers are welcome and supported in the <a href="./stack-academy.html">stack-academy</a> and in our community.</p>
+<h2 id="chuck-stack-guiding-principles"><a class="header" href="#chuck-stack-guiding-principles">chuck-stack Guiding Principles</a></h2>
+<p>Here are the chuck-stack design and implementation first principles in order. If you cannot accomplish these principles, little else matters.</p>
+<ul>
+<li>Protect an organization's revenue stream and people! This needs to be leadership's mantra with any system change.</li>
+<li>Deliver enjoyable systems that a) put the right data in the hands of the right users, b) make the user's job as easy as possible, and c) help users prevent mistakes!</li>
+<li>Deploy infrastructure that is safe, reliable and performant - in that order! If a system is not safe, reliability does not matter. If it is not reliable, performance does not matter.</li>
+<li>Write as little code as is possible. Every line of code is a liability that will cost you in the future. It must be documented, tested, reviewed and maintained. If you can use an existing tool that meets the <a href="./stack-tools.html#selection-criteria-summary">chuck-stack guidelines</a> in place of writing code, do it!</li>
+<li>Support self service by giving <a href="./terminology.html#superclerk">superclerks</a> the tools to automate tasks within their roles without direct intervention from IT!</li>
+</ul>
 <h2 id="why-chuck-stack-is-important"><a class="header" href="#why-chuck-stack-is-important">Why chuck-stack is Important</a></h2>
 <p>There is not much like the chuck-stack on the market. There is NO private equity or venture capitalist manipulating the market in hopes of extracting customer profits and executing a windfall chuck-stack sale. Instead, the chuck-stack is built on basic principles and fundamentals to make the world a better place for organizations with a purpose for good. The principles are pretty straight forward:</p>
 <ul>
@@ -321,14 +330,7 @@
 <h2 id="what-are-the-chuck-stack-tools"><a class="header" href="#what-are-the-chuck-stack-tools">What are the chuck-stack tools?</a></h2>
 <p>See <a href="./stack-tools.html">stack-tools</a>.</p>
 <h2 id="what-are-the-project-guiding-principles"><a class="header" href="#what-are-the-project-guiding-principles">What are the project guiding principles?</a></h2>
-<p>Here are the chuck-stack design and implementation first principles in order. If you cannot accomplish these principles, little else matters.</p>
-<ol>
-<li>Protect an organization's revenue stream and people! This needs to be leadership's mantra with any system change.</li>
-<li>Deliver enjoyable systems that a) put the right data in the hands of the right users, b) make the user's job as easy as possible, and c) help users prevent mistakes!</li>
-<li>Deploy infrastructure that is safe, reliable and performant - in that order! If a system is not safe, reliability does not matter. If it is not reliable, performance does not matter.</li>
-<li>Write as little code as is possible. Every line of code is a liability that will cost you in the future. It must be documented, tested, reviewed and maintained. If you can use an existing tool that meets the <a href="https://www.chuck-stack.org/stack-faq.html#how-choose">chuck-stack guidelines</a> in place of writing code, do it!</li>
-<li>Support self service by giving users the tools to automate tasks within their roles without direct intervention from IT!</li>
-</ol>
+<p>See <a href="./introduction.html#chuck-stack-guiding-principles">chuck-stack guiding principles</a></p>
 <h2 id="what-is-the-stack-academy"><a class="header" href="#what-is-the-stack-academy">What is the stack-academy?</a></h2>
 <p>See the <a href="./stack-academy.html">stack-academy</a> page.</p>
 <h2 id="what-is-a-superclerk"><a class="header" href="#what-is-a-superclerk">What is a Superclerk?</a></h2>
@@ -385,6 +387,7 @@
 <li><strong>Simple architecture</strong> - not overly complicated relative to the tool's purpose.</li>
 <li><strong>Enterprise scalability</strong> - it needs to scale to support an organization of at least 1,000+ across multiple continents.</li>
 <li><strong>Enterprise testing and deployment</strong> - it needs to support team development where improvements can be development, tested and accepted in dedicated environments and easily migrated to production using CI/CD concepts or scripts.</li>
+<li><strong>Safe, reliable and performant</strong> - if a system is not safe, reliability does not matter. If it is not reliable, performance does not matter.</li>
 <li><strong>Command Line Interface (CLI) centric</strong> - we love cli interfaces because they are accessible from anywhere.</li>
 <li><strong>REST centric</strong> - we love scriptable interfaces that can be called from anywhere (not just the cli).</li>
 <li><strong>Globally deployed</strong> - supports any organization in an corner of the world on almost any hosting platform.</li>
@@ -468,7 +471,47 @@
 <li><a href="https://www.crowdsec.net/">CrowdSec (security)</a>: Proactively block known malicious IPs and activities.</li>
 <li><a href="https://nixos.org/">NixOS (Linux OS)</a>: specific distribution of Linux delivering the most control and compute options. Nix represents the easiest way to describe, deploy and maintain desktops and servers.</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="incus"><a class="header" href="#incus">Incus</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="incus---virtualisation"><a class="header" href="#incus---virtualisation">Incus - Virtualisation</a></h1>
+<p>We are leading with Incus and virtualisation because we feel that virtualisation is a critical part of your stack. You can use any virtualisation tool you wish. It does not "need" to be Incus. You can use AWS, GCP, Azure, etc... You simply need some form of virtualisation.</p>
+<p>Discussion Points:</p>
+<ul>
+<li>What is Incus</li>
+<li>Why we love Incus</li>
+<li>Types of virtualisation (including Docker)</li>
+<li>Its relation to Nix</li>
+</ul>
+<h2 id="what-is-incus"><a class="header" href="#what-is-incus">What is Incus</a></h2>
+<p><a href="https://linuxcontainers.org/incus/docs/main/">Incus</a> allows you to take any single computer or collection/cluster of computers and turn them into a virtualisation platform.</p>
+<h2 id="why-we-love-incus"><a class="header" href="#why-we-love-incus">Why We Love Incus</a></h2>
+<p>There is a long list of reasons why we love Incus:</p>
+<ul>
+<li>It is commonly used and well documented.</li>
+<li>It is open source.</li>
+<li>You can get up and running with Incus in a meaningful way in minutes.</li>
+<li>It does its job (virtualisation) quite well.</li>
+<li>It helps you deploy applications in a manner that is safe, reliable and performant.</li>
+<li>You can start with a single computer and naturally grow to a global cluster.</li>
+<li>It uses commonly understood Linux and networking concepts.</li>
+<li>It has an incredible educator in Stéphane Graber.</li>
+<li>It has a vibrant online support community.</li>
+<li>It supports multiple types of virtualisation in a single application: Docker, Linux containers, virtual machines and Nix.</li>
+<li>It is both CLI and API first to help support AI and automation.</li>
+<li>It offers a reasonably simple architecture given the nature of its purpose.</li>
+<li>It scales massively for small to medium organizations.</li>
+<li>It can be deployed in every corner of the world.</li>
+<li>It can be deployed in hybrid cloud scenarios.</li>
+<li>And, most importantly it has great synergy with the rest of the chuck-stack.</li>
+</ul>
+<h2 id="types-of-virtualisation"><a class="header" href="#types-of-virtualisation">Types of Virtualisation</a></h2>
+<p>One of the greatest benefits of Incus is that it gives you so many Virtualisation options in a single package. Incus maintains current container and virtual machine images for commonly used Linux operating systems including: Debian, Ubuntu, NixOS, Alpine, Arch, etc... You can add DockerHub as an Incus image repository; therefore, you can launch almost any image with almost no additional effort, infrastructure or nesting when using Incus.</p>
+<h2 id="incus-relation-to-nix"><a class="header" href="#incus-relation-to-nix">Incus Relation to Nix</a></h2>
+<p>Nix is a compelling option for virtualisation. If the chuck-stack already uses Nix, why add Incus in addition to Nix?</p>
+<p>Here are our thoughts:</p>
+<ul>
+<li>Nix is appreciably harder to learn and get up and running as a virtualisation platform.</li>
+<li>Incus covers many more virtualisation scenarios than Nix.</li>
+<li>Nix is a great virtualisation solution when you need high-volume and resource sensitive application hosting. Replit's use of Nix is a good example of when Nix is preferable. (<a href="https://blog.replit.com/nix_web_app">Quick link...</a>)</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="linux"><a class="header" href="#linux">Linux</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postgresql"><a class="header" href="#postgresql">PostgreSQL</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postgrest-1"><a class="header" href="#postgrest-1">PostgREST</a></h1>
@@ -503,7 +546,7 @@
 <ul>
 <li><strong>Be kind and concise</strong> - Write the absolute minimum number of words possible in your work instructions. Someone will need to maintain every word you write from now to eternity.</li>
 <li><strong>Do not repeat yourself</strong> - Say something once, and reference it everywhere else.</li>
-<li><strong>AI knows almost everything</strong> - Do not repeat what AI already knows in your work instructions. Your purpose in writing work instructions is to shrink AI's world so that it knows what is important to you and how you want it discussed. This simple principle will reduce your working instructions by more than half if not more!.</li>
+<li><strong>AI knows almost everything</strong> - Do not repeat what AI already knows in your work instructions. Your purpose in writing work instructions is to shrink AI's world so that it knows what is important to you and how you want it discussed. This simple principle will reduce your work instructions by more than half if not more!</li>
 <li><strong>AI creates training</strong> - Rely on AI to build your training aids and quizzes. If you write clear work instructions. AI can handle the rest for you.</li>
 <li><strong>Words are best</strong> - Words are your best tool to support your organization and AI.</li>
 <li><strong>Pictures rot</strong> - they rot faster than words and are harder to maintain. If you can say it, then say it!</li>
@@ -906,6 +949,22 @@ COMMENT ON TABLE stack_some_table IS 'Table that contains some data';
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

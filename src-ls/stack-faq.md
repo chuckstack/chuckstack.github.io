@@ -16,13 +16,7 @@ See [stack-tools](./stack-tools.md).
 
 ## What are the project guiding principles?
 
-Here are the chuck-stack design and implementation first principles in order. If you cannot accomplish these principles, little else matters.
-
-1.  Protect an organization's revenue stream and people! This needs to be leadership's mantra with any system change.
-2.  Deliver enjoyable systems that a) put the right data in the hands of the right users, b) make the user's job as easy as possible, and c) help users prevent mistakes!
-3.  Deploy infrastructure that is safe, reliable and performant - in that order! If a system is not safe, reliability does not matter. If it is not reliable, performance does not matter.
-4.  Write as little code as is possible. Every line of code is a liability that will cost you in the future. It must be documented, tested, reviewed and maintained. If you can use an existing tool that meets the [chuck-stack guidelines](https://www.chuck-stack.org/stack-faq.html#how-choose) in place of writing code, do it!
-5.  Support self service by giving users the tools to automate tasks within their roles without direct intervention from IT!
+See [chuck-stack guiding principles](./introduction.md#chuck-stack-guiding-principles)
 
 ## What is the stack-academy?
 

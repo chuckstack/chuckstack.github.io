@@ -24,6 +24,7 @@ Here are the more detailed guidelines for inclusion:
 - **Simple architecture** - not overly complicated relative to the tool's purpose.
 - **Enterprise scalability** - it needs to scale to support an organization of at least 1,000+ across multiple continents.
 - **Enterprise testing and deployment** - it needs to support team development where improvements can be development, tested and accepted in dedicated environments and easily migrated to production using CI/CD concepts or scripts.
+- **Safe, reliable and performant** - if a system is not safe, reliability does not matter. If it is not reliable, performance does not matter.
 - **Command Line Interface (CLI) centric** - we love cli interfaces because they are accessible from anywhere.
 - **REST centric** - we love scriptable interfaces that can be called from anywhere (not just the cli).
 - **Globally deployed** - supports any organization in an corner of the world on almost any hosting platform.

@@ -223,6 +223,15 @@
 <li>End-users - organizations who will use the chuck-stack in its operations.</li>
 </ul>
 <p>Both types of customers are vitally important to ensuring our mutual success. Both customers are welcome and supported in the <a href="./stack-academy.html">stack-academy</a> and in our community.</p>
+<h2 id="chuck-stack-guiding-principles"><a class="header" href="#chuck-stack-guiding-principles">chuck-stack Guiding Principles</a></h2>
+<p>Here are the chuck-stack design and implementation first principles in order. If you cannot accomplish these principles, little else matters.</p>
+<ul>
+<li>Protect an organization's revenue stream and people! This needs to be leadership's mantra with any system change.</li>
+<li>Deliver enjoyable systems that a) put the right data in the hands of the right users, b) make the user's job as easy as possible, and c) help users prevent mistakes!</li>
+<li>Deploy infrastructure that is safe, reliable and performant - in that order! If a system is not safe, reliability does not matter. If it is not reliable, performance does not matter.</li>
+<li>Write as little code as is possible. Every line of code is a liability that will cost you in the future. It must be documented, tested, reviewed and maintained. If you can use an existing tool that meets the <a href="./stack-tools.html#selection-criteria-summary">chuck-stack guidelines</a> in place of writing code, do it!</li>
+<li>Support self service by giving <a href="./terminology.html#superclerk">superclerks</a> the tools to automate tasks within their roles without direct intervention from IT!</li>
+</ul>
 <h2 id="why-chuck-stack-is-important"><a class="header" href="#why-chuck-stack-is-important">Why chuck-stack is Important</a></h2>
 <p>There is not much like the chuck-stack on the market. There is NO private equity or venture capitalist manipulating the market in hopes of extracting customer profits and executing a windfall chuck-stack sale. Instead, the chuck-stack is built on basic principles and fundamentals to make the world a better place for organizations with a purpose for good. The principles are pretty straight forward:</p>
 <ul>
@@ -262,6 +271,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
