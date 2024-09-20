@@ -6,7 +6,7 @@ Imagine a world where your operations team writes [work instructions](./best-pra
 
 ## How is This Possible
 
-Modern AI has a magical ability to understand and use our language to offer valuable opinions and execute tasks. More specifically, it understands work instructions (role, task, and tool definitions), and it can help us automate our organizations, increase velocity and improve efficiency.
+Modern AI has a magical ability to understand and use our language to offer valuable opinions and execute tasks. More specifically, it understands work instructions (role, task, and tool definitions), and it can help us automate tasks, increase velocity and improve efficiency.
 
 ## Problem - Too Many Window and Fields
 
@@ -26,11 +26,11 @@ If you were to type the following into an AI chatbot:
 - It is smart enough to know that you want to call the get-weather-tool for all the listed cities.
 - And, it is smart enough to format the output is a human readable way.
 
-These same concepts are true for most foundational large language models (LLMs) like Claude and ChatGPT.
+These concepts are true for most foundational large language models (LLMs) like Claude and ChatGPT.
 
 ## Better Example
 
-Let's apply this same concept to a customer service representative (CSR). The following exchange naturally follows the above example:
+Let's apply this concept to a customer service representative (CSR). The following exchange naturally follows the above example:
 
 - CSR: please create a new sales order for Fred Flintstone, and accept all defaults. Products include 5x 1x4x12, 20x 2x6x8, 50lb penny nails.
 - System: Done. Your order number is 100775. It is currently drafted, and it can ship as early as tomorrow.
@@ -58,7 +58,7 @@ The above command shows what can happen when you develop superclerks and you giv
 - aichat is a command that communicates with ChatGPT or Claude to perform AI work.
 - -r is the aichat argument that allows the clerk to pass in the pre-existing work instructions that defines a valid address.
 
-You do not need to understand the details of the above scenario; however, you DO need to understand that a single person (superclerk) can write the above one-line string to perform the work of hundreds or even thousands or people hours. This is the power of a purposeful organization using the chuck-stack to find and promote superclerks!
+You do not need to understand the details of the above scenario; however, you DO need to understand that a single person (superclerk) can write the above one-line string to perform the work of hundreds or even thousands or people hours. This is the power of a purposeful organization using the chuck-stack to find and promote [superclerks](./terminology.md#superclerk)!
 
 ## All You Need are Work Instructions
 
