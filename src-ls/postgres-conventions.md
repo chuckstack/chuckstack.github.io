@@ -39,7 +39,8 @@ This section discuss how we create tables in the private schema.
 - All core chuck-stack tables will begin with `stack_`. Example: `stack_business_partner`.
 - Your organization should chose a table prefix that resembles your organization's name if you wish to add new tables or new columns. Example: the Good-Care Medical organization could have a prefix of `gcm_`.
 - Link tables should have a table name suffix of `_link`. <!-- TODO: add link table to definitions -->
-- Tables should have comments that describe the purpose of the table. Because AI is so proficient at understanding SQL DDL, we can define both how the table operates and why it exists in the same location. Because SQL is self describing, we can query table comments to obtain help documentation is not extra effort.
+- Tables should have comments that describe the purpose of the table. Because AI is so proficient at understanding SQL DDL, we can define both how the table operates and why it exists in the same location. Because SQL is self describing, we can query table comments to obtain help documentation with no extra effort.
+- Both table and column comments can contain carriage returns; therefore, you can add human readable markdown and structured json, yaml, and toml data in your comments. Note: there is no convention in this bullet yet...
 
 ## Column Conventions
 

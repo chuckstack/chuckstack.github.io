@@ -481,7 +481,7 @@
 <li>Its relation to Nix</li>
 </ul>
 <h2 id="what-is-incus"><a class="header" href="#what-is-incus">What is Incus</a></h2>
-<p><a href="https://linuxcontainers.org/incus/docs/main/">Incus</a> allows you to take any single computer or collection/cluster of computers and turn them into a virtualisation platform.</p>
+<p><a href="https://linuxcontainers.org/incus/docs/main/">Incus</a> is a Linux application that allows you to take any single computer or collection/cluster of computers and turn them into a virtualisation platform.</p>
 <h2 id="why-we-love-incus"><a class="header" href="#why-we-love-incus">Why We Love Incus</a></h2>
 <p>There is a long list of reasons why we love Incus:</p>
 <ul>
@@ -656,7 +656,8 @@
 <li>All core chuck-stack tables will begin with <code>stack_</code>. Example: <code>stack_business_partner</code>.</li>
 <li>Your organization should chose a table prefix that resembles your organization's name if you wish to add new tables or new columns. Example: the Good-Care Medical organization could have a prefix of <code>gcm_</code>.</li>
 <li>Link tables should have a table name suffix of <code>_link</code>. <!-- TODO: add link table to definitions --></li>
-<li>Tables should have comments that describe the purpose of the table. Because AI is so proficient at understanding SQL DDL, we can define both how the table operates and why it exists in the same location. Because SQL is self describing, we can query table comments to obtain help documentation is not extra effort.</li>
+<li>Tables should have comments that describe the purpose of the table. Because AI is so proficient at understanding SQL DDL, we can define both how the table operates and why it exists in the same location. Because SQL is self describing, we can query table comments to obtain help documentation with no extra effort.</li>
+<li>Both table and column comments can contain carriage returns; therefore, you can add human readable markdown and structured json, yaml, and toml data in your comments. Note: there is no convention in this bullet yet...</li>
 </ul>
 <h2 id="column-conventions"><a class="header" href="#column-conventions">Column Conventions</a></h2>
 <ul>

@@ -10,7 +10,7 @@ Discussion Points:
 
 ## What is Incus
 
-[Incus](https://linuxcontainers.org/incus/docs/main/) allows you to take any single computer or collection/cluster of computers and turn them into a virtualisation platform.
+[Incus](https://linuxcontainers.org/incus/docs/main/) is a Linux application that allows you to take any single computer or collection/cluster of computers and turn them into a virtualisation platform.
 
 ## Why We Love Incus
 
