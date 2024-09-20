@@ -18,6 +18,10 @@ The best way to describe a superclerk is by example. Imagine a team of AP and AR
 
 It is important to note that most IT departments could do the same; however, it is also important to note that most IT departments are severely understaffed and behind on existing projects. Identifying superclerks and giving them the tools to automate their roles changes the game and can create an order of magnitude of improvement in both velocity and efficiency.
 
+## Synergy
+
+Synergy in the chuck-stack is what happens when you add two or more parts to make a whole where the value of the whole is greater than the sum of the individual parts. Just about anyone can make 1 + 1 = 2. It takes synergy (like with work instruction + automation) to make 1 + 1 = 11. That is a picture synergy!
+
 ## Tenant
 
 A tenant is a group of one or more [entities](./terminology.md#entity). There are times when a single organization manages completely disparate entities. When these entities do not share any aspect of their businesses, the organization will create the different entities in separate tenants.

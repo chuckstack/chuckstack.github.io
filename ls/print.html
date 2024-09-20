@@ -409,7 +409,7 @@
 <li><strong>Globally deployed</strong> - supports any organization in an corner of the world on almost any hosting platform.</li>
 </ul>
 <h2 id="preference-for-rust-language"><a class="header" href="#preference-for-rust-language">Preference for Rust Language</a></h2>
-<p>You might observe that we have a preference for applications written in the rust language. This preference is intentional for the following reasons:</p>
+<p>You might observe that we have a preference for applications written in the Rust language. This preference is intentional for the following reasons:</p>
 <ul>
 <li>Rust promotes writing safe applications by eliminating the majority of problems that have plagued developers for the last 30 years.</li>
 <li>Rust applications typically compile down to a single binary.</li>
@@ -418,6 +418,21 @@
 <li>Rust supports full stack development thus minimizing the number of experts needed to solve a problem.</li>
 <li>The Rust community practices and values align with the chuck-stack community. See our <a href="./code-of-conduct.html">code of conduct</a> as an example.</li>
 </ul>
+<h2 id="critical-path-tools"><a class="header" href="#critical-path-tools">Critical Path Tools</a></h2>
+<p>The following tools are in the chuck-stack critical path to success. They solve a core need in the chuck-stack, and they create <a href="./terminology.html#synergy">synergy</a> with each other.</p>
+<ul>
+<li><a href="./tool-incus.html">Incus (virtualization)</a>: container and virtual machine (VM) tool to develop, test and deploy IT applications.</li>
+<li><a href="./tool-linux.html">Linux (compute)</a>: best tool to run applications on just about any platform in the world.</li>
+<li><a href="./tool-postgresql.html">PostgreSQL (data)</a>: best tool for managing "data" database with best performance and enterprise features.</li>
+<li><a href="./tool-postgrest.html">PostgREST (API)</a>: PostgreSQL tool for exposing an OpenAPI compliant REST interface directly out of your database.</li>
+<li><a href="./tool-aichat.html">aichat (AI)</a>: command line AI chat and execution tool that include saves sessions, rag, function-calling and more.</li>
+<li><a href="./tool-nushell.html">Nushell (system and data)</a>: Terminal shell with designed to understand and manipulate structured data.</li>
+<li><a href="./tool-zellij.html">Zellij (UI)</a>: terminal workspace environment for managing information and transactions.</li>
+<li><a href="./tool-git.html">Git (code, information, collaboration)</a>: best tool for managing information, instructions and discussions. It provides most options for AI amplification.</li>
+<li><a href="./tool-obsidian.html">Obsidian (knowledge)</a>: best tool to authoring text.</li>
+</ul>
+<h2 id="other-tools"><a class="header" href="#other-tools">Other Tools</a></h2>
+<p><a href="./tool-others.html">Other tools</a> play a supporting role in the chuck-stack and an organization's success.</p>
 <h2 id="most-important-tools"><a class="header" href="#most-important-tools">Most Important Tools</a></h2>
 <p>Below are the most important stack tools.</p>
 <h3 id="linux-and-postgresql"><a class="header" href="#linux-and-postgresql">Linux and PostgreSQL</a></h3>
@@ -843,6 +858,8 @@ COMMENT ON TABLE stack_some_table IS 'Table that contains some data';
 <li>Automates mapping the extracted details into a format for invoice upload in the ERP.</li>
 </ul>
 <p>It is important to note that most IT departments could do the same; however, it is also important to note that most IT departments are severely understaffed and behind on existing projects. Identifying superclerks and giving them the tools to automate their roles changes the game and can create an order of magnitude of improvement in both velocity and efficiency.</p>
+<h2 id="synergy"><a class="header" href="#synergy">Synergy</a></h2>
+<p>Synergy in the chuck-stack is what happens when you add two or more parts to make a whole where the value of the whole is greater than the sum of the individual parts. Just about anyone can make 1 + 1 = 2. It takes synergy (like with work instruction + automation) to make 1 + 1 = 11. That is a picture synergy!</p>
 <h2 id="tenant"><a class="header" href="#tenant">Tenant</a></h2>
 <p>A tenant is a group of one or more <a href="./terminology.html#entity">entities</a>. There are times when a single organization manages completely disparate entities. When these entities do not share any aspect of their businesses, the organization will create the different entities in separate tenants.</p>
 <p>The chuck-stack is multi-tenant software without being multi-tenant SaaS. A single instance of the chuck-stack can support multiple tenants; however, there is no reason for us to try and create a single, monolithic service trying to cater all organizations in the world. Monolithic SaaS service carry inherent risks that make them susceptible to data breaches and cross-contamination.</p>
