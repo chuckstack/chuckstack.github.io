@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Success Factors</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ul class="chapter">
+                    <li><a class="active" href="../">chuck-stack Home</a></li>
+                </ul>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="picture-success.html"><strong aria-hidden="true">2.</strong> Picture of Success</a></li><li class="chapter-item expanded "><a href="success-factor.html" class="active"><strong aria-hidden="true">3.</strong> Success Factors</a></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">4.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="stack-faq.html"><strong aria-hidden="true">5.</strong> Stack FAQ</a></li><li class="chapter-item expanded "><a href="stack-tools.html"><strong aria-hidden="true">6.</strong> Stack Tools</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tool-incus.html"><strong aria-hidden="true">6.1.</strong> Incus</a></li><li class="chapter-item expanded "><a href="tool-linux.html"><strong aria-hidden="true">6.2.</strong> Linux</a></li><li class="chapter-item expanded "><a href="tool-postgresql.html"><strong aria-hidden="true">6.3.</strong> PostgreSQL</a></li><li class="chapter-item expanded "><a href="tool-postgrest.html"><strong aria-hidden="true">6.4.</strong> PostgREST</a></li><li class="chapter-item expanded "><a href="tool-aichat.html"><strong aria-hidden="true">6.5.</strong> AIChat</a></li><li class="chapter-item expanded "><a href="tool-nushell.html"><strong aria-hidden="true">6.6.</strong> Nushell</a></li><li class="chapter-item expanded "><a href="tool-zellij.html"><strong aria-hidden="true">6.7.</strong> Zellij</a></li><li class="chapter-item expanded "><a href="tool-git.html"><strong aria-hidden="true">6.8.</strong> Git</a></li><li class="chapter-item expanded "><a href="tool-obsidian.html"><strong aria-hidden="true">6.9.</strong> Obsidian</a></li><li class="chapter-item expanded "><a href="tool-others.html"><strong aria-hidden="true">6.10.</strong> Others</a></li></ol></li><li class="chapter-item expanded "><a href="best-practices.html"><strong aria-hidden="true">7.</strong> Best Practices</a></li><li class="chapter-item expanded "><a href="stack-application.html"><strong aria-hidden="true">8.</strong> Stack Application</a></li><li class="chapter-item expanded "><a href="stack-academy.html"><strong aria-hidden="true">9.</strong> Stack Academy</a></li><li class="chapter-item expanded "><a href="postgres-conventions.html"><strong aria-hidden="true">10.</strong> Conventions</a></li><li class="chapter-item expanded "><a href="terminology.html"><strong aria-hidden="true">11.</strong> Terminology</a></li><li class="chapter-item expanded "><a href="roadmap.html"><strong aria-hidden="true">12.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="project-history.html"><strong aria-hidden="true">13.</strong> Project History</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">14.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">15.</strong> Privacy Policy</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="blog.html"><strong aria-hidden="true">16.</strong> Blog</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="blog-work-instruction-sexy.html"><strong aria-hidden="true">16.1.</strong> Work Instructions Make your Organization Sexy</a></li><li class="chapter-item expanded "><a href="blog-live-markdown-world.html"><strong aria-hidden="true">16.2.</strong> We Live in a Markdown World</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <!-- add things here that will go above the body navigation -->
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="factors-for-success"><a class="header" href="#factors-for-success">Factors for Success</a></h1>
+<p>The purpose of this page is to discuss the foundational beliefs and factors for chuck-stack success.</p>
+<h2 id="cli-is-better"><a class="header" href="#cli-is-better">CLI Is Better</a></h2>
+<p>We are making an argument that the CLI is a better option for managing data and processes in small and medium organizations. Our success depends on it. We guess that 90% of the people who read this sentence discount the CLI's validity. This is OK because by the time they realize they were wrong, and they will have suffered:</p>
+<ul>
+<li>abuse of the perpetual right-click copy/paste to move stuff around.</li>
+<li>being blamed for why something is not done yet.</li>
+<li>paying for tools that are otherwise free.</li>
+<li>losing their job at the hand of someone who figured out a better way to get something done.</li>
+</ul>
+<p>The modern web browser is an impressive invention. It is pretty and engaging. It is the default tool to browse information the internet. However, it is a data trap. It silos data inside the browser with virtually no way to automate tasks without going to heroic efforts and/or paying for more tools.</p>
+<h3 id="grunts-and-nudges"><a class="header" href="#grunts-and-nudges">Grunts and Nudges</a></h3>
+<p>Before we make our case for the CLI, we feel compelled to express the challenges that exist today.</p>
+<p>Using a mouse to perform work in a web browser is quite possibly the lowest form of communication prevalent in our society. You can click (or grunt) and you and drag (or nudge). Imagine if your primary means of communication was grunting and nudging people around. It is hard to imagine because it represent such a departure from the rich language we have developed to express ourselves.</p>
+<p>Creating mouse oriented user interfaces often doubles or more the code complexity. Creating business logic is easy. Creating web-based user interfaces is extremely difficult.</p>
+<p>The pain goes even deeper. Anyone who is responsible for testing mouse oriented applications can attest to just how hard it can be to assert it works as expected.</p>
+<p>Why have we adopted this style as a primary means of communication with our computer? We do not know; however, We are done! No more... There is a better way!</p>
+<h3 id="30-years-of-cli"><a class="header" href="#30-years-of-cli">30+ Years of CLI</a></h3>
+<p>There is a reason a great percentage of the world's developers abandoned Windows for Apple and Linux. They realized there is power in a CLI (command line interface) where you can communicate your instructions in a language that is orders of magnitude more expressive and more capable than a mouse. This is hundreds if not thousands of times more expressive... In the right hands "expressive" mean "powerful" and "capable".</p>
+<p>We understand it takes time to learn different expressions; however, we also understand that it is worth it. The world's developers voiced their preference.</p>
+<p>In the last 30 years...</p>
+<ul>
+<li>A rich ecosystem of commands emerged in the CLI. This means you have a menu of tools to perform everyday tasks.</li>
+<li>A data pipeline convention emerged as a way to connect the results of one command as input to the next.</li>
+<li>Commands were combined to create scripts.</li>
+<li>Scripts were piped together to automate processes.</li>
+</ul>
+<h3 id="ai-changes-things"><a class="header" href="#ai-changes-things">AI Changes Things</a></h3>
+<p>AI enhances our ability to communicate across multiple languages. One of the big challenges of using a CLI to converse with your computer, data or processes is the learning curve of the CLI way of thinking. AI removes this hurdle, and it enables the average person to accomplish what developers already know. It translates human language to CLI language. Said another way, AI helps turn clerks into <a href="./terminology.html#superclerk">superclerks</a>.</p>
+<p>Now, imagine if clerks started using CLI tools to perform everyday tasks. The smart clerks started creating scripts to automate tasks. The really smart clerks started connecting/piping scripts together to perform workflows. If only IT has the ability to put these tools in the hands of clerks.</p>
+<p>Imagine if clerks could use the existing work instructions to power AI to automate their tasks. Imagine if the person actually doing the work had the ability to both automate it and confirm its accuracy.</p>
+<p>Hmmm...</p>
+<h2 id="value-matters"><a class="header" href="#value-matters">Value Matters</a></h2>
+<p>We believe that people and organizations will fight to be relevant. As AI encroaches upon thought work and eliminates responsibilities, some will not sit idly by. They will look for opportunities to use AI for their benefit.</p>
+<p>The chuck-stack success will depend on our ability to demonstrate human value in our changing world.</p>
+<h3 id="know-your-audience"><a class="header" href="#know-your-audience">Know Your Audience</a></h3>
+<p>It is important to state that creating tools for organizations is very different than creating tools for the consumer market. People in an organization have a job to do. They may perform the same tasks hundreds of times in a day. They repeat these tasks for weeks, months and sometimes years.</p>
+<p>It is completely acceptable to take a moment to teach someone how to do something that a general consumer would have no ability to execute without training. When you think about the concepts expressed on this page, it stands to reason the some organizations and clerks will rise to the occasion and willingly attempt a better way to add value to themselves and this world.</p>
+<p>Our 25+ years of ERP experience tells us this is more than reasonable.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="picture-success.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="getting-started.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="picture-success.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="getting-started.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

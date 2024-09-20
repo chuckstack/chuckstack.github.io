@@ -2,6 +2,10 @@
 
 The purpose of this page is to define terminology used in the chuck-stack.org.
 
+## Data Pipeline
+
+
+
 ## Entity
 
 An entity is often a legal or taxation group. A single [tenant](./terminology.md#tenant) can have many entities. An entity can belong to only one tenant.
