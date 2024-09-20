@@ -1,6 +1,11 @@
 # Factors for Success
 
-The purpose of this page is to discuss the foundational beliefs and factors for chuck-stack success.
+The purpose of this page is to discuss the foundational beliefs and factors for chuck-stack success. We believe the following to be true. Our success depends on our ability to convince to believe as well.
+
+- The CLI represents a better way for small and medium organizations to manage data, automate processes and build [superclerk](./terminology.md#superclerk) talent.
+- AI is powerful enough to transform the roles of IT, managers and clerks to deploy AI-enabled, self-service tools that drive innovation from everyone in an organization.
+- We can combine off-the-shelf tools and best practices to create and deploy an application framework that represents a significant reduction in both cost and complexity.
+- We can manage the cost of AI inference so that it remains half the cost of the displaced labor.
 
 ## CLI Is Better
 
