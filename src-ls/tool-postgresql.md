@@ -4,7 +4,7 @@ PostgreSQL is an open source database, and it is quite possibly the best general
 
 ## Why We Love PostgreSQL
 
-The list of reasons we love PostgreSQL is long and well distinguished.
+The list of reasons we love PostgreSQL is long.
 
 - It is commonly used and well documented.
 - It is open source.
