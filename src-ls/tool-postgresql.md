@@ -1,6 +1,6 @@
 # PostgreSQL
 
-PostgreSQL is an open source database, and it is quite possibly the best general purpose tool for managing data in the world. We realize this is a bold statement; however, after almost 30 years in mid-market ERP (Enterprise Resource Planning), we know a thing about managing data. PostgreSQL is our preferred tool in its category.
+PostgreSQL is an open source database, and it is quite possibly the best general purpose tool for managing data in the world. We realize this is a bold statement; however, after almost 30 years in mid-market ERP (Enterprise Resource Planning), we know a thing about managing data. PostgreSQL is our preferred tool in its category for some very good reasons.
 
 ## Why We Love PostgreSQL
 
@@ -26,7 +26,7 @@ Here are some bullets that are unique to PostgreSQL that make it significantly b
 - It is not enough to simply say it can hold this data - it is better than almost all of its peers who often specialize in these types of data.
 - Data replication is predictable.
 - Data replication is configurable (streaming vs logical).
-- Data backup is strategies are numerous, robust and well documented.
+- Data backup strategies are numerous, robust and well documented.
 - There are PostgreSQL drivers, adapters, connectors for almost every major platform (OS and application).
 - It is fast!
-- It can read from many foreign data containers via FDW (Foreign Data Wrappers).
+- It can read from many foreign data containers via FDW (Foreign Data Wrappers) - [see the list](https://wiki.postgresql.org/wiki/Foreign_data_wrappers).
