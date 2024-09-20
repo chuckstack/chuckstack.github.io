@@ -209,6 +209,20 @@
 <li><a href="./best-practices.html">Best Practices</a>: make the chuck-stack vision possible. These practices include both organizational and technical topics.</li>
 <li><a href="./stack-application.html">Application Framework</a>: executing best practices with the above tools and teaching AI to automate the fundamentals of your organization.</li>
 </ol>
+<h2 id="small-and-medium-is-different"><a class="header" href="#small-and-medium-is-different">Small and Medium Is Different</a></h2>
+<p>It is critical to note that small and medium organization application development is fundamentally different than single-purpose and web-scale application development.</p>
+<ul>
+<li>tools are different</li>
+<li>user needs are different</li>
+<li>developers are different</li>
+<li>deployment is different</li>
+<li>requirements are different</li>
+<li>user training is different</li>
+</ul>
+<blockquote>
+<p>The majority of the web is filled with single-purpose and web-scale development practices. The world of small and medium organization data and process management is severely underserved. The chuck-stack aims to provide better support to such an important group.</p>
+<p>- <em>Chuck Boecking</em></p>
+</blockquote>
 <h2 id="education"><a class="header" href="#education">Education</a></h2>
 <p>The stack-academy exists to help your organization achieve success as quickly as possible. It's an online support infrastructure that teaches organizations how to install and use the tools, leverage best practices, and foster <a href="./terminology.html#superclerk">superclerk</a> talent.</p>
 <ul>
@@ -220,7 +234,7 @@
 <h2 id="chuck-stack-customers"><a class="header" href="#chuck-stack-customers">chuck-stack Customers</a></h2>
 <p>Deploying enterprise systems is not easy. Small and mid-sized organizations often need additional help to ensure success. We support two types of organizations:</p>
 <ul>
-<li>Integrators - organizations with the specialty of enterprise system deployment and support. These groups often have vertical market expertise that assist their customers in rapid change management and technology adoption.</li>
+<li>Integrators - organizations with the specialty of enterprise system deployment and support. These groups often have vertical market expertise that further assist their customers in rapid change management and technology adoption.</li>
 <li>End-users - organizations who will use the chuck-stack in its operations.</li>
 </ul>
 <p>Both types of customers are vitally important to ensuring our mutual success. Both customers are welcome and supported in the <a href="./stack-academy.html">stack-academy</a> and in our community.</p>
@@ -234,7 +248,8 @@
 <li>Support self service by giving <a href="./terminology.html#superclerk">superclerks</a> the tools to automate tasks within their roles without direct intervention from IT!</li>
 </ul>
 <h2 id="why-chuck-stack-is-important"><a class="header" href="#why-chuck-stack-is-important">Why chuck-stack is Important</a></h2>
-<p>There is not much like the chuck-stack on the market. There is NO private equity or venture capitalist manipulating the market in hopes of extracting customer profits and executing a windfall chuck-stack sale. Instead, the chuck-stack is built on basic principles and fundamentals to make the world a better place for organizations with a purpose for good. The principles are pretty straight forward:</p>
+<p>We keep things simple! There is not much like the chuck-stack on the market. There is NO private equity or venture capitalist manipulating the market or creating a false sense of complexity in hopes of extracting customer profits and executing a windfall chuck-stack sale.</p>
+<p>Instead, the chuck-stack is built on basic fundamentals to make the world a better place for organizations with a purpose. The fundamentals are pretty straight forward:</p>
 <ul>
 <li>Find good tools</li>
 <li>Publish best practices and welcome feedback</li>
@@ -478,7 +493,8 @@
 <li>What is Incus</li>
 <li>Why we love Incus</li>
 <li>Types of virtualisation (including Docker)</li>
-<li>Its relation to Nix</li>
+<li>Incus relation to Nix</li>
+<li>Incus relation to Docker</li>
 </ul>
 <h2 id="what-is-incus"><a class="header" href="#what-is-incus">What is Incus</a></h2>
 <p><a href="https://linuxcontainers.org/incus/docs/main/">Incus</a> is a Linux application that allows you to take any single computer or collection/cluster of computers and turn them into a virtualisation platform.</p>
@@ -513,8 +529,17 @@
 <li>Nix is a great virtualisation solution when you need a specialized, high-volume and resource sensitive application hosting solution. Replit's use of Nix is a good example of when Nix is preferable. (<a href="https://blog.replit.com/nix_web_app">Quick link...</a>)</li>
 <li>A Nix solution can easily be deployed inside Incus.</li>
 </ul>
+<h2 id="incus-relation-to-docker"><a class="header" href="#incus-relation-to-docker">Incus Relation to Docker</a></h2>
+<p>Docker is a compelling option for virtualisation. Here are the reason we prefer Incus over Docker:</p>
+<ul>
+<li>Incus gives us a single tool to deploy and manage almost all virtualisation scenarios.</li>
+<li>Docker is great at application deployment. We need more than just application deployment.</li>
+<li>Incus covers more virtualisation use case scenarios than Docker. For example: we need semi-permanent instances for long running applications like PostgreSQL. Incus provides this capability with no additional effort.</li>
+<li>Incus supports running Docker containers without needing a dedicated Docker environment.</li>
+<li>Note: Incus does not support Docker Compose yet.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="linux"><a class="header" href="#linux">Linux</a></h1>
-<p>Linux is a well understood and documented operation system. Its benefits are equally as well documented; therefore, we do not need to attempt to repeat them here. However, it is important to discuss why we love Linux.</p>
+<p>Linux is a well understood and documented operation system. Its benefits are equally as well documented; therefore, we do not need to attempt to repeat them here. However, it is important to discuss why we love Linux for the chuck-stack.</p>
 <h2 id="why-we-love-linux"><a class="header" href="#why-we-love-linux">Why We Love Linux</a></h2>
 <ul>
 <li>It is commonly used and well documented.</li>
@@ -562,6 +587,33 @@
 <li>It can read from many foreign data containers via FDW (Foreign Data Wrappers) - <a href="https://wiki.postgresql.org/wiki/Foreign_data_wrappers">see the list</a>.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postgrest-1"><a class="header" href="#postgrest-1">PostgREST</a></h1>
+<p><a href="https://postgrest.org/">PostgREST</a> is a secret weapon that allows us to build a fully-qualified and secure REST API directly on top of a PostgreSQL database schemas and users/roles. If you can build a good database with functions, you can build a good REST API.</p>
+<h2 id="why-we-love-postgrest"><a class="header" href="#why-we-love-postgrest">Why We Love PostgREST</a></h2>
+<p>The list of reasons we love PostgREST.</p>
+<ul>
+<li>It is an active project, and it is well documented.</li>
+<li>It is open source.</li>
+<li>It is easily accessible from anywhere in the world.</li>
+<li>Its accessibility is secure and well vetted.</li>
+<li>It has a vibrant online support community.</li>
+<li>It makes the data we need to do our jobs immediately available.</li>
+<li>It can be deployed in every corner of the world.</li>
+<li>It can be deployed using a single file.</li>
+<li>It can be deployed in hybrid cloud scenarios.</li>
+<li>It is API first to help support AI and automation.</li>
+<li>It offers a reasonably simple architecture given the nature of its purpose.</li>
+<li>It scales massively for small to medium organizations.</li>
+<li>It does its job (data access) quite well.</li>
+<li>And, most importantly it has great synergy with the rest of the chuck-stack.</li>
+</ul>
+<p>PostgREST adds no additional logic to an existing PostgreSQL schema. This means that you can create a well thought out public database schema and expose it via two different access protocols (REST API and SQL) without duplicating any logic. This concept is important because:</p>
+<ul>
+<li>You minimize the number of experts required to support your platform. SQL in general and PostgreSQL specifically is extremely well known by both humans and AI. The more logic you can create in PostgreSQL, the faster and more efficient you team will become.</li>
+<li>SQL represents one of the most expressive data languages. Previously, SQL was removed as a viable public API because of the fear of duplicated access/security logic. This one point is such a game changer in how you thing about managing and accessing data.</li>
+<li>PostgREST enables moving user/role management and security policies to the database where all application access rules from all platforms (API + SQL) are enforced from a single location.</li>
+<li>User/Role level management at the database is fast and efficient because PostgreSQL user/role management is so expressive and it is so close to the data.</li>
+<li>REST API + SQL cover the fast majority of tools that need access to application logic. Said another way, most applications cannot expose SQL as an interface because traditional applications keep business and security logic in the API layer. As a result of using PostgREST, you maximize the tools that support small and medium organizations by allowing applications to use both API and SQL without any degradation in application quality or complexity.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="aichat-1"><a class="header" href="#aichat-1">AIChat</a></h1>
 <p>coming soon</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nushell-1"><a class="header" href="#nushell-1">Nushell</a></h1>

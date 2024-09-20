@@ -6,7 +6,8 @@ Discussion Points:
 - What is Incus
 - Why we love Incus
 - Types of virtualisation (including Docker)
-- Its relation to Nix
+- Incus relation to Nix
+- Incus relation to Docker
 
 ## What is Incus
 
@@ -47,3 +48,13 @@ Here are our thoughts:
 - Incus covers many more virtualisation scenarios than Nix.
 - Nix is a great virtualisation solution when you need a specialized, high-volume and resource sensitive application hosting solution. Replit's use of Nix is a good example of when Nix is preferable. ([Quick link...](https://blog.replit.com/nix_web_app))
 - A Nix solution can easily be deployed inside Incus.
+
+## Incus Relation to Docker
+
+Docker is a compelling option for virtualisation. Here are the reason we prefer Incus over Docker:
+
+- Incus gives us a single tool to deploy and manage almost all virtualisation scenarios.
+- Docker is great at application deployment. We need more than just application deployment.
+- Incus covers more virtualisation use case scenarios than Docker. For example: we need semi-permanent instances for long running applications like PostgreSQL. Incus provides this capability with no additional effort.
+- Incus supports running Docker containers without needing a dedicated Docker environment.
+- Note: Incus does not support Docker Compose yet.

@@ -184,7 +184,8 @@
 <li>What is Incus</li>
 <li>Why we love Incus</li>
 <li>Types of virtualisation (including Docker)</li>
-<li>Its relation to Nix</li>
+<li>Incus relation to Nix</li>
+<li>Incus relation to Docker</li>
 </ul>
 <h2 id="what-is-incus"><a class="header" href="#what-is-incus">What is Incus</a></h2>
 <p><a href="https://linuxcontainers.org/incus/docs/main/">Incus</a> is a Linux application that allows you to take any single computer or collection/cluster of computers and turn them into a virtualisation platform.</p>
@@ -218,6 +219,15 @@
 <li>Incus covers many more virtualisation scenarios than Nix.</li>
 <li>Nix is a great virtualisation solution when you need a specialized, high-volume and resource sensitive application hosting solution. Replit's use of Nix is a good example of when Nix is preferable. (<a href="https://blog.replit.com/nix_web_app">Quick link...</a>)</li>
 <li>A Nix solution can easily be deployed inside Incus.</li>
+</ul>
+<h2 id="incus-relation-to-docker"><a class="header" href="#incus-relation-to-docker">Incus Relation to Docker</a></h2>
+<p>Docker is a compelling option for virtualisation. Here are the reason we prefer Incus over Docker:</p>
+<ul>
+<li>Incus gives us a single tool to deploy and manage almost all virtualisation scenarios.</li>
+<li>Docker is great at application deployment. We need more than just application deployment.</li>
+<li>Incus covers more virtualisation use case scenarios than Docker. For example: we need semi-permanent instances for long running applications like PostgreSQL. Incus provides this capability with no additional effort.</li>
+<li>Incus supports running Docker containers without needing a dedicated Docker environment.</li>
+<li>Note: Incus does not support Docker Compose yet.</li>
 </ul>
 
                     </main>

@@ -39,6 +39,21 @@ The chuck-stack consists of three parts:
 1. [Best Practices](./best-practices.md): make the chuck-stack vision possible. These practices include both organizational and technical topics.
 1. [Application Framework](./stack-application.md): executing best practices with the above tools and teaching AI to automate the fundamentals of your organization.
 
+## Small and Medium Is Different
+
+It is critical to note that small and medium organization application development is fundamentally different than single-purpose and web-scale application development.
+
+- tools are different
+- user needs are different
+- developers are different
+- deployment is different
+- requirements are different
+- user training is different
+
+> The majority of the web is filled with single-purpose and web-scale development practices. The world of small and medium organization data and process management is severely underserved. The chuck-stack aims to provide better support to such an important group.
+>
+> \- *Chuck Boecking*
+
 ## Education
 
 The stack-academy exists to help your organization achieve success as quickly as possible. It's an online support infrastructure that teaches organizations how to install and use the tools, leverage best practices, and foster [superclerk](./terminology.md#superclerk) talent.
@@ -53,7 +68,7 @@ The stack-academy exists to help your organization achieve success as quickly as
 
 Deploying enterprise systems is not easy. Small and mid-sized organizations often need additional help to ensure success. We support two types of organizations:
 
-- Integrators - organizations with the specialty of enterprise system deployment and support. These groups often have vertical market expertise that assist their customers in rapid change management and technology adoption.
+- Integrators - organizations with the specialty of enterprise system deployment and support. These groups often have vertical market expertise that further assist their customers in rapid change management and technology adoption.
 - End-users - organizations who will use the chuck-stack in its operations.
 
 Both types of customers are vitally important to ensuring our mutual success. Both customers are welcome and supported in the [stack-academy](./stack-academy.md) and in our community.
@@ -68,10 +83,11 @@ Here are the chuck-stack design and implementation first principles in order. If
 - Write as little code as is possible. Every line of code is a liability that will cost you in the future. It must be documented, tested, reviewed and maintained. If you can use an existing tool that meets the [chuck-stack guidelines](./stack-tools.md#selection-criteria-summary) in place of writing code, do it!
 - Support self service by giving [superclerks](./terminology.md#superclerk) the tools to automate tasks within their roles without direct intervention from IT!
 
-
 ## Why chuck-stack is Important
 
-There is not much like the chuck-stack on the market. There is NO private equity or venture capitalist manipulating the market in hopes of extracting customer profits and executing a windfall chuck-stack sale. Instead, the chuck-stack is built on basic principles and fundamentals to make the world a better place for organizations with a purpose for good. The principles are pretty straight forward:
+We keep things simple! There is not much like the chuck-stack on the market. There is NO private equity or venture capitalist manipulating the market or creating a false sense of complexity in hopes of extracting customer profits and executing a windfall chuck-stack sale. 
+
+Instead, the chuck-stack is built on basic fundamentals to make the world a better place for organizations with a purpose. The fundamentals are pretty straight forward:
 
 - Find good tools
 - Publish best practices and welcome feedback
