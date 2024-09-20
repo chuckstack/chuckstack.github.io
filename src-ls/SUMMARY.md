@@ -13,6 +13,7 @@
   - [Nushell](./tool-nushell.md)
   - [Zellij](./tool-zellij.md)
   - [Git](./tool-git.md)
+  - [Obsidian](./tool-obsidian.md)
   - [Others](./tool-others.md)
 - [Best Practices](./best-practices.md)
 - [Stack Application](./stack-application.md)
