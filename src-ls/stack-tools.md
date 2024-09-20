@@ -24,10 +24,22 @@ Here are the more detailed guidelines for inclusion:
 - **Simple architecture** - not overly complicated relative to the tool's purpose.
 - **Enterprise scalability** - it needs to scale to support an organization of at least 1,000+ across multiple continents.
 - **Enterprise testing and deployment** - it needs to support team development where improvements can be development, tested and accepted in dedicated environments and easily migrated to production using CI/CD concepts or scripts.
+- **Deployment safety and simplicity** - needs to create safe applications that deploy with minimal dependencies.
 - **Safe, reliable and performant** - if a system is not safe, reliability does not matter. If it is not reliable, performance does not matter.
 - **Command Line Interface (CLI) centric** - we love cli interfaces because they are accessible from anywhere.
 - **REST centric** - we love scriptable interfaces that can be called from anywhere (not just the cli).
 - **Globally deployed** - supports any organization in an corner of the world on almost any hosting platform.
+
+## Preference for Rust Language
+
+You might observe that we have a preference for applications written in the rust language. This preference is intentional for the following reasons:
+
+- Rust promotes writing safe applications by eliminating the majority of problems that have plagued developers for the last 30 years.
+- Rust applications typically compile down to a single binary.
+- The Rust tool chain is simple to understand and execute for both application development and deployment.
+- Rust applications tend to perform better and faster than their counterparts.
+- Rust supports full stack development thus minimizing the number of experts needed to solve a problem.
+- The Rust community practices and values align with the chuck-stack community. See our [code of conduct](./code-of-conduct.md) as an example.
 
 ## Most Important Tools
 
