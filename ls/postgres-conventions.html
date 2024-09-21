@@ -208,6 +208,7 @@
 <li>transaction =&gt; trx</li>
 <li>foreign key =&gt; fk</li>
 <li>index =&gt; idx</li>
+<li>link =&gt; lnk</li>
 </ul>
 <h2 id="table-conventions"><a class="header" href="#table-conventions">Table Conventions</a></h2>
 <p>This section discuss how we create tables in the private schema.</p>
@@ -216,7 +217,7 @@
 <li>All tables have a single primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. Said another way, if you know the table_name and the record_uu of any given record, you can always find the details associated with that record. This convention also allows us to create many features that are shared across all records in all tables. These features include centralized logs, attachments, and attributes.</li>
 <li>All core chuck-stack tables will begin with <code>stk_</code>. Example: <code>stk_business_partner</code>.</li>
 <li>Your organization should chose a table prefix that resembles your organization's name if you wish to add new tables or new columns. Example: the Good-Care Medical organization could have a prefix of <code>gcm_</code>.</li>
-<li>Link tables should have a table name suffix of <code>_link</code>. <!-- TODO: add link table to definitions --></li>
+<li>Link tables should have a table name suffix of <code>_lnk</code>.</li>
 <li>Tables should have comments that describe the purpose of the table. Because AI is so proficient at understanding SQL DDL, we can define both how the table operates and why it exists in the same location. Because SQL is self describing, we can query table comments to obtain help documentation with no extra effort.</li>
 <li>Both table and column comments can contain carriage returns; therefore, you can add human readable markdown and structured json, yaml, and toml data in your comments. Note: there is no convention in this bullet yet...</li>
 </ul>

@@ -40,6 +40,7 @@ The following words are expected to be abbreviated unless the abbreviation creat
 - transaction => trx
 - foreign key => fk
 - index => idx
+- link => lnk
 
 ## Table Conventions
 
@@ -49,7 +50,7 @@ This section discuss how we create tables in the private schema.
 - All tables have a single primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. Said another way, if you know the table_name and the record_uu of any given record, you can always find the details associated with that record. This convention also allows us to create many features that are shared across all records in all tables. These features include centralized logs, attachments, and attributes.
 - All core chuck-stack tables will begin with `stk_`. Example: `stk_business_partner`.
 - Your organization should chose a table prefix that resembles your organization's name if you wish to add new tables or new columns. Example: the Good-Care Medical organization could have a prefix of `gcm_`.
-- Link tables should have a table name suffix of `_link`. <!-- TODO: add link table to definitions -->
+- Link tables should have a table name suffix of `_lnk`.
 - Tables should have comments that describe the purpose of the table. Because AI is so proficient at understanding SQL DDL, we can define both how the table operates and why it exists in the same location. Because SQL is self describing, we can query table comments to obtain help documentation with no extra effort.
 - Both table and column comments can contain carriage returns; therefore, you can add human readable markdown and structured json, yaml, and toml data in your comments. Note: there is no convention in this bullet yet...
 
