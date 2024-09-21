@@ -8,9 +8,9 @@ The purpose of this page is to describe the concepts and methodologies for creat
 - Reduce development time
 - Reduce development environment complexity
 - Reduce learning time
-- Reduce complexity
+- Reduce operational complexity
 - Maximize use of conventions
-- Minimize the number of expertise needed to articulate a design
+- Minimize the number of experts needed to articulate a design
 
 ## Schema
 
@@ -29,6 +29,15 @@ If you support a single exposed schema, you can name the publicly available sche
 The separation between private and public schemas allows you to change the private data and logic representations while publicly maintaining semantic version control. 
 
 The artifacts in a public schema will most commonly begin as simple pass-through views and functions. Minor and patch releases will most likely introduce more complexity the public schema. Major releases might give you an opportunity to simply the public schema since you can introduce breaking changes to the public api.
+
+## Common Abbreviations 
+
+The following words are expected to be abbreviated unless the abbreviation creates confusion.
+
+- document => doc
+- transaction => trx
+- foreign key => fk
+- index => idx
 
 ## Table Conventions
 
@@ -60,8 +69,8 @@ This sections lists the mandatory and optional columns found in chuck-stack tabl
 ### Mandatory Columns
 
 - primary key - The primary key column bears the name of the table with a `_uu` suffix. Example: `stack_some_table_uu`
-- `stack_tenant_uu` - foreign key reference to the tenant that owns the record <!-- TODO: define tenant and add link here -->
-- `stack_org_uu` - financial set of books that owns the record <!-- TODO: define org and add link here -->
+- `stack_tenant_uu` - foreign key reference to the tenant that owns the record
+- `stack_entity_uu` - financial set of books that owns the record
 - `created` - timestamp indicating when the record was created.
 - `created_by_uu` - uuid foreign key reference to the database user/role that created the record.
 - `updated` - timestamp indicating when the record was last updated.

@@ -15,11 +15,12 @@ A domain term is how the chuck-stack refers to a database dimension. The followi
 - Tenant*
 - Entity*
 - Business Partner
+- User
 - Department
 - Product
 - Asset
 - Employee
-- Center (profit or cost - also known as a Line of Business)
+- Center (aka: profit or cost, Line of Business, division)
 - Project
 - Activity
 - Campaign

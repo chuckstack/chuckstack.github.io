@@ -186,9 +186,9 @@
 <li>Reduce development time</li>
 <li>Reduce development environment complexity</li>
 <li>Reduce learning time</li>
-<li>Reduce complexity</li>
+<li>Reduce operational complexity</li>
 <li>Maximize use of conventions</li>
-<li>Minimize the number of expertise needed to articulate a design</li>
+<li>Minimize the number of experts needed to articulate a design</li>
 </ul>
 <h2 id="schema"><a class="header" href="#schema">Schema</a></h2>
 <p>We use multiple PostgreSQL schemas to create a expose our application logic to the rest of the system.</p>
@@ -199,6 +199,14 @@
 <p>If you support a single exposed schema, you can name the publicly available schema something like <code>public</code> or <code>api</code>. If you plan to support multiple schemas simultaneously, you can include the major version number in the schema name like <code>public_v1</code> or <code>public_v2</code>. It is not common to support multiple versions at the same time; however, it does happen.</p>
 <p>The separation between private and public schemas allows you to change the private data and logic representations while publicly maintaining semantic version control.</p>
 <p>The artifacts in a public schema will most commonly begin as simple pass-through views and functions. Minor and patch releases will most likely introduce more complexity the public schema. Major releases might give you an opportunity to simply the public schema since you can introduce breaking changes to the public api.</p>
+<h2 id="common-abbreviations"><a class="header" href="#common-abbreviations">Common Abbreviations</a></h2>
+<p>The following words are expected to be abbreviated unless the abbreviation creates confusion.</p>
+<ul>
+<li>document =&gt; doc</li>
+<li>transaction =&gt; trx</li>
+<li>foreign key =&gt; fk</li>
+<li>index =&gt; idx</li>
+</ul>
 <h2 id="table-conventions"><a class="header" href="#table-conventions">Table Conventions</a></h2>
 <p>This section discuss how we create tables in the private schema.</p>
 <ul>
@@ -230,8 +238,8 @@
 <h3 id="mandatory-columns"><a class="header" href="#mandatory-columns">Mandatory Columns</a></h3>
 <ul>
 <li>primary key - The primary key column bears the name of the table with a <code>_uu</code> suffix. Example: <code>stack_some_table_uu</code></li>
-<li><code>stack_tenant_uu</code> - foreign key reference to the tenant that owns the record <!-- TODO: define tenant and add link here --></li>
-<li><code>stack_org_uu</code> - financial set of books that owns the record <!-- TODO: define org and add link here --></li>
+<li><code>stack_tenant_uu</code> - foreign key reference to the tenant that owns the record</li>
+<li><code>stack_entity_uu</code> - financial set of books that owns the record</li>
 <li><code>created</code> - timestamp indicating when the record was created.</li>
 <li><code>created_by_uu</code> - uuid foreign key reference to the database user/role that created the record.</li>
 <li><code>updated</code> - timestamp indicating when the record was last updated.</li>
