@@ -148,4 +148,5 @@ He are the tools we want to use more:
 - [Ollama (AI)](https://ollama.com/): AI tool for running generative AI (LLM) models locally.
 - [CrowdSec (security)](https://www.crowdsec.net/): Proactively block known malicious IPs and activities.
 - [NixOS (Linux OS)](https://nixos.org/): specific distribution of Linux delivering the most control and compute options. Nix represents the easiest way to describe, deploy and maintain desktops and servers.
+- [htmx](https://htmx.org/): compelling way for small and medium organizations to create dynamic websites.
 
