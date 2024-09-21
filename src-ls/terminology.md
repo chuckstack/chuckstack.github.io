@@ -29,7 +29,7 @@ A domain terminology is how the chuck-stack refers to a database dimensions. The
 - Product
 - Asset
 - Center
-  - also known as profit or cost, Line of Business, division
+  - also known as profit or cost, line of business, division
 - Project
 - Activity
 - Campaign
