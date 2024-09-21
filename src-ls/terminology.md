@@ -27,7 +27,7 @@ A domain term is how the chuck-stack refers to a database dimension. The followi
 - Location
 - Warehouse
 
-* means mandatory for every table in the chuck-stack
+\* means mandatory for every table in the chuck-stack
 
 The purpose of the default domain term dimensions is to prove a collection of defaults that represent what most (say 80%) organizations use to manage their operations.
 
