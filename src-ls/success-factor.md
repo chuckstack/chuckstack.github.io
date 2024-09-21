@@ -38,7 +38,7 @@ We understand it takes time to learn different expressions; however, we also und
 
 In the last 30 years...
 - A rich ecosystem of commands emerged in the CLI. This means you have a menu of tools to perform everyday tasks.
-- A data pipeline convention emerged as a way to connect the results of one command as input to the next.
+- A data [pipeline](./terminology.md#data-pipeline) convention emerged as a way to connect the results of one command as input to the next.
 - Commands were combined to create scripts.
 - Scripts were piped together to automate processes.
 

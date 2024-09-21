@@ -4,7 +4,7 @@ The purpose of this page is to define terminology used in the chuck-stack.org.
 
 ## Data Pipeline
 
-
+Linux shell pipelines allow users to chain multiple commands together, where the output of one command becomes the input for the next. This is achieved using the pipe symbol (|) between commands. Pipelines enable complex data processing and manipulation tasks to be performed efficiently by combining simple, specialized tools. This approach embodies the Unix philosophy of creating small, focused programs that work together seamlessly, allowing users to build sophisticated operations from basic building blocks.
 
 ## Entity
 

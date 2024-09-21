@@ -203,7 +203,7 @@
 </ul>
 <h2 id="why-ai--cli-matters"><a class="header" href="#why-ai--cli-matters">Why AI + CLI Matters</a></h2>
 <p>The vast majority of AI tools created in the last year are deployed via a webpage. We understand why people make this choice; however, we believe it is the wrong choice for small and medium organizations. Applications in webpages effectively trap knowledge and data. They create silos, and the amount of tooling needed to connect data between webpages is enormous. There is a much better way!</p>
-<p>The CLI represents the single greatest superpower to help users create automation and data pipelines.</p>
+<p>The CLI represents the single greatest superpower to help users create automation and data <a href="./terminology.html#data-pipeline">pipelines</a>.</p>
 
                     </main>
 
@@ -234,6 +234,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

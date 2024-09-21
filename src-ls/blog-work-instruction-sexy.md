@@ -54,7 +54,7 @@ AI will continue to perform more and more work for you. AI's current role mostly
 
 However, not all systems are created equal. When you are forced to use a mouse to interact with the system, AI is limited in what it can do. Since the last 20 years of software was largely build around a mouse, simply saying "AI go do..." does not work in many cases. Luckily, the last 10 years have ushered in the concept of APIs where systems can talk to systems. AI can very much talk to systems via an API.
 
-The chuck-stack brings AI interaction to a whole new level. There is little distinction between what a human can do versus what an AI can do. Said another way, chuck-stack enables everyday clerks to use AI and well-formed work instructions to remove complexity and automate tasks. What was tedious becomes scripted. Scripts become menu options. Options connect to form data pipelines.
+The chuck-stack brings AI interaction to a whole new level. There is little distinction between what a human can do versus what an AI can do. Said another way, chuck-stack enables everyday clerks to use AI and well-formed work instructions to remove complexity and automate tasks. What was tedious becomes scripted. Scripts become menu options. Options connect to form data [pipelines](./terminology.md#data-pipeline).
 
 Conversational enterprise computing (the chuck-stack) will change how you think about business basics. As a result, I hope the mouse enjoys a pleasant retirement. 
 

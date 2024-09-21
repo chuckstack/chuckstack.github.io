@@ -27,4 +27,4 @@ Discussion points:
 
 The vast majority of AI tools created in the last year are deployed via a webpage. We understand why people make this choice; however, we believe it is the wrong choice for small and medium organizations. Applications in webpages effectively trap knowledge and data. They create silos, and the amount of tooling needed to connect data between webpages is enormous. There is a much better way!
 
-The CLI represents the single greatest superpower to help users create automation and data pipelines.
+The CLI represents the single greatest superpower to help users create automation and data [pipelines](./terminology.md#data-pipeline).

@@ -109,7 +109,7 @@ The world's smartest people performing some of the most difficult work across th
 - Create full-featured cli applications with just a few lines of code.
 - Call on external API (including PostgREST) to integration external system and data.
 - Call your cli applications from AIChat with minimal configuration.
-- Compose more complex workflows using data pipelines.
+- Compose more complex workflows using data [pipelines](./terminology.md#data-pipeline).
 - Expose your cli applications to power users to support self-help automation with the assistance of AIChat.
 
 ### Zellij

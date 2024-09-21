@@ -711,7 +711,7 @@
 </ul>
 <h2 id="why-ai--cli-matters"><a class="header" href="#why-ai--cli-matters">Why AI + CLI Matters</a></h2>
 <p>The vast majority of AI tools created in the last year are deployed via a webpage. We understand why people make this choice; however, we believe it is the wrong choice for small and medium organizations. Applications in webpages effectively trap knowledge and data. They create silos, and the amount of tooling needed to connect data between webpages is enormous. There is a much better way!</p>
-<p>The CLI represents the single greatest superpower to help users create automation and data pipelines.</p>
+<p>The CLI represents the single greatest superpower to help users create automation and data <a href="./terminology.html#data-pipeline">pipelines</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nushell-1"><a class="header" href="#nushell-1">Nushell</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="zellij-1"><a class="header" href="#zellij-1">Zellij</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="git"><a class="header" href="#git">Git</a></h1>
@@ -939,6 +939,7 @@ COMMENT ON TABLE stack_some_table IS 'Table that contains some data';
 <div style="break-before: page; page-break-before: always;"></div><h1 id="terminology"><a class="header" href="#terminology">Terminology</a></h1>
 <p>The purpose of this page is to define terminology used in the chuck-stack.org.</p>
 <h2 id="data-pipeline"><a class="header" href="#data-pipeline">Data Pipeline</a></h2>
+<p>Linux shell pipelines allow users to chain multiple commands together, where the output of one command becomes the input for the next. This is achieved using the pipe symbol (|) between commands. Pipelines enable complex data processing and manipulation tasks to be performed efficiently by combining simple, specialized tools. This approach embodies the Unix philosophy of creating small, focused programs that work together seamlessly, allowing users to build sophisticated operations from basic building blocks.</p>
 <h2 id="entity"><a class="header" href="#entity">Entity</a></h2>
 <p>An entity is often a legal or taxation group. A single <a href="./terminology.html#tenant">tenant</a> can have many entities. An entity can belong to only one tenant.</p>
 <h2 id="superclerk"><a class="header" href="#superclerk">SuperClerk</a></h2>
@@ -1169,6 +1170,22 @@ COMMENT ON TABLE stack_some_table IS 'Table that contains some data';
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
