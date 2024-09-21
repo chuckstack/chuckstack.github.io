@@ -182,8 +182,36 @@
 <h2 id="data-pipeline"><a class="header" href="#data-pipeline">Data Pipeline</a></h2>
 <p>Linux shell pipelines allow users to chain multiple commands together, where the output of one command becomes the input for the next. This is achieved using the pipe symbol (|) between commands. Pipelines enable complex data processing and manipulation tasks to be performed efficiently by combining simple, specialized tools.</p>
 <p>This approach embodies the Unix philosophy of creating small, focused programs that work together seamlessly, allowing users to build sophisticated operations from basic building blocks.</p>
+<h2 id="domain-term"><a class="header" href="#domain-term">Domain Term</a></h2>
+<p>A domain term is how the chuck-stack refers to a database dimension. The following domain terms exist in the chuck-stack upon installation.</p>
+<ul>
+<li>Tenant*</li>
+<li>Entity*</li>
+<li>Business Partner</li>
+<li>Department</li>
+<li>Product</li>
+<li>Asset</li>
+<li>Employee</li>
+<li>Center (profit or cost - also known as a Line of Business)</li>
+<li>Project</li>
+<li>Activity</li>
+<li>Campaign</li>
+<li>Region</li>
+<li>Location</li>
+<li>Warehouse</li>
+</ul>
+<ul>
+<li>means mandatory for every table in the chuck-stack</li>
+</ul>
+<p>The purpose of the default domain term dimensions is to prove a collection of defaults that represent what most (say 80%) organizations use to manage their operations.</p>
 <h2 id="entity"><a class="header" href="#entity">Entity</a></h2>
-<p>An entity is often a legal or taxation group. A single <a href="./terminology.html#tenant">tenant</a> can have many entities. An entity can belong to only one tenant.</p>
+<p>An Entity is a chuck-stack domain term that refers to a legal or taxation group. A single <a href="./terminology.html#tenant">Tenant</a> can have many Entities. An Entity can belong to only one Tenant. A special Entity named "<em>" (pronounced 'star') is created by default when the chuck-stack is installed. By convention, "</em>" means either default or shared depending on how the organization wishes to use it.</p>
+<h2 id="instance"><a class="header" href="#instance">Instance</a></h2>
+<p>An instance is how the chuck-stack refers to an installation or a unit of something.</p>
+<p>For example, an instance of PostgreSQL is a unique installation of the PostgreSQL application. An instance of PostgreSQL can contain multiple databases.</p>
+<p>For example, an instance of chuck-stack is a unique installation and deployment of the chuck-stack tools. An instance of the chuck-stack can contain multiple Tenants.</p>
+<h2 id="organization"><a class="header" href="#organization">Organization</a></h2>
+<p>An organization is how the chuck-stack refers to a group that uses the chuck-stack. An organization can be a formal for-profit or not-for-profit business, and an organization can be an informal band of people united by a common interest or cause.</p>
 <h2 id="superclerk"><a class="header" href="#superclerk">SuperClerk</a></h2>
 <p>A superclerk is someone performing a role who desires to better automate and perfect their role thus propeling the whole team to a new level performance. A superclerk seeks out the tools and the opportunity to do more. A superclerk can be anyone with a job to do. They can be an AP/AR Clerk, Sales Representative, Machinist, Controller, Manager, etc...</p>
 <p>The best way to describe a superclerk is by example. Imagine a team of AP and AR clerks. The team spends the majority of the day transcribing data. A superclerk emerges thinking there must be a better way. The superclerk does the following:</p>
@@ -196,9 +224,9 @@
 <h2 id="synergy"><a class="header" href="#synergy">Synergy</a></h2>
 <p>Synergy in the chuck-stack is what happens when you add two or more parts to make a whole where the value of the whole is greater than the sum of the individual parts. Just about anyone can make 1 + 1 = 2. It takes synergy (like with work instruction + automation) to make 1 + 1 = 11. That is a picture synergy!</p>
 <h2 id="tenant"><a class="header" href="#tenant">Tenant</a></h2>
-<p>A tenant is a group of one or more <a href="./terminology.html#entity">entities</a>. There are times when a single organization manages completely disparate entities. When these entities do not share any aspect of their businesses, the organization will create the different entities in separate tenants.</p>
-<p>The chuck-stack is multi-tenant software without being multi-tenant SaaS. A single instance of the chuck-stack can support multiple tenants; however, there is no reason for us to try and create a single, monolithic service trying to cater all organizations in the world. Monolithic SaaS service carry inherent risks that make them susceptible to data breaches and cross-contamination.</p>
-<p>Our goal is to use well tested and commonly understood networking services to create isolated tenants of the chuck-stack.</p>
+<p>A Tenant is a chuck-stack domain term that refers to a group of one or more <a href="./terminology.html#entity">Entities</a>. There are times when a single organization manages completely disparate Entities. When these entities do not share any purpose, processes or data, the organization will create the different Entities in separate Tenants.</p>
+<p>The chuck-stack is multi-tenant software without being multi-tenant SaaS. A single instance of the chuck-stack can support multiple Tenants; however, there is no reason for us to try and create a single, monolithic service trying to cater all organizations in the world. Monolithic SaaS service carry inherent risks that make them susceptible to data breaches and cross-contamination.</p>
+<p>Our goal is to use well tested and commonly understood networking services to create isolated instances of the chuck-stack.</p>
 
                     </main>
 

@@ -66,6 +66,11 @@ This sections lists the mandatory and optional columns found in chuck-stack tabl
 - `created_by_uu` - uuid foreign key reference to the database user/role that created the record.
 - `updated` - timestamp indicating when the record was last updated.
 - `updated_by_uu` - uuid foreign key reference to the database user/role that last updated the record.
+- `session_uu` - must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.
+
+Notes:
+
+- `stack_session` records become `is_processed` = true (immutable) after its first use.
 
 ### Optional Columns
 - `is_active` - boolean that indicates if a record can be modified. is_active also acts as a soft-delete. If a record has an is_active=false, the record should be be returned as an option for selection in future lists and drop down fields. This column must be present to update it after the initial save; therefore, it appears in most tables.
@@ -73,11 +78,39 @@ This sections lists the mandatory and optional columns found in chuck-stack tabl
 - `description` - text column representing the description of the record.
 - `search_key` - user defined text column. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.
 - `value` - text column that is often used along with a `search_key` in a key-value pair.
-- `document_no` - user defined text column. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor -->
+- `doc_no` - user defined text column. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor -->
+- `stack_doc_type_uu` - describes the type of document.
 - `is_default` - boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.
 - `is_processed` - boolean that indicates of a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column. 
 - `is_template` boolean that indicates if a record exists for the purpose of cloning to create new records.
+- `is_trx_type` enum listing the type of transaction. Used by `stack_doc_type` table.
 
+## References to Records
+
+No `_uu` should ever be referred to in code. If this situation is needed, use the System Configurator or enum conventions below.
+
+## enum Conventions
+
+Per the References to Records section... If you need switch/case/if-else based on the contents of a chosen record, build your switch from an enum. This ensures no `_uu` references enter code.
+
+An example of using an enum includes the `stack_doc_type` table. A Sales Order would include a `stack_doc_type_uu` reference and the `stack_doc_type` table would include an enum. If you need to add business logic to a Sales Order, your code would switch off of the `stack_doc_type`'s enum and not the `stack_doc_type_uu` itself.
+
+No table used in normal transactional operations should include an enum. Instead, enums should exist in tables that hold settings, configuration, types, etc... In the Sales Order => `stack_doc_type` example, the `stack_doc_type` table is an example of table that holds settings and configuration. The reason for this convention is to allow for multiple `stck_doc_type` records to contain the same enum value and therefore simply code and maximize user configurability.
+
+## System Configurator Convention
+
+Per the References to Records section... chuck-stack table `stack_sys_config` containing a collection of `search_key` and `value` pairs that describe how the system operates. If code needs to reference a record, one option is to create an entry in the `stack_sys_config` table and refer to its `search_key` in code to resolve the `_uu` value from the record's `value` column.
+
+This approach allows for easy chuck-stack user and migration script manipulation of behavior without manipulating code.
+
+Additional columns are optional and limit the scope a system configurator record:
+
+- `stack_tenant_uu`
+- `stack_entity_uu`
+- `stack_role_uu`
+- `stack_user_uu`
+
+System configurator records created for reference in code should use all caps case in the `search_key` column so that it resembles the common convention of a constant.
 
 ## Function Conventions
 

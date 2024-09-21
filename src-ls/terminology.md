@@ -8,9 +8,44 @@ Linux shell pipelines allow users to chain multiple commands together, where the
 
 This approach embodies the Unix philosophy of creating small, focused programs that work together seamlessly, allowing users to build sophisticated operations from basic building blocks.
 
+## Domain Term
+
+A domain term is how the chuck-stack refers to a database dimension. The following domain terms exist in the chuck-stack upon installation.
+
+- Tenant*
+- Entity*
+- Business Partner
+- Department
+- Product
+- Asset
+- Employee
+- Center (profit or cost - also known as a Line of Business)
+- Project
+- Activity
+- Campaign
+- Region
+- Location
+- Warehouse
+
+* means mandatory for every table in the chuck-stack
+
+The purpose of the default domain term dimensions is to prove a collection of defaults that represent what most (say 80%) organizations use to manage their operations.
+
 ## Entity
 
-An entity is often a legal or taxation group. A single [tenant](./terminology.md#tenant) can have many entities. An entity can belong to only one tenant.
+An Entity is a chuck-stack domain term that refers to a legal or taxation group. A single [Tenant](./terminology.md#tenant) can have many Entities. An Entity can belong to only one Tenant. A special Entity named "*" (pronounced 'star') is created by default when the chuck-stack is installed. By convention, "*" means either default or shared depending on how the organization wishes to use it.
+
+## Instance
+
+An instance is how the chuck-stack refers to an installation or a unit of something. 
+
+For example, an instance of PostgreSQL is a unique installation of the PostgreSQL application. An instance of PostgreSQL can contain multiple databases.
+
+For example, an instance of chuck-stack is a unique installation and deployment of the chuck-stack tools. An instance of the chuck-stack can contain multiple Tenants.
+
+## Organization
+
+An organization is how the chuck-stack refers to a group that uses the chuck-stack. An organization can be a formal for-profit or not-for-profit business, and an organization can be an informal band of people united by a common interest or cause.
 
 ## SuperClerk
 
@@ -30,8 +65,8 @@ Synergy in the chuck-stack is what happens when you add two or more parts to mak
 
 ## Tenant
 
-A tenant is a group of one or more [entities](./terminology.md#entity). There are times when a single organization manages completely disparate entities. When these entities do not share any aspect of their businesses, the organization will create the different entities in separate tenants.
+A Tenant is a chuck-stack domain term that refers to a group of one or more [Entities](./terminology.md#entity). There are times when a single organization manages completely disparate Entities. When these entities do not share any purpose, processes or data, the organization will create the different Entities in separate Tenants.
 
-The chuck-stack is multi-tenant software without being multi-tenant SaaS. A single instance of the chuck-stack can support multiple tenants; however, there is no reason for us to try and create a single, monolithic service trying to cater all organizations in the world. Monolithic SaaS service carry inherent risks that make them susceptible to data breaches and cross-contamination.
+The chuck-stack is multi-tenant software without being multi-tenant SaaS. A single instance of the chuck-stack can support multiple Tenants; however, there is no reason for us to try and create a single, monolithic service trying to cater all organizations in the world. Monolithic SaaS service carry inherent risks that make them susceptible to data breaches and cross-contamination.
 
-Our goal is to use well tested and commonly understood networking services to create isolated tenants of the chuck-stack.
+Our goal is to use well tested and commonly understood networking services to create isolated instances of the chuck-stack.

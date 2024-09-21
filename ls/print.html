@@ -900,6 +900,11 @@
 <li><code>created_by_uu</code> - uuid foreign key reference to the database user/role that created the record.</li>
 <li><code>updated</code> - timestamp indicating when the record was last updated.</li>
 <li><code>updated_by_uu</code> - uuid foreign key reference to the database user/role that last updated the record.</li>
+<li><code>session_uu</code> - must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li><code>stack_session</code> records become <code>is_processed</code> = true (immutable) after its first use.</li>
 </ul>
 <h3 id="optional-columns"><a class="header" href="#optional-columns">Optional Columns</a></h3>
 <ul>
@@ -908,11 +913,30 @@
 <li><code>description</code> - text column representing the description of the record.</li>
 <li><code>search_key</code> - user defined text column. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.</li>
 <li><code>value</code> - text column that is often used along with a <code>search_key</code> in a key-value pair.</li>
-<li><code>document_no</code> - user defined text column. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor --></li>
+<li><code>doc_no</code> - user defined text column. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor --></li>
+<li><code>stack_doc_type_uu</code> - describes the type of document.</li>
 <li><code>is_default</code> - boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.</li>
 <li><code>is_processed</code> - boolean that indicates of a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column.</li>
 <li><code>is_template</code> boolean that indicates if a record exists for the purpose of cloning to create new records.</li>
+<li><code>is_trx_type</code> enum listing the type of transaction. Used by <code>stack_doc_type</code> table.</li>
 </ul>
+<h2 id="references-to-records"><a class="header" href="#references-to-records">References to Records</a></h2>
+<p>No <code>_uu</code> should ever be referred to in code. If this situation is needed, use the System Configurator or enum conventions below.</p>
+<h2 id="enum-conventions"><a class="header" href="#enum-conventions">enum Conventions</a></h2>
+<p>Per the References to Records section... If you need switch/case/if-else based on the contents of a chosen record, build your switch from an enum. This ensures no <code>_uu</code> references enter code.</p>
+<p>An example of using an enum includes the <code>stack_doc_type</code> table. A Sales Order would include a <code>stack_doc_type_uu</code> reference and the <code>stack_doc_type</code> table would include an enum. If you need to add business logic to a Sales Order, your code would switch off of the <code>stack_doc_type</code>'s enum and not the <code>stack_doc_type_uu</code> itself.</p>
+<p>No table used in normal transactional operations should include an enum. Instead, enums should exist in tables that hold settings, configuration, types, etc... In the Sales Order =&gt; <code>stack_doc_type</code> example, the <code>stack_doc_type</code> table is an example of table that holds settings and configuration. The reason for this convention is to allow for multiple <code>stck_doc_type</code> records to contain the same enum value and therefore simply code and maximize user configurability.</p>
+<h2 id="system-configurator-convention"><a class="header" href="#system-configurator-convention">System Configurator Convention</a></h2>
+<p>Per the References to Records section... chuck-stack table <code>stack_sys_config</code> containing a collection of <code>search_key</code> and <code>value</code> pairs that describe how the system operates. If code needs to reference a record, one option is to create an entry in the <code>stack_sys_config</code> table and refer to its <code>search_key</code> in code to resolve the <code>_uu</code> value from the record's <code>value</code> column.</p>
+<p>This approach allows for easy chuck-stack user and migration script manipulation of behavior without manipulating code.</p>
+<p>Additional columns are optional and limit the scope a system configurator record:</p>
+<ul>
+<li><code>stack_tenant_uu</code></li>
+<li><code>stack_entity_uu</code></li>
+<li><code>stack_role_uu</code></li>
+<li><code>stack_user_uu</code></li>
+</ul>
+<p>System configurator records created for reference in code should use all caps case in the <code>search_key</code> column so that it resembles the common convention of a constant.</p>
 <h2 id="function-conventions"><a class="header" href="#function-conventions">Function Conventions</a></h2>
 <ul>
 <li>concept of function =&gt; create_from vs create_into -- attempt to support both when possible <!-- TODO: better define these terms --></li>
@@ -941,8 +965,36 @@ COMMENT ON TABLE stack_some_table IS 'Table that contains some data';
 <h2 id="data-pipeline"><a class="header" href="#data-pipeline">Data Pipeline</a></h2>
 <p>Linux shell pipelines allow users to chain multiple commands together, where the output of one command becomes the input for the next. This is achieved using the pipe symbol (|) between commands. Pipelines enable complex data processing and manipulation tasks to be performed efficiently by combining simple, specialized tools.</p>
 <p>This approach embodies the Unix philosophy of creating small, focused programs that work together seamlessly, allowing users to build sophisticated operations from basic building blocks.</p>
+<h2 id="domain-term"><a class="header" href="#domain-term">Domain Term</a></h2>
+<p>A domain term is how the chuck-stack refers to a database dimension. The following domain terms exist in the chuck-stack upon installation.</p>
+<ul>
+<li>Tenant*</li>
+<li>Entity*</li>
+<li>Business Partner</li>
+<li>Department</li>
+<li>Product</li>
+<li>Asset</li>
+<li>Employee</li>
+<li>Center (profit or cost - also known as a Line of Business)</li>
+<li>Project</li>
+<li>Activity</li>
+<li>Campaign</li>
+<li>Region</li>
+<li>Location</li>
+<li>Warehouse</li>
+</ul>
+<ul>
+<li>means mandatory for every table in the chuck-stack</li>
+</ul>
+<p>The purpose of the default domain term dimensions is to prove a collection of defaults that represent what most (say 80%) organizations use to manage their operations.</p>
 <h2 id="entity"><a class="header" href="#entity">Entity</a></h2>
-<p>An entity is often a legal or taxation group. A single <a href="./terminology.html#tenant">tenant</a> can have many entities. An entity can belong to only one tenant.</p>
+<p>An Entity is a chuck-stack domain term that refers to a legal or taxation group. A single <a href="./terminology.html#tenant">Tenant</a> can have many Entities. An Entity can belong to only one Tenant. A special Entity named "<em>" (pronounced 'star') is created by default when the chuck-stack is installed. By convention, "</em>" means either default or shared depending on how the organization wishes to use it.</p>
+<h2 id="instance"><a class="header" href="#instance">Instance</a></h2>
+<p>An instance is how the chuck-stack refers to an installation or a unit of something.</p>
+<p>For example, an instance of PostgreSQL is a unique installation of the PostgreSQL application. An instance of PostgreSQL can contain multiple databases.</p>
+<p>For example, an instance of chuck-stack is a unique installation and deployment of the chuck-stack tools. An instance of the chuck-stack can contain multiple Tenants.</p>
+<h2 id="organization"><a class="header" href="#organization">Organization</a></h2>
+<p>An organization is how the chuck-stack refers to a group that uses the chuck-stack. An organization can be a formal for-profit or not-for-profit business, and an organization can be an informal band of people united by a common interest or cause.</p>
 <h2 id="superclerk"><a class="header" href="#superclerk">SuperClerk</a></h2>
 <p>A superclerk is someone performing a role who desires to better automate and perfect their role thus propeling the whole team to a new level performance. A superclerk seeks out the tools and the opportunity to do more. A superclerk can be anyone with a job to do. They can be an AP/AR Clerk, Sales Representative, Machinist, Controller, Manager, etc...</p>
 <p>The best way to describe a superclerk is by example. Imagine a team of AP and AR clerks. The team spends the majority of the day transcribing data. A superclerk emerges thinking there must be a better way. The superclerk does the following:</p>
@@ -955,9 +1007,9 @@ COMMENT ON TABLE stack_some_table IS 'Table that contains some data';
 <h2 id="synergy"><a class="header" href="#synergy">Synergy</a></h2>
 <p>Synergy in the chuck-stack is what happens when you add two or more parts to make a whole where the value of the whole is greater than the sum of the individual parts. Just about anyone can make 1 + 1 = 2. It takes synergy (like with work instruction + automation) to make 1 + 1 = 11. That is a picture synergy!</p>
 <h2 id="tenant"><a class="header" href="#tenant">Tenant</a></h2>
-<p>A tenant is a group of one or more <a href="./terminology.html#entity">entities</a>. There are times when a single organization manages completely disparate entities. When these entities do not share any aspect of their businesses, the organization will create the different entities in separate tenants.</p>
-<p>The chuck-stack is multi-tenant software without being multi-tenant SaaS. A single instance of the chuck-stack can support multiple tenants; however, there is no reason for us to try and create a single, monolithic service trying to cater all organizations in the world. Monolithic SaaS service carry inherent risks that make them susceptible to data breaches and cross-contamination.</p>
-<p>Our goal is to use well tested and commonly understood networking services to create isolated tenants of the chuck-stack.</p>
+<p>A Tenant is a chuck-stack domain term that refers to a group of one or more <a href="./terminology.html#entity">Entities</a>. There are times when a single organization manages completely disparate Entities. When these entities do not share any purpose, processes or data, the organization will create the different Entities in separate Tenants.</p>
+<p>The chuck-stack is multi-tenant software without being multi-tenant SaaS. A single instance of the chuck-stack can support multiple Tenants; however, there is no reason for us to try and create a single, monolithic service trying to cater all organizations in the world. Monolithic SaaS service carry inherent risks that make them susceptible to data breaches and cross-contamination.</p>
+<p>Our goal is to use well tested and commonly understood networking services to create isolated instances of the chuck-stack.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
 <p>The purpose of this page is to describe the application framework progress and deployment roadmap.</p>
 <h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
