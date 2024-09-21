@@ -206,7 +206,7 @@
 <p>In the last 30 years...</p>
 <ul>
 <li>A rich ecosystem of commands emerged in the CLI. This means you have a menu of tools to perform everyday tasks.</li>
-<li>A data pipeline convention emerged as a way to connect the results of one command as input to the next.</li>
+<li>A data <a href="./terminology.html#data-pipeline">pipeline</a> convention emerged as a way to connect the results of one command as input to the next.</li>
 <li>Commands were combined to create scripts.</li>
 <li>Scripts were piped together to automate processes.</li>
 </ul>
@@ -252,22 +252,6 @@
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

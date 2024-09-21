@@ -271,7 +271,7 @@
 <li>Create full-featured cli applications with just a few lines of code.</li>
 <li>Call on external API (including PostgREST) to integration external system and data.</li>
 <li>Call your cli applications from AIChat with minimal configuration.</li>
-<li>Compose more complex workflows using data pipelines.</li>
+<li>Compose more complex workflows using data <a href="./terminology.html#data-pipeline">pipelines</a>.</li>
 <li>Expose your cli applications to power users to support self-help automation with the assistance of AIChat.</li>
 </ul>
 <h3 id="zellij"><a class="header" href="#zellij">Zellij</a></h3>
@@ -339,22 +339,6 @@
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

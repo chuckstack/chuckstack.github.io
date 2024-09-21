@@ -216,7 +216,7 @@
 <p>Hopefully I have convinced you to immediately start writing concise, AI-supported work instructions. However, there is more.. Not only will you gain operational velocity and efficiency from creating work instructions as discussed above, you also gain the ability to automate your organization.</p>
 <p>AI will continue to perform more and more work for you. AI's current role mostly centers around thought labor; however, with tools like <a href="./tool-aichat.html">AIChat</a>, AI is starting to interact with systems and people on our behalf. Clear and concise work instructions do not apply solely to humans. One of AI's greatest strength is to read and apply knowledge. It only make sense that an AI can read and act on your work instructions.</p>
 <p>However, not all systems are created equal. When you are forced to use a mouse to interact with the system, AI is limited in what it can do. Since the last 20 years of software was largely build around a mouse, simply saying "AI go do..." does not work in many cases. Luckily, the last 10 years have ushered in the concept of APIs where systems can talk to systems. AI can very much talk to systems via an API.</p>
-<p>The chuck-stack brings AI interaction to a whole new level. There is little distinction between what a human can do versus what an AI can do. Said another way, chuck-stack enables everyday clerks to use AI and well-formed work instructions to remove complexity and automate tasks. What was tedious becomes scripted. Scripts become menu options. Options connect to form data pipelines.</p>
+<p>The chuck-stack brings AI interaction to a whole new level. There is little distinction between what a human can do versus what an AI can do. Said another way, chuck-stack enables everyday clerks to use AI and well-formed work instructions to remove complexity and automate tasks. What was tedious becomes scripted. Scripts become menu options. Options connect to form data <a href="./terminology.html#data-pipeline">pipelines</a>.</p>
 <p>Conversational enterprise computing (the chuck-stack) will change how you think about business basics. As a result, I hope the mouse enjoys a pleasant retirement.</p>
 <p><a href="./picture-success.html">Learn more...</a></p>
 <p>I think you are starting to understand the big picture. Now, let's tie these concepts back to sexy.</p>
@@ -265,22 +265,6 @@
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
