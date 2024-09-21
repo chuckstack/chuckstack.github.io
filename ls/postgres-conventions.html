@@ -215,6 +215,7 @@
 <ul>
 <li>Tables use a uuid column as the primary key. The purpose of this decision is to make creating very large (and often replicated) systems easier to manage. Doing so also allows for clients to define their own uuid values and removes a potential centralized process.</li>
 <li>All tables have a single primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. Said another way, if you know the table_name and the record_uu of any given record, you can always find the details associated with that record. This convention also allows us to create many features that are shared across all records in all tables. These features include centralized logs, attachments, and attributes.</li>
+<li>Any column that references a table should use the column name <code>table_name</code>.</li>
 <li>All core chuck-stack tables will begin with <code>stk_</code>. Example: <code>stk_business_partner</code>.</li>
 <li>Your organization should chose a table prefix that resembles your organization's name if you wish to add new tables or new columns. Example: the Good-Care Medical organization could have a prefix of <code>gcm_</code>.</li>
 <li>Link tables should have a table name suffix of <code>_lnk</code>.</li>
