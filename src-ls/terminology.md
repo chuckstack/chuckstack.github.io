@@ -15,11 +15,13 @@ A domain term is how the chuck-stack refers to a database dimension. The followi
 - Tenant*
 - Entity*
 - Business Partner
+- Customer (reference to Business Partner - only used when Business Partner is not available)
+- Vendor (reference to Business Partner - only used when Business Partner is not available)
 - User
+- Employee (reference to User - only used when User is not available)
 - Department
 - Product
 - Asset
-- Employee
 - Center (aka: profit or cost, Line of Business, division)
 - Project
 - Activity
