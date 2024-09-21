@@ -1,6 +1,6 @@
 # AIChat
 
-AIChat is an all-in-one AI CLI tool to help you interact with the world's most popular LLMs. It features Chat-REPL, Shell Assistant, RAG, AI Tools and Agents.
+[AIChat](https://github.com/sigoden/aichat) is an all-in-one AI CLI tool to help you interact with the world's most popular LLMs. It features Chat-REPL, Shell Assistant, RAG, AI Tools and Agents.
 
 Discussion points:
 - What we love AIChat

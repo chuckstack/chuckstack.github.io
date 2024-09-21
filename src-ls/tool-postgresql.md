@@ -1,6 +1,6 @@
 # PostgreSQL
 
-PostgreSQL is an open source database, and it is quite possibly the best general purpose tool for managing data in the world. We realize this is a bold statement; however, after almost 30 years in mid-market ERP (Enterprise Resource Planning), we know a thing about managing data. PostgreSQL is our preferred tool in its category for some very good reasons.
+[PostgreSQL](https://www.postgresql.org/) is an open source database, and it is quite possibly the best general purpose tool for managing data in the world. We realize this is a bold statement; however, after almost 30 years in mid-market ERP (Enterprise Resource Planning), we know a thing about managing data. PostgreSQL is our preferred tool in its category for some very good reasons.
 
 ## Why We Love PostgreSQL
 
