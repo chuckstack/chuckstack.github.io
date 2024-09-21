@@ -35,6 +35,7 @@ The artifacts in a public schema will most commonly begin as simple pass-through
 The following words are expected to be abbreviated unless the abbreviation creates confusion.
 
 - document => doc
+- location => loc
 - transaction => trx
 - foreign key => fk
 - index => idx

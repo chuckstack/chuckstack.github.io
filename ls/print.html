@@ -867,6 +867,7 @@
 <p>The following words are expected to be abbreviated unless the abbreviation creates confusion.</p>
 <ul>
 <li>document =&gt; doc</li>
+<li>location =&gt; loc</li>
 <li>transaction =&gt; trx</li>
 <li>foreign key =&gt; fk</li>
 <li>index =&gt; idx</li>
@@ -973,20 +974,39 @@ COMMENT ON TABLE stack_some_table IS 'Table that contains some data';
 <h2 id="data-pipeline"><a class="header" href="#data-pipeline">Data Pipeline</a></h2>
 <p>Linux shell pipelines allow users to chain multiple commands together, where the output of one command becomes the input for the next. This is achieved using the pipe symbol (|) between commands. Pipelines enable complex data processing and manipulation tasks to be performed efficiently by combining simple, specialized tools.</p>
 <p>This approach embodies the Unix philosophy of creating small, focused programs that work together seamlessly, allowing users to build sophisticated operations from basic building blocks.</p>
-<h2 id="domain-term"><a class="header" href="#domain-term">Domain Term</a></h2>
-<p>A domain term is how the chuck-stack refers to a database dimension. The following domain terms exist in the chuck-stack upon installation.</p>
+<h2 id="domain-terminology"><a class="header" href="#domain-terminology">Domain Terminology</a></h2>
+<p>A domain terminology is how the chuck-stack refers to a database dimensions. The following domain terms exist in the chuck-stack upon installation.</p>
 <ul>
 <li>Tenant*</li>
 <li>Entity*</li>
 <li>Business Partner</li>
-<li>Customer (reference to Business Partner - only used when Business Partner is not available)</li>
-<li>Vendor (reference to Business Partner - only used when Business Partner is not available)</li>
+<li>Customer
+<ul>
+<li>reference to Business Partner</li>
+<li>only used when Business Partner is not available</li>
+</ul>
+</li>
+<li>Vendor
+<ul>
+<li>reference to Business Partner</li>
+<li>only used when Business Partner is not available)</li>
+</ul>
+</li>
 <li>User</li>
-<li>Employee (reference to User - only used when User is not available)</li>
+<li>Employee
+<ul>
+<li>reference to User</li>
+<li>only used when User is not available</li>
+</ul>
+</li>
 <li>Department</li>
 <li>Product</li>
 <li>Asset</li>
-<li>Center (aka: profit or cost, Line of Business, division)</li>
+<li>Center
+<ul>
+<li>also known as profit or cost, Line of Business, division</li>
+</ul>
+</li>
 <li>Project</li>
 <li>Activity</li>
 <li>Campaign</li>

@@ -8,21 +8,28 @@ Linux shell pipelines allow users to chain multiple commands together, where the
 
 This approach embodies the Unix philosophy of creating small, focused programs that work together seamlessly, allowing users to build sophisticated operations from basic building blocks.
 
-## Domain Term
+## Domain Terminology
 
-A domain term is how the chuck-stack refers to a database dimension. The following domain terms exist in the chuck-stack upon installation.
+A domain terminology is how the chuck-stack refers to a database dimensions. The following domain terms exist in the chuck-stack upon installation.
 
 - Tenant*
 - Entity*
 - Business Partner
-- Customer (reference to Business Partner - only used when Business Partner is not available)
-- Vendor (reference to Business Partner - only used when Business Partner is not available)
+- Customer
+  - reference to Business Partner
+  - only used when Business Partner is not available
+- Vendor
+  - reference to Business Partner
+  - only used when Business Partner is not available)
 - User
-- Employee (reference to User - only used when User is not available)
+- Employee
+  - reference to User
+  - only used when User is not available
 - Department
 - Product
 - Asset
-- Center (aka: profit or cost, Line of Business, division)
+- Center
+  - also known as profit or cost, Line of Business, division
 - Project
 - Activity
 - Campaign
