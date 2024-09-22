@@ -66,7 +66,7 @@ Value matters to whom? We believe that some people and organizations will fight 
 
 The chuck-stack success will depend on our ability to demonstrate human value in our changing world. It will depend on our ability to orchestrate off-the-shelf, synergistic tools to solve problems faster than ever before.
 
-### Know Your Audience
+## Know Your Audience
 
 The right people can do more with less ([superclerks](./terminology.md#superclerk)).
 
