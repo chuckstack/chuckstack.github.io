@@ -41,6 +41,7 @@ The following words are expected to be abbreviated unless the abbreviation creat
 - location => loc
 - stack => stk
 - transaction => trx
+- translation => trl
 - workflow => wf
 
 ## Table Conventions

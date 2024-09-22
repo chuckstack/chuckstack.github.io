@@ -39,7 +39,7 @@ A domain dimension is how the chuck-stack refers to a database dimensions. The f
 
 \* means mandatory for every table in the chuck-stack
 
-The purpose of the default domain dimensions dimensions is to provide a collection of defaults that represent what most (say 80%) organizations use to manage their operations.
+The purpose of the default domain dimensions is to provide a collection of defaults that represent what most (say 80%) organizations use to manage their operations.
 
 See:
 

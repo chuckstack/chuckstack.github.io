@@ -879,6 +879,7 @@
 <li>location =&gt; loc</li>
 <li>stack =&gt; stk</li>
 <li>transaction =&gt; trx</li>
+<li>translation =&gt; trl</li>
 <li>workflow =&gt; wf</li>
 </ul>
 <h2 id="table-conventions"><a class="header" href="#table-conventions">Table Conventions</a></h2>
@@ -1027,7 +1028,7 @@ COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
 <li>Warehouse</li>
 </ul>
 <p>* means mandatory for every table in the chuck-stack</p>
-<p>The purpose of the default domain dimensions dimensions is to provide a collection of defaults that represent what most (say 80%) organizations use to manage their operations.</p>
+<p>The purpose of the default domain dimensions is to provide a collection of defaults that represent what most (say 80%) organizations use to manage their operations.</p>
 <p>See:</p>
 <ul>
 <li>Domain Parent - many of the domains will have a reference to itself in the form of a parent record. Parent record is when <code>is_summary</code> = true. Examples include: Business Partner, Project, Activity, Campaign, ... Parent records are not used in transactions. Parent records are often used in reporting.</li>
