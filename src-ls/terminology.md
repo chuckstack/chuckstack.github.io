@@ -20,7 +20,7 @@ A domain terminology is how the chuck-stack refers to a database dimensions. The
   - only used when Business Partner is not available
 - Vendor
   - reference to Business Partner
-  - only used when Business Partner is not available)
+  - only used when Business Partner is not available
 - User
 - Employee
   - reference to User
