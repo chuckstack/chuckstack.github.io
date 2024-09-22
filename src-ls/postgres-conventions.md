@@ -32,15 +32,16 @@ The artifacts in a public schema will most commonly begin as simple pass-through
 
 ## Common Abbreviations 
 
-The following words are expected to be abbreviated unless the abbreviation creates confusion.
+The following words are expected to be abbreviated unless the abbreviation creates confusion in specific circumstances.
 
-- stack => stk
 - document => doc
-- location => loc
-- transaction => trx
-- foreign key => fk
 - index => idx
+- foreign key => fk
 - link => lnk
+- location => loc
+- stack => stk
+- transaction => trx
+- workflow => wf
 
 ## Table Conventions
 
@@ -59,13 +60,13 @@ This section discuss how we create tables in the private schema.
 
 - Primary uuid key (`_uu` suffix) - All tables have a single primary key per the above discussion. 
 - Foreign keys end with a `_uu` suffix. Example `stk_some_other_table_uu`. There are times when this convention is not possible due to multiple references to the same table. What a duplicate is needed, add an adjective before the `_uu` suffix. Examples: `stk_business_partner_ship_to_uu` and `stk_business_partner_bill_to_uu`.
-- When naming columns the noun comes first and the adjective comes next. Example: stk_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically. <!-- TODO: create a list of abbreviations like wf, asi, etc... -->
+- When naming columns the noun comes first and the adjective comes next. Example: stk_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically. 
 - Use columns of type text (instead of varchar with unspecified length). Only choose a varchar with a specific length when there is a compelling reason to do so. Even then try not to...
 - Boolean values must have a default value defined at the table level.
 - Consider using the column's description/comment to hold column_label and column_description
   - comment on column wf_process.name is '{"column_label": "Name", "column_description": "Name describing the record"}';
   - select pg_catalog.col_description(c.oid, col.ordinal_position::int)::json->>'column_label' ...
-  - see sql/readme.md for more details
+  - see sql/readme.md for more details <!-- TODO: old reference - needs to be changed -->
 
 ## Table Standard Column
 This sections lists the mandatory and optional columns found in chuck-stack tables. Notice that coding and naming by convention plays a role in primary key name and foreign key relationships. As you will see below, you know the primary key column name as a function of the table name. You know the foreign key table name as a function of the foreign key column name.
@@ -96,6 +97,7 @@ Notes:
 - `is_default` - boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.
 - `is_processed` - boolean that indicates of a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column. 
 - `is_template` boolean that indicates if a record exists for the purpose of cloning to create new records.
+- `is_valid` boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow -->
 - `is_trx_type` enum listing the type of transaction. Used by `stk_doc_type` table.
 
 ## References to Records
