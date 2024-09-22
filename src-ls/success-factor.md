@@ -46,7 +46,11 @@ In the last 30 years...
 - Commands were combined to create scripts.
 - Scripts were piped together to automate processes.
 
-### AI Changes Things
+## AI Changes Things
+
+What does AI change? It gives humans the ability to know and do more. It is powerful enough to change how IT thinks about and deploys applications. It is powerful enough to give everyday clerks the ability to solve their own problems. It is powerful enough to know when these solutions extend beyond the intended roles.
+
+Said another way, AI is powerful enough to transform the roles of IT, managers and clerks to deploy AI-enabled, self-service tools that drive innovation from everyone in an organization.
 
 AI enhances our ability to communicate across multiple languages. One of the big challenges of using a CLI to converse with your computer, data or processes is the learning curve of the CLI way of thinking. AI removes this hurdle, and it enables the average person to accomplish what developers already know. It translates human language to CLI language. Said another way, AI helps turn clerks into [superclerks](./terminology.md#superclerk).
 
@@ -58,14 +62,16 @@ Hmmm...
 
 ## Value Matters
 
-We believe that people and organizations will fight to be relevant. As AI encroaches upon thought work and eliminates responsibilities, some will not sit idly by. They will look for opportunities to use AI for their benefit.
+Value matters to whom? We believe that some people and organizations will fight to be relevant by adding value to themselves and those around them. As AI encroaches upon thought work and eliminates responsibilities, some will not sit idly by. They will look for opportunities to use AI for their benefit.
 
-The chuck-stack success will depend on our ability to demonstrate human value in our changing world.
+The chuck-stack success will depend on our ability to demonstrate human value in our changing world. It will depend on our ability to orchestrate off-the-shelf, synergistic tools to solve problems faster than ever before.
 
 ### Know Your Audience
+
+The right people can do more with less ([superclerks](./terminology.md#superclerk)).
 
 It is important to state that creating tools for organizations is very different than creating tools for the consumer market. People in an organization have a job to do. They may perform the same tasks hundreds of times in a day. They repeat these tasks for weeks, months and sometimes years. 
 
 It is completely acceptable to take a moment to teach someone how to do something that a general consumer would have no ability to execute without training. When you think about the concepts expressed on this page, it stands to reason the some organizations and clerks will rise to the occasion and willingly attempt a better way to add value to themselves and this world.
 
-Our 25+ years of ERP experience tells us this is more than reasonable.
+As a result, you will have fewer people orchestrating more with fewer resources. Our 25+ years of ERP experience tells us this is more than reasonable.
