@@ -5,11 +5,13 @@ The purpose of this page is to discuss the foundational beliefs and factors for 
 - The CLI represents a better way for small and medium organizations to manage data, automate processes and build [superclerk](./terminology.md#superclerk) talent.
 - AI is powerful enough to transform the roles of IT, managers and clerks to deploy AI-enabled, self-service tools that drive innovation from everyone in an organization.
 - We can combine off-the-shelf tools and best practices to create and deploy an application framework that represents a significant reduction in both cost and complexity.
-- We can manage the cost of AI inference so that it remains half the cost of the displaced labor.
+- We can manage the cost of AI inference so that it remains less than 100% (a fraction of the cost) of the displaced labor.
 
 ## CLI Is Better
 
-We are making an argument that the CLI is a better option for managing data and processes in small and medium organizations. Our success depends on it. We guess that 90% of the people who read this sentence discount the CLI's validity. This is OK because by the time they realize they were wrong, and they will have suffered:
+Better than what? Better than a mouse and a webpage...
+
+We are making an argument that the CLI is a better option for managing data and processes in small and medium organizations. Our success depends on it. We guess that up to 90% of the people who read this sentence discount the CLI's validity. This is OK because by the time they realize they were wrong, and they will be too late to the game and will have suffered:
 
 - abuse of the perpetual right-click copy/paste to move stuff around.
 - being blamed for why something is not done yet.
@@ -20,7 +22,9 @@ The modern web browser is an impressive invention. It is pretty and engaging. It
 
 ### Grunts and Nudges
 
-Before we make our case for the CLI, we feel compelled to express the challenges that exist today.
+What has only two forms of communication (grunts and nudges)? A mouse...
+
+Before we make our case for the CLI, we feel compelled to express the challenges that plague us today.
 
 Using a mouse to perform work in a web browser is quite possibly the lowest form of communication prevalent in our society. You can click (or grunt) and you and drag (or nudge). Imagine if your primary means of communication was grunting and nudging people around. It is hard to imagine because it represent such a departure from the rich language we have developed to express ourselves.
 
