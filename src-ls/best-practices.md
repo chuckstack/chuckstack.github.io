@@ -70,6 +70,6 @@ Before we continue with 'Do what we said we would do', Let's discuss best practi
 
 You will be tempted to use Microsoft Word or Google Docs to capture your words. Don't do it! If you do, your words will trapped in that format/container. You will be limited as to how you can use your words with AI or any other tool.
 
-Instead, we strongly recommend you use a tool named [Obsidian](https://obsidian.md/) as your writing environment. It offers the same joyful writing tools; however, it saves your words in a plain text format called [markdown](https://en.wikipedia.org/wiki/Markdown). Markdown is quite possibly the most simple yet powerful tool you have in working with people and AI.
+Instead, we strongly recommend you use a tool named [Obsidian](./tools-obsidian.md) as your writing environment. It offers the same joyful writing tools; however, it saves your words in a plain text format called [markdown](https://en.wikipedia.org/wiki/Markdown). Markdown is quite possibly the most simple yet powerful tool you have in working with people and AI.
 
 ## Technology Best Practices
