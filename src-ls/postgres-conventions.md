@@ -56,6 +56,7 @@ This section discuss how we create tables in the private schema.
 - Link tables should have a table name suffix of `_lnk`.
 - Tables should have comments that describe the purpose of the table. Because AI is so proficient at understanding SQL DDL, we can define both how the table operates and why it exists in the same location. Because SQL is self describing, we can query table comments to obtain help documentation with no extra effort.
 - Both table and column comments can contain carriage returns; therefore, you can add human readable markdown and structured json, yaml, and toml data in your comments. Note: there is no convention in this bullet yet...
+- Translations are maintained in separate table mirroring the text fields of the table it is translated from. For example, the `stk_business_partner` table might have a table named `stk_business_partner_trl` that will have one record per active language.
 
 ## Column Conventions
 
@@ -64,6 +65,7 @@ This section discuss how we create tables in the private schema.
 - When naming columns the noun comes first and the adjective comes next. Example: stk_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically. 
 - Use columns of type text (instead of varchar with unspecified length). Only choose a varchar with a specific length when there is a compelling reason to do so. Even then try not to...
 - Boolean values must have a default value defined at the table level.
+- Any column that references a column should use the column name `column_name`.
 - Consider using the column's description/comment to hold column_label and column_description
   - comment on column wf_process.name is '{"column_label": "Name", "column_description": "Name describing the record"}';
   - select pg_catalog.col_description(c.oid, col.ordinal_position::int)::json->>'column_label' ...
