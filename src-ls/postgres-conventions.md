@@ -96,6 +96,7 @@ Notes:
 - `stk_doc_type_uu` - describes the type of document.
 - `is_default` - boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.
 - `is_processed` - boolean that indicates of a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column. 
+- `is_summary` boolean that indicates if a record is intended to be a parent to other records in the same table.
 - `is_template` boolean that indicates if a record exists for the purpose of cloning to create new records.
 - `is_valid` boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow -->
 - `is_trx_type` enum listing the type of transaction. Used by `stk_doc_type` table.

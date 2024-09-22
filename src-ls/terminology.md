@@ -39,7 +39,12 @@ A domain terminology is how the chuck-stack refers to a database dimensions. The
 
 \* means mandatory for every table in the chuck-stack
 
-The purpose of the default domain term dimensions is to prove a collection of defaults that represent what most (say 80%) organizations use to manage their operations.
+The purpose of the default domain term dimensions is to provide a collection of defaults that represent what most (say 80%) organizations use to manage their operations.
+
+See:
+
+- Domain Parent - many of the domains will have a reference to itself in the form of a parent record. Parent record is when `is_summary` = true. Examples include: Business Partner, Project, Activity, Campaign, ... Parent records are not used in transactions. Parent records are often used in reporting.
+- Domain Tree - used when more than a single depth (parent) is needed. Using a tree often requires recursion.
 
 ## Entity
 
