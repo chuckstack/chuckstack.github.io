@@ -8,9 +8,9 @@ Linux shell pipelines allow users to chain multiple commands together, where the
 
 This approach embodies the Unix philosophy of creating small, focused programs that work together seamlessly, allowing users to build sophisticated operations from basic building blocks.
 
-## Domain Terminology
+## Domain Dimension
 
-A domain terminology is how the chuck-stack refers to a database dimensions. The following domain terms exist in the chuck-stack upon installation.
+A domain dimension is how the chuck-stack refers to a database dimensions. The following domain dimensions exist in the chuck-stack upon installation.
 
 - Tenant*
 - Entity*
@@ -39,7 +39,7 @@ A domain terminology is how the chuck-stack refers to a database dimensions. The
 
 \* means mandatory for every table in the chuck-stack
 
-The purpose of the default domain term dimensions is to provide a collection of defaults that represent what most (say 80%) organizations use to manage their operations.
+The purpose of the default domain dimensions dimensions is to provide a collection of defaults that represent what most (say 80%) organizations use to manage their operations.
 
 See:
 
@@ -48,7 +48,7 @@ See:
 
 ## Entity
 
-An Entity is a chuck-stack domain term that refers to a legal or taxation group. A single [Tenant](./terminology.md#tenant) can have many Entities. An Entity can belong to only one Tenant. A special Entity named "*" (pronounced 'star') is created by default when the chuck-stack is installed. By convention, "*" means either default or shared depending on how the organization wishes to use it.
+An Entity is a chuck-stack domain dimension that refers to a legal or taxation group. A single [Tenant](./terminology.md#tenant) can have many Entities. An Entity can belong to only one Tenant. A special Entity named "*" (pronounced 'star') is created by default when the chuck-stack is installed. By convention, "*" means either default or shared depending on how the organization wishes to use it.
 
 ## Instance
 
@@ -80,7 +80,7 @@ Synergy in the chuck-stack is what happens when you add two or more parts to mak
 
 ## Tenant
 
-A Tenant is a chuck-stack domain term that refers to a group of one or more [Entities](./terminology.md#entity). There are times when a single organization manages completely disparate Entities. When these entities do not share any purpose, processes or data, the organization will create the different Entities in separate Tenants.
+A Tenant is a chuck-stack domain dimension that refers to a group of one or more [Entities](./terminology.md#entity). There are times when a single organization manages completely disparate Entities. When these entities do not share any purpose, processes or data, the organization will create the different Entities in separate Tenants.
 
 The chuck-stack is multi-tenant software without being multi-tenant SaaS. A single instance of the chuck-stack can support multiple Tenants; however, there is no reason for us to try and create a single, monolithic service trying to cater all organizations in the world. Monolithic SaaS service carry inherent risks that make them susceptible to data breaches and cross-contamination.
 

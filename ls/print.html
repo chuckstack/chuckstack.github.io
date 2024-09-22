@@ -986,8 +986,8 @@ COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
 <h2 id="data-pipeline"><a class="header" href="#data-pipeline">Data Pipeline</a></h2>
 <p>Linux shell pipelines allow users to chain multiple commands together, where the output of one command becomes the input for the next. This is achieved using the pipe symbol (|) between commands. Pipelines enable complex data processing and manipulation tasks to be performed efficiently by combining simple, specialized tools.</p>
 <p>This approach embodies the Unix philosophy of creating small, focused programs that work together seamlessly, allowing users to build sophisticated operations from basic building blocks.</p>
-<h2 id="domain-terminology"><a class="header" href="#domain-terminology">Domain Terminology</a></h2>
-<p>A domain terminology is how the chuck-stack refers to a database dimensions. The following domain terms exist in the chuck-stack upon installation.</p>
+<h2 id="domain-dimension"><a class="header" href="#domain-dimension">Domain Dimension</a></h2>
+<p>A domain dimension is how the chuck-stack refers to a database dimensions. The following domain dimensions exist in the chuck-stack upon installation.</p>
 <ul>
 <li>Tenant*</li>
 <li>Entity*</li>
@@ -1027,14 +1027,14 @@ COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
 <li>Warehouse</li>
 </ul>
 <p>* means mandatory for every table in the chuck-stack</p>
-<p>The purpose of the default domain term dimensions is to provide a collection of defaults that represent what most (say 80%) organizations use to manage their operations.</p>
+<p>The purpose of the default domain dimensions dimensions is to provide a collection of defaults that represent what most (say 80%) organizations use to manage their operations.</p>
 <p>See:</p>
 <ul>
 <li>Domain Parent - many of the domains will have a reference to itself in the form of a parent record. Parent record is when <code>is_summary</code> = true. Examples include: Business Partner, Project, Activity, Campaign, ... Parent records are not used in transactions. Parent records are often used in reporting.</li>
 <li>Domain Tree - used when more than a single depth (parent) is needed. Using a tree often requires recursion.</li>
 </ul>
 <h2 id="entity"><a class="header" href="#entity">Entity</a></h2>
-<p>An Entity is a chuck-stack domain term that refers to a legal or taxation group. A single <a href="./terminology.html#tenant">Tenant</a> can have many Entities. An Entity can belong to only one Tenant. A special Entity named "<em>" (pronounced 'star') is created by default when the chuck-stack is installed. By convention, "</em>" means either default or shared depending on how the organization wishes to use it.</p>
+<p>An Entity is a chuck-stack domain dimension that refers to a legal or taxation group. A single <a href="./terminology.html#tenant">Tenant</a> can have many Entities. An Entity can belong to only one Tenant. A special Entity named "<em>" (pronounced 'star') is created by default when the chuck-stack is installed. By convention, "</em>" means either default or shared depending on how the organization wishes to use it.</p>
 <h2 id="instance"><a class="header" href="#instance">Instance</a></h2>
 <p>An instance is how the chuck-stack refers to an installation or a unit of something.</p>
 <p>For example, an instance of PostgreSQL is a unique installation of the PostgreSQL application. An instance of PostgreSQL can contain multiple databases.</p>
@@ -1053,7 +1053,7 @@ COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
 <h2 id="synergy"><a class="header" href="#synergy">Synergy</a></h2>
 <p>Synergy in the chuck-stack is what happens when you add two or more parts to make a whole where the value of the whole is greater than the sum of the individual parts. Just about anyone can make 1 + 1 = 2. It takes synergy (like with work instruction + automation) to make 1 + 1 = 11. That is a picture synergy!</p>
 <h2 id="tenant"><a class="header" href="#tenant">Tenant</a></h2>
-<p>A Tenant is a chuck-stack domain term that refers to a group of one or more <a href="./terminology.html#entity">Entities</a>. There are times when a single organization manages completely disparate Entities. When these entities do not share any purpose, processes or data, the organization will create the different Entities in separate Tenants.</p>
+<p>A Tenant is a chuck-stack domain dimension that refers to a group of one or more <a href="./terminology.html#entity">Entities</a>. There are times when a single organization manages completely disparate Entities. When these entities do not share any purpose, processes or data, the organization will create the different Entities in separate Tenants.</p>
 <p>The chuck-stack is multi-tenant software without being multi-tenant SaaS. A single instance of the chuck-stack can support multiple Tenants; however, there is no reason for us to try and create a single, monolithic service trying to cater all organizations in the world. Monolithic SaaS service carry inherent risks that make them susceptible to data breaches and cross-contamination.</p>
 <p>Our goal is to use well tested and commonly understood networking services to create isolated instances of the chuck-stack.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
