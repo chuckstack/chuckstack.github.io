@@ -377,15 +377,65 @@
 <p>As a result, you will have fewer people orchestrating more with fewer resources. Our 25+ years of ERP experience tells us this is more than reasonable.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
 <p>By now, you should understand <a href="./introduction.html">why the project exists</a> and <a href="./picture-success.html">where we are headed</a>.</p>
-<blockquote>
-<p>Note: chuck-stack is in pre-alpha. We do not have an installation script yet. <a href="../learn-more.html">Sign up</a> to be notified when it comes.</p>
-</blockquote>
-<p>In the mean time, here are our recommendations to get started:</p>
+<h2 id="start-with-ai"><a class="header" href="#start-with-ai">Start with AI</a></h2>
+<h3 id="get-your-api-key"><a class="header" href="#get-your-api-key">Get Your API Key</a></h3>
+<p>You need an API account from one of the foundation LLM providers, including:</p>
 <ul>
-<li>Read the <a href="./best-practices.html">best practices</a>. If you want help creating and deploy work instructions, <a href="https://buy.stripe.com/7sIbLIeeU3oT4IEfYY">join the stack-academy</a>. This is a very important step to realizing the vision! This is something you can start right now!</li>
-<li>Install <a href="https://github.com/sigoden/aichat">aichat</a>. This application plays a very big part of the chuck-stack. You want to be able to launch a console and use AIChat with a single key stroke. This one act will improve your productivity immensely.</li>
+<li><a href="https://www.anthropic.com/api">Anthropic/Claude</a> - preferred</li>
+<li><a href="https://ai.google.dev/">Gemini</a></li>
+<li><a href="https://openai.com/api/">OpenAI</a></li>
 </ul>
-<p>This page will evolve over time as the chuck-stack progresses. We look forward to working with you!</p>
+<p>There is a difference between the flat-rate, consumer-facing website offerings (like OpenAI's ChatGPT) and a pay-as-you-go API service. You need the API version of the service. Here are the reasons:</p>
+<ul>
+<li>One reason is that you will most likely not spend the equivalent $20/month when using the API.</li>
+<li>The second reason is that you need API access to accomplish the goals of this stack.</li>
+</ul>
+<p>You can use a different LLM provider if you wish. Here is a list of other options: (<a href="https://github.com/sigoden/aichat">see the multi-platform section</a>).</p>
+<h3 id="ask-ai-first"><a class="header" href="#ask-ai-first">Ask AI First</a></h3>
+<p>One key to your success is to get in the habit of asking AI before you search on Google. Soon, you will have a keystroke that will open an AI prompt from anywhere on your computer. Asking AI for help will become second nature. You want to create this habit as quickly as you can.</p>
+<blockquote>
+<p>Here is an example prompt where AI is both fast and succinct:</p>
+<ul>
+<li>please provide succinct step-by-step instructions for accessing a linux terminal on a new chromebook</li>
+</ul>
+<p>Here was the response:</p>
+<ol>
+<li>Open Settings</li>
+<li>Click "Advanced" in the left sidebar</li>
+<li>Select "Developers"</li>
+<li>Turn on "Linux development environment"</li>
+<li>Click "Install" and wait for the process to complete</li>
+<li>Once installed, open the "Linux Terminal" app from the launcher</li>
+<li>The terminal will open, ready for use</li>
+</ol>
+</blockquote>
+<p>If you have additional questions, simply ask and AI will provide additional details.</p>
+<h2 id="get-linux"><a class="header" href="#get-linux">Get Linux</a></h2>
+<p>You need some version of <a href="./tool-linux.html">Linux</a> available to you. Here are some options starting with the easiest ones first:</p>
+<ul>
+<li>Chromebook - most modern Chromebooks make it easy to gain access to a Linux terminal directly from your menu. See the above example of asking AI for help.</li>
+<li>Windows - offers <a href="https://learn.microsoft.com/en-us/windows/wsl/install">WSL (Windows Subsystem for Linux)</a>.</li>
+<li>Buy a new Linux computer - <a href="https://system76.com">System76</a> is an amazing hardware provider and a supporter of Linux. You can buy a mini, desktop or a laptop with Linux already installed. They typically offer a $600 USD mini that can be used to get started.</li>
+<li>Install Ununtu, PopOS or Debian on an exiting desktop or laptop.</li>
+<li>Mac - is Unix, which is close to Linux. Most of what you can run on Linux can also work on a Mac.</li>
+<li>Rent Linux - cloud providers like AWS, Digital Ocean, Linode, ... will host Linux for you for under $10 USD per month.</li>
+</ul>
+<h2 id="which-linux-version"><a class="header" href="#which-linux-version">Which Linux Version</a></h2>
+<ul>
+<li>PopOS is our preference for laptops and desktops. PopOS is an Debian variant.</li>
+<li>Debian is our preference for servers, containers and headless virtual machines.</li>
+<li>NixOS is a more challenging and more capable option.</li>
+<li>Ubuntu is also acceptable. Ubuntu is a Debian variant.</li>
+</ul>
+<p>You can use any almost distribution of Linux you wish. The chuck-stack team recommends Debian-based and Nix as part of the official stack.</p>
+<h2 id="rust-tools"><a class="header" href="#rust-tools">Rust Tools</a></h2>
+<p>We have a strong preference for tools written in the Rust language. As a result, you need to install the <a href="https://rustup.rs/">Rust tools</a>. We will use Rust to install applications like <a href="./tool-aichat.html">AIChat</a> - see below.</p>
+<h2 id="aichat"><a class="header" href="#aichat">AIChat</a></h2>
+<p><a href="./tool-aichat.html">AIChat</a> plays a big role in the chuck-stack. You want to be able to launch a terminal and use AIChat with a single keystroke. Doing so goes a long way in accomplishing the above goal of asking AI before Google.</p>
+<h2 id="best-practices"><a class="header" href="#best-practices">Best Practices</a></h2>
+<p>Now that you are proficient with AIChat, lets start incorporating <a href="./best-practices.html">best practices</a> into your use of AIChat.</p>
+<h2 id="more-to-come"><a class="header" href="#more-to-come">More to Come...</a></h2>
+<p>We are just 'geting starting'. To learn more faster, <a href="./stack-academy.html">join the stack-academy</a>. This is an important step to realizing the vision! This is something you can start right now!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="stack-faq"><a class="header" href="#stack-faq">Stack FAQ</a></h1>
 <p>The purpose of this page is to answer frequently asked questions (FAQ) about the chuck-stack.</p>
 <h2 id="is-chuck-stack-really-the-name-of-the-project"><a class="header" href="#is-chuck-stack-really-the-name-of-the-project">Is chuck-stack really the name of the project?</a></h2>
@@ -508,7 +558,7 @@
 <li>It makes more AI tools available to your team to understand and improve your processes.</li>
 <li>Once your team understands how to collectively contribute to the instructions that runs your organization, operations will never look the same again!</li>
 </ul>
-<h3 id="aichat"><a class="header" href="#aichat">AIChat</a></h3>
+<h3 id="aichat-1"><a class="header" href="#aichat-1">AIChat</a></h3>
 <p><a href="https://github.com/sigoden/aichat">AIChat</a> is a command line AI tool that helps you create and simplify organizational operations. Here is how it can help you:</p>
 <ul>
 <li>With one command, it can take your entire organization's work instructions and make it so that anyone can ask questions and improve your processes.</li>
@@ -691,7 +741,7 @@
 <li>User/Role level management at the database is fast and efficient because PostgreSQL user/role management is so expressive and it is so close to the data.</li>
 <li>REST API + SQL cover the fast majority of tools that need access to application logic. Said another way, most applications cannot expose SQL as an interface because traditional applications keep business and security logic in the API layer. As a result of using PostgREST, you maximize the tools that support small and medium organizations by allowing applications to use both API and SQL without any degradation in application quality or complexity.</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="aichat-1"><a class="header" href="#aichat-1">AIChat</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="aichat-2"><a class="header" href="#aichat-2">AIChat</a></h1>
 <p><a href="https://github.com/sigoden/aichat">AIChat</a> is an all-in-one AI CLI tool to help you interact with the world's most popular LLMs. It features Chat-REPL, Shell Assistant, RAG, AI Tools and Agents.</p>
 <p>Discussion points:</p>
 <ul>
