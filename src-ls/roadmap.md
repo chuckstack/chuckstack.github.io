@@ -10,8 +10,13 @@ It is important to understand that the chuck-stack is not a typical project. The
 ## Upcoming Milestones
 
 - replicate [this video](https://www.youtube.com/watch?v=ooWaPVvljlU) in aichat with built in sql role sql.
-- replciate iDempiere's dashbaord layout in zellij
-- add working instructions to both full context and rag to determine most effictive
+  - cd to newly created directory and create new db
+  - create new psql instance and log important details
+    - auto table generate and keep ddl logs (https://github.com/RavitheAnalyst/Paris-Olympics-2024---Analysis/blob/main/athletes.csv)
+    - query aggregation and chart visuals
+  - create new app and use (leverage stack conventions)
+- replicate iDempiere's dashboard layout in Zellij
+- add working instructions to both full context and rag to determine most effective
 - create core tenant and entity, using work instructions, add update work instructions accordingly
 - implement workflow (expand this list with each workflow item)
   - repeat context/rag development + update work instructions iteratively
