@@ -4,6 +4,8 @@ By now, you should understand [why the project exists](./introduction.md) and [w
 
 ## Start with AI
 
+First, get your API key. Then, start using it to explore!
+
 ### Get Your API Key
 
 You need an API account from one of the foundation LLM providers, including:
