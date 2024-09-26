@@ -206,19 +206,22 @@
 </ul>
 <blockquote>
 <p>You can always ask AI (using AIChat) about PostgreSQL best practices and options. For example, you can ask AI:</p>
-<ul>
-<li>It seems more secure to disable PostgreSQL's TCP service and require clients to connect via unix socket. Is this true?</li>
-</ul>
+<pre><code>It seems more secure to disable PostgreSQL's TCP service and require clients to connect via unix socket. Is this true?
+</code></pre>
 </blockquote>
 <h2 id="create-new-database-cluster"><a class="header" href="#create-new-database-cluster">Create new Database Cluster</a></h2>
 <p>Use the following commands to bring up and manage a new cluster in a specific location using a Unix socket.</p>
 <ul>
-<li>mkdir -p ~/some/psql/dir/
+<li>
+<pre><code>mkdir -p ~/some/psql/dir/
+</code></pre>
 <ul>
 <li>you choose where to put the database cluster</li>
 </ul>
 </li>
-<li>initdb -D .mydbc --no-locale --encoding=UTF8 &amp;&amp; echo "listen_addresses = ''" &gt;&gt; .mydbc/postgresql.conf
+<li>
+<pre><code>initdb -D .mydbc --no-locale --encoding=UTF8 &amp;&amp; echo "listen_addresses = ''" &gt;&gt; .mydbc/postgresql.conf
+</code></pre>
 <ul>
 <li>creates the default cluster files at your desired location and disables TCP by setting the listen_address to an empty string.</li>
 <li>If initdb throws a no command found error, use the following command to help your system find the command.
@@ -228,7 +231,9 @@
 </li>
 </ul>
 </li>
-<li>pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" start
+<li>
+<pre><code>pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" start
+</code></pre>
 <ul>
 <li>start the database cluster and make it available via the $PWD Unix socket</li>
 <li>$PWD represents the current working directory, for example: ~/some/psql/dir/</li>
@@ -236,35 +241,47 @@
 <li>You can use the actual directory path when located somewhere else, for example: ~/some/psql/dir/ (instead of $PWD)</li>
 </ul>
 </li>
-<li>createdb mydb -h $PWD
+<li>
+<pre><code>createdb mydb -h $PWD
+</code></pre>
 <ul>
 <li>creates a new database in your cluster named 'mydb'</li>
 </ul>
 </li>
-<li>psql -h $PWD -d mydb
+<li>
+<pre><code>psql -h $PWD -d mydb
+</code></pre>
 <ul>
 <li>connects to the mydb database using the psql CLI tool</li>
 </ul>
 </li>
-<li>\q
+<li>
+<pre><code>\q
+</code></pre>
 <ul>
 <li>quits psql</li>
 </ul>
 </li>
-<li>pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" status
+<li>
+<pre><code>pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" status
+</code></pre>
 <ul>
 <li>check the status of the database cluster</li>
 </ul>
 </li>
-<li>pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" stop
+<li>
+<pre><code>pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" stop
+</code></pre>
 <ul>
 <li>stop the database cluster</li>
 </ul>
 </li>
-<li>
-<h1 id="caution---to-delete-the-newly-created-cluster-stop-it-and-remove-the-directory---only-do-this-if-you-want-it-gone"><a class="header" href="#caution---to-delete-the-newly-created-cluster-stop-it-and-remove-the-directory---only-do-this-if-you-want-it-gone">CAUTION - to delete the newly created cluster, stop it and remove the directory - only do this if you want it gone!!</a></h1>
+<li>### CAUTION - to delete the newly created cluster, stop it and remove the directory - only do this if you want it gone!!
 <ul>
-<li>sudo rm -r ~/some/psql/dir/</li>
+<li>
+<pre><code>sudo rm -r ~/some/psql/dir/
+</code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -322,7 +339,7 @@
 <h2 id="column-conventions"><a class="header" href="#column-conventions">Column Conventions</a></h2>
 <ul>
 <li>Primary uuid key (<code>_uu</code> suffix) - All tables have a single primary key per the above discussion.</li>
-<li>Foreign keys end with a <code>_uu</code> suffix. Example <code>stk_some_other_table_uu</code>. There are times when this convention is not possible due to multiple references to the same table. What a duplicate is needed, add an adjective before the <code>_uu</code> suffix. Examples: <code>stk_business_partner_ship_to_uu</code> and <code>stk_business_partner_bill_to_uu</code>.</li>
+<li>Foreign keys end with a <code>_uu</code> suffix. Example <code>stk_some_other_table_uu</code>. There are times when this convention is not possible due to multiple references to the same table. When a duplicate is needed, add an adjective before the <code>_uu</code> suffix. Examples: <code>stk_business_partner_ship_to_uu</code> and <code>stk_business_partner_bill_to_uu</code>.</li>
 <li>When naming columns the noun comes first and the adjective comes next. Example: stk_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically.</li>
 <li>Use columns of type text (instead of varchar with unspecified length). Only choose a varchar with a specific length when there is a compelling reason to do so. Even then try not to...</li>
 <li>Boolean values must have a default value defined at the table level.</li>
@@ -343,10 +360,10 @@
 <li><code>stk_tenant_uu</code> - foreign key reference to the tenant that owns the record</li>
 <li><code>stk_entity_uu</code> - financial set of books that owns the record</li>
 <li><code>created</code> - timestamp indicating when the record was created.</li>
-<li><code>created_by_uu</code> - uuid foreign key reference to the database user/role that created the record.</li>
+<li><code>stk_created_by_uu</code> - uuid foreign key reference to the database user/role that created the record.</li>
 <li><code>updated</code> - timestamp indicating when the record was last updated.</li>
-<li><code>updated_by_uu</code> - uuid foreign key reference to the database user/role that last updated the record.</li>
-<li><code>session_uu</code> - must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.</li>
+<li><code>stk_updated_by_uu</code> - uuid foreign key reference to the database user/role that last updated the record.</li>
+<li><code>stk_session_uu</code> - must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.</li>
 </ul>
 <p>Notes:</p>
 <ul>
@@ -366,7 +383,7 @@
 <li><code>is_summary</code> boolean that indicates if a record is intended to be a parent to other records in the same table.</li>
 <li><code>is_template</code> boolean that indicates if a record exists for the purpose of cloning to create new records.</li>
 <li><code>is_valid</code> boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow --></li>
-<li><code>is_trx_type</code> enum listing the type of transaction. Used by <code>stk_doc_type</code> table.</li>
+<li><code>trx_type</code> enum listing the type of transaction. Used by <code>stk_doc_type</code> table.</li>
 </ul>
 <h2 id="references-to-records"><a class="header" href="#references-to-records">References to Records</a></h2>
 <p>No <code>_uu</code> should ever be referred to in code. If this situation is needed, use the System Configurator or enum conventions below.</p>
@@ -393,9 +410,9 @@
 <pre><code class="language-sql">CREATE TABLE stk_some_table (
   stk_some_table_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   created TIMESTAMP NOT NULL DEFAULT now(),
-  created_by_uu uuid NOT NULL,
+  stk_created_by_uu uuid NOT NULL,
   updated TIMESTAMP NOT NULL DEFAULT now(),
-  updated_by_uu uuid NOT NULL,
+  stk_updated_by_uu uuid NOT NULL,
   search_key TEXT NOT NULL,
   value TEXT NOT NULL,
   name TEXT NOT NULL,
@@ -403,8 +420,8 @@
   is_default BOOLEAN DEFAULT false,
   is_processed BOOLEAN DEFAULT false,
   is_active BOOLEAN DEFAULT true,
-  CONSTRAINT fk_some_table_created_by FOREIGN KEY (created_by_uu) REFERENCES stk_user(stk_user_uu),
-  CONSTRAINT fk_some_table_updated_by FOREIGN KEY (updated_by_uu) REFERENCES stk_user(stk_user_uu)
+  CONSTRAINT fk_some_table_created_by FOREIGN KEY (stk_created_by_uu) REFERENCES stk_user(stk_user_uu),
+  CONSTRAINT fk_some_table_updated_by FOREIGN KEY (stk_updated_by_uu) REFERENCES stk_user(stk_user_uu)
 );
 COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
 </code></pre>

@@ -29,35 +29,35 @@ Notes about installing and using PostgreSQL:
 
 > You can always ask AI (using AIChat) about PostgreSQL best practices and options. For example, you can ask AI:
 >
-> - It seems more secure to disable PostgreSQL's TCP service and require clients to connect via unix socket. Is this true?
+>     It seems more secure to disable PostgreSQL's TCP service and require clients to connect via unix socket. Is this true?
 
 ## Create new Database Cluster
 
 Use the following commands to bring up and manage a new cluster in a specific location using a Unix socket.
 
-- mkdir -p ~/some/psql/dir/
+-     mkdir -p ~/some/psql/dir/
   - you choose where to put the database cluster
-- initdb -D .mydbc --no-locale --encoding=UTF8 && echo "listen_addresses = ''" >> .mydbc/postgresql.conf
+-     initdb -D .mydbc --no-locale --encoding=UTF8 && echo "listen_addresses = ''" >> .mydbc/postgresql.conf
   - creates the default cluster files at your desired location and disables TCP by setting the listen_address to an empty string.
   - If initdb throws a no command found error, use the following command to help your system find the command.
     - export PATH=$PATH:/usr/lib/postgresql/<version>/bin
-- pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" start
+-     pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" start
   - start the database cluster and make it available via the $PWD Unix socket
   - $PWD represents the current working directory, for example: ~/some/psql/dir/
   - It is convenient to use $PWD when you are located in the same directory.
   - You can use the actual directory path when located somewhere else, for example: ~/some/psql/dir/ (instead of $PWD)
-- createdb mydb -h $PWD
+-     createdb mydb -h $PWD
   - creates a new database in your cluster named 'mydb'
-- psql -h $PWD -d mydb
+-     psql -h $PWD -d mydb
   - connects to the mydb database using the psql CLI tool
-- \q
+-     \q
   - quits psql
-- pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" status
+-     pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" status
   - check the status of the database cluster
-- pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" stop
+-     pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" stop
   - stop the database cluster
-- # CAUTION - to delete the newly created cluster, stop it and remove the directory - only do this if you want it gone!!
-  - sudo rm -r ~/some/psql/dir/
+- \### CAUTION - to delete the newly created cluster, stop it and remove the directory - only do this if you want it gone!!
+  -     sudo rm -r ~/some/psql/dir/
 
 To connect to a remove instance of PostgreSQL that is only accessible via a Unix socket:
 
@@ -119,7 +119,7 @@ This section discuss how we create tables in the private schema.
 ## Column Conventions
 
 - Primary uuid key (`_uu` suffix) - All tables have a single primary key per the above discussion. 
-- Foreign keys end with a `_uu` suffix. Example `stk_some_other_table_uu`. There are times when this convention is not possible due to multiple references to the same table. What a duplicate is needed, add an adjective before the `_uu` suffix. Examples: `stk_business_partner_ship_to_uu` and `stk_business_partner_bill_to_uu`.
+- Foreign keys end with a `_uu` suffix. Example `stk_some_other_table_uu`. There are times when this convention is not possible due to multiple references to the same table. When a duplicate is needed, add an adjective before the `_uu` suffix. Examples: `stk_business_partner_ship_to_uu` and `stk_business_partner_bill_to_uu`.
 - When naming columns the noun comes first and the adjective comes next. Example: stk_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically. 
 - Use columns of type text (instead of varchar with unspecified length). Only choose a varchar with a specific length when there is a compelling reason to do so. Even then try not to...
 - Boolean values must have a default value defined at the table level.
@@ -138,10 +138,10 @@ This sections lists the mandatory and optional columns found in chuck-stack tabl
 - `stk_tenant_uu` - foreign key reference to the tenant that owns the record
 - `stk_entity_uu` - financial set of books that owns the record
 - `created` - timestamp indicating when the record was created.
-- `created_by_uu` - uuid foreign key reference to the database user/role that created the record.
+- `stk_created_by_uu` - uuid foreign key reference to the database user/role that created the record.
 - `updated` - timestamp indicating when the record was last updated.
-- `updated_by_uu` - uuid foreign key reference to the database user/role that last updated the record.
-- `session_uu` - must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.
+- `stk_updated_by_uu` - uuid foreign key reference to the database user/role that last updated the record.
+- `stk_session_uu` - must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.
 
 Notes:
 
@@ -160,7 +160,7 @@ Notes:
 - `is_summary` boolean that indicates if a record is intended to be a parent to other records in the same table.
 - `is_template` boolean that indicates if a record exists for the purpose of cloning to create new records.
 - `is_valid` boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow -->
-- `is_trx_type` enum listing the type of transaction. Used by `stk_doc_type` table.
+- `trx_type` enum listing the type of transaction. Used by `stk_doc_type` table.
 
 ## References to Records
 
@@ -199,9 +199,9 @@ System configurator records created for reference in code should use all caps ca
 CREATE TABLE stk_some_table (
   stk_some_table_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   created TIMESTAMP NOT NULL DEFAULT now(),
-  created_by_uu uuid NOT NULL,
+  stk_created_by_uu uuid NOT NULL,
   updated TIMESTAMP NOT NULL DEFAULT now(),
-  updated_by_uu uuid NOT NULL,
+  stk_updated_by_uu uuid NOT NULL,
   search_key TEXT NOT NULL,
   value TEXT NOT NULL,
   name TEXT NOT NULL,
@@ -209,8 +209,8 @@ CREATE TABLE stk_some_table (
   is_default BOOLEAN DEFAULT false,
   is_processed BOOLEAN DEFAULT false,
   is_active BOOLEAN DEFAULT true,
-  CONSTRAINT fk_some_table_created_by FOREIGN KEY (created_by_uu) REFERENCES stk_user(stk_user_uu),
-  CONSTRAINT fk_some_table_updated_by FOREIGN KEY (updated_by_uu) REFERENCES stk_user(stk_user_uu)
+  CONSTRAINT fk_some_table_created_by FOREIGN KEY (stk_created_by_uu) REFERENCES stk_user(stk_user_uu),
+  CONSTRAINT fk_some_table_updated_by FOREIGN KEY (stk_updated_by_uu) REFERENCES stk_user(stk_user_uu)
 );
 COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
 ```
