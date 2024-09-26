@@ -129,7 +129,7 @@ This section discuss how we create tables in the private schema.
   - select pg_catalog.col_description(c.oid, col.ordinal_position::int)::json->>'column_label' ...
   - see sql/readme.md for more details <!-- TODO: old reference - needs to be changed -->
 
-## Table Standard Column
+## Standard Columns
 This sections lists the mandatory and optional columns found in chuck-stack tables. Notice that coding and naming by convention plays a role in primary key name and foreign key relationships. As you will see below, you know the primary key column name as a function of the table name. You know the foreign key table name as a function of the foreign key column name.
 
 ### Mandatory Columns
@@ -188,6 +188,21 @@ Additional columns are optional and limit the scope a system configurator record
 - `stk_user_uu`
 
 System configurator records created for reference in code should use all caps case in the `search_key` column so that it resembles the common convention of a constant.
+
+## Dedicated Unlogged Statistics Tables
+
+Adding statistical columns/data to transactional tables causes performance and stability issues. Instead, all statistics should be maintained in dedicated tables. Here are the reasons to keep statistics out of transactional tables:
+
+- You can create circular loops/locking. For example: an Order is trying to update an Order Line which in turn is trying to update an Order total.
+- You create excessive change logs. For example: if every Payment updates every Business Partner's last payment field, the Business Partner change log will grow 10x to 100x faster than it should.
+- Consider making statistics tables 'unlogged' to prevent unneeded WAL activity. Statistics can always be derived after the fact. Said another way, Statistics represent denormalized data.
+- There exist multiple strategies for most efficiently calculating statistics. Some strategies involve using logical replicas to calculate the statistical data and making the results available to the production database via a FDW (foreign data wrapper).
+
+As a practice, statistics tables should bear the name of the table it describes with an `_stat` suffix. For example, a statistics table for `stk_business_partner` would be `stk_business_partner_stat`. A new column will be added for every new statistic needed.
+
+Recent versions of PostgreSQL introduced the `upsert` option to easily find and update an existing record or insert a new record in a single command. A unique index on the foreign key pointing to its namesake table prevents duplicate records.
+
+It is worth noting that an unexpected database shutdown (error state) will empty the contents of unlogged tables. These records will need to be rebuilt after the issue is resolved and the database is restarted.
 
 ## Function Conventions
 
