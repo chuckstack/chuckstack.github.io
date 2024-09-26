@@ -69,6 +69,14 @@ We have a strong preference for tools written in the Rust language. As a result,
 
 [AIChat](./tool-aichat.md) plays a big role in the chuck-stack. You want to be able to launch a terminal and use AIChat with a single keystroke. Doing so goes a long way in accomplishing the above goal of asking AI before Google.
 
+Examples to come soon... [Join the stack-academy](./stack-academy.md) for quicker options to get started.
+
+## PostgreSQL
+
+[PostgreSQL](./tool-postgresql.md) also plays a big role in the chuck-stack. You want to be able to be able to use psql (PostgreSQL's command line tool - CLI) to connect to a local database and issue a few commands.
+
+Examples to come soon... [Join the stack-academy](./stack-academy.md) for quicker options to get started.
+
 ## Best Practices
 
 Now that you are proficient with AIChat, lets start incorporating [best practices](./best-practices.md) into your use of AIChat.

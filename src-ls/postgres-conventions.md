@@ -12,6 +12,64 @@ The purpose of this page is to describe the concepts and methodologies for creat
 - Maximize use of conventions
 - Minimize the number of experts needed to articulate a design
 
+## Installation
+
+The primary way to install the PostgreSQL application is using Debian's apt-get package management:
+ 
+- sudo apt update
+- sudo apt install postgresql postgresql-contrib
+
+Notes about installing and using PostgreSQL:
+
+- It is sometimes desirable to install multiple 'clusters' of PostgreSQL on a single server. This is especially true when you are first learning the chuck-stack or you are hosting multiple small databases.
+- The below instructions show you how to create a PostgreSQL cluster in a specific location so that you can create multiple clusters if needed.
+- As a general rule, we will disable TCP access to PostgreSQL to maximize security. You should only enable TCP access when you have a good reason to do so.
+- Once you have created a database 'cluster', you can then create one or more 'databases' inside that cluster.
+- It is important to note the database needs of a small business with just a few users are different than the needs of a medium business with hundreds or thousands of users. We will start small and finish big.
+
+> You can always ask AI (using AIChat) about PostgreSQL best practices and options. For example, you can ask AI:
+>
+> - It seems more secure to disable PostgreSQL's TCP service and require clients to connect via unix socket. Is this true?
+
+## Create new Database Cluster
+
+Use the following commands to bring up and manage a new cluster in a specific location using a Unix socket.
+
+- mkdir -p ~/some/psql/dir/
+  - you choose where to put the database cluster
+- initdb -D .mydbc --no-locale --encoding=UTF8 && echo "listen_addresses = ''" >> .mydbc/postgresql.conf
+  - creates the default cluster files at your desired location and disables TCP by setting the listen_address to an empty string.
+  - If initdb throws a no command found error, use the following command to help your system find the command.
+    - export PATH=$PATH:/usr/lib/postgresql/<version>/bin
+- pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" start
+  - start the database cluster and make it available via the $PWD Unix socket
+  - $PWD represents the current working directory, for example: ~/some/psql/dir/
+  - It is convenient to use $PWD when you are located in the same directory.
+  - You can use the actual directory path when located somewhere else, for example: ~/some/psql/dir/ (instead of $PWD)
+- createdb mydb -h $PWD
+  - creates a new database in your cluster named 'mydb'
+- psql -h $PWD -d mydb
+  - connects to the mydb database using the psql CLI tool
+- \q
+  - quits psql
+- pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" status
+  - check the status of the database cluster
+- pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" stop
+  - stop the database cluster
+- # CAUTION - to delete the newly created cluster, stop it and remove the directory - only do this if you want it gone!!
+  - sudo rm -r ~/some/psql/dir/
+
+To connect to a remove instance of PostgreSQL that is only accessible via a Unix socket:
+
+- Option 1: connect to the remote_host via ssh and use the remote_host's psql to administer the database.
+- Option 2: create a ssh tunnel to map the socket to your local machine. Here is an example:
+    - ssh -L /tmp/mydb:/home/some-user/some/psql/dir user@remote_host
+      - This maps the local /tmp/mydb/ directory to the remote_host's /home/some-user/some/psql/dir/ Unix socket.
+      - You can now connect your local app to your local /tmp/mydb/ and manipulate the remote database as if you were on the remote_host server itself.
+      - TODO: this needs to be double checked
+
+It is smart to create a readme.md file in your ~/some/psql/dir/ directory with work instructions documenting how to manage your database.
+
 ## Schema
 
 We use multiple PostgreSQL schemas to create a expose our application logic to the rest of the system.
