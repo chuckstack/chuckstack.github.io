@@ -50,7 +50,7 @@ It is critical to note that small and medium organization application developmen
 - requirements are different
 - user training is different
 
-> The majority of the web is filled with single-purpose and web-scale development practices. The world of small and medium organization data and process management is severely underserved. The chuck-stack aims to better support to such an important group.
+> The majority of the web is filled with single-purpose and web-scale development practices. The world of small and medium organization data and process management is severely underserved. The chuck-stack aims to better support such an important group.
 >
 > \- *Chuck Boecking*
 
