@@ -8,6 +8,7 @@ Discussion Points:
 - Types of virtualization (including Docker)
 - Incus relation to Nix
 - Incus relation to Docker
+- Picutre of success
 
 ## What is Incus
 
@@ -58,3 +59,28 @@ Docker is a compelling option for virtualization. Here are the reason we prefer 
 - Incus covers more virtualization use case scenarios than Docker. For example: we need semi-permanent instances for long running applications like PostgreSQL. Incus provides this capability with no additional effort.
 - Incus supports running Docker containers without needing a dedicated Docker environment.
 - Note: Incus does not support Docker Compose yet.
+
+## Picture of Success
+
+Here is what we want from incus for small companies wanting to become bigger companies:
+
+- Start with three [system76 meerkat tall](https://system76.com/desktops/meerkat) each with the following:
+  - about $600 to start and $1K each as suggested below.
+  - about 12 cores (i5 for example)
+  - 32GB memory
+  - 500GB PCIe4 drive
+  - 4TG SATA SSD additional drive
+  - 2.5 GbE LAN additional port
+  - Note: always buy what you can afford at the time. If you can go with 64GB of memory then do so. Bigger drive, then do so...
+  - Note: your AWS bill will quickly grow to be more than $3K in a short period of time. Every server has three costs. You can assume the drive and shapshot storage will cost the same as the server itself.
+    - EC2 server
+    - EC2 drive
+    - S3 snapshot storage
+- Incus cluster abilities:
+  - Host anywhere (table, rack, colo, ...)
+  - Add more nodes to the existing cluster as needed (either more meerkats or real servers)
+  - Distributed storage for data redundancy
+- Desired scenario:
+  - Current version's documentation is downloaded and available as a rag repository in AIChat.
+  - Current installation and configuration (markdown) is available as a rag repository in AIChat.
+  - Administrators and use AIChat diagnose, administer, and improve Incus.

@@ -186,6 +186,7 @@
 <li>Types of virtualization (including Docker)</li>
 <li>Incus relation to Nix</li>
 <li>Incus relation to Docker</li>
+<li>Picutre of success</li>
 </ul>
 <h2 id="what-is-incus"><a class="header" href="#what-is-incus">What is Incus</a></h2>
 <p><a href="https://linuxcontainers.org/incus/docs/main/">Incus</a> is a Linux application that allows you to take any single computer or collection/cluster of computers and turn them into a virtualization platform.</p>
@@ -228,6 +229,42 @@
 <li>Incus covers more virtualization use case scenarios than Docker. For example: we need semi-permanent instances for long running applications like PostgreSQL. Incus provides this capability with no additional effort.</li>
 <li>Incus supports running Docker containers without needing a dedicated Docker environment.</li>
 <li>Note: Incus does not support Docker Compose yet.</li>
+</ul>
+<h2 id="picture-of-success"><a class="header" href="#picture-of-success">Picture of Success</a></h2>
+<p>Here is what we want from incus for small companies wanting to become bigger companies:</p>
+<ul>
+<li>Start with three <a href="https://system76.com/desktops/meerkat">system76 meerkat tall</a> each with the following:
+<ul>
+<li>about $600 to start and $1K each as suggested below.</li>
+<li>about 12 cores (i5 for example)</li>
+<li>32GB memory</li>
+<li>500GB PCIe4 drive</li>
+<li>4TG SATA SSD additional drive</li>
+<li>2.5 GbE LAN additional port</li>
+<li>Note: always buy what you can afford at the time. If you can go with 64GB of memory then do so. Bigger drive, then do so...</li>
+<li>Note: your AWS bill will quickly grow to be more than $3K in a short period of time. Every server has three costs. You can assume the drive and shapshot storage will cost the same as the server itself.
+<ul>
+<li>EC2 server</li>
+<li>EC2 drive</li>
+<li>S3 snapshot storage</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Incus cluster abilities:
+<ul>
+<li>Host anywhere (table, rack, colo, ...)</li>
+<li>Add more nodes to the existing cluster as needed (either more meerkats or real servers)</li>
+<li>Distributed storage for data redundancy</li>
+</ul>
+</li>
+<li>Desired scenario:
+<ul>
+<li>Current version's documentation is downloaded and available as a rag repository in AIChat.</li>
+<li>Current installation and configuration (markdown) is available as a rag repository in AIChat.</li>
+<li>Administrators and use AIChat diagnose, administer, and improve Incus.</li>
+</ul>
+</li>
 </ul>
 
                     </main>
