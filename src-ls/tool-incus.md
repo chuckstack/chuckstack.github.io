@@ -39,9 +39,13 @@ There is a long list of reasons why we love Incus:
 
 One of the greatest benefits of Incus is that it gives you so many virtualization options in a single package. Incus maintains current container and virtual machine images for commonly used Linux operating systems including: Debian, Ubuntu, NixOS, Alpine, Arch, etc... You can add DockerHub as an Incus image repository; therefore, you can launch almost any image with almost no additional effort, infrastructure or nesting when using Incus.
 
+## Incus has Projects
+
+You can use projects to keep your Incus server clean by grouping related instances together. In addition to isolated instances, each project can also have specific images, profiles, networks, and storage. This helps organizations support the growth of organizations in an organized manner.
+
 ## Incus Relation to Nix
 
-Nix is a compelling option for virtualization. If the chuck-stack already uses Nix, why add Incus in addition to Nix? 
+Nix is a compelling option for virtualization in some specific circunstances. If the chuck-stack already uses Nix, why add Incus in addition to Nix? 
 
 Here are our thoughts:
 
