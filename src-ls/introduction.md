@@ -25,7 +25,7 @@ We help organizations focus on what matters most - its people and value proposit
 
 The purpose of the chuck-stack is to help organizations:
 
-- Increase operational and transactional velocity and efficiency
+- Increase operational and transactional velocity and efficiency ([OTVE](./terminology.md#otve))
 - Identify and deploy AI-enabled, self-service tools that drive innovation from everyone in your organization
 - Build an internal and external community of support and innovation
 

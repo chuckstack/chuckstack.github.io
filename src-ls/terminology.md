@@ -2,6 +2,19 @@
 
 The purpose of this page is to define terminology used in the chuck-stack.org.
 
+## Conversational Enterprise Computing
+
+Conversational Enterprise Computing is where users manage enterprise data and processes through commanding and inquisitive interactions with the system using a keyboard or microphone. This conversational style is in stark contrast to ERP systems of the last 20 years where the users are inundated with tens of thousands of windows, tabs and fields.
+
+Here are the hallmarks for conversational enterprise computing:
+
+- System adapts to the user's style of communication.
+- System uses conversive interactions to drive normal data and process archetypes.
+- System shields supporting, routine data from the user and highlights high-value details.
+- Users explore data as is needed to the extent their role allows.
+- Users rely on self-service training and automation to maximize operational and transactional velocity and efficiency ([OTVE](./terminology.md#otve)).
+- Systems uses work instructions to drive functionality and create guardrails ([see best practices](./best-practices.md)).
+
 ## Data Pipeline
 
 Linux shell pipelines allow users to chain multiple commands together, where the output of one command becomes the input for the next. This is achieved using the pipe symbol (|) between commands. Pipelines enable complex data processing and manipulation tasks to be performed efficiently by combining simple, specialized tools. 
@@ -61,6 +74,10 @@ For example, an instance of chuck-stack is a unique installation and deployment 
 ## Organization
 
 An organization is how the chuck-stack refers to a group that uses the chuck-stack. An organization can be a formal for-profit or not-for-profit business, and an organization can be an informal band of people united by a common interest or cause.
+
+## OTVE
+
+Increasing Operational and Transaction Velocity and Efficiency (OTVE) is a hallmark of the chuck-stack and conversational enterprise computing. In fact, increasing OTVE is the first bullet of the chuck-stack purpose. To learn more about how the chuck-stack increases OTVE, view the [introduction](./introduction.md).
 
 ## SuperClerk
 
