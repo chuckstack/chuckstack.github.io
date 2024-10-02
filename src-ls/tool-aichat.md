@@ -67,7 +67,7 @@ Before we go into the solution details, I want to point out a theme in the below
 
 ### Contract How To
 
-How does someone learn to perform the above steps? More specifically, how did I...
+How does someone learn to perform the above steps? More specifically, how did we...
 
 - know that pdftotext would extract out text from a PDF? I asked AIChat.
 - find the best prompt to extract out dates and tasks? I asked AIChat.
