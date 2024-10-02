@@ -23,6 +23,7 @@
 - [Terminology](./terminology.md)
 - [Roadmap](./roadmap.md)
 - [Project History](./project-history.md)
+- [References](./reference.md)
 
 ---
 

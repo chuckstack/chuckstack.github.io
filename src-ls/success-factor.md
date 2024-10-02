@@ -26,7 +26,7 @@ What has only two forms of communication (grunts and nudges)? A mouse...
 
 Before we make our case for the CLI, we feel compelled to express the challenges that plague us today.
 
-Using a mouse to perform work in a web browser is quite possibly the lowest form of communication prevalent in our society. You can click (or grunt) and you and drag (or nudge). Imagine if your primary means of communication was grunting and nudging people around. It is hard to imagine because it represent such a departure from the rich language we have developed to express ourselves.
+Using a mouse to perform work in a web browser is quite possibly the lowest form of communication prevalent in our society. You can click (or grunt) and you and drag (or nudge). Imagine if your primary means of communication was grunting and nudging people around. It is hard to imagine because it represents such a departure from the rich language we have developed to express ourselves.
 
 Creating mouse oriented user interfaces often doubles or more the code complexity. Creating business logic is easy. Creating web-based user interfaces is extremely difficult. 
 
