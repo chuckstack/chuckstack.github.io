@@ -17,3 +17,19 @@
 - It scales massively for small to medium organizations.
 - It does its job (compute) quite well.
 - And, most importantly it has great synergy with the rest of the chuck-stack.
+
+## Linux Distributions
+
+The chuck-stack standardizes on two distributions of Linux:
+
+- Debian - general purpose Linux distribution
+- NixOS - declarative and composable architecture
+
+It is worth mentioning that Nix is both an OS (NixOS) and a package manager (similar to Debian's apt). We make use of the Nix package manager on Debian as well. Said another way, it is common for us to install the Nix package manager on Debian servers and desktops.
+
+## Linux Desktop
+
+The chuck-stack standardizes on two Linux desktops:
+
+- PopOS - we are most excited about PopOS, and we have used it for more than 2 year; however, it is currently in transition from gnome-based to an independent, pure-rust desktop. Because of this transition and the instability it creates, we also support Gnome.
+- Gnome - a good and well understood Linux desktop.
