@@ -76,15 +76,15 @@ Here is what we want from incus for small companies wanting to become bigger com
   - 4TG SATA SSD additional drive
   - 2.5 GbE LAN additional port
   - Note: always buy what you can afford at the time. If you can go with 64GB of memory then do so. Bigger drive, then do so...
-  - Note: your AWS bill will quickly grow to be more than $3K in a short period of time. Every server has three costs. You can assume the drive and shapshot storage will cost the same as the server itself.
+  - Note: your AWS bill will quickly grow to be more than $3K in a short period of time. Every AWS server has three costs. 
     - EC2 server
-    - EC2 drive
+    - EC2 drive - You can assume the AWS drive and shapshot storage costs will be about the same as the server cost itself
     - S3 snapshot storage
 - Incus cluster abilities:
   - Host anywhere (table, rack, colo, ...)
-  - Add more nodes to the existing cluster as needed (either more meerkats or real servers)
+  - Add more nodes to the existing cluster as needed (either more meerkats or traditional 1U/2U servers)
   - Distributed storage for data redundancy
-- Desired scenario:
+- Desired Incus deployment scenario:
   - Current version's documentation is downloaded and available as a rag repository in AIChat.
   - Current installation and configuration (markdown) is available as a rag repository in AIChat.
-  - Administrators and use AIChat diagnose, administer, and improve Incus.
+  - Administrators and use AIChat to diagnose, administer, and improve Incus cluster.
