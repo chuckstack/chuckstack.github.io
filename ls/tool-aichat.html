@@ -178,11 +178,12 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="aichat"><a class="header" href="#aichat">AIChat</a></h1>
-<p><a href="https://github.com/sigoden/aichat">AIChat</a> is an all-in-one AI CLI tool to help you interact with the world's most popular LLMs. It features Chat-REPL, Shell Assistant, RAG, AI Tools and Agents.</p>
+<p><a href="https://github.com/sigoden/aichat">AIChat</a> is an all-in-one AI CLI tool that helps you interact with the world's most popular and powerful LLMs. It combines a chat-REPL, shell assistant, RAG, agents, and an API in a single AI tool.</p>
 <p>Discussion points:</p>
 <ul>
-<li>What we love AIChat</li>
+<li>Why we love AIChat</li>
 <li>Why AI + CLI matters so much</li>
+<li>AIChat solution examples</li>
 </ul>
 <h2 id="why-we-love-aichat"><a class="header" href="#why-we-love-aichat">Why We Love AIChat</a></h2>
 <ul>
@@ -192,10 +193,11 @@
 <li>It is easily accessible from anywhere in the world.</li>
 <li>It is an active project adapting to a rapidly evolving technical space.</li>
 <li>It makes the knowledge we need to do our jobs available where and how we need it most.</li>
-<li>it is an emerging tool the shows signs of a vibrant of a vibrant we sell supported community.</li>
+<li>it is an emerging tool the shows signs of a vibrant and well supported community.</li>
 <li>It can be deployed in every corner of the world.</li>
 <li>It can be deployed in hybrid cloud scenarios.</li>
 <li>It is CLI first to help support automation through AI.</li>
+<li>It make solutions created from the CLI available via the web and an API.</li>
 <li>It offers a reasonably simple architecture given the nature of its purpose.</li>
 <li>It scales massively for small to medium organizations.</li>
 <li>It does its job (AI) quite well.</li>
@@ -204,6 +206,53 @@
 <h2 id="why-ai--cli-matters"><a class="header" href="#why-ai--cli-matters">Why AI + CLI Matters</a></h2>
 <p>The vast majority of AI tools created in the last year are deployed via a webpage. We understand why people make this choice; however, we believe it is the wrong choice for small and medium organizations. Applications in webpages effectively trap knowledge and data. They create silos, and the amount of tooling needed to connect data between webpages is enormous. There is a much better way!</p>
 <p>The CLI represents the single greatest superpower to help users create automation and data <a href="./terminology.html#data-pipeline">pipelines</a>.</p>
+<h2 id="aichat---more-than-a-cli"><a class="header" href="#aichat---more-than-a-cli">AIChat - More than a CLI</a></h2>
+<p>AIChat provides three features that are critical to our success:</p>
+<ul>
+<li>AI through the CLI - which is the most obvious feature</li>
+<li>AI through a Webui playground - which gives you an html view into the same tools created via the CLI</li>
+<li>AI through an API - which gives you the ability to use your previously created AI automation from other tools as well</li>
+</ul>
+<h3 id="a-common-workflow-challenge"><a class="header" href="#a-common-workflow-challenge">A Common Workflow Challenge</a></h3>
+<p>When supporting small and medium organizations, we are often challenged with a question that begins with: "Can you do ...". The answer is often: "I do not know; let me try...". Here is a common scenario when exploring such a solution:</p>
+<ol>
+<li>Prove that AI is capable of some task. This is often most easily performed using AIChat through the CLI (either in the REPL or as commands). Once you believe you have a path to success, you want others to quickly try it out.</li>
+<li>You send a link to AIChat's webui playground that is pre-loaded with the role (settings) and RAG (knowledge) that demonstrates the to-be solution so that all can easily see.</li>
+<li>You update other tools to call AIChat's API to extend your solution into more workflows.</li>
+</ol>
+<h3 id="contract-example"><a class="header" href="#contract-example">Contract Example</a></h3>
+<p>Here is a more concrete example to the above challenge. Let's say your organization works with legal contracts that have both dates and tasks associated with their execution. Let's assume you currently spend 25 man hours per month reviewing contracts and transcribing them to tasks on a calendar with a 94% historical accuracy. Can you do better? Here is an approach to exploring a solution:</p>
+<p>Before we go into the solution details, I want to point out a theme in the below bullets. You create something once in a low cost and iterative manner, and you use it in multiple ways. One tool creates many options. This is how clerks become <a href="./terminology.html#superclerk">superclerks</a>.</p>
+<ul>
+<li>Find an example contract. This will most likely be a PDF.</li>
+<li>Use the pdftotext CLI tool to extract the contents of the contract from the PDF to TXT:
+<ul>
+<li>pdftotext -layout somecontract.pdf &gt; somecontract.txt</li>
+</ul>
+</li>
+<li>Pass the contract into AIChat along with some basic work instructions
+<ul>
+<li>aichat -f somecontract.txt -- find all tasks with their associated deadlines.</li>
+</ul>
+</li>
+<li>Iterate on your work instructions until you get something that looks like a collection of tasks + deadlines from AIChat.</li>
+<li>Create a new AIChat role named "contract task extractor" and save your refined work instructions in that role so that others can use your newly created skills and knowledge.
+<ul>
+<li>aichat</li>
+<li>&gt; .edit role "contract task extractor"</li>
+</ul>
+</li>
+<li>Deploy the AIChat webui playground and share your newly created AI role with other people.</li>
+<li>Make your role available to other applications using AIChat's API so that all your tools can extract tasks and dates from contacts as well.</li>
+</ul>
+<h3 id="contract-how-to"><a class="header" href="#contract-how-to">Contract How To</a></h3>
+<p>How does someone learn to perform the above steps? More specifically, how did I...</p>
+<ul>
+<li>know that pdftotext would extract out text from a PDF? I asked AIChat.</li>
+<li>find the best prompt to extract out dates and tasks? I asked AIChat.</li>
+<li>figure out how to create a new role in AIChat? I asked AIChat.</li>
+</ul>
+<p>You are probably starting to see a pattern...</p>
 
                     </main>
 
@@ -234,6 +283,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
