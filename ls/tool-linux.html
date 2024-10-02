@@ -198,16 +198,28 @@
 <h2 id="linux-distributions"><a class="header" href="#linux-distributions">Linux Distributions</a></h2>
 <p>The chuck-stack standardizes on two distributions of Linux:</p>
 <ul>
-<li>Debian - general purpose Linux distribution</li>
-<li>NixOS - declarative and composable architecture</li>
+<li>Debian</li>
+<li>NixOS</li>
 </ul>
-<p>It is worth mentioning that Nix is both an OS (NixOS) and a package manager (similar to Debian's apt). We make use of the Nix package manager on Debian as well. Said another way, it is common for us to install the Nix package manager on Debian servers and desktops.</p>
+<h3 id="debian"><a class="header" href="#debian">Debian</a></h3>
+<p><a href="https://www.debian.org/">Debian</a> is a general purpose Linux distribution. It has been around for a long time. It is community driven. It works great on the server and the desktop. It is a cornerstone for the Linux community.</p>
+<h3 id="nix"><a class="header" href="#nix">Nix</a></h3>
+<p><a href="https://nixos.org/">Nix</a> is a package manager that also became a Linux distribution (NixOS). Its most remarkable feature is the ability to create reproducible builds and deploy reproducible environments through its declarative language.</p>
+<p>The chuck-stack uses Nix in two ways:</p>
+<ol>
+<li>Server deployment: easily create servers by simply copying and combining nix configuration files. We run NixOS on servers.</li>
+<li>User profile: easily prescribe and deploy tools to each user's environment based on the role they are fulfilling. We use Nix-shell to support user profiles.</li>
+</ol>
 <h2 id="linux-desktop"><a class="header" href="#linux-desktop">Linux Desktop</a></h2>
 <p>The chuck-stack standardizes on two Linux desktops:</p>
 <ul>
-<li>PopOS - we are most excited about PopOS, and we have used it for more than 2 year; however, it is currently in transition from gnome-based to an independent, pure-rust desktop. Because of this transition and the instability it creates, we also support Gnome.</li>
-<li>Gnome - a good and well understood Linux desktop.</li>
+<li>PopOS Shell</li>
+<li>Gnome</li>
 </ul>
+<h3 id="popos-shell"><a class="header" href="#popos-shell">PopOS Shell</a></h3>
+<p>We are most excited about the <a href="https://github.com/pop-os/shell">PopOS shell desktop</a>, and we have used it for more than 2 year; however, it is currently in transition from gnome-based to an independent, pure-rust desktop. Because of this transition and the instability the transition creates, we also support Gnome.</p>
+<h3 id="gnome"><a class="header" href="#gnome">Gnome</a></h3>
+<p>Gnome is a good and well understood Linux desktop.</p>
 
                     </main>
 

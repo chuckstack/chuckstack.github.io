@@ -55,8 +55,8 @@ You need some version of [Linux](./tool-linux.md) available to you. Here are som
 ## Which Linux Version
 
 - PopOS is our preference for laptops and desktops. PopOS is an Debian variant.
-- Debian is our preference for servers, containers and headless virtual machines.
-- NixOS is a more challenging and more capable option.
+- [Debian](./tool-linux.md#debian) is our preference for servers, containers and headless virtual machines.
+- [NixOS](./tool-linux.md#nix) is a more challenging and more capable option.
 - Ubuntu is also acceptable. Ubuntu is a Debian variant.
 
 You can use any almost distribution of Linux you wish. The chuck-stack team recommends Debian-based and Nix as part of the official stack.

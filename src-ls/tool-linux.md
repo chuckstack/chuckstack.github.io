@@ -22,14 +22,33 @@
 
 The chuck-stack standardizes on two distributions of Linux:
 
-- Debian - general purpose Linux distribution
-- NixOS - declarative and composable architecture
+- Debian
+- NixOS
 
-It is worth mentioning that Nix is both an OS (NixOS) and a package manager (similar to Debian's apt). We make use of the Nix package manager on Debian as well. Said another way, it is common for us to install the Nix package manager on Debian servers and desktops.
+### Debian
+
+[Debian](https://www.debian.org/) is a general purpose Linux distribution. It has been around for a long time. It is community driven. It works great on the server and the desktop. It is a cornerstone for the Linux community.
+
+### Nix
+
+[Nix](https://nixos.org/) is a package manager that also became a Linux distribution (NixOS). Its most remarkable feature is the ability to create reproducible builds and deploy reproducible environments through its declarative language.
+
+The chuck-stack uses Nix in two ways:
+
+1. Server deployment: easily create servers by simply copying and combining nix configuration files. We run NixOS on servers.
+2. User profile: easily prescribe and deploy tools to each user's environment based on the role they are fulfilling. We use Nix-shell to support user profiles.
 
 ## Linux Desktop
 
 The chuck-stack standardizes on two Linux desktops:
 
-- PopOS - we are most excited about PopOS, and we have used it for more than 2 year; however, it is currently in transition from gnome-based to an independent, pure-rust desktop. Because of this transition and the instability it creates, we also support Gnome.
-- Gnome - a good and well understood Linux desktop.
+- PopOS Shell
+- Gnome
+
+### PopOS Shell
+
+We are most excited about the [PopOS shell desktop](https://github.com/pop-os/shell), and we have used it for more than 2 year; however, it is currently in transition from gnome-based to an independent, pure-rust desktop. Because of this transition and the instability the transition creates, we also support Gnome.
+
+### Gnome
+
+Gnome is a good and well understood Linux desktop.
