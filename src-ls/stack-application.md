@@ -1,22 +1,28 @@
 # chuck-stack Application Framework
 
-chuck-stack uses the above [tools](./stack-tools.md) and [best practices](./best-practices.md) to create an application framework for data and process management. Here are the framework goals:
+chuck-stack uses the previously discussed [tools](./stack-tools.md) and [best practices](./best-practices.md) to create an application framework for data and process management. The purpose of this page is to describe the chuck-stack application components.
 
-- Minimize application framework code and complexity by using off-the-shelf tools that are easily understood by people and AI..
-- Minimize the effort to create new business logic. Ideally, a single command will create the template for you. AI will draft the code for you.
+## Framework Goals
+
+Running an organization goes beyond simple CRUD (create, read, update and delete) database operations and running processes. The system needs to make the right tools available to the right person at the right time to make their jobs easier and more enjoyable. 
+
+- Minimize application framework code and complexity by using off-the-shelf tools that are easily deployed and used by people and AI.
+- Minimize the effort to create new business logic. Ideally, a single command will create the template for you. AI will draft the configuration for you.
 - Maximize who in an organization can automate business logic by supporting role-based contracts where role boundaries are well defined and AI can help ensure proper [capability sandboxing](./stack-faq.html#what-is-capability-sandboxing) and data integrity.
 
-Data management goes beyond simple CRUD (create, read, update and delete) database operations. The system needs to make the right data available to the right person at the right time to make their jobs easier. There are two key process features that make this vision a reality: 1) workflow and 2) attribute tagging.
+## Framework Components
 
-When attempting to describe both workflow and attribute tagging overviews, the first paragraph is pretty much the exact same. It is quite impressive how similar these paragraphs are.
+The stack application consists of three components:
 
-## Workflow Overview
+1. Tool/role deployment
+2. Workflow processes
+3. Attribute tagging
 
-Workflow is critical to data and process management. However, workflow is notoriously difficult. The concepts can be difficult to learn. The applications are often difficult to install and maintain, and they are either too complicated or overly simple. It is incredibly difficult to create a workflow architecture that is both generic enough and easy enough for broad adoption. AI will change the workflow landscape. What was previously tedious, is becoming a conversation.
+All three components are critical, and all three components are notoriously difficult to do well. The concepts are difficult to learn. The tools are difficult to install and maintain. It is incredible difficult to create an architecture that is both generic enough and easy enough for broad adoption.
 
-## Attribute Tagging Overview
+All these statements were true until now. AI changes everything! What was previously tedious is now becoming a conversation. What was previously a black box is now becoming a blueprint for execution.
 
-Attribute tagging is critical to ensure the system can properly describe its data. However, attribute tagging is notoriously difficult. The concepts can be difficult to learn. The applications are often difficult to install and maintain, and they are either too complicated or overly simple. It is incredibly difficult to create an attribute tagging architecture that is both generic enough and easy enough for broad adoption. AI will change the attribute landscape. What was previously tedious, is becoming a conversation.
+## Tool/Role Deployment
 
 ## Workflow Details
 
@@ -95,4 +101,5 @@ Here is an example of attribute tagging in chuck-steak:
   - value (holds the json containing the attribute set instance)
   - plus all other mandatory chuck-steak columns
 
-
+extra:
+There are two key process features that make this vision a reality: 1) workflow and 2) attribute tagging.
