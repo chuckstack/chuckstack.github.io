@@ -2,6 +2,12 @@
 
 Here is a list of recent blogs. The sidebar contains the full list.
 
+## The CLI is Better
+
+The CLI creates more value for managing data and processes in small and medium sized organizations than just about any alternative. The purpose of this post is to explain what it is better than and why.
+
+[Read more...](./blog-cli-better.md)
+
 ## Why Conversational Enterprise Computing Matters
 
 This article discusses why [Conversational Enterprise Computing](./terminology.md#conversational-enterprise-computing) matters. It helps explain how the chuck-stack gives small and medium sized organizations a competitive advantage against both its peers as well as larger organizations.

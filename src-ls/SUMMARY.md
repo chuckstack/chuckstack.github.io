@@ -33,6 +33,7 @@
 ---
 
 - [Blog](./blog.md)
+  - [The CLI is better than...](./blog-cli-better.md)
   - [Why Conversational Enterprise Computing Matters](./blog-conversational-enterprise-computing.md)
   - [Work Instructions Make your Organization Sexy](./blog-work-instruction-sexy.md)
   - [We Live in a Markdown World](./blog-live-markdown-world.md)

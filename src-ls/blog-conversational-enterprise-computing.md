@@ -1,5 +1,9 @@
 # Why Conversational Enterprise Computing Matters
 
+- Published: 2024-10-01
+- Updated: 2024-10-01
+- Author: Chuck Boecking
+
 The purpose of this page is to discuss why [Conversational Enterprise Computing](./terminology.md#conversational-enterprise-computing) matters.
 
 Let's start with the cascading benefits:
@@ -19,3 +23,7 @@ In the [chuck-stack introduction](./introduction.md#purpose), we stated the foll
 Note that conversational enterprise computing makes no references to what tools are used to create the application or how the application is delivered (web versus terminal). It is just a style or a type computing that sits in stark contrast to the last 20 years of ERP.
 
 The chuck-stack positions itself as a leader in conversational enterprise computing by putting in the work to assemble the tools, document the best practices in one place, and teach anyone who is willing to learn. Said another way, we go to heroic efforts to make this style of computing available to everyone in every corner of the world.
+
+## Learn More
+
+If you want help executing the topics in this article, join the [stack-academy](./stack-academy.md). Not ready to join... We can always [stay connected](../learn-more.html) to learn more.

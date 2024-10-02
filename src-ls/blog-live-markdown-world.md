@@ -20,3 +20,7 @@ Here are the reasons:
 - Markdown docs can easily be turned into private and public project websites using tools like [mdbook](https://rust-lang.github.io/mdBook/) with virtually no effort and almost no tooling. The resulting mdbook website augments the git pull request for edits from the whole team by providing a quick edit link on every page.
 
 For more reasons to consider markdown, see the [chuck-stack best practices](./best-practices.md).
+
+## Learn More
+
+If you want help executing the topics in this article, join the [stack-academy](./stack-academy.md). Not ready to join... We can always [stay connected](../learn-more.html) to learn more.

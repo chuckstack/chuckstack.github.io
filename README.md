@@ -25,3 +25,4 @@ Blog Work Instruction:
   - updated date
   - author
 - all other headings at h2 or lower
+- finish with "learn more..." section
