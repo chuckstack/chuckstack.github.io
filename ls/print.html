@@ -872,9 +872,9 @@
 <h3 id="contract-how-to"><a class="header" href="#contract-how-to">Contract How To</a></h3>
 <p>How does someone learn to perform the above steps? More specifically, how did we...</p>
 <ul>
-<li>know that pdftotext would extract out text from a PDF? I asked AIChat.</li>
-<li>find the best prompt to extract out dates and tasks? I asked AIChat.</li>
-<li>figure out how to create a new role in AIChat? I asked AIChat.</li>
+<li>know that pdftotext would extract out text from a PDF? We asked AIChat.</li>
+<li>find the best prompt to extract out dates and tasks? We asked AIChat.</li>
+<li>figure out how to create a new role in AIChat? We asked AIChat.</li>
 </ul>
 <p>You are probably starting to see a pattern....</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nushell-1"><a class="header" href="#nushell-1">Nushell</a></h1>
@@ -885,7 +885,7 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="zellij-1"><a class="header" href="#zellij-1">Zellij</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="git"><a class="header" href="#git">Git</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="obsidian"><a class="header" href="#obsidian">Obsidian</a></h1>
-<p><a href="https://obsidian.md">Obsidian</a> is a writing application that saves content in markdown format. It offers an enjoyable writing experience and a large collection of tools to aid in the thinking, organizing and writing process.</p>
+<p><a href="https://obsidian.md">Obsidian</a> is a writing application that saves content in markdown format. It offers an enjoyable writing experience and a large collection of plugin tools to aid in the thinking, organizing and writing process.</p>
 <h2 id="why-we-love-obsidian"><a class="header" href="#why-we-love-obsidian">Why We Love Obsidian</a></h2>
 <p>Here are the reasons we love Obsidian:</p>
 <ul>
@@ -1244,17 +1244,35 @@ COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
 </li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="chuck-stack-application-framework"><a class="header" href="#chuck-stack-application-framework">chuck-stack Application Framework</a></h1>
-<p>chuck-stack uses the above tools to create an application framework for data and process management. Here are the framework goals:</p>
+<p>chuck-stack uses the above tools and best practices to create an application framework for data and process management. Here are the framework goals:</p>
 <ul>
 <li>Minimize application framework code and complexity by using off-the-shelf tools that are easily understood by people and AI..</li>
 <li>Minimize the effort to create new business logic. Ideally, a single command will create the template for you. AI will draft the code for you.</li>
 <li>Maximize who in an organization can automate business logic by supporting role-based contracts where role boundaries are well defined and AI can help ensure proper <a href="./stack-faq.html#what-is-capability-sandboxing">capability sandboxing</a> and data integrity.</li>
 </ul>
-<p>Data management goes beyond simple CRUD (create, read, update and delete) database operations. The system needs to make the right data available to the right person at the right time to make their jobs easier. There are two key process features that make this vision a reality: 1) workflow and 2) attribute tagging. Here are the details:</p>
-<h2 id="workflow"><a class="header" href="#workflow">Workflow</a></h2>
+<p>Data management goes beyond simple CRUD (create, read, update and delete) database operations. The system needs to make the right data available to the right person at the right time to make their jobs easier. There are two key process features that make this vision a reality: 1) workflow and 2) attribute tagging.</p>
+<p>When attempting to describe both workflow and attribute tagging overviews, the first paragraph is pretty much the exact same. It is quite impressive how similar these paragraphs are.</p>
+<h2 id="workflow-overview"><a class="header" href="#workflow-overview">Workflow Overview</a></h2>
 <p>Workflow is critical to data and process management. However, workflow is notoriously difficult. The concepts can be difficult to learn. The applications are often difficult to install and maintain, and they are either too complicated or overly simple. It is incredibly difficult to create a workflow architecture that is both generic enough and easy enough for broad adoption. AI will change the workflow landscape. What was previously tedious, is becoming a conversation.</p>
-<!-- TODO: consider calling this User Facing Workflows to differentiate from developer workflows like events and functions. Or, consider labeling the below bullets with user/developer/system. -->
-<p>Here are the important types of workflow.</p>
+<h2 id="attribute-tagging-overview"><a class="header" href="#attribute-tagging-overview">Attribute Tagging Overview</a></h2>
+<p>Attribute tagging is critical to ensure the system can properly describe its data. However, attribute tagging is notoriously difficult. The concepts can be difficult to learn. The applications are often difficult to install and maintain, and they are either too complicated or overly simple. It is incredibly difficult to create an attribute tagging architecture that is both generic enough and easy enough for broad adoption. AI will change the attribute landscape. What was previously tedious, is becoming a conversation.</p>
+<h2 id="workflow-details"><a class="header" href="#workflow-details">Workflow Details</a></h2>
+<p>chuck-stack Workflows can be broken down into</p>
+<h3 id="system-workflows"><a class="header" href="#system-workflows">System Workflows</a></h3>
+<p>Here are the important types of system facing workflows.</p>
+<ul>
+<li>Before Events (save, delete, update): TODO - defined by psql</li>
+<li>After Events (save, delete, update): TODO - defined by psql</li>
+<li>Functions: TODO - defined by psql</li>
+<li>Interface Events: TODO (singleton or collection)
+<ul>
+<li>note that interface events can be triggered by user workflows</li>
+<li>document validation is an example of an interface event</li>
+</ul>
+</li>
+</ul>
+<h3 id="user-workflows"><a class="header" href="#user-workflows">User Workflows</a></h3>
+<p>Here are the important types of user facing workflows.</p>
 <ul>
 <li>Journal workflow: everyone in an organization should be able to record the events in an organization. More...</li>
 <li>Discussion workflow: everyone in an organization should be able to collaborate with others in an organization. More...</li>
@@ -1263,10 +1281,66 @@ COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
 <li>Queue workflow: as people manipulate data, some records will reach a state of importance. Queues are defined views into data that match a specific pattern automatically. When the pattern is found, present the user or role with the matching records.  More...</li>
 <li>Notice workflow: events happen, and sometimes users and systems need to be notified. The notification workflow provides information based on the events that occur in an organization.  More...</li>
 <li>Ad-hoc request workflow: users and systems often know what needs to happen and who needs to perform the action based on the events that occur in an organization. This is often referred to as institutional knowledge of action. Ad-hoc request workflows allow users or services to request action from a particular user, role or service.  More...</li>
-<li>Complex request workflow: There are times when an organization needs a formal, multi-step, orchestrated process where a request follows a pre-defined path. Consider calling this 'Orchestrated Request' workflow.</li>
+<li>Orchestrated request workflow: There are times when an organization needs a formal, multi-step, orchestrated process where a request follows a pre-defined path.</li>
 </ul>
-<h2 id="attribute-tagging"><a class="header" href="#attribute-tagging">Attribute Tagging</a></h2>
-<p>xxx</p>
+<h3 id="document-action-workflows"><a class="header" href="#document-action-workflows">Document Action Workflows</a></h3>
+<p>Document action workflows are simply an implementation of orchestrated request workflows that center around the life cycle of transactional documents such as orders, invoices, receipts, payments, statements, allocations, .... Here is an example life cycle of a Sales Order:</p>
+<!-- TODO ensure the Action and Status vocabulary terms are consistent with the pg_workflow repo -->
+<ul>
+<li>Action - Status - Status Description</li>
+<li>Draft - Drafted - initial state representing an idea</li>
+<li>Prepare - Prepared - initial validations pass and it ready for further review</li>
+<li>Submit - Submitted - makes document eligible for downstream action (only applicable to orders to enable receipts, invoices, ...)</li>
+<li>Complete - Completed - terminal status for happy path</li>
+<li>Reverse Correct - Reverse Corrected - terminal status resulting in the creation of an anti-document (with opposite sign) with exact same document date as the original. Both the original and the resulting reversed documents will have the same status.</li>
+<li>Reverse Accrue - Reverse Accrued - terminal status resulting in the creation of an anti-document (with opposite sign) with document date set to a proposed new date. Both the original and the resulting reversed documents will have the same status.</li>
+</ul>
+<h2 id="attribute-tagging-details"><a class="header" href="#attribute-tagging-details">Attribute Tagging Details</a></h2>
+<p>Attribute tagging is the ability to associate a collection of attribute values with a given record. Any record can have many sets of attribute associated with it. The chuck-stack uses PostgreSQL's JSON capabilities to implement attribute tagging.</p>
+<p>Before we get too far, we need to define some terms:</p>
+<ul>
+<li><strong>Attribute</strong>: a dimension or descriptive characteristic.
+<ul>
+<li>Examples include length, width, weight, type, category, Business Partner, ....</li>
+</ul>
+</li>
+<li><strong>Attribute Value</strong>: the answer or value associated with an Attribute.
+<ul>
+<li>Examples include 10, "100lbs," "order", True, ...</li>
+<li>Values can also be foreign keys to other tables such as a uuid pointing to a Business Partner table.</li>
+</ul>
+</li>
+<li><strong>Attribute Set</strong>: a collection of Attributes.</li>
+<li><strong>Attribute Set Instance</strong>: an Attribute Set with its Attributes Values assigned.</li>
+</ul>
+<!-- TODO: add to terminology.md page - this is the definition and term points here -->
+<p>Here is an example of attribute tagging in chuck-steak:
+TODO - finish draft
+TODO - this section needs to be moved to conventions
+TODO - need to explain that the psql json capabilities define what is possible. The chuck-stack convention reduces the capabilities to create structure and known practices.
+TODO - need to discuss when to use a table (stk_business_partner) column (stk_payment_term) versus when to use an Attribute Set (instead of a new column).</p>
+<ul>
+<li>There is a table (stk_attribute_set) that points to all dedicated Attribute Set tables</li>
+<li>stk_attribute_set columns:
+<ul>
+<li>table_name</li>
+<li>name</li>
+<li>description</li>
+<li>json_idx_text - holds the json constraint text that forms the attribute set structure</li>
+<li>is_valid</li>
+<li>plus all other mandatory chuck-steak columns</li>
+</ul>
+</li>
+<li>There is a dedicated table per Attribute Set to hold its Attribute Set Instances (example: stk_attribute_set_contract)</li>
+<li>All dedicated Attribute Set tables have the same columns:
+<ul>
+<li>table_name</li>
+<li>record_uu</li>
+<li>value (holds the json containing the attribute set instance)</li>
+<li>plus all other mandatory chuck-steak columns</li>
+</ul>
+</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="stack-academy"><a class="header" href="#stack-academy">stack-academy</a></h1>
 <p>To join the stack-academy, <a href="https://buy.stripe.com/7sIbLIeeU3oT4IEfYY">click here</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 <p>The stack-academy exists to help your organization achieve success as quickly as possible. It's an online support infrastructure that teaches organizations how to install and use the tools, leverage best practices, and foster superclerk talent.</p>

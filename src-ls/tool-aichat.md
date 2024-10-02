@@ -69,8 +69,8 @@ Before we go into the solution details, I want to point out a theme in the below
 
 How does someone learn to perform the above steps? More specifically, how did we...
 
-- know that pdftotext would extract out text from a PDF? I asked AIChat.
-- find the best prompt to extract out dates and tasks? I asked AIChat.
-- figure out how to create a new role in AIChat? I asked AIChat.
+- know that pdftotext would extract out text from a PDF? We asked AIChat.
+- find the best prompt to extract out dates and tasks? We asked AIChat.
+- figure out how to create a new role in AIChat? We asked AIChat.
 
 You are probably starting to see a pattern....
