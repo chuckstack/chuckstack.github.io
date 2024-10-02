@@ -16,7 +16,7 @@
   - [Git](./tool-git.md)
   - [Obsidian](./tool-obsidian.md)
   - [Others](./tool-others.md)
-- [Stack Practices](./best-practices.md)
+- [Stack Best Practices](./best-practices.md)
   - [Postgres Conventions](./postgres-conventions.md)
 - [Stack Application](./stack-application.md)
 - [Stack Academy](./stack-academy.md)

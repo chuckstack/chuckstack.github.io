@@ -39,7 +39,7 @@ Let's break this one line down:
 - AIChat can format the results in any manner requested. By default, it will show what it believes is the most human readable format.
 - By adding another "|", you can send AIChat's result to the next command (example: save to a database).
 
-It is worth noting that I found ddgr by using AIChat. I installed ddgr temporary using the following one line Nix shell command:
+It is worth noting that I found ddgr by using AIChat. I installed ddgr temporary using the following one line [Nix](./tool-linux.md#nix) shell command:
 
 ```bash
 nix-shell -p ddgr

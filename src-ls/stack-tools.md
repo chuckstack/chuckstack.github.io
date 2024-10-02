@@ -16,7 +16,7 @@ Here are the more detailed guidelines for inclusion:
 
 - **Commonly used** - and well understood to make AI augmentation easier.
 - **Open source** - or at least as open as possible.
-- **Start simple** - easy to understand and reason about. Nix pushes this concept a little (or a lot); however, the power and simplicity it creates is worth the extra effort.
+- **Start simple** - easy to understand and reason about. [Nix](./tool-linux.md#nix) pushes this concept a little (or a lot); however, the power and simplicity it creates is worth the extra effort.
 - **Basic functionality** - supports basics like CRUD (create, read, update and delete) with minimal effort.
 - **Kind educator** - needs someone in the community who makes the technology kind to the target audience.
 - **Kind integrator** - needs someone local to you digitally to help you leverage the tool.

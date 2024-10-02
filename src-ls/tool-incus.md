@@ -6,7 +6,7 @@ Discussion Points:
 - What is Incus
 - Why we love Incus
 - Types of virtualization (including Docker)
-- Incus relation to Nix
+- Incus relation to [Nix](./tool-linux.md#nix)
 - Incus relation to Docker
 - Picutre of success
 
@@ -45,7 +45,7 @@ You can use projects to keep your Incus server clean by grouping related instanc
 
 ## Incus Relation to Nix
 
-Nix is a compelling option for virtualization in some specific circunstances. If the chuck-stack already uses Nix, why add Incus in addition to Nix? 
+[Nix](./tool-linux.md#nix) is a compelling option for virtualization in some specific circunstances. If the chuck-stack already uses Nix, why add Incus in addition to Nix? 
 
 Here are our thoughts:
 
