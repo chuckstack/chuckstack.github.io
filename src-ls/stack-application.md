@@ -1,6 +1,6 @@
 # chuck-stack Application Framework
 
-chuck-stack uses the above tools and best practices to create an application framework for data and process management. Here are the framework goals:
+chuck-stack uses the above [tools](./stack-tools.md) and [best practices](./best-practices.md) to create an application framework for data and process management. Here are the framework goals:
 
 - Minimize application framework code and complexity by using off-the-shelf tools that are easily understood by people and AI..
 - Minimize the effort to create new business logic. Ideally, a single command will create the template for you. AI will draft the code for you.
