@@ -20,7 +20,7 @@ Attribute tagging is critical to ensure the system can properly describe its dat
 
 ## Workflow Details
 
-chuck-stack Workflows can be broken down into 
+chuck-stack Workflows can be broken down into system and user workflows.
 
 ### System Workflows
 
@@ -76,10 +76,11 @@ Before we get too far, we need to define some terms:
 <!-- TODO: add to terminology.md page - this is the definition and term points here -->
 
 Here is an example of attribute tagging in chuck-steak:
-TODO - finish draft
-TODO - this section needs to be moved to conventions
-TODO - need to explain that the psql json capabilities define what is possible. The chuck-stack convention reduces the capabilities to create structure and known practices.
-TODO - need to discuss when to use a table (stk_business_partner) column (stk_payment_term) versus when to use an Attribute Set (instead of a new column).
+
+- TODO - finish draft
+- TODO - this section needs to be moved to conventions
+- TODO - need to explain that the psql json capabilities define what is possible. The chuck-stack convention reduces the capabilities to create structure and known practices.
+- TODO - need to discuss when to use a table (stk_business_partner) column (stk_payment_term) versus when to use an Attribute Set (instead of a new column).
 
 - There is a table (stk_attribute_set) that points to all dedicated Attribute Set tables
 - stk_attribute_set columns:
