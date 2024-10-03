@@ -48,7 +48,7 @@ You need some version of [Linux](./tool-linux.md) available to you. Here are som
 - Chromebook - most modern Chromebooks make it easy to gain access to a Linux terminal directly from your menu. See the above example of asking AI for help.
 - Windows - offers [WSL (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install).
 - Buy a new Linux computer - [System76](https://system76.com) is an amazing hardware provider and a supporter of Linux. You can buy a mini, desktop or a laptop with Linux already installed. They typically offer a $600 USD mini that can be used to get started.
-- Install Ununtu, PopOS or Debian on an exiting desktop or laptop.
+- Install Ubuntu, PopOS or Debian on an existing desktop or laptop.
 - Mac - is Unix, which is close to Linux. Most of what you can run on Linux can also work on a Mac.
 - Rent Linux - cloud providers like AWS, Digital Ocean, Linode, ... will host Linux for you for under $10 USD per month.
 

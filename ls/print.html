@@ -420,7 +420,7 @@
 <li>Chromebook - most modern Chromebooks make it easy to gain access to a Linux terminal directly from your menu. See the above example of asking AI for help.</li>
 <li>Windows - offers <a href="https://learn.microsoft.com/en-us/windows/wsl/install">WSL (Windows Subsystem for Linux)</a>.</li>
 <li>Buy a new Linux computer - <a href="https://system76.com">System76</a> is an amazing hardware provider and a supporter of Linux. You can buy a mini, desktop or a laptop with Linux already installed. They typically offer a $600 USD mini that can be used to get started.</li>
-<li>Install Ununtu, PopOS or Debian on an exiting desktop or laptop.</li>
+<li>Install Ubuntu, PopOS or Debian on an existing desktop or laptop.</li>
 <li>Mac - is Unix, which is close to Linux. Most of what you can run on Linux can also work on a Mac.</li>
 <li>Rent Linux - cloud providers like AWS, Digital Ocean, Linode, ... will host Linux for you for under $10 USD per month.</li>
 </ul>
@@ -1104,7 +1104,7 @@
 </ul>
 <p>It is smart to create a readme.md file in your ~/some/psql/dir/ directory with work instructions documenting how to manage your database.</p>
 <h2 id="schema"><a class="header" href="#schema">Schema</a></h2>
-<p>We use multiple PostgreSQL schemas to create a expose our application logic to the rest of the system.</p>
+<p>We use multiple PostgreSQL schemas to create and expose our application logic to the rest of the system.</p>
 <h3 id="private-schema"><a class="header" href="#private-schema">Private Schema</a></h3>
 <p>We start with a private schema where we define our data model. It is labelled <code>private</code> as a convention because no outside system should interact with this internal schema directly. Said another way, the private schema is used to insulate internal details from the outside world.</p>
 <h3 id="public-schemas"><a class="header" href="#public-schemas">Public Schemas</a></h3>

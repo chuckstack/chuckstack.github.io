@@ -72,7 +72,7 @@ It is smart to create a readme.md file in your ~/some/psql/dir/ directory with w
 
 ## Schema
 
-We use multiple PostgreSQL schemas to create a expose our application logic to the rest of the system.
+We use multiple PostgreSQL schemas to create and expose our application logic to the rest of the system.
 
 ### Private Schema 
 

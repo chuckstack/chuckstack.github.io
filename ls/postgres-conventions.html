@@ -302,7 +302,7 @@
 </ul>
 <p>It is smart to create a readme.md file in your ~/some/psql/dir/ directory with work instructions documenting how to manage your database.</p>
 <h2 id="schema"><a class="header" href="#schema">Schema</a></h2>
-<p>We use multiple PostgreSQL schemas to create a expose our application logic to the rest of the system.</p>
+<p>We use multiple PostgreSQL schemas to create and expose our application logic to the rest of the system.</p>
 <h3 id="private-schema"><a class="header" href="#private-schema">Private Schema</a></h3>
 <p>We start with a private schema where we define our data model. It is labelled <code>private</code> as a convention because no outside system should interact with this internal schema directly. Said another way, the private schema is used to insulate internal details from the outside world.</p>
 <h3 id="public-schemas"><a class="header" href="#public-schemas">Public Schemas</a></h3>
