@@ -26,6 +26,6 @@ Special considerations for Obsidian:
 
 Obsidian is the tool we enjoy the most for what the chuck-stack needs. However, there are alternatives.
 
-- [logseq](https://logseq.com/) - similar to Obsidian, and it is open source; however, it does not produce as pure of markdown as Obsidian since it is more geared towards daily journals and outlines. ([see discussion/comparison](https://www.youtube.com/watch?v=RtZWVoTWv74))
+- [Logseq](https://logseq.com/) - similar to Obsidian, and it is open source; however, it does not produce as pure of markdown as Obsidian since it is more geared towards daily journals and outlines. ([see discussion/comparison](https://www.youtube.com/watch?v=RtZWVoTWv74))
 - [Notepad++](https://notepad-plus-plus.org/) - or any text editor that understand markdown.
 - [vscode](https://code.visualstudio.com/) - has great support for markdown documents.
