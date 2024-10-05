@@ -1,6 +1,6 @@
 # Success Using Linux
 
-We have already explained the importance of the terminal to our success. The purpose of this page is to describe how we plan to make that success easy, well understood,declarative and automated.
+We have already explained the importance of the terminal to our success. The purpose of this page is to describe how we plan to make that success easy, well understood, declarative and automated.
 
 When the concepts in this page are fully implemented in the chuck-stack, this page will go away, and its contents will be move to other functional areas. Until then, this information represents our plan and our partial implementation.
 

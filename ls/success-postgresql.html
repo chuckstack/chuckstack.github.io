@@ -199,7 +199,7 @@ grant some_role to some_user_auth;
 psql -d some_db -U some_user_auth -c "set SESSION ROLE some_role" -c "select * from adempiere.c_bpartner limit 1"
 </code></pre>
 <p>If you remove the "-c ... set ROLE ..." command, the psql statement will fail with a "permission denied" error because the some_user_auth role does not have any privileges.</p>
-<p>This example shows just how easily we can provide user management yet ensure that no user capabilities spill into business logic.</p>
+<p>This example shows just how easily we can provide user management yet ensure that no user capabilities spill into role-based business logic.</p>
 <!-- the following is duplicated in multiple places including success-postgresql -->
 <p>It is worth noting that user and role management is shared in both Linux and PostgreSQL. While these responsibilities exist in both planes, they are not duplicated. Linux dictates role-based tool access and how the user connects to the database. PostgreSQL dictates data access inside the database.</p>
 <p>Reference: <a href="https://docs.postgrest.org/en/v12/references/auth.html">PostgREST Authentication</a></p>
@@ -219,8 +219,9 @@ $$ LANGUAGE plpgsql;
 </code></pre>
 <p>Setting these variables during psql execution is easy (<a href="./success-linux.html">see success with Linux</a>). Checking them during program execution is easy as demonstrated above.</p>
 <h2 id="sql-plus-psql"><a class="header" href="#sql-plus-psql">SQL plus psql</a></h2>
-<p>The purpose if this section is to highlight that chuck-stack not only benefits from SQL (one of the technical world's most well understood language), but it also benefit from the psql application. psql is powerful SQL application in its own right that has additional features for a) helping users do their jobs and b) helping the stack protect its data and processes from attach (like sql injection).</p>
+<p>The purpose if this section is to highlight that chuck-stack not only benefits from SQL (one of the technical world's most well understood languages), but it also benefit from the psql application. psql is powerful SQL application in its own right that has additional features for a) helping users do their jobs and b) helping the stack protect its data and processes from attach (like sql injection).</p>
 <h2 id="technical-details-and-examples"><a class="header" href="#technical-details-and-examples">Technical Details and Examples</a></h2>
+<p>The purpose of this section is to highlight simple examples that demonstrate the concepts described above.</p>
 <p>References:</p>
 <ul>
 <li><a href="https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-SET">PostgreSQL docs =&gt; Configuration Setting Functions</a></li>

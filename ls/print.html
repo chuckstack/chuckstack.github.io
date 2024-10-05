@@ -380,7 +380,7 @@
 <p>It is completely acceptable to take a moment to teach someone how to do something that a general consumer would have no ability to execute without training. When you think about the concepts expressed on this page, it stands to reason the some organizations and clerks will rise to the occasion and willingly attempt a better way to add value to themselves and this world.</p>
 <p>As a result, you will have fewer people orchestrating more with fewer resources. Our 25+ years of ERP experience tells us this is more than reasonable.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="success-using-linux"><a class="header" href="#success-using-linux">Success Using Linux</a></h1>
-<p>We have already explained the importance of the terminal to our success. The purpose of this page is to describe how we plan to make that success easy, well understood,declarative and automated.</p>
+<p>We have already explained the importance of the terminal to our success. The purpose of this page is to describe how we plan to make that success easy, well understood, declarative and automated.</p>
 <p>When the concepts in this page are fully implemented in the chuck-stack, this page will go away, and its contents will be move to other functional areas. Until then, this information represents our plan and our partial implementation.</p>
 <h2 id="user-and-role-management"><a class="header" href="#user-and-role-management">User and Role Management</a></h2>
 <p>Our plan is to use a declarative approach to managing users and roles.</p>
@@ -450,7 +450,7 @@ grant some_role to some_user_auth;
 psql -d some_db -U some_user_auth -c "set SESSION ROLE some_role" -c "select * from adempiere.c_bpartner limit 1"
 </code></pre>
 <p>If you remove the "-c ... set ROLE ..." command, the psql statement will fail with a "permission denied" error because the some_user_auth role does not have any privileges.</p>
-<p>This example shows just how easily we can provide user management yet ensure that no user capabilities spill into business logic.</p>
+<p>This example shows just how easily we can provide user management yet ensure that no user capabilities spill into role-based business logic.</p>
 <!-- the following is duplicated in multiple places including success-postgresql -->
 <p>It is worth noting that user and role management is shared in both Linux and PostgreSQL. While these responsibilities exist in both planes, they are not duplicated. Linux dictates role-based tool access and how the user connects to the database. PostgreSQL dictates data access inside the database.</p>
 <p>Reference: <a href="https://docs.postgrest.org/en/v12/references/auth.html">PostgREST Authentication</a></p>
@@ -470,8 +470,9 @@ $$ LANGUAGE plpgsql;
 </code></pre>
 <p>Setting these variables during psql execution is easy (<a href="./success-linux.html">see success with Linux</a>). Checking them during program execution is easy as demonstrated above.</p>
 <h2 id="sql-plus-psql"><a class="header" href="#sql-plus-psql">SQL plus psql</a></h2>
-<p>The purpose if this section is to highlight that chuck-stack not only benefits from SQL (one of the technical world's most well understood language), but it also benefit from the psql application. psql is powerful SQL application in its own right that has additional features for a) helping users do their jobs and b) helping the stack protect its data and processes from attach (like sql injection).</p>
+<p>The purpose if this section is to highlight that chuck-stack not only benefits from SQL (one of the technical world's most well understood languages), but it also benefit from the psql application. psql is powerful SQL application in its own right that has additional features for a) helping users do their jobs and b) helping the stack protect its data and processes from attach (like sql injection).</p>
 <h2 id="technical-details-and-examples"><a class="header" href="#technical-details-and-examples">Technical Details and Examples</a></h2>
+<p>The purpose of this section is to highlight simple examples that demonstrate the concepts described above.</p>
 <p>References:</p>
 <ul>
 <li><a href="https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-SET">PostgreSQL docs =&gt; Configuration Setting Functions</a></li>

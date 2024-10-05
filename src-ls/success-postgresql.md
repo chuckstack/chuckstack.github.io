@@ -28,7 +28,7 @@ psql -d some_db -U some_user_auth -c "set SESSION ROLE some_role" -c "select * f
 
 If you remove the "-c ... set ROLE ..." command, the psql statement will fail with a "permission denied" error because the some_user_auth role does not have any privileges.
 
-This example shows just how easily we can provide user management yet ensure that no user capabilities spill into business logic.
+This example shows just how easily we can provide user management yet ensure that no user capabilities spill into role-based business logic.
 
 <!-- the following is duplicated in multiple places including success-postgresql -->
 It is worth noting that user and role management is shared in both Linux and PostgreSQL. While these responsibilities exist in both planes, they are not duplicated. Linux dictates role-based tool access and how the user connects to the database. PostgreSQL dictates data access inside the database.
@@ -58,9 +58,11 @@ Setting these variables during psql execution is easy ([see success with Linux](
 
 ## SQL plus psql
 
-The purpose if this section is to highlight that chuck-stack not only benefits from SQL (one of the technical world's most well understood language), but it also benefit from the psql application. psql is powerful SQL application in its own right that has additional features for a) helping users do their jobs and b) helping the stack protect its data and processes from attach (like sql injection).
+The purpose if this section is to highlight that chuck-stack not only benefits from SQL (one of the technical world's most well understood languages), but it also benefit from the psql application. psql is powerful SQL application in its own right that has additional features for a) helping users do their jobs and b) helping the stack protect its data and processes from attach (like sql injection).
 
 ## Technical Details and Examples
+
+The purpose of this section is to highlight simple examples that demonstrate the concepts described above.
 
 References:
 
