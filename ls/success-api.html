@@ -178,7 +178,8 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="success-using-api"><a class="header" href="#success-using-api">Success Using API</a></h1>
-<p>We have already explained the importance of the terminal to our success. The purpose of this page is to describe how we plan to extend program logic and functionality using API.</p>
+<p>We have already explained the importance of the terminal to our success. The purpose of this page is to describe how we plan to extend program logic and functionality beyond the terminal using API.</p>
+<p>TODO: add link to architecture page to show how API fits into the picture.</p>
 <p>When the concepts in this page are fully implemented in the chuck-stack, this page will go away, and its contents will be move to other functional areas. Until then, this information represents our plan and our partial implementation.</p>
 <h2 id="terminal-plus-postgrest"><a class="header" href="#terminal-plus-postgrest">Terminal plus PostgREST</a></h2>
 <p>In the previous success pages, we discussed how PostgREST helped us understand a better way to manage data and processes directly inside the database. We believe we can not only use PostgREST's practices but also use PostgREST itself. If we can, this means that any business logic created in the chuck-stack will automatically flow through to an API as well (possibly for free).</p>
@@ -224,22 +225,6 @@
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
