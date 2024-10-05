@@ -1,6 +1,8 @@
 # Success Using API
 
-We have already explained the importance of the terminal to our success. The purpose of this page is to describe how we plan to extend program logic and functionality using API.
+We have already explained the importance of the terminal to our success. The purpose of this page is to describe how we plan to extend program logic and functionality beyond the terminal using API.
+
+TODO: add link to architecture page to show how API fits into the picture.
 
 When the concepts in this page are fully implemented in the chuck-stack, this page will go away, and its contents will be move to other functional areas. Until then, this information represents our plan and our partial implementation.
 

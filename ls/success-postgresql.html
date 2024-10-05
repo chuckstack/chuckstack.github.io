@@ -223,8 +223,8 @@ $$ LANGUAGE plpgsql;
 <h2 id="technical-details-and-examples"><a class="header" href="#technical-details-and-examples">Technical Details and Examples</a></h2>
 <p>References:</p>
 <ul>
-<li>https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-SET</li>
-<li>https://www.depesz.com/2023/05/28/variables-in-psql-how-to-use-them/</li>
+<li><a href="https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-SET">PostgreSQL docs =&gt; Configuration Setting Functions</a></li>
+<li><a href="https://www.depesz.com/2023/05/28/variables-in-psql-how-to-use-them/">psql variables demo</a></li>
 </ul>
 <p>From inside psql without modifying postgresql.conf:</p>
 <pre><code class="language-sql">select set_config('test.test.test.one','truly',false);
@@ -297,6 +297,22 @@ select current_setting('test.test.test.one',true);
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

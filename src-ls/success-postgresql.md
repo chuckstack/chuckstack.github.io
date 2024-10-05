@@ -64,8 +64,8 @@ The purpose if this section is to highlight that chuck-stack not only benefits f
 
 References:
 
-- https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-SET
-- https://www.depesz.com/2023/05/28/variables-in-psql-how-to-use-them/
+- [PostgreSQL docs => Configuration Setting Functions](https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-SET)
+- [psql variables demo](https://www.depesz.com/2023/05/28/variables-in-psql-how-to-use-them/)
 
 From inside psql without modifying postgresql.conf:
 
