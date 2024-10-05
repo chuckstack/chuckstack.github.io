@@ -20,6 +20,6 @@ Here are our thoughts:
 - The public schema is where psql (your chuck-stack terminal) and PostgREST connect. It is considered public because it is the outside representation of your data and processes. Sometimes there is a difference between private and public for good reasons.
 - We believe we can use the same public schema to feed both the chuck-stack terminal as well as PostgREST.
 - We believe we can write one set of business logic that supports both access points.
-- To accomplish goal, we believe the chuck-stack simply needs to mirror the applications context to be the same as PostgREST.
+- To accomplish this goal, we believe the chuck-stack simply needs to mirror the application's context to be the same as PostgREST.
 
 If we can accomplish this goal, it will be quite magical.

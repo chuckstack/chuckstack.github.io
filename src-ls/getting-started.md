@@ -81,6 +81,8 @@ Examples to come soon... [Join the stack-academy](./stack-academy.md) for quicke
 
 Now that you are proficient with AIChat, lets start incorporating [best practices](./best-practices.md) into your use of AIChat.
 
+You need to practice your best practices in [Obsidian](./tool-obsidian.md). Get comfortable with markdown, the listed Obsidian plugins, and how to document your work instructions.
+
 ## More to Come...
 
 We are just 'geting starting'. To learn more faster, [join the stack-academy](./stack-academy.md). This is an important step to realizing the vision! This is something you can start right now!
