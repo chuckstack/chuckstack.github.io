@@ -1,6 +1,15 @@
 # Getting Started
 
-By now, you should understand [why the project exists](./introduction.md) and [where we are headed](./picture-success.md).
+Getting started looks different depending on your goals. 
+
+If you goal is to understand the project itself, start here:
+
+- [Introduction - Why the project exists](./introduction.md) 
+- [Picture of Success - Where we are headed](./picture-success.md).
+
+If your goal is to understand what is needed for us to succeed, view the [success factors](./success-factor.md)
+
+If you just want to start playing with the chuck-stack, read below. If you need help, join the [stack-academy](./stack-academy.md).
 
 ## Start with AI
 
@@ -16,10 +25,12 @@ You need an API account from one of the foundation LLM providers, including:
 
 There is a difference between the flat-rate, consumer-facing website offerings (like OpenAI's ChatGPT) and a pay-as-you-go API service. You need the API version of the service. Here are the reasons:
 
-- One reason is that you will most likely not spend the equivalent $20/month when using the API.
+- One reason is that you will most likely not spend the equivalent $20/month when using the API - at least not in the beginning.
 - The second reason is that you need API access to accomplish the goals of this stack.
 
 You can use a different LLM provider if you wish. Here is a list of other options: ([see the multi-platform section](https://github.com/sigoden/aichat)).
+
+Note: It is possible to run AI locally using tools like [ollama](https://ollama.com/); however, the models you can run locally are generally not as powerful as the ones listed above. For that reason, we will treat local AI as a more advanced topic.
 
 ### Ask AI First
 
@@ -43,11 +54,15 @@ If you have additional questions, simply ask and AI will provide additional deta
 
 ## Get Linux
 
-You need some version of [Linux](./tool-linux.md) available to you. Here are some options starting with the easiest ones first:
+You need some version of [Linux](./tool-linux.md) available to you. We prefer you run Linux as your primary desktop for a variety of reasons; however, we understand that time and cost play a role in your decision. 
 
-- Chromebook - most modern Chromebooks make it easy to gain access to a Linux terminal directly from your menu. See the above example of asking AI for help.
+To make getting started as easy as possible, we created a list of options beginning with the easiest and most affordable ones first:
+
+- Chromebook - most modern Chromebooks make it easy to gain access to a Linux terminal directly from your menu. See the above example of asking AI to help enable Linux in a Chromebook.
 - Windows - offers [WSL (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install).
-- Buy a new Linux computer - [System76](https://system76.com) is an amazing hardware provider and a supporter of Linux. You can buy a mini, desktop or a laptop with Linux already installed. They typically offer a $600 USD mini that can be used to get started.
+- Buy a new Linux computer:
+  - [System76](https://system76.com) is an amazing hardware provider and a supporter of Linux. You can buy a mini, desktop or a laptop with Linux already installed. They typically offer a $600 USD mini that can be used to get started. System76's commitment to Linux and its usability cannot be emphasized enough.
+  - [Framework](https://frame.work) is an amazing hardware provider; however, please understand this company is a bit different. The upfront cost is higher than a mass-produced Chromebook; however, you purchase something that will last longer. [Here is a great review and explanation](https://youtu.be/ZcmK2T6BDMY?si=aTiV5SY26fG41Rmo) regarding why Framework laptops are worth considering. Framework seems to be honest and transparent. They own and fix their mistakes in our experience.
 - Install Ubuntu, PopOS or Debian on an existing desktop or laptop.
 - Mac - is Unix, which is close to Linux. Most of what you can run on Linux can also work on a Mac.
 - Rent Linux - cloud providers like AWS, Digital Ocean, Linode, ... will host Linux for you for under $10 USD per month.
