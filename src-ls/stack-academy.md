@@ -4,7 +4,7 @@ To join the stack-academy, [click here](https://buy.stripe.com/7sIbLIeeU3oT4IEfY
 
 **Most important thing** to know about the stack-academy: we meet in a live open discussion 4 times per week. You can bring any question about the chuck-stack and ERP you wish to discuss. 
 
-**Second most important thing** to know is that you gain access to the chuck-stack online community.
+**Second most important thing** to know: you gain access to the chuck-stack online community.
 
 The stack-academy exists to help your organization achieve success as quickly as possible. It's an online support infrastructure that teaches organizations how to install and use the tools, leverage best practices, and foster superclerk talent.
 
