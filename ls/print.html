@@ -1064,12 +1064,96 @@ select current_setting('test.test.test.one',true);
 </ul>
 <p>You are probably starting to see a pattern....</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nushell-1"><a class="header" href="#nushell-1">Nushell</a></h1>
-<p>include plot - https://github.com/Euphrasiologist/nu_plugin_plot</p>
+<p><a href="https://nushell.sh">Nushell</a> is a Linux terminal shell that makes processing and visualizing data easier. For the chuck-stack, Nushell excels beyond others because of its preference for and usability with structured data and <a href="./terminology.html#data-pipeline">data pipelines</a>.</p>
+<h2 id="why-we-love-nushell"><a class="header" href="#why-we-love-nushell">Why We Love Nushell</a></h2>
+<p>Here are the reasons we love Nushell:</p>
 <ul>
-<li>reference: gnuplot</li>
+<li>It is an active and welcoming project, and it is well documented.</li>
+<li>It is open source.</li>
+<li>You can get up and running with Nushell in a meaningful way in minutes.</li>
+<li>It does its job (<a href="./terminology.html#data-pipeline">data pipelines</a>) amazingly well.</li>
+<li>It makes the data we need to do our jobs immediately available.</li>
+<li>It makes creating modules, scripts and plugins significantly easier (as compared to bash and other shells).</li>
+<li>It visualizes structured data in a terminal better than just about any other tool.</li>
+<li>It has great synergy with the rest of the chuck-stack.</li>
+</ul>
+<h2 id="notes-and-references"><a class="header" href="#notes-and-references">Notes and References</a></h2>
+<ul>
+<li>Nushell has not reached production stability yet; although, it is close. The Nushell team still introduces frequent breaking changes in an effort to enhance consistency and improve usability.</li>
+<li>Nushell compliments PostgreSQL in that Nushell can perform many of the same data tasks as PostgreSQL without requiring data first be inserted into a database.
+<ul>
+<li>Said another way, Nushell gives you many of the same data processing abilities prior to persisting it in a database.</li>
+<li>Nushell also makes persisting data in PostgreSQL easier.</li>
+</ul>
+</li>
+<li>Nushell plugin for visualizing and plotting data <a href="https://github.com/Euphrasiologist/nu_plugin_plot">https://github.com/Euphrasiologist/nu_plugin_plot</a>
+<ul>
+<li>Also reference: gnuplot</li>
+</ul>
+</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="zellij-1"><a class="header" href="#zellij-1">Zellij</a></h1>
+<p>Zellij is a terminal workspace layout engine. Zellij gives the chuck-stack the enterprise 'window' layout capabilities you expect to see in an ERP.</p>
+<!-- TODO: add picture here -->
+<h2 id="why-we-love-zellij"><a class="header" href="#why-we-love-zellij">Why We Love Zellij</a></h2>
+<p>Here are the reasons we love Zellij:</p>
+<ul>
+<li>It is an active and welcoming project, and it is well documented.</li>
+<li>It is open source.</li>
+<li>You can get up and running with Zellij in a meaningful way in minutes.</li>
+<li>It does its job (workspace layout) quite well.</li>
+<li>It supports as many layouts as you deem appropriate.</li>
+<li>It supports viewing multiple layout simultaneously. Said another way using and example, you can have three connections using three different layouts on three monitors to helps users better perform their tasks.</li>
+<li>It supports both new users (who often rely on a mouse) as well as advanced users.</li>
+<li>It makes the most of both small and large screens.</li>
+<li>It has great synergy with the rest of the chuck-stack.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="git"><a class="header" href="#git">Git</a></h1>
+<p><a href="https://git-scm.com/">Git</a> is a version control system designed to help you manage a collection of documents. It helps you publish the documents' current version as well as track the changes over time.</p>
+<h2 id="why-we-love-git"><a class="header" href="#why-we-love-git">Why We Love Git</a></h2>
+<ul>
+<li>It is commonly used and well documented.</li>
+<li>It is open source.</li>
+<li>It is easily accessible from anywhere in the world.</li>
+<li>Its accessibility is secure and well vetted.</li>
+<li>It has a vibrant online support community.</li>
+<li>It makes the instructions we need to do our jobs immediately available.</li>
+<li>It can be deployed in every corner of the world.</li>
+<li>It can be deployed in hybrid cloud scenarios.</li>
+<li>It is CLI first to help support AI and automation.</li>
+<li>It offers a reasonably simple architecture given the nature of its purpose.</li>
+<li>It scales massively for small to medium organizations.</li>
+<li>It does its job (work instructions) quite well.</li>
+<li>And, most importantly it has great synergy with the rest of the chuck-stack.</li>
+</ul>
+<h2 id="git-service-providers"><a class="header" href="#git-service-providers">Git Service Providers</a></h2>
+<p>To get the most from Git, you will use one of the following service providers:</p>
+<ul>
+<li><a href="https://github.com">Github</a> - one of the most popular and feature rich Git providers</li>
+<li><a href="https://gitlab.com">GitLab</a> - a popular alternative to Github that allows for self-hosting</li>
+<li><a href="https://gitea.com/">Gitea</a> - an emerging solution for self-hosting Git.</li>
+</ul>
+<h2 id="more-than-git"><a class="header" href="#more-than-git">More Than Git</a></h2>
+<p>These providers deliver more than just Git repository management. They provide the services a team needs to collaborate and develop a solution. These services include:</p>
+<ul>
+<li>Ticket management</li>
+<li>Discussions (Github - only)</li>
+<li>Commit (change) management</li>
+<li><a href="https://en.wikipedia.org/wiki/Distributed_version_control#Pull_requests">Pull Requests</a> (review and change workflows)</li>
+<li>Documentation management and presentation</li>
+</ul>
+<p>The Git style PR (pull request review and change workflow) can be intimidating to users who are not familiar with the process or the terminology. Please keep an open mind when learning PR because it is extremely valuable, and we believe it will play a pivotal role in how we execute <a href="./best-practices.html">best practices</a>.</p>
+<h2 id="the-story-behind-improvement"><a class="header" href="#the-story-behind-improvement">The Story Behind Improvement</a></h2>
+<p>Organizations constantly evolve to meet the demands of a changing society. There are assumptions, beliefs, experiments, successes and failures along this journey. <strong>Why</strong> we chose a particular option or path and <strong>how</strong> we implement it can be just as important as the choice itself. We want to not only document the current mission, vision, values, goals, objectives and instructions but we also want to document how and why these 'things' came to exist.</p>
+<p>Institutional knowledge is the result of knowing both the past and the current. Let's map the above services to into how we create institutional knowledge:</p>
+<ul>
+<li>Ticket - is a call to action. Something happened (corrective) that needs to be addressed, or something might happen (preventative) that needs to be considered. Tickets support the change management process by describing why and how of an action.</li>
+<li>Discussions - happen as a result of a thought or a concern. These discussions can happen inside a dedicated space for ad-hoc discussions, or they can happen inside a ticket, or they can happen in both places.</li>
+<li>Commit - is the tool/action to change to what is current into something new. Said another way, commits archive the exiting and create a new current version. Many organizations adopt a policy that commits only occur in the scope of a ticket. Said another way, no ticket - no change. This policy make sense some times (not always).</li>
+<li>Documentation - is often tracked alongside other instructions. Github, for example, offers a service called Github Pages where you can host documentation without needed a separate server.</li>
+</ul>
+<!-- TODO: link to best practices /architecture discussing how the hosting documentation fits into the picture -->
+<h2 id="ai-and-institutional-knowledge"><a class="header" href="#ai-and-institutional-knowledge">AI and Institutional Knowledge</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="obsidian"><a class="header" href="#obsidian">Obsidian</a></h1>
 <p><a href="https://obsidian.md">Obsidian</a> is a writing application that saves content in markdown format. It offers an enjoyable writing experience and a large collection of plugin tools to aid in the thinking, organizing and writing process.</p>
 <h2 id="why-we-love-obsidian"><a class="header" href="#why-we-love-obsidian">Why We Love Obsidian</a></h2>
@@ -1532,7 +1616,7 @@ COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
 <li><strong>Attribute Set Instance</strong>: an Attribute Set with its Attributes Values assigned.</li>
 </ul>
 <!-- TODO: add to terminology.md page - this is the definition and term points here -->
-<p>Here is an example of attribute tagging in chuck-steak:</p>
+<p>Here is an example of attribute tagging in chuck-stack:</p>
 <ul>
 <li>TODO - this section needs to be moved to conventions</li>
 <li>TODO - need to explain that the psql json capabilities define what is possible. The chuck-stack convention reduces the capabilities to create structure and known practices.</li>
@@ -1545,7 +1629,7 @@ COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
 <li>description</li>
 <li>json_idx_text - holds the json constraint text that forms the attribute set structure</li>
 <li>is_valid</li>
-<li>plus all other mandatory chuck-steak columns</li>
+<li>plus all other mandatory chuck-stack columns</li>
 </ul>
 </li>
 <li>There is a dedicated table per Attribute Set to hold its Attribute Set Instances (example: stk_attribute_set_contract)</li>
@@ -1554,7 +1638,7 @@ COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
 <li>table_name</li>
 <li>record_uu</li>
 <li>value (holds the json containing the attribute set instance)</li>
-<li>plus all other mandatory chuck-steak columns</li>
+<li>plus all other mandatory chuck-stack columns</li>
 </ul>
 </li>
 </ul>

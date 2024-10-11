@@ -81,7 +81,7 @@ Before we get too far, we need to define some terms:
 
 <!-- TODO: add to terminology.md page - this is the definition and term points here -->
 
-Here is an example of attribute tagging in chuck-steak:
+Here is an example of attribute tagging in chuck-stack:
 
 - TODO - this section needs to be moved to conventions
 - TODO - need to explain that the psql json capabilities define what is possible. The chuck-stack convention reduces the capabilities to create structure and known practices.
@@ -93,13 +93,13 @@ Here is an example of attribute tagging in chuck-steak:
   - description
   - json_idx_text - holds the json constraint text that forms the attribute set structure
   - is_valid
-  - plus all other mandatory chuck-steak columns
+  - plus all other mandatory chuck-stack columns
 - There is a dedicated table per Attribute Set to hold its Attribute Set Instances (example: stk_attribute_set_contract)
 - All dedicated Attribute Set tables have the same columns:
   - table_name
   - record_uu
   - value (holds the json containing the attribute set instance)
-  - plus all other mandatory chuck-steak columns
+  - plus all other mandatory chuck-stack columns
 
 extra:
 There are two key process features that make this vision a reality: 1) workflow and 2) attribute tagging.
