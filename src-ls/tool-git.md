@@ -44,10 +44,10 @@ Organizations constantly evolve to meet the demands of a changing society. There
 
 Institutional knowledge is the result of knowing both the past and the current. Let's map the above services to into how we create institutional knowledge:
 
-- Ticket - is a call to action. Something happened (corrective) that needs to be addressed, or something might happen (preventative) that needs to be considered. Tickets support the change management process by describing why and how of an action.
-- Discussions - happen as a result of a thought or a concern. These discussions can happen inside a dedicated space for ad-hoc discussions, or they can happen inside a ticket, or they can happen in both places.
-- Commit - is the tool/action to change to what is current into something new. Said another way, commits archive the exiting and create a new current version. Many organizations adopt a policy that commits only occur in the scope of a ticket. Said another way, no ticket - no change. This policy make sense some times (not always).
-- Documentation - is often tracked alongside other instructions. Github, for example, offers a service called Github Pages where you can host documentation without needed a separate server.
+- **Ticket** - is a call to action. Something happened (corrective) that needs to be addressed, or something might happen (preventative) that needs to be considered. Tickets support the change management process by describing why and how of an action.
+- **Discussions** - happen as a result of a thought or a concern. These discussions can happen inside a dedicated space for ad-hoc discussions, or they can happen inside a ticket, or they can happen in both places.
+- **Commit** - is the tool/action to change to what is current into something new. Said another way, commits archive the exiting and create a new current version. Many organizations adopt a policy that commits only occur in the scope of a ticket. Said another way, no ticket - no change. This policy make sense some times (not always).
+- **Documentation** - is often tracked alongside other instructions. Github, for example, offers a service called Github Pages where you can host documentation without needed a separate server.
 
 <!-- TODO: link to best practices /architecture discussing how the hosting documentation fits into the picture -->
 
