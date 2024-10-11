@@ -13,7 +13,7 @@ Here are the reasons we love Zellij:
 - You can get up and running with Zellij in a meaningful way in minutes.
 - It does its job (workspace layout) quite well.
 - It supports as many layouts as you deem appropriate.
-- It supports viewing multiple layout simultaneously. Said another way using and example, you can have three connections using three different layouts on three monitors to helps users better perform their tasks.
+- It supports viewing multiple layout simultaneously. Said another way using an example, you can have three connections using three different layouts on three monitors to helps users better perform their tasks.
 - It supports both new users (who often rely on a mouse) as well as advanced users.
 - It makes the most of both small and large screens.
 - It has great synergy with the rest of the chuck-stack.
