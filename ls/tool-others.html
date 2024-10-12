@@ -178,6 +178,47 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="others"><a class="header" href="#others">Others</a></h1>
+<p>The purpose of this page is to highlight other tools in the chuck-stack. These tools fall into the following categories:</p>
+<ul>
+<li>Additional critical path tools</li>
+<li>Important but non critical path tools</li>
+<li>Tools we are evaluating</li>
+</ul>
+<h2 id="additional-critical-path-tools"><a class="header" href="#additional-critical-path-tools">Additional Critical Path Tools</a></h2>
+<p>Here are the tools we use every day:</p>
+<ul>
+<li><a href="https://rsync.net">rsync.net</a> - is an off-site storage service that runs on top of open source tools. It is pretty fantastic! It uses rsync as the local client, which is easily installed. It uses ZFS on the remote server to keep your data safe. It costs the same as AWS S3. And, it gives you immutable backups without any additional configuration. Said another say, it is easy, reasonably priced and works as intended out of the box. Notes about rsync.net:
+<ul>
+<li>The website is simple</li>
+<li>The account management panel is overly simple</li>
+<li>The service is awesome!</li>
+</ul>
+</li>
+<li><a href="https://www.idempiere.org/">iDempiere (ERP)</a> - ERP for managing orders, inventory, invoices, payments, accounting and much of the data you need to execute operations in your organization. iDempiere is a mature, stable and fully-featured ERP that runs on PostgreSQL. We have 23+ years experience with the iDempiere codebase.</li>
+<li><a href="https://rust-lang.github.io/mdBook/">mdbook</a> - simple static site generator that converts pure markdown pages into a website. What makes mdbook great is the simple installation, configuration and deployment.</li>
+<li><a href="https://passwordstore.org/">Pass (secrets)</a> - is a command line tool that helps you manage secrets/passwords with gpg. It is simple, scriptable, auditable, distributed and secure. <a href="https://gnupg.org/">gpg</a> is an encryption program that provides cryptographic privacy and authentication for data communication. The Pass repository is available on almost all platforms. It integrates well with github.</li>
+<li><a href="https://www.zabbix.com/">Zabbix (monitoring)</a> -  monitor resources and respond to events.</li>
+<li><a href="https://github.com/jarun/buku">buku</a> - awesome terminal bookmark manager</li>
+</ul>
+<h2 id="important-tools"><a class="header" href="#important-tools">Important Tools</a></h2>
+<p>Here are tools we commonly use:</p>
+<ul>
+<li><a href="https://mattermost.com/">Mattermost</a>: Open source collaboration tool (similar to slack and github discussions). It is backed by PostgreSQL and run locally; therefore, it fits quite well in the chuck-stack.</li>
+<li><a href="https://www.getdbt.com/">dbt (ETL)</a>: tool to transform transactional data into a form than can be consumed by BI or AI or ...</li>
+<li><a href="https://www.metabase.com/">Metabase (BI)</a>: BI tool for visualizing and publishing data that runs on PostgreSQL.</li>
+<li><a href="https://github.com/jarun/ddgr">ddgr</a> - DuckDuckGo search from the terminal</li>
+</ul>
+<h2 id="tools-we-are-evaluating"><a class="header" href="#tools-we-are-evaluating">Tools We Are Evaluating</a></h2>
+<p>He are the tools we want to use more:</p>
+<ul>
+<li><a href="https://github.com/FiloSottile/age">age</a> - no configuration encryption tool. Here is a notable <a href="https://github.com/FiloSottile/age/discussions/432">discussion</a>.</li>
+<li><a href="https://postgresml.org/">PostgresML (AI)</a>: PostgreSQL tool for AI training and inferencing directly out of your database.</li>
+<li><a href="https://ollama.com/">Ollama (AI)</a>: AI tool for running generative AI (LLM) models locally.</li>
+<li><a href="https://www.crowdsec.net/">CrowdSec (security)</a>: Proactively block known malicious IPs and activities.</li>
+<li><a href="https://htmx.org/">htmx</a>: compelling way for small and medium organizations to create dynamic websites.</li>
+<li><a href="https://mfontanini.github.io/presenterm/">presenterm</a> - simple terminal presentation tool backed by markdown</li>
+<li><a href="https://github.com/pgcentralfoundation/pgrx">pgrx</a> - helps build rust-based extensions in PostgreSQL</li>
+</ul>
 
                     </main>
 
@@ -208,6 +249,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
