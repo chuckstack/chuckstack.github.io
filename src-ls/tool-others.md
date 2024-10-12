@@ -33,7 +33,7 @@ Here are tools we commonly use:
 
 He are the tools we want to use more:
 
-- [age](https://github.com/FiloSottile/age) - no configuration encryption tool. Here is a notable [discussion](https://github.com/FiloSottile/age/discussions/432).
+- [age](https://github.com/FiloSottile/age)/[rage](https://github.com/str4d/rage) - modern, no configuration encryption tool. Here is a notable [discussion](https://github.com/FiloSottile/age/discussions/432).
 - [PostgresML (AI)](https://postgresml.org/): PostgreSQL tool for AI training and inferencing directly out of your database.
 - [Ollama (AI)](https://ollama.com/): AI tool for running generative AI (LLM) models locally.
 - [CrowdSec (security)](https://www.crowdsec.net/): Proactively block known malicious IPs and activities.
