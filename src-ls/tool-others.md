@@ -40,3 +40,7 @@ He are the tools we want to use more:
 - [htmx](https://htmx.org/): compelling way for small and medium organizations to create dynamic websites.
 - [presenterm](https://mfontanini.github.io/presenterm/) - simple terminal presentation tool backed by markdown
 - [pgrx](https://github.com/pgcentralfoundation/pgrx) - helps build rust-based extensions in PostgreSQL
+- [typst](https://typst.app/) - text formattng and layout engine 
+  - [see discussion](https://news.ycombinator.com/item?id=41014941)
+  - [see video](https://www.youtube.com/watch?v=sWmlbMh3ol8)
+  - Plan to use to create printing documents like orders, invoices, ...
