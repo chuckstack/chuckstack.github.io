@@ -32,10 +32,10 @@ chuck-stack Workflows can be broken down into system and user workflows.
 
 Here are the important types of system facing workflows.
 
-- Before Events (save, delete, update): TODO - defined by psql
-- After Events (save, delete, update): TODO - defined by psql
-- Functions: TODO - defined by psql
-- Interface Events: TODO (singleton or collection)
+- Before Events (save, delete, update) - TODO - defined by psql
+- After Events (save, delete, update) - TODO - defined by psql
+- Functions - TODO - defined by psql
+- Interface Events - TODO (singleton or collection)
   - note that interface events can be triggered by user workflows
   - document validation is an example of an interface event
 
@@ -43,14 +43,14 @@ Here are the important types of system facing workflows.
 
 Here are the important types of user facing workflows.
 
-- Journal workflow: everyone in an organization should be able to record the events in an organization. More...
-- Discussion workflow: everyone in an organization should be able to collaborate with others in an organization. More...
-- To-do workflow: everyone in an organization should be able to manage a simple list of tasks. More...
-- Checklist workflow: roles in an organization often have periodic prescribed tasks. Checklists are a predefined and templated to-do tasks. More...
-- Queue workflow: as people manipulate data, some records will reach a state of importance. Queues are defined views into data that match a specific pattern automatically. When the pattern is found, present the user or role with the matching records.  More...
-- Notice workflow: events happen, and sometimes users and systems need to be notified. The notification workflow provides information based on the events that occur in an organization.  More...
-- Ad-hoc request workflow: users and systems often know what needs to happen and who needs to perform the action based on the events that occur in an organization. This is often referred to as institutional knowledge of action. Ad-hoc request workflows allow users or services to request action from a particular user, role or service.  More...
-- Orchestrated request workflow: There are times when an organization needs a formal, multi-step, orchestrated process where a request follows a pre-defined path.
+- Journal workflow - everyone in an organization should be able to record the events in an organization. More...
+- Discussion workflow - everyone in an organization should be able to collaborate with others in an organization. More...
+- To-do workflow - everyone in an organization should be able to manage a simple list of tasks. More...
+- Checklist workflow - roles in an organization often have periodic prescribed tasks. Checklists are a predefined and templated to-do tasks. More...
+- Queue workflow - as people manipulate data, some records will reach a state of importance. Queues are defined views into data that match a specific pattern automatically. When the pattern is found, present the user or role with the matching records.  More...
+- Notice workflow - events happen, and sometimes users and systems need to be notified. The notification workflow provides information based on the events that occur in an organization.  More...
+- Ad-hoc request workflow - users and systems often know what needs to happen and who needs to perform the action based on the events that occur in an organization. This is often referred to as institutional knowledge of action. Ad-hoc request workflows allow users or services to request action from a particular user, role or service.  More...
+- Orchestrated request workflow - There are times when an organization needs a formal, multi-step, orchestrated process where a request follows a pre-defined path.
 
 ### Document Action Workflows
 
@@ -71,13 +71,13 @@ Attribute tagging is the ability to associate a collection of attribute values w
 
 Before we get too far, we need to define some terms:
 
-- **Attribute**: a dimension or descriptive characteristic. 
+- **Attribute** - a dimension or descriptive characteristic. 
   - Examples include length, width, weight, type, category, Business Partner, ....
-- **Attribute Value**: the answer or value associated with an Attribute. 
+- **Attribute Value** - the answer or value associated with an Attribute. 
   - Examples include 10, "100lbs," "order", True, ...
   - Values can also be foreign keys to other tables such as a uuid pointing to a Business Partner table.
-- **Attribute Set**: a collection of Attributes.
-- **Attribute Set Instance**: an Attribute Set with its Attributes Values assigned.
+- **Attribute Set** - a collection of Attributes.
+- **Attribute Set Instance** - an Attribute Set with its Attributes Values assigned.
 
 <!-- TODO: add to terminology.md page - this is the definition and term points here -->
 

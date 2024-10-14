@@ -837,8 +837,8 @@ select current_setting('test.test.test.one',true);
 <p><a href="https://nixos.org/">Nix</a> is a package manager that also became a Linux distribution (NixOS). Its most remarkable feature is the ability to create reproducible builds and deploy reproducible environments through its declarative language.</p>
 <p>The chuck-stack uses Nix in two ways:</p>
 <ol>
-<li>Server deployment: easily create servers by simply copying and combining nix configuration files. We run NixOS on servers.</li>
-<li>User profile: easily prescribe and deploy tools to each user's environment based on the role they are fulfilling. We use Nix-shell to support user profiles.</li>
+<li>Server deployment - easily create servers by simply copying and combining nix configuration files. We run NixOS on servers.</li>
+<li>User profile - easily prescribe and deploy tools to each user's environment based on the role they are fulfilling. We use Nix-shell to support user profiles.</li>
 </ol>
 <h2 id="linux-desktop"><a class="header" href="#linux-desktop">Linux Desktop</a></h2>
 <p>The chuck-stack standardizes on two Linux desktops:</p>
@@ -1148,19 +1148,19 @@ select current_setting('test.test.test.one',true);
 <h2 id="important-tools"><a class="header" href="#important-tools">Important Tools</a></h2>
 <p>Here are tools we commonly use:</p>
 <ul>
-<li><a href="https://mattermost.com/">Mattermost</a>: Open source collaboration tool (similar to slack and github discussions). It is backed by PostgreSQL and run locally; therefore, it fits quite well in the chuck-stack.</li>
-<li><a href="https://www.getdbt.com/">dbt (ETL)</a>: tool to transform transactional data into a form than can be consumed by BI or AI or ...</li>
-<li><a href="https://www.metabase.com/">Metabase (BI)</a>: BI tool for visualizing and publishing data that runs on PostgreSQL.</li>
+<li><a href="https://mattermost.com/">Mattermost</a> - Open source collaboration tool (similar to slack and github discussions). It is backed by PostgreSQL and run locally; therefore, it fits quite well in the chuck-stack.</li>
+<li><a href="https://www.getdbt.com/">dbt (ETL)</a> - tool to transform transactional data into a form than can be consumed by BI or AI or ...</li>
+<li><a href="https://www.metabase.com/">Metabase (BI)</a> - BI tool for visualizing and publishing data that runs on PostgreSQL.</li>
 <li><a href="https://github.com/jarun/ddgr">ddgr</a> - DuckDuckGo search from the terminal</li>
 </ul>
 <h2 id="tools-we-are-evaluating"><a class="header" href="#tools-we-are-evaluating">Tools We Are Evaluating</a></h2>
 <p>He are the tools we want to use more:</p>
 <ul>
 <li><a href="https://github.com/FiloSottile/age">age</a>/<a href="https://github.com/str4d/rage">rage</a> - modern, no configuration encryption tool. Here is a notable <a href="https://github.com/FiloSottile/age/discussions/432">discussion</a>.</li>
-<li><a href="https://postgresml.org/">PostgresML (AI)</a>: PostgreSQL tool for AI training and inferencing directly out of your database.</li>
-<li><a href="https://ollama.com/">Ollama (AI)</a>: AI tool for running generative AI (LLM) models locally.</li>
-<li><a href="https://www.crowdsec.net/">CrowdSec (security)</a>: Proactively block known malicious IPs and activities.</li>
-<li><a href="https://htmx.org/">htmx</a>: compelling way for small and medium organizations to create dynamic websites.</li>
+<li><a href="https://postgresml.org/">PostgresML (AI)</a> - PostgreSQL tool for AI training and inferencing directly out of your database.</li>
+<li><a href="https://ollama.com/">Ollama (AI)</a> - AI tool for running generative AI (LLM) models locally.</li>
+<li><a href="https://www.crowdsec.net/">CrowdSec (security)</a> - Proactively block known malicious IPs and activities.</li>
+<li><a href="https://htmx.org/">htmx</a> - compelling way for small and medium organizations to create dynamic websites.</li>
 <li><a href="https://mfontanini.github.io/presenterm/">presenterm</a> - simple terminal presentation tool backed by markdown</li>
 <li><a href="https://github.com/pgcentralfoundation/pgrx">pgrx</a> - helps build rust-based extensions in PostgreSQL</li>
 <li><a href="https://typst.app/">typst</a> - text formattng and layout engine
@@ -1532,10 +1532,10 @@ COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
 <h3 id="system-workflows"><a class="header" href="#system-workflows">System Workflows</a></h3>
 <p>Here are the important types of system facing workflows.</p>
 <ul>
-<li>Before Events (save, delete, update): TODO - defined by psql</li>
-<li>After Events (save, delete, update): TODO - defined by psql</li>
-<li>Functions: TODO - defined by psql</li>
-<li>Interface Events: TODO (singleton or collection)
+<li>Before Events (save, delete, update) - TODO - defined by psql</li>
+<li>After Events (save, delete, update) - TODO - defined by psql</li>
+<li>Functions - TODO - defined by psql</li>
+<li>Interface Events - TODO (singleton or collection)
 <ul>
 <li>note that interface events can be triggered by user workflows</li>
 <li>document validation is an example of an interface event</li>
@@ -1545,14 +1545,14 @@ COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
 <h3 id="user-workflows"><a class="header" href="#user-workflows">User Workflows</a></h3>
 <p>Here are the important types of user facing workflows.</p>
 <ul>
-<li>Journal workflow: everyone in an organization should be able to record the events in an organization. More...</li>
-<li>Discussion workflow: everyone in an organization should be able to collaborate with others in an organization. More...</li>
-<li>To-do workflow: everyone in an organization should be able to manage a simple list of tasks. More...</li>
-<li>Checklist workflow: roles in an organization often have periodic prescribed tasks. Checklists are a predefined and templated to-do tasks. More...</li>
-<li>Queue workflow: as people manipulate data, some records will reach a state of importance. Queues are defined views into data that match a specific pattern automatically. When the pattern is found, present the user or role with the matching records.  More...</li>
-<li>Notice workflow: events happen, and sometimes users and systems need to be notified. The notification workflow provides information based on the events that occur in an organization.  More...</li>
-<li>Ad-hoc request workflow: users and systems often know what needs to happen and who needs to perform the action based on the events that occur in an organization. This is often referred to as institutional knowledge of action. Ad-hoc request workflows allow users or services to request action from a particular user, role or service.  More...</li>
-<li>Orchestrated request workflow: There are times when an organization needs a formal, multi-step, orchestrated process where a request follows a pre-defined path.</li>
+<li>Journal workflow - everyone in an organization should be able to record the events in an organization. More...</li>
+<li>Discussion workflow - everyone in an organization should be able to collaborate with others in an organization. More...</li>
+<li>To-do workflow - everyone in an organization should be able to manage a simple list of tasks. More...</li>
+<li>Checklist workflow - roles in an organization often have periodic prescribed tasks. Checklists are a predefined and templated to-do tasks. More...</li>
+<li>Queue workflow - as people manipulate data, some records will reach a state of importance. Queues are defined views into data that match a specific pattern automatically. When the pattern is found, present the user or role with the matching records.  More...</li>
+<li>Notice workflow - events happen, and sometimes users and systems need to be notified. The notification workflow provides information based on the events that occur in an organization.  More...</li>
+<li>Ad-hoc request workflow - users and systems often know what needs to happen and who needs to perform the action based on the events that occur in an organization. This is often referred to as institutional knowledge of action. Ad-hoc request workflows allow users or services to request action from a particular user, role or service.  More...</li>
+<li>Orchestrated request workflow - There are times when an organization needs a formal, multi-step, orchestrated process where a request follows a pre-defined path.</li>
 </ul>
 <h3 id="document-action-workflows"><a class="header" href="#document-action-workflows">Document Action Workflows</a></h3>
 <p>Document action workflows are simply an implementation of orchestrated request workflows that center around the life cycle of transactional documents such as orders, invoices, receipts, payments, statements, allocations, .... Here is an example life cycle of a Sales Order:</p>
@@ -1570,19 +1570,19 @@ COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
 <p>Attribute tagging is the ability to associate a collection of attribute values with a given record. Any record can have many sets of attribute associated with it. The chuck-stack uses PostgreSQL's JSON capabilities to implement attribute tagging.</p>
 <p>Before we get too far, we need to define some terms:</p>
 <ul>
-<li><strong>Attribute</strong>: a dimension or descriptive characteristic.
+<li><strong>Attribute</strong> - a dimension or descriptive characteristic.
 <ul>
 <li>Examples include length, width, weight, type, category, Business Partner, ....</li>
 </ul>
 </li>
-<li><strong>Attribute Value</strong>: the answer or value associated with an Attribute.
+<li><strong>Attribute Value</strong> - the answer or value associated with an Attribute.
 <ul>
 <li>Examples include 10, "100lbs," "order", True, ...</li>
 <li>Values can also be foreign keys to other tables such as a uuid pointing to a Business Partner table.</li>
 </ul>
 </li>
-<li><strong>Attribute Set</strong>: a collection of Attributes.</li>
-<li><strong>Attribute Set Instance</strong>: an Attribute Set with its Attributes Values assigned.</li>
+<li><strong>Attribute Set</strong> - a collection of Attributes.</li>
+<li><strong>Attribute Set Instance</strong> - an Attribute Set with its Attributes Values assigned.</li>
 </ul>
 <!-- TODO: add to terminology.md page - this is the definition and term points here -->
 <p>Here is an example of attribute tagging in chuck-stack:</p>

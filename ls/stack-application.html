@@ -201,10 +201,10 @@
 <h3 id="system-workflows"><a class="header" href="#system-workflows">System Workflows</a></h3>
 <p>Here are the important types of system facing workflows.</p>
 <ul>
-<li>Before Events (save, delete, update): TODO - defined by psql</li>
-<li>After Events (save, delete, update): TODO - defined by psql</li>
-<li>Functions: TODO - defined by psql</li>
-<li>Interface Events: TODO (singleton or collection)
+<li>Before Events (save, delete, update) - TODO - defined by psql</li>
+<li>After Events (save, delete, update) - TODO - defined by psql</li>
+<li>Functions - TODO - defined by psql</li>
+<li>Interface Events - TODO (singleton or collection)
 <ul>
 <li>note that interface events can be triggered by user workflows</li>
 <li>document validation is an example of an interface event</li>
@@ -214,14 +214,14 @@
 <h3 id="user-workflows"><a class="header" href="#user-workflows">User Workflows</a></h3>
 <p>Here are the important types of user facing workflows.</p>
 <ul>
-<li>Journal workflow: everyone in an organization should be able to record the events in an organization. More...</li>
-<li>Discussion workflow: everyone in an organization should be able to collaborate with others in an organization. More...</li>
-<li>To-do workflow: everyone in an organization should be able to manage a simple list of tasks. More...</li>
-<li>Checklist workflow: roles in an organization often have periodic prescribed tasks. Checklists are a predefined and templated to-do tasks. More...</li>
-<li>Queue workflow: as people manipulate data, some records will reach a state of importance. Queues are defined views into data that match a specific pattern automatically. When the pattern is found, present the user or role with the matching records.  More...</li>
-<li>Notice workflow: events happen, and sometimes users and systems need to be notified. The notification workflow provides information based on the events that occur in an organization.  More...</li>
-<li>Ad-hoc request workflow: users and systems often know what needs to happen and who needs to perform the action based on the events that occur in an organization. This is often referred to as institutional knowledge of action. Ad-hoc request workflows allow users or services to request action from a particular user, role or service.  More...</li>
-<li>Orchestrated request workflow: There are times when an organization needs a formal, multi-step, orchestrated process where a request follows a pre-defined path.</li>
+<li>Journal workflow - everyone in an organization should be able to record the events in an organization. More...</li>
+<li>Discussion workflow - everyone in an organization should be able to collaborate with others in an organization. More...</li>
+<li>To-do workflow - everyone in an organization should be able to manage a simple list of tasks. More...</li>
+<li>Checklist workflow - roles in an organization often have periodic prescribed tasks. Checklists are a predefined and templated to-do tasks. More...</li>
+<li>Queue workflow - as people manipulate data, some records will reach a state of importance. Queues are defined views into data that match a specific pattern automatically. When the pattern is found, present the user or role with the matching records.  More...</li>
+<li>Notice workflow - events happen, and sometimes users and systems need to be notified. The notification workflow provides information based on the events that occur in an organization.  More...</li>
+<li>Ad-hoc request workflow - users and systems often know what needs to happen and who needs to perform the action based on the events that occur in an organization. This is often referred to as institutional knowledge of action. Ad-hoc request workflows allow users or services to request action from a particular user, role or service.  More...</li>
+<li>Orchestrated request workflow - There are times when an organization needs a formal, multi-step, orchestrated process where a request follows a pre-defined path.</li>
 </ul>
 <h3 id="document-action-workflows"><a class="header" href="#document-action-workflows">Document Action Workflows</a></h3>
 <p>Document action workflows are simply an implementation of orchestrated request workflows that center around the life cycle of transactional documents such as orders, invoices, receipts, payments, statements, allocations, .... Here is an example life cycle of a Sales Order:</p>
@@ -239,19 +239,19 @@
 <p>Attribute tagging is the ability to associate a collection of attribute values with a given record. Any record can have many sets of attribute associated with it. The chuck-stack uses PostgreSQL's JSON capabilities to implement attribute tagging.</p>
 <p>Before we get too far, we need to define some terms:</p>
 <ul>
-<li><strong>Attribute</strong>: a dimension or descriptive characteristic.
+<li><strong>Attribute</strong> - a dimension or descriptive characteristic.
 <ul>
 <li>Examples include length, width, weight, type, category, Business Partner, ....</li>
 </ul>
 </li>
-<li><strong>Attribute Value</strong>: the answer or value associated with an Attribute.
+<li><strong>Attribute Value</strong> - the answer or value associated with an Attribute.
 <ul>
 <li>Examples include 10, "100lbs," "order", True, ...</li>
 <li>Values can also be foreign keys to other tables such as a uuid pointing to a Business Partner table.</li>
 </ul>
 </li>
-<li><strong>Attribute Set</strong>: a collection of Attributes.</li>
-<li><strong>Attribute Set Instance</strong>: an Attribute Set with its Attributes Values assigned.</li>
+<li><strong>Attribute Set</strong> - a collection of Attributes.</li>
+<li><strong>Attribute Set Instance</strong> - an Attribute Set with its Attributes Values assigned.</li>
 </ul>
 <!-- TODO: add to terminology.md page - this is the definition and term points here -->
 <p>Here is an example of attribute tagging in chuck-stack:</p>

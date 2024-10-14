@@ -24,9 +24,9 @@ Here are the tools we use every day:
 
 Here are tools we commonly use:
 
-- [Mattermost](https://mattermost.com/): Open source collaboration tool (similar to slack and github discussions). It is backed by PostgreSQL and run locally; therefore, it fits quite well in the chuck-stack.
-- [dbt (ETL)](https://www.getdbt.com/): tool to transform transactional data into a form than can be consumed by BI or AI or ...
-- [Metabase (BI)](https://www.metabase.com/): BI tool for visualizing and publishing data that runs on PostgreSQL.
+- [Mattermost](https://mattermost.com/) - Open source collaboration tool (similar to slack and github discussions). It is backed by PostgreSQL and run locally; therefore, it fits quite well in the chuck-stack.
+- [dbt (ETL)](https://www.getdbt.com/) - tool to transform transactional data into a form than can be consumed by BI or AI or ...
+- [Metabase (BI)](https://www.metabase.com/) - BI tool for visualizing and publishing data that runs on PostgreSQL.
 - [ddgr](https://github.com/jarun/ddgr) - DuckDuckGo search from the terminal
 
 ## Tools We Are Evaluating
@@ -34,10 +34,10 @@ Here are tools we commonly use:
 He are the tools we want to use more:
 
 - [age](https://github.com/FiloSottile/age)/[rage](https://github.com/str4d/rage) - modern, no configuration encryption tool. Here is a notable [discussion](https://github.com/FiloSottile/age/discussions/432).
-- [PostgresML (AI)](https://postgresml.org/): PostgreSQL tool for AI training and inferencing directly out of your database.
-- [Ollama (AI)](https://ollama.com/): AI tool for running generative AI (LLM) models locally.
-- [CrowdSec (security)](https://www.crowdsec.net/): Proactively block known malicious IPs and activities.
-- [htmx](https://htmx.org/): compelling way for small and medium organizations to create dynamic websites.
+- [PostgresML (AI)](https://postgresml.org/) - PostgreSQL tool for AI training and inferencing directly out of your database.
+- [Ollama (AI)](https://ollama.com/) - AI tool for running generative AI (LLM) models locally.
+- [CrowdSec (security)](https://www.crowdsec.net/) - Proactively block known malicious IPs and activities.
+- [htmx](https://htmx.org/) - compelling way for small and medium organizations to create dynamic websites.
 - [presenterm](https://mfontanini.github.io/presenterm/) - simple terminal presentation tool backed by markdown
 - [pgrx](https://github.com/pgcentralfoundation/pgrx) - helps build rust-based extensions in PostgreSQL
 - [typst](https://typst.app/) - text formattng and layout engine 
