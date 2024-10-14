@@ -27,7 +27,7 @@ Before we discuss 'Say what we do', let's first introduce some important princip
 
 - **Be kind and concise** - Write the absolute minimum number of words possible in your work instructions. Someone will need to maintain every word you write from now to eternity.
 - **Do not repeat yourself** - Say something once, and reference it everywhere else.
-- **AI knows almost everything** - Do not repeat what AI already knows in your work instructions. Your purpose in writing work instructions is to shrink AI's world so that it knows what is important to you and how you want it discussed. This simple principle will reduce your work instructions by more than half if not more!
+- **AI knows almost everything** - Do not repeat what AI already knows in your work instructions. Your purpose in writing work instructions is to shrink AI's world so that it knows what is important to you and how you want it discussed. This simple principle will reduce your work instructions by half if not more!
 - **AI creates training** - Rely on AI to build your training aids and quizzes. If you write clear work instructions. AI can handle the rest for you.
 - **Words are best** - Words are your best tool to support your organization and AI.
 - **Pictures rot** - they rot faster than words and are harder to maintain. If you can say it, then say it!

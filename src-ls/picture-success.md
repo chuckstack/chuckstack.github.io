@@ -42,14 +42,16 @@ Let's apply this concept to a customer service representative (CSR). The followi
 - CSR: Yes, and please text Fred confirmation.
 - System: Done and done.
 
+[See above video for a demo](#how-is-this-possible)
+
 ## Get a Little Crazy
 
 The reality is that a CSR that performs this task 50+ times a day will not be this conversational. They will develop codes to eliminate keystrokes. They will use a microphone when possible. The outsider looking in might not even understand the interaction because of all the abbreviated codes. That is OK. What matters is that the CSR and the system 1. share access to the right data, 2. makes his/her job as easy as possible, and 3. prevent mistakes.
 
-This is just the beginning. There is no limit to the number of examples in an organization where someone wants to take a reasonably complicated process like order entry and distill it down to 5 bullets/interactions.
+This is just the beginning. There is no limit to the number of examples in an organization where someone wants to take a reasonably complicated process like order entry and distill it down to 5 or less bullets/interactions.
 
 ## Not that Crazy
-People and systems are getting smarter and more capable. What used to take a team of clerks thousands of hours can now be accomplished by one superclerk in tens of hours. Let me give you this example:
+People and systems are getting smarter and more capable. What used to take a team of clerks thousands of hours can now be accomplished by one superclerk in tens of hours. Here is an example of what a [superclerk](./terminology.md#superclerk) can do:
 
 > psql -AXqtc -f query-invalid-customer-address.sql | get entries | aichat -r address-fix-role
 
@@ -62,7 +64,7 @@ The above command shows what can happen when you develop superclerks and you giv
 - aichat is a command that communicates with ChatGPT or Claude to perform AI work.
 - -r is the aichat argument that allows the clerk to pass in the pre-existing work instructions that defines a valid address.
 
-You do not need to understand the details of the above scenario; however, you DO need to understand that a single person (superclerk) can write the above one-line string to perform the work of hundreds or even thousands or people hours. This is the power of a purposeful organization using the chuck-stack to find and promote [superclerks](./terminology.md#superclerk)!
+You do not need to understand the details of the above scenario; however, you **DO** need to understand that a single person (superclerk) can write the above one-line string to perform the work of hundreds or even thousands or people hours. This is the power of a purposeful organization using the chuck-stack to find and promote [superclerks](./terminology.md#superclerk)!
 
 ## All You Need are Work Instructions
 
