@@ -44,3 +44,4 @@ He are the tools we want to use more:
   - [see discussion](https://news.ycombinator.com/item?id=41014941)
   - [see video](https://www.youtube.com/watch?v=sWmlbMh3ol8)
   - Plan to use to create printing documents like orders, invoices, ...
+  - typst offers greater control over formatting than general markdown (color for example)
