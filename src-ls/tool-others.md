@@ -45,3 +45,5 @@ He are the tools we want to use more:
   - [see video](https://www.youtube.com/watch?v=sWmlbMh3ol8)
   - Plan to use to create printing documents like orders, invoices, ...
   - typst offers greater control over formatting than general markdown (color for example)
+- [steampipe](https://steampipe.io) - connecting PostgreSQL to cloud apis via a FDW
+- [powerpipe](https://powerpipe.io/) - generating dashboard templates from configuration
