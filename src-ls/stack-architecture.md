@@ -53,37 +53,9 @@ The Git branching feature dictates what environments get updated. A change to th
 
 The Git PR (pull request) feature plays a big role in organizations where changes need to be vetted and approved by both AI and/or humans.
 
-## All-In-One Server
-
-An all-in-one server describes a deployment scenario were all tools are deployed on a single virtualized server.
-
-### Why Consider an All-In-One 
-
-Here are the benefits of an all-in-one deployment option:
-
-- Least expensive
-- Simplest architecture
-- Most secure
-- Easiest to maintain a production environment
-- Easiest to create test environments
-
-### All-In-One Architecture
-
-The following describes a typical all-in-one deployment:
-
-- A single virtualized server running NixOS - note this server can run anywhere in the world
-- Configuration options/files are added to /etc/nixos/configuration.nix
-- postgresql.nix configures PostgreSQL to hold most if not all transactional details
-- user.nix maintains all users
-- Users ssh to this server to gain access to tools and data
-
-Here is a drawing representing a typical all-in-one:
-
-![all-in-one](img/all-in-one-chuck-stack.svg)
-
 ## Todo Application Example
 
-Let's review the [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/stk-todo-app.nix) configuration to better understand how the chuck-stack pieces come together. The stk-todo-app.nix is an example of a simple yet usable chuck-stack application.
+Let's review the [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/stk-todo-app.nix) example chuck-stack application configuration to better understand how the pieces come together. The stk-todo-app.nix is an example of a simple yet usable chuck-stack application.
 
 ### Two Configurations
 
@@ -172,4 +144,31 @@ Included in the 'let' block is a bash script that will be deployed as a systemd 
   ...
 ```
 
+## All-In-One Server
+
+An all-in-one server describes a deployment scenario were all tools are deployed on a single virtualized server.
+
+### Why Consider an All-In-One 
+
+Here are the benefits of an all-in-one deployment option:
+
+- Least expensive
+- Simplest architecture
+- Most secure
+- Easiest to maintain a production environment
+- Easiest to create test environments
+
+### All-In-One Architecture
+
+The following describes a typical all-in-one deployment:
+
+- A single virtualized server running NixOS - note this server can run anywhere in the world
+- Configuration options/files are added to /etc/nixos/configuration.nix
+- postgresql.nix configures PostgreSQL to hold most if not all transactional details
+- user.nix maintains all users
+- Users ssh to this server to gain access to tools and data
+
+Here is a drawing representing a typical all-in-one:
+
+![all-in-one](img/all-in-one-chuck-stack.svg)
 

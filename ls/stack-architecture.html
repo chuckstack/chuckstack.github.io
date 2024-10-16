@@ -220,30 +220,8 @@
 </ul>
 <p>The Git branching feature dictates what environments get updated. A change to the 'Test1' branch will deploy changes to the 'Test1' UAT environment. A change to the 'Prod' branch will update the 'Prod' environment.</p>
 <p>The Git PR (pull request) feature plays a big role in organizations where changes need to be vetted and approved by both AI and/or humans.</p>
-<h2 id="all-in-one-server"><a class="header" href="#all-in-one-server">All-In-One Server</a></h2>
-<p>An all-in-one server describes a deployment scenario were all tools are deployed on a single virtualized server.</p>
-<h3 id="why-consider-an-all-in-one"><a class="header" href="#why-consider-an-all-in-one">Why Consider an All-In-One</a></h3>
-<p>Here are the benefits of an all-in-one deployment option:</p>
-<ul>
-<li>Least expensive</li>
-<li>Simplest architecture</li>
-<li>Most secure</li>
-<li>Easiest to maintain a production environment</li>
-<li>Easiest to create test environments</li>
-</ul>
-<h3 id="all-in-one-architecture"><a class="header" href="#all-in-one-architecture">All-In-One Architecture</a></h3>
-<p>The following describes a typical all-in-one deployment:</p>
-<ul>
-<li>A single virtualized server running NixOS - note this server can run anywhere in the world</li>
-<li>Configuration options/files are added to /etc/nixos/configuration.nix</li>
-<li>postgresql.nix configures PostgreSQL to hold most if not all transactional details</li>
-<li>user.nix maintains all users</li>
-<li>Users ssh to this server to gain access to tools and data</li>
-</ul>
-<p>Here is a drawing representing a typical all-in-one:</p>
-<p><img src="img/all-in-one-chuck-stack.svg" alt="all-in-one" /></p>
 <h2 id="todo-application-example"><a class="header" href="#todo-application-example">Todo Application Example</a></h2>
-<p>Let's review the <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/stk-todo-app.nix">stk-todo-app.nix</a> configuration to better understand how the chuck-stack pieces come together. The stk-todo-app.nix is an example of a simple yet usable chuck-stack application.</p>
+<p>Let's review the <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/stk-todo-app.nix">stk-todo-app.nix</a> example chuck-stack application configuration to better understand how the pieces come together. The stk-todo-app.nix is an example of a simple yet usable chuck-stack application.</p>
 <h3 id="two-configurations"><a class="header" href="#two-configurations">Two Configurations</a></h3>
 <p>The stk-todo-app has two configuration components:</p>
 <ol>
@@ -313,6 +291,28 @@
   '';
   ...
 </code></pre>
+<h2 id="all-in-one-server"><a class="header" href="#all-in-one-server">All-In-One Server</a></h2>
+<p>An all-in-one server describes a deployment scenario were all tools are deployed on a single virtualized server.</p>
+<h3 id="why-consider-an-all-in-one"><a class="header" href="#why-consider-an-all-in-one">Why Consider an All-In-One</a></h3>
+<p>Here are the benefits of an all-in-one deployment option:</p>
+<ul>
+<li>Least expensive</li>
+<li>Simplest architecture</li>
+<li>Most secure</li>
+<li>Easiest to maintain a production environment</li>
+<li>Easiest to create test environments</li>
+</ul>
+<h3 id="all-in-one-architecture"><a class="header" href="#all-in-one-architecture">All-In-One Architecture</a></h3>
+<p>The following describes a typical all-in-one deployment:</p>
+<ul>
+<li>A single virtualized server running NixOS - note this server can run anywhere in the world</li>
+<li>Configuration options/files are added to /etc/nixos/configuration.nix</li>
+<li>postgresql.nix configures PostgreSQL to hold most if not all transactional details</li>
+<li>user.nix maintains all users</li>
+<li>Users ssh to this server to gain access to tools and data</li>
+</ul>
+<p>Here is a drawing representing a typical all-in-one:</p>
+<p><img src="img/all-in-one-chuck-stack.svg" alt="all-in-one" /></p>
 
                     </main>
 
