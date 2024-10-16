@@ -137,9 +137,9 @@ This sections lists the mandatory and optional columns found in chuck-stack tabl
 - primary key - The primary key column bears the name of the table with a `_uu` suffix. Example: `stk_some_table_uu`
 - `stk_tenant_uu` - foreign key reference to the tenant that owns the record
 - `stk_entity_uu` - financial set of books that owns the record
-- `created` - timestamp indicating when the record was created.
+- `created` - timestampz indicating when the record was created.
 - `stk_created_by_uu` - uuid foreign key reference to the database user/role that created the record.
-- `updated` - timestamp indicating when the record was last updated.
+- `updated` - timestampz indicating when the record was last updated.
 - `stk_updated_by_uu` - uuid foreign key reference to the database user/role that last updated the record.
 - `stk_session_uu` - must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.
 
@@ -213,9 +213,9 @@ It is worth noting that an unexpected database shutdown (error state) will empty
 ```sql
 CREATE TABLE stk_some_table (
   stk_some_table_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  created TIMESTAMP NOT NULL DEFAULT now(),
+  created TIMESTAMPZ NOT NULL DEFAULT now(),
   stk_created_by_uu uuid NOT NULL,
-  updated TIMESTAMP NOT NULL DEFAULT now(),
+  updated TIMESTAMPZ NOT NULL DEFAULT now(),
   stk_updated_by_uu uuid NOT NULL,
   search_key TEXT NOT NULL,
   value TEXT NOT NULL,
