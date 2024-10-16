@@ -38,6 +38,11 @@ The chuck-stack uses Nix in two ways:
 1. Server deployment - easily create servers by simply copying and combining nix configuration files. We run NixOS on servers.
 2. User profile - easily prescribe and deploy tools to each user's environment based on the role they are fulfilling. We use Nix-shell to support user profiles.
 
+References: 
+
+- See how NixOS is used in the [chuck-stack architecture](./stack-architecture.md#nixos)
+- chuck-stack Nix [repository of tool configurations](https://github.com/chuckstack/chuck-stack-nix)
+
 ## Linux Desktop
 
 The chuck-stack standardizes on two Linux desktops:

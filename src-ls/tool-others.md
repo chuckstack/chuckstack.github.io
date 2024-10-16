@@ -19,6 +19,7 @@ Here are the tools we use every day:
 - [Pass (secrets)](https://passwordstore.org/) - is a command line tool that helps you manage secrets/passwords with gpg. It is simple, scriptable, auditable, distributed and secure. [gpg](https://gnupg.org/) is an encryption program that provides cryptographic privacy and authentication for data communication. The Pass repository is available on almost all platforms. It integrates well with github.
 - [Zabbix (monitoring)](https://www.zabbix.com/) -  monitor resources and respond to events.
 - [buku](https://github.com/jarun/buku) - awesome terminal bookmark manager
+- [sqlx-cli](https://github.com/launchbadge/sqlx/tree/main/sqlx-cli) - sql migration tool
 
 ## Important Tools
 
@@ -40,6 +41,7 @@ He are the tools we want to use more:
 - [htmx](https://htmx.org/) - compelling way for small and medium organizations to create dynamic websites.
 - [presenterm](https://mfontanini.github.io/presenterm/) - simple terminal presentation tool backed by markdown
 - [pgrx](https://github.com/pgcentralfoundation/pgrx) - helps build rust-based extensions in PostgreSQL
+- [discourse](https://github.com/discourse/discourse/) - well featured discussion board
 - [typst](https://typst.app/) - text formattng and layout engine 
   - [see discussion](https://news.ycombinator.com/item?id=41014941)
   - [see video](https://www.youtube.com/watch?v=sWmlbMh3ol8)
