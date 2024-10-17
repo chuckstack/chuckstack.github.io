@@ -1227,14 +1227,14 @@ select current_setting('test.test.test.one',true);
 <p>The Git branching feature dictates what environments get updated. A change to the 'Test1' branch will deploy changes to the 'Test1' UAT environment. A change to the 'Prod' branch will update the 'Prod' environment.</p>
 <p>The Git PR (pull request) feature plays a big role in organizations where changes need to be vetted and approved by both AI and/or humans.</p>
 <h2 id="todo-application-example"><a class="header" href="#todo-application-example">Todo Application Example</a></h2>
-<p>Let's review the <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/stk-todo-app.nix">stk-todo-app.nix</a> example chuck-stack application configuration to better understand how the pieces come together. The stk-todo-app.nix is an example of a simple yet usable chuck-stack application.</p>
+<p>Let's review the <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> example chuck-stack application configuration to better understand how the pieces come together. The stk-todo-app.nix is an example of a simple yet usable chuck-stack application.</p>
 <h3 id="two-configurations"><a class="header" href="#two-configurations">Two Configurations</a></h3>
 <p>The stk-todo-app has two configuration components:</p>
 <ol>
-<li><a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/stk-todo-app.nix">stk-todo-app.nix</a> - the nix configuration file</li>
-<li><a href="https://github.com/chuckstack/chuck-stack-todo-app">stk-todo-app-sql</a> - the database migrations</li>
+<li><a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> - the nix configuration file</li>
+<li><a href="https://github.com/chuckstack/stk-todo-app-sql">stk-todo-app-sql</a> - the database migrations</li>
 </ol>
-<p>The <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/stk-todo-app.nix">stk-todo-app.nix</a> configuration file creates a service to automatically clone and deploy the <a href="https://github.com/chuckstack/chuck-stack-todo-app">stk-todo-app-sql</a> database migrations every time the service is started.</p>
+<p>The <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> configuration file creates a service to automatically clone and deploy the <a href="https://github.com/chuckstack/stk-todo-app-sql">stk-todo-app-sql</a> database migrations every time the service is started.</p>
 <p>We want to make sure you understand just how incredible this scenario is... You simply update a brand new NixOS configuration to point to a nix application file and the system will automatically install, configure and run your application. Not only during installation, but it will do this as you make changes throughout time. That is almost magical.</p>
 <h3 id="assumptions"><a class="header" href="#assumptions">Assumptions</a></h3>
 <p>This section assumes system.nix and postgresql.nix are also deployed at the same time. Said another way, stk-todo-app depends on these services. By separating the system and the postgresql nix configurations, the stk-todo-app remains as simple and ease to understand as possible.</p>
@@ -1276,7 +1276,7 @@ select current_setting('test.test.test.one',true);
     export DATABASE_URL="postgres:///stk_todo_db"
 
     # Set the Git repository URL and the local path where it should be cloned
-    REPO_URL="https://github.com/chuckstack/chuck-stack-todo-app.git"
+    REPO_URL="https://github.com/chuckstack/stk-todo-app-sql.git"
     CLONE_PATH="/tmp/db-migrations"
 
     # Ensure the clone directory is empty
