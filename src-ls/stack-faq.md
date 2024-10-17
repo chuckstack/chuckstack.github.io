@@ -62,3 +62,7 @@ The two most important pieces of the chuck-stack application are workflow and at
 
 -   Workflow is critical to data management. However, workflow is notoriously difficult. The concepts can be difficult to learn. The applications are often difficult to install and maintain, and they are either too complicated or overly simple. It is incredibly difficult to create a workflow architecture that is both generic enough and easy enough for broad adoption. AI will change the workflow landscape. What was previously tedious, is becoming a conversation.
 -   Attributes and attribute sets are critical to data management. Being able to tag anything with an attribute, or a set of attributes is one of the most common actions in data management.
+
+## Why is the CLI so Important?
+
+See [CLI Better Than ...](./blog-cli-better.md)
