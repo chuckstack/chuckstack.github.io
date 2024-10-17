@@ -65,4 +65,5 @@ The two most important pieces of the chuck-stack application are workflow and at
 
 ## Why is the CLI so Important?
 
-See [CLI Better Than ...](./blog-cli-better.md) 
+See [CLI Better Than ...](./blog-cli-better.md)
+
