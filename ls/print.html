@@ -1232,12 +1232,12 @@ select current_setting('test.test.test.one',true);
 <p>The stk-todo-app has two configuration components:</p>
 <ol>
 <li><a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> - the nix configuration file</li>
-<li><a href="https://github.com/chuckstack/stk-todo-app-sql">stk-todo-app-sql</a> - the database migrations</li>
+<li><a href="https://github.com/chuckstack/stk-todo-app-sql">stk-todo-app-sql</a> - the database migrations repository</li>
 </ol>
 <p>The <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> configuration file creates a service to automatically clone and deploy the <a href="https://github.com/chuckstack/stk-todo-app-sql">stk-todo-app-sql</a> database migrations every time the service is started.</p>
 <p>We want to make sure you understand just how incredible this scenario is... You simply update a brand new NixOS configuration to point to a nix application file and the system will automatically install, configure and run your application. Not only during installation, but it will do this as you make changes throughout time. That is almost magical.</p>
 <h3 id="assumptions"><a class="header" href="#assumptions">Assumptions</a></h3>
-<p>This section assumes system.nix and postgresql.nix are also deployed at the same time. Said another way, stk-todo-app depends on these services. By separating the system and the postgresql nix configurations, the stk-todo-app remains as simple and ease to understand as possible.</p>
+<p>This section assumes <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/system.nix">system.nix</a> and <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/postgresql.nix">postgresql.nix</a> are also deployed at the same time. Said another way, stk-todo-app depends on these services. By separating the system and the postgresql nix configurations, the stk-todo-app remains as simple and ease to understand as possible.</p>
 <h3 id="sql-migration"><a class="header" href="#sql-migration">SQL Migration</a></h3>
 <p>Since the SQL migration concept is easier to explain, let's start here first. Database migrations are held in a dedicated Git repository. The typical chuck-stack organization will make frequent additions to the SQL migration repository. The reasons to make additions to migrations include:</p>
 <ul>

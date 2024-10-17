@@ -62,7 +62,7 @@ Let's review the [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-ni
 The stk-todo-app has two configuration components:
 
 1. [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix) - the nix configuration file
-1. [stk-todo-app-sql](https://github.com/chuckstack/stk-todo-app-sql) - the database migrations
+1. [stk-todo-app-sql](https://github.com/chuckstack/stk-todo-app-sql) - the database migrations repository
 
 The [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix) configuration file creates a service to automatically clone and deploy the [stk-todo-app-sql](https://github.com/chuckstack/stk-todo-app-sql) database migrations every time the service is started.
 
@@ -70,7 +70,7 @@ We want to make sure you understand just how incredible this scenario is... You 
 
 ### Assumptions
 
-This section assumes system.nix and postgresql.nix are also deployed at the same time. Said another way, stk-todo-app depends on these services. By separating the system and the postgresql nix configurations, the stk-todo-app remains as simple and ease to understand as possible.
+This section assumes [system.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/system.nix) and [postgresql.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/postgresql.nix) are also deployed at the same time. Said another way, stk-todo-app depends on these services. By separating the system and the postgresql nix configurations, the stk-todo-app remains as simple and ease to understand as possible.
 
 ### SQL Migration
 
