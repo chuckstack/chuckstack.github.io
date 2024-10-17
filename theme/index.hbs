@@ -111,7 +111,7 @@
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
                 <ul class="chapter">
-                    <li><a class="active" href="../">chuck-stack Home</a></li>
+                    <li><a class="active" href="../">chuck-stack Home</a></li> <!--chuboe changed-->
                 </ul>
                 {{#toc}}{{/toc}}
             </div>
@@ -216,6 +216,7 @@
                 <div id="content" class="content">
                     <main>
                         {{{ content }}}
+                        <p>Copyright &copy; {{year}} CHUBOE LLC. All rights reserved.</p> <!--chuboe changed-->
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -250,7 +251,6 @@
                     </a>
                 {{/next}}
             </nav>
-
         </div>
 
         {{#if live_reload_endpoint}}
