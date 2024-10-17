@@ -87,7 +87,7 @@ One might argue that the user.nix should be moved to the SQL migration repositor
 
 ### Nix Configuration Review
 
-Here is a breakdown of the stk-todo-app.nix file. Before we get into the details, let's first start with the highlights. Here is what the [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/stk-todo-app.nix) does for you:
+Here is a breakdown of the [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix) file. Before we get into the details, let's first start with the highlights. Here is what the stk-todo-app.nix configuration does for you:
 
 - Updates the PostgreSQL configuration to include the stk-todo-db database
 - Creates a service to deploy database migrations

@@ -1249,7 +1249,7 @@ select current_setting('test.test.test.one',true);
 <p>The chuck-stack uses sqlx-cli to manage database migrations. Notice in the below nix configuration file that Nix only creates the database and nothing else. All other database configuration responsibilities are executed by sqlx-cli. This decision was made because sqlx-cli ensures a particular migration script is executed one time.</p>
 <p>One might argue that the user.nix should be moved to the SQL migration repository at the time of deployment so that all user and role management changes are managed in the same repository. This change is under consideration.</p>
 <h3 id="nix-configuration-review"><a class="header" href="#nix-configuration-review">Nix Configuration Review</a></h3>
-<p>Here is a breakdown of the stk-todo-app.nix file. Before we get into the details, let's first start with the highlights. Here is what the <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/stk-todo-app.nix">stk-todo-app.nix</a> does for you:</p>
+<p>Here is a breakdown of the <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> file. Before we get into the details, let's first start with the highlights. Here is what the stk-todo-app.nix configuration does for you:</p>
 <ul>
 <li>Updates the PostgreSQL configuration to include the stk-todo-db database</li>
 <li>Creates a service to deploy database migrations</li>
