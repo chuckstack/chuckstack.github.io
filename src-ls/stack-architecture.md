@@ -55,16 +55,16 @@ The Git PR (pull request) feature plays a big role in organizations where change
 
 ## Todo Application Example
 
-Let's review the [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/stk-todo-app.nix) example chuck-stack application configuration to better understand how the pieces come together. The stk-todo-app.nix is an example of a simple yet usable chuck-stack application.
+Let's review the [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix) example chuck-stack application configuration to better understand how the pieces come together. The stk-todo-app.nix is an example of a simple yet usable chuck-stack application.
 
 ### Two Configurations
 
 The stk-todo-app has two configuration components:
 
-1. [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/stk-todo-app.nix) - the nix configuration file
-1. [stk-todo-app-sql](https://github.com/chuckstack/chuck-stack-todo-app) - the database migrations
+1. [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix) - the nix configuration file
+1. [stk-todo-app-sql](https://github.com/chuckstack/stk-todo-app-sql) - the database migrations
 
-The [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/stk-todo-app.nix) configuration file creates a service to automatically clone and deploy the [stk-todo-app-sql](https://github.com/chuckstack/chuck-stack-todo-app) database migrations every time the service is started.
+The [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix) configuration file creates a service to automatically clone and deploy the [stk-todo-app-sql](https://github.com/chuckstack/stk-todo-app-sql) database migrations every time the service is started.
 
 We want to make sure you understand just how incredible this scenario is... You simply update a brand new NixOS configuration to point to a nix application file and the system will automatically install, configure and run your application. Not only during installation, but it will do this as you make changes throughout time. That is almost magical.
 
@@ -122,7 +122,7 @@ Included in the 'let' block is a bash script that will be deployed as a systemd 
     export DATABASE_URL="postgres:///stk_todo_db"
 
     # Set the Git repository URL and the local path where it should be cloned
-    REPO_URL="https://github.com/chuckstack/chuck-stack-todo-app.git"
+    REPO_URL="https://github.com/chuckstack/stk-todo-app-sql.git"
     CLONE_PATH="/tmp/db-migrations"
 
     # Ensure the clone directory is empty
