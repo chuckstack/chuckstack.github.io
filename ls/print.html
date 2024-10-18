@@ -1874,34 +1874,51 @@ There are two key process features that make this vision a reality: 1) workflow 
 <p>The purpose of this page is to describe the application framework progress and deployment roadmap.</p>
 <h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
 <!-- TODO: link to goals -->
-<p>It is important to understand that the chuck-stack is not a typical project. The goals of the project are to support small and medium sized businesses by bringing together existing tools to create a platform. As such, most of the advancements of this project relate more to convention, configuration and deployment rather than coding.</p>
+<p>It is important to understand that the chuck-stack is not a typical software project. The goals are to support small and medium sized organizations by bringing together existing tools to create a platform. As such, most of the advancements of this project relate more to convention, configuration and deployment rather than coding.</p>
 <h2 id="upcoming-milestones"><a class="header" href="#upcoming-milestones">Upcoming Milestones</a></h2>
 <ul>
-<li>replicate <a href="https://www.youtube.com/watch?v=ooWaPVvljlU">this video</a> in aichat with built in sql role sql.
-<ul>
-<li>cd to newly created directory and create new db</li>
-<li>create new psql instance and log important details
-<ul>
-<li>auto table generate and keep ddl logs (https://github.com/RavitheAnalyst/Paris-Olympics-2024---Analysis/blob/main/athletes.csv)</li>
-<li>query aggregation and chart visuals</li>
-</ul>
-</li>
-<li>create new app and use (leverage stack conventions)</li>
-</ul>
-</li>
-<li>replicate iDempiere's dashboard layout in Zellij</li>
+<li>determine role strategy to allow nix-shell to deliver role tools for a given user (map between user and role)</li>
+<li>update nginx with crowdsec</li>
 <li>add working instructions to both full context and rag to determine most effective</li>
 <li>create core tenant and entity, using work instructions, add update work instructions accordingly</li>
-<li>implement workflow (expand this list with each workflow item)
+<li>implement workflow (expand this list with each workflow item)</li>
+<li>implement attribute tagging
 <ul>
 <li>repeat context/rag development + update work instructions iteratively</li>
 </ul>
 </li>
 </ul>
 <h2 id="completed-milestone"><a class="header" href="#completed-milestone">Completed Milestone</a></h2>
+<p>Week of 2024-10-18</p>
 <ul>
+<li>completed version 2 of the simple todo app</li>
+<li>replicate iDempiere's dashboard layout in Zellij</li>
+<li>nginx serving reverse proxy in nix</li>
+<li>sqlx-cli running migration scripts as nix service</li>
+<li>stk-todo-app with first chuck-stack-like table</li>
+<li>demonstrate role based PostgreSQL administration - see impersonation</li>
+</ul>
+<p>Week of 2024-10-11</p>
+<ul>
+<li>postgrest service up and running</li>
+<li>sqlx-cli test nix-shell (<a href="https://github.com/chuckstack/stk-todo-app-sql/blob/main/test/shell.nix">link</a>)</li>
 <li>implemented best practice for creating and hosting work instructions</li>
+</ul>
+<p>Prior</p>
+<ul>
 <li>created first version of work instructions</li>
+<li>replicate <a href="https://www.youtube.com/watch?v=ooWaPVvljlU">this video</a> in aichat with built in sql role sql.
+<ul>
+<li>cd to newly created directory and create new db</li>
+<li>create new psql instance and log important details
+<ul>
+<li>auto table generate and keep DDL logs (https://github.com/RavitheAnalyst/Paris-Olympics-2024---Analysis/blob/main/athletes.csv)</li>
+<li>query aggregation and chart visuals</li>
+</ul>
+</li>
+<li>create new app and use (leverage stack conventions)</li>
+</ul>
+</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="project-history"><a class="header" href="#project-history">Project History</a></h1>
 <p>The purpose of this page is to give you the back story behind how chuck-stack.org came to exist.</p>
