@@ -45,7 +45,7 @@ The api schema will most commonly consist of:
 An overly simple example of an api pass-though view would be:
 
 ```sql
-create view api.stk_todo as select * from private.stk_todo;
+CREATE VIEW api.stk_todo AS SELECT * FROM private.stk_todo;
 ```
 
 Note that PostgreSQL scopes the namespace for tables, view and functions at the schema level. This means you can have an api view named `api.stk_todo` and a private table named `private.stk_todo` in the same database. This fact is extremely convenient both in terms of managing the `private` versus `api` schema relationships as well as the `api_v1` vs `api_v2` schema coexistence should you have the need for multiple simultaneous api versions.
