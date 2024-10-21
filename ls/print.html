@@ -1428,7 +1428,7 @@ select current_setting('test.test.test.one',true);
 <li>Minimize the number of experts needed to articulate a design</li>
 </ul>
 <blockquote>
-<p>You can always ask AI (using AIChat) about chuck-stack PostgreSQL best practices and options. For example, you can ask AI:</p>
+<p>You can always ask AI (using AIChat) about any chuck-stack specific convention or PostgreSQL best practices and options. For example, you can ask AI:</p>
 <pre><code>It seems more secure to disable PostgreSQL's TCP service and require clients to connect via unix socket. Is this true?
 </code></pre>
 </blockquote>
@@ -1453,7 +1453,7 @@ select current_setting('test.test.test.one',true);
 <p>An overly simple example of an api pass-though view would be:</p>
 <pre><code class="language-sql">CREATE VIEW api.stk_todo AS SELECT * FROM private.stk_todo;
 </code></pre>
-<p>Note that PostgreSQL scopes the namespace for tables, view and functions at the schema level. This means you can have an api view named <code>api.stk_todo</code> and a private table named <code>private.stk_todo</code> in the same database. This fact is extremely convenient both in terms of managing the <code>private</code> versus <code>api</code> schema relationships as well as the <code>api_v1</code> vs <code>api_v2</code> schema coexistence should you have the need for multiple simultaneous api versions.</p>
+<p>Note that PostgreSQL scopes the namespace for tables, view and functions at the schema level. This means you can have an api view named <code>api.stk_todo</code> and a private table named <code>private.stk_todo</code> in the same database. This fact is extremely convenient both in terms of managing the <code>private</code> versus <code>api</code> schema relationships as well as the public <code>api_v1</code> vs <code>api_v2</code> schemas should you need multiple api versions.</p>
 <h2 id="common-abbreviations"><a class="header" href="#common-abbreviations">Common Abbreviations</a></h2>
 <p>We believe we can create the following abbreviations without sacrificing understanding. The following words are expected to be abbreviated when creating database objects unless the abbreviation creates confusion in specific circumstances.</p>
 <ul>
