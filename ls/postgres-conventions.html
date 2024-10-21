@@ -178,7 +178,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="postgresql-conventions"><a class="header" href="#postgresql-conventions">PostgreSQL Conventions</a></h1>
-<p>The purpose of this page is to describe the concepts and methodologies for creating PostgreSQL designs. Consistent use of conventions create clarity. Here are the values that drive our conventions:</p>
+<p>The purpose of this page is to describe the concepts and methodologies for creating chuck-stack PostgreSQL designs. Consistent use of conventions create clarity. Here are the values that drive our conventions:</p>
 <!-- TODO: these bullets need improvement -->
 <ul>
 <li>Consistency for clarity</li>
@@ -190,128 +190,34 @@
 <li>Maximize use of conventions</li>
 <li>Minimize the number of experts needed to articulate a design</li>
 </ul>
-<h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
-<p>The primary way to install the PostgreSQL application is using Debian's apt-get package management:</p>
-<ul>
-<li>sudo apt update</li>
-<li>sudo apt install postgresql postgresql-contrib</li>
-</ul>
-<p>Notes about installing and using PostgreSQL:</p>
-<ul>
-<li>It is sometimes desirable to install multiple 'clusters' of PostgreSQL on a single server. This is especially true when you are first learning the chuck-stack or you are hosting multiple small databases.</li>
-<li>The below instructions show you how to create a PostgreSQL cluster in a specific location so that you can create multiple clusters if needed.</li>
-<li>As a general rule, we will disable TCP access to PostgreSQL to maximize security. You should only enable TCP access when you have a good reason to do so.</li>
-<li>Once you have created a database 'cluster', you can then create one or more 'databases' inside that cluster.</li>
-<li>It is important to note the database needs of a small business with just a few users are different than the needs of a medium business with hundreds or thousands of users. We will start small and finish big.</li>
-</ul>
 <blockquote>
-<p>You can always ask AI (using AIChat) about PostgreSQL best practices and options. For example, you can ask AI:</p>
+<p>You can always ask AI (using AIChat) about chuck-stack PostgreSQL best practices and options. For example, you can ask AI:</p>
 <pre><code>It seems more secure to disable PostgreSQL's TCP service and require clients to connect via unix socket. Is this true?
 </code></pre>
 </blockquote>
-<h2 id="create-new-database-cluster"><a class="header" href="#create-new-database-cluster">Create new Database Cluster</a></h2>
-<p>Use the following commands to bring up and manage a new cluster in a specific location using a Unix socket.</p>
-<ul>
-<li>
-<pre><code>mkdir -p ~/some/psql/dir/
-</code></pre>
-<ul>
-<li>you choose where to put the database cluster</li>
-</ul>
-</li>
-<li>
-<pre><code>initdb -D .mydbc --no-locale --encoding=UTF8 &amp;&amp; echo "listen_addresses = ''" &gt;&gt; .mydbc/postgresql.conf
-</code></pre>
-<ul>
-<li>creates the default cluster files at your desired location and disables TCP by setting the listen_address to an empty string.</li>
-<li>If initdb throws a no command found error, use the following command to help your system find the command.
-<ul>
-<li>export PATH=$PATH:/usr/lib/postgresql/<version>/bin</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<pre><code>pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" start
-</code></pre>
-<ul>
-<li>start the database cluster and make it available via the $PWD Unix socket</li>
-<li>$PWD represents the current working directory, for example: ~/some/psql/dir/</li>
-<li>It is convenient to use $PWD when you are located in the same directory.</li>
-<li>You can use the actual directory path when located somewhere else, for example: ~/some/psql/dir/ (instead of $PWD)</li>
-</ul>
-</li>
-<li>
-<pre><code>createdb mydb -h $PWD
-</code></pre>
-<ul>
-<li>creates a new database in your cluster named 'mydb'</li>
-</ul>
-</li>
-<li>
-<pre><code>psql -h $PWD -d mydb
-</code></pre>
-<ul>
-<li>connects to the mydb database using the psql CLI tool</li>
-</ul>
-</li>
-<li>
-<pre><code>\q
-</code></pre>
-<ul>
-<li>quits psql</li>
-</ul>
-</li>
-<li>
-<pre><code>pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" status
-</code></pre>
-<ul>
-<li>check the status of the database cluster</li>
-</ul>
-</li>
-<li>
-<pre><code>pg_ctl -D .mydbc -l logfile -o "--unix_socket_directories='$PWD'" stop
-</code></pre>
-<ul>
-<li>stop the database cluster</li>
-</ul>
-</li>
-<li>### CAUTION - to delete the newly created cluster, stop it and remove the directory - only do this if you want it gone!!
-<ul>
-<li>
-<pre><code>sudo rm -r ~/some/psql/dir/
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<p>To connect to a remove instance of PostgreSQL that is only accessible via a Unix socket:</p>
-<ul>
-<li>Option 1: connect to the remote_host via ssh and use the remote_host's psql to administer the database.</li>
-<li>Option 2: create a ssh tunnel to map the socket to your local machine. Here is an example:
-<ul>
-<li>ssh -L /tmp/mydb:/home/some-user/some/psql/dir user@remote_host
-<ul>
-<li>This maps the local /tmp/mydb/ directory to the remote_host's /home/some-user/some/psql/dir/ Unix socket.</li>
-<li>You can now connect your local app to your local /tmp/mydb/ and manipulate the remote database as if you were on the remote_host server itself.</li>
-<li>TODO: this needs to be double checked</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>It is smart to create a readme.md file in your ~/some/psql/dir/ directory with work instructions documenting how to manage your database.</p>
 <h2 id="schema"><a class="header" href="#schema">Schema</a></h2>
 <p>We use multiple PostgreSQL schemas to create and expose our application logic to the rest of the system.</p>
 <h3 id="private-schema"><a class="header" href="#private-schema">Private Schema</a></h3>
-<p>We start with a private schema where we define our data model. It is labelled <code>private</code> as a convention because no outside system should interact with this internal schema directly. Said another way, the private schema is used to insulate internal details from the outside world.</p>
-<h3 id="public-schemas"><a class="header" href="#public-schemas">Public Schemas</a></h3>
-<p>We create at least one public schema. The purpose of the public schemas are to expose a semantically controlled interface. More on <a href="https://en.wikipedia.org/wiki/Software_versioning">semantic versioning</a>. It is possible to maintain multiple public schemas simultaneously in situations where you need two or more major versions versions available at the same time.</p>
-<p>If you support a single exposed schema, you can name the publicly available schema something like <code>public</code> or <code>api</code>. If you plan to support multiple schemas simultaneously, you can include the major version number in the schema name like <code>public_v1</code> or <code>public_v2</code>. It is not common to support multiple versions at the same time; however, it does happen.</p>
-<p>The separation between private and public schemas allows you to change the private data and logic representations while publicly maintaining semantic version control.</p>
-<p>The artifacts in a public schema will most commonly begin as simple pass-through views and functions. Minor and patch releases will most likely introduce more complexity the public schema. Major releases might give you an opportunity to simply the public schema since you can introduce breaking changes to the public api.</p>
+<p>We start with a private schema where we define our data model. The schema is named <code>private</code> as a convention because no outside system should interact with this internal schema directly. Said another way, the private schema is used to insulate internal details from the outside world.</p>
+<p>The private schema primarily consists of:</p>
+<ul>
+<li>tables to persist data</li>
+<li>functions to automate workflow</li>
+</ul>
+<h3 id="api-schemas"><a class="header" href="#api-schemas">API Schemas</a></h3>
+<p>We create at least one publicly available api schema. The purpose of the api schemas are to expose <a href="https://en.wikipedia.org/wiki/Software_versioning">semantically versioned interfaces</a> to the outside world. It is possible to maintain multiple api schemas simultaneously in situations where you need two or more major versions versions available at the same time.</p>
+<p>If you support a single exposed schema, you name the publicly available schema <code>api</code>. If you plan to support multiple schemas simultaneously, you can include the major version number in the schema name like <code>api_v1</code> or <code>api_v2</code>. It is not common to support multiple versions at the same time; however, it does happen.</p>
+<p>The separation between private and api schemas allows you to change the private data structure and logic representations while publicly maintaining semantic version control.</p>
+<p>The api schema will most commonly consist of:</p>
+<ul>
+<li>pass-through views for each of the private tables that can be exposed</li>
+<li>convenience functions for data CRUD (create, read, updated and delete)</li>
+</ul>
+<p>An overly simple example of an api pass-though view would be:</p>
+<p><code>create view api.stk_todo as select * from private.stk_todo</code></p>
+<p>Note that PostgreSQL scopes the namespace for tables, view and functions at the schema level. This means you can have an api view named <code>api.stk_todo</code> and a private table named <code>private.stk_todo</code> in the same database. This fact is extremely convenient both in terms of managing the <code>private</code> versus <code>api</code> schema relationships as well as the <code>api_v1</code> vs <code>api_v2</code> schema coexistence should you have the need for multiple simultaneous api versions.</p>
 <h2 id="common-abbreviations"><a class="header" href="#common-abbreviations">Common Abbreviations</a></h2>
-<p>The following words are expected to be abbreviated unless the abbreviation creates confusion in specific circumstances.</p>
+<p>We believe we can create the following abbreviations without sacrificing understanding. The following words are expected to be abbreviated when creating database objects unless the abbreviation creates confusion in specific circumstances.</p>
 <ul>
 <li>document =&gt; doc</li>
 <li>index =&gt; idx</li>
