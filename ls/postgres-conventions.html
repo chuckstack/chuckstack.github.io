@@ -214,7 +214,8 @@
 <li>convenience functions for data CRUD (create, read, updated and delete)</li>
 </ul>
 <p>An overly simple example of an api pass-though view would be:</p>
-<p><code>create view api.stk_todo as select * from private.stk_todo</code></p>
+<pre><code class="language-sql">create view api.stk_todo as select * from private.stk_todo;
+</code></pre>
 <p>Note that PostgreSQL scopes the namespace for tables, view and functions at the schema level. This means you can have an api view named <code>api.stk_todo</code> and a private table named <code>private.stk_todo</code> in the same database. This fact is extremely convenient both in terms of managing the <code>private</code> versus <code>api</code> schema relationships as well as the <code>api_v1</code> vs <code>api_v2</code> schema coexistence should you have the need for multiple simultaneous api versions.</p>
 <h2 id="common-abbreviations"><a class="header" href="#common-abbreviations">Common Abbreviations</a></h2>
 <p>We believe we can create the following abbreviations without sacrificing understanding. The following words are expected to be abbreviated when creating database objects unless the abbreviation creates confusion in specific circumstances.</p>
