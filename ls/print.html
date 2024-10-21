@@ -837,20 +837,22 @@ select current_setting('test.test.test.one',true);
 <p><a href="https://www.debian.org/">Debian</a> is a general purpose Linux distribution. It has been around for a long time. It is community driven. It works great on the server and the desktop. It is a cornerstone for the Linux community.</p>
 <h3 id="nix"><a class="header" href="#nix">Nix</a></h3>
 <p><a href="https://nixos.org/">Nix</a> is a package manager that also became a Linux distribution (NixOS). Its most remarkable feature is the ability to create reproducible builds and deploy reproducible environments through its declarative language.</p>
-<p>The chuck-stack uses Nix in two ways:</p>
-<ol>
-<li>Server deployment - easily create servers by simply copying and combining nix configuration files. We run NixOS on servers.</li>
-<li>User profile - easily prescribe and deploy tools to each user's environment based on the role they are fulfilling. We use Nix-shell to support user profiles.</li>
-</ol>
+<p>Nix gives us:</p>
+<ul>
+<li>A menu of deployment options that can be pieced together</li>
+<li>A deterministic way to deploy 'all' changes or 'none'</li>
+<li>Enhanced disaster recovery options</li>
+<li>Simplified security, audit and maintenance</li>
+<li>Simplified environment management</li>
+</ul>
 <p>References:</p>
 <ul>
 <li>See how NixOS is used in the <a href="./stack-architecture.html#nixos">chuck-stack architecture</a></li>
-<li>chuck-stack Nix <a href="https://github.com/chuckstack/chuck-stack-nix">repository of tool configurations</a></li>
 </ul>
 <h2 id="linux-desktop"><a class="header" href="#linux-desktop">Linux Desktop</a></h2>
 <p>The chuck-stack standardizes on two Linux desktops:</p>
 <ul>
-<li>PopOS Shell</li>
+<li>PopOS Shell (Cosmic)</li>
 <li>Gnome</li>
 </ul>
 <h3 id="popos-shell"><a class="header" href="#popos-shell">PopOS Shell</a></h3>
@@ -1227,16 +1229,31 @@ select current_setting('test.test.test.one',true);
 <li>User management</li>
 </ul>
 <h2 id="configuration-over-code"><a class="header" href="#configuration-over-code">Configuration Over Code</a></h2>
-<p>One common theme you will find throughout the chuck-stack is the desire for configuration over code. This page highlights this common thread through our configuration of the NixOS server deployment as well as the user's nix-shell environment.</p>
-<h2 id="nixos"><a class="header" href="#nixos">NixOS</a></h2>
-<p>The chuck-stack uses <a href="./tool-linux.html#nix">NixOS</a> to deploy applications because of its ease of tool installation <strong>AND</strong> maintenance.</p>
-<p>NixOS gives us:</p>
+<p>One common theme you will find throughout the chuck-stack is the desire for configuration over code. This page highlights this common thread. Here are some examples:</p>
 <ul>
-<li>A menu of deployment options - <a href="https://github.com/chuckstack/chuck-stack-nix">chuck-stack maintains a repository</a> of nix tool and deployment configurations</li>
-<li>A deterministic way to deploy changes where 'all' changes successfully apply or 'none' apply</li>
-<li>Enhanced disaster recovery options</li>
-<li>Simplified security, audit and maintenance</li>
-<li>Simplified environment management</li>
+<li>Our configuration of the NixOS server deployment and nix-shell role deploy described below.</li>
+<li>Our extensive use of the PostgreSQL to configure the chuck-stack. Examples include:
+<ul>
+<li>the use of <code>private</code> and <code>api</code> schemas described in <a href="./postgres-conventions.html#schema">PostgreSQL Conventions</a>.</li>
+<li>the use of Linux and PostgreSQL user and role mapping</li>
+</ul>
+</li>
+</ul>
+<h2 id="nix-1"><a class="header" href="#nix-1">Nix</a></h2>
+<p>The chuck-stack uses the <a href="./tool-linux.html#nix">Nix package manager</a> extensively to deploy server, client and developer applications because of its ease of tool installation <strong>AND</strong> maintenance. With Nix, you no longer need to script installations. You simply declare what you want at any time (install or update), and Nix makes that configuration come into existence.</p>
+<p>We use Nix in two primary ways:</p>
+<ol>
+<li>NixOS - create and manage servers by simply copying, combining and updating nix configuration files.</li>
+<li>nix-shell - creates a terminal shell with all the tools and configuration needed to perform a task.</li>
+</ol>
+<p>It is worth noting that both chuck-stack users and developers use nix-shell to perform their respective roles. While these role's tasks may differ, we deliver the role work instructions and tools in the exact same way. This is an important point, and it differentiates the chuck-stack from its historical alternatives.</p>
+<p>References:</p>
+<ul>
+<li>chuck-stack <a href="./tool-linux.html#nix">Nix introduction</a></li>
+<li>chuck-stack NixOS <a href="https://github.com/chuckstack/chuck-stack-nix/tree/main/nixos">repository of tool configurations</a></li>
+<li>chuck-stack nix-shell <a href="https://github.com/chuckstack/chuck-stack-nix/tree/main/nix-shell/">install tools locally</a></li>
+<li>stk-todo-app-sql nix-shell <a href="https://github.com/chuckstack/stk-todo-app-sql/blob/main/test/shell.nix">test fixture for SQL migration</a></li>
+<li><a href="https://www.youtube.com/watch?v=X_jMqi-0SrM">Nix explained</a> - provides an overview of the Nix ecosystem</li>
 </ul>
 <h2 id="user-experience"><a class="header" href="#user-experience">User Experience</a></h2>
 <p>The majority of a user's experience is spent instructing the system via text or voice on what to do (much like with ChatGPT or Claude AI).</p>

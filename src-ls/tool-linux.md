@@ -33,21 +33,23 @@ The chuck-stack standardizes on two distributions of Linux:
 
 [Nix](https://nixos.org/) is a package manager that also became a Linux distribution (NixOS). Its most remarkable feature is the ability to create reproducible builds and deploy reproducible environments through its declarative language.
 
-The chuck-stack uses Nix in two ways:
+Nix gives us:
 
-1. Server deployment - easily create servers by simply copying and combining nix configuration files. We run NixOS on servers.
-2. User profile - easily prescribe and deploy tools to each user's environment based on the role they are fulfilling. We use Nix-shell to support user profiles.
+- A menu of deployment options that can be pieced together
+- A deterministic way to deploy 'all' changes or 'none'
+- Enhanced disaster recovery options
+- Simplified security, audit and maintenance
+- Simplified environment management
 
 References: 
 
 - See how NixOS is used in the [chuck-stack architecture](./stack-architecture.md#nixos)
-- chuck-stack Nix [repository of tool configurations](https://github.com/chuckstack/chuck-stack-nix)
 
 ## Linux Desktop
 
 The chuck-stack standardizes on two Linux desktops:
 
-- PopOS Shell
+- PopOS Shell (Cosmic)
 - Gnome
 
 ### PopOS Shell

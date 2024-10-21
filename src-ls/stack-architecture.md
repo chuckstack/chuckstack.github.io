@@ -11,19 +11,31 @@ Here are the topics discussed on this page:
 
 ## Configuration Over Code
 
-One common theme you will find throughout the chuck-stack is the desire for configuration over code. This page highlights this common thread through our configuration of the NixOS server deployment as well as the user's nix-shell environment.
+One common theme you will find throughout the chuck-stack is the desire for configuration over code. This page highlights this common thread. Here are some examples:
 
-## NixOS
+- Our configuration of the NixOS server deployment and nix-shell role deploy described below.
+- Our extensive use of the PostgreSQL to configure the chuck-stack. Examples include:
+  - the use of `private` and `api` schemas described in [PostgreSQL Conventions](./postgres-conventions.md#schema).
+  - the use of Linux and PostgreSQL user and role mapping
 
-The chuck-stack uses [NixOS](./tool-linux.md#nix) to deploy applications because of its ease of tool installation **AND** maintenance. 
+## Nix
 
-NixOS gives us:
+The chuck-stack uses the [Nix package manager](./tool-linux.md#nix) extensively to deploy server, client and developer applications because of its ease of tool installation **AND** maintenance. With Nix, you no longer need to script installations. You simply declare what you want at any time (install or update), and Nix makes that configuration come into existence.
 
-- A menu of deployment options - [chuck-stack maintains a repository](https://github.com/chuckstack/chuck-stack-nix) of nix tool and deployment configurations
-- A deterministic way to deploy changes where 'all' changes successfully apply or 'none' apply
-- Enhanced disaster recovery options
-- Simplified security, audit and maintenance
-- Simplified environment management
+We use Nix in two primary ways:
+
+1. NixOS - create and manage servers by simply copying, combining and updating nix configuration files.
+1. nix-shell - creates a terminal shell with all the tools and configuration needed to perform a task.
+
+It is worth noting that both chuck-stack users and developers use nix-shell to perform their respective roles. While these role's tasks may differ, we deliver the role work instructions and tools in the exact same way. This is an important point, and it differentiates the chuck-stack from its historical alternatives.
+
+References: 
+
+- chuck-stack [Nix introduction](./tool-linux.md#nix)
+- chuck-stack NixOS [repository of tool configurations](https://github.com/chuckstack/chuck-stack-nix/tree/main/nixos)
+- chuck-stack nix-shell [install tools locally](https://github.com/chuckstack/chuck-stack-nix/tree/main/nix-shell/)
+- stk-todo-app-sql nix-shell [test fixture for SQL migration](https://github.com/chuckstack/stk-todo-app-sql/blob/main/test/shell.nix)
+- [Nix explained](https://www.youtube.com/watch?v=X_jMqi-0SrM) - provides an overview of the Nix ecosystem
 
 ## User Experience
 

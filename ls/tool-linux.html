@@ -205,20 +205,22 @@
 <p><a href="https://www.debian.org/">Debian</a> is a general purpose Linux distribution. It has been around for a long time. It is community driven. It works great on the server and the desktop. It is a cornerstone for the Linux community.</p>
 <h3 id="nix"><a class="header" href="#nix">Nix</a></h3>
 <p><a href="https://nixos.org/">Nix</a> is a package manager that also became a Linux distribution (NixOS). Its most remarkable feature is the ability to create reproducible builds and deploy reproducible environments through its declarative language.</p>
-<p>The chuck-stack uses Nix in two ways:</p>
-<ol>
-<li>Server deployment - easily create servers by simply copying and combining nix configuration files. We run NixOS on servers.</li>
-<li>User profile - easily prescribe and deploy tools to each user's environment based on the role they are fulfilling. We use Nix-shell to support user profiles.</li>
-</ol>
+<p>Nix gives us:</p>
+<ul>
+<li>A menu of deployment options that can be pieced together</li>
+<li>A deterministic way to deploy 'all' changes or 'none'</li>
+<li>Enhanced disaster recovery options</li>
+<li>Simplified security, audit and maintenance</li>
+<li>Simplified environment management</li>
+</ul>
 <p>References:</p>
 <ul>
 <li>See how NixOS is used in the <a href="./stack-architecture.html#nixos">chuck-stack architecture</a></li>
-<li>chuck-stack Nix <a href="https://github.com/chuckstack/chuck-stack-nix">repository of tool configurations</a></li>
 </ul>
 <h2 id="linux-desktop"><a class="header" href="#linux-desktop">Linux Desktop</a></h2>
 <p>The chuck-stack standardizes on two Linux desktops:</p>
 <ul>
-<li>PopOS Shell</li>
+<li>PopOS Shell (Cosmic)</li>
 <li>Gnome</li>
 </ul>
 <h3 id="popos-shell"><a class="header" href="#popos-shell">PopOS Shell</a></h3>
