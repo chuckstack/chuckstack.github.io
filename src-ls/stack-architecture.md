@@ -5,7 +5,8 @@ The purpose of this page is to help you understand how the chuck-stack tools fit
 <!-- TODO: this list needs help -->
 Here are the topics discussed on this page:
 
-- Building Blocks
+- [Configuration Over Code](#configuration-over-code)
+- [User Experience](#user-experience)
 - Change management
 - User management
 
@@ -18,9 +19,9 @@ One common theme you will find throughout the chuck-stack is the desire for conf
   - the use of `private` and `api` schemas described in [PostgreSQL Conventions](./postgres-conventions.md#schema).
   - the use of Linux and PostgreSQL user and role mapping
 
-## Nix
+### Nix
 
-The chuck-stack uses the [Nix package manager](./tool-linux.md#nix) extensively to deploy server, client and developer applications because of its ease of tool installation **AND** maintenance. With Nix, you no longer need to script installations. You simply declare what you want at any time (install or update), and Nix makes that configuration come into existence.
+The chuck-stack uses the [Nix package manager](./tool-linux.md#nix) to deploy server, client and developer applications because of its ease of tool installation **AND** maintenance. With Nix, you no longer need to script installations and updates. You simply declare what you want, and Nix makes that configuration come into existence.
 
 We use Nix in two primary ways:
 
@@ -37,11 +38,19 @@ References:
 - stk-todo-app-sql nix-shell [test fixture for SQL migration](https://github.com/chuckstack/stk-todo-app-sql/blob/main/test/shell.nix)
 - [Nix explained](https://www.youtube.com/watch?v=X_jMqi-0SrM) - provides an overview of the Nix ecosystem
 
+### PostgreSQL
+
+The chuck-stack uses [PostgreSQL](./tool-postgresql.md) to manage data, users, roles, workflows, attributes, documents, .... SQL is one of the most expressive data and data-access standards in the world. The chuck-stack creates simplicity by moving almost all application logic into the database, and using PostgreSQL where it excels the most. 
+
+The chuck-stack uses the tight integration between Linux (NixOS), PostgreSQL and Git to describe application deploy and operation. Changes to the system can be deployed by simply (1) modifying Nix configuration files and SQL migration files and (2) committing these changes to a git repository to the appropriate branch.
+
+By using PostgreSQL, we minimize the number of expertises (and thereby experts) needed to make changes to your organization's system.
+
 ## User Experience
 
 The majority of a user's experience is spent instructing the system via text or voice on what to do (much like with ChatGPT or Claude AI).
 
-- Users connect via ssh into a remote session
+- Users connect via ssh into a remote session from any device (phone, tablet, laptop, or computer)
 - The remote session is configured by a nix-shell
 - The nix-shell launches [Zellij](./tool-zellij.md) with one of a couple custom layouts
 - Users spend most of their time either interacting with the command line or AIChat's REPL
