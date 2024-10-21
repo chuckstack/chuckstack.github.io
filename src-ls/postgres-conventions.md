@@ -12,7 +12,7 @@ The purpose of this page is to describe the concepts and methodologies for creat
 - Maximize use of conventions
 - Minimize the number of experts needed to articulate a design
 
-> You can always ask AI (using AIChat) about chuck-stack PostgreSQL best practices and options. For example, you can ask AI:
+> You can always ask AI (using AIChat) about any chuck-stack specific convention or PostgreSQL best practices and options. For example, you can ask AI:
 >
 >     It seems more secure to disable PostgreSQL's TCP service and require clients to connect via unix socket. Is this true?
 
