@@ -18,7 +18,7 @@ The purpose of this page is to describe the concepts and methodologies for creat
 
 ## Schema
 
-We use multiple PostgreSQL schemas to create and expose our application logic to the rest of the system.
+We use multiple PostgreSQL schemas to create and expose our application logic to the rest of the world in a common and secure manner.
 
 ### Private Schema 
 
@@ -54,11 +54,15 @@ Note that PostgreSQL scopes the namespace for tables, view and functions at the 
 
 We believe we can create the following abbreviations without sacrificing understanding. The following words are expected to be abbreviated when creating database objects unless the abbreviation creates confusion in specific circumstances.
 
+- business partner => bp
 - document => doc
+- document number => docno
+- docuemnt type => doctype
 - index => idx
 - foreign key => fk
 - link => lnk
 - location => loc
+- sales representative => salesrep
 - stack => stk
 - transaction => trx
 - translation => trl
@@ -68,40 +72,35 @@ We believe we can create the following abbreviations without sacrificing underst
 
 This section discuss how we create tables in the private schema.
 
-- Tables use a uuid column as the primary key. The purpose of this decision is to make creating very large (and often replicated) systems easier to manage. Doing so also allows for clients to define their own uuid values and removes a potential centralized process.
-- All tables have a single primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. Said another way, if you know the table_name and the record_uu of any given record, you can always find the details associated with that record. This convention also allows us to create many features that are shared across all records in all tables. These features include centralized logs, attachments, and attributes.
-- Any column that references a table should use the column name `table_name`.
-- All core chuck-stack tables will begin with `stk_`. Example: `stk_business_partner`.
-- Your organization should chose a table prefix that resembles your organization's name if you wish to add new tables or new columns. Example: the Good-Care Medical organization could have a prefix of `gcm_`.
-- Link tables should have a table name suffix of `_lnk`.
-- Tables should have comments that describe the purpose of the table. Because AI is so proficient at understanding SQL DDL, we can define both how the table operates and why it exists in the same location. Because SQL is self describing, we can query table comments to obtain help documentation with no extra effort.
-- Both table and column comments can contain carriage returns; therefore, you can add human readable markdown and structured json, yaml, and toml data in your comments. Note: there is no convention in this bullet yet...
-- Translations are maintained in separate table mirroring the text fields of the table it is translated from. For example, the `stk_business_partner` table might have a table named `stk_business_partner_trl` that will have one record per business partner per active language.
+- uuid single primary key 
+  - All tables use a uuid column as the primary key. The purpose of this decision is to make creating very large (and often replicated) systems easier to manage. Doing so also allows for clients to define their own uuid values and removes a potential centralized process.
+  - All tables have a 'single' primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. Said another way, if you know the table_name and the record_uu of any given record, you can always find the details associated with that record. This convention also allows us to create many features that are shared across all records in all tables. These features include centralized logs, attachments, and attributes.
+- `table_name` reference - any column that references a table should use the column name `table_name`.
+- `stk_` prefx - all core chuck-stack tables will begin with `stk_`. Example: `stk_bp`.
+  - Your organization should chose a table prefix that resembles your organization's name if you wish to add new tables or new columns. Example: the Good-Care Medical organization could have a prefix of `gcm_`.
+- `_lnk` link table suffix - link tables should have a table name suffix of `_lnk`.
+- `_trl` translation suffix - translations are maintained in separate table mirroring the text fields of the table it is translated from. For example, the `stk_bp` table might have a table named `stk_bp_trl` that will have one record per business partner per active language.
 
 ## Column Conventions
 
-- Primary uuid key (`_uu` suffix) - All tables have a single primary key per the above discussion. 
-- Foreign keys end with a `_uu` suffix. Example `stk_some_other_table_uu`. There are times when this convention is not possible due to multiple references to the same table. When a duplicate is needed, add an adjective before the `_uu` suffix. Examples: `stk_business_partner_ship_to_uu` and `stk_business_partner_bill_to_uu`.
-- When naming columns the noun comes first and the adjective comes next. Example: stk_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically. 
-- Use columns of type text (instead of varchar with unspecified length). Only choose a varchar with a specific length when there is a compelling reason to do so. Even then try not to...
-- Boolean values must have a default value defined at the table level.
-- Any column that references a column should use the column name `column_name`.
-- Consider using the column's description/comment to hold column_label and column_description
-  - comment on column wf_process.name is '{"column_label": "Name", "column_description": "Name describing the record"}';
-  - select pg_catalog.col_description(c.oid, col.ordinal_position::int)::json->>'column_label' ...
-  - see sql/readme.md for more details <!-- TODO: old reference - needs to be changed -->
+- primary key `_uu` suffix - All tables have a single primary key per the above discussion. 
+- foreign keys `_uu` suffix - example `stk_some_other_table_uu`. There are times when this convention is not possible due to multiple references to the same table. When a duplicate is needed, add an adjective before the `_uu` suffix. Examples: `stk_bp_ship_to_uu` and `stk_bp_bill_to_uu`.
+- noun first column name - when naming columns the noun comes first and the adjective comes next. Example: stk_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically. 
+- text column - use columns of type text (instead of varchar with unspecified length). Only choose a varchar with a specific length when there is a compelling reason to do so. Even then try not to...
+- boolean column - boolean values must have a default value defined at the table level.
+- `column_name` reference - any column that references a column should use the column name as `column_name`.
 
 ## Standard Columns
-This sections lists the mandatory and optional columns found in chuck-stack tables. Notice that coding and naming by convention plays a role in primary key name and foreign key relationships. As you will see below, you know the primary key column name as a function of the table name. You know the foreign key table name as a function of the foreign key column name.
+This sections lists the mandatory and optional columns found in chuck-stack tables. Notice that coding and naming by convention plays a role in primary key name and foreign key relationships. As you will see below, you know the primary key column name as a function of the table name. You know the foreign key table name as a function of the foreign key column name when the convention allows.
 
 ### Mandatory Columns
 
 - primary key - The primary key column bears the name of the table with a `_uu` suffix. Example: `stk_some_table_uu`
 - `stk_tenant_uu` - foreign key reference to the tenant that owns the record
 - `stk_entity_uu` - financial set of books that owns the record
-- `created` - timestampz indicating when the record was created.
+- `created` - timestamptz indicating when the record was created.
 - `stk_created_by_uu` - uuid foreign key reference to the database user/role that created the record.
-- `updated` - timestampz indicating when the record was last updated.
+- `updated` - timestamptz indicating when the record was last updated.
 - `stk_updated_by_uu` - uuid foreign key reference to the database user/role that last updated the record.
 - `stk_session_uu` - must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.
 
@@ -115,14 +114,14 @@ Notes:
 - `description` - text column representing the description of the record.
 - `search_key` - user defined text column. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.
 - `value` - text column that is often used along with a `search_key` in a key-value pair.
-- `doc_no` - user defined text column. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor -->
-- `stk_doc_type_uu` - describes the type of document.
+- `docno` - user defined text column. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor -->
+- `stk_doctype_uu` - describes the type of document.
 - `is_default` - boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.
 - `is_processed` - boolean that indicates of a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column. 
 - `is_summary` boolean that indicates if a record is intended to be a parent to other records in the same table.
 - `is_template` boolean that indicates if a record exists for the purpose of cloning to create new records.
 - `is_valid` boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow -->
-- `trx_type` enum listing the type of transaction. Used by `stk_doc_type` table.
+- `trx_type` enum listing the type of transaction. Used by `stk_doctype` table.
 
 ## References to Records
 
@@ -132,9 +131,9 @@ No `_uu` should ever be referred to in code. If this situation is needed, use th
 
 Per the References to Records section... If you need switch/case/if-else based on the contents of a chosen record, build your switch from an enum. This ensures no `_uu` references enter code.
 
-An example of using an enum includes the `stk_doc_type` table. A Sales Order would include a `stk_doc_type_uu` reference and the `stk_doc_type` table would include an enum. If you need to add business logic to a Sales Order, your code would switch off of the `stk_doc_type`'s enum and not the `stk_doc_type_uu` itself.
+An example of using an enum includes the `stk_doctype` table. A Sales Order would include a `stk_doctype_uu` reference and the `stk_doctype` table would include an enum. If you need to add business logic to a Sales Order, your code would switch off of the `stk_doctype`'s enum and not the `stk_doctype_uu` itself.
 
-No table used in normal transactional operations should include an enum. Instead, enums should exist in tables that hold settings, configuration, types, etc... In the Sales Order => `stk_doc_type` example, the `stk_doc_type` table is an example of table that holds settings and configuration. The reason for this convention is to allow for multiple `stck_doc_type` records to contain the same enum value and therefore simply code and maximize user configurability.
+No table used in normal transactional operations should include an enum. Instead, enums should exist in tables that hold settings, configuration, types, etc... In the Sales Order => `stk_doctype` example, the `stk_doctype` table is an example of table that holds settings and configuration. The reason for this convention is to allow for multiple `stck_doctype` records to contain the same enum value and therefore simply code and maximize user configurability.
 
 ## System Configurator Convention
 
@@ -160,7 +159,7 @@ Adding statistical columns/data to transactional tables causes performance and s
 - Consider making statistics tables 'unlogged' to prevent unneeded WAL activity. Statistics can always be derived after the fact. Said another way, Statistics represent denormalized data.
 - There exist multiple strategies for most efficiently calculating statistics. Some strategies involve using logical replicas to calculate the statistical data and making the results available to the production database via a FDW (foreign data wrapper).
 
-As a practice, statistics tables should bear the name of the table it describes with an `_stat` suffix. For example, a statistics table for `stk_business_partner` would be `stk_business_partner_stat`. A new column will be added for every new statistic needed.
+As a practice, statistics tables should bear the name of the table it describes with an `_stat` suffix. For example, a statistics table for `stk_bp` would be `stk_bp_stat`. A new column will be added for every new statistic needed.
 
 Recent versions of PostgreSQL introduced the `upsert` option to easily find and update an existing record or insert a new record in a single command. A unique index on the foreign key pointing to its namesake table prevents duplicate records.
 
@@ -175,9 +174,9 @@ It is worth noting that an unexpected database shutdown (error state) will empty
 ```sql
 CREATE TABLE stk_some_table (
   stk_some_table_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  created TIMESTAMPZ NOT NULL DEFAULT now(),
+  created TIMESTAMPTZ NOT NULL DEFAULT now(),
   stk_created_by_uu uuid NOT NULL,
-  updated TIMESTAMPZ NOT NULL DEFAULT now(),
+  updated TIMESTAMPTZ NOT NULL DEFAULT now(),
   stk_updated_by_uu uuid NOT NULL,
   search_key TEXT NOT NULL,
   value TEXT NOT NULL,
@@ -191,6 +190,17 @@ CREATE TABLE stk_some_table (
 );
 COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
 ```
+
+## Template Table
+
+The `stk_table_template` table holds the example or base template for creating new tables. Organizations can change the definition of this table as they deem appropriate.
+
+- No records should be created in these template tables.
+- You can create additional templates by simply adding a suffix. For example:
+  - `stk_table_template_trx` for creating transaction tables.
+  - `stk_table_template_trl` for creating translation tables.
+- If you ask for a new table it will create the table in the image of the requested template and it will revert to the `stk_table_template` table if no template is specified.
+
 ## Scalability Considerations
 
 We consider the following topics when scaling PostgreSQL from just a couple of users through thousands of users.
@@ -202,3 +212,14 @@ We consider the following topics when scaling PostgreSQL from just a couple of u
 - We will use both read (streaming/physical) replicas and logical replicas to support non-transactional loads.
   - Read replicas are good for supporting read-only queries
   - Logical replicas are good for transforming data to support external systems (BI, AI, ...) and calculating statistical data.
+
+## To Be Resolved
+
+- how do document. Do not like the following becaues of the separation between `private` and `api`. The concern is that extra work is needed to keep everything in sync. It would be better to use the same convention as changelog (`table_name` + `column_name`) to keep the defintions.
+  - Tables should have comments that describe the purpose of the table. Because AI is so proficient at understanding SQL DDL, we can define both how the table operates and why it exists in the same location. Because SQL is self describing, we can query table comments to obtain help documentation with no extra effort.
+  - Both table and column comments can contain carriage returns; therefore, you can add human readable markdown and structured json, yaml, and toml data in your comments. Note: there is no convention in this bullet yet...
+  - Consider using the column's description/comment to hold column_label and column_description
+    - comment on column wf_process.name is '{"column_label": "Name", "column_description": "Name describing the record"}';
+    - select pg_catalog.col_description(c.oid, col.ordinal_position::int)::json->>'column_label' ...
+    - see sql/readme.md for more details <!-- TODO: old reference - needs to be changed -->
+- lazy locking (locking convention)
