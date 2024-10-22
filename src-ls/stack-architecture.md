@@ -52,9 +52,9 @@ It is worth noting that both chuck-stack users and developers use nix-shell to p
 
 The chuck-stack uses [PostgreSQL](./tool-postgresql.md) to manage data, users, roles, workflows, attributes, documents, and more... SQL is one of the most expressive and well-known data and data-access standards in the world. The chuck-stack creates simplicity by moving almost all application logic into the database, and using PostgreSQL where it excels the most.
 
-The chuck-stack uses the tight integration between Linux (NixOS), PostgreSQL and Git to describe application deployment and operation. Changes to the system can be deployed by simply (1) modifying Nix configuration files and SQL migration files and (2) committing these changes to a git repository to the appropriate branch.
+The chuck-stack uses the tight integration between Linux (NixOS), PostgreSQL and Git to describe application deployment and operation. Changes to the system can be deployed by simply (1) modifying Nix configuration files and SQL migration files and (2) committing these changes to a git repository to the appropriate branch. See [Administration Experience](#administration-experience) below for more details.
 
-By using PostgreSQL, we minimize the skills (and thereby experts) needed to make changes to your organization's system.
+By maximizing the features that make PostgreSQL great, we minimize the skills (and thereby experts) needed to make changes to your organization's system.
 
 PostgreSQL Concepts:
 

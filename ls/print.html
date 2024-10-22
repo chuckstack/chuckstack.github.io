@@ -1264,8 +1264,8 @@ Show how user connects and get mapped to the respective role 'nix-shells'. <!-- 
 </ul>
 <h3 id="postgresql-2"><a class="header" href="#postgresql-2">PostgreSQL</a></h3>
 <p>The chuck-stack uses <a href="./tool-postgresql.html">PostgreSQL</a> to manage data, users, roles, workflows, attributes, documents, and more... SQL is one of the most expressive and well-known data and data-access standards in the world. The chuck-stack creates simplicity by moving almost all application logic into the database, and using PostgreSQL where it excels the most.</p>
-<p>The chuck-stack uses the tight integration between Linux (NixOS), PostgreSQL and Git to describe application deploy and operation. Changes to the system can be deployed by simply (1) modifying Nix configuration files and SQL migration files and (2) committing these changes to a git repository to the appropriate branch.</p>
-<p>By using PostgreSQL, we minimize the skills (and thereby experts) needed to make changes to your organization's system.</p>
+<p>The chuck-stack uses the tight integration between Linux (NixOS), PostgreSQL and Git to describe application deployment and operation. Changes to the system can be deployed by simply (1) modifying Nix configuration files and SQL migration files and (2) committing these changes to a git repository to the appropriate branch. See <a href="stack-architecture.html#administration-experience">Administration Experience</a> below for more details.</p>
+<p>By maximizing the features that make PostgreSQL great, we minimize the skills (and thereby experts) needed to make changes to your organization's system.</p>
 <p>PostgreSQL Concepts:</p>
 <ul>
 <li>Impersonation - user to role management in postgres - reference ./success-linux.md <!-- TODO --></li>
