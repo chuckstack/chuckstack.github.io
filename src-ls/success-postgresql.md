@@ -60,6 +60,19 @@ Setting these variables during psql execution is easy ([see success with Linux](
 
 The purpose if this section is to highlight that chuck-stack not only benefits from SQL (one of the technical world's most well understood languages), but it also benefit from the psql application. psql is powerful SQL application in its own right that has additional features for a) helping users do their jobs and b) helping the stack protect its data and processes from attach (like sql injection).
 
+## SQL Encapsulation
+
+The [PostgreSQL Convention](./postgres-conventions.md#schema) highlights how we use two schemas to provide :
+
+- a public (`api`) facing schema to allow for direct interactions via the CLI and REST and
+- a private (`private`) facing schema to allow to data representation encapsulation. 
+
+## Configuration Management
+
+The chuck-stack uses sqlx-cli to track and deploy SQL migration scripts. Here is a [sample todo chuck-stack migration repository](https://github.com/chuckstack/stk-todo-app-sql/tree/main). It is part of the [chuck-stack todo sample application](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix).
+
+Note that we use a NixOS service to manage and automatically deploy migrations when needed.
+
 ## Technical Details and Examples
 
 The purpose of this section is to highlight simple examples that demonstrate the concepts described above.

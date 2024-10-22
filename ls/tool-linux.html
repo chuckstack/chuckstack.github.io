@@ -204,18 +204,25 @@
 <h3 id="debian"><a class="header" href="#debian">Debian</a></h3>
 <p><a href="https://www.debian.org/">Debian</a> is a general purpose Linux distribution. It has been around for a long time. It is community driven. It works great on the server and the desktop. It is a cornerstone for the Linux community.</p>
 <h3 id="nix"><a class="header" href="#nix">Nix</a></h3>
-<p><a href="https://nixos.org/">Nix</a> is a package manager that also became a Linux distribution (NixOS). Its most remarkable feature is the ability to create reproducible builds and deploy reproducible environments through its declarative language.</p>
-<p>Nix gives us:</p>
+<p><a href="https://nixos.org/">Nix</a> is a package manager available to almost any Linux distribution including Debian. Nix's most remarkable feature is the ability to create reproducible builds and deploy reproducible environments through its declarative language.</p>
+<p>The power of Nix is most easily found in two ways:</p>
 <ul>
-<li>A menu of deployment options that can be pieced together</li>
+<li>NixOS - is a specific distribution dedicated to the Nix package manager.</li>
+<li>nix-shell - is a feature for creating terminal shells with specific packages anywhere Nix is installed.</li>
+</ul>
+<p>The chuck-stack make extensive use of both NixOS and nix-shell because they give us:</p>
+<ul>
+<li>A menu of deployment options that can be pieced together to create larger and more capable systems</li>
 <li>A deterministic way to deploy 'all' changes or 'none'</li>
 <li>Enhanced disaster recovery options</li>
 <li>Simplified security, audit and maintenance</li>
 <li>Simplified environment management</li>
+<li>The ability to deploy a system without writing code</li>
 </ul>
 <p>References:</p>
 <ul>
 <li>See how NixOS is used in the <a href="./stack-architecture.html#nixos">chuck-stack architecture</a></li>
+<li><a href="https://www.youtube.com/watch?v=X_jMqi-0SrM">Nix explained</a> - provides an overview of the Nix ecosystem</li>
 </ul>
 <h2 id="linux-desktop"><a class="header" href="#linux-desktop">Linux Desktop</a></h2>
 <p>The chuck-stack standardizes on two Linux desktops:</p>

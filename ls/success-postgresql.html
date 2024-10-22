@@ -220,6 +220,15 @@ $$ LANGUAGE plpgsql;
 <p>Setting these variables during psql execution is easy (<a href="./success-linux.html">see success with Linux</a>). Checking them during program execution is easy as demonstrated above.</p>
 <h2 id="sql-plus-psql"><a class="header" href="#sql-plus-psql">SQL plus psql</a></h2>
 <p>The purpose if this section is to highlight that chuck-stack not only benefits from SQL (one of the technical world's most well understood languages), but it also benefit from the psql application. psql is powerful SQL application in its own right that has additional features for a) helping users do their jobs and b) helping the stack protect its data and processes from attach (like sql injection).</p>
+<h2 id="sql-encapsulation"><a class="header" href="#sql-encapsulation">SQL Encapsulation</a></h2>
+<p>The <a href="./postgres-conventions.html#schema">PostgreSQL Convention</a> highlights how we use two schemas to provide :</p>
+<ul>
+<li>a public (<code>api</code>) facing schema to allow for direct interactions via the CLI and REST and</li>
+<li>a private (<code>private</code>) facing schema to allow to data representation encapsulation.</li>
+</ul>
+<h2 id="configuration-management"><a class="header" href="#configuration-management">Configuration Management</a></h2>
+<p>The chuck-stack uses sqlx-cli to track and deploy SQL migration scripts. Here is a <a href="https://github.com/chuckstack/stk-todo-app-sql/tree/main">sample todo chuck-stack migration repository</a>. It is part of the <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">chuck-stack todo sample application</a>.</p>
+<p>Note that we use a NixOS service to manage and automatically deploy migrations when needed.</p>
 <h2 id="technical-details-and-examples"><a class="header" href="#technical-details-and-examples">Technical Details and Examples</a></h2>
 <p>The purpose of this section is to highlight simple examples that demonstrate the concepts described above.</p>
 <p>References:</p>

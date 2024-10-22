@@ -31,19 +31,26 @@ The chuck-stack standardizes on two distributions of Linux:
 
 ### Nix
 
-[Nix](https://nixos.org/) is a package manager that also became a Linux distribution (NixOS). Its most remarkable feature is the ability to create reproducible builds and deploy reproducible environments through its declarative language.
+[Nix](https://nixos.org/) is a package manager available to almost any Linux distribution including Debian. Nix's most remarkable feature is the ability to create reproducible builds and deploy reproducible environments through its declarative language. 
 
-Nix gives us:
+The power of Nix is most easily found in two ways:
 
-- A menu of deployment options that can be pieced together
+- NixOS - is a specific distribution dedicated to the Nix package manager.
+- nix-shell - is a feature for creating terminal shells with specific packages anywhere Nix is installed.
+
+The chuck-stack make extensive use of both NixOS and nix-shell because they give us:
+
+- A menu of deployment options that can be pieced together to create larger and more capable systems
 - A deterministic way to deploy 'all' changes or 'none'
 - Enhanced disaster recovery options
 - Simplified security, audit and maintenance
 - Simplified environment management
+- The ability to deploy a system without writing code
 
 References: 
 
 - See how NixOS is used in the [chuck-stack architecture](./stack-architecture.md#nixos)
+- [Nix explained](https://www.youtube.com/watch?v=X_jMqi-0SrM) - provides an overview of the Nix ecosystem
 
 ## Linux Desktop
 

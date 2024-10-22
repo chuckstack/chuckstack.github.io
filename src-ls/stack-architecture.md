@@ -1,6 +1,12 @@
 # chuck-stack Architecture
 
-The purpose of this page is to help you understand how the chuck-stack tools fit together in deployment and usage. If you want to see the architecture in action, view the [picture of success](./picture-success.md#how-is-this-possible). 
+In the [introduction](./introduction.md), we state the chuck-stack is a collection of:
+
+1. [well understood tools](./stack-tools.md)
+1. [business best practices](./best-practices.md)
+1. [application framework](./stack-application.md)
+
+The purpose of this page is to help you understand how the these tools fit together in deployment and usage. If you want to see the architecture in action, view the [picture of success](./picture-success.md#how-is-this-possible). 
 
 <!-- TODO: this list needs help -->
 Here are the topics discussed on this page:
@@ -9,61 +15,55 @@ Here are the topics discussed on this page:
 - [User Experience](#user-experience)
 - Change management
 - User management
+- Documentation management
 
 ## Configuration Over Code
 
-One common theme you will find throughout the chuck-stack is the desire for configuration over code. This page highlights this common thread. Here are some examples:
+One common theme you will find throughout the chuck-stack is the desire for configuration over code. Inspecting the chuck-stack deployment highlights the extent of configuration. What little code that does exist comes in the form of high-value, human-readable work instructions.
 
-- Our configuration of the NixOS server deployment and nix-shell role deploy described below.
-- Our extensive use of the PostgreSQL to configure the chuck-stack. Examples include:
-  - the use of `private` and `api` schemas described in [PostgreSQL Conventions](./postgres-conventions.md#schema).
-  - the use of Linux and PostgreSQL user and role mapping
+Actions to deploy the chuck-stack:
+- System configuration (NixOS)
+- Role configuration (nix-shell)
+- PostgreSQL configuration (SQL DDL)
+- Work Instructions (plain text)
 
-### Nix
+### NixOS
 
-The chuck-stack uses the [Nix package manager](./tool-linux.md#nix) to deploy server, client and developer applications because of its ease of tool installation **AND** maintenance. With Nix, you no longer need to script installations and updates. You simply declare what you want, and Nix makes that configuration come into existence.
+Before we discuss NixOS, you should know a little about the [Nix package management](./tool-linux.md#nix) tool. 
 
-We use Nix in two primary ways:
+The chuck-stack uses NixOS to deploy server applications because of its ability to simply describe the tools and configuration needed. Nix takes care of the deployment for us. This concept is true the day we deploy and anytime we perform maintenance thereafter. You simply declare what you want, and Nix makes that configuration come into existence.
 
-1. NixOS - create and manage servers by simply cloning and referencing nix configuration files.
-1. nix-shell - creates a terminal shell with all the tools and configuration needed to support a role.
+Here are the [chuck-stack NixOS repository configurations](https://github.com/chuckstack/chuck-stack-nix/tree/main/nixos).
 
-#### NixOS
+Below is a diagram illustrating how you can simply add a NixOS configuration file to a server to create and configure important services.
 
-diagram: nixos
-show how a single server can apply multiple nix configs
+diagram: nixos TODO
 
-#### nix-shell
+### nix-shell
 
-Diagram: nix-shell
-Show how user connects and get mapped to the respective role 'nix-shells'. <!-- TODO -->
+The chuckstack uses nix-shell to apply the proper role tools and configuration to the right users. Said another way, when a user connects to the chuck-stack, nix-shell applies all assigned roles and ensures the environment is configured so that the user can fulfill the role's duties.
 
-It is worth noting that both chuck-stack users and developers use nix-shell to perform their respective roles. While these role's tasks may differ, we deliver the role work instructions and tools in the exact same way. This is an important point, and it differentiates the chuck-stack from its historical alternatives.
+Just like NixOS, nix-shell is configuration based. Here is a sample [nix.shell](https://github.com/chuckstack/chuck-stack-nix/tree/main/nix-shell/) that installs and configures PostgreSQL. <!--TODO: need a better example --> 
 
-#### Nix References
+Here is a diagram showing how we use nix-shell.
 
-- chuck-stack [Nix introduction](./tool-linux.md#nix)
-- chuck-stack NixOS [repository of tool configurations](https://github.com/chuckstack/chuck-stack-nix/tree/main/nixos)
-- chuck-stack nix-shell [install tools locally](https://github.com/chuckstack/chuck-stack-nix/tree/main/nix-shell/)
-- stk-todo-app-sql nix-shell [test fixture for SQL migration](https://github.com/chuckstack/stk-todo-app-sql/blob/main/test/shell.nix)
-- [Nix explained](https://www.youtube.com/watch?v=X_jMqi-0SrM) - provides an overview of the Nix ecosystem
+diagram: nix-shell TODO
+
+It is worth noting that both chuck-stack users and developers use nix-shell to perform their respective roles. While these role's tasks and tools may differ, we deliver the role work instructions and tools in the exact same way to all roles. This is an important point, and it differentiates the chuck-stack from its historical alternatives.
+
+Here is an example of how a developer can use nix-shell to [test a SQL migration](https://github.com/chuckstack/stk-todo-app-sql/blob/main/test/shell.nix) in a matter of seconds.
 
 ### PostgreSQL
 
-The chuck-stack uses [PostgreSQL](./tool-postgresql.md) to manage data, users, roles, workflows, attributes, documents, and more... SQL is one of the most expressive and well-known data and data-access standards in the world. The chuck-stack creates simplicity by moving almost all application logic into the database, and using PostgreSQL where it excels the most.
+The chuck-stack uses [PostgreSQL](./tool-postgresql.md) to manage data, users, roles, workflows, attributes, documents, and more... 
 
-The chuck-stack uses the tight integration between Linux (NixOS), PostgreSQL and Git to describe application deployment and operation. Changes to the system can be deployed by simply (1) modifying Nix configuration files and SQL migration files and (2) committing these changes to a git repository to the appropriate branch. See [Administration Experience](#administration-experience) below for more details.
+SQL is one of the most expressive and well-known data and data-access standards in the world. The chuck-stack creates simplicity by moving almost all application configuration and logic into the database, and using PostgreSQL where it excels the most. We challenge you to find a more popular, better documented, more capable, and more secure user/role system (other than Linux).
 
-By maximizing the features that make PostgreSQL great, we minimize the skills (and thereby experts) needed to make changes to your organization's system.
+The chuck-stack uses the tight integration between Linux (NixOS), PostgreSQL and Git to describe application deployment and operation. The below [Administration Experience](#administration-experience) sections highlights a common workflow using these tools.
 
-PostgreSQL Concepts:
+By maximizing the features that make PostgreSQL great, we minimize the skills (and thereby experts) needed to make changes to your organization's system. You can find more information about [how we use PostgreSQL here](./success-postgresql.md). If you want a lot more information, see the [PostgreSQL Conventions](./postgres-conventions.md) page.
 
-- Impersonation - user to role management in postgres - reference ./success-linux.md <!-- TODO -->
-- Private/API Schema - reference postgres-convention.md <!-- TODO -->
-- Migration scripts -  <!-- TODO -->
-
-Diagram:
-shows CLI and PostgREST connections through `api` schema through to `private` schema. <!-- TODO -->
+Diagram: TODO
 
 ## User Experience
 
