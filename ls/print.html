@@ -1244,17 +1244,17 @@ select current_setting('test.test.test.one',true);
 <p>The chuck-stack uses the <a href="./tool-linux.html#nix">Nix package manager</a> to deploy server, client and developer applications because of its ease of tool installation <strong>AND</strong> maintenance. With Nix, you no longer need to script installations and updates. You simply declare what you want, and Nix makes that configuration come into existence.</p>
 <p>We use Nix in two primary ways:</p>
 <ol>
-<li>NixOS - create and manage servers by simply copying, combining and updating nix configuration files.</li>
-<li>nix-shell - creates a terminal shell with all the tools and configuration needed to perform a task.</li>
+<li>NixOS - create and manage servers by simply cloning and referencing nix configuration files.</li>
+<li>nix-shell - creates a terminal shell with all the tools and configuration needed to support a role.</li>
 </ol>
 <h4 id="nixos"><a class="header" href="#nixos">NixOS</a></h4>
 <p>diagram: nixos
 show how a single server can apply multiple nix configs</p>
-<p>It is worth noting that both chuck-stack users and developers use nix-shell to perform their respective roles. While these role's tasks may differ, we deliver the role work instructions and tools in the exact same way. This is an important point, and it differentiates the chuck-stack from its historical alternatives.</p>
 <h4 id="nix-shell-1"><a class="header" href="#nix-shell-1">nix-shell</a></h4>
 <p>Diagram: nix-shell
 Show how user connects and get mapped to the respective role 'nix-shells'. <!-- TODO --></p>
-<p>References:</p>
+<p>It is worth noting that both chuck-stack users and developers use nix-shell to perform their respective roles. While these role's tasks may differ, we deliver the role work instructions and tools in the exact same way. This is an important point, and it differentiates the chuck-stack from its historical alternatives.</p>
+<h4 id="nix-references"><a class="header" href="#nix-references">Nix References</a></h4>
 <ul>
 <li>chuck-stack <a href="./tool-linux.html#nix">Nix introduction</a></li>
 <li>chuck-stack NixOS <a href="https://github.com/chuckstack/chuck-stack-nix/tree/main/nixos">repository of tool configurations</a></li>
@@ -1263,13 +1263,14 @@ Show how user connects and get mapped to the respective role 'nix-shells'. <!-- 
 <li><a href="https://www.youtube.com/watch?v=X_jMqi-0SrM">Nix explained</a> - provides an overview of the Nix ecosystem</li>
 </ul>
 <h3 id="postgresql-2"><a class="header" href="#postgresql-2">PostgreSQL</a></h3>
-<p>The chuck-stack uses <a href="./tool-postgresql.html">PostgreSQL</a> to manage data, users, roles, workflows, attributes, documents, .... SQL is one of the most expressive data and data-access standards in the world. The chuck-stack creates simplicity by moving almost all application logic into the database, and using PostgreSQL where it excels the most.</p>
+<p>The chuck-stack uses <a href="./tool-postgresql.html">PostgreSQL</a> to manage data, users, roles, workflows, attributes, documents, and more... SQL is one of the most expressive and well-known data and data-access standards in the world. The chuck-stack creates simplicity by moving almost all application logic into the database, and using PostgreSQL where it excels the most.</p>
 <p>The chuck-stack uses the tight integration between Linux (NixOS), PostgreSQL and Git to describe application deploy and operation. Changes to the system can be deployed by simply (1) modifying Nix configuration files and SQL migration files and (2) committing these changes to a git repository to the appropriate branch.</p>
-<p>By using PostgreSQL, we minimize the number of expertises (and thereby experts) needed to make changes to your organization's system.</p>
+<p>By using PostgreSQL, we minimize the skills (and thereby experts) needed to make changes to your organization's system.</p>
 <p>PostgreSQL Concepts:</p>
 <ul>
 <li>Impersonation - user to role management in postgres - reference ./success-linux.md <!-- TODO --></li>
 <li>Private/API Schema - reference postgres-convention.md <!-- TODO --></li>
+<li>Migration scripts -  <!-- TODO --></li>
 </ul>
 <p>Diagram:
 shows CLI and PostgREST connections through <code>api</code> schema through to <code>private</code> schema. <!-- TODO --></p>

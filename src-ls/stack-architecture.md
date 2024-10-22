@@ -25,22 +25,22 @@ The chuck-stack uses the [Nix package manager](./tool-linux.md#nix) to deploy se
 
 We use Nix in two primary ways:
 
-1. NixOS - create and manage servers by simply copying, combining and updating nix configuration files.
-1. nix-shell - creates a terminal shell with all the tools and configuration needed to perform a task.
+1. NixOS - create and manage servers by simply cloning and referencing nix configuration files.
+1. nix-shell - creates a terminal shell with all the tools and configuration needed to support a role.
 
 #### NixOS
 
 diagram: nixos
 show how a single server can apply multiple nix configs
 
-It is worth noting that both chuck-stack users and developers use nix-shell to perform their respective roles. While these role's tasks may differ, we deliver the role work instructions and tools in the exact same way. This is an important point, and it differentiates the chuck-stack from its historical alternatives.
-
 #### nix-shell
 
 Diagram: nix-shell
 Show how user connects and get mapped to the respective role 'nix-shells'. <!-- TODO -->
 
-References: 
+It is worth noting that both chuck-stack users and developers use nix-shell to perform their respective roles. While these role's tasks may differ, we deliver the role work instructions and tools in the exact same way. This is an important point, and it differentiates the chuck-stack from its historical alternatives.
+
+#### Nix References
 
 - chuck-stack [Nix introduction](./tool-linux.md#nix)
 - chuck-stack NixOS [repository of tool configurations](https://github.com/chuckstack/chuck-stack-nix/tree/main/nixos)
@@ -50,16 +50,17 @@ References:
 
 ### PostgreSQL
 
-The chuck-stack uses [PostgreSQL](./tool-postgresql.md) to manage data, users, roles, workflows, attributes, documents, .... SQL is one of the most expressive data and data-access standards in the world. The chuck-stack creates simplicity by moving almost all application logic into the database, and using PostgreSQL where it excels the most. 
+The chuck-stack uses [PostgreSQL](./tool-postgresql.md) to manage data, users, roles, workflows, attributes, documents, and more... SQL is one of the most expressive and well-known data and data-access standards in the world. The chuck-stack creates simplicity by moving almost all application logic into the database, and using PostgreSQL where it excels the most.
 
 The chuck-stack uses the tight integration between Linux (NixOS), PostgreSQL and Git to describe application deploy and operation. Changes to the system can be deployed by simply (1) modifying Nix configuration files and SQL migration files and (2) committing these changes to a git repository to the appropriate branch.
 
-By using PostgreSQL, we minimize the number of expertises (and thereby experts) needed to make changes to your organization's system.
+By using PostgreSQL, we minimize the skills (and thereby experts) needed to make changes to your organization's system.
 
 PostgreSQL Concepts:
 
 - Impersonation - user to role management in postgres - reference ./success-linux.md <!-- TODO -->
 - Private/API Schema - reference postgres-convention.md <!-- TODO -->
+- Migration scripts -  <!-- TODO -->
 
 Diagram:
 shows CLI and PostgREST connections through `api` schema through to `private` schema. <!-- TODO -->
