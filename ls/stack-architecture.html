@@ -205,7 +205,13 @@
 <li>NixOS - create and manage servers by simply copying, combining and updating nix configuration files.</li>
 <li>nix-shell - creates a terminal shell with all the tools and configuration needed to perform a task.</li>
 </ol>
+<h4 id="nixos"><a class="header" href="#nixos">NixOS</a></h4>
+<p>diagram: nixos
+show how a single server can apply multiple nix configs</p>
 <p>It is worth noting that both chuck-stack users and developers use nix-shell to perform their respective roles. While these role's tasks may differ, we deliver the role work instructions and tools in the exact same way. This is an important point, and it differentiates the chuck-stack from its historical alternatives.</p>
+<h4 id="nix-shell"><a class="header" href="#nix-shell">nix-shell</a></h4>
+<p>Diagram: nix-shell
+Show how user connects and get mapped to the respective role 'nix-shells'. <!-- TODO --></p>
 <p>References:</p>
 <ul>
 <li>chuck-stack <a href="./tool-linux.html#nix">Nix introduction</a></li>
@@ -218,6 +224,13 @@
 <p>The chuck-stack uses <a href="./tool-postgresql.html">PostgreSQL</a> to manage data, users, roles, workflows, attributes, documents, .... SQL is one of the most expressive data and data-access standards in the world. The chuck-stack creates simplicity by moving almost all application logic into the database, and using PostgreSQL where it excels the most.</p>
 <p>The chuck-stack uses the tight integration between Linux (NixOS), PostgreSQL and Git to describe application deploy and operation. Changes to the system can be deployed by simply (1) modifying Nix configuration files and SQL migration files and (2) committing these changes to a git repository to the appropriate branch.</p>
 <p>By using PostgreSQL, we minimize the number of expertises (and thereby experts) needed to make changes to your organization's system.</p>
+<p>PostgreSQL Concepts:</p>
+<ul>
+<li>Impersonation - user to role management in postgres - reference ./success-linux.md <!-- TODO --></li>
+<li>Private/API Schema - reference postgres-convention.md <!-- TODO --></li>
+</ul>
+<p>Diagram:
+shows CLI and PostgREST connections through <code>api</code> schema through to <code>private</code> schema. <!-- TODO --></p>
 <h2 id="user-experience"><a class="header" href="#user-experience">User Experience</a></h2>
 <p>The majority of a user's experience is spent instructing the system via text or voice on what to do (much like with ChatGPT or Claude AI).</p>
 <ul>
