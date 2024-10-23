@@ -65,6 +65,10 @@ By maximizing the features that make PostgreSQL great, we minimize the skills (a
 
 Diagram: TODO
 
+### Work Instructions
+
+Described well here TODO link
+
 ## User Experience
 
 The majority of a user's experience is spent instructing the system via text or voice on what to do (much like with ChatGPT or Claude AI).
