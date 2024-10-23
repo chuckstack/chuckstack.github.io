@@ -19,6 +19,10 @@ It is important to understand that the chuck-stack is not a typical software pro
 
 ## Completed Milestone
 
+Week of 2024-10-25
+
+- create nginx-fail2ban as first layer of protection agains ssh, http and https
+
 Week of 2024-10-18
 
 - completed version 2 of the simple todo app
