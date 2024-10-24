@@ -10,7 +10,6 @@ It is important to understand that the chuck-stack is not a typical software pro
 ## Upcoming Milestones
 
 - determine role strategy to allow nix-shell to deliver role tools for a given user (map between user and role)
-- update nginx with crowdsec
 - add working instructions to both full context and rag to determine most effective
 - create core tenant and entity, using work instructions, add update work instructions accordingly
 - implement workflow (expand this list with each workflow item)
@@ -21,7 +20,8 @@ It is important to understand that the chuck-stack is not a typical software pro
 
 Week of 2024-10-25
 
-- create nginx-fail2ban as first layer of protection agains ssh, http and https
+- create nginx-fail2ban as first layer of protection against ssh, http and https
+- updated nginx to allow for most strict access and block openapi/swagger if needed
 
 Week of 2024-10-18
 
