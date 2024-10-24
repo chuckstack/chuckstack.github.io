@@ -2,6 +2,17 @@
 
 Here is a list of recent blogs. The sidebar contains the full list.
 
+## Letter to the CEO
+
+We find and cultivate [Superclerks](./terminology.md#superclerk). These superclerks effectively reduce headcount. The expectation is that the incremental increase in AI costs is less than the reduction in labor; therefore, you get a net savings.
+
+Note that cost savings is not the biggest benefit. The biggest benefit is automation and accuracy. You get to surround yourself with smart people who know how to do/automate their jobs.
+
+Let's find high-impact and low-effort tasks to document and automate...
+
+[Read more...](./blog-letter-ceo.md)
+
+
 ## The CLI is Better
 
 The CLI creates more value for managing data and processes in small and medium sized organizations than just about any alternative. The purpose of this post is to explain what it is better than and why.

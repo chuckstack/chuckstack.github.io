@@ -37,6 +37,7 @@
 ---
 
 - [Blog](./blog.md)
+  - [Letter to the CEO](.//blog-letter-ceo.md)
   - [The CLI is better than...](./blog-cli-better.md)
   - [Why Conversational Enterprise Computing Matters](./blog-conversational-enterprise-computing.md)
   - [Work Instructions Make your Organization Sexy](./blog-work-instruction-sexy.md)
