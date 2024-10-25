@@ -792,7 +792,7 @@ select current_setting('test.test.test.one',true);
 <li>restore from snapshots</li>
 <li>share images with other incus servers</li>
 </ul>
-<p>We encourage to <a href="https://linuxcontainers.org/incus/try-it/">try incus online now</a>.</p>
+<p>We encourage you to <a href="https://linuxcontainers.org/incus/try-it/">try Incus online now</a>.</p>
 <h3 id="first-cluster"><a class="header" href="#first-cluster">First Cluster</a></h3>
 <p>You can create your first cluster from any three or more Linux machines of any size and shape with just a few steps. With a cluster and minimal effort you can:</p>
 <ul>
@@ -1294,7 +1294,7 @@ select current_setting('test.test.test.one',true);
 <p>diagram: nixos TODO</p>
 <h3 id="nix-shell-1"><a class="header" href="#nix-shell-1">nix-shell</a></h3>
 <p>The chuck-stack uses nix-shell to apply the proper role tools and configuration to the right users. Said another way, when a user connects to the chuck-stack, nix-shell applies all assigned roles and ensures the environment is configured so that the user can fulfill the role's duties.</p>
-<p>Just like NixOS, nix-shell is configuration based. Here is a sample <a href="https://github.com/chuckstack/chuck-stack-nix/tree/main/nix-shell/">nix.shell</a> that installs and configures PostgreSQL. <!--TODO: need a better example --></p>
+<p>Just like NixOS, nix-shell is configuration based. Here is a sample <a href="https://github.com/chuckstack/chuck-stack-nix/tree/main/nix-shell/">nix.shell</a> that installs and configures PostgreSQL. <!--TODO: need a better example that focuses on a role--></p>
 <p>Here is a diagram showing how we use nix-shell.</p>
 <p>diagram: nix-shell TODO</p>
 <p>It is worth noting that both chuck-stack users and developers use nix-shell to perform their respective roles. While these role's tasks and tools may differ, we deliver the role work instructions and tools in the exact same way to all roles. This is an important point, and it differentiates the chuck-stack from its historical alternatives.</p>
@@ -1933,6 +1933,8 @@ There are two key process features that make this vision a reality: 1) workflow 
 <ul>
 <li>create nginx-fail2ban as first layer of protection against ssh, http and https</li>
 <li>updated nginx to allow for most strict access and block openapi/swagger if needed</li>
+<li>resolved initdb and made consistent between nixos and nix-shell test</li>
+<li>created first postgrest process to accept web form submissions</li>
 </ul>
 <p>Week of 2024-10-18</p>
 <ul>

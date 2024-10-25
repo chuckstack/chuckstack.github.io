@@ -22,6 +22,8 @@ Week of 2024-10-25
 
 - create nginx-fail2ban as first layer of protection against ssh, http and https
 - updated nginx to allow for most strict access and block openapi/swagger if needed
+- resolved initdb and made consistent between nixos and nix-shell test
+- created first postgrest process to accept web form submissions
 
 Week of 2024-10-18
 

@@ -77,7 +77,7 @@ You can install Incus on almost any size and shape of Linux machine with minimal
 - restore from snapshots
 - share images with other incus servers
 
-We encourage to [try incus online now](https://linuxcontainers.org/incus/try-it/).
+We encourage you to [try Incus online now](https://linuxcontainers.org/incus/try-it/).
 
 ### First Cluster
 
