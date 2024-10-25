@@ -120,3 +120,5 @@ The purpose of this section is to record thoughts and examples related to hardwa
     - EC2 drive - You can assume the AWS drive and shapshot storage costs will be about the same as the server cost itself
     - S3 snapshot storage
 - Start with three SuperMicro 1U or 2U servers.
+  - TODO: show minimum viable 1u 3-node cluster worthy of placing in a data center
+  - TODO: show powerful 2u 3-node cluster worth of placing n a data center (expected to be about 4x the cost of the minimum 1u)
