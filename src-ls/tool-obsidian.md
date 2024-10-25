@@ -22,6 +22,10 @@ Special considerations for Obsidian:
 - Obsidian is not free for commercial use. While you can install it for free, and it is free for personal use, you do need to pay per user per year for commercial use.
 - Our opinion is that $50/user/year (as of the time of writing) is high value. The few people in your organization whose primary task is writing will appreciate and benefit from this tool.
 
+References:
+
+- [We live in a Markdown World](./blog-live-markdown-world.md)
+
 ## Obsidian Plugins
 
 One of Obsidian's greatest strengths is its internal and 3rd-party plugin offerings. Here are a couple of topics worth discussing.
