@@ -41,7 +41,7 @@ diagram: nixos TODO
 
 ### nix-shell
 
-The chuckstack uses nix-shell to apply the proper role tools and configuration to the right users. Said another way, when a user connects to the chuck-stack, nix-shell applies all assigned roles and ensures the environment is configured so that the user can fulfill the role's duties.
+The chuck-stack uses nix-shell to apply the proper role tools and configuration to the right users. Said another way, when a user connects to the chuck-stack, nix-shell applies all assigned roles and ensures the environment is configured so that the user can fulfill the role's duties.
 
 Just like NixOS, nix-shell is configuration based. Here is a sample [nix.shell](https://github.com/chuckstack/chuck-stack-nix/tree/main/nix-shell/) that installs and configures PostgreSQL. <!--TODO: need a better example --> 
 

@@ -210,7 +210,7 @@
 <p>Below is a diagram illustrating how you can simply add a NixOS configuration file to a server to create and configure important services.</p>
 <p>diagram: nixos TODO</p>
 <h3 id="nix-shell"><a class="header" href="#nix-shell">nix-shell</a></h3>
-<p>The chuckstack uses nix-shell to apply the proper role tools and configuration to the right users. Said another way, when a user connects to the chuck-stack, nix-shell applies all assigned roles and ensures the environment is configured so that the user can fulfill the role's duties.</p>
+<p>The chuck-stack uses nix-shell to apply the proper role tools and configuration to the right users. Said another way, when a user connects to the chuck-stack, nix-shell applies all assigned roles and ensures the environment is configured so that the user can fulfill the role's duties.</p>
 <p>Just like NixOS, nix-shell is configuration based. Here is a sample <a href="https://github.com/chuckstack/chuck-stack-nix/tree/main/nix-shell/">nix.shell</a> that installs and configures PostgreSQL. <!--TODO: need a better example --></p>
 <p>Here is a diagram showing how we use nix-shell.</p>
 <p>diagram: nix-shell TODO</p>
