@@ -45,7 +45,7 @@ You can use projects to keep your Incus server clean by grouping related instanc
 
 ## Incus Relation to Nix
 
-[Nix](./tool-linux.md#nix) is a compelling option for virtualization in some specific circunstances. If the chuck-stack already uses Nix, why add Incus in addition to Nix? 
+[Nix](./tool-linux.md#nix) is a compelling option for virtualization in some specific circumstances. If the chuck-stack already uses Nix, why add Incus in addition to Nix? 
 
 Here are our thoughts:
 
@@ -66,7 +66,46 @@ Docker is a compelling option for virtualization. Here are the reason we prefer 
 
 ## Picture of Success
 
-Here is what we want from incus for small companies wanting to become bigger companies:
+Here is what we want from incus for small organizations wanting to become bigger ones. What we want you to know is that you can start with minimal effort and grow to a massive scale on the same tool.
+
+### Toe in the Water
+
+You can install Incus on almost any size and shape of Linux machine with minimal effort. With this minimal install, you can:
+
+- fire up multiple instances (container or virtual machines) within seconds using most major Linux distributions
+- create snapshots
+- restore from snapshots
+- share images with other incus servers
+
+We encourage to [try incus online now](https://linuxcontainers.org/incus/try-it/).
+
+### First Cluster
+
+You can create your first cluster from any three or more Linux machines of any size and shape with just a few steps. With a cluster and minimal effort you can:
+
+- increase capacity
+- create redundancy
+- move instances from on server to another to support always up maintenance
+- need more compute power, add more nodes...
+
+### Second Cluster
+
+With a little more effort and expense, you can create a cluster with:
+
+- distributed storage to allow for hot swapping instances between nodes
+- distributed network overlay implementing advanced networking/ACL capabilities
+
+### Hybrid Cluster
+
+You can move one cluster to a data center. You can add a second machine or cluster locally. You can share images between these clusters. This hybrid approach helps your team maximize local hardware and cost reductions while using the same tools to administer your entire infrastructure.
+
+### Start Small Finish Big
+
+The purpose of the section is ensure you understand that the smallest amount of effort will get you started in a direction that will grow with your organization in a linear and predictable manner.
+
+## Hardware Thoughts
+
+The purpose of this section is to record thoughts and examples related to hardware. You can start with any hardware to validate Incus capabilities. If you want to apply a budget, here is an example first cluster:
 
 - Start with three [system76 meerkat tall](https://system76.com/desktops/meerkat) each with the following:
   - about $600 to start and $1K each as suggested below.
@@ -80,11 +119,4 @@ Here is what we want from incus for small companies wanting to become bigger com
     - EC2 server
     - EC2 drive - You can assume the AWS drive and shapshot storage costs will be about the same as the server cost itself
     - S3 snapshot storage
-- Incus cluster abilities:
-  - Host anywhere (table, rack, colo, ...)
-  - Add more nodes to the existing cluster as needed (either more meerkats or traditional 1U/2U servers)
-  - Distributed storage for data redundancy
-- Desired Incus deployment scenario:
-  - Current version's documentation is downloaded and available as a rag repository in AIChat.
-  - Current installation and configuration (markdown) is available as a rag repository in AIChat.
-  - Administrators and use AIChat to diagnose, administer, and improve Incus cluster.
+- Start with three SuperMicro 1U or 2U servers.
