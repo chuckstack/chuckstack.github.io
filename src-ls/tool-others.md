@@ -10,7 +10,7 @@ The purpose of this page is to highlight other tools in the chuck-stack. These t
 
 Here are the tools we use every day:
 
-- [rsync.net](https://rsync.net) - is an off-site storage service that runs on top of open source tools. It is pretty fantastic! It uses rsync as the local client, which is easily installed. It uses ZFS on the remote server to keep your data safe. It costs the same as AWS S3. And, it gives you immutable backups without any additional configuration. Said another say, it is easy, reasonably priced and works as intended out of the box. Notes about rsync.net:
+- [rsync.net](https://rsync.net) - is an off-site storage service that runs on top of open source tools. It is pretty fantastic! It uses rsync as the local client, which is easily installed. It uses ZFS on the remote server to keep your data safe. It costs the same as AWS S3. And, it gives you immutable backups without any additional configuration. Said another way, it is easy, reasonably priced and works as intended out of the box. Notes about rsync.net:
   - The website is simple
   - The account management panel is overly simple
   - The service is awesome!
