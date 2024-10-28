@@ -58,6 +58,7 @@ We believe we can create the following abbreviations without sacrificing underst
 - document => doc
 - document number => docno
 - docuemnt type => doctype
+- identifier => id
 - index => idx
 - foreign key => fk
 - link => lnk
@@ -66,6 +67,7 @@ We believe we can create the following abbreviations without sacrificing underst
 - stack => stk
 - transaction => trx
 - translation => trl
+- universal_unique identifier => uu
 - workflow => wf
 
 ## Table Conventions
@@ -110,18 +112,19 @@ Notes:
 
 ### Optional Columns
 - `is_active` - boolean that indicates if a record can be modified. is_active also acts as a soft-delete. If a record has an is_active=false, the record should be be returned as an option for selection in future lists and drop down fields. This column must be present to update it after the initial save; therefore, it appears in most tables.
-- `name` - text column representing the name of the record.
-- `description` - text column representing the description of the record.
-- `search_key` - user defined text column. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.
-- `value` - text column that is often used along with a `search_key` in a key-value pair.
-- `docno` - user defined text column. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor -->
+- `name` - text representing the name of the record.
+- `description` - text representing the description of the record.
+- `search_key` - user defined text. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.
+- `value` - text that is often used along with a `search_key` in a key-value pair.
+- `docno` - user defined text. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor -->
 - `stk_doctype_uu` - describes the type of document.
 - `is_default` - boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.
 - `is_processed` - boolean that indicates of a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column. 
-- `is_summary` boolean that indicates if a record is intended to be a parent to other records in the same table.
-- `is_template` boolean that indicates if a record exists for the purpose of cloning to create new records.
-- `is_valid` boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow -->
-- `trx_type` enum listing the type of transaction. Used by `stk_doctype` table.
+- `is_summary` - boolean that indicates if a record is intended to be a parent to other records in the same table.
+- `is_template` - boolean that indicates if a record exists for the purpose of cloning to create new records.
+- `is_valid` - boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow -->
+- `trx_type` - enum listing the type of transaction. Used by `stk_doctype` table.
+- `batch_id` - text indicating this record was processed as part of a batch operation. A single record couple participate in multiple batches. if so, use the noun_adjective approach (example: batch_import_id).
 
 ## References to Records
 
