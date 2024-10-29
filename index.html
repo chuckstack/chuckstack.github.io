@@ -26,8 +26,7 @@
         encodeParameters: function(xhr, parameters, elt) {
           xhr.overrideMimeType('text/json') // override default mime type
           const body = { // set your request body
-            data: parameters,
-            options: { submissionFormat: 'pretty'}
+            parameters
           }
           return (JSON.stringify(body))
         }

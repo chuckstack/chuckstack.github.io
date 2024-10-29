@@ -1530,6 +1530,7 @@ select current_setting('test.test.test.one',true);
 <li>document =&gt; doc</li>
 <li>document number =&gt; docno</li>
 <li>docuemnt type =&gt; doctype</li>
+<li>identifier =&gt; id</li>
 <li>index =&gt; idx</li>
 <li>foreign key =&gt; fk</li>
 <li>link =&gt; lnk</li>
@@ -1538,6 +1539,7 @@ select current_setting('test.test.test.one',true);
 <li>stack =&gt; stk</li>
 <li>transaction =&gt; trx</li>
 <li>translation =&gt; trl</li>
+<li>universal_unique identifier =&gt; uu</li>
 <li>workflow =&gt; wf</li>
 </ul>
 <h2 id="table-conventions"><a class="header" href="#table-conventions">Table Conventions</a></h2>
@@ -1587,18 +1589,19 @@ select current_setting('test.test.test.one',true);
 <h3 id="optional-columns"><a class="header" href="#optional-columns">Optional Columns</a></h3>
 <ul>
 <li><code>is_active</code> - boolean that indicates if a record can be modified. is_active also acts as a soft-delete. If a record has an is_active=false, the record should be be returned as an option for selection in future lists and drop down fields. This column must be present to update it after the initial save; therefore, it appears in most tables.</li>
-<li><code>name</code> - text column representing the name of the record.</li>
-<li><code>description</code> - text column representing the description of the record.</li>
-<li><code>search_key</code> - user defined text column. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.</li>
-<li><code>value</code> - text column that is often used along with a <code>search_key</code> in a key-value pair.</li>
-<li><code>docno</code> - user defined text column. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor --></li>
+<li><code>name</code> - text representing the name of the record.</li>
+<li><code>description</code> - text representing the description of the record.</li>
+<li><code>search_key</code> - user defined text. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.</li>
+<li><code>value</code> - text that is often used along with a <code>search_key</code> in a key-value pair.</li>
+<li><code>docno</code> - user defined text. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor --></li>
 <li><code>stk_doctype_uu</code> - describes the type of document.</li>
 <li><code>is_default</code> - boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.</li>
 <li><code>is_processed</code> - boolean that indicates of a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column.</li>
-<li><code>is_summary</code> boolean that indicates if a record is intended to be a parent to other records in the same table.</li>
-<li><code>is_template</code> boolean that indicates if a record exists for the purpose of cloning to create new records.</li>
-<li><code>is_valid</code> boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow --></li>
-<li><code>trx_type</code> enum listing the type of transaction. Used by <code>stk_doctype</code> table.</li>
+<li><code>is_summary</code> - boolean that indicates if a record is intended to be a parent to other records in the same table.</li>
+<li><code>is_template</code> - boolean that indicates if a record exists for the purpose of cloning to create new records.</li>
+<li><code>is_valid</code> - boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow --></li>
+<li><code>trx_type</code> - enum listing the type of transaction. Used by <code>stk_doctype</code> table.</li>
+<li><code>batch_id</code> - text indicating this record was processed as part of a batch operation. A single record couple participate in multiple batches. if so, use the noun_adjective approach (example: batch_import_id).</li>
 </ul>
 <h2 id="references-to-records"><a class="header" href="#references-to-records">References to Records</a></h2>
 <p>No <code>_uu</code> should ever be referred to in code. If this situation is needed, use the System Configurator or enum conventions below.</p>
