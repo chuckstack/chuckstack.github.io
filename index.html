@@ -75,7 +75,7 @@
         <p> For priority support and training <a href="https://buy.stripe.com/7sIbLIeeU3oT4IEfYY">Join Now</a>. To learn more about the stack-academy, view the <a href="./ls/stack-academy.html">stack-academy</a> page.</p>
         <p> Not ready to join yet? That is OK! Submit your name and email to receive updates, releases, events, training and more.  </p>
 
-        <form id="stayInTouchForm" hx-post="https://form.chuck-stack.org/rpc/stk_form_post_fn" hx-ext="submitjson" hx-trigger="submit" hx-target="#form-response" hx-indicator="#loading" hx-swap="outerHTML">
+        <form id="stayInTouchForm" hx-post="https://form.chuck-stack.org/rpc/stk_form_post_fn" hx-ext="submitjson" hx-trigger="submit" hx-target="#form-response" hx-indicator="#loading" hx-swap="outerHTML" hx-on="htmx:afterRequest: this.reset()">
           <div class="grid">
             <input
               type="text"
@@ -101,9 +101,9 @@
               <a href="./ls/privacy-policy.html" >Privacy Policy</a>
             </label>
           </fieldset>
-          <div id="form-response"></div>
-          <div id="loading" class="htmx-indicator">Loading...</div>
         </form>
+        <div id="form-response"></div>
+        <div id="loading" class="htmx-indicator">Loading...</div>
       </section>
       <!-- /Form -->
 
