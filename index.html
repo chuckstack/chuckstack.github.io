@@ -13,6 +13,27 @@
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.0.6/css/pico.min.css"
     />
     <script src="js/htmx.min.js"></script>
+
+    <!-- used to submit form via json -->
+    <script>
+      htmx.defineExtension('submitjson', {
+        onEvent: function (name, evt) {
+          if (name === "htmx:configRequest") {
+            evt.detail.headers['Content-Type'] = "application/json"
+            evt.detail.headers['X-API-Key'] = 'sjk_xxx'
+          }
+        },
+        encodeParameters: function(xhr, parameters, elt) {
+          xhr.overrideMimeType('text/json') // override default mime type
+          const body = { // set your request body
+            data: parameters,
+            options: { submissionFormat: 'pretty'}
+          }
+          return (JSON.stringify(body))
+        }
+      })
+    </script>
+
   </head>
 
   <body>
@@ -56,7 +77,7 @@
         <p> For priority support and training <a href="https://buy.stripe.com/7sIbLIeeU3oT4IEfYY">Join Now</a>. To learn more about the stack-academy, view the <a href="./ls/stack-academy.html">stack-academy</a> page.</p>
         <p> Not ready to join yet? That is OK! Submit your name and email to receive updates, releases, events, training and more.  </p>
 
-        <form id="stayInTouchForm" hx-post="https://form.chuck-stack.org/rpc/stk_form_post_fn" hx-ext="json-enc" hx-trigger="submit" hx-target="#form-response" hx-indicator="#loading" hx-swap="outerHTML">
+        <form id="stayInTouchForm" hx-post="https://form.chuck-stack.org/rpc/stk_form_post_fn" hx-ext="submitjson" hx-trigger="submit" hx-target="#form-response" hx-indicator="#loading" hx-swap="outerHTML">
           <div class="grid">
             <input
               type="text"
