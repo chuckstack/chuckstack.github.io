@@ -6,8 +6,8 @@ We are leading with Incus and virtualization because we feel that virtualization
 - [What is Incus](#what-is-incus)
 - [Why we love Incus](#why-we-love-incus)
 - [Types of virtualization](#types-of-virtualization)
-- [Incus relation to Nix](#incus-relation-to-nix)
 - [Incus relation to Docker](#incus-relation-to-docker)
+- [Incus relation to Nix](#incus-relation-to-nix)
 - [Incus Use Cases](#incus-use-cases)
 - [Hardware Considerations](#hardware-considerations)
 
@@ -42,11 +42,15 @@ In summary, Incus allows you to start quickly with what you have and finish big!
 
 ## Types of virtualization
 
-One of the greatest benefits of Incus is that it gives you so many virtualization options in a single package. Incus maintains current container and virtual machine images for commonly used Linux operating systems including: Debian, Ubuntu, NixOS, Alpine, Arch, etc... You can add DockerHub as an Incus image repository; therefore, you can launch almost any image with almost no additional effort, infrastructure or nesting when using Incus.
+One of the greatest benefits of Incus is that it gives you so many virtualization options in a single package. Incus maintains current container and virtual machine images for commonly used Linux operating systems including: Debian, Ubuntu, NixOS, Alpine, Arch, etc... 
+
+You can add DockerHub as an Incus image repository; therefore, you can launch almost any image with almost no additional effort, infrastructure or nesting when using Incus.
 
 ## Incus has Projects
 
-As your virtualization needs grow, you can use projects to keep your Incus server clean by grouping related instances together. In addition to isolated instances, each project can also have specific images, profiles, networks, and storage. This helps organizations support the growth of organizations in an organized manner.
+As your virtualization needs grow, you can use projects to keep your Incus server clean by grouping related instances together. In addition to isolated instances, each project can also have specific images, profiles, networks, and storage. 
+
+This helps organizations support the growth of organizations in an organized manner.
 
 ## Incus Relation to Docker
 
@@ -107,7 +111,7 @@ You can deploy and serve the chuck-stack to hundreds of users on a single-server
 - where the server is located - anywhere in the world (from closet to data center)
 - the size and features of the server
 
-To see how much power for a given price you can derive from a single cloud server, look at the [PhoenixNAP bare metal cloud](https://phoenixnap.com/bare-metal-cloud) pricing and availability. Then compare the cost to AWS. AWS is approximately 4x the cost for computing and storage.
+To see how much power for a given price you can derive from a single cloud server, look at the [PhoenixNAP bare metal cloud](https://phoenixnap.com/bare-metal-cloud) pricing and availability. Then compare the cost to AWS. AWS is approximately 3x+ the cost for similar compute and storage capabilities.
 
 ### Cluster Virtualization
 
@@ -121,7 +125,7 @@ References:
 
 ### Hybrid Virtualization
 
-It is common to deploy all Incus use cases in a single organization. Here is what such a deployment might look like:
+It is common to deploy all the above Incus use cases in a single organization. Here is what such a deployment might look like:
 
 - clustered production deployment in a data center
 - single-server test/UAT deployment on a local LAN
@@ -136,7 +140,7 @@ The hybrid virtualization scenario is why we love Incus. It gives your organizat
 
 This section defines important terms. The hope is to create better and more concise discussions below.
 
-- Incus installation - a logical Incus instance running on one or more hardware devices. This term can refer to a stand-alone Incus instance or a cluster of incus hosts.
+- Incus installation - a logical Incus instance running on one or more hardware devices. This term can refer to a stand-alone Incus host or a cluster of incus hosts.
 - Incus host - a single hardware device supporting Incus.
 - Incus guest - a virtualized operating system running inside an Incus host.
 - Incus container - an Incus guest that runs directly inside the Incus host's kernel.
@@ -162,13 +166,13 @@ Here are Incus guidelines and considerations:
 
 Here are hardware guidelines and considerations:
 
-- You can install Incus on almost any hardware that support Debian Linux (Raspberry Pis, Intel NUCs, old PCs, laptops, servers, ...).
-- Chose high core-count, single CPU devices over dual CPU devices for budget considerations.
+- You can install Incus on almost any hardware that supports Debian Linux (Raspberry Pis, Intel NUCs, old PCs, laptops, servers, ...).
+- Choose high core-count, single CPU devices over dual CPU devices for budget considerations.
 - If you do not plan to run a GPU, choose 1U servers for budget considerations.
 - Dual high-speed (10G for example) NICs better support cluster configurations due to network demands created by Ceph (distributed storage)
 - You need 3+ devices to create a cluster. If you only have two devices, you are better served by creating two isolated Incus installations.
 - If you plan to put a server in a data center, power is a consideration - both in terms of the server itself as well as any GPUs. Older hardware consumes more power per unit of space/computer/storage. A GPU can consume more power than the server itself.
-- The page does not discuss switch/routing considerations.
+- This page does not discuss switch/routing considerations.
 - Buying refurbished hardware from places like ebay can greatly reduce hardware costs. However, consider the following:
   - Security concerns (the system you're buying may have a persistent attack code in its firmware)
   - Difficulty getting critical security updates (some vendors require an account with proof of purchase)
@@ -195,9 +199,11 @@ Here is an example first cluster:
 
 You can easily increase capabilities by simply choosing a more powerful desktop (such as the [System76 Thelio](https://system76.com/desktops/thelio)) where you can achieve 32 cores per host ($2K USD) and add a 16GB GPU ($800 USD more) for AI loads. This would give you an AI capable cluster for about $9K USD.
 
+We reference system76 as a hardware provider because of their long and continuous support of the [PopOS operating system and the Linux community](./tool-linux.md#popos-shell).
+
 ### Medium Cluster Rack
 
-The purpose of this section is to record thoughts and examples related to hardware for a medium rack-mount cluster. You can creqate a powerful new 3-host rack-mount cluster for about $15K USD. Here is an example server at the time of writing:
+The purpose of this section is to record thoughts and examples related to hardware for a medium rack-mount cluster. You can create a powerful new 3-host rack-mount cluster for about $15K USD. Here is an example server at the time of writing:
 
 - SuperMicro,  a cheap enough option but still reasonably balanced may look like:
   - Chassis: AS -1115SV-WTNRT
@@ -206,4 +212,4 @@ The purpose of this section is to record thoughts and examples related to hardwa
   - Storage: 1x 1TB NVME M.2 internal for OS (+ whatever you want as hotplug storage for use by the instances)
   - Comes with 2x 10Gb (copper) networking
 
-This configuration represents a significant increase in CPU core count, memory and storage. It also represents a form factor that can be placed in almost any data center (local or cloud).
+This configuration represents a significant increase in CPU core count, memory and storage over the desktop cluster described above. It also represents a form factor that can be placed in almost any data center (local or cloud).

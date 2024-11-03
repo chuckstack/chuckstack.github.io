@@ -734,8 +734,8 @@ select current_setting('test.test.test.one',true);
 <li><a href="tool-incus.html#what-is-incus">What is Incus</a></li>
 <li><a href="tool-incus.html#why-we-love-incus">Why we love Incus</a></li>
 <li><a href="tool-incus.html#types-of-virtualization">Types of virtualization</a></li>
-<li><a href="tool-incus.html#incus-relation-to-nix">Incus relation to Nix</a></li>
 <li><a href="tool-incus.html#incus-relation-to-docker">Incus relation to Docker</a></li>
+<li><a href="tool-incus.html#incus-relation-to-nix">Incus relation to Nix</a></li>
 <li><a href="tool-incus.html#incus-use-cases">Incus Use Cases</a></li>
 <li><a href="tool-incus.html#hardware-considerations">Hardware Considerations</a></li>
 </ul>
@@ -764,9 +764,11 @@ select current_setting('test.test.test.one',true);
 </ul>
 <p>In summary, Incus allows you to start quickly with what you have and finish big!</p>
 <h2 id="types-of-virtualization"><a class="header" href="#types-of-virtualization">Types of virtualization</a></h2>
-<p>One of the greatest benefits of Incus is that it gives you so many virtualization options in a single package. Incus maintains current container and virtual machine images for commonly used Linux operating systems including: Debian, Ubuntu, NixOS, Alpine, Arch, etc... You can add DockerHub as an Incus image repository; therefore, you can launch almost any image with almost no additional effort, infrastructure or nesting when using Incus.</p>
+<p>One of the greatest benefits of Incus is that it gives you so many virtualization options in a single package. Incus maintains current container and virtual machine images for commonly used Linux operating systems including: Debian, Ubuntu, NixOS, Alpine, Arch, etc...</p>
+<p>You can add DockerHub as an Incus image repository; therefore, you can launch almost any image with almost no additional effort, infrastructure or nesting when using Incus.</p>
 <h2 id="incus-has-projects"><a class="header" href="#incus-has-projects">Incus has Projects</a></h2>
-<p>As your virtualization needs grow, you can use projects to keep your Incus server clean by grouping related instances together. In addition to isolated instances, each project can also have specific images, profiles, networks, and storage. This helps organizations support the growth of organizations in an organized manner.</p>
+<p>As your virtualization needs grow, you can use projects to keep your Incus server clean by grouping related instances together. In addition to isolated instances, each project can also have specific images, profiles, networks, and storage.</p>
+<p>This helps organizations support the growth of organizations in an organized manner.</p>
 <h2 id="incus-relation-to-docker"><a class="header" href="#incus-relation-to-docker">Incus Relation to Docker</a></h2>
 <p>Docker is a compelling option for virtualization. Here are the reason we prefer Incus over Docker:</p>
 <ul>
@@ -819,7 +821,7 @@ select current_setting('test.test.test.one',true);
 <li>where the server is located - anywhere in the world (from closet to data center)</li>
 <li>the size and features of the server</li>
 </ul>
-<p>To see how much power for a given price you can derive from a single cloud server, look at the <a href="https://phoenixnap.com/bare-metal-cloud">PhoenixNAP bare metal cloud</a> pricing and availability. Then compare the cost to AWS. AWS is approximately 4x the cost for computing and storage.</p>
+<p>To see how much power for a given price you can derive from a single cloud server, look at the <a href="https://phoenixnap.com/bare-metal-cloud">PhoenixNAP bare metal cloud</a> pricing and availability. Then compare the cost to AWS. AWS is approximately 3x+ the cost for similar compute and storage capabilities.</p>
 <h3 id="cluster-virtualization"><a class="header" href="#cluster-virtualization">Cluster Virtualization</a></h3>
 <p>You can deploy <a href="https://linuxcontainers.org/incus/docs/main/explanation/clustering/">Incus to a cluster</a> of 3 or more servers. Doing so gives you better control and solutions for maintenance, stability, networking, and storage as compared to a single-server solution.</p>
 <p>You can deploy your first cluster in minutes, and there is virtually no limit to how deep you can go to fine-tune and grow your cluster.</p>
@@ -829,7 +831,7 @@ select current_setting('test.test.test.one',true);
 <li><a href="https://github.com/lxc/incus-deploy">Automated cluster configuration</a></li>
 </ul>
 <h3 id="hybrid-virtualization"><a class="header" href="#hybrid-virtualization">Hybrid Virtualization</a></h3>
-<p>It is common to deploy all Incus use cases in a single organization. Here is what such a deployment might look like:</p>
+<p>It is common to deploy all the above Incus use cases in a single organization. Here is what such a deployment might look like:</p>
 <ul>
 <li>clustered production deployment in a data center</li>
 <li>single-server test/UAT deployment on a local LAN</li>
@@ -843,7 +845,7 @@ select current_setting('test.test.test.one',true);
 <h2 id="vocabulary"><a class="header" href="#vocabulary">Vocabulary</a></h2>
 <p>This section defines important terms. The hope is to create better and more concise discussions below.</p>
 <ul>
-<li>Incus installation - a logical Incus instance running on one or more hardware devices. This term can refer to a stand-alone Incus instance or a cluster of incus hosts.</li>
+<li>Incus installation - a logical Incus instance running on one or more hardware devices. This term can refer to a stand-alone Incus host or a cluster of incus hosts.</li>
 <li>Incus host - a single hardware device supporting Incus.</li>
 <li>Incus guest - a virtualized operating system running inside an Incus host.</li>
 <li>Incus container - an Incus guest that runs directly inside the Incus host's kernel.</li>
@@ -864,13 +866,13 @@ select current_setting('test.test.test.one',true);
 </ul>
 <p>Here are hardware guidelines and considerations:</p>
 <ul>
-<li>You can install Incus on almost any hardware that support Debian Linux (Raspberry Pis, Intel NUCs, old PCs, laptops, servers, ...).</li>
-<li>Chose high core-count, single CPU devices over dual CPU devices for budget considerations.</li>
+<li>You can install Incus on almost any hardware that supports Debian Linux (Raspberry Pis, Intel NUCs, old PCs, laptops, servers, ...).</li>
+<li>Choose high core-count, single CPU devices over dual CPU devices for budget considerations.</li>
 <li>If you do not plan to run a GPU, choose 1U servers for budget considerations.</li>
 <li>Dual high-speed (10G for example) NICs better support cluster configurations due to network demands created by Ceph (distributed storage)</li>
 <li>You need 3+ devices to create a cluster. If you only have two devices, you are better served by creating two isolated Incus installations.</li>
 <li>If you plan to put a server in a data center, power is a consideration - both in terms of the server itself as well as any GPUs. Older hardware consumes more power per unit of space/computer/storage. A GPU can consume more power than the server itself.</li>
-<li>The page does not discuss switch/routing considerations.</li>
+<li>This page does not discuss switch/routing considerations.</li>
 <li>Buying refurbished hardware from places like ebay can greatly reduce hardware costs. However, consider the following:
 <ul>
 <li>Security concerns (the system you're buying may have a persistent attack code in its firmware)</li>
@@ -903,8 +905,9 @@ select current_setting('test.test.test.one',true);
 </li>
 </ul>
 <p>You can easily increase capabilities by simply choosing a more powerful desktop (such as the <a href="https://system76.com/desktops/thelio">System76 Thelio</a>) where you can achieve 32 cores per host ($2K USD) and add a 16GB GPU ($800 USD more) for AI loads. This would give you an AI capable cluster for about $9K USD.</p>
+<p>We reference system76 as a hardware provider because of their long and continuous support of the <a href="./tool-linux.html#popos-shell">PopOS operating system and the Linux community</a>.</p>
 <h3 id="medium-cluster-rack"><a class="header" href="#medium-cluster-rack">Medium Cluster Rack</a></h3>
-<p>The purpose of this section is to record thoughts and examples related to hardware for a medium rack-mount cluster. You can creqate a powerful new 3-host rack-mount cluster for about $15K USD. Here is an example server at the time of writing:</p>
+<p>The purpose of this section is to record thoughts and examples related to hardware for a medium rack-mount cluster. You can create a powerful new 3-host rack-mount cluster for about $15K USD. Here is an example server at the time of writing:</p>
 <ul>
 <li>SuperMicro,  a cheap enough option but still reasonably balanced may look like:
 <ul>
@@ -916,7 +919,7 @@ select current_setting('test.test.test.one',true);
 </ul>
 </li>
 </ul>
-<p>This configuration represents a significant increase in CPU core count, memory and storage. It also represents a form factor that can be placed in almost any data center (local or cloud).</p>
+<p>This configuration represents a significant increase in CPU core count, memory and storage over the desktop cluster described above. It also represents a form factor that can be placed in almost any data center (local or cloud).</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="linux"><a class="header" href="#linux">Linux</a></h1>
 <p><a href="https://en.wikipedia.org/wiki/Linux">Linux</a> is a well understood and documented operation system. Its benefits are equally as well documented; therefore, we do not need to attempt to repeat them here. However, it is important to discuss why we love Linux for the chuck-stack.</p>
 <h2 id="why-we-love-linux"><a class="header" href="#why-we-love-linux">Why We Love Linux</a></h2>
