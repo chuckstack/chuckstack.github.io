@@ -57,12 +57,13 @@ We believe we can create the following abbreviations without sacrificing underst
 - business partner => bp
 - document => doc
 - document number => docno
-- docuemnt type => doctype
+- document type => doctype
 - identifier => id
 - index => idx
 - foreign key => fk
 - link => lnk
 - location => loc
+- primary key => pk
 - sales representative => salesrep
 - stack => stk
 - transaction => trx
