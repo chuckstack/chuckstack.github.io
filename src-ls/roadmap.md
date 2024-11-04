@@ -9,12 +9,11 @@ It is important to understand that the chuck-stack is not a typical software pro
 
 ## Upcoming Milestones
 
+- create first implementation of attribute tagging
+- update pg_workflow (first attempt) to use attribute tagging
 - determine role strategy to allow nix-shell to deliver role tools for a given user (map between user and role)
 - add working instructions to both full context and rag to determine most effective
 - create core tenant and entity, using work instructions, add update work instructions accordingly
-- implement workflow (expand this list with each workflow item)
-- implement attribute tagging 
-  - repeat context/rag development + update work instructions iteratively
 
 ## Completed Milestone
 
