@@ -18,6 +18,18 @@ It is important to understand that the chuck-stack is not a typical software pro
 
 ## Completed Milestone
 
+Week of 2024-11-08
+
+- ...
+
+Week of 2024-11-01
+
+- Updated tools-incus to include better hardware getting started and budget
+- deployed first production stack to collect www.chuck-stack.org form submissions based on the stk_todo app
+- updated NixOS + stk_todo => nix-shell to run sqlx migrations as local db superuser (not postgres superuser)
+- created first version of stk_change_log - respresents first event
+
+
 Week of 2024-10-25
 
 - create nginx-fail2ban as first layer of protection against ssh, http and https
