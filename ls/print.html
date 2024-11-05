@@ -1608,9 +1608,9 @@ select current_setting('test.test.test.one',true);
 <p>We believe we can create the following abbreviations without sacrificing understanding. The following words are expected to be abbreviated when creating database objects unless the abbreviation creates confusion in specific circumstances.</p>
 <ul>
 <li>business partner =&gt; bp</li>
+<li>configuration =&gt; config</li>
 <li>document =&gt; doc</li>
 <li>document number =&gt; docno</li>
-<li>document type =&gt; doctype</li>
 <li>identifier =&gt; id</li>
 <li>index =&gt; idx</li>
 <li>foreign key =&gt; fk</li>
@@ -1619,6 +1619,7 @@ select current_setting('test.test.test.one',true);
 <li>primary key =&gt; pk</li>
 <li>sales representative =&gt; salesrep</li>
 <li>stack =&gt; stk</li>
+<li>statistic =&gt; stat</li>
 <li>transaction =&gt; trx</li>
 <li>translation =&gt; trl</li>
 <li>universal_unique identifier =&gt; uu</li>
@@ -1633,7 +1634,6 @@ select current_setting('test.test.test.one',true);
 <li>All tables have a 'single' primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. Said another way, if you know the table_name and the record_uu of any given record, you can always find the details associated with that record. This convention also allows us to create many features that are shared across all records in all tables. These features include centralized logs, attachments, and attributes.</li>
 </ul>
 </li>
-<li><code>table_name</code> reference - any column that references a table should use the column name <code>table_name</code>.</li>
 <li><code>stk_</code> prefx - all core chuck-stack tables will begin with <code>stk_</code>. Example: <code>stk_bp</code>.
 <ul>
 <li>Your organization should chose a table prefix that resembles your organization's name if you wish to add new tables or new columns. Example: the Good-Care Medical organization could have a prefix of <code>gcm_</code>.</li>
@@ -1659,9 +1659,9 @@ select current_setting('test.test.test.one',true);
 <li><code>stk_tenant_uu</code> - foreign key reference to the tenant that owns the record</li>
 <li><code>stk_entity_uu</code> - financial set of books that owns the record</li>
 <li><code>created</code> - timestamptz indicating when the record was created.</li>
-<li><code>stk_created_by_uu</code> - uuid foreign key reference to the database user/role that created the record.</li>
+<li><code>created_by_uu</code> - uuid foreign key reference to the database user/role that created the record.</li>
 <li><code>updated</code> - timestamptz indicating when the record was last updated.</li>
-<li><code>stk_updated_by_uu</code> - uuid foreign key reference to the database user/role that last updated the record.</li>
+<li><code>updated_by_uu</code> - uuid foreign key reference to the database user/role that last updated the record.</li>
 <li><code>stk_session_uu</code> - must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.</li>
 </ul>
 <p>Notes:</p>
@@ -1676,23 +1676,27 @@ select current_setting('test.test.test.one',true);
 <li><code>search_key</code> - user defined text. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.</li>
 <li><code>value</code> - text that is often used along with a <code>search_key</code> in a key-value pair.</li>
 <li><code>docno</code> - user defined text. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor --></li>
-<li><code>stk_doctype_uu</code> - describes the type of document.</li>
+<li><code>stk_doc_type_uu</code> - describes the type of document.</li>
 <li><code>is_default</code> - boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.</li>
 <li><code>is_processed</code> - boolean that indicates of a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column.</li>
 <li><code>is_summary</code> - boolean that indicates if a record is intended to be a parent to other records in the same table.</li>
 <li><code>is_template</code> - boolean that indicates if a record exists for the purpose of cloning to create new records.</li>
 <li><code>is_valid</code> - boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow --></li>
-<li><code>trx_type</code> - enum listing the type of transaction. Used by <code>stk_doctype</code> table.</li>
+<li><code>trx_type</code> - enum listing the type of transaction. Used by <code>stk_doc_type</code> table.</li>
 <li><code>batch_id</code> - text indicating this record was processed as part of a batch operation. A single record couple participate in multiple batches. if so, use the noun_adjective approach (example: batch_import_id).</li>
+<li><code>table_name</code> - text referencing the name of a table.</li>
+<li><code>column_name</code> - text referencing the name of a column.</li>
+<li><code>record_uu</code> - uuid referencing a primary key value of a table.</li>
 </ul>
-<h2 id="references-to-records"><a class="header" href="#references-to-records">References to Records</a></h2>
+<h2 id="code-references-to-records"><a class="header" href="#code-references-to-records">Code References to Records</a></h2>
 <p>No <code>_uu</code> should ever be referred to in code. If this situation is needed, use the System Configurator or enum conventions below.</p>
 <h2 id="enum-conventions"><a class="header" href="#enum-conventions">enum Conventions</a></h2>
 <p>Per the References to Records section... If you need switch/case/if-else based on the contents of a chosen record, build your switch from an enum. This ensures no <code>_uu</code> references enter code.</p>
-<p>An example of using an enum includes the <code>stk_doctype</code> table. A Sales Order would include a <code>stk_doctype_uu</code> reference and the <code>stk_doctype</code> table would include an enum. If you need to add business logic to a Sales Order, your code would switch off of the <code>stk_doctype</code>'s enum and not the <code>stk_doctype_uu</code> itself.</p>
-<p>No table used in normal transactional operations should include an enum. Instead, enums should exist in tables that hold settings, configuration, types, etc... In the Sales Order =&gt; <code>stk_doctype</code> example, the <code>stk_doctype</code> table is an example of table that holds settings and configuration. The reason for this convention is to allow for multiple <code>stck_doctype</code> records to contain the same enum value and therefore simply code and maximize user configurability.</p>
+<p>An example of using an enum includes the <code>stk_doc_type</code> table. A Sales Order would include a <code>stk_doc_type_uu</code> reference and the <code>stk_doc_type</code> table would include an enum. If you need to add business logic to a Sales Order, your code would switch off of the <code>stk_doc_type</code>'s enum and not the <code>stk_doc_type_uu</code> itself.</p>
+<p>No table used in normal transactional operations should include an enum. Instead, enums should exist in tables that hold settings, configuration, types, etc... In the Sales Order =&gt; <code>stk_doc_type</code> example, the <code>stk_doc_type</code> table is an example of table that holds settings and configuration. The reason for this convention is to allow for multiple <code>stk_doc_type</code> records to contain the same enum value and therefore simply code and maximize user configurability.</p>
+<p>An enum is typically named the same as the table with no <code>stk_</code> prefix and no <code>_uu</code> suffix. For example, the <code>stk_doc_type</code> table has an enum column named <code>doc_type</code>.</p>
 <h2 id="system-configurator-convention"><a class="header" href="#system-configurator-convention">System Configurator Convention</a></h2>
-<p>Per the References to Records section... chuck-stack table <code>stk_sys_config</code> containing a collection of <code>search_key</code> and <code>value</code> pairs that describe how the system operates. If code needs to reference a record, one option is to create an entry in the <code>stk_sys_config</code> table and refer to its <code>search_key</code> in code to resolve the <code>_uu</code> value from the record's <code>value</code> column.</p>
+<p>Per the References to Records section... chuck-stack table <code>stk_system_config</code> containing a collection of <code>search_key</code> and <code>value</code> pairs that describe how the system operates. If code needs to reference a record, one option is to create an entry in the <code>stk_system_config</code> table and refer to its <code>search_key</code> in code to resolve the <code>_uu</code> value from the record's <code>value</code> column.</p>
 <p>This approach allows for easy chuck-stack user and migration script manipulation of behavior without manipulating code.</p>
 <p>Additional columns are optional and limit the scope a system configurator record:</p>
 <ul>
@@ -1718,24 +1722,25 @@ select current_setting('test.test.test.one',true);
 <li>concept of function =&gt; create_from vs create_into -- attempt to support both when possible <!-- TODO: better define these terms --></li>
 </ul>
 <h2 id="sample-table"><a class="header" href="#sample-table">Sample Table</a></h2>
-<pre><code class="language-sql">CREATE TABLE stk_some_table (
+<pre><code class="language-sql">CREATE TABLE private.stk_some_table (
   stk_some_table_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
-  stk_created_by_uu uuid NOT NULL,
+  --created_by_uu uuid NOT NULL,
+  --CONSTRAINT fk_some_table_createdby FOREIGN KEY (created_by_uu) REFERENCES stk_user(stk_user_uu),
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
-  stk_updated_by_uu uuid NOT NULL,
-  search_key TEXT NOT NULL,
+  --updated_by_uu uuid NOT NULL,
+  --CONSTRAINT fk_some_table_updatedby FOREIGN KEY (updated_by_uu) REFERENCES stk_user(stk_user_uu)
+  search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
   value TEXT NOT NULL,
   name TEXT NOT NULL,
   description TEXT,
-  is_default BOOLEAN DEFAULT false,
-  is_processed BOOLEAN DEFAULT false,
-  is_active BOOLEAN DEFAULT true,
-  CONSTRAINT fk_some_table_created_by FOREIGN KEY (stk_created_by_uu) REFERENCES stk_user(stk_user_uu),
-  CONSTRAINT fk_some_table_updated_by FOREIGN KEY (stk_updated_by_uu) REFERENCES stk_user(stk_user_uu)
+  is_default BOOLEAN NOT NULL DEFAULT false,
+  is_processed BOOLEAN NOT NULL DEFAULT false,
+  is_active BOOLEAN NOT NULL DEFAULT true
 );
-COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
+COMMENT ON TABLE private.stk_some_table IS 'Table that contains some data';
 </code></pre>
+<p>Note: the above created_by_uu and updated_by_uu will be uncommented when the stk_user_uu table is added to the stack.</p>
 <h2 id="template-table"><a class="header" href="#template-table">Template Table</a></h2>
 <p>The <code>stk_table_template</code> table holds the example or base template for creating new tables. Organizations can change the definition of this table as they deem appropriate.</p>
 <ul>
