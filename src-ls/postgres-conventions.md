@@ -55,6 +55,7 @@ Note that PostgreSQL scopes the namespace for tables, view and functions at the 
 We believe we can create the following abbreviations without sacrificing understanding. The following words are expected to be abbreviated when creating database objects unless the abbreviation creates confusion in specific circumstances.
 
 - business partner => bp
+- configuration => config
 - document => doc
 - document number => docno
 - identifier => id
@@ -129,7 +130,7 @@ Notes:
 - `column_name` - text referencing the name of a column.
 - `record_uu` - uuid referencing a primary key value of a table.
 
-## References to Records
+## Code References to Records
 
 No `_uu` should ever be referred to in code. If this situation is needed, use the System Configurator or enum conventions below.
 
@@ -145,7 +146,7 @@ An enum is typically named the same as the table with no `stk_` prefix and no `_
 
 ## System Configurator Convention
 
-Per the References to Records section... chuck-stack table `stk_sys_config` containing a collection of `search_key` and `value` pairs that describe how the system operates. If code needs to reference a record, one option is to create an entry in the `stk_sys_config` table and refer to its `search_key` in code to resolve the `_uu` value from the record's `value` column.
+Per the References to Records section... chuck-stack table `stk_system_config` containing a collection of `search_key` and `value` pairs that describe how the system operates. If code needs to reference a record, one option is to create an entry in the `stk_system_config` table and refer to its `search_key` in code to resolve the `_uu` value from the record's `value` column.
 
 This approach allows for easy chuck-stack user and migration script manipulation of behavior without manipulating code.
 
