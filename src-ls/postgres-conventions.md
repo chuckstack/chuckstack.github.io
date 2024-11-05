@@ -57,7 +57,6 @@ We believe we can create the following abbreviations without sacrificing underst
 - business partner => bp
 - document => doc
 - document number => docno
-- document type => doctype
 - identifier => id
 - index => idx
 - foreign key => fk
@@ -66,6 +65,7 @@ We believe we can create the following abbreviations without sacrificing underst
 - primary key => pk
 - sales representative => salesrep
 - stack => stk
+- statistic => stat
 - transaction => trx
 - translation => trl
 - universal_unique identifier => uu
@@ -78,7 +78,6 @@ This section discuss how we create tables in the private schema.
 - uuid single primary key 
   - All tables use a uuid column as the primary key. The purpose of this decision is to make creating very large (and often replicated) systems easier to manage. Doing so also allows for clients to define their own uuid values and removes a potential centralized process.
   - All tables have a 'single' primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. Said another way, if you know the table_name and the record_uu of any given record, you can always find the details associated with that record. This convention also allows us to create many features that are shared across all records in all tables. These features include centralized logs, attachments, and attributes.
-- `table_name` reference - any column that references a table should use the column name `table_name`.
 - `stk_` prefx - all core chuck-stack tables will begin with `stk_`. Example: `stk_bp`.
   - Your organization should chose a table prefix that resembles your organization's name if you wish to add new tables or new columns. Example: the Good-Care Medical organization could have a prefix of `gcm_`.
 - `_lnk` link table suffix - link tables should have a table name suffix of `_lnk`.
@@ -102,9 +101,9 @@ This sections lists the mandatory and optional columns found in chuck-stack tabl
 - `stk_tenant_uu` - foreign key reference to the tenant that owns the record
 - `stk_entity_uu` - financial set of books that owns the record
 - `created` - timestamptz indicating when the record was created.
-- `stk_created_by_uu` - uuid foreign key reference to the database user/role that created the record.
+- `created_by_uu` - uuid foreign key reference to the database user/role that created the record.
 - `updated` - timestamptz indicating when the record was last updated.
-- `stk_updated_by_uu` - uuid foreign key reference to the database user/role that last updated the record.
+- `updated_by_uu` - uuid foreign key reference to the database user/role that last updated the record.
 - `stk_session_uu` - must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.
 
 Notes:
@@ -118,14 +117,17 @@ Notes:
 - `search_key` - user defined text. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.
 - `value` - text that is often used along with a `search_key` in a key-value pair.
 - `docno` - user defined text. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor -->
-- `stk_doctype_uu` - describes the type of document.
+- `stk_doc_type_uu` - describes the type of document.
 - `is_default` - boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.
 - `is_processed` - boolean that indicates of a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column. 
 - `is_summary` - boolean that indicates if a record is intended to be a parent to other records in the same table.
 - `is_template` - boolean that indicates if a record exists for the purpose of cloning to create new records.
 - `is_valid` - boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow -->
-- `trx_type` - enum listing the type of transaction. Used by `stk_doctype` table.
+- `trx_type` - enum listing the type of transaction. Used by `stk_doc_type` table.
 - `batch_id` - text indicating this record was processed as part of a batch operation. A single record couple participate in multiple batches. if so, use the noun_adjective approach (example: batch_import_id).
+- `table_name` - text referencing the name of a table.
+- `column_name` - text referencing the name of a column.
+- `record_uu` - uuid referencing a primary key value of a table.
 
 ## References to Records
 
@@ -135,9 +137,11 @@ No `_uu` should ever be referred to in code. If this situation is needed, use th
 
 Per the References to Records section... If you need switch/case/if-else based on the contents of a chosen record, build your switch from an enum. This ensures no `_uu` references enter code.
 
-An example of using an enum includes the `stk_doctype` table. A Sales Order would include a `stk_doctype_uu` reference and the `stk_doctype` table would include an enum. If you need to add business logic to a Sales Order, your code would switch off of the `stk_doctype`'s enum and not the `stk_doctype_uu` itself.
+An example of using an enum includes the `stk_doc_type` table. A Sales Order would include a `stk_doc_type_uu` reference and the `stk_doc_type` table would include an enum. If you need to add business logic to a Sales Order, your code would switch off of the `stk_doc_type`'s enum and not the `stk_doc_type_uu` itself.
 
-No table used in normal transactional operations should include an enum. Instead, enums should exist in tables that hold settings, configuration, types, etc... In the Sales Order => `stk_doctype` example, the `stk_doctype` table is an example of table that holds settings and configuration. The reason for this convention is to allow for multiple `stck_doctype` records to contain the same enum value and therefore simply code and maximize user configurability.
+No table used in normal transactional operations should include an enum. Instead, enums should exist in tables that hold settings, configuration, types, etc... In the Sales Order => `stk_doc_type` example, the `stk_doc_type` table is an example of table that holds settings and configuration. The reason for this convention is to allow for multiple `stk_doc_type` records to contain the same enum value and therefore simply code and maximize user configurability.
+
+An enum is typically named the same as the table with no `stk_` prefix and no `_uu` suffix. For example, the `stk_doc_type` table has an enum column named `doc_type`.
 
 ## System Configurator Convention
 
@@ -176,24 +180,26 @@ It is worth noting that an unexpected database shutdown (error state) will empty
 ## Sample Table
 
 ```sql
-CREATE TABLE stk_some_table (
+CREATE TABLE private.stk_some_table (
   stk_some_table_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
-  stk_created_by_uu uuid NOT NULL,
+  --created_by_uu uuid NOT NULL,
+  --CONSTRAINT fk_some_table_createdby FOREIGN KEY (created_by_uu) REFERENCES stk_user(stk_user_uu),
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
-  stk_updated_by_uu uuid NOT NULL,
-  search_key TEXT NOT NULL,
+  --updated_by_uu uuid NOT NULL,
+  --CONSTRAINT fk_some_table_updatedby FOREIGN KEY (updated_by_uu) REFERENCES stk_user(stk_user_uu)
+  search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
   value TEXT NOT NULL,
   name TEXT NOT NULL,
   description TEXT,
-  is_default BOOLEAN DEFAULT false,
-  is_processed BOOLEAN DEFAULT false,
-  is_active BOOLEAN DEFAULT true,
-  CONSTRAINT fk_some_table_created_by FOREIGN KEY (stk_created_by_uu) REFERENCES stk_user(stk_user_uu),
-  CONSTRAINT fk_some_table_updated_by FOREIGN KEY (stk_updated_by_uu) REFERENCES stk_user(stk_user_uu)
+  is_default BOOLEAN NOT NULL DEFAULT false,
+  is_processed BOOLEAN NOT NULL DEFAULT false,
+  is_active BOOLEAN NOT NULL DEFAULT true
 );
-COMMENT ON TABLE stk_some_table IS 'Table that contains some data';
+COMMENT ON TABLE private.stk_some_table IS 'Table that contains some data';
 ```
+
+Note: the above created_by_uu and updated_by_uu will be uncommented when the stk_user_uu table is added to the stack.
 
 ## Template Table
 
