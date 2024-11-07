@@ -177,7 +177,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="postgresql-conventions"><a class="header" href="#postgresql-conventions">PostgreSQL Conventions</a></h1>
+                        <h1 id="postgresql-convention"><a class="header" href="#postgresql-convention">PostgreSQL Convention</a></h1>
 <p>The purpose of this page is to describe the concepts and methodologies for creating chuck-stack PostgreSQL designs. Consistent use of conventions create clarity. Here are the values that drive our conventions:</p>
 <!-- TODO: these bullets need improvement -->
 <ul>
@@ -232,21 +232,20 @@
 <li>primary key =&gt; pk</li>
 <li>sales representative =&gt; salesrep</li>
 <li>stack =&gt; stk</li>
-<li>statistic =&gt; stat</li>
 <li>transaction =&gt; trx</li>
-<li>translation =&gt; trl</li>
 <li>universal_unique identifier =&gt; uu</li>
 <li>workflow =&gt; wf</li>
 </ul>
-<h2 id="table-conventions"><a class="header" href="#table-conventions">Table Conventions</a></h2>
+<h2 id="table-convention"><a class="header" href="#table-convention">Table Convention</a></h2>
 <p>This section discuss how we create tables in the private schema.</p>
 <ul>
 <li>uuid single primary key
 <ul>
 <li>All tables use a uuid column as the primary key. The purpose of this decision is to make creating very large (and often replicated) systems easier to manage. Doing so also allows for clients to define their own uuid values and removes a potential centralized process.</li>
-<li>All tables have a 'single' primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. Said another way, if you know the table_name and the record_uu of any given record, you can always find the details associated with that record. This convention also allows us to create many features that are shared across all records in all tables. These features include centralized logs, attachments, and attributes.</li>
+<li>All tables have a 'single' primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. See the below <a href="#table-and-record">Table and Record Reference</a> section for more information.</li>
 </ul>
 </li>
+<li>Noun first table names - when naming tables the noun comes first and the adjective comes next. Example: stk_order_line and stk_order_tax where order is the noun and line and tax are the adjectives. The benefit of this approach is that like tables appear next to each other alphabetically.</li>
 <li><code>stk_</code> prefx - all core chuck-stack tables will begin with <code>stk_</code>. Example: <code>stk_bp</code>.
 <ul>
 <li>Your organization should chose a table prefix that resembles your organization's name if you wish to add new tables or new columns. Example: the Good-Care Medical organization could have a prefix of <code>gcm_</code>.</li>
@@ -255,14 +254,14 @@
 <li><code>_lnk</code> link table suffix - link tables should have a table name suffix of <code>_lnk</code>.</li>
 <li><code>_trl</code> translation suffix - translations are maintained in separate table mirroring the text fields of the table it is translated from. For example, the <code>stk_bp</code> table might have a table named <code>stk_bp_trl</code> that will have one record per business partner per active language.</li>
 </ul>
-<h2 id="column-conventions"><a class="header" href="#column-conventions">Column Conventions</a></h2>
+<h2 id="column-convention"><a class="header" href="#column-convention">Column Convention</a></h2>
 <ul>
 <li>primary key <code>_uu</code> suffix - All tables have a single primary key per the above discussion.</li>
 <li>foreign keys <code>_uu</code> suffix - example <code>stk_some_other_table_uu</code>. There are times when this convention is not possible due to multiple references to the same table. When a duplicate is needed, add an adjective before the <code>_uu</code> suffix. Examples: <code>stk_bp_ship_to_uu</code> and <code>stk_bp_bill_to_uu</code>.</li>
 <li>noun first column name - when naming columns the noun comes first and the adjective comes next. Example: stk_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically.</li>
 <li>text column - use columns of type text (instead of varchar with unspecified length). Only choose a varchar with a specific length when there is a compelling reason to do so. Even then try not to...</li>
 <li>boolean column - boolean values must have a default value defined at the table level.</li>
-<li><code>column_name</code> reference - any column that references a column should use the column name as <code>column_name</code>.</li>
+<li>unique index - when creating unique index constraints, name the constraint using the table_name_column_name_uidx where <code>_uidx</code> represents the term unique index.</li>
 </ul>
 <h2 id="standard-columns"><a class="header" href="#standard-columns">Standard Columns</a></h2>
 <p>This sections lists the mandatory and optional columns found in chuck-stack tables. Notice that coding and naming by convention plays a role in primary key name and foreign key relationships. As you will see below, you know the primary key column name as a function of the table name. You know the foreign key table name as a function of the foreign key column name when the convention allows.</p>
@@ -301,36 +300,31 @@
 <li><code>column_name</code> - text referencing the name of a column.</li>
 <li><code>record_uu</code> - uuid referencing a primary key value of a table.</li>
 </ul>
-<h2 id="code-references-to-records"><a class="header" href="#code-references-to-records">Code References to Records</a></h2>
-<p>No <code>_uu</code> should ever be referred to in code. If this situation is needed, use the System Configurator or enum conventions below.</p>
-<h2 id="enum-conventions"><a class="header" href="#enum-conventions">enum Conventions</a></h2>
-<p>Per the References to Records section... If you need switch/case/if-else based on the contents of a chosen record, build your switch from an enum. This ensures no <code>_uu</code> references enter code.</p>
-<p>An example of using an enum includes the <code>stk_doc_type</code> table. A Sales Order would include a <code>stk_doc_type_uu</code> reference and the <code>stk_doc_type</code> table would include an enum. If you need to add business logic to a Sales Order, your code would switch off of the <code>stk_doc_type</code>'s enum and not the <code>stk_doc_type_uu</code> itself.</p>
-<p>No table used in normal transactional operations should include an enum. Instead, enums should exist in tables that hold settings, configuration, types, etc... In the Sales Order =&gt; <code>stk_doc_type</code> example, the <code>stk_doc_type</code> table is an example of table that holds settings and configuration. The reason for this convention is to allow for multiple <code>stk_doc_type</code> records to contain the same enum value and therefore simply code and maximize user configurability.</p>
+<h2 id="table-and-record-convention"><a class="header" href="#table-and-record-convention">Table and Record Convention</a></h2>
+<p>The purpose of this section is to describe a way to universally describe how to find data in the database based on a table_name and a record_uu.</p>
+<p>All tables have a 'single' primary key (even if it is a link table). The purpose of this decision is to enable the concept of table_name + record_uu unique record identification. Said another way, if you know the table_name and the record_uu of any given record, you can always find the details associated with that record.</p>
+<p>This convention also allows us to create many features that are shared across all records in all tables. These features include centralized logs, attachments, statistics and attributes.</p>
+<h2 id="enum-convention"><a class="header" href="#enum-convention">enum Convention</a></h2>
+<p>The chuck-stack makes heavy use of enums to minimize the amount of code and reduce the code's dependencies on transaction data.</p>
+<p>No <code>_uu</code> record should ever be referred to in code. Instead, create a record with a enum column representing how the code should behave and switch/case/if-else based on the value of the enum.</p>
+<h2 id="type-convention"><a class="header" href="#type-convention">Type Convention</a></h2>
+<p>The purpose of this section is to describe a way to ensure no transactional table directly contains an enum.</p>
+<p>The proper convention to reference an enum is to create a table with a <code>_type</code> suffix that contains the enum. Transactional tables then reference the <code>_type_uu</code> record. The purpose of this convention is to allow users to create multiple <code>type</code> records without requiring any changes to code.</p>
+<p>An example of this convention includes the <code>stk_doc_type</code> table where users can create as many document types as is needed, and the code needs only worry about the type's enum value.</p>
 <p>An enum is typically named the same as the table with no <code>stk_</code> prefix and no <code>_uu</code> suffix. For example, the <code>stk_doc_type</code> table has an enum column named <code>doc_type</code>.</p>
-<h2 id="system-configurator-convention"><a class="header" href="#system-configurator-convention">System Configurator Convention</a></h2>
-<p>Per the References to Records section... chuck-stack table <code>stk_system_config</code> containing a collection of <code>search_key</code> and <code>value</code> pairs that describe how the system operates. If code needs to reference a record, one option is to create an entry in the <code>stk_system_config</code> table and refer to its <code>search_key</code> in code to resolve the <code>_uu</code> value from the record's <code>value</code> column.</p>
-<p>This approach allows for easy chuck-stack user and migration script manipulation of behavior without manipulating code.</p>
-<p>Additional columns are optional and limit the scope a system configurator record:</p>
-<ul>
-<li><code>stk_tenant_uu</code></li>
-<li><code>stk_entity_uu</code></li>
-<li><code>stk_role_uu</code></li>
-<li><code>stk_user_uu</code></li>
-</ul>
-<p>System configurator records created for reference in code should use all caps case in the <code>search_key</code> column so that it resembles the common convention of a constant.</p>
-<h2 id="dedicated-unlogged-statistics-tables"><a class="header" href="#dedicated-unlogged-statistics-tables">Dedicated Unlogged Statistics Tables</a></h2>
-<p>Adding statistical columns/data to transactional tables causes performance and stability issues. Instead, all statistics should be maintained in dedicated tables. Here are the reasons to keep statistics out of transactional tables:</p>
-<ul>
-<li>You can create circular loops/locking. For example: an Order is trying to update an Order Line which in turn is trying to update an Order total.</li>
-<li>You create excessive change logs. For example: if every Payment updates every Business Partner's last payment field, the Business Partner change log will grow 10x to 100x faster than it should.</li>
-<li>Consider making statistics tables 'unlogged' to prevent unneeded WAL activity. Statistics can always be derived after the fact. Said another way, Statistics represent denormalized data.</li>
-<li>There exist multiple strategies for most efficiently calculating statistics. Some strategies involve using logical replicas to calculate the statistical data and making the results available to the production database via a FDW (foreign data wrapper).</li>
-</ul>
-<p>As a practice, statistics tables should bear the name of the table it describes with an <code>_stat</code> suffix. For example, a statistics table for <code>stk_bp</code> would be <code>stk_bp_stat</code>. A new column will be added for every new statistic needed.</p>
-<p>Recent versions of PostgreSQL introduced the <code>upsert</code> option to easily find and update an existing record or insert a new record in a single command. A unique index on the foreign key pointing to its namesake table prevents duplicate records.</p>
-<p>It is worth noting that an unexpected database shutdown (error state) will empty the contents of unlogged tables. These records will need to be rebuilt after the issue is resolved and the database is restarted.</p>
-<h2 id="function-conventions"><a class="header" href="#function-conventions">Function Conventions</a></h2>
+<h2 id="system-configuration-convention"><a class="header" href="#system-configuration-convention">System Configuration Convention</a></h2>
+<p>The purpose of this section is to describe a way to save and reference configuration settings without referencing a record's <code>_uu</code> directly from code.</p>
+<p>The <code>stk_system_config</code> table contains a collection of <code>search_key</code> and json <code>configuration</code> pairs that describe how the system operates.</p>
+<p>If code needs to reference a setting or configuration, it finds an entry in the <code>stk_system_config</code> table. Code can look up system configuration records based on the configuration's <code>search_key</code>.</p>
+<p>System configurator records store <code>search_key</code> values is all caps so that it resembles the common convention of a constant.</p>
+<h2 id="statistics-convention"><a class="header" href="#statistics-convention">Statistics Convention</a></h2>
+<p>The <code>stk_statistic</code> table holds statistical details about a record. The goal of this table is to remove denormalized data/columns from transactional tables. By doing so, we improve performance, reduce locking potential and reduce change log activity for data that is derived from other normalized data.</p>
+<p>You use the <a href="#table-and-record">Table and Record Reference</a> approach to associate a statistic to any given record.</p>
+<p>Recent versions of PostgreSQL introduced the <code>upsert</code> option to easily find and update an existing record or insert a new statistic in a single command. A unique index on the foreign key pointing to its namesake table prevents duplicate records.</p>
+<h2 id="translation-convention"><a class="header" href="#translation-convention">Translation Convention</a></h2>
+<p>The purpose of this section is to describe how chuck-stack manages translations to other languages.</p>
+<p>The <code>stk_translation</code> table contains translations to a language other than the system's default language. You use an approach similar to <a href="#table-and-record">Table and Record Reference</a> with the addition of the <code>column_name</code> column to provide an alternate language value for any column of type <code>text</code>.</p>
+<h2 id="function-convention"><a class="header" href="#function-convention">Function Convention</a></h2>
 <ul>
 <li>concept of function =&gt; create_from vs create_into -- attempt to support both when possible <!-- TODO: better define these terms --></li>
 </ul>
@@ -354,18 +348,6 @@
 COMMENT ON TABLE private.stk_some_table IS 'Table that contains some data';
 </code></pre>
 <p>Note: the above created_by_uu and updated_by_uu will be uncommented when the stk_user_uu table is added to the stack.</p>
-<h2 id="template-table"><a class="header" href="#template-table">Template Table</a></h2>
-<p>The <code>stk_table_template</code> table holds the example or base template for creating new tables. Organizations can change the definition of this table as they deem appropriate.</p>
-<ul>
-<li>No records should be created in these template tables.</li>
-<li>You can create additional templates by simply adding a suffix. For example:
-<ul>
-<li><code>stk_table_template_trx</code> for creating transaction tables.</li>
-<li><code>stk_table_template_trl</code> for creating translation tables.</li>
-</ul>
-</li>
-<li>If you ask for a new table it will create the table in the image of the requested template and it will revert to the <code>stk_table_template</code> table if no template is specified.</li>
-</ul>
 <h2 id="scalability-considerations"><a class="header" href="#scalability-considerations">Scalability Considerations</a></h2>
 <p>We consider the following topics when scaling PostgreSQL from just a couple of users through thousands of users.</p>
 <ul>
