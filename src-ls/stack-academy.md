@@ -1,6 +1,6 @@
 # stack-academy
 
-To join the stack-academy, [click here](https://buy.stripe.com/7sIbLIeeU3oT4IEfYY). Not ready to join... We can always [stay connected](../learn-more.html) to learn more.
+To join the stack-academy, [click here](https://buy.stripe.com/fZebLI7Qw2kPfnifYZ). Not ready to join... We can always [stay connected](../learn-more.html) to learn more.
 
 **Most important thing** to know about the stack-academy: we meet in a live open discussion 4 times per week. You can bring any question about the chuck-stack and ERP you wish to discuss. 
 
@@ -23,5 +23,5 @@ Here are the most common questions:
 - What is the minimum purchase? The stack-academy is a monthly subscription. The minimum purchase is one month. You may join and cancel as many times as is needed to accomplish your goals.
 - Are there special pricing considerations for individuals (students or aspiring integrators)? Yes. Complete this form for consideration.
 
-We look forward to working wth your organization! [Join Now](https://buy.stripe.com/7sIbLIeeU3oT4IEfYY)
+We look forward to working wth your organization! [Join Now](https://buy.stripe.com/fZebLI7Qw2kPfnifYZ)
 
