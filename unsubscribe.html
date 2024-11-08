@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>chuck-stack.org - minimal tech stack for small to medium organizations</title>
+    <meta name="description" content="helping organizations increase velocity/efficiency, deploy ai-enabled self-service tools, build a community of support." />
+
+    <!-- Pico.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.0.6/css/pico.min.css"
+    />
+    <script src="js/htmx.min.js"></script>
+    
+    <!-- used to submit form via json -->
+    <script>
+      htmx.defineExtension('submitjson', {
+        onEvent: function (name, evt) {
+          if (name === "htmx:configRequest") {
+            evt.detail.headers['Content-Type'] = "application/json"
+          }
+        },
+        encodeParameters: function(xhr, parameters, elt) {
+          xhr.overrideMimeType('text/json') // override default mime type
+          const body = { // set your request body
+            parameters
+          }
+          return (JSON.stringify(body))
+        }
+      })
+    </script>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="container">
+      <hgroup>
+        <h1><a href="/" class="contrast" >chuck-stack.org</a></h1> <!-- &#8962; - home icon -->
+        <p>build velocity and efficiency - not infrastructure</p>
+      </hgroup>
+      <div id="navigation-placeholder"></div>
+    </header>
+    <!-- ./ Header -->
+
+    <!-- Main -->
+    <main class="container">
+
+      <!-- Form -->
+      <section id="stay-in-touch">
+        <h2>Unsubscribe</h2>
+        <p>If you wish to no longer receive emails, add your email address below: </p>
+        <form id="stayInTouchForm" hx-post="https://form.chuck-stack.org/rpc/stk_form_post_fn" hx-ext="submitjson" hx-trigger="submit" hx-target="#form-response" hx-indicator="#loading" hx-swap="outerHTML" hx-on="htmx:afterRequest: this.reset()">
+          <input type="hidden" name="source_page" value="unsubscribe">
+          <input type="hidden" name="action" value="learn-remove">
+          <div class="grid">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email address"
+              aria-label="Email address"
+              autocomplete="email"
+              required
+            />
+            <button type="submit">Remove</button>
+          </div>
+        </form>
+        <div id="form-response"></div>
+        <div id="loading" class="htmx-indicator">Loading...</div>
+        <p> For stack-academy priority support and training <a href="https://buy.stripe.com/fZebLI7Qw2kPfnifYZ">Join Now</a>. To learn more about the stack-academy, view the <a href="./ls/stack-academy.html">stack-academy</a> page.</p>
+      </section>
+      <!-- /Form -->
+
+
+    </main>
+    <!-- /Main -->
+
+	<!-- Footer -->
+	<footer class="container">
+      <!-- Theme Picker -->
+      <nav>
+        <ul>
+          <li>
+            <details class="dropdown">
+              <summary role="button" class="secondary">Theme</summary>
+              <ul>
+                <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                <li><a href="#" data-theme-switcher="light">Light</a></li>
+                <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </nav>
+      <!-- /Theme Picker -->
+	  <!-- copyright/ -->
+	  <small id="copyright"></small>
+	</footer>
+	<!-- /Footer -->
+
+    <!-- DRY components/ -->
+    <script src="js/load-common-elements.js"></script>
+	
+    <!-- Minimal theme switcher/ -->
+    <script src="js/minimal-theme-switcher.js"></script>
+
+    <!-- Copyright/ -->
+    <script src="js/copyright.js"></script>
+
+    <!-- Form validation/ -->
+    <script src="js/form-validation.js"></script>
+
+  </body>
+</html> 
