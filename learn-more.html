@@ -52,7 +52,7 @@
         <h2>Stay Connected and Learn More</h2>
         <p>We constantly update content, brag about our accomplishments, and offer examples. Submit your details below if you wish to receive updates, releases, events, training and more.. </p>
         <form id="stayInTouchForm" hx-post="https://form.chuck-stack.org/rpc/stk_form_post_fn" hx-ext="submitjson" hx-trigger="submit" hx-target="#form-response" hx-indicator="#loading" hx-swap="outerHTML" hx-on="htmx:afterRequest: this.reset()">
-          <input type="hidden" name="source-page" value="learn-more">
+          <input type="hidden" name="source_page" value="learn-more">
           <input type="hidden" name="action" value="learn-add">
           <div class="grid">
             <input
