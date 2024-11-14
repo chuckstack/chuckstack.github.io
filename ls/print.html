@@ -1696,7 +1696,7 @@ select current_setting('test.test.test.one',true);
 <p>No <code>_uu</code> record should ever be referred to in code. Instead, create a record with a enum column representing how the code should behave and switch/case/if-else based on the value of the enum.</p>
 <h2 id="type-convention"><a class="header" href="#type-convention">Type Convention</a></h2>
 <p>The purpose of this section is to describe a way to ensure no transactional table directly contains an enum.</p>
-<p>The proper convention to reference an enum is to create a table with a <code>_type</code> suffix that contains the enum. Transactional tables then reference the <code>_type_uu</code> record. The purpose of this convention is to allow users to create multiple <code>type</code> records without requiring any changes to code.</p>
+<p>The proper convention to reference an enum is to create a facade table with a <code>_type</code> suffix that contains the enum. Transactional tables then reference the <code>_type_uu</code> record. The purpose of this convention is to allow users to create multiple <code>type</code> records without requiring any changes to code.</p>
 <p>An example of this convention includes the <code>stk_doc_type</code> table where users can create as many document types as is needed, and the code needs only worry about the type's enum value.</p>
 <p>An enum is typically named the same as the table with no <code>stk_</code> prefix and no <code>_uu</code> suffix. For example, the <code>stk_doc_type</code> table has an enum column named <code>doc_type</code>.</p>
 <h2 id="system-configuration-convention"><a class="header" href="#system-configuration-convention">System Configuration Convention</a></h2>
@@ -1716,23 +1716,76 @@ select current_setting('test.test.test.one',true);
 <li>concept of function =&gt; create_from vs create_into -- attempt to support both when possible <!-- TODO: better define these terms --></li>
 </ul>
 <h2 id="sample-table"><a class="header" href="#sample-table">Sample Table</a></h2>
-<pre><code class="language-sql">CREATE TABLE private.stk_some_table (
-  stk_some_table_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+<p>The purpose of this section is to make it as easy to create a new entity as possible. All you need to do is copy the below sql and perform a replace-all on 'changeme' to set the desired name. Here is an example vim substitute command to update 'changeme' to 'wf_request':</p>
+<pre><code class="language-vim">:%s/changeme/wf_request/g
+</code></pre>
+<p>The below represents a template for creating a new entity. The following sql code does the following:</p>
+<ul>
+<li>creates an enum</li>
+<li>adds comments to each enum value</li>
+<li>creates a facade type table</li>
+<li>creates the actual table</li>
+<li>exposes the tables to the api schema</li>
+<li>adds comments to each table</li>
+</ul>
+<pre><code class="language-sql">CREATE TYPE private.changeme_type AS ENUM (
+    'NONE',
+    'SUPPORT',
+    'ACTION'
+);
+COMMENT ON TYPE private.changeme_type IS 'Enum used in code to automate and validate changeme types.';
+
+INSERT INTO private.enum_comment (enum_type, enum_value, comment) VALUES
+('changeme_type', 'NONE', 'General purpose with no automation or validation'),
+('changeme_type', 'SUPPORT', 'Support purpose with limited automation or validation'),
+('changeme_type', 'ACTION', 'Action purpose with no automation or validation')
+;
+
+CREATE TABLE private.stk_changeme_type (
+  stk_changeme_type_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   --created_by_uu uuid NOT NULL,
   --CONSTRAINT fk_some_table_createdby FOREIGN KEY (created_by_uu) REFERENCES stk_user(stk_user_uu),
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
   --updated_by_uu uuid NOT NULL,
-  --CONSTRAINT fk_some_table_updatedby FOREIGN KEY (updated_by_uu) REFERENCES stk_user(stk_user_uu)
-  search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
-  value TEXT NOT NULL,
-  name TEXT NOT NULL,
-  description TEXT,
+  --CONSTRAINT fk_some_table_updatedby FOREIGN KEY (updated_by_uu) REFERENCES stk_user(stk_user_uu),
+  is_active BOOLEAN NOT NULL DEFAULT true,
   is_default BOOLEAN NOT NULL DEFAULT false,
-  is_processed BOOLEAN NOT NULL DEFAULT false,
-  is_active BOOLEAN NOT NULL DEFAULT true
+  changeme_type private.changeme_type NOT NULL,
+  search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
+  name TEXT NOT NULL,
+  description TEXT
 );
-COMMENT ON TABLE private.stk_some_table IS 'Table that contains some data';
+COMMENT ON TABLE private.stk_changeme_type IS 'Holds the types of stk_changeme records. To see a list of all changeme_type enums and their comments, select from api.enum_value where enum_name is changeme_type.';
+
+CREATE VIEW api.stk_changeme_type AS SELECT * FROM private.stk_changeme_type;
+COMMENT ON VIEW api.stk_changeme_type IS 'Holds the types of stk_changeme records.';
+
+CREATE TABLE private.stk_changeme (
+  stk_changeme_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  created TIMESTAMPTZ NOT NULL DEFAULT now(),
+  --created_by_uu uuid NOT NULL,
+  --CONSTRAINT fk_some_table_createdby FOREIGN KEY (created_by_uu) REFERENCES stk_user(stk_user_uu),
+  updated TIMESTAMPTZ NOT NULL DEFAULT now(),
+  --updated_by_uu uuid NOT NULL,
+  --CONSTRAINT fk_some_table_updatedby FOREIGN KEY (updated_by_uu) REFERENCES stk_user(stk_user_uu),
+  is_active BOOLEAN NOT NULL DEFAULT true,
+  is_template BOOLEAN NOT NULL DEFAULT false,
+  is_valid BOOLEAN NOT NULL DEFAULT true,
+  stk_changeme_type_uu UUID NOT NULL,
+  CONSTRAINT fk_stk_changeme_type FOREIGN KEY (stk_changeme_type_uu) REFERENCES private.stk_changeme_type(stk_changeme_type_uu),
+  stk_changeme_parent_uu UUID,
+  CONSTRAINT fk_stk_changeme_parent FOREIGN KEY (stk_changeme_parent_uu) REFERENCES private.stk_changeme(stk_changeme_uu),
+  date_started TIMESTAMPTZ,
+  date_completed TIMESTAMPTZ,
+  date_due TIMESTAMPTZ,
+  name TEXT NOT NULL,
+  description TEXT
+);
+COMMENT ON TABLE private.stk_changeme IS 'Holds changeme records';
+
+CREATE VIEW api.stk_changeme AS SELECT * FROM private.stk_changeme;
+COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
 </code></pre>
 <p>Note: the above created_by_uu and updated_by_uu will be uncommented when the stk_user_uu table is added to the stack.</p>
 <h2 id="scalability-considerations"><a class="header" href="#scalability-considerations">Scalability Considerations</a></h2>
