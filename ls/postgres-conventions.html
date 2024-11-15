@@ -399,9 +399,12 @@ COMMENT ON TABLE private.stk_changeme IS 'Holds changeme records';
 CREATE VIEW api.stk_changeme AS SELECT * FROM private.stk_changeme;
 COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
 
-----ignore in changelog
+----ignore in changelog - only uncomment if needed
 --insert into private.stk_change_log_exclude (table_name) values ('stk_changeme');
 --select private.stk_table_trigger_create();
+
+-- create standard triggers just in case new tables created above
+select private.stk_table_trigger_create();
 </code></pre>
 <p>Note: the above created_by_uu and updated_by_uu will be uncommented when the stk_user_uu table is added to the stack.</p>
 <h2 id="scalability-considerations"><a class="header" href="#scalability-considerations">Scalability Considerations</a></h2>
