@@ -246,9 +246,7 @@ CREATE TABLE private.stk_changeme (
   CONSTRAINT fk_stk_changeme_type FOREIGN KEY (stk_changeme_type_uu) REFERENCES private.stk_changeme_type(stk_changeme_type_uu),
   stk_changeme_parent_uu UUID,
   CONSTRAINT fk_stk_changeme_parent FOREIGN KEY (stk_changeme_parent_uu) REFERENCES private.stk_changeme(stk_changeme_uu),
-  date_started TIMESTAMPTZ,
-  date_completed TIMESTAMPTZ,
-  date_due TIMESTAMPTZ,
+  search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   description TEXT
 );
