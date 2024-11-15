@@ -1617,6 +1617,7 @@ select current_setting('test.test.test.one',true);
 <li>link =&gt; lnk</li>
 <li>location =&gt; loc</li>
 <li>partition =&gt; ptn</li>
+<li>postgresql =&gt; psql</li>
 <li>primary key =&gt; pk</li>
 <li>sales representative =&gt; salesrep</li>
 <li>stack =&gt; stk</li>
@@ -1729,7 +1730,10 @@ select current_setting('test.test.test.one',true);
 <li>exposes the tables to the api schema</li>
 <li>adds comments to each table</li>
 </ul>
-<pre><code class="language-sql">CREATE TYPE private.changeme_type AS ENUM (
+<pre><code class="language-sql">-- set session to show stk_superuser as the actor performing all the tasks
+SET stk.session = '{\"psql_user\": \"stk_superuser\"}';
+
+CREATE TYPE private.changeme_type AS ENUM (
     'NONE',
     'SUPPORT',
     'ACTION'

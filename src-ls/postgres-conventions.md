@@ -64,6 +64,7 @@ We believe we can create the following abbreviations without sacrificing underst
 - link => lnk
 - location => loc
 - partition => ptn
+- postgresql => psql
 - primary key => pk
 - sales representative => salesrep
 - stack => stk
@@ -199,6 +200,9 @@ The below represents a template for creating a new entity. The following sql cod
 - adds comments to each table
 
 ```sql
+-- set session to show stk_superuser as the actor performing all the tasks
+SET stk.session = '{\"psql_user\": \"stk_superuser\"}';
+
 CREATE TYPE private.changeme_type AS ENUM (
     'NONE',
     'SUPPORT',
