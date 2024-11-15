@@ -1746,10 +1746,10 @@ CREATE TABLE private.stk_changeme_type (
   stk_changeme_type_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   --created_by_uu uuid NOT NULL,
-  --CONSTRAINT fk_some_table_createdby FOREIGN KEY (created_by_uu) REFERENCES stk_user(stk_user_uu),
+  --CONSTRAINT fk_some_table_createdby FOREIGN KEY (created_by_uu) REFERENCES stk_actor(stk_actor_uu),
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
   --updated_by_uu uuid NOT NULL,
-  --CONSTRAINT fk_some_table_updatedby FOREIGN KEY (updated_by_uu) REFERENCES stk_user(stk_user_uu),
+  --CONSTRAINT fk_some_table_updatedby FOREIGN KEY (updated_by_uu) REFERENCES stk_actor(stk_actor_uu),
   is_active BOOLEAN NOT NULL DEFAULT true,
   is_default BOOLEAN NOT NULL DEFAULT false,
   changeme_type private.changeme_type NOT NULL,
@@ -1766,10 +1766,10 @@ CREATE TABLE private.stk_changeme (
   stk_changeme_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   --created_by_uu uuid NOT NULL,
-  --CONSTRAINT fk_some_table_createdby FOREIGN KEY (created_by_uu) REFERENCES stk_user(stk_user_uu),
+  --CONSTRAINT fk_some_table_createdby FOREIGN KEY (created_by_uu) REFERENCES stk_actor(stk_actor_uu),
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
   --updated_by_uu uuid NOT NULL,
-  --CONSTRAINT fk_some_table_updatedby FOREIGN KEY (updated_by_uu) REFERENCES stk_user(stk_user_uu),
+  --CONSTRAINT fk_some_table_updatedby FOREIGN KEY (updated_by_uu) REFERENCES stk_actor(stk_actor_uu),
   is_active BOOLEAN NOT NULL DEFAULT true,
   is_template BOOLEAN NOT NULL DEFAULT false,
   is_valid BOOLEAN NOT NULL DEFAULT true,
@@ -1793,7 +1793,7 @@ COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
 -- create standard triggers just in case new tables created above
 select private.stk_table_trigger_create();
 </code></pre>
-<p>Note: the above created_by_uu and updated_by_uu will be uncommented when the stk_user_uu table is added to the stack.</p>
+<p>Note: the above created_by_uu and updated_by_uu will be uncommented when the stk_actor_uu table is added to the stack.</p>
 <h2 id="scalability-considerations"><a class="header" href="#scalability-considerations">Scalability Considerations</a></h2>
 <p>We consider the following topics when scaling PostgreSQL from just a couple of users through thousands of users.</p>
 <ul>
