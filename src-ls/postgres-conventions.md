@@ -63,6 +63,7 @@ We believe we can create the following abbreviations without sacrificing underst
 - foreign key => fk
 - link => lnk
 - location => loc
+- partition => ptn
 - primary key => pk
 - sales representative => salesrep
 - stack => stk
