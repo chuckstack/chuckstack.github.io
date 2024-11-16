@@ -126,6 +126,8 @@ Notes:
 - `is_summary` - boolean that indicates if a record is intended to be a parent to other records in the same table.
 - `is_template` - boolean that indicates if a record exists for the purpose of cloning to create new records.
 - `is_valid` - boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow -->
+- `is_include` - boolean that indicates if a record is of type include.
+- `is_exclude` - boolean that indicates if a record is of type exclude.
 - `trx_type` - enum listing the type of transaction. Used by `stk_doc_type` table.
 - `batch_id` - text indicating this record was processed as part of a batch operation. A single record couple participate in multiple batches. if so, use the noun_adjective approach (example: batch_import_id).
 - `table_name` - text referencing the name of a table.
