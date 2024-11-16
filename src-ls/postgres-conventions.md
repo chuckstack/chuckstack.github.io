@@ -63,6 +63,7 @@ We believe we can create the following abbreviations without sacrificing underst
 - foreign key => fk
 - link => lnk
 - location => loc
+- management => mgt
 - partition => ptn
 - postgresql => psql
 - primary key => pk
