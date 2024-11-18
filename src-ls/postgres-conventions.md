@@ -184,7 +184,9 @@ The `stk_translation` table contains translations to a language other than the s
 
 ## Function Convention
 
-- concept of function => create_from vs create_into -- attempt to support both when possible <!-- TODO: better define these terms -->
+- All function parameter names should end with `_p` suffix. For example: name_p
+- All function declared variable names should end with `_v` suffix. For example: name_v
+ <!-- - concept of function => create_from vs create_into -- attempt to support both when possible - TODO: better define these terms -->
 
 ## Sample Table
 
@@ -267,7 +269,7 @@ COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
 --insert into private.stk_change_log_exclude (table_name) values ('stk_changeme');
 --select private.stk_table_trigger_create();
 
--- create standard triggers just in case new tables created above
+-- create triggers for newly created tables
 select private.stk_table_trigger_create();
 ```
 

@@ -1718,8 +1718,10 @@ select current_setting('test.test.test.one',true);
 <p>The <code>stk_translation</code> table contains translations to a language other than the system's default language. You use an approach similar to <a href="postgres-conventions.html#table-and-record">Table and Record Reference</a> with the addition of the <code>column_name</code> column to provide an alternate language value for any column of type <code>text</code>.</p>
 <h2 id="function-convention"><a class="header" href="#function-convention">Function Convention</a></h2>
 <ul>
-<li>concept of function =&gt; create_from vs create_into -- attempt to support both when possible <!-- TODO: better define these terms --></li>
+<li>All function parameter names should end with <code>_p</code> suffix. For example: name_p</li>
+<li>All function declared variable names should end with <code>_v</code> suffix. For example: name_v</li>
 </ul>
+ <!-- - concept of function => create_from vs create_into -- attempt to support both when possible - TODO: better define these terms -->
 <h2 id="sample-table"><a class="header" href="#sample-table">Sample Table</a></h2>
 <p>The purpose of this section is to make it as easy to create a new entity as possible. All you need to do is copy the below sql and perform a replace-all on 'changeme' to set the desired name. Here is an example vim substitute command to update 'changeme' to 'wf_request':</p>
 <pre><code class="language-vim">:%s/changeme/wf_request/g
@@ -1797,7 +1799,7 @@ COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
 --insert into private.stk_change_log_exclude (table_name) values ('stk_changeme');
 --select private.stk_table_trigger_create();
 
--- create standard triggers just in case new tables created above
+-- create triggers for newly created tables
 select private.stk_table_trigger_create();
 </code></pre>
 <p>Note: the above created_by_uu and updated_by_uu will be uncommented when the stk_actor_uu table is added to the stack.</p>
