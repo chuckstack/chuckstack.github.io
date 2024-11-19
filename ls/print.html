@@ -1657,7 +1657,7 @@ select current_setting('test.test.test.one',true);
 <p>This sections lists the mandatory and optional columns found in chuck-stack tables. Notice that coding and naming by convention plays a role in primary key name and foreign key relationships. As you will see below, you know the primary key column name as a function of the table name. You know the foreign key table name as a function of the foreign key column name when the convention allows.</p>
 <h3 id="mandatory-columns"><a class="header" href="#mandatory-columns">Mandatory Columns</a></h3>
 <ul>
-<li>primary key - The primary key column bears the name of the table with a <code>_uu</code> suffix. Example: <code>stk_some_table_uu</code></li>
+<li>primary key - The primary key column bears the name of the table with a <code>_uu</code> suffix. Example: <code>stk_some_table_uu</code>.</li>
 <li><code>stk_tenant_uu</code> - foreign key reference to the tenant that owns the record</li>
 <li><code>stk_entity_uu</code> - financial set of books that owns the record</li>
 <li><code>created</code> - timestamptz indicating when the record was created.</li>
@@ -1722,6 +1722,8 @@ select current_setting('test.test.test.one',true);
 <li>All function declared variable names should end with <code>_v</code> suffix. For example: name_v</li>
 </ul>
  <!-- - concept of function => create_from vs create_into -- attempt to support both when possible - TODO: better define these terms -->
+<h2 id="trigger-convention"><a class="header" href="#trigger-convention">Trigger Convention</a></h2>
+<p>The chuck-stack makes heavy use of events like triggers. To make managing triggers easier, there exists a private.stk_trigger_create() function that will apply a single trigger function to all applicable tables as described by the private.stk_trigger_mgt table.</p>
 <h2 id="sample-table"><a class="header" href="#sample-table">Sample Table</a></h2>
 <p>The purpose of this section is to make it as easy to create a new entity as possible. All you need to do is copy the below sql and perform a replace-all on 'changeme' to set the desired name. Here is an example vim substitute command to update 'changeme' to 'wf_request':</p>
 <pre><code class="language-vim">:%s/changeme/wf_request/g
@@ -1755,10 +1757,10 @@ CREATE TABLE private.stk_changeme_type (
   stk_changeme_type_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   created_by_uu uuid NOT NULL,
-  CONSTRAINT fk_some_table_createdby FOREIGN KEY (created_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
+  CONSTRAINT fk_stk_changeme_type_createdby FOREIGN KEY (created_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_by_uu uuid NOT NULL,
-  CONSTRAINT fk_some_table_updatedby FOREIGN KEY (updated_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
+  CONSTRAINT fk_stk_changeme_type_updatedby FOREIGN KEY (updated_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
   is_active BOOLEAN NOT NULL DEFAULT true,
   is_default BOOLEAN NOT NULL DEFAULT false,
   changeme_type private.changeme_type NOT NULL,
@@ -1775,10 +1777,10 @@ CREATE TABLE private.stk_changeme (
   stk_changeme_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   created_by_uu uuid NOT NULL,
-  CONSTRAINT fk_some_table_createdby FOREIGN KEY (created_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
+  CONSTRAINT fk_stk_changeme_createdby FOREIGN KEY (created_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_by_uu uuid NOT NULL,
-  CONSTRAINT fk_some_table_updatedby FOREIGN KEY (updated_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
+  CONSTRAINT fk_stk_changeme_updatedby FOREIGN KEY (updated_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
   is_active BOOLEAN NOT NULL DEFAULT true,
   is_template BOOLEAN NOT NULL DEFAULT false,
   is_valid BOOLEAN NOT NULL DEFAULT true,

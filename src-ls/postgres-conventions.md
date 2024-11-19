@@ -100,7 +100,7 @@ This sections lists the mandatory and optional columns found in chuck-stack tabl
 
 ### Mandatory Columns
 
-- primary key - The primary key column bears the name of the table with a `_uu` suffix. Example: `stk_some_table_uu`
+- primary key - The primary key column bears the name of the table with a `_uu` suffix. Example: `stk_some_table_uu`.
 - `stk_tenant_uu` - foreign key reference to the tenant that owns the record
 - `stk_entity_uu` - financial set of books that owns the record
 - `created` - timestamptz indicating when the record was created.
@@ -188,6 +188,10 @@ The `stk_translation` table contains translations to a language other than the s
 - All function declared variable names should end with `_v` suffix. For example: name_v
  <!-- - concept of function => create_from vs create_into -- attempt to support both when possible - TODO: better define these terms -->
 
+## Trigger Convention
+
+The chuck-stack makes heavy use of events like triggers. To make managing triggers easier, there exists a private.stk_trigger_create() function that will apply a single trigger function to all applicable tables as described by the private.stk_trigger_mgt table.
+
 ## Sample Table
 
 The purpose of this section is to make it as easy to create a new entity as possible. All you need to do is copy the below sql and perform a replace-all on 'changeme' to set the desired name. Here is an example vim substitute command to update 'changeme' to 'wf_request':
@@ -225,10 +229,10 @@ CREATE TABLE private.stk_changeme_type (
   stk_changeme_type_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   created_by_uu uuid NOT NULL,
-  CONSTRAINT fk_some_table_createdby FOREIGN KEY (created_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
+  CONSTRAINT fk_stk_changeme_type_createdby FOREIGN KEY (created_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_by_uu uuid NOT NULL,
-  CONSTRAINT fk_some_table_updatedby FOREIGN KEY (updated_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
+  CONSTRAINT fk_stk_changeme_type_updatedby FOREIGN KEY (updated_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
   is_active BOOLEAN NOT NULL DEFAULT true,
   is_default BOOLEAN NOT NULL DEFAULT false,
   changeme_type private.changeme_type NOT NULL,
@@ -245,10 +249,10 @@ CREATE TABLE private.stk_changeme (
   stk_changeme_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   created_by_uu uuid NOT NULL,
-  CONSTRAINT fk_some_table_createdby FOREIGN KEY (created_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
+  CONSTRAINT fk_stk_changeme_createdby FOREIGN KEY (created_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_by_uu uuid NOT NULL,
-  CONSTRAINT fk_some_table_updatedby FOREIGN KEY (updated_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
+  CONSTRAINT fk_stk_changeme_updatedby FOREIGN KEY (updated_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
   is_active BOOLEAN NOT NULL DEFAULT true,
   is_template BOOLEAN NOT NULL DEFAULT false,
   is_valid BOOLEAN NOT NULL DEFAULT true,
