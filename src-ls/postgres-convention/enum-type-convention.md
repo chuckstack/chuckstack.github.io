@@ -16,4 +16,4 @@ The proper convention to reference an enum is to create a facade table with a `_
 
 An example of this convention includes the `stk_doc_type` table where users can create as many document types as is needed, and the code needs only worry about the type's enum value.
 
-An enum is typically named the same as the table with no `stk_` prefix and no `_uu` suffix. For example, the `stk_doc_type` table has an enum column named `doc_type`.
+An enum is typically named the same as the type table with `_enum` suffix. For example, the `stk_doc_type` table has an enum column named `stk_doc_type_enum`.
