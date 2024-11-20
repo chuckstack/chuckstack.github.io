@@ -29,6 +29,7 @@
     - [Table and Record](./postgres-convention/table-record-convention.md)
     - [enum and Type](./postgres-convention/enum-type-convention.md)
     - [System Configuration](./postgres-convention/system-configuration-convention.md)
+    - [Attribute Tagging](./postgres-convention/attribute-tag.md)
     - [Statistics](./postgres-convention/statistics-convention.md)
     - [Function](./postgres-convention/function-convention.md)
     - [Trigger](./postgres-convention/trigger-convention.md)
