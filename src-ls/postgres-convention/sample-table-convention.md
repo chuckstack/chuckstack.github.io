@@ -18,17 +18,17 @@ The below represents a template for creating a new entity. The following sql cod
 -- set session to show stk_superuser as the actor performing all the tasks
 SET stk.session = '{\"psql_user\": \"stk_superuser\"}';
 
-CREATE TYPE private.changeme_type AS ENUM (
+CREATE TYPE private.stk_changeme_type_enum AS ENUM (
     'NONE',
     'SUPPORT',
     'ACTION'
 );
-COMMENT ON TYPE private.changeme_type IS 'Enum used in code to automate and validate changeme types.';
+COMMENT ON TYPE private.stk_changeme_type_enum IS 'Enum used in code to automate and validate changeme types.';
 
 INSERT INTO private.enum_comment (enum_type, enum_value, comment) VALUES
-('changeme_type', 'NONE', 'General purpose with no automation or validation'),
-('changeme_type', 'SUPPORT', 'Support purpose with limited automation or validation'),
-('changeme_type', 'ACTION', 'Action purpose with no automation or validation')
+('stk_changeme_type_enum', 'NONE', 'General purpose with no automation or validation'),
+('stk_changeme_type_enum', 'SUPPORT', 'Support purpose with limited automation or validation'),
+('stk_changeme_type_enum', 'ACTION', 'Action purpose with no automation or validation')
 ;
 
 CREATE TABLE private.stk_changeme_type (
@@ -41,12 +41,12 @@ CREATE TABLE private.stk_changeme_type (
   CONSTRAINT fk_stk_changeme_type_updatedby FOREIGN KEY (updated_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
   is_active BOOLEAN NOT NULL DEFAULT true,
   is_default BOOLEAN NOT NULL DEFAULT false,
-  changeme_type private.changeme_type NOT NULL,
+  stk_changeme_type_enum private.stk_changeme_type_enum NOT NULL,
   search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   description TEXT
 );
-COMMENT ON TABLE private.stk_changeme_type IS 'Holds the types of stk_changeme records. To see a list of all changeme_type enums and their comments, select from api.enum_value where enum_name is changeme_type.';
+COMMENT ON TABLE private.stk_changeme_type IS 'Holds the types of stk_changeme records. To see a list of all stk_changeme_type_enum enums and their comments, select from api.enum_value where enum_name is stk_changeme_type_enum.';
 
 CREATE VIEW api.stk_changeme_type AS SELECT * FROM private.stk_changeme_type;
 COMMENT ON VIEW api.stk_changeme_type IS 'Holds the types of stk_changeme records.';
