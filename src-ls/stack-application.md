@@ -67,7 +67,7 @@ Document action workflows are simply an implementation of orchestrated request w
 
 ## Attribute Tagging Details
 
-Attribute tagging is the ability to associate a collection of attribute values with a given record. Any record can have many sets of attribute associated with it. The chuck-stack uses PostgreSQL's JSON capabilities to implement attribute tagging.
+[Attribute tagging](./postgres-convention/attribute-tag.md) is the ability to associate a collection of attribute values with a given record. Any record can have many sets of attribute associated with it. The chuck-stack uses PostgreSQL's JSON capabilities to implement attribute tagging.
 
 Before we get too far, we need to define some terms:
 
