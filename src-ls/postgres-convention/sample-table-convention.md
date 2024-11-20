@@ -77,4 +77,5 @@ COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
 
 -- create triggers for newly created tables
 select private.stk_table_trigger_create();
+select private.stk_table_type_create('stk_changeme_type');
 ```

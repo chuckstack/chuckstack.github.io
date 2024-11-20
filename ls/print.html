@@ -1835,6 +1835,7 @@ COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
 
 -- create triggers for newly created tables
 select private.stk_table_trigger_create();
+select private.stk_table_type_create('stk_changeme_type');
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="scalability-considerations"><a class="header" href="#scalability-considerations">Scalability Considerations</a></h1>
 <p>We consider the following topics when scaling PostgreSQL from just a couple of users through thousands of users.</p>
