@@ -9,4 +9,3 @@ This section discuss how we create tables in the private schema.
 - `stk_` prefx - all core chuck-stack tables will begin with `stk_`. Example: `stk_bp`.
   - Your organization should chose a table prefix that resembles your organization's name if you wish to add new tables or new columns. Example: the Good-Care Medical organization could have a prefix of `gcm_`.
 - `_lnk` link table suffix - link tables should have a table name suffix of `_lnk`.
-- `_trl` translation suffix - translations are maintained in separate table mirroring the text fields of the table it is translated from. For example, the `stk_bp` table might have a table named `stk_bp_trl` that will have one record per business partner per active language.

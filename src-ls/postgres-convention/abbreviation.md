@@ -20,3 +20,6 @@ We believe we can create the following abbreviations without sacrificing underst
 - transaction => trx
 - universal_unique identifier => uu
 - workflow => wf
+
+The definitive list of abbreviations is maintained in the stk_abbreviation table.
+<!-- TODO: find a way to dynamically build this list at the time of publishing -->

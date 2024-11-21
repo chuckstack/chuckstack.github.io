@@ -42,8 +42,9 @@ CREATE TABLE private.stk_changeme_type (
   is_active BOOLEAN NOT NULL DEFAULT true,
   is_default BOOLEAN NOT NULL DEFAULT false,
   stk_changeme_type_enum private.stk_changeme_type_enum NOT NULL,
-  search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
+  ----uncomment the next lines if needed
   --stk_changeme_type_json JSONB NOT NULL DEFAULT '{}'::jsonb,
+  search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   description TEXT
 );
@@ -65,10 +66,11 @@ CREATE TABLE private.stk_changeme (
   is_valid BOOLEAN NOT NULL DEFAULT true,
   stk_changeme_type_uu UUID NOT NULL,
   CONSTRAINT fk_stk_changeme_type FOREIGN KEY (stk_changeme_type_uu) REFERENCES private.stk_changeme_type(stk_changeme_type_uu),
-  stk_changeme_parent_uu UUID,
-  CONSTRAINT fk_stk_changeme_parent FOREIGN KEY (stk_changeme_parent_uu) REFERENCES private.stk_changeme(stk_changeme_uu),
-  search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
+  ----uncomment the next lines if needed
+  --stk_changeme_parent_uu UUID,
+  --CONSTRAINT fk_stk_changeme_parent FOREIGN KEY (stk_changeme_parent_uu) REFERENCES private.stk_changeme(stk_changeme_uu),
   --stk_changeme_json JSONB NOT NULL DEFAULT '{}'::jsonb,
+  search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   description TEXT
 );
@@ -78,6 +80,6 @@ CREATE VIEW api.stk_changeme AS SELECT * FROM private.stk_changeme;
 COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
 
 -- create triggers for newly created tables
-select private.stk_table_trigger_create();
+select private.stk_trigger_create();
 select private.stk_table_type_create('stk_changeme_type');
 ```

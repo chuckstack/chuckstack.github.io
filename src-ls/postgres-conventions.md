@@ -1,25 +1,68 @@
 # PostgreSQL Convention
 
-The purpose of this section is to describe the concepts and methodologies for creating chuck-stack PostgreSQL designs. Consistent use of conventions create clarity.
+The chuck-stack PostgreSQL conventions aim to create a consistent, convention-based, scalable, and maintainable database structure. 
 
-You might notice the following in the design:
+We provide two high-level features by which most applications are built:
 
-- We strive for simplicity in both code and convention
-- We reuse when possible, and as a result we minimize duplication of logic and data
-- We make heavy use of structured data (jsonb) in the form of an enum/type
-- We want a single design to serve as many solutions as possible
+- Workflow
+- Attribute Tagging
 
-Here are the goals that drive our conventions:
+The below [convention summary](#convention-summary) creates a workflow and attributing tagging system that is both:
 
-<!-- TODO: these bullets need improvement -->
-- Reduce development time
-- Reduce development environment complexity
-- Reduce learning time
-- Reduce operational complexity
-- Maximize use of conventions
-- Minimize the number of experts needed to articulate a design
-- Minimize use of AI
+- Generic enough to support a wide variety of use cases
+- Simple enough to support rapid adoption
+
 
 > You can always ask AI (using AIChat) about any chuck-stack specific convention or PostgreSQL best practices and options. For example, you can ask AI:
 >
 >     It seems more secure to disable PostgreSQL's TCP service and require clients to connect via unix socket. Is this true?
+
+## Convention Summary
+
+Here are the goals that drive our conventions:
+
+- Maximize ↑ use of conventions and AI assistance to reduce learning/development time and complexity
+- Minimize ↓ the number of experts needed to articulate and deploy a new feature
+
+Here is a summary of our conventions. Click on any link to learn more.
+
+1. Database Schema Structure
+   - Private schema (`private`) to encapsulate the internal data model and logic
+   - Public API schema (`api`) to expose a public interface providing data and logic to the outside world in a controlled way
+
+2. Table Conventions:
+   - Use a single UUID primary key column with a `<table_name>_uu` convention to support universal `table_name` + `record_uu` lookup across all tables.
+   - Prefix core tables with `stk_`
+   - Use noun-first naming (e.g., `stk_order_line`)
+   - Minimize abbreviations to a known list to ensure maximum schema readability
+
+3. Column Conventions:
+   - Use mandatory columns to describe basic record artifacts like `created`, `updated`, `created_by_uu`, `updated_by_uu`, `is_active`, ...
+   - Use `_uu` suffix for primary and foreign keys
+   - Use `text` type instead of `varchar` when possible
+   - Boolean columns must have default values
+
+4. Enum and Type Conventions:
+   - Use enums for code-level distinctions
+   - Create facade type tables to reference enums in transactional tables
+
+5. Function Conventions:
+   - Use `_p` suffix for function parameters
+   - Use `_v` suffix for function variables
+
+6. Trigger Conventions:
+   - Use `private.stk_trigger_create()` function to manage triggers across tables
+
+7. Attribute Tagging:
+   - Use JSON for flexible attribute storage (`stk_attribute_tag` table)
+
+8. System Configuration:
+   - Use `stk_system_config` table for system-wide settings
+
+9. Statistics:
+   - Use `stk_statistic` table for denormalized statistical data
+
+10. Scalability Considerations:
+    - Use connection pooling
+    - Implement table partitioning
+    - Utilize physical/streaming replicas and logical replicas

@@ -27,6 +27,7 @@
     - [Table Convention](./postgres-convention/table-convention.md)
     - [Column Convention](./postgres-convention/column-convention.md)
     - [Table and Record](./postgres-convention/table-record-convention.md)
+    - [JSON vs Array vs Table](./postgres-convention/json-array-table-column.md)
     - [enum and Type](./postgres-convention/enum-type-convention.md)
     - [System Configuration](./postgres-convention/system-configuration-convention.md)
     - [Attribute Tagging](./postgres-convention/attribute-tag.md)
