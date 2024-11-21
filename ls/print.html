@@ -1738,7 +1738,6 @@ select current_setting('test.test.test.one',true);
 <h3 id="mandatory-columns"><a class="header" href="#mandatory-columns">Mandatory Columns</a></h3>
 <ul>
 <li>primary key - The primary key column bears the name of the table with a <code>_uu</code> suffix. Example: <code>stk_some_table_uu</code>.</li>
-<li><code>stk_tenant_uu</code> - foreign key reference to the tenant that owns the record</li>
 <li><code>stk_entity_uu</code> - financial set of books that owns the record</li>
 <li><code>created</code> - timestamptz indicating when the record was created.</li>
 <li><code>created_by_uu</code> - uuid foreign key reference to the database user/role that created the record.</li>
@@ -2143,7 +2142,6 @@ There are two key process features that make this vision a reality: 1) workflow 
 <h2 id="domain-dimension"><a class="header" href="#domain-dimension">Domain Dimension</a></h2>
 <p>A domain dimension is how the chuck-stack refers to a database dimensions. The following domain dimensions exist in the chuck-stack upon installation.</p>
 <ul>
-<li>Tenant*</li>
 <li>Entity*</li>
 <li>Business Partner</li>
 <li>Customer
@@ -2197,6 +2195,8 @@ There are two key process features that make this vision a reality: 1) workflow 
 <p>An organization is how the chuck-stack refers to a group that uses the chuck-stack. An organization can be a formal for-profit or not-for-profit business, and an organization can be an informal band of people united by a common interest or cause.</p>
 <h2 id="otve"><a class="header" href="#otve">OTVE</a></h2>
 <p>Increasing Operational and Transaction Velocity and Efficiency (OTVE) is a hallmark of the chuck-stack and conversational enterprise computing. In fact, increasing OTVE is the first bullet of the chuck-stack purpose. To learn more about how the chuck-stack increases OTVE, view the <a href="./introduction.html">introduction</a>.</p>
+<h2 id="postgresql-cluster"><a class="header" href="#postgresql-cluster">PostgreSQL Cluster</a></h2>
+<p>A PostgreSQL Cluster refers to an installation of PostgreSQL. Any one PostgreSQL installation supports multiple databases - hence the term 'database cluster' or 'PostgreSQL cluster'.</p>
 <h2 id="superclerk"><a class="header" href="#superclerk">SuperClerk</a></h2>
 <p>A superclerk is someone performing a role who desires to better automate and perfect their role thus propeling the whole team to a new level performance. A superclerk seeks out the tools and the opportunity to do more. A superclerk can be anyone with a job to do. They can be an AP/AR Clerk, Sales Representative, Machinist, Controller, Manager, etc...</p>
 <p>The best way to describe a superclerk is by example. Imagine a team of AP and AR clerks. The team spends the majority of the day transcribing data. A superclerk emerges thinking there must be a better way. The superclerk does the following:</p>
@@ -2209,9 +2209,12 @@ There are two key process features that make this vision a reality: 1) workflow 
 <h2 id="synergy"><a class="header" href="#synergy">Synergy</a></h2>
 <p>Synergy in the chuck-stack is what happens when you add two or more parts to make a whole where the value of the whole is greater than the sum of the individual parts. Just about anyone can make 1 + 1 = 2. It takes synergy (like with work instruction + automation) to make 1 + 1 = 11. That is a picture synergy!</p>
 <h2 id="tenant"><a class="header" href="#tenant">Tenant</a></h2>
-<p>A Tenant is a chuck-stack domain dimension that refers to a group of one or more <a href="./terminology.html#entity">Entities</a>. There are times when a single organization manages completely disparate Entities. When these entities do not share any purpose, processes or data, the organization will create the different Entities in separate Tenants.</p>
-<p>The chuck-stack is multi-tenant software without being multi-tenant SaaS. A single instance of the chuck-stack can support multiple Tenants; however, there is no reason for us to try and create a single, monolithic service trying to cater all organizations in the world. Monolithic SaaS service carry inherent risks that make them susceptible to data breaches and cross-contamination.</p>
-<p>Our goal is to use well tested and commonly understood networking services to create isolated instances of the chuck-stack.</p>
+<p>An installation of the chuck-stack represents a 'tenant'. There is a one-to-one relationship between a single PostgreSQL database and a chuck-stack 'tenant' or installation.</p>
+<p>A chuck-stack tenant can contain one or more <a href="./terminology.html#entity">Entities</a>. There are times when a single organization manages completely disparate Entities. When these entities do not share any purpose, processes or data, the organization will often create Entities in separate Tenants to help ensure proper data isolation.</p>
+<p>If you need multiple chuck-stack Tenants, you simply create multiple PostgreSQL databases and put a single chuck-stack tenant in each database. The same migration and deployment scripts can be executed across all tenants to ensure application usage consistency. You can host multiple chuck-stack Tenants in a single <a href="terminology.html#postgresql-cluster">PostgreSQL cluster</a>.</p>
+<p>Said another way, the chuck-stack is multi-tenant software without being multi-tenant SaaS. There is no reason for us to try and create a single, monolithic service trying to cater all organizations in the world. Monolithic SaaS service carry inherent risks that make them susceptible to data breaches and cross-contamination.</p>
+<p>Our goal is to use well tested and commonly understood database and networking services to create isolated tenants of the chuck-stack.</p>
+<p>There are times when you need to aggregate information across multiple tenants into a single data warehouse (data lake). This is a commonly requested task supported by many data warehouse (data lake) solutions.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
 <p>The purpose of this page is to describe the application framework progress and deployment roadmap.</p>
 <h2 id="summary"><a class="header" href="#summary">Summary</a></h2>

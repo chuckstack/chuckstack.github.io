@@ -13,7 +13,6 @@ These sections list the mandatory and optional columns found in chuck-stack tabl
 ### Mandatory Columns
 
 - primary key - The primary key column bears the name of the table with a `_uu` suffix. Example: `stk_some_table_uu`.
-- `stk_tenant_uu` - foreign key reference to the tenant that owns the record
 - `stk_entity_uu` - financial set of books that owns the record
 - `created` - timestamptz indicating when the record was created.
 - `created_by_uu` - uuid foreign key reference to the database user/role that created the record.

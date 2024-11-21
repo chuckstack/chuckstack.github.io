@@ -25,7 +25,6 @@ This approach embodies the Unix philosophy of creating small, focused programs t
 
 A domain dimension is how the chuck-stack refers to a database dimensions. The following domain dimensions exist in the chuck-stack upon installation.
 
-- Tenant*
 - Entity*
 - Business Partner
 - Customer
@@ -79,6 +78,10 @@ An organization is how the chuck-stack refers to a group that uses the chuck-sta
 
 Increasing Operational and Transaction Velocity and Efficiency (OTVE) is a hallmark of the chuck-stack and conversational enterprise computing. In fact, increasing OTVE is the first bullet of the chuck-stack purpose. To learn more about how the chuck-stack increases OTVE, view the [introduction](./introduction.md).
 
+## PostgreSQL Cluster
+
+A PostgreSQL Cluster refers to an installation of PostgreSQL. Any one PostgreSQL installation supports multiple databases - hence the term 'database cluster' or 'PostgreSQL cluster'.
+
 ## SuperClerk
 
 A superclerk is someone performing a role who desires to better automate and perfect their role thus propeling the whole team to a new level performance. A superclerk seeks out the tools and the opportunity to do more. A superclerk can be anyone with a job to do. They can be an AP/AR Clerk, Sales Representative, Machinist, Controller, Manager, etc...
@@ -97,8 +100,14 @@ Synergy in the chuck-stack is what happens when you add two or more parts to mak
 
 ## Tenant
 
-A Tenant is a chuck-stack domain dimension that refers to a group of one or more [Entities](./terminology.md#entity). There are times when a single organization manages completely disparate Entities. When these entities do not share any purpose, processes or data, the organization will create the different Entities in separate Tenants.
+An installation of the chuck-stack represents a 'tenant'. There is a one-to-one relationship between a single PostgreSQL database and a chuck-stack 'tenant' or installation.
 
-The chuck-stack is multi-tenant software without being multi-tenant SaaS. A single instance of the chuck-stack can support multiple Tenants; however, there is no reason for us to try and create a single, monolithic service trying to cater all organizations in the world. Monolithic SaaS service carry inherent risks that make them susceptible to data breaches and cross-contamination.
+A chuck-stack tenant can contain one or more [Entities](./terminology.md#entity). There are times when a single organization manages completely disparate Entities. When these entities do not share any purpose, processes or data, the organization will often create Entities in separate Tenants to help ensure proper data isolation.
 
-Our goal is to use well tested and commonly understood networking services to create isolated instances of the chuck-stack.
+If you need multiple chuck-stack Tenants, you simply create multiple PostgreSQL databases and put a single chuck-stack tenant in each database. The same migration and deployment scripts can be executed across all tenants to ensure application usage consistency. You can host multiple chuck-stack Tenants in a single [PostgreSQL cluster](#postgresql-cluster).
+
+Said another way, the chuck-stack is multi-tenant software without being multi-tenant SaaS. There is no reason for us to try and create a single, monolithic service trying to cater all organizations in the world. Monolithic SaaS service carry inherent risks that make them susceptible to data breaches and cross-contamination.
+
+Our goal is to use well tested and commonly understood database and networking services to create isolated tenants of the chuck-stack.
+
+There are times when you need to aggregate information across multiple tenants into a single data warehouse (data lake). This is a commonly requested task supported by many data warehouse (data lake) solutions.
