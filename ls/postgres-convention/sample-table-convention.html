@@ -218,7 +218,7 @@ CREATE TABLE private.stk_changeme_type (
   is_active BOOLEAN NOT NULL DEFAULT true,
   is_default BOOLEAN NOT NULL DEFAULT false,
   stk_changeme_type_enum private.stk_changeme_type_enum NOT NULL,
-  ----uncomment the next lines if needed
+  ----Prompt: ask the user if they need to store json
   --stk_changeme_type_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
@@ -240,13 +240,16 @@ CREATE TABLE private.stk_changeme (
   updated_by_uu UUID NOT NULL,
   CONSTRAINT fk_stk_changeme_updatedby FOREIGN KEY (updated_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
   is_active BOOLEAN NOT NULL DEFAULT true,
-  is_template BOOLEAN NOT NULL DEFAULT false,
-  is_valid BOOLEAN NOT NULL DEFAULT true,
+  ----Prompt: ask the user if they need to create templates
+  --is_template BOOLEAN NOT NULL DEFAULT false,
+  ----Prompt: ask the user if they need validation
+  --is_valid BOOLEAN NOT NULL DEFAULT true,
   stk_changeme_type_uu UUID NOT NULL,
   CONSTRAINT fk_stk_changeme_type FOREIGN KEY (stk_changeme_type_uu) REFERENCES private.stk_changeme_type(stk_changeme_type_uu),
-  ----uncomment the next lines if needed
+  ----Prompt: ask the user if they need to create parent child relationships inside the table
   --stk_changeme_parent_uu UUID,
   --CONSTRAINT fk_stk_changeme_parent FOREIGN KEY (stk_changeme_parent_uu) REFERENCES private.stk_changeme(stk_changeme_uu),
+  ----Prompt: ask the user if they need to store json
   --stk_changeme_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
