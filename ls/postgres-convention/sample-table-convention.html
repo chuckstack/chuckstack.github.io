@@ -195,26 +195,24 @@ SET stk.session = '{\"psql_user\": \"stk_superuser\"}';
 
 CREATE TYPE private.stk_changeme_type_enum AS ENUM (
     'NONE',
-    'SUPPORT',
     'ACTION'
 );
 COMMENT ON TYPE private.stk_changeme_type_enum IS 'Enum used in code to automate and validate changeme types.';
 
 INSERT INTO private.enum_comment (enum_type, enum_value, comment) VALUES
 ('stk_changeme_type_enum', 'NONE', 'General purpose with no automation or validation'),
-('stk_changeme_type_enum', 'SUPPORT', 'Support purpose with limited automation or validation'),
 ('stk_changeme_type_enum', 'ACTION', 'Action purpose with no automation or validation')
 ;
 
 CREATE TABLE private.stk_changeme_type (
   stk_changeme_type_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  table_name text generated always as ('stk_changeme_type') stored,
-  record_uu uuid generated always as (stk_changeme_type_uu) stored,
+  table_name TEXT GENERATED ALWAYS AS ('stk_changeme_type') STORED,
+  record_uu UUID GENERATED ALWAYS AS (stk_changeme_type_uu) STORED,
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
-  created_by_uu uuid NOT NULL,
+  created_by_uu UUID NOT NULL,
   CONSTRAINT fk_stk_changeme_type_createdby FOREIGN KEY (created_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
-  updated_by_uu uuid NOT NULL,
+  updated_by_uu UUID NOT NULL,
   CONSTRAINT fk_stk_changeme_type_updatedby FOREIGN KEY (updated_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
   is_active BOOLEAN NOT NULL DEFAULT true,
   is_default BOOLEAN NOT NULL DEFAULT false,
@@ -232,13 +230,13 @@ COMMENT ON VIEW api.stk_changeme_type IS 'Holds the types of stk_changeme record
 
 CREATE TABLE private.stk_changeme (
   stk_changeme_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  table_name text generated always as ('stk_changeme') stored,
-  record_uu uuid generated always as (stk_changeme_uu) stored,
+  table_name TEXT generated always AS ('stk_changeme') stored,
+  record_uu UUID GENERATED ALWAYS AS (stk_changeme_uu) stored,
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
-  created_by_uu uuid NOT NULL,
+  created_by_uu UUID NOT NULL,
   CONSTRAINT fk_stk_changeme_createdby FOREIGN KEY (created_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
-  updated_by_uu uuid NOT NULL,
+  updated_by_uu UUID NOT NULL,
   CONSTRAINT fk_stk_changeme_updatedby FOREIGN KEY (updated_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
   is_active BOOLEAN NOT NULL DEFAULT true,
   is_template BOOLEAN NOT NULL DEFAULT false,
