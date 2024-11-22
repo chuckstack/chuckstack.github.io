@@ -5,14 +5,15 @@ The purpose of this section is to make it as easy to create a new entity as poss
 ```vim
 :%s/changeme/wf_request/g
 ```
-The below represents a template for creating a new entity. The following sql code does the following:
+The below represents a template for creating a new entity. The below sql code does the following:
 
-- creates an enum
+- creates an enum (for code)
 - adds comments to each enum value
-- creates a facade type table
-- creates the actual table
+- creates a facade type table around the enum (for users)
+- creates the actual table with a reference to the type
 - exposes the tables to the api schema
 - adds comments to each table
+- adds triggers to each table to set session data
 
 ```sql
 -- set session to show stk_superuser as the actor performing all the tasks

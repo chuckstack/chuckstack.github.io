@@ -26,18 +26,18 @@ Here are the goals that drive our conventions:
 
 Here is a summary of our conventions. Click on any link to learn more.
 
-1. Database Schema Structure
+1. Database Schema Structure:
    - Private schema (`private`) to encapsulate the internal data model and logic
    - Public API schema (`api`) to expose a public interface providing data and logic to the outside world in a controlled way
 
 2. Table Conventions:
-   - Use a single UUID primary key column with a `<table_name>_uu` convention to support universal `table_name` + `record_uu` lookup across all tables.
+   - Use a single UUID primary key column with a `<table_name>_uu` convention to support universal `table_name` + `record_uu` lookup across all tables
    - Prefix core tables with `stk_`
    - Use noun-first naming (e.g., `stk_order_line`)
    - Minimize abbreviations to a known list to ensure maximum schema readability
 
 3. Column Conventions:
-   - Use mandatory columns to describe basic record artifacts like `created`, `updated`, `created_by_uu`, `updated_by_uu`, `is_active`, ...
+   - Use mandatory columns: `stk_entity_uu`,`created`,`created_by_uu`,`updated`,`updated_by_uu`.
    - Use `_uu` suffix for primary and foreign keys
    - Use `text` type instead of `varchar` when possible
    - Boolean columns must have default values

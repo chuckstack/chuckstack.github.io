@@ -18,11 +18,13 @@ These sections list the mandatory and optional columns found in chuck-stack tabl
 - `created_by_uu` - uuid foreign key reference to the database user/role that created the record.
 - `updated` - timestamptz indicating when the record was last updated.
 - `updated_by_uu` - uuid foreign key reference to the database user/role that last updated the record.
-- `stk_session_uu` - must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.
+- `table_name` - generated column that hard-codes the name of the table.
+- `record_uu` - generated column that shows the primary key value is an convenient way.
+- `stk_session_uu` - (not implemented yet) must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.
 
 Notes:
 
-- `stk_session` records become `is_processed` = true (immutable) after its first use.
+- `stk_session` (not implemented yet) records become `is_processed` = true (immutable) after its first use.
 
 ### Optional Columns
 - `is_active` - boolean that indicates if a record can be modified. is_active also acts as a soft-delete. If a record has an is_active=false, the record should be be returned as an option for selection in future lists and drop down fields. This column must be present to update it after the initial save; therefore, it appears in most tables.
@@ -41,6 +43,4 @@ Notes:
 - `is_exclude` - boolean that indicates if a record is of type exclude. Excluding a record only impacts that specified record.
 - `trx_type` - enum listing the type of transaction. Used by `stk_doc_type` table.
 - `batch_id` - text indicating this record was processed as part of a batch operation. A single record couple participate in multiple batches. if so, use the noun_adjective approach (example: batch_import_id).
-- `table_name` - text referencing the name of a table.
 - `column_name` - text referencing the name of a column.
-- `record_uu` - uuid referencing a primary key value of a table.

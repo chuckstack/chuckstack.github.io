@@ -181,14 +181,15 @@
 <p>The purpose of this section is to make it as easy to create a new entity as possible. All you need to do is copy the below sql and perform a replace-all on 'changeme' to set the desired name. Here is an example vim substitute command to update 'changeme' to 'wf_request':</p>
 <pre><code class="language-vim">:%s/changeme/wf_request/g
 </code></pre>
-<p>The below represents a template for creating a new entity. The following sql code does the following:</p>
+<p>The below represents a template for creating a new entity. The below sql code does the following:</p>
 <ul>
-<li>creates an enum</li>
+<li>creates an enum (for code)</li>
 <li>adds comments to each enum value</li>
-<li>creates a facade type table</li>
-<li>creates the actual table</li>
+<li>creates a facade type table around the enum (for users)</li>
+<li>creates the actual table with a reference to the type</li>
 <li>exposes the tables to the api schema</li>
 <li>adds comments to each table</li>
+<li>adds triggers to each table to set session data</li>
 </ul>
 <pre><code class="language-sql">-- set session to show stk_superuser as the actor performing all the tasks
 SET stk.session = '{\"psql_user\": \"stk_superuser\"}';

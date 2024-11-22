@@ -196,11 +196,13 @@
 <li><code>created_by_uu</code> - uuid foreign key reference to the database user/role that created the record.</li>
 <li><code>updated</code> - timestamptz indicating when the record was last updated.</li>
 <li><code>updated_by_uu</code> - uuid foreign key reference to the database user/role that last updated the record.</li>
-<li><code>stk_session_uu</code> - must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.</li>
+<li><code>table_name</code> - generated column that hard-codes the name of the table.</li>
+<li><code>record_uu</code> - generated column that shows the primary key value is an convenient way.</li>
+<li><code>stk_session_uu</code> - (not implemented yet) must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.</li>
 </ul>
 <p>Notes:</p>
 <ul>
-<li><code>stk_session</code> records become <code>is_processed</code> = true (immutable) after its first use.</li>
+<li><code>stk_session</code> (not implemented yet) records become <code>is_processed</code> = true (immutable) after its first use.</li>
 </ul>
 <h3 id="optional-columns"><a class="header" href="#optional-columns">Optional Columns</a></h3>
 <ul>
@@ -220,9 +222,7 @@
 <li><code>is_exclude</code> - boolean that indicates if a record is of type exclude. Excluding a record only impacts that specified record.</li>
 <li><code>trx_type</code> - enum listing the type of transaction. Used by <code>stk_doc_type</code> table.</li>
 <li><code>batch_id</code> - text indicating this record was processed as part of a batch operation. A single record couple participate in multiple batches. if so, use the noun_adjective approach (example: batch_import_id).</li>
-<li><code>table_name</code> - text referencing the name of a table.</li>
 <li><code>column_name</code> - text referencing the name of a column.</li>
-<li><code>record_uu</code> - uuid referencing a primary key value of a table.</li>
 </ul>
 
                         <br>
