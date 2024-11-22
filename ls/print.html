@@ -1913,6 +1913,8 @@ INSERT INTO private.enum_comment (enum_type, enum_value, comment) VALUES
 
 CREATE TABLE private.stk_changeme_type (
   stk_changeme_type_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  table_name text generated always as ('stk_changeme_type') stored,
+  record_uu uuid generated always as (stk_changeme_type_uu) stored,
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   created_by_uu uuid NOT NULL,
   CONSTRAINT fk_stk_changeme_type_createdby FOREIGN KEY (created_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
@@ -1935,6 +1937,8 @@ COMMENT ON VIEW api.stk_changeme_type IS 'Holds the types of stk_changeme record
 
 CREATE TABLE private.stk_changeme (
   stk_changeme_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  table_name text generated always as ('stk_changeme') stored,
+  record_uu uuid generated always as (stk_changeme_uu) stored,
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   created_by_uu uuid NOT NULL,
   CONSTRAINT fk_stk_changeme_createdby FOREIGN KEY (created_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
