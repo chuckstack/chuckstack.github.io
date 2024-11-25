@@ -48,7 +48,7 @@ Week of 2024-10-18
 Week of 2024-10-11
 
 - postgrest service up and running
-- sqlx-cli test nix-shell ([link](https://github.com/chuckstack/stk-todo-app-sql/blob/main/test/shell.nix))
+- sqlx-cli test nix-shell ([link](https://github.com/chuckstack/stk-app-sql/blob/main/test/shell.nix))
 - implemented best practice for creating and hosting work instructions
 
 Prior
