@@ -1568,8 +1568,8 @@ select current_setting('test.test.test.one',true);
 <p>The chuck-stack PostgreSQL conventions aim to create a consistent, convention-based, scalable, and maintainable database structure.</p>
 <p>We provide two high-level features by which most applications are built:</p>
 <ul>
-<li>Workflow</li>
-<li>Attribute Tagging</li>
+<li>Workflow - build around the stk_wf_request table and surrounding architecture</li>
+<li>Attribute Tagging - build around the stk_attribute_tag architecture</li>
 </ul>
 <p>The below <a href="postgres-conventions.html#convention-summary">convention summary</a> creates a workflow and attributing tagging system that is both:</p>
 <ul>
@@ -1609,6 +1609,8 @@ select current_setting('test.test.test.one',true);
 <p>Column Conventions:</p>
 <ul>
 <li>Use mandatory columns: <code>stk_entity_uu</code>,<code>created</code>,<code>created_by_uu</code>,<code>updated</code>,<code>updated_by_uu</code>.</li>
+<li>All madatory columns are set automatically during save because of either default value or triggers</li>
+<li>All tables return automatically generated <code>table_name</code> and <code>record_uu</code> columns for easy and generic looks for attributes, statistics, change logs, ...</li>
 <li>Use <code>_uu</code> suffix for primary and foreign keys</li>
 <li>Use <code>text</code> type instead of <code>varchar</code> when possible</li>
 <li>Boolean columns must have default values</li>
@@ -1617,8 +1619,11 @@ select current_setting('test.test.test.one',true);
 <li>
 <p>Enum and Type Conventions:</p>
 <ul>
-<li>Use enums for code-level distinctions</li>
-<li>Create facade type tables to reference enums in transactional tables</li>
+<li>Most important tables have have a supporting <code>_type</code> table where users can describe that record's behavior</li>
+<li>Example: stk_actor table has a stk_actor_type table that describes the type of actor</li>
+<li><code>_type</code> tables use enums for code-level logic</li>
+<li>No <code>_uu</code> references should be made from code</li>
+<li>Only enums should be referenced from code</li>
 </ul>
 </li>
 <li>
@@ -1631,12 +1636,14 @@ select current_setting('test.test.test.one',true);
 <li>
 <p>Trigger Conventions:</p>
 <ul>
-<li>Use <code>private.stk_trigger_create()</code> function to manage triggers across tables</li>
+<li>Triggers are heavily used to manage events in the chuck-stack</li>
+<li>The <code>private.stk_trigger_create()</code> function helps ensure core trigger functions are applied to all tables</li>
 </ul>
 </li>
 <li>
 <p>Attribute Tagging:</p>
 <ul>
+<li>Makes use of the <code>table_name</code> and <code>record_uu</code> convention to associate an attribute tag to any record</li>
 <li>Use JSON for flexible attribute storage (<code>stk_attribute_tag</code> table)</li>
 </ul>
 </li>
@@ -1649,6 +1656,7 @@ select current_setting('test.test.test.one',true);
 <li>
 <p>Statistics:</p>
 <ul>
+<li>Makes use of the <code>table_name</code> and <code>record_uu</code> convention to associate a statistic to any record</li>
 <li>Use <code>stk_statistic</code> table for denormalized statistical data</li>
 </ul>
 </li>

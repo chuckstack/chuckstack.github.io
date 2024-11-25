@@ -4,8 +4,8 @@ The chuck-stack PostgreSQL conventions aim to create a consistent, convention-ba
 
 We provide two high-level features by which most applications are built:
 
-- Workflow
-- Attribute Tagging
+- Workflow - build around the stk_wf_request table and surrounding architecture
+- Attribute Tagging - build around the stk_attribute_tag architecture
 
 The below [convention summary](#convention-summary) creates a workflow and attributing tagging system that is both:
 
@@ -38,28 +38,36 @@ Here is a summary of our conventions. Click on any link to learn more.
 
 3. Column Conventions:
    - Use mandatory columns: `stk_entity_uu`,`created`,`created_by_uu`,`updated`,`updated_by_uu`.
+   - All madatory columns are set automatically during save because of either default value or triggers
+   - All tables return automatically generated `table_name` and `record_uu` columns for easy and generic looks for attributes, statistics, change logs, ...
    - Use `_uu` suffix for primary and foreign keys
    - Use `text` type instead of `varchar` when possible
    - Boolean columns must have default values
 
 4. Enum and Type Conventions:
-   - Use enums for code-level distinctions
-   - Create facade type tables to reference enums in transactional tables
+   - Most important tables have have a supporting `_type` table where users can describe that record's behavior
+   - Example: stk_actor table has a stk_actor_type table that describes the type of actor
+   - `_type` tables use enums for code-level logic
+   - No `_uu` references should be made from code
+   - Only enums should be referenced from code
 
 5. Function Conventions:
    - Use `_p` suffix for function parameters
    - Use `_v` suffix for function variables
 
 6. Trigger Conventions:
-   - Use `private.stk_trigger_create()` function to manage triggers across tables
+   - Triggers are heavily used to manage events in the chuck-stack
+   - The `private.stk_trigger_create()` function helps ensure core trigger functions are applied to all tables
 
 7. Attribute Tagging:
+   - Makes use of the `table_name` and `record_uu` convention to associate an attribute tag to any record
    - Use JSON for flexible attribute storage (`stk_attribute_tag` table)
 
 8. System Configuration:
    - Use `stk_system_config` table for system-wide settings
 
 9. Statistics:
+   - Makes use of the `table_name` and `record_uu` convention to associate a statistic to any record
    - Use `stk_statistic` table for denormalized statistical data
 
 10. Scalability Considerations:
