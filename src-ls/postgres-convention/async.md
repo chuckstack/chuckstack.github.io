@@ -17,3 +17,7 @@ Here are our needs from our asynchronous solution:
 - **batch** - provide a way to process multiple events in a single execution
 - **notify** - send pg_notify signal to provide a PostgreSQL specific signal
 - **webhook** - send a signal to resources outside of PostgreSQL
+
+## Details
+
+Table: stk_async;stk_async_type
