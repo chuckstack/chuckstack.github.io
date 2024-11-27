@@ -34,6 +34,7 @@
     - [Statistics](./postgres-convention/statistics-convention.md)
     - [Function](./postgres-convention/function-convention.md)
     - [Trigger](./postgres-convention/trigger-convention.md)
+    - [Async](./postgres-convention/async.md)
     - [Sample Table](./postgres-convention/sample-table-convention.md)
     - [Scalability](./postgres-convention/scalability-convention.md)
     - [To Be Resolved](./postgres-convention/to-be-resolved-convention.md)
