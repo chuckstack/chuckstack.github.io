@@ -1897,22 +1897,31 @@ select current_setting('test.test.test.one',true);
  <!-- - concept of function => create_from vs create_into -- attempt to support both when possible - TODO: better define these terms -->
 <div style="break-before: page; page-break-before: always;"></div><h1 id="trigger-convention"><a class="header" href="#trigger-convention">Trigger Convention</a></h1>
 <p>The purpose of this page is to describe how the chuck-stack uses triggers.</p>
-<h2 id="convention"><a class="header" href="#convention">Convention</a></h2>
-<p>The chuck-stack makes heavy use of events. The default event execution tool are PostgreSQL triggers.</p>
-<p>The following bullets are important considerations:</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>The chuck-stack makes heavy use of events. The default tool to manage database event execution is a PostgreSQL trigger.</p>
+<p>Note that we will often refer to 'triggers' as a general database concept. It is important to note there are two parts to a trigger:</p>
 <ul>
-<li>Triggers execute in alphanumeric order</li>
-<li>Use number sequences to represent trigger order in the form: 'xxxxx' for example: '10100'</li>
-<li>Triggers do not natively begin with numbers, therefore prefix all triggers with 't'</li>
-<li>Core chuck-stack triggers should include <code>_stk</code> after the name's sequence</li>
-<li>Example trigger name: <code>t10100_stk_created_updated</code></li>
-<li>Use <code>\df private.*</code> in psql to list all triggers - look for results where the result data type is 'trigger'</li>
-<li>While it is possible to have two triggers share the same sequence but have different names, this situaton is discouraged</li>
+<li><strong>Trigger Function</strong> - function that describes what should happen when an event occurs</li>
+<li><strong>Trigger Definition</strong> - database object that associates a table with a trigger function</li>
+</ul>
+<h2 id="convention"><a class="header" href="#convention">Convention</a></h2>
+<p>Here are some important considerations to know when managing triggers:</p>
+<ul>
+<li>Triggers execute in alphanumeric order of the trigger definition name</li>
+<li>Use number sequences as a name prefix to represent trigger execution order in the form: 'xxxxx' for example: '10100'</li>
+<li>Triggers do not natively begin with numbers, therefore prefix all trigger function and definition names with 't'</li>
+<li>Core chuck-stack trigger function names should include <code>_stk</code> after the function name's sequence</li>
+<li>Example trigger function name: <code>t10100_stk_created_updated</code></li>
+<li>Trigger definition name should follow the convention: trigger_function_name || '_tbl_' || table_name</li>
+<li>Example trigger definition name: <code>t10100_stk_created_updated_tbl_stk_actor</code></li>
+<li>The conventions of starting both the trigger function and definition name with the <code>txxxxx</code> sequence is not required; however, it is convenient when navigating larger databases</li>
+<li>Use <code>\dft private.*</code> in psql to list all trigger functions</li>
+<li>While it is possible to have two triggers share the same sequence but have different function names, this situation is discouraged</li>
 </ul>
 <p>Here are the recommended trigger sequence conventions:</p>
 <ul>
 <li>All numbers should be between 10000 and 99999</li>
-<li>The first sequence in a range should be <code>xx100</code> to allow for adding preceeding triggers in a range after the fact</li>
+<li>The first sequence in a range should be <code>xx100</code> to allow for adding preceding triggers in a range after the fact</li>
 <li>The assumed increment is 10 to allow room for adding triggers between two existing triggers</li>
 <li>Basic and fundamental functionality (like session management)
 <ul>
@@ -1929,13 +1938,13 @@ select current_setting('test.test.test.one',true);
 <li>Workflow events
 <ul>
 <li>50000 through 59999 core chuck-stack triggers</li>
-<li>60000 through 69999 non-core tiggers that can be created by anyone</li>
+<li>60000 through 69999 non-core triggers that can be created by anyone</li>
 </ul>
 </li>
 <li>After save events
 <ul>
 <li>70000 through 79999 core chuck-stack triggers</li>
-<li>80000 through 89999 non-core tiggers that can be created by anyone</li>
+<li>80000 through 89999 non-core triggers that can be created by anyone</li>
 </ul>
 </li>
 <li>Cleanup
@@ -1945,13 +1954,13 @@ select current_setting('test.test.test.one',true);
 </li>
 </ul>
 <h2 id="trigger-utilities"><a class="header" href="#trigger-utilities">Trigger Utilities</a></h2>
-<p>Here are some utility functions to help make managing triggers easier</p>
+<p>Here are some utility functions to help make managing triggers easier.</p>
 <h3 id="stk_trigger_create"><a class="header" href="#stk_trigger_create">stk_trigger_create()</a></h3>
-<p>There are times when a single function needs to be triggered across many tables.</p>
-<p>To make managing the trigger creation in this scenario easier, there exists a private.stk_trigger_create() function that will create all applicable triggers as described by the private.stk_trigger_mgt table.</p>
+<p>There are times when a single trigger function needs to be associated with many tables.</p>
+<p>To make managing the trigger creation in this scenario easier, there exists a private.stk_trigger_create() function that will create all applicable triggers as described by records in the private.stk_trigger_mgt table.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="async"><a class="header" href="#async">Async</a></h1>
 <p>The purpose of this page is to describe how the chuck-stack supports asynchronous events.</p>
-<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<h2 id="summary-1"><a class="header" href="#summary-1">Summary</a></h2>
 <p>The database goes to great lengths to execute event/trigger functions in a synchronous transaction; however, there are times when these function's execution time can be unpredictable or long-running.</p>
 <p>we need an asynchronous solution to execute additional event functionality without blocking a transaction and creating a slow user experience.</p>
 <h2 id="considerations"><a class="header" href="#considerations">Considerations</a></h2>
@@ -2306,7 +2315,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 <p>There are times when you need to aggregate information across multiple tenants into a single data warehouse (data lake). This is a commonly requested task supported by many data warehouse (data lake) solutions.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
 <p>The purpose of this page is to describe the application framework progress and deployment roadmap.</p>
-<h2 id="summary-1"><a class="header" href="#summary-1">Summary</a></h2>
+<h2 id="summary-2"><a class="header" href="#summary-2">Summary</a></h2>
 <!-- TODO: link to goals -->
 <p>It is important to understand that the chuck-stack is not a typical software project. The goals are to support small and medium sized organizations by bringing together existing tools to create a platform. As such, most of the advancements of this project relate more to convention, configuration and deployment rather than coding.</p>
 <h2 id="upcoming-milestones"><a class="header" href="#upcoming-milestones">Upcoming Milestones</a></h2>
