@@ -178,7 +178,22 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="trigger-convention"><a class="header" href="#trigger-convention">Trigger Convention</a></h1>
-<p>The chuck-stack makes heavy use of events like triggers. To make managing triggers easier, there exists a private.stk_trigger_create() function that will apply a single trigger function to all applicable tables as described by the private.stk_trigger_mgt table.</p>
+<p>The purpose of this page is to describe how the chuck-stack uses triggers.</p>
+<h2 id="convention"><a class="header" href="#convention">Convention</a></h2>
+<p>The chuck-stack makes heavy use of events. The default event execution tool are PostgreSQL triggers.</p>
+<p>The following bullets are important considerations:</p>
+<ul>
+<li>Triggers execute in alphanumeric order</li>
+<li>Use numbers to represent trigger order in the form: 'xxxx' for example: '1010'</li>
+<li>Triggers do not natively begin with numbers, therefore prefix all triggers with 't'</li>
+<li>Example trigger name: 't1010_created_updated'</li>
+<li>Use <code>\df private.*</code> in psql to list all triggers - look for results where the result data type is 'trigger'</li>
+</ul>
+<h2 id="triggers"><a class="header" href="#triggers">Triggers</a></h2>
+<p>Here are some functions to help make managing triggers easier</p>
+<h3 id="stk_trigger_create"><a class="header" href="#stk_trigger_create">stk_trigger_create()</a></h3>
+<p>There are times when a single function needs to be triggered across many tables.</p>
+<p>To make managing the trigger creation in this scenario easier, there exists a private.stk_trigger_create() function that will create all applicable triggers as described by the private.stk_trigger_mgt table.</p>
 
                         <br>
                         <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script>, CHUBOE LLC. All rights reserved.</p> <!--chuboe changed-->
