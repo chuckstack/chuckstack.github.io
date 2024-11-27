@@ -1888,6 +1888,9 @@ select current_setting('test.test.test.one',true);
 <p>Recent versions of PostgreSQL introduced the <code>upsert</code> option to easily find and update an existing record or insert a new statistic in a single command. A unique index on the foreign key pointing to its namesake table prevents duplicate records.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="function-convention"><a class="header" href="#function-convention">Function Convention</a></h1>
 <ul>
+<li>All core chuck-stack function names should be <code>stk_</code></li>
+<li>The function name should use a noun + verb format to describe its behavior</li>
+<li>An example function name: <code>stk_table_type_create</code></li>
 <li>All function parameter names should end with <code>_p</code> suffix. For example: name_p</li>
 <li>All function declared variable names should end with <code>_v</code> suffix. For example: name_v</li>
 </ul>
@@ -1899,13 +1902,50 @@ select current_setting('test.test.test.one',true);
 <p>The following bullets are important considerations:</p>
 <ul>
 <li>Triggers execute in alphanumeric order</li>
-<li>Use numbers to represent trigger order in the form: 'xxxx' for example: '1010'</li>
+<li>Use number sequences to represent trigger order in the form: 'xxxxx' for example: '10100'</li>
 <li>Triggers do not natively begin with numbers, therefore prefix all triggers with 't'</li>
-<li>Example trigger name: 't1010_created_updated'</li>
+<li>Core chuck-stack triggers should include <code>_stk</code> after the name's sequence</li>
+<li>Example trigger name: <code>t10100_stk_created_updated</code></li>
 <li>Use <code>\df private.*</code> in psql to list all triggers - look for results where the result data type is 'trigger'</li>
+<li>While it is possible to have two triggers share the same sequence but have different names, this situaton is discouraged</li>
 </ul>
-<h2 id="triggers"><a class="header" href="#triggers">Triggers</a></h2>
-<p>Here are some functions to help make managing triggers easier</p>
+<p>Here are the recommended trigger sequence conventions:</p>
+<ul>
+<li>All numbers should be between 10000 and 99999</li>
+<li>The first sequence in a range should be <code>xx100</code> to allow for adding preceeding triggers in a range after the fact</li>
+<li>The assumed increment is 10 to allow room for adding triggers between two existing triggers</li>
+<li>Basic and fundamental functionality (like session management)
+<ul>
+<li>10000 through 19999 are reserved for core chuck-stack triggers</li>
+<li>20000 through 29999 are reserved for non-core triggers that can be created by anyone</li>
+</ul>
+</li>
+<li>Before save events
+<ul>
+<li>30000 through 39999 core chuck-stack triggers</li>
+<li>40000 through 49999 non-core triggers that can be created by anyone</li>
+</ul>
+</li>
+<li>Workflow events
+<ul>
+<li>50000 through 59999 core chuck-stack triggers</li>
+<li>60000 through 69999 non-core tiggers that can be created by anyone</li>
+</ul>
+</li>
+<li>After save events
+<ul>
+<li>70000 through 79999 core chuck-stack triggers</li>
+<li>80000 through 89999 non-core tiggers that can be created by anyone</li>
+</ul>
+</li>
+<li>Cleanup
+<ul>
+<li>90000 through 99999 anyone</li>
+</ul>
+</li>
+</ul>
+<h2 id="trigger-utilities"><a class="header" href="#trigger-utilities">Trigger Utilities</a></h2>
+<p>Here are some utility functions to help make managing triggers easier</p>
 <h3 id="stk_trigger_create"><a class="header" href="#stk_trigger_create">stk_trigger_create()</a></h3>
 <p>There are times when a single function needs to be triggered across many tables.</p>
 <p>To make managing the trigger creation in this scenario easier, there exists a private.stk_trigger_create() function that will create all applicable triggers as described by the private.stk_trigger_mgt table.</p>
