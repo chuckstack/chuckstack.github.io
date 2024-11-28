@@ -76,6 +76,9 @@ CREATE TABLE private.stk_changeme (
   --CONSTRAINT fk_stk_changeme_parent FOREIGN KEY (stk_changeme_parent_uu) REFERENCES private.stk_changeme(stk_changeme_uu),
   ----Prompt: ask the user if they need to store json
   --stk_changeme_json JSONB NOT NULL DEFAULT '{}'::jsonb,
+  ----Prompt: ask the user if they need to know when/if a record was processed
+  --date_processed TIMESTAMPTZ,
+  --is_processed BOOLEAN GENERATED ALWAYS AS (date_processed IS NOT NULL) STORED,
   search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   description TEXT
