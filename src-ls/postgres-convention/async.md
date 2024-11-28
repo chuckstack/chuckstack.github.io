@@ -8,6 +8,16 @@ The database goes to great lengths to execute event/trigger functions in a synch
 
 we need an asynchronous solution to execute additional event functionality without blocking a transaction and creating a slow user experience.
 
+## Usage
+
+Here are the steps to perform an asynchronous operation:
+
+- Write a record into `stk_async` with the appropriate `stk_async_type` indicating that you need an operation performed
+- Determine how you wish to process the asynchronous operation:
+  - Create a function that batch processes the unprocessed records on a timer
+  - Create an application that uses the existing pg_notify() message that gets generated after insert to perform a more real-time execution
+  - Extend the chuck-stack to perform an http webhook to notify external systems of the pending operation
+
 ## Considerations
 
 Here are our needs from our asynchronous solution:

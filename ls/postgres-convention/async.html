@@ -182,6 +182,18 @@
 <h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
 <p>The database goes to great lengths to execute event/trigger functions in a synchronous transaction; however, there are times when these function's execution time can be unpredictable or long-running.</p>
 <p>we need an asynchronous solution to execute additional event functionality without blocking a transaction and creating a slow user experience.</p>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
+<p>Here are the steps to perform an asynchronous operation:</p>
+<ul>
+<li>Write a record into <code>stk_async</code> with the appropriate <code>stk_async_type</code> indicating that you need an operation performed</li>
+<li>Determine how you wish to process the asynchronous operation:
+<ul>
+<li>Create a function that batch processes the unprocessed records on a timer</li>
+<li>Create an application that uses the existing pg_notify() message that gets generated after insert to perform a more real-time execution</li>
+<li>Extend the chuck-stack to perform an http webhook to notify external systems of the pending operation</li>
+</ul>
+</li>
+</ul>
 <h2 id="considerations"><a class="header" href="#considerations">Considerations</a></h2>
 <p>Here are our needs from our asynchronous solution:</p>
 <ul>
