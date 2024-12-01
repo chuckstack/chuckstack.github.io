@@ -1989,6 +1989,13 @@ select current_setting('test.test.test.one',true);
 <p>Table: stk_async;stk_async_type</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="notify"><a class="header" href="#notify">Notify</a></h1>
 <p>The purpose of this page is to describe how the chuck-stack supports notifications.</p>
+<h2 id="summary-2"><a class="header" href="#summary-2">Summary</a></h2>
+<p>The chuck-stack uses <a href="https://www.postgresql.org/docs/current/sql-notify.html">PostgreSQL's notify</a> to provide notifications to other systems. The <code>t70100_stk_notify()</code> trigger function provides a generic chuck-stack notify implementation. By default, only the <code>stk_async</code> and <code>stk_async_type</code> tables include this trigger definition.</p>
+<p>To include additional tables in the <code>t70100_stk_notify()</code> execution:</p>
+<ul>
+<li>modify the in the 'stk_notify' record in the <code>stk_trigger_mgt</code> table to include your new table in the <code>table_name</code> array column</li>
+<li>execute the <code>private.stk_trigger_create()</code> function to update your tables with an appropriate trigger definition</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sample-table"><a class="header" href="#sample-table">Sample Table</a></h1>
 <p>The purpose of this section is to make it as easy to create a new entity as possible. All you need to do is copy the below sql and perform a replace-all on 'changeme' to set the desired name. Here is an example vim substitute command to update 'changeme' to 'wf_request':</p>
 <pre><code class="language-vim">:%s/changeme/wf_request/g
@@ -2333,7 +2340,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 <p>There are times when you need to aggregate information across multiple tenants into a single data warehouse (data lake). This is a commonly requested task supported by many data warehouse (data lake) solutions.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
 <p>The purpose of this page is to describe the application framework progress and deployment roadmap.</p>
-<h2 id="summary-2"><a class="header" href="#summary-2">Summary</a></h2>
+<h2 id="summary-3"><a class="header" href="#summary-3">Summary</a></h2>
 <!-- TODO: link to goals -->
 <p>It is important to understand that the chuck-stack is not a typical software project. The goals are to support small and medium sized organizations by bringing together existing tools to create a platform. As such, most of the advancements of this project relate more to convention, configuration and deployment rather than coding.</p>
 <h2 id="upcoming-milestones"><a class="header" href="#upcoming-milestones">Upcoming Milestones</a></h2>

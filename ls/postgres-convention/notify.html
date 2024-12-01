@@ -179,6 +179,13 @@
                     <main>
                         <h1 id="notify"><a class="header" href="#notify">Notify</a></h1>
 <p>The purpose of this page is to describe how the chuck-stack supports notifications.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>The chuck-stack uses <a href="https://www.postgresql.org/docs/current/sql-notify.html">PostgreSQL's notify</a> to provide notifications to other systems. The <code>t70100_stk_notify()</code> trigger function provides a generic chuck-stack notify implementation. By default, only the <code>stk_async</code> and <code>stk_async_type</code> tables include this trigger definition.</p>
+<p>To include additional tables in the <code>t70100_stk_notify()</code> execution:</p>
+<ul>
+<li>modify the in the 'stk_notify' record in the <code>stk_trigger_mgt</code> table to include your new table in the <code>table_name</code> array column</li>
+<li>execute the <code>private.stk_trigger_create()</code> function to update your tables with an appropriate trigger definition</li>
+</ul>
 
                         <br>
                         <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script>, CHUBOE LLC. All rights reserved.</p> <!--chuboe changed-->
