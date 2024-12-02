@@ -198,40 +198,26 @@
 <li>Example trigger definition name: <code>t10100_stk_created_updated_tbl_stk_actor</code></li>
 <li>The conventions of starting both the trigger function and definition name with the <code>txxxxx</code> sequence is not required; however, it is convenient when navigating larger databases</li>
 <li>Use <code>\dft private.*</code> in psql to list all trigger functions</li>
-<li>While it is possible to have two triggers share the same sequence but have different function names, this situation is discouraged</li>
+<li>It is possible to have multiple triggers share the same sequence but have different function names
+<ul>
+<li>Since not all triggers are applied to all tables, using different triggers with the same sequence can be convenient to further promote conventions</li>
+<li>Take care when duplicating sequences to ensure you do not create confusion</li>
+</ul>
+</li>
 </ul>
 <p>Here are the recommended trigger sequence conventions:</p>
 <ul>
 <li>All numbers should be between 10000 and 99999</li>
 <li>The first sequence in a range should be <code>xx100</code> to allow for adding preceding triggers in a range after the fact</li>
 <li>The assumed increment is 10 to allow room for adding triggers between two existing triggers</li>
-<li>Basic and fundamental functionality (like session management)
+<li>Basic and fundamental functionality (like session management)</li>
+<li>Here are the ranges:
 <ul>
-<li>10000 through 19999 are reserved for core chuck-stack triggers</li>
-<li>20000 through 29999 are reserved for non-core triggers that can be created by anyone</li>
-</ul>
-</li>
-<li>Before save events
-<ul>
-<li>30000 through 39999 core chuck-stack triggers</li>
-<li>40000 through 49999 non-core triggers that can be created by anyone</li>
-</ul>
-</li>
-<li>Workflow events
-<ul>
-<li>50000 through 59999 core chuck-stack triggers</li>
-<li>60000 through 69999 non-core triggers that can be created by anyone</li>
-</ul>
-</li>
-<li>After save events
-<ul>
-<li>70000 through 79999 core chuck-stack triggers</li>
-<li>80000 through 89999 non-core triggers that can be created by anyone</li>
-</ul>
-</li>
-<li>Cleanup
-<ul>
-<li>90000 through 99999 anyone</li>
+<li>10000 to 29999 - before insert/update/delete</li>
+<li>30000 to 49999 - before request action</li>
+<li>50000 to 59999 - request action</li>
+<li>60000 to 79999 - after request action</li>
+<li>80000 to 99999 - after insert/update/delete</li>
 </ul>
 </li>
 </ul>

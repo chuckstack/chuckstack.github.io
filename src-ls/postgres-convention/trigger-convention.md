@@ -24,7 +24,9 @@ Here are some important considerations to know when managing triggers:
 - Example trigger definition name: `t10100_stk_created_updated_tbl_stk_actor`
 - The conventions of starting both the trigger function and definition name with the `txxxxx` sequence is not required; however, it is convenient when navigating larger databases
 - Use `\dft private.*` in psql to list all trigger functions
-- While it is possible to have two triggers share the same sequence but have different function names, this situation is discouraged
+- It is possible to have multiple triggers share the same sequence but have different function names
+  - Since not all triggers are applied to all tables, using different triggers with the same sequence can be convenient to further promote conventions
+  - Take care when duplicating sequences to ensure you do not create confusion
 
 Here are the recommended trigger sequence conventions:
 
@@ -32,19 +34,12 @@ Here are the recommended trigger sequence conventions:
 - The first sequence in a range should be `xx100` to allow for adding preceding triggers in a range after the fact
 - The assumed increment is 10 to allow room for adding triggers between two existing triggers
 - Basic and fundamental functionality (like session management)
-  - 10000 through 19999 are reserved for core chuck-stack triggers
-  - 20000 through 29999 are reserved for non-core triggers that can be created by anyone
-- Before save events
-  - 30000 through 39999 core chuck-stack triggers
-  - 40000 through 49999 non-core triggers that can be created by anyone
-- Workflow events
-  - 50000 through 59999 core chuck-stack triggers
-  - 60000 through 69999 non-core triggers that can be created by anyone
-- After save events
-  - 70000 through 79999 core chuck-stack triggers
-  - 80000 through 89999 non-core triggers that can be created by anyone
-- Cleanup
-  - 90000 through 99999 anyone
+- Here are the ranges:
+  - 10000 to 29999 - before insert/update/delete
+  - 30000 to 49999 - before request action
+  - 50000 to 59999 - request action
+  - 60000 to 79999 - after request action
+  - 80000 to 99999 - after insert/update/delete
 
 ## Trigger Utilities
 
