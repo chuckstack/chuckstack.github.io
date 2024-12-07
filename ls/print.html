@@ -2006,6 +2006,7 @@ select current_setting('test.test.test.one',true);
 <pre><code class="language-sql">-- set session to show stk_superuser as the actor performing all the tasks
 SET stk.session = '{\"psql_user\": \"stk_superuser\"}';
 
+---- type_section start ----
 CREATE TYPE private.stk_changeme_type_enum AS ENUM (
     'NONE',
     'ACTION'
@@ -2024,11 +2025,9 @@ CREATE TABLE private.stk_changeme_type (
   stk_entity_uu UUID NOT NULL,
   CONSTRAINT fk_stk_changeme_type_entity FOREIGN KEY (stk_entity_uu) REFERENCES private.stk_entity(stk_entity_uu),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
-  created_by_uu UUID NOT NULL,
-  --CONSTRAINT fk_stk_changeme_type_createdby FOREIGN KEY (created_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
+  created_by_uu UUID NOT NULL, -- no FK by convention
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
-  updated_by_uu UUID NOT NULL,
-  --CONSTRAINT fk_stk_changeme_type_updatedby FOREIGN KEY (updated_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
+  updated_by_uu UUID NOT NULL, -- no FK by convention
   is_active BOOLEAN NOT NULL DEFAULT true,
   is_default BOOLEAN NOT NULL DEFAULT false,
   stk_changeme_type_enum private.stk_changeme_type_enum NOT NULL,
@@ -2043,6 +2042,12 @@ COMMENT ON TABLE private.stk_changeme_type IS 'Holds the types of stk_changeme r
 CREATE VIEW api.stk_changeme_type AS SELECT * FROM private.stk_changeme_type;
 COMMENT ON VIEW api.stk_changeme_type IS 'Holds the types of stk_changeme records.';
 
+-- create triggers and type records for newly created tables
+SELECT private.stk_trigger_create();
+SELECT private.stk_table_type_create('stk_changeme_type');
+---- type_section end ----
+
+---- primary_section start ----
 CREATE TABLE private.stk_changeme (
   stk_changeme_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   table_name TEXT generated always AS ('stk_changeme') stored,
@@ -2050,21 +2055,17 @@ CREATE TABLE private.stk_changeme (
   stk_entity_uu UUID NOT NULL,
   CONSTRAINT fk_stk_changeme_entity FOREIGN KEY (stk_entity_uu) REFERENCES private.stk_entity(stk_entity_uu),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
-  created_by_uu UUID NOT NULL,
-  --CONSTRAINT fk_stk_changeme_createdby FOREIGN KEY (created_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
+  created_by_uu UUID NOT NULL, -- no FK by convention
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
-  updated_by_uu UUID NOT NULL,
-  --CONSTRAINT fk_stk_changeme_updatedby FOREIGN KEY (updated_by_uu) REFERENCES private.stk_actor(stk_actor_uu),
+  updated_by_uu UUID NOT NULL, -- no FK by convention
   is_active BOOLEAN NOT NULL DEFAULT true,
   ----Prompt: ask the user if they need to create templates
   --is_template BOOLEAN NOT NULL DEFAULT false,
   ----Prompt: ask the user if they need validation
   --is_valid BOOLEAN NOT NULL DEFAULT true,
-  stk_changeme_type_uu UUID NOT NULL,
-  CONSTRAINT fk_stk_changeme_type FOREIGN KEY (stk_changeme_type_uu) REFERENCES private.stk_changeme_type(stk_changeme_type_uu),
+  stk_changeme_type_uu UUID NOT NULL REFERENCES private.stk_changeme_type(stk_changeme_type_uu),
   ----Prompt: ask the user if they need to create parent child relationships inside the table
-  --stk_changeme_parent_uu UUID,
-  --CONSTRAINT fk_stk_changeme_parent FOREIGN KEY (stk_changeme_parent_uu) REFERENCES private.stk_changeme(stk_changeme_uu),
+  --stk_changeme_parent_uu UUID REFERENCES private.stk_changeme(stk_changeme_uu),
   ----Prompt: ask the user if they need to store json
   --stk_changeme_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   ----Prompt: ask the user if they need to know when/if a record was processed
@@ -2078,10 +2079,10 @@ COMMENT ON TABLE private.stk_changeme IS 'Holds changeme records';
 
 CREATE VIEW api.stk_changeme AS SELECT * FROM private.stk_changeme;
 COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
+---- primary_section end ----
 
 -- create triggers for newly created tables
 SELECT private.stk_trigger_create();
-SELECT private.stk_table_type_create('stk_changeme_type');
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="scalability-considerations"><a class="header" href="#scalability-considerations">Scalability Considerations</a></h1>
 <p>We consider the following topics when scaling PostgreSQL from just a couple of users through thousands of users.</p>
