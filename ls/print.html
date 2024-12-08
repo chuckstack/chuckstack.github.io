@@ -2172,7 +2172,10 @@ CREATE TRIGGER t00030_generic_partition_delete_tbl_stk_changeme
 <p>Below are some sql statements you should be able to successfully execute through the api schema against your newly created entity.</p>
 <pre><code class="language-sql">insert into api.stk_changeme (name, stk_changeme_type_uu) values ('test1',(select stk_changeme_type_uu from api.stk_changeme_type limit 1)) returning stk_changeme_uu;
 update api.stk_changeme set name = 'test1a' where name = 'test1' returning name;
+select * from api.stk_changeme;
 delete from api.stk_changeme where name = 'test1a' returning stk_changeme_uu;
+
+-- sample json if you include a json column: {"id": 123, "name": "John Doe", "email": "john@example.com", "active": true, "metadata": {"age": 30, "city": "New York"}}
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="scalability-considerations"><a class="header" href="#scalability-considerations">Scalability Considerations</a></h1>
 <p>We consider the following topics when scaling PostgreSQL from just a couple of users through thousands of users.</p>

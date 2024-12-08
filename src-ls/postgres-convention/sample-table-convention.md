@@ -199,5 +199,8 @@ Below are some sql statements you should be able to successfully execute through
 ```sql
 insert into api.stk_changeme (name, stk_changeme_type_uu) values ('test1',(select stk_changeme_type_uu from api.stk_changeme_type limit 1)) returning stk_changeme_uu;
 update api.stk_changeme set name = 'test1a' where name = 'test1' returning name;
+select * from api.stk_changeme;
 delete from api.stk_changeme where name = 'test1a' returning stk_changeme_uu;
+
+-- sample json if you include a json column: {"id": 123, "name": "John Doe", "email": "john@example.com", "active": true, "metadata": {"age": 30, "city": "New York"}}
 ```
