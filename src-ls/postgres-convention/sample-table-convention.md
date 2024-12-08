@@ -16,13 +16,13 @@ The resulting tables and objects would resemble `stk_request`.
 
 This section represents a template for creating a new entity that does not use partitioning (aka normal table/entity). The below SQL code does the following:
 
-- creates an enum (for code)
+- creates an enum (for code) ([see enum](./enum-type-convention.md#enum-convention))
 - adds comments to each enum value
-- creates a facade type table around the enum (for users)
+- creates a facade type table around the enum (for users) ([see type](./enum-type-convention.md#type-convention))
 - creates the actual table with a reference to the type
-- exposes the tables to the api schema
-- adds comments to each table
-- adds triggers to each table to set session data
+- exposes the tables to the api schema ([see schema](./schema.md))
+- adds comments to each table ([see comments](./comment.md))
+- adds triggers to each table to set session data ([see trigger](./trigger-convention.md))
 
 Simply copy and paste this script into a SQL editor and execute with the above substituted variables.
 
@@ -118,7 +118,7 @@ Below represents the changes needed to the `---- primary_section ----` to create
 - Delete the `---- primary_section ----` section
 - Replace it with the following
 
-See the [UUID page](./uuid.md) for more details about partitioning, primary keys, and the below structure.
+See the [UUID page](./uuid.md#partition) for more details about partitioning, primary keys, and the below structure.
 
 ```sql
 ---- primary_section start ----

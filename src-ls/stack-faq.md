@@ -22,6 +22,12 @@ See [chuck-stack guiding principles](./introduction.md#chuck-stack-guiding-princ
 
 See the [stack-academy](./stack-academy.md) page.
 
+## What about scalability?
+
+The chuck-stack uses widely available and well understood tools (namely PostgreSQL and Linux) whose scalability is widely reasoned about. The chuck-stack can easily be scaled to thousands of concurrent users by simply following basic best practices.
+
+Reference: [Postgresql Scalability](./postgres-convention/scalability-convention.md)
+
 ## What is a Superclerk?
 
 See [superclerk](./terminology.html#superclerk).
