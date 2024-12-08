@@ -118,14 +118,7 @@ Below represents the changes needed to the `---- primary_section ----` to create
 - Delete the `---- primary_section ----` section
 - Replace it with the following
 
-Notes about the following changes and considerations:
-
-- Creates a single table to hold the unique primary key
-- Creates a table with the suffix `_part` to hold all the same information as above
-- Note we chose the `partition by list` so that you can create partitions for as many `types` as you wish
-- By default, we create only one partition: `default`
-- You can add more partitions later as is needed with little effort
-- Note you can change the below to use the `partition by range` option when you want to partition by something like a date range
+See the [UUID page](./uuid.md) for more details about partitioning, primary keys, and the below structure.
 
 ```sql
 ---- primary_section start ----
