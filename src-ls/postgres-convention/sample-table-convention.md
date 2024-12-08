@@ -1,6 +1,6 @@
 # Sample Table
 
-The purpose of this section is to make it as easy to create a new entity as possible. All you need to do is copy the below sql and perform a replace-all on 'changeme' to set the desired name. Here is an example vim substitute command to update 'changeme' to 'wf_request':
+The purpose of this section is to make it as easy as possible to create a new entity. All you need to do is copy the below sql and perform a replace-all on 'changeme' to set the desired name. Here is an example vim substitute command to update 'changeme' to 'wf_request':
 
 ```vim
 :%s/changeme/wf_request/g
@@ -35,8 +35,7 @@ CREATE TABLE private.stk_changeme_type (
   stk_changeme_type_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   table_name TEXT GENERATED ALWAYS AS ('stk_changeme_type') STORED,
   record_uu UUID GENERATED ALWAYS AS (stk_changeme_type_uu) STORED,
-  stk_entity_uu UUID NOT NULL,
-  CONSTRAINT fk_stk_changeme_type_entity FOREIGN KEY (stk_entity_uu) REFERENCES private.stk_entity(stk_entity_uu),
+  stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(stk_entity_uu),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   created_by_uu UUID NOT NULL, -- no FK by convention
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
