@@ -284,14 +284,14 @@ SELECT private.stk_trigger_create();
 <li>Delete the <code>---- primary_section ----</code> section</li>
 <li>Replace it with the following</li>
 </ul>
-<p>Note the following changes and considerations:</p>
+<p>Notes about the following changes and considerations:</p>
 <ul>
-<li>Create a single table to hold the unique primary key</li>
-<li>Create a table with the suffix <code>_part</code> to hold all the same information as above</li>
+<li>Creates a single table to hold the unique primary key</li>
+<li>Creates a table with the suffix <code>_part</code> to hold all the same information as above</li>
 <li>Note we chose the <code>partition by list</code> so that you can create partitions for as many <code>types</code> as you wish</li>
 <li>By default, we create only one partition: <code>default</code></li>
 <li>You can add more partitions later as is needed with little effort</li>
-<li>Note you can change the below to use the <code>partition by range</code> option when you want partition by something like a date range</li>
+<li>Note you can change the below to use the <code>partition by range</code> option when you want to partition by something like a date range</li>
 </ul>
 <pre><code class="language-sql">---- primary_section start ----
 -- primary table
