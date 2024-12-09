@@ -168,17 +168,17 @@ JOIN private.stk_changeme_part stkp on stk.stk_changeme_uu = stkp.stk_changeme_u
 ;
 COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
 
-CREATE TRIGGER t00010_generic_partition_insert_tbl_stk_changeme
+CREATE TRIGGER t00010_generic_partition_insert
     INSTEAD OF INSERT ON api.stk_changeme
     FOR EACH ROW
     EXECUTE FUNCTION private.t00010_generic_partition_insert();
 
-CREATE TRIGGER t00020_generic_partition_update_tbl_stk_changeme
+CREATE TRIGGER t00020_generic_partition_update
     INSTEAD OF UPDATE ON api.stk_changeme
     FOR EACH ROW
     EXECUTE FUNCTION private.t00020_generic_partition_update();
 
-CREATE TRIGGER t00030_generic_partition_delete_tbl_stk_changeme
+CREATE TRIGGER t00030_generic_partition_delete
     INSTEAD OF DELETE ON api.stk_changeme
     FOR EACH ROW
     EXECUTE FUNCTION private.t00030_generic_partition_delete();

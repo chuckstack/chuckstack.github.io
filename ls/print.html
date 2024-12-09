@@ -1966,8 +1966,8 @@ select current_setting('test.test.test.one',true);
 <li>Triggers do not natively begin with numbers, therefore prefix all trigger function and definition names with 't'</li>
 <li>Core chuck-stack trigger function names should include <code>_stk</code> after the function name's sequence</li>
 <li>Example trigger function name: <code>t10100_stk_created_updated</code></li>
-<li>Trigger definition name should follow the convention: trigger_function_name || '_tbl_' || table_name</li>
-<li>Example trigger definition name: <code>t10100_stk_created_updated_tbl_stk_actor</code></li>
+<li>Trigger definition name should be the same as the trigger function mame</li>
+<li>Example trigger definition name when applied to stk_actor: <code>t10100_stk_created_updated</code></li>
 <li>The conventions of starting both the trigger function and definition name with the <code>txxxxx</code> sequence is not required; however, it is convenient when navigating larger databases</li>
 <li>Use <code>\dft private.*</code> in psql to list all trigger functions</li>
 <li>It is possible to have multiple triggers share the same sequence but have different function names
@@ -2204,17 +2204,17 @@ JOIN private.stk_changeme_part stkp on stk.stk_changeme_uu = stkp.stk_changeme_u
 ;
 COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
 
-CREATE TRIGGER t00010_generic_partition_insert_tbl_stk_changeme
+CREATE TRIGGER t00010_generic_partition_insert
     INSTEAD OF INSERT ON api.stk_changeme
     FOR EACH ROW
     EXECUTE FUNCTION private.t00010_generic_partition_insert();
 
-CREATE TRIGGER t00020_generic_partition_update_tbl_stk_changeme
+CREATE TRIGGER t00020_generic_partition_update
     INSTEAD OF UPDATE ON api.stk_changeme
     FOR EACH ROW
     EXECUTE FUNCTION private.t00020_generic_partition_update();
 
-CREATE TRIGGER t00030_generic_partition_delete_tbl_stk_changeme
+CREATE TRIGGER t00030_generic_partition_delete
     INSTEAD OF DELETE ON api.stk_changeme
     FOR EACH ROW
     EXECUTE FUNCTION private.t00030_generic_partition_delete();
