@@ -57,3 +57,37 @@ Link tables are traditionally used to create many-to-many relationships. It is a
 One area where the chuck-stack differs from traditional link tables is the additional use of primary keys for 'every' table (including link tables) as described in the [table convention](./table-convention.md) page. 
 
 This additional requirement allows us to use features like [attribute tagging](./attribute-tag.md) and [statistics](./statistics-convention.md) on link tables. Said another way, this convention promotes link tables to first class citizens of the chuck-stack.
+
+## JSON Type
+
+The attribute tag architecture is a example that uses PostgreSQL's JSON features to represent complex data. It is also an example where the `stk_attribute_tag_type_json` column defines the shape of what exists in a `stk_attribute_tag_json` column for a given type.
+
+Below are possible conventions to consider. Both options have merits. Testing needs to be conducted to form a more formal opinion as to which is preferred.
+
+Note: A similar concept will be needed to characterize a 'window' that describe how new records are created. Examples include ranges, fk constraints (dynamic validation). Added here; however, needs to be moved to its own section.
+
+1. More Explicit Schema Approach:
+```json
+{
+  "someval": {
+    "required": false,
+    "type": "string"
+  },
+  "otherval": {
+    "required": true,
+    "type": "number"
+  }
+}
+```
+
+2. Using JSON Schema conventions (seems to be well understood and preferred):
+```json
+{
+  "type": "object",
+  "properties": {
+    "someval": { "type": "string" },
+    "otherval": { "type": "string" }
+  },
+  "required": ["otherval"]
+}
+```
