@@ -80,7 +80,7 @@ Note: A similar concept will be needed to characterize a 'window' that describe 
 }
 ```
 
-2. Using JSON Schema conventions (seems to be well understood and preferred):
+2. Using JSON Schema conventions:
 ```json
 {
   "type": "object",
@@ -91,3 +91,10 @@ Note: A similar concept will be needed to characterize a 'window' that describe 
   "required": ["otherval"]
 }
 ```
+
+The last approach (JSON Schema) seems to be the recommendation because:
+1. It's a widely recognized standard
+1. Provides clear validation rules
+1. Can be extended with additional validations with little effort
+1. Self-documenting
+1. Many existing tools support it
