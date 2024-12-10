@@ -1899,8 +1899,8 @@ select current_setting('test.test.test.one',true);
 <p>One area where the chuck-stack differs from traditional link tables is the additional use of primary keys for 'every' table (including link tables) as described in the <a href="postgres-convention/./table-convention.html">table convention</a> page.</p>
 <p>This additional requirement allows us to use features like <a href="postgres-convention/./attribute-tag.html">attribute tagging</a> and <a href="postgres-convention/./statistics-convention.html">statistics</a> on link tables. Said another way, this convention promotes link tables to first class citizens of the chuck-stack.</p>
 <h2 id="json-type"><a class="header" href="#json-type">JSON Type</a></h2>
-<p>We will make heave use of the JSON schema standard to validate the proper use and structure of stored JSON objects.</p>
-<p>The attribute tag architecture is a example use case of this schema standard so that we may represent complex data in a simplified manner. It is also an example of the <a href="postgres-convention/./enum-type-convention.html">enum + type</a> convention where the type record (<code>stk_attribute_tag_type_json</code> column) contains the JSON schema definition and the actual <code>stk_attribute_tag</code> table (<code>stk_attribute_tag_json</code> column) contains the instance or actual value of that JSON schema.</p>
+<p>We make heave use of the JSON schema standard to validate the proper use and structure of stored JSON objects.</p>
+<p>The <a href="postgres-convention/./attribute-tag.html">attribute tag</a> architecture is a example use case of this schema standard so that we may represent complex data in a simplified manner. It is also an example of the <a href="postgres-convention/./enum-type-convention.html">enum + type</a> convention where the type record (<code>stk_attribute_tag_type_json</code> column) contains the JSON schema definition and the actual <code>stk_attribute_tag</code> table (<code>stk_attribute_tag_json</code> column) contains the instance or actual value of that JSON schema.</p>
 <p>The above reference videos help illustrate these concepts.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="enum-and-type-convention"><a class="header" href="#enum-and-type-convention">enum and Type Convention</a></h1>
 <p>enums and types work closely in the chuck-stack. The enum is a developer tool used in code. A type record is an end-user tool used in transactions. Type tables contain enums thus creating the connection between the concepts.</p>
@@ -1918,7 +1918,8 @@ select current_setting('test.test.test.one',true);
 <p>If code needs to reference a setting or configuration, it finds an entry in the <code>stk_system_config</code> table. Code can look up system configuration records based on the configuration's <code>search_key</code>.</p>
 <p>System configurator records store <code>search_key</code> values is all caps so that it resembles the common convention of a constant.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="attribute-tagging"><a class="header" href="#attribute-tagging">Attribute Tagging</a></h1>
-<p>The chuck-stack makes heavy use of JSON and attributing tagging as a means to describe database objects and workflow. The attribute tag architecture begins with the <code>stk_attribute_tag</code> table. This architecture allows you to associate any collection of attributes with any record in the database.</p>
+<p>The chuck-stack makes heavy use of <a href="postgres-convention/./json-array-table-column.html#json-type">JSON</a> and attributing tagging as a means to describe database objects and workflow. The attribute tag architecture begins with the <code>stk_attribute_tag</code> table. This architecture allows you to associate any collection of attributes with any record in the database.</p>
+<h2 id="example-json"><a class="header" href="#example-json">Example JSON</a></h2>
 <p>In addition to adding simple attribute tags like <code>color</code> or <code>height</code>, you can also create compound attributes like this one that describes product packaging:</p>
 <pre><code class="language-json">{
   "packagingType": "Bag",
@@ -1947,6 +1948,8 @@ select current_setting('test.test.test.one',true);
   "sustainabilityScore": 8.5
 }
 </code></pre>
+<h2 id="attribute-type"><a class="header" href="#attribute-type">Attribute Type</a></h2>
+<p>You can define any number of attribute tag types. Each type defines the desire shape (and restriction) of an actual tag's JSON using the JSON schema standard. See the <a href="postgres-convention/./json-array-table-column.html#json-type">JSON</a> page for more implementation details.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="statistics-convention"><a class="header" href="#statistics-convention">Statistics Convention</a></h1>
 <p>The <code>stk_statistic</code> table holds statistical details about a record. The goal of this table is to remove denormalized data/columns from transactional tables. By doing so, we improve performance, reduce locking potential and reduce change log activity for data that is derived from other normalized data.</p>
 <p>You use the <a href="postgres-convention/./table-record-convention.html">Table and Record Reference</a> approach to associate a statistic to any given record.</p>

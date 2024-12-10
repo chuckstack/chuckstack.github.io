@@ -234,8 +234,8 @@
 <p>One area where the chuck-stack differs from traditional link tables is the additional use of primary keys for 'every' table (including link tables) as described in the <a href="./table-convention.html">table convention</a> page.</p>
 <p>This additional requirement allows us to use features like <a href="./attribute-tag.html">attribute tagging</a> and <a href="./statistics-convention.html">statistics</a> on link tables. Said another way, this convention promotes link tables to first class citizens of the chuck-stack.</p>
 <h2 id="json-type"><a class="header" href="#json-type">JSON Type</a></h2>
-<p>We will make heave use of the JSON schema standard to validate the proper use and structure of stored JSON objects.</p>
-<p>The attribute tag architecture is a example use case of this schema standard so that we may represent complex data in a simplified manner. It is also an example of the <a href="./enum-type-convention.html">enum + type</a> convention where the type record (<code>stk_attribute_tag_type_json</code> column) contains the JSON schema definition and the actual <code>stk_attribute_tag</code> table (<code>stk_attribute_tag_json</code> column) contains the instance or actual value of that JSON schema.</p>
+<p>We make heave use of the JSON schema standard to validate the proper use and structure of stored JSON objects.</p>
+<p>The <a href="./attribute-tag.html">attribute tag</a> architecture is a example use case of this schema standard so that we may represent complex data in a simplified manner. It is also an example of the <a href="./enum-type-convention.html">enum + type</a> convention where the type record (<code>stk_attribute_tag_type_json</code> column) contains the JSON schema definition and the actual <code>stk_attribute_tag</code> table (<code>stk_attribute_tag_json</code> column) contains the instance or actual value of that JSON schema.</p>
 <p>The above reference videos help illustrate these concepts.</p>
 
                         <br>
