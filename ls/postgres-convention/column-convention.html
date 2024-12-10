@@ -221,6 +221,7 @@
 <li><code>is_valid</code> - boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow --></li>
 <li><code>is_include</code> - boolean that indicates if a record is of type include. Including a record could potentially impact all records that are not included. Said another way, including a record could potentially exclude all other records.</li>
 <li><code>is_exclude</code> - boolean that indicates if a record is of type exclude. Excluding a record only impacts that specified record.</li>
+<li><code>is_singleton</code> - indicates that only a single record or object should exist for group or category. Used for example to indicated if more than one attribute tag is allowed for given combination of table_name, record_uu, stk_attribute_tag_type_uu. If <code>is_singleton</code>=Y, then only one instance of an attribute tag type is allowed per record.</li>
 <li><code>trx_type</code> - enum listing the type of transaction. Used by <code>stk_doc_type</code> table.</li>
 <li><code>batch_id</code> - text indicating this record was processed as part of a batch operation. A single record couple participate in multiple batches. if so, use the noun_adjective approach (example: batch_import_id).</li>
 <li><code>column_name</code> - text referencing the name of a column.</li>

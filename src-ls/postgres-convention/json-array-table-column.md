@@ -50,6 +50,12 @@ An alternative to adding an additional column is to make use of an [attribute ta
 ```
 See [attribute tag](./attribute-tag.md) to learn more...
 
+## JSON References
+
+- [JSON in PostgreSQL](https://youtu.be/nxeUiRz4G-M)
+- [JSON Schema Validation in PostgreSQL](https://youtu.be/amJo48ChLGs)
+- [JSON Indexing in PostgreSQL](https://youtu.be/EwFjETYge9I)
+
 ## Link Table Usage
 
 Link tables are traditionally used to create many-to-many relationships. It is a well understood and documented use case. The use of link tables in the chuck-stack is encouraged when needed.
@@ -60,41 +66,8 @@ This additional requirement allows us to use features like [attribute tagging](.
 
 ## JSON Type
 
-The attribute tag architecture is a example that uses PostgreSQL's JSON features to represent complex data. It is also an example where the `stk_attribute_tag_type_json` column defines the shape of what exists in a `stk_attribute_tag_json` column for a given type.
+We will make heave use of the JSON schema standard to validate the proper use and structure of stored JSON objects.
 
-Below are possible conventions to consider. Both options have merits. Testing needs to be conducted to form a more formal opinion as to which is preferred.
+The attribute tag architecture is a example use case of this schema standard so that we may represent complex data in a simplified manner. It is also an example of the [enum + type](./enum-type-convention.md) convention where the type record (`stk_attribute_tag_type_json` column) contains the JSON schema definition and the actual `stk_attribute_tag` table (`stk_attribute_tag_json` column) contains the instance or actual value of that JSON schema.
 
-Note: A similar concept will be needed to characterize a 'window' that describe how new records are created. Examples include ranges, fk constraints (dynamic validation). Added here; however, needs to be moved to its own section.
-
-1. More Explicit Schema Approach:
-```json
-{
-  "someval": {
-    "required": false,
-    "type": "string"
-  },
-  "otherval": {
-    "required": true,
-    "type": "number"
-  }
-}
-```
-
-2. Using JSON Schema conventions:
-```json
-{
-  "type": "object",
-  "properties": {
-    "someval": { "type": "string" },
-    "otherval": { "type": "string" }
-  },
-  "required": ["otherval"]
-}
-```
-
-The last approach (JSON Schema) seems to be the recommendation because:
-1. It's a widely recognized standard
-1. Provides clear validation rules
-1. Can be extended with additional validations with little effort
-1. Self-documenting
-1. Many existing tools support it
+The above reference videos help illustrate these concepts.
