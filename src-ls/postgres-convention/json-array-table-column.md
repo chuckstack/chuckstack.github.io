@@ -15,7 +15,7 @@ Note that an array is a simple homogeneous structure. An array works well when a
 - the state of the reference
 - dates in which the reference is valid
 
-When a simple array no long supports the nature of the reference, you can consider using either [json](#json-usage) or a [link table](#link-table-usage).
+When a simple array no longer supports the nature of the reference, you can consider using either [json](#json-usage) or a [link table](#link-table-usage).
 
 ## JSON Usage
 An alternative to adding an additional column is to make use of an [attribute tag](./attribute-tag.md) architecture like `stk_attribute_tag` where you can tag any record with as many attributes as you wish. In addition to adding simple attribute tags like `color` or `height`, you can also create compound attributes like this one that describes product packaging:
