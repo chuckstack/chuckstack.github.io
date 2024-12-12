@@ -41,7 +41,7 @@ The purpose of this section is to list the columns you commonly find in chuck-st
 - `type_uu` - references the record's associated type record.
 - `parent_uu` - references a record in the same table identified as being a parent.
 - `record_json` - the record's jsonb column that holds less structured data.
-- `table_name_uu_json` - jsonb object referencing {"table_name": "","uu": ""}. This is used by services tables (like [attribute tagging](./attribute-tag.md)) to link to the serviced record.
+- `table_name_uu_json` - jsonb object referencing `{"table_name": "","uu": ""}`. This is used by services tables (like [attribute tagging](./attribute-tag.md)) to link to the serviced record.
 - `is_default` - boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.
 - `date_processed` - timestamptz indicating when the record was processed.
 - `is_processed` - boolean derived/generated from `date_processed` automatically indicating if a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column. 
