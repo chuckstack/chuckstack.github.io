@@ -16,6 +16,9 @@ The resulting tables and objects would resemble `stk_request`.
 
 This section represents a template for creating a new entity that does not use partitioning (aka normal table/entity). The below SQL code does the following:
 
+- follows the ([table conventions](./table-convention.md))
+- follows the ([table and record conventions](./table-record-convention.md))
+- creates typical columns ([see column convention](./column-convention.md))
 - creates an enum (for code) ([see enum](./enum-type-convention.md#enum-convention))
 - adds comments to each enum value
 - creates a facade type table around the enum (for users) ([see type](./enum-type-convention.md#type-convention))
@@ -43,19 +46,18 @@ INSERT INTO private.enum_comment (enum_type, enum_value, comment) VALUES
 ;
 
 CREATE TABLE private.stk_changeme_type (
-  stk_changeme_type_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   table_name TEXT GENERATED ALWAYS AS ('stk_changeme_type') STORED,
-  record_uu UUID GENERATED ALWAYS AS (stk_changeme_type_uu) STORED,
-  stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(stk_entity_uu),
+  stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(uu),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   created_by_uu UUID NOT NULL, -- no FK by convention
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_by_uu UUID NOT NULL, -- no FK by convention
   is_active BOOLEAN NOT NULL DEFAULT true,
   is_default BOOLEAN NOT NULL DEFAULT false,
-  stk_changeme_type_enum private.stk_changeme_type_enum NOT NULL,
+  type_enum private.stk_changeme_type_enum NOT NULL,
   ----Prompt: ask the user if they need to store json
-  --stk_changeme_type_json JSONB NOT NULL DEFAULT '{}'::jsonb,
+  --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   description TEXT
@@ -72,11 +74,9 @@ SELECT private.stk_table_type_create('stk_changeme_type');
 
 ---- primary_section start ----
 CREATE TABLE private.stk_changeme (
-  stk_changeme_uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   table_name TEXT generated always AS ('stk_changeme') stored,
-  record_uu UUID GENERATED ALWAYS AS (stk_changeme_uu) stored,
-  stk_entity_uu UUID NOT NULL,
-  CONSTRAINT fk_stk_changeme_entity FOREIGN KEY (stk_entity_uu) REFERENCES private.stk_entity(stk_entity_uu),
+  stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(uu),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   created_by_uu UUID NOT NULL, -- no FK by convention
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -86,11 +86,11 @@ CREATE TABLE private.stk_changeme (
   --is_template BOOLEAN NOT NULL DEFAULT false,
   ----Prompt: ask the user if they need validation
   --is_valid BOOLEAN NOT NULL DEFAULT true,
-  stk_changeme_type_uu UUID NOT NULL REFERENCES private.stk_changeme_type(stk_changeme_type_uu),
+  type_uu UUID NOT NULL REFERENCES private.stk_changeme_type(uu),
   ----Prompt: ask the user if they need to create parent child relationships inside the table
-  --stk_changeme_parent_uu UUID REFERENCES private.stk_changeme(stk_changeme_uu),
+  --parent_uu UUID REFERENCES private.stk_changeme(uu),
   ----Prompt: ask the user if they need to store json
-  --stk_changeme_json JSONB NOT NULL DEFAULT '{}'::jsonb,
+  --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   ----Prompt: ask the user if they need to know when/if a record was processed
   --date_processed TIMESTAMPTZ,
   --is_processed BOOLEAN GENERATED ALWAYS AS (date_processed IS NOT NULL) STORED,
@@ -125,15 +125,14 @@ See the [UUID page](./uuid.md#partition) for more details about partitioning, pr
 -- primary table
 -- this table is needed to support both (1) partitioning and (2) being able to maintain a single primary key and single foreign key references
 CREATE TABLE private.stk_changeme (
-  stk_changeme_uu UUID PRIMARY KEY DEFAULT gen_random_uuid()
+  uu UUID PRIMARY KEY DEFAULT gen_random_uuid()
 );
 
 -- partition table
 CREATE TABLE private.stk_changeme_part (
-  stk_changeme_uu UUID NOT NULL REFERENCES private.stk_changeme(stk_changeme_uu),
+  uu UUID NOT NULL REFERENCES private.stk_changeme(uu),
   table_name TEXT generated always AS ('stk_changeme') stored,
-  record_uu UUID GENERATED ALWAYS AS (stk_changeme_uu) stored,
-  stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(stk_entity_uu),
+  stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(uu),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   created_by_uu UUID NOT NULL, -- no FK by convention
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -143,19 +142,19 @@ CREATE TABLE private.stk_changeme_part (
   --is_template BOOLEAN NOT NULL DEFAULT false,
   ----Prompt: ask the user if they need validation
   --is_valid BOOLEAN NOT NULL DEFAULT true,
-  stk_changeme_type_uu UUID NOT NULL REFERENCES private.stk_changeme_type(stk_changeme_type_uu),
+  type_uu UUID NOT NULL REFERENCES private.stk_changeme_type(uu),
   ----Prompt: ask the user if they need to create parent child relationships inside the table
-  --stk_changeme_parent_uu UUID REFERENCES private.stk_changeme(stk_changeme_uu),
+  --parent_uu UUID REFERENCES private.stk_changeme(uu),
   ----Prompt: ask the user if they need to store json
-  --stk_changeme_json JSONB NOT NULL DEFAULT '{}'::jsonb,
+  --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   ----Prompt: ask the user if they need to know when/if a record was processed
   --date_processed TIMESTAMPTZ,
   --is_processed BOOLEAN GENERATED ALWAYS AS (date_processed IS NOT NULL) STORED,
   search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   description TEXT,
-  primary key (stk_changeme_uu, stk_changeme_type_uu)
-) PARTITION BY LIST (stk_changeme_type_uu);
+  primary key (uu, type_uu)
+) PARTITION BY LIST (type_uu);
 COMMENT ON TABLE private.stk_changeme_part IS 'Holds changeme records';
 
 -- first partitioned table to hold the actual data -- others can be created later
@@ -164,7 +163,7 @@ CREATE TABLE private.stk_changeme_part_default PARTITION OF private.stk_changeme
 CREATE VIEW api.stk_changeme AS
 SELECT stkp.* -- note all values reside in and are pulled from the stk_changeme_part table (not the primary stk_changeme table)
 FROM private.stk_changeme stk
-JOIN private.stk_changeme_part stkp on stk.stk_changeme_uu = stkp.stk_changeme_uu
+JOIN private.stk_changeme_part stkp on stk.uu = stkp.uu
 ;
 COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
 
@@ -190,10 +189,10 @@ CREATE TRIGGER t00030_generic_partition_delete
 Below are some sql statements you should be able to successfully execute through the api schema against your newly created entity.
 
 ```sql
-insert into api.stk_changeme (name, stk_changeme_type_uu) values ('test1',(select stk_changeme_type_uu from api.stk_changeme_type limit 1)) returning stk_changeme_uu;
+insert into api.stk_changeme (name, type_uu) values ('test1',(select uu from api.stk_changeme_type limit 1)) returning uu;
 update api.stk_changeme set name = 'test1a' where name = 'test1' returning name;
 select * from api.stk_changeme;
-delete from api.stk_changeme where name = 'test1a' returning stk_changeme_uu;
+delete from api.stk_changeme where name = 'test1a' returning uu;
 
 -- sample json if you include a json column: {"id": 123, "name": "John Doe", "email": "john@example.com", "active": true, "metadata": {"age": 30, "city": "New York"}}
 ```

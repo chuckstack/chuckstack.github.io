@@ -179,7 +179,7 @@
                     <main>
                         <h1 id="column-convention"><a class="header" href="#column-convention">Column Convention</a></h1>
 <ul>
-<li>primary key <code>_uu</code> suffix - All tables have a single primary key per the above discussion.</li>
+<li>primary key <code>uu</code> - All tables have a single primary key named <code>uu</code>.</li>
 <li>foreign keys <code>_uu</code> suffix - example <code>stk_some_other_table_uu</code>. There are times when this convention is not possible due to multiple references to the same table. When a duplicate is needed, add an adjective before the <code>_uu</code> suffix. Examples: <code>stk_bp_ship_to_uu</code> and <code>stk_bp_bill_to_uu</code>.</li>
 <li>noun first column name - when naming columns the noun comes first and the adjective comes next. Example: stk_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically.</li>
 <li>text column - use columns of type text (instead of varchar with unspecified length). Only choose a varchar with a specific length when there is a compelling reason to do so. Even then try not to...</li>
@@ -189,15 +189,15 @@
 <h2 id="standard-columns"><a class="header" href="#standard-columns">Standard Columns</a></h2>
 <p>These sections list the mandatory and optional columns found in chuck-stack tables. Notice that coding and naming by convention plays a role in primary key name and foreign key relationships. As you will see below, you know the primary key column name as a function of the table name. You know the foreign key table name as a function of the foreign key column name when the convention allows.</p>
 <h3 id="mandatory-columns"><a class="header" href="#mandatory-columns">Mandatory Columns</a></h3>
+<p>The purpose of this section is to list the columns that appear in every table that holds chuck-stack data.</p>
 <ul>
-<li>primary key - The primary key column bears the name of the table with a <code>_uu</code> suffix. Example: <code>stk_some_table_uu</code>.</li>
+<li>primary key - <code>uu</code></li>
 <li><code>stk_entity_uu</code> - financial set of books that owns the record</li>
 <li><code>created</code> - timestamptz indicating when the record was created.</li>
 <li><code>created_by_uu</code> - uuid foreign key reference to the database user/role that created the record.</li>
 <li><code>updated</code> - timestamptz indicating when the record was last updated.</li>
 <li><code>updated_by_uu</code> - uuid foreign key reference to the database user/role that last updated the record.</li>
 <li><code>table_name</code> - generated column that hard-codes the name of the table.</li>
-<li><code>record_uu</code> - generated column that shows the primary key value is an convenient way.</li>
 <li><code>stk_session_uu</code> - (not implemented yet) must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.</li>
 </ul>
 <p>Notes:</p>
@@ -205,6 +205,7 @@
 <li><code>stk_session</code> (not implemented yet) records become <code>is_processed</code> = true (immutable) after its first use.</li>
 </ul>
 <h3 id="optional-columns"><a class="header" href="#optional-columns">Optional Columns</a></h3>
+<p>The purpose of this section is to list the columns you commonly find in chuck-stack tables. Many of the below columns are used in the <a href="./sample-table-convention.html">sample table</a>.</p>
 <ul>
 <li><code>is_active</code> - boolean that indicates if a record can be modified. is_active also acts as a soft-delete. If a record has an is_active=false, the record should be be returned as an option for selection in future lists and drop down fields. This column must be present to update it after the initial save; therefore, it appears in most tables.</li>
 <li><code>name</code> - text representing the name of the record.</li>
@@ -212,7 +213,10 @@
 <li><code>search_key</code> - user defined text. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.</li>
 <li><code>value</code> - text that is often used along with a <code>search_key</code> in a key-value pair.</li>
 <li><code>docno</code> - user defined text. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor --></li>
-<li><code>stk_doc_type_uu</code> - describes the type of document.</li>
+<li><code>type_enum</code> - a type table's reference to its enum value. (<a href="./enum-type-convention.html">see enum and type convetion</a>)</li>
+<li><code>type_uu</code> - references the record's associated type record.</li>
+<li><code>parent_uu</code> - references a record in the same table identified as being a parent.</li>
+<li><code>record_json</code> - the record's jsonb column that holds less structured data.</li>
 <li><code>is_default</code> - boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.</li>
 <li><code>date_processed</code> - timestamptz indicating when the record was processed.</li>
 <li><code>is_processed</code> - boolean derived/generated from <code>date_processed</code> automatically indicating if a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column.</li>
@@ -221,9 +225,9 @@
 <li><code>is_valid</code> - boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow --></li>
 <li><code>is_include</code> - boolean that indicates if a record is of type include. Including a record could potentially impact all records that are not included. Said another way, including a record could potentially exclude all other records.</li>
 <li><code>is_exclude</code> - boolean that indicates if a record is of type exclude. Excluding a record only impacts that specified record.</li>
-<li><code>is_singleton</code> - indicates that only a single record or object should exist for group or category. Used for example to indicated if more than one attribute tag is allowed for given combination of table_name, record_uu, stk_attribute_tag_type_uu. If <code>is_singleton</code>=Y, then only one instance of an attribute tag type is allowed per record.</li>
-<li><code>trx_type</code> - enum listing the type of transaction. Used by <code>stk_doc_type</code> table.</li>
+<li><code>is_singleton</code> - indicates that only a single record or object should exist for group or category. Used for example to indicate if more than one attribute tag is allowed for given combination of table_name, uu, stk_attribute_tag_type_uu. If <code>is_singleton</code>=Y, then only one instance of an attribute tag type is allowed per record.</li>
 <li><code>batch_id</code> - text indicating this record was processed as part of a batch operation. A single record couple participate in multiple batches. if so, use the noun_adjective approach (example: batch_import_id).</li>
+<li><code>table_name</code> - text referencing the name of a table. This column is often generated.</li>
 <li><code>column_name</code> - text referencing the name of a column.</li>
 </ul>
 

@@ -180,9 +180,9 @@
                         <h1 id="uuid"><a class="header" href="#uuid">UUID</a></h1>
 <p>The purpose of this page is to discuss topics related to using the UUID type.</p>
 <h2 id="simple-primary-key"><a class="header" href="#simple-primary-key">Simple Primary Key</a></h2>
-<p>All tables in the chuck-stack have a single primary uuid key. Here are the reasons for this decision:</p>
+<p>All tables in the chuck-stack have a single primary uuid key named <code>uu</code>. Here are the reasons for this decision:</p>
 <ul>
-<li>Anyone can create a uuid which means there is no central point of dependency or failure for creating ids</li>
+<li>Anyone/anything can create a uuid which means there is no central point of dependency or failure for creating ids</li>
 <li>Being able to identify a record and retrieve its contents solely by its <code>table_name</code> and uuid creates a powerful and consistent naming convention</li>
 <li>a single naming convention enables us to deploy generic and globally available features like change logs, attribute tagging, and more</li>
 </ul>
@@ -200,10 +200,10 @@
 <ul>
 <li>Create a 'primary' table to hold the unique primary key.</li>
 <li>Name the primary table following the normal convention (example: <code>stk_some_table</code>).</li>
-<li>Give the primary table a single primary key column following the normal convention (example: <code>stk_some_table_uu</code>). No other columns exist in this table.</li>
+<li>Give the primary table a single primary key column named <code>uu</code>. No other columns exist in this table.</li>
 <li>Create a partition table with the suffix <code>_part</code> (example: <code>stk_some_table_part</code>).
 <ul>
-<li>This table represents the typical chuck-stack columns, and it has a foreign key reference back to <code>stk_some_table_uu</code>.</li>
+<li>This table represents the typical chuck-stack columns, and its <code>uu</code> column is a foreign key reference back to the primary table's <code>uu</code> key.</li>
 <li>Create the partition table as either <code>partiton by list</code> or <code>partition by range</code>.</li>
 <li><a href="./postgres-convention/sample-table-convention.html#partition-table-changes">Here is an example</a> by list.</li>
 </ul>

@@ -4,9 +4,9 @@ The purpose of this page is to discuss topics related to using the UUID type.
 
 ## Simple Primary Key
 
-All tables in the chuck-stack have a single primary uuid key. Here are the reasons for this decision:
+All tables in the chuck-stack have a single primary uuid key named `uu`. Here are the reasons for this decision:
 
-- Anyone can create a uuid which means there is no central point of dependency or failure for creating ids
+- Anyone/anything can create a uuid which means there is no central point of dependency or failure for creating ids
 - Being able to identify a record and retrieve its contents solely by its `table_name` and uuid creates a powerful and consistent naming convention
 - a single naming convention enables us to deploy generic and globally available features like change logs, attribute tagging, and more
 
@@ -34,9 +34,9 @@ Here is our solution ([illustrated in the sample table page](./postgres-conventi
 
 - Create a 'primary' table to hold the unique primary key.
 - Name the primary table following the normal convention (example: `stk_some_table`).
-- Give the primary table a single primary key column following the normal convention (example: `stk_some_table_uu`). No other columns exist in this table.
+- Give the primary table a single primary key column named `uu`. No other columns exist in this table.
 - Create a partition table with the suffix `_part` (example: `stk_some_table_part`).
-  - This table represents the typical chuck-stack columns, and it has a foreign key reference back to `stk_some_table_uu`.
+  - This table represents the typical chuck-stack columns, and its `uu` column is a foreign key reference back to the primary table's `uu` key.
   - Create the partition table as either `partiton by list` or `partition by range`.
   - [Here is an example](./postgres-convention/sample-table-convention.md#partition-table-changes) by list.
 - By default, we create only one partition sub-table using the `_default` suffix (example: `stk_some_table_part_default`).
