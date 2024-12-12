@@ -41,6 +41,12 @@ Here are the recommended trigger sequence conventions:
   - 60000 to 79999 - after request action
   - 80000 to 99999 - after insert/update/delete
 
+## Considerations
+
+Trigger execution depends heavily on the `NEW` and `OLD` records. Because PostgreSQL does not like updating `NEW` and `OLD` records using dynamically evaluated column names, the chuck-stack names columns without any dependency on the column's table name. 
+
+For example, we name the primary key `uu` and not `some_table_uu`, and we name the reference to its type record `type_uu` and not `some_table_type_uu`. Doing so allows us to reference common table/records by a known name convention instead of deriving the name of the column from its table name.
+
 ## Trigger Utilities
 
 Here are some utility functions to help make managing triggers easier.

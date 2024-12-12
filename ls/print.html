@@ -2017,6 +2017,9 @@ select current_setting('test.test.test.one',true);
 </ul>
 </li>
 </ul>
+<h2 id="considerations"><a class="header" href="#considerations">Considerations</a></h2>
+<p>Trigger execution depends heavily on the <code>NEW</code> and <code>OLD</code> records. Because PostgreSQL does not like updating <code>NEW</code> and <code>OLD</code> records using dynamically evaluated column names, the chuck-stack names columns without any dependency on the column's table name.</p>
+<p>For example, we name the primary key <code>uu</code> and not <code>some_table_uu</code>, and we name the reference to its type record <code>type_uu</code> and not <code>some_table_type_uu</code>. Doing so allows us to reference common table/records by a known name convention instead of deriving the name of the column from its table name.</p>
 <h2 id="trigger-utilities"><a class="header" href="#trigger-utilities">Trigger Utilities</a></h2>
 <p>Here are some utility functions to help make managing triggers easier.</p>
 <h3 id="stk_trigger_create"><a class="header" href="#stk_trigger_create">stk_trigger_create()</a></h3>
@@ -2027,7 +2030,7 @@ select current_setting('test.test.test.one',true);
 <h2 id="summary-1"><a class="header" href="#summary-1">Summary</a></h2>
 <p>The database goes to great lengths to execute event/trigger functions in a synchronous transaction; however, there are times when these function's execution time can be unpredictable or long-running.</p>
 <p>chuck-stack provides several ways to execute event functionality without blocking a transaction and creating a slow user experience.</p>
-<h2 id="considerations"><a class="header" href="#considerations">Considerations</a></h2>
+<h2 id="considerations-1"><a class="header" href="#considerations-1">Considerations</a></h2>
 <p>Here are our needs from our asynchronous solution:</p>
 <ul>
 <li><strong>audit</strong> - audit/prove that an event occured</li>
@@ -2068,7 +2071,7 @@ select current_setting('test.test.test.one',true);
 <li>PostgreSQL can easily be query and extract current comments into user interfaces, documentation, AI</li>
 <li>We do not want to repeat ourselves, and PostgreSQL allows to to comment on the very objects we are creating</li>
 </ul>
-<h2 id="considerations-1"><a class="header" href="#considerations-1">Considerations</a></h2>
+<h2 id="considerations-2"><a class="header" href="#considerations-2">Considerations</a></h2>
 <p>We do not have everything figured out about comments. Here are some considerations.</p>
 <ul>
 <li>Since we maintain two schemas, and each schema object can hold a comment, where is the best place to comment (api vs private schema vs both)? One could argue the private schema comments are for developers/maintainers of the system while api schema object comments are for users of the system.</li>

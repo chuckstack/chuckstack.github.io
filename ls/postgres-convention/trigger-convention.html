@@ -221,6 +221,9 @@
 </ul>
 </li>
 </ul>
+<h2 id="considerations"><a class="header" href="#considerations">Considerations</a></h2>
+<p>Trigger execution depends heavily on the <code>NEW</code> and <code>OLD</code> records. Because PostgreSQL does not like updating <code>NEW</code> and <code>OLD</code> records using dynamically evaluated column names, the chuck-stack names columns without any dependency on the column's table name.</p>
+<p>For example, we name the primary key <code>uu</code> and not <code>some_table_uu</code>, and we name the reference to its type record <code>type_uu</code> and not <code>some_table_type_uu</code>. Doing so allows us to reference common table/records by a known name convention instead of deriving the name of the column from its table name.</p>
 <h2 id="trigger-utilities"><a class="header" href="#trigger-utilities">Trigger Utilities</a></h2>
 <p>Here are some utility functions to help make managing triggers easier.</p>
 <h3 id="stk_trigger_create"><a class="header" href="#stk_trigger_create">stk_trigger_create()</a></h3>
