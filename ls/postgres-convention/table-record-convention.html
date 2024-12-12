@@ -178,15 +178,15 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="table-and-record-convention"><a class="header" href="#table-and-record-convention">Table and Record Convention</a></h1>
-<p>The purpose of this section is to describe a way to universally link and find data in the database based on a record's table_name and a record_uu convention.</p>
-<p>As described in <a href="./table-convention.html">table convention</a>, all tables have a 'single' primary key (even if it is a link table). All tables have a primary key named <code>uu</code>. All tables have a generated value for <code>table_name</code>.  Said another way, if you know the table_name and the record_uu of any given record, you can always:</p>
+<p>The purpose of this section is to describe a way to universally link and find data in the database based on a record's table_name and uu convention.</p>
+<p>As described in <a href="./table-convention.html">table convention</a>, all tables have a 'single' primary key (even if it is a link table). All tables have a primary key named <code>uu</code>. All tables have a generated value for <code>table_name</code>.  Said another way, if you know the table_name and uu of any given record, you can always:</p>
 <ul>
 <li>Load the actual record</li>
 <li>Find any information associated with that record</li>
 </ul>
 <p>The reason we have a dedicated generated column for <code>table_name</code> is for the following reasons:</p>
 <ul>
-<li>Becasue the <code>table_name</code> + <code>uu</code> convention is so common, having it returned in all scenarios allows for easy finding/joining of additional features/servces.</li>
+<li>Because the <code>table_name</code> + <code>uu</code> convention is so common, having it returned in all scenarios allows for easy finding/joining of additional features/services.</li>
 <li>There are times when the value returned in <code>table_name</code> is not the actual table. This concept is true for partitions where the data is actually held in sub-tables but we want the data to show the name of the primary table.</li>
 </ul>
 <p>These conventions create simple ways to deliver universal services like attachments, change logs, <a href="./attribute-tag.html">attribute tagging</a>, <a href="./statistics-convention.html">denormalized statistics</a> with minimal logic and complexity. Said another way, they allow us to create many features that are shared across all records in all tables.</p>
