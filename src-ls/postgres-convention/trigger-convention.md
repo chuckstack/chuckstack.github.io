@@ -20,7 +20,7 @@ Here are some important considerations to know when managing triggers:
 - Triggers do not natively begin with numbers, therefore prefix all trigger function and definition names with 't'
 - Core chuck-stack trigger function names should include `_stk` after the function name's sequence
 - Example trigger function name: `t10100_stk_created_updated`
-- Trigger definition name should be the same as the trigger function mame
+- Trigger definition name should be the same as the trigger function name
 - Example trigger definition name when applied to stk_actor: `t10100_stk_created_updated`
 - The conventions of starting both the trigger function and definition name with the `txxxxx` sequence is not required; however, it is convenient when navigating larger databases
 - Use `\dft private.*` in psql to list all trigger functions
