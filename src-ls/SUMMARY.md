@@ -33,6 +33,7 @@
     - [System Configuration](./postgres-convention/system-configuration-convention.md)
     - [Attribute Tagging](./postgres-convention/attribute-tag.md)
     - [Statistics](./postgres-convention/statistics-convention.md)
+    - [Partition](./postgres-convention/partition-convention.md)
     - [Function](./postgres-convention/function-convention.md)
     - [Trigger](./postgres-convention/trigger-convention.md)
     - [Async](./postgres-convention/async.md)

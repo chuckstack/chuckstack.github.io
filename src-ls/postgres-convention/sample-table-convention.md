@@ -110,7 +110,7 @@ SELECT private.stk_trigger_create();
 
 ## Partition Table Changes
 
-There are times when you know in advance that a table will be large. As a result, you can create the entity as a collection of partitioned tables in advance to prevent future work.
+There are times when you know in advance that a table will be large. As a result, you can create the entity as a collection of [partitioned tables](./partition-convention.md) in advance to prevent future work.
 
 Below represents the changes needed to the `---- primary_section ----` to create a partitioned table. Here is the process to create a partitioned entity:
 

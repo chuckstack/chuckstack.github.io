@@ -26,7 +26,7 @@ Note that UUID v7 is not available in core PostgreSQL as of the time of writing.
 
 ## Partition
 
-Special considerations are needed when attempting to create a `partition by type` on a table that is supposed to have a single primary key. 
+Regarding [table partitioning](./partition-convention.md), special considerations are needed when attempting to create a `partition by type` on a table that is supposed to have a single primary key. 
 
 PostgreSQL requires that tables that are `partition by type` have the designated `type` present in all unique constraints. This requirement breaks our 'single primary key' convention since you will be forced to create a compound key. Note that PostgreSQL will now allow you to create a foreign key unless the key is guaranteed to point to a single record.
 
