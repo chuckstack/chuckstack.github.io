@@ -9,13 +9,15 @@ Generative AI (specifically [aichat](./tool-aichat.md)) was the catalyst to crea
 
 ## Use of AI
 
-AI is what enabled conversational enterprise computing. AI is what:
+AI is what enabled conversational enterprise computing. 
 
-- allows the terminal to emerge from obscurity to present itself as a first class citizen.
+AI does the following for the chuck-stack:
+
+- allows the terminal to emerge from obscurity to present itself as a first class tool for user engagement.
 - helps normal users create insights from mass amounts of data.
-- helps deploy small, real-time agents to assist in decision making and validation based on insights
+- helps deploy small agents to assist in real-time decision making and validation based on insights
 - helps users automate tasks in their roles with autonomy from IT personnel
 
 ## AI as a System
 
-[This video](https://www.youtube.com/watch?v=vRTcE19M-KE) does a great job of characterizing our approach to AI systems deployment. Any one model by itself does not drive an organization's success. Instead, the chuck-stack's use of work instructions, database conventions, tool deployment, and model prompting drives the chuck-stack.
+[This video](https://www.youtube.com/watch?v=vRTcE19M-KE) does a great job of characterizing our approach to AI systems deployment. Any one model by itself does not help an organization. Instead, the chuck-stack's use of work instructions, database conventions, tool deployment, multi-model prompting, and best paractices drive success with the chuck-stack.
