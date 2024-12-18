@@ -6,6 +6,7 @@
   - [Success with Linux](./success-linux.md)
   - [Success with PostgreSQL](./success-postgresql.md)
   - [Success with API](./success-api.md)
+  - [Success with AI](./success-ai.md)
 - [Getting Started](./getting-started.md)
 - [Stack FAQ](./stack-faq.md)
 - [Stack Tools](./stack-tools.md)
