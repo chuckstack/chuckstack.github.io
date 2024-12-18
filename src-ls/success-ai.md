@@ -1,6 +1,6 @@
 # Success with AI
 
-AI (specifically [aichat](./tool-aichat.md)) was the catalyst to create the chuck-stack. Almost everything we do related to ERP involves language and the translation between languages.
+Generative AI (specifically [aichat](./tool-aichat.md)) was the catalyst to create the chuck-stack. Almost everything we do related to ERP involves language and the translation between languages.
 
 - work instructions - basic building block for operations (tool, task and role)
 - database (SQL) - basic repository for data and event history
