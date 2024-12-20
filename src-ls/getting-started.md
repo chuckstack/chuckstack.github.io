@@ -98,7 +98,7 @@ There are times when you want others to play with what you are creating. An easy
 
 ## Netbird
 
-There are times when you need private access to a remote machine to make getting started with the chuck-stack quicker and easier. Netbird is a vpn solution that starts small and easily grows with your increasing
+There are times when you need private access to a remote machine to make getting started with the chuck-stack quicker and easier. [Netbird](./tool-netbird.md) is a vpn solution that starts small and easily grows with your increasing
 
 ## Best Practices
 

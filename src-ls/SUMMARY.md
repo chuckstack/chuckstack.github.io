@@ -19,6 +19,7 @@
   - [Zellij](./tool-zellij.md)
   - [Git](./tool-git.md)
   - [Obsidian](./tool-obsidian.md)
+  - [Netbird](./tool-netbird.md)
   - [Others](./tool-others.md)
 - [Stack Architecture](./stack-architecture.md)
 - [Stack Best Practices](./best-practices.md)
