@@ -644,6 +644,13 @@ select current_setting('test.test.test.one',true);
 <p>Examples to come soon... <a href="./stack-academy.html">Join the stack-academy</a> for quicker options to get started.</p>
 <h2 id="terminal-in-browser"><a class="header" href="#terminal-in-browser">Terminal in Browser</a></h2>
 <p>There are times when you want others to play with what you are creating. An easy way to make your terminal available through the browser is by using the <code>ttyd</code> application. It allows you to simply host a webpage that looks and feels like your machine's terminal. It is reasonably well documented and easy to use.</p>
+<p>Here is a quick example showing how you can expose a role or agent created in aichat:</p>
+<pre><code class="language-bash">ttyd -a -W aichat --session
+</code></pre>
+<p>Here is an example simply exposing a bash terminal so that you can use aichat in command mode:</p>
+<pre><code class="language-bash">ttyd -W bash
+</code></pre>
+<p>Warning: do not expose your terminal to the open web. At a minimum use ttyd's credentials features. A better option is to expose it to someone you trust via Netbird (next).</p>
 <h2 id="netbird"><a class="header" href="#netbird">Netbird</a></h2>
 <p>There are times when you need private access to a remote machine to make getting started with the chuck-stack quicker and easier. <a href="./tool-netbird.html">Netbird</a> is a vpn solution that starts small and easily grows with your increasing</p>
 <h2 id="best-practices"><a class="header" href="#best-practices">Best Practices</a></h2>
@@ -1367,13 +1374,17 @@ select current_setting('test.test.test.one',true);
 <li><a href="https://www.zabbix.com/">Zabbix (monitoring)</a> -  monitor resources and respond to events.</li>
 <li><a href="https://github.com/jarun/buku">buku</a> - awesome terminal bookmark manager</li>
 <li><a href="https://github.com/launchbadge/sqlx/tree/main/sqlx-cli">sqlx-cli</a> - sql migration tool</li>
+<li><a href="https://www.discourse.org/">Discourse</a> - open source collaboration and community building tool. It is backed by PostgreSQL, and it can be self-hosted if you wish. It supports building your collective AI knowledge base.</li>
+<li><a href="https://signal.org/">Signal</a> - instant message focused on privacy and availability. Signal excels by supporting communication on most platforms (mobile, web, desktop). While Discourse has direct messaging, signal's simplicity and availability makes real-time and ephemeral communication pleasurable.</li>
+<li><a href="https://www.metabase.com/">Metabase (BI)</a> - BI tool for visualizing and publishing data that runs on PostgreSQL.</li>
 </ul>
 <h2 id="important-tools"><a class="header" href="#important-tools">Important Tools</a></h2>
 <p>Here are tools we commonly use:</p>
 <ul>
-<li><a href="https://mattermost.com/">Mattermost</a> - Open source collaboration tool (similar to slack and github discussions). It is backed by PostgreSQL and run locally; therefore, it fits quite well in the chuck-stack.</li>
 <li><a href="https://www.getdbt.com/">dbt (ETL)</a> - tool to transform transactional data into a form than can be consumed by BI or AI or ...</li>
-<li><a href="https://www.metabase.com/">Metabase (BI)</a> - BI tool for visualizing and publishing data that runs on PostgreSQL.</li>
+<li><a href="https://github.com/tsl0922/ttyd">ttyd</a> - simple command-line tool for sharing terminal over the web. There are times when you need to share your chuck-stack development with others. ttyd makes exposing your terminal over the web trivial. See the <a href="./getting-started.html#terminal-in-browser">getting started - terminal in browser</a> for a quick example.</li>
+<li><a href="https://openwrt.org/">OpenWRT</a> - linux-based open source firewall that works well with <a href="./tool-netbird.html">Netbird</a>.</li>
+<li><a href="https://ollama.com/">Ollama (AI)</a> - AI tool for running generative AI (LLM) models locally.</li>
 <li><a href="https://github.com/jarun/ddgr">ddgr</a> - DuckDuckGo search from the terminal</li>
 </ul>
 <h2 id="tools-we-are-evaluating"><a class="header" href="#tools-we-are-evaluating">Tools We Are Evaluating</a></h2>
@@ -1381,12 +1392,10 @@ select current_setting('test.test.test.one',true);
 <ul>
 <li><a href="https://github.com/FiloSottile/age">age</a>/<a href="https://github.com/str4d/rage">rage</a> - modern, no configuration encryption tool. Here is a notable <a href="https://github.com/FiloSottile/age/discussions/432">discussion</a>.</li>
 <li><a href="https://postgresml.org/">PostgresML (AI)</a> - PostgreSQL tool for AI training and inferencing directly out of your database.</li>
-<li><a href="https://ollama.com/">Ollama (AI)</a> - AI tool for running generative AI (LLM) models locally.</li>
 <li><a href="https://www.crowdsec.net/">CrowdSec (security)</a> - Proactively block known malicious IPs and activities.</li>
 <li><a href="https://htmx.org/">htmx</a> - compelling way for small and medium organizations to create dynamic websites.</li>
 <li><a href="https://mfontanini.github.io/presenterm/">presenterm</a> - simple terminal presentation tool backed by markdown</li>
 <li><a href="https://github.com/pgcentralfoundation/pgrx">pgrx</a> - helps build rust-based extensions in PostgreSQL</li>
-<li><a href="https://github.com/discourse/discourse/">discourse</a> - well featured discussion board</li>
 <li><a href="https://typst.app/">typst</a> - text formattng and layout engine
 <ul>
 <li><a href="https://news.ycombinator.com/item?id=41014941">see discussion</a></li>

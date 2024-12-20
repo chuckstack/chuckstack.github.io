@@ -96,6 +96,20 @@ Examples to come soon... [Join the stack-academy](./stack-academy.md) for quicke
 
 There are times when you want others to play with what you are creating. An easy way to make your terminal available through the browser is by using the `ttyd` application. It allows you to simply host a webpage that looks and feels like your machine's terminal. It is reasonably well documented and easy to use.
 
+Here is a quick example showing how you can expose a role or agent created in aichat:
+
+```bash
+ttyd -a -W aichat --session
+```
+
+Here is an example simply exposing a bash terminal so that you can use aichat in command mode:
+
+```bash
+ttyd -W bash
+```
+
+Warning: do not expose your terminal to the open web. At a minimum use ttyd's credentials features. A better option is to expose it to someone you trust via Netbird (next).
+
 ## Netbird
 
 There are times when you need private access to a remote machine to make getting started with the chuck-stack quicker and easier. [Netbird](./tool-netbird.md) is a vpn solution that starts small and easily grows with your increasing

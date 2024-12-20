@@ -255,6 +255,13 @@
 <p>Examples to come soon... <a href="./stack-academy.html">Join the stack-academy</a> for quicker options to get started.</p>
 <h2 id="terminal-in-browser"><a class="header" href="#terminal-in-browser">Terminal in Browser</a></h2>
 <p>There are times when you want others to play with what you are creating. An easy way to make your terminal available through the browser is by using the <code>ttyd</code> application. It allows you to simply host a webpage that looks and feels like your machine's terminal. It is reasonably well documented and easy to use.</p>
+<p>Here is a quick example showing how you can expose a role or agent created in aichat:</p>
+<pre><code class="language-bash">ttyd -a -W aichat --session
+</code></pre>
+<p>Here is an example simply exposing a bash terminal so that you can use aichat in command mode:</p>
+<pre><code class="language-bash">ttyd -W bash
+</code></pre>
+<p>Warning: do not expose your terminal to the open web. At a minimum use ttyd's credentials features. A better option is to expose it to someone you trust via Netbird (next).</p>
 <h2 id="netbird"><a class="header" href="#netbird">Netbird</a></h2>
 <p>There are times when you need private access to a remote machine to make getting started with the chuck-stack quicker and easier. <a href="./tool-netbird.html">Netbird</a> is a vpn solution that starts small and easily grows with your increasing</p>
 <h2 id="best-practices"><a class="header" href="#best-practices">Best Practices</a></h2>
