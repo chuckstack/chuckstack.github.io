@@ -92,6 +92,14 @@ Examples to come soon... [Join the stack-academy](./stack-academy.md) for quicke
 
 Examples to come soon... [Join the stack-academy](./stack-academy.md) for quicker options to get started.
 
+## Terminal in Browser
+
+There are times when you want others to play with what you are creating. An easy way to make your terminal available through the browser is by using the `ttyd` application. It allows you to simply host a webpage that looks and feels like your machine's terminal. It is reasonably well documented and easy to use.
+
+## Netbird
+
+There are times when you need private access to a remote machine to make getting started with the chuck-stack quicker and easier. Netbird is a vpn solution that starts small and easily grows with your increasing
+
 ## Best Practices
 
 Now that you are proficient with AIChat, lets start incorporating [best practices](./best-practices.md) into your use of AIChat.
