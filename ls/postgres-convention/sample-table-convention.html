@@ -209,9 +209,9 @@ CREATE TYPE private.stk_changeme_type_enum AS ENUM (
 );
 COMMENT ON TYPE private.stk_changeme_type_enum IS 'Enum used in code to automate and validate changeme types.';
 
-INSERT INTO private.enum_comment (enum_type, enum_value, comment) VALUES
-('stk_changeme_type_enum', 'NONE', 'General purpose with no automation or validation'),
-('stk_changeme_type_enum', 'ACTION', 'Action purpose with no automation or validation')
+INSERT INTO private.enum_comment (enum_type, enum_value, comment, is_default) VALUES
+('stk_changeme_type_enum', 'NONE', 'General purpose with no automation or validation', true),
+('stk_changeme_type_enum', 'ACTION', 'Action purpose with no automation or validation', false)
 ;
 
 CREATE TABLE private.stk_changeme_type (
