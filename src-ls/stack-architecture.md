@@ -13,7 +13,7 @@ The chuck-stack architecture is designed around an organization only hiring two 
 1. Linux
 1. PostgreSQL
 
-Both talents will become proficient in AI in their respective disciplines. Both talents are optimized to help [superclerks](./terminology.md#superclerk)automate their own roles (self-help).
+Both talents will become proficient in AI in their respective disciplines. Both talents are optimized to help [superclerks](./terminology.md#superclerk) automate their own roles (self-help).
 
 <!-- TODO: this list needs help -->
 Here are the topics discussed on this page:
