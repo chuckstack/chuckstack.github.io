@@ -31,3 +31,13 @@ These bullets will make creating your quality program as easy as possible.
 - **State the purpose** - when you do not know what to write, state your purpose: "The purpose of this page is to...". The rest will flow.
 - **State the big picture** - answer the simple question: what's in it for me? The big picture should follow immediately after the word "purpose...". Here is an example of combining the purpose and big picture into a single sentence: "The purpose of this page is to discuss proper medical case filing so that and your team do not go to jail."
 - **C+ is better than F** - if you are starting from scratch, just know that something that resembles the above principles is better than nothing. Start with where you are, and make what you create immediately usable. Welcome feedback and enlist everyone to continuously improve it.
+
+## External Quality Program Breakdown
+
+You might be in an industry that mandates quality programs like ISO [9001:2015](https://www.iso.org/standard/62085.html). Or, you might aspire for a nationally recognized program like the [Malcolm Baldrige National Quality Award](https://www.nist.gov/baldrige/baldrige-award).
+
+The purpose of this section is to help you manage expectations for most (if not any) quality standard. Here is how you break down a quality standard into something that is easier to understand and manage. You look for the following words:
+
+- **Shall** - every time you see the word 'shall' in a quality standard, there is an action tied to that bullet. If you want to know how many actions, count the number of 'shall' occurrences.
+- **Maintain** - every time you see the word 'maintain', there is a documentation or records requirement. This is what and how you prepare for a quality audit.
+- **Retain** - every time you see the world 'retain', there is a requirement for proof and potential future record audit. This data must be made available for the specified period of time.
