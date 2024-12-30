@@ -15,15 +15,6 @@ The chuck-stack architecture is designed around an organization only hiring two 
 
 Both talents will become proficient in AI in their respective disciplines. Both talents are optimized to help [superclerks](./terminology.md#superclerk) automate their own roles (self-help).
 
-<!-- TODO: this list needs help -->
-Here are the topics discussed on this page:
-
-- [Configuration Over Code](#configuration-over-code)
-- [User Experience](#user-experience)
-- Change management
-- User management
-- Documentation management
-
 ## Configuration Over Code
 
 One common theme you will find throughout the chuck-stack is the desire for configuration over code. This is true for both Linux and PostgreSQL. Inspecting the chuck-stack deployment highlights the extent of configuration. What little code that does exist comes in the form of high-value, human-readable work instructions and SQL DDL.
