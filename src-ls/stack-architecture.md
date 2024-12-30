@@ -8,6 +8,13 @@ In the [introduction](./introduction.md), we state the chuck-stack is a collecti
 
 The purpose of this page is to help you understand how the these tools fit together in deployment and usage. If you want to see the architecture in action, view the [picture of success](./picture-success.md#how-is-this-possible). 
 
+The chuck-stack architecture is designed around an organization only hiring two talents in its IT department:
+
+1. Linux
+1. PostgreSQL
+
+Both talents will become proficient in AI in their respective disciplines. Both talents are optimized to help [superclerks](./terminology.md#superclerk)automate their own roles (self-help).
+
 <!-- TODO: this list needs help -->
 Here are the topics discussed on this page:
 
@@ -19,7 +26,7 @@ Here are the topics discussed on this page:
 
 ## Configuration Over Code
 
-One common theme you will find throughout the chuck-stack is the desire for configuration over code. Inspecting the chuck-stack deployment highlights the extent of configuration. What little code that does exist comes in the form of high-value, human-readable work instructions.
+One common theme you will find throughout the chuck-stack is the desire for configuration over code. This is true for both Linux and PostgreSQL. Inspecting the chuck-stack deployment highlights the extent of configuration. What little code that does exist comes in the form of high-value, human-readable work instructions and SQL DDL.
 
 Actions to deploy the chuck-stack:
 - System configuration (NixOS)
