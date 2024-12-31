@@ -177,7 +177,29 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="workflow"><a class="header" href="#workflow">Workflow</a></h1>
+                        <h1 id="chuck-stack-application-workflow"><a class="header" href="#chuck-stack-application-workflow">chuck-stack Application Workflow</a></h1>
+<p>This page is broken down into the following topics:</p>
+<ul>
+<li>Summary</li>
+<li>Workflow Architecture</li>
+<li>Workflow Use Cases</li>
+<li>Workflow Orchestration</li>
+</ul>
+<h2 id="summary-from-user-perspective"><a class="header" href="#summary-from-user-perspective">Summary from User Perspective</a></h2>
+<p>The chuck-stack workflow is built around the concept of a <code>request</code>. A <code>request</code> is call to action, and it represents the most simple unit of action. Here are some summary points about the request architecture:</p>
+<ul>
+<li>It can stand by itself, or it can be associated with any record in the chuck-stack.</li>
+<li>It has a type.</li>
+<li>It has a state (from a collection of possible states from type).</li>
+<li>It has a resolution (from a collection of possible resolutions from type).</li>
+<li>It has actions (from a collection of possible resolutions).</li>
+</ul>
+<h2 id="summary-from-it-perspective"><a class="header" href="#summary-from-it-perspective">Summary from IT Perspective</a></h2>
+<p>The chuck-stack workflow is build around PostgreSQL triggers and the concept of atomic transactions. This means the state of any workflow is persisted and any workflow action is guaranteed to either complete/commit or rollback. Here are some details about the request architecture:</p>
+<ul>
+<li>They are stored in stk_request</li>
+<li>They link to other records via a <a href="./postgres-convention/table-record-convention.html">linking convention</a></li>
+</ul>
 
                         <br>
                         <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script>, CHUBOE LLC. All rights reserved.</p> <!--chuboe changed-->
