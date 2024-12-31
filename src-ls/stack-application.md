@@ -24,6 +24,8 @@ All these statements were true until now. AI changes everything! What was previo
 
 ## Tool/Role Deployment
 
+Assigning the right people and the right tools to the right roles is best discussed in the [stack architecture](./stack-architecture.md).
+
 ## Workflow Details
 
 chuck-stack Workflows can be broken down into system and user workflows.
