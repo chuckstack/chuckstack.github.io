@@ -86,6 +86,12 @@ We have a strong preference for tools written in the Rust language. As a result,
 
 Examples to come soon... [Join the stack-academy](./stack-academy.md) for quicker options to get started.
 
+## Best Practices
+
+Now that you are proficient with AIChat, lets start incorporating [best practices](./best-practices.md) into your use of AIChat.
+
+You need to practice your best practices in [Obsidian](./tool-obsidian.md). Get comfortable with markdown, the listed Obsidian plugins, and how to document your work instructions.
+
 ## PostgreSQL
 
 [PostgreSQL](./tool-postgresql.md) also plays a big role in the chuck-stack. You want to be able to be able to use psql (PostgreSQL's command line tool - CLI) to connect to a local database and issue a few commands.
@@ -114,11 +120,15 @@ Warning: do not expose your terminal to the open web. At a minimum use ttyd's cr
 
 There are times when you need private access to a remote machine to make getting started with the chuck-stack quicker and easier. [Netbird](./tool-netbird.md) is a vpn solution that starts small and easily grows with your increasing
 
-## Best Practices
+## Incus
 
-Now that you are proficient with AIChat, lets start incorporating [best practices](./best-practices.md) into your use of AIChat.
+How that you have access to Linux, let's create your [first Incus instance](https://linuxcontainers.org/incus/docs/main/tutorial/first_steps/). This will give you the ability to experiment without contaminating your original Linux installation.
 
-You need to practice your best practices in [Obsidian](./tool-obsidian.md). Get comfortable with markdown, the listed Obsidian plugins, and how to document your work instructions.
+Disclaimer, if you are using Linux (in Windows or Chromebook), you might not be able to run Incus as described in the chuck-stack.
+
+It is worth mentioning that Linux in Chromebook is made available via LXD (what Incus was created from). You can use LXD (in Chromebook) to create multiple instances of Linux if you wish. [Here are the details](https://discuss.linuxcontainers.org/t/using-lxd-on-your-chromebook/3823).
+
+You can quickly use [Netbird](./tool-netbird.md) to connect different users to your Incus servers.
 
 ## More to Come...
 
