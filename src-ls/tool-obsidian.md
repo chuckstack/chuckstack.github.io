@@ -9,7 +9,7 @@ Here are the reasons we love Obsidian:
 - It is commonly used and well documented.
 - It has a vibrant online support community.
 - While it is not open source, the content you create is maintained in markdown and is all yours.
-- You can get up and running with Incus in a meaningful way in minutes.
+- You can get up and running with Obsidian in a meaningful way in minutes.
 - It does its job (writing) quite well.
 - It integrates with [Git](./tools-git.md) quite well.
 - It attracts a large collection of well-maintained plugins.
