@@ -65,7 +65,7 @@ Diagram: TODO
 
 ### Work Instructions
 
-Described well here TODO link
+Described well [here](./best-practices-operation-say.md).
 
 ## User Experience
 
