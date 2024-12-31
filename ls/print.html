@@ -639,6 +639,9 @@ select current_setting('test.test.test.one',true);
 <h2 id="aichat"><a class="header" href="#aichat">AIChat</a></h2>
 <p><a href="./tool-aichat.html">AIChat</a> plays a big role in the chuck-stack. You want to be able to launch a terminal and use AIChat with a single keystroke. Doing so goes a long way in accomplishing the above goal of asking AI before Google.</p>
 <p>Examples to come soon... <a href="./stack-academy.html">Join the stack-academy</a> for quicker options to get started.</p>
+<h2 id="best-practices"><a class="header" href="#best-practices">Best Practices</a></h2>
+<p>Now that you are proficient with AIChat, lets start incorporating <a href="./best-practices.html">best practices</a> into your use of AIChat.</p>
+<p>You need to practice your best practices in <a href="./tool-obsidian.html">Obsidian</a>. Get comfortable with markdown, the listed Obsidian plugins, and how to document your work instructions.</p>
 <h2 id="postgresql"><a class="header" href="#postgresql">PostgreSQL</a></h2>
 <p><a href="./tool-postgresql.html">PostgreSQL</a> also plays a big role in the chuck-stack. You want to be able to be able to use psql (PostgreSQL's command line tool - CLI) to connect to a local database and issue a few commands.</p>
 <p>Examples to come soon... <a href="./stack-academy.html">Join the stack-academy</a> for quicker options to get started.</p>
@@ -653,9 +656,11 @@ select current_setting('test.test.test.one',true);
 <p>Warning: do not expose your terminal to the open web. At a minimum use ttyd's credentials features. A better option is to expose it to someone you trust via Netbird (next).</p>
 <h2 id="netbird"><a class="header" href="#netbird">Netbird</a></h2>
 <p>There are times when you need private access to a remote machine to make getting started with the chuck-stack quicker and easier. <a href="./tool-netbird.html">Netbird</a> is a vpn solution that starts small and easily grows with your increasing</p>
-<h2 id="best-practices"><a class="header" href="#best-practices">Best Practices</a></h2>
-<p>Now that you are proficient with AIChat, lets start incorporating <a href="./best-practices.html">best practices</a> into your use of AIChat.</p>
-<p>You need to practice your best practices in <a href="./tool-obsidian.html">Obsidian</a>. Get comfortable with markdown, the listed Obsidian plugins, and how to document your work instructions.</p>
+<h2 id="incus"><a class="header" href="#incus">Incus</a></h2>
+<p>How that you have access to Linux, let's create your <a href="https://linuxcontainers.org/incus/docs/main/tutorial/first_steps/">first Incus instance</a>. This will give you the ability to experiment without contaminating your original Linux installation.</p>
+<p>Disclaimer, if you are using Linux (in Windows or Chromebook), you might not be able to run Incus as described in the chuck-stack.</p>
+<p>It is worth mentioning that Linux in Chromebook is made available via LXD (what Incus was created from). You can use LXD (in Chromebook) to create multiple instances of Linux if you wish. <a href="https://discuss.linuxcontainers.org/t/using-lxd-on-your-chromebook/3823">Here are the details</a>.</p>
+<p>You can quickly use <a href="./tool-netbird.html">Netbird</a> to connect different users to your Incus servers.</p>
 <h2 id="more-to-come"><a class="header" href="#more-to-come">More to Come...</a></h2>
 <p>We are just 'geting starting'. To learn more faster, <a href="./stack-academy.html">join the stack-academy</a>. This is an important step to realizing the vision! This is something you can start right now!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="stack-faq"><a class="header" href="#stack-faq">Stack FAQ</a></h1>
@@ -1351,7 +1356,7 @@ select current_setting('test.test.test.one',true);
 <p>Getting started is simple, and your simple installation can scale quickly and linearly.</p>
 <h2 id="everyone-needs-it"><a class="header" href="#everyone-needs-it">Everyone Needs It</a></h2>
 <p>The reason Netbird appears in to top level of chuck-stack tools is because virtually every organization needs a way to connect multiple people and locations. When you deploy the chuck-stack, Netbird (or something like it) needs to be in you plan.</p>
-<h2 id="incus"><a class="header" href="#incus">Incus</a></h2>
+<h2 id="incus-1"><a class="header" href="#incus-1">Incus</a></h2>
 <p>Netbird and <a href="./tool-incus.html">Incus</a> have good synergy. It is common to use <a href="./tool-incus.html#incus-use-cases">Incus in multiple ways</a>. Netbird gives you an easy to install and manage network overlay to connect all your Incus clusters around the world.</p>
 <h2 id="openwrt-router"><a class="header" href="#openwrt-router">OpenWRT Router</a></h2>
 <p>Note that OpenWRT includes Netbird as a plugin; therefore, you can use OpenWRT to connect multiple sites (cloud and physical locations) to the same overlay network using a relatively simple chuck-stack configuration.</p>
