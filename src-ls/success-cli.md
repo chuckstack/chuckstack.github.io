@@ -3,18 +3,13 @@
 
 Better than what? Better than a mouse and a webpage...
 
-We are making an argument that the CLI is a better option for managing data and processes in small and medium organizations. Our success depends on it. We guess that up to 90% of the people who read this sentence discount the CLI's validity. This is OK because by the time they realize they were wrong, and they will be too late to the game and will have suffered:
-
-- abuse of the perpetual right-click copy/paste to move stuff around.
-- being blamed for why something is not done yet.
-- paying for tools that are otherwise free.
-- losing their job at the hand of someone who figured out a better way to get something done.
+We are making an argument that the CLI is a better option for managing data and processes in small and medium organizations. Our success depends on it.
 
 The modern web browser is an impressive invention. It is pretty and engaging. It is the default tool to browse information the internet. However, it is a data trap. It silos data inside the browser with virtually no way to automate tasks without going to heroic efforts and/or paying for more tools.
 
 ## Grunts and Nudges
 
-What has only two forms of communication (grunts and nudges)? A mouse...
+A mouse has only two forms of communication: grunts and nudges
 
 Before we make our case for the CLI, we feel compelled to express the challenges that plague us today.
 
