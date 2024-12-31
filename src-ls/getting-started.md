@@ -122,7 +122,7 @@ There are times when you need private access to a remote machine to make getting
 
 ## Incus
 
-How that you have access to Linux, let's create your [first Incus instance](https://linuxcontainers.org/incus/docs/main/tutorial/first_steps/). This will give you the ability to experiment without contaminating your original Linux installation.
+How that you have access to Linux, let's create your [incus instance](./tool-incus.md) ([Incus getting started](https://linuxcontainers.org/incus/docs/main/tutorial/first_steps/)). This will give you the ability to experiment without contaminating your original Linux installation.
 
 Disclaimer, if you are using Linux (in Windows or Chromebook), you might not be able to run Incus as described in the chuck-stack.
 
