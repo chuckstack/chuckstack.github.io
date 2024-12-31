@@ -51,6 +51,7 @@
     - [Trigger](./postgres-convention/trigger-convention.md)
     - [Async](./postgres-convention/async.md)
     - [Notify](./postgres-convention/notify.md)
+    - [Request Workflow](./postgres-convention/request.md)
     - [Comments](./postgres-convention/comment.md)
     - [Sample Table](./postgres-convention/sample-table-convention.md)
     - [Scalability](./postgres-convention/scalability-convention.md)

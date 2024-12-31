@@ -25,6 +25,8 @@ The chuck-stack workflow is build around PostgreSQL triggers and the concept of 
 
 ## Architecture
 
+See [request architecture](./postgres-convention/request.md).
+
 ## Use Cases
 
 ## Orchestration
