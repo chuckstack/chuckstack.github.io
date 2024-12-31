@@ -28,6 +28,10 @@ Getting started is simple, and your simple installation can scale quickly and li
 
 The reason Netbird appears in to top level of chuck-stack tools is because virtually every organization needs a way to connect multiple people and locations. When you deploy the chuck-stack, Netbird (or something like it) needs to be in you plan.
 
+## Incus
+
+Netbird and [Incus](./tool-incus.md) have good synergy. It is common to use [Incus in multiple ways](./tool-incus.md#incus-use-cases). Netbird gives you an easy to install and manage network overlay to connect all your Incus clusters around the world.
+
 ## OpenWRT Router
 
 Note that OpenWRT includes Netbird as a plugin; therefore, you can use OpenWRT to connect multiple sites (cloud and physical locations) to the same overlay network using a relatively simple chuck-stack configuration.

@@ -136,6 +136,10 @@ The hybrid virtualization scenario is why we love Incus. It gives your organizat
 
 > We believe the single greatest benefit to Incus is the ability to use the same tool across many use cases deployed anywhere in the world.
 
+## Netbird
+
+Incus and [Netbird](./tool-netbird.md) have good synergy. Netbird gives you an easy to install and manage network overlay to connect all your Incus clusters around the world.
+
 ## Vocabulary
 
 This section defines important terms. The hope is to create better and more concise discussions below.
