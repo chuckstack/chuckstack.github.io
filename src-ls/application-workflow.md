@@ -22,3 +22,9 @@ The chuck-stack workflow is build around PostgreSQL triggers and the concept of 
 
 - They are stored in stk_request
 - They link to other records via a [linking convention](./postgres-convention/table-record-convention.md)
+
+## Architecture
+
+## Use Cases
+
+## Orchestration

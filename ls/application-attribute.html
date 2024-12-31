@@ -177,7 +177,45 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="attribute-tagging"><a class="header" href="#attribute-tagging">Attribute Tagging</a></h1>
+                        <h1 id="chuck-stack-application-attribute-tagging"><a class="header" href="#chuck-stack-application-attribute-tagging">chuck-stack Application Attribute Tagging</a></h1>
+<p>The purpose of this page is to introduce the concept of chuck-stack attribute tagging.</p>
+<p>This page is broken down into the following topics:</p>
+<ul>
+<li>Summary</li>
+<li>Architecture</li>
+<li>Use Cases</li>
+</ul>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>The purpose of attribute tagging is to provide a simple and consistent way to describe events and details about a record.</p>
+<p>In traditional database schemas, an data architect would add additional columns or link tables to reflect additional attributes. This implementation style is valid and prove; however, it suffers from some issues:</p>
+<ul>
+<li>Tables grow to hundreds of columns</li>
+<li>Applications built on top of these table require custom logic to know how to treat and display each column</li>
+<li>Each table encapsulates (and potentially duplicates) logic that could otherwise be generally reasoned about</li>
+</ul>
+<p>The chuck-stack attribute tagging architecture allows users a more generic solution to describe your data (in addition to preserving the ability to add additional columns as you deem appropriate) to gain the following benefits:</p>
+<ul>
+<li>simplify UI design when managing data (<a href="./terminology.html#crud">CRUD</a>)</li>
+<li>simplify minimize and simplify code to perform generic workflow operations</li>
+</ul>
+<h2 id="architecture"><a class="header" href="#architecture">Architecture</a></h2>
+<p>See <a href="./postgres-convention/attribute-tag.html">attribute tagging convention</a>.</p>
+<h2 id="use-cases"><a class="header" href="#use-cases">Use Cases</a></h2>
+<p>The purpose of this section is to highlight use cases where attribute tagging improves the quality of operations.</p>
+<h3 id="quality-management"><a class="header" href="#quality-management">Quality Management</a></h3>
+<p>Identify nonconforming records and events... example:</p>
+<ul>
+<li>late shipments</li>
+<li>non-conforming inventory receipt</li>
+</ul>
+<p>Aggregating and presenting quality management tags over a period of time helps <a href="./best-practices-operation-prove.html">prove what you did</a> and <a href="./best-practices-operation-improve.html">look for opportunities to improve</a>.</p>
+<h3 id="human-performance"><a class="header" href="#human-performance">Human Performance</a></h3>
+<p>Identify coaching moments... example:</p>
+<ul>
+<li>did great ...</li>
+<li>good example of ...</li>
+<li>opportunity to improve ...</li>
+</ul>
 
                         <br>
                         <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script>, CHUBOE LLC. All rights reserved.</p> <!--chuboe changed-->

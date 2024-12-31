@@ -1701,7 +1701,48 @@ There are two key process features that make this vision a reality: 1) workflow 
 <li>They are stored in stk_request</li>
 <li>They link to other records via a <a href="./postgres-convention/table-record-convention.html">linking convention</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="attribute-tagging"><a class="header" href="#attribute-tagging">Attribute Tagging</a></h1>
+<h2 id="architecture"><a class="header" href="#architecture">Architecture</a></h2>
+<h2 id="use-cases"><a class="header" href="#use-cases">Use Cases</a></h2>
+<h2 id="orchestration"><a class="header" href="#orchestration">Orchestration</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chuck-stack-application-attribute-tagging"><a class="header" href="#chuck-stack-application-attribute-tagging">chuck-stack Application Attribute Tagging</a></h1>
+<p>The purpose of this page is to introduce the concept of chuck-stack attribute tagging.</p>
+<p>This page is broken down into the following topics:</p>
+<ul>
+<li>Summary</li>
+<li>Architecture</li>
+<li>Use Cases</li>
+</ul>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>The purpose of attribute tagging is to provide a simple and consistent way to describe events and details about a record.</p>
+<p>In traditional database schemas, an data architect would add additional columns or link tables to reflect additional attributes. This implementation style is valid and prove; however, it suffers from some issues:</p>
+<ul>
+<li>Tables grow to hundreds of columns</li>
+<li>Applications built on top of these table require custom logic to know how to treat and display each column</li>
+<li>Each table encapsulates (and potentially duplicates) logic that could otherwise be generally reasoned about</li>
+</ul>
+<p>The chuck-stack attribute tagging architecture allows users a more generic solution to describe your data (in addition to preserving the ability to add additional columns as you deem appropriate) to gain the following benefits:</p>
+<ul>
+<li>simplify UI design when managing data (<a href="./terminology.html#crud">CRUD</a>)</li>
+<li>simplify minimize and simplify code to perform generic workflow operations</li>
+</ul>
+<h2 id="architecture-1"><a class="header" href="#architecture-1">Architecture</a></h2>
+<p>See <a href="./postgres-convention/attribute-tag.html">attribute tagging convention</a>.</p>
+<h2 id="use-cases-1"><a class="header" href="#use-cases-1">Use Cases</a></h2>
+<p>The purpose of this section is to highlight use cases where attribute tagging improves the quality of operations.</p>
+<h3 id="quality-management"><a class="header" href="#quality-management">Quality Management</a></h3>
+<p>Identify nonconforming records and events... example:</p>
+<ul>
+<li>late shipments</li>
+<li>non-conforming inventory receipt</li>
+</ul>
+<p>Aggregating and presenting quality management tags over a period of time helps <a href="./best-practices-operation-prove.html">prove what you did</a> and <a href="./best-practices-operation-improve.html">look for opportunities to improve</a>.</p>
+<h3 id="human-performance"><a class="header" href="#human-performance">Human Performance</a></h3>
+<p>Identify coaching moments... example:</p>
+<ul>
+<li>did great ...</li>
+<li>good example of ...</li>
+<li>opportunity to improve ...</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="chuck-stack-best-practices"><a class="header" href="#chuck-stack-best-practices">chuck-stack Best Practices</a></h1>
 <p>Best practices make the chuck-stack vision possible. This page is broken down into two types of best practices:</p>
 <ol>
@@ -1776,8 +1817,16 @@ There are two key process features that make this vision a reality: 1) workflow 
 <h2 id="application-best-practices"><a class="header" href="#application-best-practices">Application Best Practices</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="do-what-you-said"><a class="header" href="#do-what-you-said">Do What You Said</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prove-you-did-it"><a class="header" href="#prove-you-did-it">Prove You Did It</a></h1>
+<h2 id="references"><a class="header" href="#references">References</a></h2>
+<ul>
+<li><a href="./application-attribute.html">Attribute Tagging</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="welcome-feedback"><a class="header" href="#welcome-feedback">Welcome Feedback</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="continuously-improve"><a class="header" href="#continuously-improve">Continuously Improve</a></h1>
+<h2 id="references-1"><a class="header" href="#references-1">References</a></h2>
+<ul>
+<li><a href="./application-attribute.html">Attribute Tagging</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postgresql-convention"><a class="header" href="#postgresql-convention">PostgreSQL Convention</a></h1>
 <p>The chuck-stack PostgreSQL conventions aim to create a consistent, convention-based, scalable, and maintainable database structure.</p>
 <p>We provide two high-level features by which most applications are built:</p>
@@ -2003,7 +2052,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="table-and-record-convention"><a class="header" href="#table-and-record-convention">Table and Record Convention</a></h1>
 <p>The purpose of this section is to describe a way to universally link and find data in the database based on a record's table_name and uu convention.</p>
-<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<h2 id="summary-1"><a class="header" href="#summary-1">Summary</a></h2>
 <p>As described in <a href="postgres-convention/./table-convention.html">table convention</a>, all tables have a 'single' primary key (even if it is a link table). All tables have a primary key named <code>uu</code>. All tables have a generated value for <code>table_name</code>.  Said another way, if you know the table_name and uu of any given record, you can always:</p>
 <ul>
 <li>Load the actual record</li>
@@ -2137,7 +2186,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 <p>The <code>stk_system_config</code> table contains a collection of <code>search_key</code> and json <code>configuration</code> pairs that describe how the system operates.</p>
 <p>If code needs to reference a setting or configuration, it finds an entry in the <code>stk_system_config</code> table. Code can look up system configuration records based on the configuration's <code>search_key</code>.</p>
 <p>System configurator records store <code>search_key</code> values is all caps so that it resembles the common convention of a constant.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="attribute-tagging-1"><a class="header" href="#attribute-tagging-1">Attribute Tagging</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="attribute-tagging"><a class="header" href="#attribute-tagging">Attribute Tagging</a></h1>
 <p>The chuck-stack makes heavy use of <a href="postgres-convention/./json-array-table-column.html#json-type">JSON</a> and attributing tagging as a means to describe database objects and workflow. The attribute tag architecture begins with the <code>stk_attribute_tag</code> table. This architecture allows you to associate any collection of attributes with any record in the database.</p>
 <h2 id="example-json"><a class="header" href="#example-json">Example JSON</a></h2>
 <p>In addition to adding simple attribute tags like <code>color</code> or <code>height</code>, you can also create compound attributes like this one that describes product packaging:</p>
@@ -2214,7 +2263,7 @@ There are two key process features that make this vision a reality: 1) workflow 
  <!-- - concept of function => create_from vs create_into -- attempt to support both when possible - TODO: better define these terms -->
 <div style="break-before: page; page-break-before: always;"></div><h1 id="trigger-convention"><a class="header" href="#trigger-convention">Trigger Convention</a></h1>
 <p>The purpose of this page is to describe how the chuck-stack uses triggers.</p>
-<h2 id="summary-1"><a class="header" href="#summary-1">Summary</a></h2>
+<h2 id="summary-2"><a class="header" href="#summary-2">Summary</a></h2>
 <p>The chuck-stack makes heavy use of events. The default tool to manage database event execution is a PostgreSQL trigger.</p>
 <p>Note that we will often refer to 'triggers' as a general database concept. It is important to note there are two parts to a trigger:</p>
 <ul>
@@ -2266,7 +2315,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 <p>To make managing the trigger creation in this scenario easier, there exists a private.stk_trigger_create() function that will create all applicable triggers as described by records in the private.stk_trigger_mgt table.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="async"><a class="header" href="#async">Async</a></h1>
 <p>The purpose of this page is to describe how the chuck-stack supports asynchronous events.</p>
-<h2 id="summary-2"><a class="header" href="#summary-2">Summary</a></h2>
+<h2 id="summary-3"><a class="header" href="#summary-3">Summary</a></h2>
 <p>The database goes to great lengths to execute event/trigger functions in a synchronous transaction; however, there are times when these function's execution time can be unpredictable or long-running.</p>
 <p>chuck-stack provides several ways to execute event functionality without blocking a transaction and creating a slow user experience.</p>
 <h2 id="considerations-1"><a class="header" href="#considerations-1">Considerations</a></h2>
@@ -2294,7 +2343,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 <p>Table: stk_async;stk_async_type</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="notify"><a class="header" href="#notify">Notify</a></h1>
 <p>The purpose of this page is to describe how the chuck-stack supports notifications.</p>
-<h2 id="summary-3"><a class="header" href="#summary-3">Summary</a></h2>
+<h2 id="summary-4"><a class="header" href="#summary-4">Summary</a></h2>
 <p>The chuck-stack uses <a href="https://www.postgresql.org/docs/current/sql-notify.html">PostgreSQL's notify</a> to provide notifications to other systems. The <code>t70100_stk_notify()</code> trigger function provides a generic chuck-stack notify implementation. By default, only the <code>stk_async</code> and <code>stk_async_type</code> tables include this trigger definition.</p>
 <p>To include additional tables in the <code>t70100_stk_notify()</code> execution:</p>
 <ul>
@@ -2303,7 +2352,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="comments"><a class="header" href="#comments">Comments</a></h1>
 <p>The purpose of this page is to discuss PostgreSQL object comments.</p>
-<h2 id="summary-4"><a class="header" href="#summary-4">Summary</a></h2>
+<h2 id="summary-5"><a class="header" href="#summary-5">Summary</a></h2>
 <p>PostgreSQL allows you to create a comment against almost anything. The only object we have found thus far that will not accept a comment is an enum value.</p>
 <p>It is strongly recommended that PostgreSQL comments are the first place where you add documentation. Here are the reasons why:</p>
 <ul>
@@ -2567,6 +2616,14 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <li>Users rely on self-service training and automation to maximize operational and transactional velocity and efficiency (<a href="./terminology.html#otve">OTVE</a>).</li>
 <li>Systems uses work instructions to drive functionality and create guardrails (<a href="./best-practices.html">see best practices</a>).</li>
 </ul>
+<h2 id="crud"><a class="header" href="#crud">CRUD</a></h2>
+<p>Acronym that represents "Create, Read, Update and Delete". CRUD generically describes the data life cycle where users/systems typically perform the following:</p>
+<ul>
+<li>create data that is consistent with system rules</li>
+<li>read (provide) data to assist roles in performing tasks</li>
+<li>update data to ensure it remains consistent with system rules over time</li>
+<li>delete data when the situation permits and the data is no longer needed</li>
+</ul>
 <h2 id="data-pipeline"><a class="header" href="#data-pipeline">Data Pipeline</a></h2>
 <p>Linux shell pipelines allow users to chain multiple commands together, where the output of one command becomes the input for the next. This is achieved using the pipe symbol (|) between commands. Pipelines enable complex data processing and manipulation tasks to be performed efficiently by combining simple, specialized tools.</p>
 <p>This approach embodies the Unix philosophy of creating small, focused programs that work together seamlessly, allowing users to build sophisticated operations from basic building blocks.</p>
@@ -2648,7 +2705,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <p>There are times when you need to aggregate information across multiple tenants into a single data warehouse (data lake). This is a commonly requested task supported by many data warehouse (data lake) solutions.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
 <p>The purpose of this page is to describe the application framework progress and deployment roadmap.</p>
-<h2 id="summary-5"><a class="header" href="#summary-5">Summary</a></h2>
+<h2 id="summary-6"><a class="header" href="#summary-6">Summary</a></h2>
 <!-- TODO: link to goals -->
 <p>It is important to understand that the chuck-stack is not a typical software project. The goals are to support small and medium sized organizations by bringing together existing tools to create a platform. As such, most of the advancements of this project relate more to convention, configuration, documentation and deployment rather than coding.</p>
 <h2 id="upcoming-milestones"><a class="header" href="#upcoming-milestones">Upcoming Milestones</a></h2>
@@ -2762,7 +2819,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <p>iDempiere was at the heart of Chuck's ERP Academy for 11 years where Chuck created over 800 videos on the topic of open source ERP and teaching students from over 60 countries.</p>
 <p>During this time, Chuck lead 7 medium-sized iDempiere deployments and assisted in over 30 more deployments. Just as important as the deployments are the students that did not deploy iDempiere. The academy was based on guiding users to a true and natural fit. If iDempiere was not the best tool, our mission was to determine that opinion as quickly as possible.</p>
 <p>This deep appreciation for someone's time and efforts was a cornerstone of the academy's success.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="references"><a class="header" href="#references">References</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="references-2"><a class="header" href="#references-2">References</a></h1>
 <p>The purpose of this page is to share important conceptional and technical references and resources.</p>
 <ul>
 <li><a href="https://youtu.be/Y6ZHV0RH0fQ">You code is worthless</a>
@@ -2802,7 +2859,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <p>In the chuck-stack community, we strive to go the extra step to look out for each other. Don’t just aim to be technically unimpeachable, try to be your best self. In particular, avoid flirting with offensive or sensitive issues, particularly if they’re off-topic; this all too often leads to unnecessary fights, hurt feelings, and damaged trust; worse, it can drive people away from the community entirely.</p>
 <p>And if someone takes issue with something you said or did, resist the urge to be defensive. Just stop doing what it was they complained about and apologize. Even if you feel you were misinterpreted or unfairly accused, chances are good there was something you could’ve communicated better — remember that it’s your responsibility to make your fellow stackers comfortable. Everyone wants to get along and we are all here first and foremost because we want to talk about cool technology. You will find that people will be eager to assume good intent and forgive as long as you earn their trust.</p>
 <p>The enforcement policies listed above apply to all official chuck-stack venues; including communication channels, repositories, and all forums.</p>
-<h2 id="references-1"><a class="header" href="#references-1">References</a></h2>
+<h2 id="references-3"><a class="header" href="#references-3">References</a></h2>
 <ul>
 <li>Adapted from the rust-lang code of conduct.</li>
 </ul>

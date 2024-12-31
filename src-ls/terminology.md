@@ -15,6 +15,15 @@ Here are the hallmarks for conversational enterprise computing:
 - Users rely on self-service training and automation to maximize operational and transactional velocity and efficiency ([OTVE](./terminology.md#otve)).
 - Systems uses work instructions to drive functionality and create guardrails ([see best practices](./best-practices.md)).
 
+## CRUD
+
+Acronym that represents "Create, Read, Update and Delete". CRUD generically describes the data life cycle where users/systems typically perform the following:
+
+- create data that is consistent with system rules
+- read (provide) data to assist roles in performing tasks
+- update data to ensure it remains consistent with system rules over time
+- delete data when the situation permits and the data is no longer needed
+
 ## Data Pipeline
 
 Linux shell pipelines allow users to chain multiple commands together, where the output of one command becomes the input for the next. This is achieved using the pipe symbol (|) between commands. Pipelines enable complex data processing and manipulation tasks to be performed efficiently by combining simple, specialized tools. 
