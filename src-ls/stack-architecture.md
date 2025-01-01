@@ -41,7 +41,7 @@ diagram: nixos TODO
 
 The chuck-stack uses nix-shell to apply the proper role tools and configuration to the right users. Said another way, when a user connects to the chuck-stack, nix-shell applies all assigned roles and ensures the environment is configured so that the user can fulfill the role's duties.
 
-Just like NixOS, nix-shell is configuration based. Here is a sample [nix.shell](https://github.com/chuckstack/chuck-stack-nix/tree/main/nix-shell/) that installs and configures PostgreSQL. <!--TODO: need a better example that focuses on a role--> 
+Just like NixOS, nix-shell is configuration based. Here is a sample [nix.shell](https://github.com/chuckstack/chuck-stack-nix/blob/main/nix-shell/postgresql-local/shell.nix) that installs and configures PostgreSQL. <!--TODO: need a better example that focuses on a role--> 
 
 Here is a diagram showing how we use nix-shell.
 
@@ -53,9 +53,9 @@ Here is an example of how a developer can use nix-shell to [test a SQL migration
 
 ### PostgreSQL
 
-The chuck-stack uses [PostgreSQL](./tool-postgresql.md) to manage data, users, roles, workflows, attributes, documents, and more... 
+The chuck-stack uses [PostgreSQL](./tool-postgresql.md) to manage data, users, roles, records, workflows, attributes, documents, and more... 
 
-SQL is one of the most expressive and well-known data and data-access standards in the world. The chuck-stack creates simplicity by moving almost all application configuration and logic into the database, and using PostgreSQL where it excels the most. We challenge you to find a more popular, better documented, more capable, and more secure user/role system (other than Linux).
+SQL is one of the most expressive and well-known data and data-access standards in the world. The chuck-stack creates simplicity by moving almost all application configuration and logic into the database, and using PostgreSQL where it excels the most. We challenge you to find a more popular, better documented, more capable, and more secure user/role system (other than Linux itself).
 
 The chuck-stack uses the tight integration between Linux (NixOS), PostgreSQL and Git to describe application deployment and operation. The below [Administration Experience](#administration-experience) sections highlights a common workflow using these tools.
 
@@ -95,7 +95,7 @@ The Git branching feature dictates what environments get updated. A change to th
 
 The Git PR (pull request) feature plays a big role in organizations where changes need to be vetted and approved by both AI and/or humans.
 
-## Todo Application Example
+## Stk Application Example
 
 Let's review the [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix) example chuck-stack application configuration to better understand how the pieces come together. The stk-todo-app.nix is an example of a simple yet usable chuck-stack application.
 
