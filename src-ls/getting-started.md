@@ -106,15 +106,9 @@ Examples to come soon... [Join the stack-academy](./stack-academy.md) for quicke
 
 ## chuck-stack Test
 
-Now that we have the basics covered, let's play with the chuck-stack.
+Now that we have the basics covered, let's play with the chuck-stack using [stk-app-sql]([https://github.com/chuckstack/stk-app-sql]).
 
-- clone the following to a local directory
-  - git clone https://github.com/chuckstack/stk-app-sql
-- cd to test
-- run the following command
-  - nix-shell
-
-This will drop you into new shell that has PostgreSQL installed and configured with the chuck-stack tools.
+This repository helps you install and configure PostgreSQL and the chuck-stack tools.
 
 ## Terminal in Browser
 
