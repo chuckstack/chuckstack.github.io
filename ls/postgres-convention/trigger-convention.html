@@ -186,6 +186,16 @@
 <li><strong>Trigger Function</strong> - function that describes what should happen when an event occurs</li>
 <li><strong>Trigger Definition</strong> - database object that associates a table with a trigger function</li>
 </ul>
+<h2 id="typical-uses"><a class="header" href="#typical-uses">Typical Uses</a></h2>
+<p>This section describes when and how we typically use triggers:</p>
+<ul>
+<li>Before save - used to manipulate a record before it is saved</li>
+<li>After save - used to automate/propagate data in other tables after a record is first saved</li>
+<li>Before update - used to manipulate a record before it is updated</li>
+<li>After update - used to automate/propagate data in other tables after a record is updated</li>
+<li>Before delete - used to ensure that a record can be delete</li>
+<li>After delete - used to automate/propagate data in other tables after a record is deleted</li>
+</ul>
 <h2 id="convention"><a class="header" href="#convention">Convention</a></h2>
 <p>Here are some important considerations to know when managing triggers:</p>
 <ul>
@@ -195,9 +205,8 @@
 <li>Core chuck-stack trigger function names should include <code>_stk</code> after the function name's sequence</li>
 <li>Example trigger function name: <code>t10100_stk_created_updated</code></li>
 <li>Trigger definition name should be the same as the trigger function name</li>
-<li>Example trigger definition name when applied to stk_actor: <code>t10100_stk_created_updated</code></li>
 <li>The conventions of starting both the trigger function and definition name with the <code>txxxxx</code> sequence is not required; however, it is convenient when navigating larger databases</li>
-<li>Use <code>\dft private.*</code> in psql to list all trigger functions</li>
+<li>Use <code>\dft private.*</code> in psql to list all trigger functions - useful when determining the next value in a sequence</li>
 <li>It is possible to have multiple triggers share the same sequence but have different function names
 <ul>
 <li>Since not all triggers are applied to all tables, using different triggers with the same sequence can be convenient to further promote conventions</li>
@@ -210,7 +219,6 @@
 <li>All numbers should be between 10000 and 99999</li>
 <li>The first sequence in a range should be <code>xx100</code> to allow for adding preceding triggers in a range after the fact</li>
 <li>The assumed increment is 10 to allow room for adding triggers between two existing triggers</li>
-<li>Basic and fundamental functionality (like session management)</li>
 <li>Here are the ranges:
 <ul>
 <li>10000 to 29999 - before insert/update/delete</li>

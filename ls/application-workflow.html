@@ -178,32 +178,58 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="chuck-stack-application-workflow"><a class="header" href="#chuck-stack-application-workflow">chuck-stack Application Workflow</a></h1>
-<p>This page is broken down into the following topics:</p>
+<p>Just about everything you do in an ERP system involves some form of workflow and/or automation. The purpose of this page is to describe how the chuck-stack supports workflow.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>All chuck-stack workflow is stored and managed in PostgreSQL. Workflow can be anything from as simple as a PostgreSQL trigger to a highly orchestrated, multiple request process that resembles what you find in a BPMN diagram.</p>
+<h2 id="types-of-workflow"><a class="header" href="#types-of-workflow">Types of Workflow</a></h2>
+<p>chuck-stack supports the following types of workflow:</p>
+<p>TODO: link to below sections</p>
 <ul>
-<li>Summary</li>
-<li>Workflow Architecture</li>
-<li>Workflow Use Cases</li>
-<li>Workflow Orchestration</li>
+<li>Trigger workflow -</li>
+<li>Journal workflow - everyone in an organization should be able to record the events in an organization. More...</li>
+<li>Discussion workflow - everyone in an organization should be able to collaborate with others in an organization. More...</li>
+<li>To-do workflow - everyone in an organization should be able to manage a simple list of tasks. More...</li>
+<li>Checklist workflow - roles in an organization often have periodic prescribed tasks. Checklists are a predefined and templated to-do tasks. More...</li>
+<li>Queue workflow - as people manipulate data, some records will reach a state of importance. Queues are defined views into data that match a specific pattern automatically. When the pattern is found, present the user or role with the matching records. More...</li>
+<li>Notice workflow - events happen, and sometimes users and systems need to be notified. The notification workflow provides information based on the events that occur in an organization. More...</li>
+<li>Ad-hoc request workflow - users and systems often know what needs to happen and who needs to perform the action based on the events that occur in an organization. This is often referred to as institutional knowledge of action. Ad-hoc request workflows allow users or services to request action from a particular user, role or service. More...</li>
+<li>Orchestrated request workflow - There are times when an organization needs a formal, multi-step, orchestrated process where a request follows a pre-defined path.</li>
 </ul>
-<h2 id="summary-from-user-perspective"><a class="header" href="#summary-from-user-perspective">Summary from User Perspective</a></h2>
-<p>The chuck-stack workflow is built around the concept of a <code>request</code>. A <code>request</code> is call to action, and it represents the most simple unit of action. Here are some summary points about the request architecture:</p>
+<h2 id="trigger-function"><a class="header" href="#trigger-function">Trigger Function</a></h2>
+<p>The most simple version of chuck-stack workflow is a PostgreSQL trigger function. It executes immediately, and it is contained inside a database transaction.</p>
+<p><a href="./postgres-convention/trigger-convention.html">This page</a> describes how the chuck-stack manages triggers.</p>
+<p>It is important to note that triggers only support event-based and immediate-execution of organization logic. They are not sufficient for longer running, ad-hoc, or orchestrated workflow processes.</p>
+<p>It is also important to note that triggers can initiate any of the below types of workflows.</p>
+<h2 id="queue-workflow"><a class="header" href="#queue-workflow">Queue Workflow</a></h2>
 <ul>
-<li>It can stand by itself, or it can be associated with any record in the chuck-stack.</li>
-<li>It has a type.</li>
-<li>It has a state (from a collection of possible states from type).</li>
-<li>It has a resolution (from a collection of possible resolutions from type).</li>
-<li>It has actions (from a collection of possible resolutions).</li>
+<li>table_name</li>
+<li>where_clause</li>
 </ul>
-<h2 id="summary-from-it-perspective"><a class="header" href="#summary-from-it-perspective">Summary from IT Perspective</a></h2>
-<p>The chuck-stack workflow is build around PostgreSQL triggers and the concept of atomic transactions. This means the state of any workflow is persisted and any workflow action is guaranteed to either complete/commit or rollback. Here are some details about the request architecture:</p>
+<p>...Produces count and zoom logic</p>
+<h2 id="request-workflow"><a class="header" href="#request-workflow">Request Workflow</a></h2>
+<p>The next workflow option available in the chuck-stack is the <code>request</code>. A <code>request</code> is call to action, and it represents the smallest, stand-alone, persisted unit of action.</p>
+<p>A request has the following attributes:</p>
 <ul>
-<li>They are stored in stk_request</li>
-<li>They link to other records via a <a href="./postgres-convention/table-record-convention.html">linking convention</a></li>
+<li>Request type</li>
+<li>State (from a collection of possible states from request type)</li>
+<li>Resolution (from a collection of possible resolutions from request type)</li>
+<li>Action (from a collection of possible actions from request type)</li>
 </ul>
-<h2 id="architecture"><a class="header" href="#architecture">Architecture</a></h2>
-<p>See <a href="./postgres-convention/request.html">request architecture</a>.</p>
-<h2 id="use-cases"><a class="header" href="#use-cases">Use Cases</a></h2>
-<h2 id="orchestration"><a class="header" href="#orchestration">Orchestration</a></h2>
+<p>In a BPMN diagram, a request is often referred to as an activity object.</p>
+<p><a href="./postgres-convention/request.html">This page</a> describes how the chuck-stack persists requests.</p>
+<p>Here is a list of request workflow use cases:</p>
+<ul>
+<li>User creates an ad-hoc stand-alone request to one or a collection of users and/or roles. Example: We are out of coffee, please purchase more.</li>
+<li>User creates a linked request to an existing record. Example: We need to re-evaluate a business partner's credit limit (linked to business partner).</li>
+</ul>
+<p>todo:
+...processed...
+...singleton...</p>
+<h2 id="document-action-workflow"><a class="header" href="#document-action-workflow">Document Action Workflow</a></h2>
+<p>...specialized version of request... linked with only one not-processed instance</p>
+<h2 id="request-template"><a class="header" href="#request-template">Request Template</a></h2>
+<h2 id="async"><a class="header" href="#async">Async</a></h2>
+<h2 id="request-orchestration"><a class="header" href="#request-orchestration">Request Orchestration</a></h2>
 
                         <br>
                         <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script>, CHUBOE LLC. All rights reserved.</p> <!--chuboe changed-->

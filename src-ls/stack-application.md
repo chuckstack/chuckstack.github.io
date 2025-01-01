@@ -1,6 +1,6 @@
 # chuck-stack Application Framework
 
-chuck-stack uses the previously discussed [tools](./stack-tools.md) and [best practices](./best-practices.md) to create an application framework for data and process management. The purpose of this page is to describe the chuck-stack application components.
+chuck-stack uses [tools](./stack-tools.md) and [best practices](./best-practices.md) to create an application framework for data and process management. The purpose of this page is to describe the chuck-stack application components.
 
 ## Framework Goals
 
@@ -14,7 +14,7 @@ Running an organization goes beyond simple CRUD (create, read, update and delete
 
 The stack application consists of three components:
 
-1. Tool/role deployment
+1. Tool/role deployment ([see chuck-stack architecture](./stack-architecture.md))
 2. Workflow processes
 3. Attribute tagging
 

@@ -11,6 +11,17 @@ Note that we will often refer to 'triggers' as a general database concept. It is
 - **Trigger Function** - function that describes what should happen when an event occurs
 - **Trigger Definition** - database object that associates a table with a trigger function
 
+## Typical Uses
+
+This section describes when and how we typically use triggers:
+
+- Before save - used to manipulate a record before it is saved
+- After save - used to automate/propagate data in other tables after a record is first saved
+- Before update - used to manipulate a record before it is updated
+- After update - used to automate/propagate data in other tables after a record is updated
+- Before delete - used to ensure that a record can be delete
+- After delete - used to automate/propagate data in other tables after a record is deleted
+
 ## Convention
 
 Here are some important considerations to know when managing triggers:
@@ -21,9 +32,8 @@ Here are some important considerations to know when managing triggers:
 - Core chuck-stack trigger function names should include `_stk` after the function name's sequence
 - Example trigger function name: `t10100_stk_created_updated`
 - Trigger definition name should be the same as the trigger function name
-- Example trigger definition name when applied to stk_actor: `t10100_stk_created_updated`
 - The conventions of starting both the trigger function and definition name with the `txxxxx` sequence is not required; however, it is convenient when navigating larger databases
-- Use `\dft private.*` in psql to list all trigger functions
+- Use `\dft private.*` in psql to list all trigger functions - useful when determining the next value in a sequence
 - It is possible to have multiple triggers share the same sequence but have different function names
   - Since not all triggers are applied to all tables, using different triggers with the same sequence can be convenient to further promote conventions
   - Take care when duplicating sequences to ensure you do not create confusion
@@ -33,7 +43,6 @@ Here are the recommended trigger sequence conventions:
 - All numbers should be between 10000 and 99999
 - The first sequence in a range should be `xx100` to allow for adding preceding triggers in a range after the fact
 - The assumed increment is 10 to allow room for adding triggers between two existing triggers
-- Basic and fundamental functionality (like session management)
 - Here are the ranges:
   - 10000 to 29999 - before insert/update/delete
   - 30000 to 49999 - before request action

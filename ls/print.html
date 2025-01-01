@@ -1572,7 +1572,7 @@ select current_setting('test.test.test.one',true);
 <p>Here is a drawing representing a typical all-in-one:</p>
 <p><img src="img/all-in-one-chuck-stack.svg" alt="all-in-one" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="chuck-stack-application-framework"><a class="header" href="#chuck-stack-application-framework">chuck-stack Application Framework</a></h1>
-<p>chuck-stack uses the previously discussed <a href="./stack-tools.html">tools</a> and <a href="./best-practices.html">best practices</a> to create an application framework for data and process management. The purpose of this page is to describe the chuck-stack application components.</p>
+<p>chuck-stack uses <a href="./stack-tools.html">tools</a> and <a href="./best-practices.html">best practices</a> to create an application framework for data and process management. The purpose of this page is to describe the chuck-stack application components.</p>
 <h2 id="framework-goals"><a class="header" href="#framework-goals">Framework Goals</a></h2>
 <p>Running an organization goes beyond simple CRUD (create, read, update and delete) database operations and running processes. The system needs to make the right tools available to the right person at the right time to make their jobs easier and more enjoyable.</p>
 <ul>
@@ -1583,7 +1583,7 @@ select current_setting('test.test.test.one',true);
 <h2 id="framework-components"><a class="header" href="#framework-components">Framework Components</a></h2>
 <p>The stack application consists of three components:</p>
 <ol>
-<li>Tool/role deployment</li>
+<li>Tool/role deployment (<a href="./stack-architecture.html">see chuck-stack architecture</a>)</li>
 <li>Workflow processes</li>
 <li>Attribute tagging</li>
 </ol>
@@ -1684,32 +1684,58 @@ There are two key process features that make this vision a reality: 1) workflow 
 <li>configuring a PostgreSQL instance to support user operations and data persistence</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="chuck-stack-application-workflow"><a class="header" href="#chuck-stack-application-workflow">chuck-stack Application Workflow</a></h1>
-<p>This page is broken down into the following topics:</p>
+<p>Just about everything you do in an ERP system involves some form of workflow and/or automation. The purpose of this page is to describe how the chuck-stack supports workflow.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>All chuck-stack workflow is stored and managed in PostgreSQL. Workflow can be anything from as simple as a PostgreSQL trigger to a highly orchestrated, multiple request process that resembles what you find in a BPMN diagram.</p>
+<h2 id="types-of-workflow"><a class="header" href="#types-of-workflow">Types of Workflow</a></h2>
+<p>chuck-stack supports the following types of workflow:</p>
+<p>TODO: link to below sections</p>
 <ul>
-<li>Summary</li>
-<li>Workflow Architecture</li>
-<li>Workflow Use Cases</li>
-<li>Workflow Orchestration</li>
+<li>Trigger workflow -</li>
+<li>Journal workflow - everyone in an organization should be able to record the events in an organization. More...</li>
+<li>Discussion workflow - everyone in an organization should be able to collaborate with others in an organization. More...</li>
+<li>To-do workflow - everyone in an organization should be able to manage a simple list of tasks. More...</li>
+<li>Checklist workflow - roles in an organization often have periodic prescribed tasks. Checklists are a predefined and templated to-do tasks. More...</li>
+<li>Queue workflow - as people manipulate data, some records will reach a state of importance. Queues are defined views into data that match a specific pattern automatically. When the pattern is found, present the user or role with the matching records. More...</li>
+<li>Notice workflow - events happen, and sometimes users and systems need to be notified. The notification workflow provides information based on the events that occur in an organization. More...</li>
+<li>Ad-hoc request workflow - users and systems often know what needs to happen and who needs to perform the action based on the events that occur in an organization. This is often referred to as institutional knowledge of action. Ad-hoc request workflows allow users or services to request action from a particular user, role or service. More...</li>
+<li>Orchestrated request workflow - There are times when an organization needs a formal, multi-step, orchestrated process where a request follows a pre-defined path.</li>
 </ul>
-<h2 id="summary-from-user-perspective"><a class="header" href="#summary-from-user-perspective">Summary from User Perspective</a></h2>
-<p>The chuck-stack workflow is built around the concept of a <code>request</code>. A <code>request</code> is call to action, and it represents the most simple unit of action. Here are some summary points about the request architecture:</p>
+<h2 id="trigger-function"><a class="header" href="#trigger-function">Trigger Function</a></h2>
+<p>The most simple version of chuck-stack workflow is a PostgreSQL trigger function. It executes immediately, and it is contained inside a database transaction.</p>
+<p><a href="./postgres-convention/trigger-convention.html">This page</a> describes how the chuck-stack manages triggers.</p>
+<p>It is important to note that triggers only support event-based and immediate-execution of organization logic. They are not sufficient for longer running, ad-hoc, or orchestrated workflow processes.</p>
+<p>It is also important to note that triggers can initiate any of the below types of workflows.</p>
+<h2 id="queue-workflow"><a class="header" href="#queue-workflow">Queue Workflow</a></h2>
 <ul>
-<li>It can stand by itself, or it can be associated with any record in the chuck-stack.</li>
-<li>It has a type.</li>
-<li>It has a state (from a collection of possible states from type).</li>
-<li>It has a resolution (from a collection of possible resolutions from type).</li>
-<li>It has actions (from a collection of possible resolutions).</li>
+<li>table_name</li>
+<li>where_clause</li>
 </ul>
-<h2 id="summary-from-it-perspective"><a class="header" href="#summary-from-it-perspective">Summary from IT Perspective</a></h2>
-<p>The chuck-stack workflow is build around PostgreSQL triggers and the concept of atomic transactions. This means the state of any workflow is persisted and any workflow action is guaranteed to either complete/commit or rollback. Here are some details about the request architecture:</p>
+<p>...Produces count and zoom logic</p>
+<h2 id="request-workflow"><a class="header" href="#request-workflow">Request Workflow</a></h2>
+<p>The next workflow option available in the chuck-stack is the <code>request</code>. A <code>request</code> is call to action, and it represents the smallest, stand-alone, persisted unit of action.</p>
+<p>A request has the following attributes:</p>
 <ul>
-<li>They are stored in stk_request</li>
-<li>They link to other records via a <a href="./postgres-convention/table-record-convention.html">linking convention</a></li>
+<li>Request type</li>
+<li>State (from a collection of possible states from request type)</li>
+<li>Resolution (from a collection of possible resolutions from request type)</li>
+<li>Action (from a collection of possible actions from request type)</li>
 </ul>
-<h2 id="architecture"><a class="header" href="#architecture">Architecture</a></h2>
-<p>See <a href="./postgres-convention/request.html">request architecture</a>.</p>
-<h2 id="use-cases"><a class="header" href="#use-cases">Use Cases</a></h2>
-<h2 id="orchestration"><a class="header" href="#orchestration">Orchestration</a></h2>
+<p>In a BPMN diagram, a request is often referred to as an activity object.</p>
+<p><a href="./postgres-convention/request.html">This page</a> describes how the chuck-stack persists requests.</p>
+<p>Here is a list of request workflow use cases:</p>
+<ul>
+<li>User creates an ad-hoc stand-alone request to one or a collection of users and/or roles. Example: We are out of coffee, please purchase more.</li>
+<li>User creates a linked request to an existing record. Example: We need to re-evaluate a business partner's credit limit (linked to business partner).</li>
+</ul>
+<p>todo:
+...processed...
+...singleton...</p>
+<h2 id="document-action-workflow"><a class="header" href="#document-action-workflow">Document Action Workflow</a></h2>
+<p>...specialized version of request... linked with only one not-processed instance</p>
+<h2 id="request-template"><a class="header" href="#request-template">Request Template</a></h2>
+<h2 id="async"><a class="header" href="#async">Async</a></h2>
+<h2 id="request-orchestration"><a class="header" href="#request-orchestration">Request Orchestration</a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="chuck-stack-application-attribute-tagging"><a class="header" href="#chuck-stack-application-attribute-tagging">chuck-stack Application Attribute Tagging</a></h1>
 <p>The purpose of this page is to introduce the concept of chuck-stack attribute tagging.</p>
 <p>This page is broken down into the following topics:</p>
@@ -1718,7 +1744,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 <li>Architecture</li>
 <li>Use Cases</li>
 </ul>
-<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<h2 id="summary-1"><a class="header" href="#summary-1">Summary</a></h2>
 <p>The purpose of attribute tagging is to provide a simple and consistent way to describe events and details about a record.</p>
 <p>In traditional database schemas, an data architect would add additional columns or link tables to reflect additional attributes. This implementation style is valid and prove; however, it suffers from some issues:</p>
 <ul>
@@ -1731,9 +1757,9 @@ There are two key process features that make this vision a reality: 1) workflow 
 <li>simplify UI design when managing data (<a href="./terminology.html#crud">CRUD</a>)</li>
 <li>simplify minimize and simplify code to perform generic workflow operations</li>
 </ul>
-<h2 id="architecture-1"><a class="header" href="#architecture-1">Architecture</a></h2>
+<h2 id="architecture"><a class="header" href="#architecture">Architecture</a></h2>
 <p>See <a href="./postgres-convention/attribute-tag.html">attribute tagging convention</a>.</p>
-<h2 id="use-cases-1"><a class="header" href="#use-cases-1">Use Cases</a></h2>
+<h2 id="use-cases"><a class="header" href="#use-cases">Use Cases</a></h2>
 <p>The purpose of this section is to highlight use cases where attribute tagging improves the quality of operations.</p>
 <h3 id="quality-management"><a class="header" href="#quality-management">Quality Management</a></h3>
 <p>Identify nonconforming records and events... example:</p>
@@ -2058,7 +2084,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="table-and-record-convention"><a class="header" href="#table-and-record-convention">Table and Record Convention</a></h1>
 <p>The purpose of this section is to describe a way to universally link and find data in the database based on a record's table_name and uu convention.</p>
-<h2 id="summary-1"><a class="header" href="#summary-1">Summary</a></h2>
+<h2 id="summary-2"><a class="header" href="#summary-2">Summary</a></h2>
 <p>As described in <a href="postgres-convention/./table-convention.html">table convention</a>, all tables have a 'single' primary key (even if it is a link table). All tables have a primary key named <code>uu</code>. All tables have a generated value for <code>table_name</code>.  Said another way, if you know the table_name and uu of any given record, you can always:</p>
 <ul>
 <li>Load the actual record</li>
@@ -2269,12 +2295,22 @@ There are two key process features that make this vision a reality: 1) workflow 
  <!-- - concept of function => create_from vs create_into -- attempt to support both when possible - TODO: better define these terms -->
 <div style="break-before: page; page-break-before: always;"></div><h1 id="trigger-convention"><a class="header" href="#trigger-convention">Trigger Convention</a></h1>
 <p>The purpose of this page is to describe how the chuck-stack uses triggers.</p>
-<h2 id="summary-2"><a class="header" href="#summary-2">Summary</a></h2>
+<h2 id="summary-3"><a class="header" href="#summary-3">Summary</a></h2>
 <p>The chuck-stack makes heavy use of events. The default tool to manage database event execution is a PostgreSQL trigger.</p>
 <p>Note that we will often refer to 'triggers' as a general database concept. It is important to note there are two parts to a trigger:</p>
 <ul>
 <li><strong>Trigger Function</strong> - function that describes what should happen when an event occurs</li>
 <li><strong>Trigger Definition</strong> - database object that associates a table with a trigger function</li>
+</ul>
+<h2 id="typical-uses"><a class="header" href="#typical-uses">Typical Uses</a></h2>
+<p>This section describes when and how we typically use triggers:</p>
+<ul>
+<li>Before save - used to manipulate a record before it is saved</li>
+<li>After save - used to automate/propagate data in other tables after a record is first saved</li>
+<li>Before update - used to manipulate a record before it is updated</li>
+<li>After update - used to automate/propagate data in other tables after a record is updated</li>
+<li>Before delete - used to ensure that a record can be delete</li>
+<li>After delete - used to automate/propagate data in other tables after a record is deleted</li>
 </ul>
 <h2 id="convention"><a class="header" href="#convention">Convention</a></h2>
 <p>Here are some important considerations to know when managing triggers:</p>
@@ -2285,9 +2321,8 @@ There are two key process features that make this vision a reality: 1) workflow 
 <li>Core chuck-stack trigger function names should include <code>_stk</code> after the function name's sequence</li>
 <li>Example trigger function name: <code>t10100_stk_created_updated</code></li>
 <li>Trigger definition name should be the same as the trigger function name</li>
-<li>Example trigger definition name when applied to stk_actor: <code>t10100_stk_created_updated</code></li>
 <li>The conventions of starting both the trigger function and definition name with the <code>txxxxx</code> sequence is not required; however, it is convenient when navigating larger databases</li>
-<li>Use <code>\dft private.*</code> in psql to list all trigger functions</li>
+<li>Use <code>\dft private.*</code> in psql to list all trigger functions - useful when determining the next value in a sequence</li>
 <li>It is possible to have multiple triggers share the same sequence but have different function names
 <ul>
 <li>Since not all triggers are applied to all tables, using different triggers with the same sequence can be convenient to further promote conventions</li>
@@ -2300,7 +2335,6 @@ There are two key process features that make this vision a reality: 1) workflow 
 <li>All numbers should be between 10000 and 99999</li>
 <li>The first sequence in a range should be <code>xx100</code> to allow for adding preceding triggers in a range after the fact</li>
 <li>The assumed increment is 10 to allow room for adding triggers between two existing triggers</li>
-<li>Basic and fundamental functionality (like session management)</li>
 <li>Here are the ranges:
 <ul>
 <li>10000 to 29999 - before insert/update/delete</li>
@@ -2319,9 +2353,9 @@ There are two key process features that make this vision a reality: 1) workflow 
 <h3 id="stk_trigger_create"><a class="header" href="#stk_trigger_create">stk_trigger_create()</a></h3>
 <p>There are times when a single trigger function needs to be associated with many tables.</p>
 <p>To make managing the trigger creation in this scenario easier, there exists a private.stk_trigger_create() function that will create all applicable triggers as described by records in the private.stk_trigger_mgt table.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="async"><a class="header" href="#async">Async</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="async-1"><a class="header" href="#async-1">Async</a></h1>
 <p>The purpose of this page is to describe how the chuck-stack supports asynchronous events.</p>
-<h2 id="summary-3"><a class="header" href="#summary-3">Summary</a></h2>
+<h2 id="summary-4"><a class="header" href="#summary-4">Summary</a></h2>
 <p>The database goes to great lengths to execute event/trigger functions in a synchronous transaction; however, there are times when these function's execution time can be unpredictable or long-running.</p>
 <p>chuck-stack provides several ways to execute event functionality without blocking a transaction and creating a slow user experience.</p>
 <h2 id="considerations-1"><a class="header" href="#considerations-1">Considerations</a></h2>
@@ -2349,17 +2383,27 @@ There are two key process features that make this vision a reality: 1) workflow 
 <p>Table: stk_async;stk_async_type</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="notify"><a class="header" href="#notify">Notify</a></h1>
 <p>The purpose of this page is to describe how the chuck-stack supports notifications.</p>
-<h2 id="summary-4"><a class="header" href="#summary-4">Summary</a></h2>
+<h2 id="summary-5"><a class="header" href="#summary-5">Summary</a></h2>
 <p>The chuck-stack uses <a href="https://www.postgresql.org/docs/current/sql-notify.html">PostgreSQL's notify</a> to provide notifications to other systems. The <code>t70100_stk_notify()</code> trigger function provides a generic chuck-stack notify implementation. By default, only the <code>stk_async</code> and <code>stk_async_type</code> tables include this trigger definition.</p>
 <p>To include additional tables in the <code>t70100_stk_notify()</code> execution:</p>
 <ul>
 <li>modify the in the 'stk_notify' record in the <code>stk_trigger_mgt</code> table to include your new table in the <code>table_name</code> array column</li>
 <li>execute the <code>private.stk_trigger_create()</code> function to update your tables with an appropriate trigger definition</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="request-workflow"><a class="header" href="#request-workflow">Request Workflow</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="request-workflow-1"><a class="header" href="#request-workflow-1">Request Workflow</a></h1>
+<p>The purpose of this page is to help you understand the request workflow architecture.</p>
+<h2 id="summary-6"><a class="header" href="#summary-6">Summary</a></h2>
+<p>The chuck-stack workflow is build around PostgreSQL tables, foreign keys, triggers and the concept of atomic transactions. This means the state of any request workflow is persisted and any workflow action is guaranteed to either complete/commit or rollback.</p>
+<h2 id="implementation-details"><a class="header" href="#implementation-details">Implementation Details</a></h2>
+<p>Here are some details about the request architecture:</p>
+<ul>
+<li>Requests are stored in stk_request</li>
+<li>A request can exist in isolation of either other record</li>
+<li>A request can be linked to any other record in the chuck-stack using the <a href="postgres-convention/./table-record-convention.html#linking-convention">table and record</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="comments"><a class="header" href="#comments">Comments</a></h1>
 <p>The purpose of this page is to discuss PostgreSQL object comments.</p>
-<h2 id="summary-5"><a class="header" href="#summary-5">Summary</a></h2>
+<h2 id="summary-7"><a class="header" href="#summary-7">Summary</a></h2>
 <p>PostgreSQL allows you to create a comment against almost anything. The only object we have found thus far that will not accept a comment is an enum value.</p>
 <p>It is strongly recommended that PostgreSQL comments are the first place where you add documentation. Here are the reasons why:</p>
 <ul>
@@ -2712,7 +2756,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <p>There are times when you need to aggregate information across multiple tenants into a single data warehouse (data lake). This is a commonly requested task supported by many data warehouse (data lake) solutions.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
 <p>The purpose of this page is to describe the application framework progress and deployment roadmap.</p>
-<h2 id="summary-6"><a class="header" href="#summary-6">Summary</a></h2>
+<h2 id="summary-8"><a class="header" href="#summary-8">Summary</a></h2>
 <!-- TODO: link to goals -->
 <p>It is important to understand that the chuck-stack is not a typical software project. The goals are to support small and medium sized organizations by bringing together existing tools to create a platform. As such, most of the advancements of this project relate more to convention, configuration, documentation and deployment rather than coding.</p>
 <h2 id="upcoming-milestones"><a class="header" href="#upcoming-milestones">Upcoming Milestones</a></h2>
