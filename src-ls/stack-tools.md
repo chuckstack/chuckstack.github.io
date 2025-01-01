@@ -43,17 +43,7 @@ You might observe that we have a preference for applications written in the Rust
 
 ## Critical Path Tools
 
-The following tools are in the chuck-stack critical path to success. They solve a core need in the chuck-stack, and they create [synergy](./terminology.md#synergy) with each other.
-
-- [Incus (virtualization)](./tool-incus.md) - container and virtual machine (VM) tool to develop, test and deploy IT applications.
-- [Linux (compute)](./tool-linux.md) - best tool to run applications on just about any platform in the world.
-- [PostgreSQL (data)](./tool-postgresql.md) - best tool for managing "data" database with best performance and enterprise features.
-- [PostgREST (API)](./tool-postgrest.md) - PostgreSQL tool for exposing an OpenAPI compliant REST interface directly out of your database.
-- [aichat (AI)](./tool-aichat.md) - command line AI chat and execution tool that include saves sessions, rag, function-calling and more.
-- [Nushell (system and data)](./tool-nushell.md) - Terminal shell with designed to understand and manipulate structured data.
-- [Zellij (UI)](./tool-zellij.md) - terminal workspace environment for managing information and transactions.
-- [Git (code, information, collaboration)](./tool-git.md) - best tool for managing information, instructions and discussions. It provides most options for AI amplification.
-- [Obsidian (knowledge)](./tool-obsidian.md) - best tool to authoring text.
+The sub-pages that follow identify critical path tools that create [synergy](./terminology.md#synergy) with each other. These tools include [Incus (virtualization)](./tool-incus.md), [Linux (compute)](./tool-linux.md), [PostgreSQL (data)](./tool-postgresql.md), [PostgREST (API)](./tool-postgrest.md), [aichat (AI)](./tool-aichat.md), [Nushell (system and data)](./tool-nushell.md), and more...
 
 ## Other Tools
 
