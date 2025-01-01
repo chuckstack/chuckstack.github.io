@@ -7,7 +7,7 @@
 chuck-stack is a collection of: 
 
 1. [well understood tools](./stack-tools.md)
-1. [business best practices](./best-practices.md)
+1. [organization best practices](./best-practices.md)
 1. [application framework](./stack-application.md)
 
 ...that puts self-help automation in the hands of the people who actually do the work. With the chuck-stack, everyday clerks use AI and well-formed work instructions to remove complexity and automate tasks. What was tedious becomes scripted. Scripts become menu options. Options connect to form data [pipelines](./terminology.md#data-pipeline).

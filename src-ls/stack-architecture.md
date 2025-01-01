@@ -3,7 +3,7 @@
 In the [introduction](./introduction.md), we state the chuck-stack is a collection of:
 
 1. [well understood tools](./stack-tools.md)
-1. [business best practices](./best-practices.md)
+1. [organization best practices](./best-practices.md)
 1. [application framework](./stack-application.md)
 
 The purpose of this page is to help you understand how the these tools fit together in deployment and usage. If you want to see the architecture in action, view the [picture of success](./picture-success.md#how-is-this-possible). 
