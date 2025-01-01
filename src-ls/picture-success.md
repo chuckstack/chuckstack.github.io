@@ -12,7 +12,7 @@ Modern AI has a magical ability to understand and use our language to offer valu
   <source src="./chuck-stack-01-order-summary.mp4" type="video/mp4">
 </video>
 
-## Problem - Too Many Window and Fields
+## Problem - Too Many Windows and Fields
 
 There is a big problem with enterprise applications (like ERP) built over the last 20 years. They are too slow in almost every way. The development tooling is too complicated. They bombard the user with hundreds of fields which often go unused. They are incredibly difficult to test. And, they create tension between organization users and leaders.
 
