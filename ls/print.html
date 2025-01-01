@@ -340,7 +340,7 @@
 <p>A mouse has only two forms of communication: grunts and nudges</p>
 <p>Before we make our case for the CLI, we feel compelled to express the challenges that plague us today.</p>
 <p>Using a mouse to perform work in a web browser is quite possibly the lowest form of communication prevalent in our society. You can click (or grunt) and you and drag (or nudge). Imagine if your primary means of communication was grunting and nudging people around. It is hard to imagine because it represents such a departure from the rich language we have developed to express ourselves.</p>
-<p>Creating mouse oriented user interfaces often doubles or more the code complexity. Creating business logic is easy. Creating web-based user interfaces is extremely difficult.</p>
+<p>Creating mouse oriented user interfaces often doubles or more the code complexity. Creating organization logic is easy. Creating web-based user interfaces is extremely difficult.</p>
 <p>The pain goes even deeper. Anyone who is responsible for testing mouse oriented applications can attest to just how hard it can be to assert it works as expected.</p>
 <p>Why have we adopted this style as a primary means of communication with our computer? We do not know; however, We are done! No more... There is a better way!</p>
 <h2 id="30-years-of-cli"><a class="header" href="#30-years-of-cli">30+ Years of CLI</a></h2>
@@ -419,7 +419,7 @@ EOF
 </ul>
 <p>The above example shows just how easily we can script with nix-shell to dictate what function calling tools are available to <a href="./tool-aichat.html">AIChat</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="success-using-postgresql"><a class="header" href="#success-using-postgresql">Success Using PostgreSQL</a></h1>
-<p>PostgreSQL plays a critical role in our success. How we plan to create that success is largely attributable to the documentation and practices of <a href="./tool-postgrest.html">PostgREST.org</a>. They paved a way to move user and business logic previously trapped in an application server to the database itself. They proved the concept was more than possible, it was actually advantageous.</p>
+<p>PostgreSQL plays a critical role in our success. How we plan to create that success is largely attributable to the documentation and practices of <a href="./tool-postgrest.html">PostgREST.org</a>. They paved a way to move user and organization logic previously trapped in an application server to the database itself. They proved the concept was more than possible, it was actually advantageous.</p>
 <p>When the concepts in this page are fully implemented in the chuck-stack, this page will go away, and its contents will be move to other functional areas. Until then, this information represents our plan and our partial implementation.</p>
 <h2 id="user-and-role-management-1"><a class="header" href="#user-and-role-management-1">User and Role Management</a></h2>
 <p>User management plays a small part is how the chuck-stack operates. Almost all logic is tied to a role. PostgREST gives us a great roadmap for accomplishing this task.</p>
@@ -440,13 +440,13 @@ grant some_role to some_user_auth;
 psql -d some_db -U some_user_auth -c "set SESSION ROLE some_role" -c "select * from adempiere.c_bpartner limit 1"
 </code></pre>
 <p>If you remove the "-c ... set ROLE ..." command, the psql statement will fail with a "permission denied" error because the some_user_auth role does not have any privileges.</p>
-<p>This example shows just how easily we can provide user management yet ensure that no user capabilities spill into role-based business logic.</p>
+<p>This example shows just how easily we can provide user management yet ensure that no user capabilities spill into role-based organization logic.</p>
 <!-- the following is duplicated in multiple places including success-postgresql -->
 <p>It is worth noting that user and role management is shared in both Linux and PostgreSQL. While these responsibilities exist in both planes, they are not duplicated. Linux dictates role-based tool access and how the user connects to the database. PostgreSQL dictates data access inside the database.</p>
 <p>Reference: <a href="https://docs.postgrest.org/en/v12/references/auth.html">PostgREST Authentication</a></p>
 <h2 id="session-variables"><a class="header" href="#session-variables">Session Variables</a></h2>
-<p>A big requirement of enterprise systems is managing a user's context inside the application. The above example of switching from the user to the role is great for simplifying business logic; however, the system still needs to know what user performed what action.</p>
-<p>The chuck-stack uses another concept from PostgREST to set session variables (context) using PostgreSQL's configuration settings. Here is an example where any business logic can check session variable details during a process.</p>
+<p>A big requirement of enterprise systems is managing a user's context inside the application. The above example of switching from the user to the role is great for simplifying organization logic; however, the system still needs to know what user performed what action.</p>
+<p>The chuck-stack uses another concept from PostgREST to set session variables (context) using PostgreSQL's configuration settings. Here is an example where any organization logic can check session variable details during a process.</p>
 <pre><code class="language-sql">CREATE OR REPLACE FUNCTION check_user() RETURNS void AS $$
 DECLARE
   email text := current_setting('stk.variable', true)::json-&gt;&gt;'email';
@@ -523,7 +523,7 @@ select current_setting('test.test.test.one',true);
 <p>TODO: add link to architecture page to show how API fits into the picture.</p>
 <p>When the concepts in this page are fully implemented in the chuck-stack, this page will go away, and its contents will be move to other functional areas. Until then, this information represents our plan and our partial implementation.</p>
 <h2 id="terminal-plus-postgrest"><a class="header" href="#terminal-plus-postgrest">Terminal plus PostgREST</a></h2>
-<p>In the previous success pages, we discussed how PostgREST helped us understand a better way to manage data and processes directly inside the database. We believe we can not only use PostgREST's practices but also use PostgREST itself. If we can, this means that any business logic created in the chuck-stack will automatically flow through to an API as well (possibly for free).</p>
+<p>In the previous success pages, we discussed how PostgREST helped us understand a better way to manage data and processes directly inside the database. We believe we can not only use PostgREST's practices but also use PostgREST itself. If we can, this means that any organization logic created in the chuck-stack will automatically flow through to an API as well (possibly for free).</p>
 <p>Said another way, You can gain access to your data and processes from more than just a terminal. This concept is important when integration with 3rd party system, which frequently happens in ERP implementations.</p>
 <p>Here are our thoughts:</p>
 <ul>
@@ -532,7 +532,7 @@ select current_setting('test.test.test.one',true);
 <li>The private schema is where you keep your normalized data. It is considered private because users do not always need to know how it is stored.</li>
 <li>The public schema is where psql (your chuck-stack terminal) and PostgREST connect. It is considered public because it is the outside representation of your data and processes. Sometimes there is a difference between private and public for good reasons.</li>
 <li>We believe we can use the same public schema to feed both the chuck-stack terminal as well as PostgREST.</li>
-<li>We believe we can write one set of business logic that supports both access points.</li>
+<li>We believe we can write one set of organization logic that supports both access points.</li>
 <li>To accomplish this goal, we believe the chuck-stack simply needs to mirror the application's context to be the same as PostgREST.</li>
 </ul>
 <p>If we can accomplish this goal, it will be quite magical.</p>
@@ -667,7 +667,7 @@ select current_setting('test.test.test.one',true);
 <div style="break-before: page; page-break-before: always;"></div><h1 id="stack-faq"><a class="header" href="#stack-faq">Stack FAQ</a></h1>
 <p>The purpose of this page is to answer frequently asked questions (FAQ) about the chuck-stack.</p>
 <h2 id="is-chuck-stack-really-the-name-of-the-project"><a class="header" href="#is-chuck-stack-really-the-name-of-the-project">Is chuck-stack really the name of the project?</a></h2>
-<p>Yes and no... Naming a project is hard. chuck-stack is a good starting name given that Chuck Boecking has spent the last 25 years immersed in small-to-medium business ERP, data management, and IT. This project started as result of what we believe to be safe, usable, reliable and performant. If the community believes there is a better name to represent this project, then we will change the name accordingly. That will be a good day!</p>
+<p>Yes and no... Naming a project is hard. chuck-stack is a good starting name given that Chuck Boecking has spent the last 25 years immersed in small-to-medium organization ERP, data management, and IT. This project started as result of what we believe to be safe, usable, reliable and performant. If the community believes there is a better name to represent this project, then we will change the name accordingly. That will be a good day!</p>
 <h2 id="how-do-we-choose-stack-components"><a class="header" href="#how-do-we-choose-stack-components">How do we choose stack components?</a></h2>
 <p>See <a href="./stack-tools.html">stack-tools</a>.</p>
 <h2 id="what-are-the-chuck-stack-tools"><a class="header" href="#what-are-the-chuck-stack-tools">What are the chuck-stack tools?</a></h2>
@@ -1069,7 +1069,7 @@ select current_setting('test.test.test.one',true);
 <li>The above nix-shell local installation instructions show you how to create a PostgreSQL cluster in a specific location so that you can create multiple clusters if needed.</li>
 <li>As a general rule, we will disable TCP access to PostgreSQL to maximize security. You should only enable TCP access when you have a good reason to do so.</li>
 <li>Once you have created a database 'cluster', you can then create one or more 'databases' inside that cluster.</li>
-<li>It is important to note the database needs of a small business with just a few users are different than the needs of a medium business with hundreds or thousands of users. We will start small and finish big.</li>
+<li>It is important to note the database needs of a small organization with just a few users are different than the needs of a medium organization with hundreds or thousands of users. We will start small and finish big.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postgrest"><a class="header" href="#postgrest">PostgREST</a></h1>
 <p><a href="https://postgrest.org/">PostgREST</a> is a secret weapon that allows us to build a fully-qualified and secure REST API directly on top of a PostgreSQL database schemas and users/roles. If you can build a good database with functions, you can build a good REST API.</p>
@@ -1097,7 +1097,7 @@ select current_setting('test.test.test.one',true);
 <li>SQL represents one of the most expressive data languages. Previously, SQL was removed as a viable public API because of the fear of duplicated access/security logic. This one point is such a game changer in how you thing about managing and accessing data.</li>
 <li>PostgREST enables moving user/role management and security policies to the database where all application access rules from all platforms (API + SQL) are enforced from a single location.</li>
 <li>User/Role level management at the database is fast and efficient because PostgreSQL user/role management is so expressive and it is so close to the data.</li>
-<li>REST API + SQL cover the fast majority of tools that need access to application logic. Said another way, most applications cannot expose SQL as an interface because traditional applications keep business and security logic in the API layer. As a result of using PostgREST, you maximize the tools that support small and medium organizations by allowing applications to use both API and SQL without any degradation in application quality or complexity.</li>
+<li>REST API + SQL cover the fast majority of tools that need access to application logic. Said another way, most applications cannot expose SQL as an interface because traditional applications keep organization and security logic in the API layer. As a result of using PostgREST, you maximize the tools that support small and medium organizations by allowing applications to use both API and SQL without any degradation in application quality or complexity.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="aichat-1"><a class="header" href="#aichat-1">AIChat</a></h1>
 <p><a href="https://github.com/sigoden/aichat">AIChat</a> is an all-in-one AI CLI tool that helps you interact with the world's most popular and powerful LLMs. It combines a chat-REPL, shell assistant, RAG, agents, and an API in a single AI tool.</p>
@@ -1571,8 +1571,8 @@ select current_setting('test.test.test.one',true);
 <p>Running an organization goes beyond simple CRUD (create, read, update and delete) database operations and running processes. The system needs to make the right tools available to the right person at the right time to make their jobs easier and more enjoyable.</p>
 <ul>
 <li>Minimize application framework code and complexity by using off-the-shelf tools that are easily deployed and used by people and AI.</li>
-<li>Minimize the effort to create new business logic. Ideally, a single command will create the template for you. AI will draft the configuration for you.</li>
-<li>Maximize who in an organization can automate business logic by supporting role-based contracts where role boundaries are well defined and AI can help ensure proper <a href="./stack-faq.html#what-is-capability-sandboxing">capability sandboxing</a> and data integrity.</li>
+<li>Minimize the effort to create new organization logic. Ideally, a single command will create the template for you. AI will draft the configuration for you.</li>
+<li>Maximize who in an organization can automate organization logic by supporting role-based contracts where role boundaries are well defined and AI can help ensure proper <a href="./stack-faq.html#what-is-capability-sandboxing">capability sandboxing</a> and data integrity.</li>
 </ul>
 <h2 id="framework-components"><a class="header" href="#framework-components">Framework Components</a></h2>
 <p>The stack application consists of three components:</p>
@@ -2681,7 +2681,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <p>For example, an instance of PostgreSQL is a unique installation of the PostgreSQL application. An instance of PostgreSQL can contain multiple databases.</p>
 <p>For example, an instance of chuck-stack is a unique installation and deployment of the chuck-stack tools. An instance of the chuck-stack can contain multiple Tenants.</p>
 <h2 id="organization"><a class="header" href="#organization">Organization</a></h2>
-<p>An organization is how the chuck-stack refers to a group that uses the chuck-stack. An organization can be a formal for-profit or not-for-profit business, and an organization can be an informal band of people united by a common interest or cause.</p>
+<p>An organization is how the chuck-stack refers to a group that uses the chuck-stack. An organization can be a formal for-profit or not-for-profit organization, and an organization can be an informal band of people united by a common interest or cause.</p>
 <h2 id="otve"><a class="header" href="#otve">OTVE</a></h2>
 <p>Increasing Operational and Transaction Velocity and Efficiency (OTVE) is a hallmark of the chuck-stack and conversational enterprise computing. In fact, increasing OTVE is the first bullet of the chuck-stack purpose. To learn more about how the chuck-stack increases OTVE, view the <a href="./introduction.html">introduction</a>.</p>
 <h2 id="postgresql-cluster"><a class="header" href="#postgresql-cluster">PostgreSQL Cluster</a></h2>

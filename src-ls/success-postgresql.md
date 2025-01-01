@@ -1,6 +1,6 @@
 # Success Using PostgreSQL
 
-PostgreSQL plays a critical role in our success. How we plan to create that success is largely attributable to the documentation and practices of [PostgREST.org](./tool-postgrest.md). They paved a way to move user and business logic previously trapped in an application server to the database itself. They proved the concept was more than possible, it was actually advantageous. 
+PostgreSQL plays a critical role in our success. How we plan to create that success is largely attributable to the documentation and practices of [PostgREST.org](./tool-postgrest.md). They paved a way to move user and organization logic previously trapped in an application server to the database itself. They proved the concept was more than possible, it was actually advantageous. 
 
 When the concepts in this page are fully implemented in the chuck-stack, this page will go away, and its contents will be move to other functional areas. Until then, this information represents our plan and our partial implementation.
 
@@ -28,7 +28,7 @@ psql -d some_db -U some_user_auth -c "set SESSION ROLE some_role" -c "select * f
 
 If you remove the "-c ... set ROLE ..." command, the psql statement will fail with a "permission denied" error because the some_user_auth role does not have any privileges.
 
-This example shows just how easily we can provide user management yet ensure that no user capabilities spill into role-based business logic.
+This example shows just how easily we can provide user management yet ensure that no user capabilities spill into role-based organization logic.
 
 <!-- the following is duplicated in multiple places including success-postgresql -->
 It is worth noting that user and role management is shared in both Linux and PostgreSQL. While these responsibilities exist in both planes, they are not duplicated. Linux dictates role-based tool access and how the user connects to the database. PostgreSQL dictates data access inside the database.
@@ -37,9 +37,9 @@ Reference: [PostgREST Authentication](https://docs.postgrest.org/en/v12/referenc
 
 ## Session Variables
 
-A big requirement of enterprise systems is managing a user's context inside the application. The above example of switching from the user to the role is great for simplifying business logic; however, the system still needs to know what user performed what action.
+A big requirement of enterprise systems is managing a user's context inside the application. The above example of switching from the user to the role is great for simplifying organization logic; however, the system still needs to know what user performed what action.
 
-The chuck-stack uses another concept from PostgREST to set session variables (context) using PostgreSQL's configuration settings. Here is an example where any business logic can check session variable details during a process.
+The chuck-stack uses another concept from PostgREST to set session variables (context) using PostgreSQL's configuration settings. Here is an example where any organization logic can check session variable details during a process.
 
 ```sql
 CREATE OR REPLACE FUNCTION check_user() RETURNS void AS $$

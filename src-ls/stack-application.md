@@ -7,8 +7,8 @@ chuck-stack uses the previously discussed [tools](./stack-tools.md) and [best pr
 Running an organization goes beyond simple CRUD (create, read, update and delete) database operations and running processes. The system needs to make the right tools available to the right person at the right time to make their jobs easier and more enjoyable. 
 
 - Minimize application framework code and complexity by using off-the-shelf tools that are easily deployed and used by people and AI.
-- Minimize the effort to create new business logic. Ideally, a single command will create the template for you. AI will draft the configuration for you.
-- Maximize who in an organization can automate business logic by supporting role-based contracts where role boundaries are well defined and AI can help ensure proper [capability sandboxing](./stack-faq.html#what-is-capability-sandboxing) and data integrity.
+- Minimize the effort to create new organization logic. Ideally, a single command will create the template for you. AI will draft the configuration for you.
+- Maximize who in an organization can automate organization logic by supporting role-based contracts where role boundaries are well defined and AI can help ensure proper [capability sandboxing](./stack-faq.html#what-is-capability-sandboxing) and data integrity.
 
 ## Framework Components
 

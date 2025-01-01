@@ -15,7 +15,7 @@ Before we make our case for the CLI, we feel compelled to express the challenges
 
 Using a mouse to perform work in a web browser is quite possibly the lowest form of communication prevalent in our society. You can click (or grunt) and you and drag (or nudge). Imagine if your primary means of communication was grunting and nudging people around. It is hard to imagine because it represents such a departure from the rich language we have developed to express ourselves.
 
-Creating mouse oriented user interfaces often doubles or more the code complexity. Creating business logic is easy. Creating web-based user interfaces is extremely difficult. 
+Creating mouse oriented user interfaces often doubles or more the code complexity. Creating organization logic is easy. Creating web-based user interfaces is extremely difficult. 
 
 The pain goes even deeper. Anyone who is responsible for testing mouse oriented applications can attest to just how hard it can be to assert it works as expected.
 

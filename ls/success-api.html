@@ -182,7 +182,7 @@
 <p>TODO: add link to architecture page to show how API fits into the picture.</p>
 <p>When the concepts in this page are fully implemented in the chuck-stack, this page will go away, and its contents will be move to other functional areas. Until then, this information represents our plan and our partial implementation.</p>
 <h2 id="terminal-plus-postgrest"><a class="header" href="#terminal-plus-postgrest">Terminal plus PostgREST</a></h2>
-<p>In the previous success pages, we discussed how PostgREST helped us understand a better way to manage data and processes directly inside the database. We believe we can not only use PostgREST's practices but also use PostgREST itself. If we can, this means that any business logic created in the chuck-stack will automatically flow through to an API as well (possibly for free).</p>
+<p>In the previous success pages, we discussed how PostgREST helped us understand a better way to manage data and processes directly inside the database. We believe we can not only use PostgREST's practices but also use PostgREST itself. If we can, this means that any organization logic created in the chuck-stack will automatically flow through to an API as well (possibly for free).</p>
 <p>Said another way, You can gain access to your data and processes from more than just a terminal. This concept is important when integration with 3rd party system, which frequently happens in ERP implementations.</p>
 <p>Here are our thoughts:</p>
 <ul>
@@ -191,7 +191,7 @@
 <li>The private schema is where you keep your normalized data. It is considered private because users do not always need to know how it is stored.</li>
 <li>The public schema is where psql (your chuck-stack terminal) and PostgREST connect. It is considered public because it is the outside representation of your data and processes. Sometimes there is a difference between private and public for good reasons.</li>
 <li>We believe we can use the same public schema to feed both the chuck-stack terminal as well as PostgREST.</li>
-<li>We believe we can write one set of business logic that supports both access points.</li>
+<li>We believe we can write one set of organization logic that supports both access points.</li>
 <li>To accomplish this goal, we believe the chuck-stack simply needs to mirror the application's context to be the same as PostgREST.</li>
 </ul>
 <p>If we can accomplish this goal, it will be quite magical.</p>

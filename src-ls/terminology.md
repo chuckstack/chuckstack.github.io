@@ -81,7 +81,7 @@ For example, an instance of chuck-stack is a unique installation and deployment 
 
 ## Organization
 
-An organization is how the chuck-stack refers to a group that uses the chuck-stack. An organization can be a formal for-profit or not-for-profit business, and an organization can be an informal band of people united by a common interest or cause.
+An organization is how the chuck-stack refers to a group that uses the chuck-stack. An organization can be a formal for-profit or not-for-profit organization, and an organization can be an informal band of people united by a common interest or cause.
 
 ## OTVE
 
