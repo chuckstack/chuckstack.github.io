@@ -635,6 +635,9 @@ select current_setting('test.test.test.one',true);
 <li>Ubuntu is also acceptable. Ubuntu is a Debian variant.</li>
 </ul>
 <p>You can use any almost distribution of Linux you wish. The chuck-stack team recommends Debian-based and Nix as part of the official stack.</p>
+<h2 id="get-nix"><a class="header" href="#get-nix">Get Nix</a></h2>
+<p>You can install <a href="./tool-linux.html#nix">Nix</a> on any Linux or Mac machine. Once this installation is complete, you can run the <code>nix-shell</code> command to install and use just about any Linux application known to human-kind.</p>
+<p>Note: the <code>unstable</code> Nix channel is the most convenient for testing the chuck-stack.</p>
 <h2 id="rust-tools"><a class="header" href="#rust-tools">Rust Tools</a></h2>
 <p>We have a strong preference for tools written in the Rust language. As a result, you need to install the <a href="https://rustup.rs/">Rust tools</a>. We will use Rust to install applications like <a href="./tool-aichat.html">AIChat</a> - see below.</p>
 <h2 id="aichat"><a class="header" href="#aichat">AIChat</a></h2>
@@ -646,6 +649,22 @@ select current_setting('test.test.test.one',true);
 <h2 id="postgresql"><a class="header" href="#postgresql">PostgreSQL</a></h2>
 <p><a href="./tool-postgresql.html">PostgreSQL</a> also plays a big role in the chuck-stack. You want to be able to be able to use psql (PostgreSQL's command line tool - CLI) to connect to a local database and issue a few commands.</p>
 <p>Examples to come soon... <a href="./stack-academy.html">Join the stack-academy</a> for quicker options to get started.</p>
+<h2 id="chuck-stack-test"><a class="header" href="#chuck-stack-test">chuck-stack Test</a></h2>
+<p>Now that we have the basics covered, let's play with the chuck-stack.</p>
+<ul>
+<li>clone the following to a local directory
+<ul>
+<li>git clone https://github.com/chuckstack/stk-app-sql</li>
+</ul>
+</li>
+<li>cd to test</li>
+<li>run the following command
+<ul>
+<li>nix-shell</li>
+</ul>
+</li>
+</ul>
+<p>This will drop you into new shell that has PostgreSQL installed and configured with the chuck-stack tools.</p>
 <h2 id="terminal-in-browser"><a class="header" href="#terminal-in-browser">Terminal in Browser</a></h2>
 <p>There are times when you want others to play with what you are creating. An easy way to make your terminal available through the browser is by using the <code>ttyd</code> application. It allows you to simply host a webpage that looks and feels like your machine's terminal. It is reasonably well documented and easy to use.</p>
 <p>Here is a quick example showing how you can expose a role or agent created in aichat:</p>

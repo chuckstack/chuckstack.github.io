@@ -76,6 +76,12 @@ To make getting started as easy as possible, we created a list of options beginn
 
 You can use any almost distribution of Linux you wish. The chuck-stack team recommends Debian-based and Nix as part of the official stack.
 
+## Get Nix
+
+You can install [Nix](./tool-linux.md#nix) on any Linux or Mac machine. Once this installation is complete, you can run the `nix-shell` command to install and use just about any Linux application known to human-kind.
+
+Note: the `unstable` Nix channel is the most convenient for testing the chuck-stack.
+
 ## Rust Tools
 
 We have a strong preference for tools written in the Rust language. As a result, you need to install the [Rust tools](https://rustup.rs/). We will use Rust to install applications like [AIChat](./tool-aichat.md) - see below.
@@ -97,6 +103,18 @@ You need to practice your best practices in [Obsidian](./tool-obsidian.md). Get 
 [PostgreSQL](./tool-postgresql.md) also plays a big role in the chuck-stack. You want to be able to be able to use psql (PostgreSQL's command line tool - CLI) to connect to a local database and issue a few commands.
 
 Examples to come soon... [Join the stack-academy](./stack-academy.md) for quicker options to get started.
+
+## chuck-stack Test
+
+Now that we have the basics covered, let's play with the chuck-stack.
+
+- clone the following to a local directory
+  - git clone https://github.com/chuckstack/stk-app-sql
+- cd to test
+- run the following command
+  - nix-shell
+
+This will drop you into new shell that has PostgreSQL installed and configured with the chuck-stack tools.
 
 ## Terminal in Browser
 
