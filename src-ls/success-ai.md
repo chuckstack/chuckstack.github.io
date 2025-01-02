@@ -17,9 +17,9 @@ The chuck-stack uses AI to help organizations is three high-level ways:
 A chuck-stack success factor is getting AI to help organizations think and reason about operations. Here is how we use our AI Brain to think:
 
 - Working memory (cli and shell session engagement and current context)
-- Episodic Memory (attribute tagging important observations and references)
-- Semantic Memory (work instruction retrieval)
-- Procedural Memory (scripts and workflow)
+- Episodic/augmented Memory (attribute tagging important observations and references)
+- Semantic memory (work instruction retrieval)
+- Procedural memory (scripts and workflow)
 
 References:
 

@@ -22,6 +22,7 @@ Here are the tools we use every day:
 - [sqlx-cli](https://github.com/launchbadge/sqlx/tree/main/sqlx-cli) - sql migration tool
 - [Discourse](https://www.discourse.org/) - open source collaboration and community building tool. It is backed by PostgreSQL, and it can be self-hosted if you wish. It supports building your collective AI knowledge base.
 - [Signal](https://signal.org/) - instant message focused on privacy and availability. Signal excels by supporting communication on most platforms (mobile, web, desktop). While Discourse has direct messaging, signal's simplicity and availability makes real-time and ephemeral communication pleasurable.
+- [Matrix](https://matrix.org/) - competitor to Signal and complementary with Discourse (via SSO) - clients (element,cinny,chats)
 - [Metabase (BI)](https://www.metabase.com/) - BI tool for visualizing and publishing data that runs on PostgreSQL.
 
 ## Important Tools
