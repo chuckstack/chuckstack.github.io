@@ -60,6 +60,15 @@ Setting these variables during psql execution is easy ([see success with Linux](
 
 The purpose if this section is to highlight that chuck-stack not only benefits from SQL (one of the technical world's most well understood languages), but it also benefit from the psql application. psql is powerful SQL application in its own right that has additional features for a) helping users do their jobs and b) helping the stack protect its data and processes from attach (like sql injection).
 
+## Case for psql
+
+If we can use the psql PostgreSQL CLI tool to access the database, we get the following advantages:
+
+- We can use environment variables and .pgpass to specify database connection details
+- We can use psql's variable capabilities to maintain and execute SQL templates (as well as the many, many other psql capabilities)
+- We prevent needing to code our own connection tool
+- We create a consistent way to connect to the database across many scenarios
+
 ## SQL Encapsulation
 
 The [PostgreSQL Convention](./postgres-conventions.md#schema) highlights how we use two schemas to provide :
@@ -72,15 +81,6 @@ The [PostgreSQL Convention](./postgres-conventions.md#schema) highlights how we 
 The chuck-stack uses sqlx-cli to track and deploy SQL migration scripts. Here is a [sample todo chuck-stack migration repository](https://github.com/chuckstack/stk-app-sql/tree/main). It is part of the [chuck-stack todo sample application](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix).
 
 Note that we use a NixOS service to manage and automatically deploy migrations when needed.
-
-## Case for psql
-
-If we can use the psql PostgreSQL CLI tool to access the database, we get the following advantages:
-
-- We can use environment variables and .pgpass to specify database connection details
-- We can use psql's variable capabilities to maintain and execute SQL templates (as well as the many, many other psql capabilities)
-- We prevent needing to code our own connection tool
-- We create a consistent way to connect to the database across many scenarios
 
 ## Technical Details and Examples
 
