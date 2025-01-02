@@ -73,6 +73,15 @@ The chuck-stack uses sqlx-cli to track and deploy SQL migration scripts. Here is
 
 Note that we use a NixOS service to manage and automatically deploy migrations when needed.
 
+## Case for psql
+
+If we can use the psql PostgreSQL CLI tool to access the database, we get the following advantages:
+
+- We can use environment variables and .pgpass to specify database connection details
+- We can use psql's variable capabilities to maintain and execute SQL templates (as well as the many, many other psql capabilities)
+- We prevent needing to code our own connection tool
+- We create a consistent way to connect to the database across many scenarios
+
 ## Technical Details and Examples
 
 The purpose of this section is to highlight simple examples that demonstrate the concepts described above.

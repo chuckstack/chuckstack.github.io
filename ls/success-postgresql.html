@@ -229,6 +229,14 @@ $$ LANGUAGE plpgsql;
 <h2 id="configuration-management"><a class="header" href="#configuration-management">Configuration Management</a></h2>
 <p>The chuck-stack uses sqlx-cli to track and deploy SQL migration scripts. Here is a <a href="https://github.com/chuckstack/stk-app-sql/tree/main">sample todo chuck-stack migration repository</a>. It is part of the <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">chuck-stack todo sample application</a>.</p>
 <p>Note that we use a NixOS service to manage and automatically deploy migrations when needed.</p>
+<h2 id="case-for-psql"><a class="header" href="#case-for-psql">Case for psql</a></h2>
+<p>If we can use the psql PostgreSQL CLI tool to access the database, we get the following advantages:</p>
+<ul>
+<li>We can use environment variables and .pgpass to specify database connection details</li>
+<li>We can use psql's variable capabilities to maintain and execute SQL templates (as well as the many, many other psql capabilities)</li>
+<li>We prevent needing to code our own connection tool</li>
+<li>We create a consistent way to connect to the database across many scenarios</li>
+</ul>
 <h2 id="technical-details-and-examples"><a class="header" href="#technical-details-and-examples">Technical Details and Examples</a></h2>
 <p>The purpose of this section is to highlight simple examples that demonstrate the concepts described above.</p>
 <p>References:</p>
