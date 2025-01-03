@@ -49,7 +49,7 @@ The short answer is: We have been deploying the chuck-stack for more that 10 yea
 
 ## Is chuck-stack an ERP?
 
-No, not yet. Here are our thoughts about becoming an ERP:
+No, not yet - but someday. Here are our thoughts about becoming an ERP:
 
 -   The biggest hurdle to becoming a viable ERP is data entry.
 -   It is common for an order header to have 90+ columns.
