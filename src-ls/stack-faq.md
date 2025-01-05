@@ -2,6 +2,14 @@
 
 The purpose of this page is to answer frequently asked questions (FAQ) about the chuck-stack.
 
+## Why do we love the chuck-stack?
+
+- Because we believe it is the most simple solution given the complexities running an organization.
+- Because we drive down the cost of AI to augment your organization.
+- Because we do not need to worry about SQL injection since permissions are managed in the database.
+- Because we minimize the financial and employee commitment needed to run an organization.
+- Because we can focus on hiring good, smart people.
+
 ## Is chuck-stack really the name of the project?
 
 Yes and no... Naming a project is hard. chuck-stack is a good starting name given that Chuck Boecking has spent the last 25 years immersed in small-to-medium organization ERP, data management, and IT. This project started as result of what we believe to be safe, usable, reliable and performant. If the community believes there is a better name to represent this project, then we will change the name accordingly. That will be a good day!
