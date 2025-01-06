@@ -15,6 +15,112 @@ Here are the reasons we love Nushell:
 - It visualizes structured data in a terminal better than just about any other tool.
 - It has great synergy with the rest of the chuck-stack.
 
+## Visualize ERP Data
+
+One of the benefits of Nushell is how it can visualize data in just about any size screen (monitor, tablet, phone, ...). Nushell creates good information density, and configuring/customizing the format it quite simple.
+
+Here is an example:
+
+![nushell-visualize-order](./img/nushell-order-visualize-20250105.png)
+
+Here is a json representation of the same data:
+
+```json
+{
+  "order": {
+    "id": "ORD-12345",
+    "customer": {
+      "id": "CUST-789",
+      "name": "John Smith",
+      "email": "john.smith@email.com",
+      "address": {
+        "street": "123 Main St",
+        "city": "Springfield",
+        "state": "IL",
+        "zip": "62701"
+      }
+    },
+    "items": [
+      {
+        "id": "PROD-001",
+        "name": "Coffee Mug",
+        "quantity": 2,
+        "price": 12.99,
+        "subtotal": 25.98
+      },
+      {
+        "id": "PROD-002",
+        "name": "Tea Set",
+        "quantity": 1,
+        "price": 45.00,
+        "subtotal": 45.00
+      }
+    ],
+    "payment": {
+      "method": "credit-card",
+      "status": "completed",
+      "transaction-id": "TXN-456789"
+    },
+    "summary": {
+      "subtotal": 70.98,
+      "tax": 4.26,
+      "shipping": 5.99,
+      "total": 81.23
+    },
+    "status": "processing",
+    "created-at": "2023-05-15T14:30:00Z"
+  }
+}
+```
+
+Here is a [KDL](https://kdl.dev/) representation of the same data:
+
+```kdl
+order "ORD-12345" {
+    customer {
+        id "CUST-789"
+        name "John Smith"
+        email "john.smith@email.com"
+        address {
+            street "123 Main St"
+            city "Springfield"
+            state "IL"
+            zip "62701"
+        }
+    }
+    items {
+        item {
+            id "PROD-001"
+            name "Coffee Mug"
+            quantity 2
+            price 12.99
+            subtotal 25.98
+        }
+
+        item {
+            id "PROD-002"
+            name "Tea Set"
+            quantity 1
+            price 45.00
+            subtotal 45.00
+        }
+    }
+    payment {
+        method "credit-card"
+        status "completed"
+        transaction-id "TXN-456789"
+    }
+    summary {
+        subtotal 70.98
+        tax 4.26
+        shipping 5.99
+        total 81.23
+    }
+    status "processing"
+    created-at "2023-05-15T14:30:00Z"
+}
+```
+
 ## Notes and References
 
 - Nushell has not reached production stability yet; although, it is close. The Nushell team still introduces frequent breaking changes in an effort to enhance consistency and improve usability.
