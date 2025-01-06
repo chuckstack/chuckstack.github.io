@@ -17,7 +17,11 @@ Here are the reasons we love Nushell:
 
 ## Visualize ERP Data
 
-One of the benefits of Nushell is how it can visualize data in just about any size screen (monitor, tablet, phone, ...). Nushell creates good information density, and configuring/customizing the format it quite simple.
+One of the benefits of Nushell is how it can visualize data in just about any size screen (monitor, tablet, phone, ...). 
+
+- Nushell creates good information density
+- Nushell data visualization can be read by anyone (technical and non-technical)
+- Configuring/customizing what data is presented is quite simple
 
 Here is an example:
 
@@ -96,7 +100,6 @@ order "ORD-12345" {
             price 12.99
             subtotal 25.98
         }
-
         item {
             id "PROD-002"
             name "Tea Set"
