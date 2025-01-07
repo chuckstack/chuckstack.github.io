@@ -135,3 +135,4 @@ order "ORD-12345" {
 - Nushell demonstrations and explanations
   - [DevOps part 1](https://youtu.be/uJsZATwQ3R8)
   - [DevOps part 2](https://youtu.be/LFBOLx5KiME)
+- [Nushell using AI](https://github.com/cablehead/gpt2099.nu)
