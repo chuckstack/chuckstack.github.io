@@ -124,6 +124,10 @@ order "ORD-12345" {
 }
 ```
 
+## Nu Tutor
+
+Nushell is powerful. The easiest to learn the Nushell way of thinking is using Nu's `tutor`. You can walk through examples by simply executing `tutor` from a Nushell prompt.
+
 ## Notes and References
 
 - Nushell has not reached production stability yet; although, it is close. The Nushell team still introduces frequent breaking changes in an effort to enhance consistency and improve usability.
