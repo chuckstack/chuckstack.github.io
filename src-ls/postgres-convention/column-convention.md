@@ -1,7 +1,7 @@
 # Column Convention
 
-- primary key `uu` - All tables have a single primary key named `uu`. 
-- foreign keys `_uu` suffix - example `stk_some_other_table_uu`. There are times when this convention is not possible due to multiple references to the same table. When a duplicate is needed, add an adjective before the `_uu` suffix. Examples: `stk_bp_ship_to_uu` and `stk_bp_bill_to_uu`.
+- primary key `_uu` - All tables have a single primary key named `[table name]_uu`. 
+- foreign keys `_uu` suffix - example `stk_some_other_table_uu`. This means that the primary key column of a table, and the foreign key columns on other tables share a column name by default. There are times when this convention is not possible due to multiple references to the same table. When a duplicate is needed, add an adjective before the `_uu` suffix, preferably on all references to the foreign table. It is acceptable for Examples: `stk_bp_ship_to_uu` and `stk_bp_bill_to_uu`.
 - noun first column name - when naming columns the noun comes first and the adjective comes next. Example: stk_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically. 
 - text column - use columns of type `text` (instead of varchar with unspecified length). Only choose a varchar with a specific length when there is a compelling reason to do so. Even then try not to...
 - boolean column - boolean values must have a default value defined at the table level.
