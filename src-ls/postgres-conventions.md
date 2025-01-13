@@ -31,7 +31,7 @@ Here is a summary of our conventions. Click on any link to learn more.
    - Public API schema (`api`) to expose a public interface providing data and logic to the outside world in a controlled way
 
 2. Table Conventions:
-   - Use a single UUID primary key column with a `<table_name>_uu` convention to support universal `table_name` + `record_uu` lookup across all tables
+   - Use a single UUID primary key column named `uu` to support universal `table_name` + `record_uu` lookup across all tables
    - Prefix core tables with `stk_`
    - Use noun-first naming (e.g., `stk_order_line`)
    - Minimize abbreviations to a known list to ensure maximum schema readability
@@ -40,7 +40,7 @@ Here is a summary of our conventions. Click on any link to learn more.
    - Use mandatory columns: `stk_entity_uu`,`created`,`created_by_uu`,`updated`,`updated_by_uu`.
    - All madatory columns are set automatically during save because of either default value or triggers
    - All tables return automatically generated `table_name` and `record_uu` columns for easy and generic looks for attributes, statistics, change logs, ...
-   - Use `_uu` suffix for primary and foreign keys
+   - Use `_uu` suffix for foreign keys
    - Use `text` type instead of `varchar` when possible
    - Boolean columns must have default values
 
