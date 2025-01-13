@@ -46,7 +46,7 @@ Here is a summary of our conventions. Click on any link to learn more.
 
 4. Enum and Type Conventions:
    - Most important tables have have a supporting `_type` table where users can describe that record's behavior
-   - Example: stk_actor table has a stk_actor_type table that describes the type of actor
+   - Example: `stk_actor` table has a `stk_actor_type` table that describes the type of actor
    - `_type` tables use enums for code-level logic
    - No `_uu` references should be made from code
    - Only enums should be referenced from code
