@@ -3,8 +3,8 @@
 When extending any model, you must decide how you wish to extend the model. Historically, you would add an extra column or table for every incremental unit of data. Examples include adding a `color` or `height` column to a product table. This concept has challenges:
 
 - You can easily add hundreds of columns to a table for seldom used attributes.
-- The database becomes more complicated with ever column and table added.
-- Complicated databases are more difficult to maintains and reason about.
+- The database becomes more complicated with every column and table added.
+- Complicated databases are more difficult to maintain and reason about.
 
 ## Array Usage
 Instead of adding a traditional table or a link table to associate concepts in a one-to-many scenario, you can use an array of objects. The `private.stk_trigger_mgt` table uses this concept by creating a `table_name` TEXT[] column the holds an array of table names to drive what tables get what triggers.
@@ -66,8 +66,8 @@ This additional requirement allows us to use features like [attribute tagging](.
 
 ## JSON Type
 
-We make heave use of the JSON schema standard to validate the proper use and structure of stored JSON objects.
+We make heavy use of the JSON schema standard to validate the proper use and structure of stored JSON objects.
 
 The [attribute tag](./attribute-tag.md) architecture is a example use case of this schema standard so that we may represent complex data in a simplified manner. It is also an example of the [enum + type](./enum-type-convention.md) convention where the type record (`stk_attribute_tag_type_json` column) contains the JSON schema definition and the actual `stk_attribute_tag` table (`stk_attribute_tag_json` column) contains the instance or actual value of that JSON schema.
 
-The above reference videos help illustrate these concepts.
+The [above referenced videos](#json-references) help illustrate these concepts.
