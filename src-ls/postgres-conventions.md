@@ -4,8 +4,8 @@ The chuck-stack PostgreSQL conventions aim to create a consistent, convention-ba
 
 We provide two high-level features by which most applications are built:
 
-- Workflow - build around the stk_wf_request table and surrounding architecture
-- Attribute Tagging - build around the stk_attribute_tag architecture
+- Workflow - build around the `stk_wf_request` table and surrounding architecture
+- Attribute Tagging - build around the `stk_attribute_tag` architecture
 
 The below [convention summary](#convention-summary) creates a workflow and attributing tagging system that is both:
 
