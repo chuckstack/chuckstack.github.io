@@ -6,6 +6,19 @@ To join the stack-academy, [click here](https://buy.stripe.com/fZebLI7Qw2kPfnifY
 
 **Second most important thing** to know: you gain access to the chuck-stack online community. This includes gaining access to PostgreSQL and Linux specialists that can help you implement the chuck-stack in your organization.
 
+## Implementation Resources
+
+When you join the stack-academy, you gain access to chuck-stack integration specialists. You can choose from domestic (US) or offshore resources. All integration efforts (beyond open discussions) are charged by the hour.
+
+- Most domestic resources are $125/hr USD
+- Most offshore resources are $75/hr USD
+
+## On-site Training
+
+Chuck Boecking is available on-site training at $2K/day USD. We will work ahead of our training date to create a custom training schedule that meets your organization's needs.
+
+## Get Started Quickly
+
 The stack-academy exists to help your organization achieve success as quickly as possible. It's an online support infrastructure that teaches organizations how to install and use the tools, leverage best practices, and foster superclerk talent.
 
 - Teach your technical staff how to best introduce the tools with your existing infrastructure.
@@ -20,7 +33,7 @@ Here are the most common questions:
 - Do you need to join to use the chuck-stack? No.
 - Do you need to join to get prioirty support? Yes.
 - Is there a way to get phone support? Yes, we hold multiple online meetings per week where anyone can bring any topic.
-- What is the minimum purchase? The stack-academy is a monthly subscription. The minimum purchase is one month. You may join and cancel as many times as is needed to accomplish your goals.
+- What is the minimum purchase? The stack-academy is a $199 USD monthly subscription. The minimum purchase is one month. You may join and cancel as many times as is needed to accomplish your goals.
 - Are there special pricing considerations for individuals (students or aspiring integrators)? Yes. Complete this form for consideration.
 
 We look forward to working wth your organization! [Join Now](https://buy.stripe.com/fZebLI7Qw2kPfnifYZ)
