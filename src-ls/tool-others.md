@@ -15,7 +15,7 @@ Here are the tools we use every day:
   - The account management panel is overly simple
   - The service is awesome!
 - [iDempiere (ERP)](https://www.idempiere.org/) - ERP for managing orders, inventory, invoices, payments, accounting and much of the data you need to execute operations in your organization. iDempiere is a mature, stable and fully-featured ERP that runs on PostgreSQL. We have 23+ years experience with the iDempiere codebase.
-- [mdbook](https://rust-lang.github.io/mdBook/) - simple static site generator that converts pure markdown pages into a website. What makes mdbook great is the simple installation, configuration and deployment.
+- [mdbook](./tool-mdbook.md) - simple static site generator that converts pure markdown pages into a website. What makes mdbook great is the simple installation, configuration and deployment.
 - [Pass (secrets)](https://passwordstore.org/) - is a command line tool that helps you manage secrets/passwords with gpg. It is simple, scriptable, auditable, distributed and secure. [gpg](https://gnupg.org/) is an encryption program that provides cryptographic privacy and authentication for data communication. The Pass repository is available on almost all platforms. It integrates well with github.
 - [Zabbix (monitoring)](https://www.zabbix.com/) -  monitor resources and respond to events.
 - [buku](https://github.com/jarun/buku) - awesome terminal bookmark manager

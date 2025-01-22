@@ -21,6 +21,7 @@
   - [Git](./tool-git.md)
   - [Obsidian](./tool-obsidian.md)
   - [Netbird](./tool-netbird.md)
+  - [htmx](./tool-htmx.md)
   - [Others](./tool-others.md)
 - [Stack Architecture](./stack-architecture.md)
 - [Stack Application](./stack-application.md)
