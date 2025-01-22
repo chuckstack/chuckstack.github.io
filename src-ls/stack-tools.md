@@ -16,10 +16,11 @@ Here are the more detailed guidelines for inclusion:
 
 - **Commonly used** - and well understood to make AI augmentation easier.
 - **Open source** - or at least as open as possible.
-- **Start simple** - easy to understand and reason about. [Nix](./tool-linux.md#nix) pushes this concept a little (or a lot); however, the power and simplicity it creates is worth the extra effort.
+- **Start simple** - easy to understand and reason about. Either the tools is just easy to understand, or the chuck-stack can make it easy by example and/or explanation. [Nix](./tool-linux.md#nix) pushes this concept a little (or a lot); however, the power and simplicity it creates is worth the extra effort.
 - **Basic functionality** - supports basics like CRUD (create, read, update and delete) with minimal effort.
 - **Kind educator** - needs someone in the community who makes the technology kind to the target audience.
 - **Kind integrator** - needs someone local to you digitally to help you leverage the tool.
+- **Hosting option** - solution offers a reasonable hosting option to help you get started (examples: [netbird](./tool-netbird.md), [discourse](./tool-discourse.md)).
 - **Synergy** - supports other tools in the stack. Example: runs on or integrates with PostgreSQL.
 - **Simple architecture** - not overly complicated relative to the tool's purpose.
 - **Enterprise scalability** - it needs to scale to support an organization of at least 1,000+ across multiple continents.
