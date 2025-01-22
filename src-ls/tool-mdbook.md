@@ -1,12 +1,12 @@
 # mdBook
 
-[mdBook](https://rust-lang.github.io/mdBook/) is the easiest way to publish your work instructions. It turns markdown files into a static website.
+[mdBook](https://rust-lang.github.io/mdBook/) is the easiest way to publish your work instructions. It turns markdown files into a static website that is easily searched and consumed by AI.
 
 The list of reasons we love mdBook.
 
 - It is an active project, and it is well documented.
 - It is open source.
-- It makes creating and maintaining work instructions almost trivial.
+- It makes publishing work instructions almost trivial.
 - It makes the data we need to do our jobs immediately available.
 - It can be deployed in every corner of the world.
 - It can be deployed in hybrid cloud scenarios.
