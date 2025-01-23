@@ -1,9 +1,9 @@
 # Column Convention
 
 - primary key `uu` - All tables have a single primary key named `uu`. 
-- foreign keys `_uu` suffix - example `stk_some_other_table_uu`. There are times when this convention is not possible due to multiple references to the same table. When a duplicate is needed, add an adjective before the `_uu` suffix. Examples: `stk_bp_ship_to_uu` and `stk_bp_bill_to_uu`.
+- foreign keys `_uu` suffix - example `stk_some_other_table_uu`. There are times when this convention is not possible due to multiple references to the same table. When a duplicate is needed, add an adjective before the `_uu` suffix, preferably on all references to the foreign table. Examples: `stk_bp_ship_to_uu` and `stk_bp_bill_to_uu`.
 - noun first column name - when naming columns the noun comes first and the adjective comes next. Example: stk_wf_state_next_uu where state is the noun and next is the adjective. The benefit of this approach is that like columns (and the resulting methods/calls) appear next to each other alphabetically. 
-- text column - use columns of type text (instead of varchar with unspecified length). Only choose a varchar with a specific length when there is a compelling reason to do so. Even then try not to...
+- text column - use columns of type `text` (instead of varchar with unspecified length). Only choose a varchar with a specific length when there is a compelling reason to do so. Even then try not to...
 - boolean column - boolean values must have a default value defined at the table level.
 - unique index - when creating unique index constraints, name the constraint using the table_name_column_name_uidx where `_uidx` represents the term unique index.
 
@@ -16,7 +16,7 @@ The purpose of this section is to list the columns that appear in every table th
 
 - primary key - `uu`
 - `stk_entity_uu` - financial set of books that owns the record
-- `created` - timestamptz indicating when the record was created.
+- `created` - `timestamptz` indicating when the record was created.
 - `created_by_uu` - uuid foreign key reference to the database user/role that created the record.
 - `updated` - timestamptz indicating when the record was last updated.
 - `updated_by_uu` - uuid foreign key reference to the database user/role that last updated the record.
@@ -32,11 +32,11 @@ Notes:
 The purpose of this section is to list the columns you commonly find in chuck-stack tables. Many of the below columns are used in the [sample table](./sample-table-convention.md).
 
 - `is_active` - boolean that indicates if a record can be modified. is_active also acts as a soft-delete. If a record has an is_active=false, the record should be be returned as an option for selection in future lists and drop down fields. This column must be present to update it after the initial save; therefore, it appears in most tables.
-- `name` - text representing the name of the record.
-- `description` - text representing the description of the record.
-- `search_key` - user defined text. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.
-- `value` - text that is often used along with a `search_key` in a key-value pair.
-- `docno` - user defined text. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor -->
+- `name` - `text` representing the name of the record.
+- `description` - `text` representing the description of the record.
+- `search_key` - user defined `text`. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.
+- `value` - `text` that is often used along with a `search_key` in a key-value pair.
+- `docno` - user defined `text`. The purpose of this column is to allow the system to auto-populate auto-incrementing document numbers. It is up to the implementor to determine if the document_no should be unique. If it should be unique, the implementor determines the unique criteria. The document_no column is most appropriate for tables that represent transactional data. Examples of a transaction records include invoices, orders, and payments. Tables that have a search_key column will not have a document_no column. The opposite is also true. <!-- TODO: define and link implementor -->
 - `type_enum` - a type table's reference to its enum value. ([see enum and type convetion](./enum-type-convention.md))
 - `type_uu` - references the record's associated type record.
 - `parent_uu` - references a record in the same table identified as being a parent.
@@ -51,6 +51,6 @@ The purpose of this section is to list the columns you commonly find in chuck-st
 - `is_include` - boolean that indicates if a record is of type include. Including a record could potentially impact all records that are not included. Said another way, including a record could potentially exclude all other records.
 - `is_exclude` - boolean that indicates if a record is of type exclude. Excluding a record only impacts that specified record.
 - `is_singleton` - indicates that only a single record or object should exist for group or category. Used for example to indicate if more than one attribute tag is allowed for given combination of table_name, uu, stk_attribute_tag_type_uu. If `is_singleton`=Y, then only one instance of an attribute tag type is allowed per record.
-- `batch_id` - text indicating this record was processed as part of a batch operation. A single record couple participate in multiple batches. if so, use the noun_adjective approach (example: batch_import_id).
-- `table_name` - text referencing the name of a table. This column is often generated.
-- `column_name` - text referencing the name of a column.
+- `batch_id` - `text` indicating this record was processed as part of a batch operation. A single record couple participate in multiple batches. if so, use the noun_adjective approach (example: batch_import_id).
+- `table_name` - `text` referencing the name of a table. This column is often generated.
+- `column_name` - `text` referencing the name of a column.

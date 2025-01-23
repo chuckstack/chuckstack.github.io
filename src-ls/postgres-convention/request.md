@@ -10,6 +10,6 @@ The chuck-stack workflow is build around PostgreSQL tables, foreign keys, trigge
 
 Here are some details about the request architecture:
 
-- Requests are stored in stk_request
+- Requests are stored in `stk_request`
 - A request can exist in isolation of either other record
 - A request can be linked to any other record in the chuck-stack using the [table and record](./table-record-convention.md#linking-convention)

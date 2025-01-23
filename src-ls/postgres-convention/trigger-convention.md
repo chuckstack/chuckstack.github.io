@@ -64,4 +64,4 @@ Here are some utility functions to help make managing triggers easier.
 
 There are times when a single trigger function needs to be associated with many tables.
 
-To make managing the trigger creation in this scenario easier, there exists a private.stk_trigger_create() function that will create all applicable triggers as described by records in the private.stk_trigger_mgt table.
+To make managing the trigger creation in this scenario easier, there exists a `private.stk_trigger_create()` function that will create all applicable triggers as described by records in the `private.stk_trigger_mgt` table.
