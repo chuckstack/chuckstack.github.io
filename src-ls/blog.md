@@ -2,6 +2,14 @@
 
 Here is a list of recent blogs. The sidebar contains the full list.
 
+## Hybrid Cloud Strategy: Incus + Netbird + PhoenixNAP
+
+Reduce costs... Reduce complexity... Use existing talent (skills and knowledge) to provide services to a global workforce.
+
+This post helps you create a simple and effective hybrid cloud infrastructure to support your organization. I cannot put into how excited I am to prescribe such a solution. I hope this helps...
+
+[Read more...](./blog-incus-netbird-phoenixnap.md)
+
 ## Letter to the CEO
 
 We find and cultivate [Superclerks](./terminology.md#superclerk). These superclerks effectively reduce headcount. The expectation is that the incremental increase in AI costs is less than the reduction in labor; therefore, you get a net savings.
@@ -11,7 +19,6 @@ Note that cost savings is not the biggest benefit. The biggest benefit is automa
 Let's find high-impact and low-effort tasks to document and automate...
 
 [Read more...](./blog-letter-ceo.md)
-
 
 ## The CLI is Better
 

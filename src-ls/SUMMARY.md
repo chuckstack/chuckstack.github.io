@@ -73,6 +73,7 @@
 ---
 
 - [Blog](./blog.md)
+  - [Hybrid Cloud Strategy: Incus + Netbird + PhoenixNAP](./blog-incus-netbird-phoenixnap.md)
   - [Letter to the CEO](.//blog-letter-ceo.md)
   - [The CLI is better than...](./blog-cli-better.md)
   - [Why Conversational Enterprise Computing Matters](./blog-conversational-enterprise-computing.md)

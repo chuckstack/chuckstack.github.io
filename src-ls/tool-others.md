@@ -20,7 +20,7 @@ Here are the tools we use every day:
 - [buku](https://github.com/jarun/buku) - awesome terminal bookmark manager
 - [sqlx-cli](https://github.com/launchbadge/sqlx/tree/main/sqlx-cli) - sql migration tool
 - [Signal](https://signal.org/) - instant message focused on privacy and availability. Signal excels by supporting communication on most platforms (mobile, web, desktop). While Discourse has direct messaging, signal's simplicity and availability makes real-time and ephemeral communication pleasurable.
-- [Matrix](https://matrix.org/) - competitor to Signal and complementary with Discourse (via SSO) - clients (element,cinny,chats)
+- [Matrix](https://matrix.org/) - competitor to Signal and complementary with Discourse (via SSO) - clients (element,cinny,chats) - [good demo](https://www.youtube.com/watch?v=6iMi5BiQcoI)
 - [Metabase (BI)](https://www.metabase.com/) - BI tool for visualizing and publishing data that runs on PostgreSQL.
 
 ## Important Tools
