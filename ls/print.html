@@ -3321,12 +3321,13 @@ sudo apt install nginx -y
 <li>AND, we still reserve the right to use AWS if need arises.</li>
 </ul>
 <h2 id="frequently-asked-questions"><a class="header" href="#frequently-asked-questions">Frequently Asked Questions</a></h2>
-<h3 id="one-or-two-servers"><a class="header" href="#one-or-two-servers">One or Two Servers</a></h3>
+<h3 id="one-or-two-servers"><a class="header" href="#one-or-two-servers">One or Two Servers?</a></h3>
 <p>Should you create one or two servers in the cloud once you go into production? This is a great question. Understand you need some form of redundancy in case bad things happen. If you have on-premise computing, PhoenixNAP can be your redundancy, in which case you only need one PhoenixNAP server. The opposite is also true.</p>
 <p>If PhoenixNAP is your only computing source, you should use two servers. Both can be in production; however, the load/size needs to allow for one server to go offline and still provide all services on the remaining server for at least a period of time.</p>
 <h3 id="should-you-use-incus-clustering"><a class="header" href="#should-you-use-incus-clustering">Should you use Incus clustering?</a></h3>
 <p>Maybe. Only consider Incus clustering if you have 3 or more servers. Even if you have 3 servers, you should still critically question if you want to cluster. Creating a single cluster from 3 servers adds additional features AND it adds additional complexity.</p>
 <p>The additional complexity needs to be justified. It is perfectly acceptable in many circumstances to maintain 3 isolated Incus instances.</p>
+<p>Reference: <a href="./tool-incus.html#cluster-virtualization">Incus Clustering</a></p>
 <h2 id="learn-more"><a class="header" href="#learn-more">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 <p>To discuss this content in more detail, go to <a href="https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75">https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75</a>.</p>

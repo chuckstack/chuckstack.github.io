@@ -164,7 +164,7 @@ Let's break this down:
 
 ## Frequently Asked Questions
 
-### One or Two Servers
+### One or Two Servers?
 
 Should you create one or two servers in the cloud once you go into production? This is a great question. Understand you need some form of redundancy in case bad things happen. If you have on-premise computing, PhoenixNAP can be your redundancy, in which case you only need one PhoenixNAP server. The opposite is also true.
 
@@ -175,6 +175,8 @@ If PhoenixNAP is your only computing source, you should use two servers. Both ca
 Maybe. Only consider Incus clustering if you have 3 or more servers. Even if you have 3 servers, you should still critically question if you want to cluster. Creating a single cluster from 3 servers adds additional features AND it adds additional complexity. 
 
 The additional complexity needs to be justified. It is perfectly acceptable in many circumstances to maintain 3 isolated Incus instances.
+
+Reference: [Incus Clustering](./tool-incus.md#cluster-virtualization)
 
 ## Learn More
 
