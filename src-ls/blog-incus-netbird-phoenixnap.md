@@ -3,7 +3,7 @@
 - Published: 2025-01-28
 - Updated: 2025-01-28
 - Author: Chuck Boecking
-- Discussion: <https://team.chuck-boecking.org/>
+- Discussion: <https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75>
 
 ## Hybrid Cloud Synergy
 
