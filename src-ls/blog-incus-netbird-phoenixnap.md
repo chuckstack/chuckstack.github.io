@@ -27,11 +27,11 @@ As a result of this article, you can:
 
 ## Problem Statement
 
-**Problem #1:** Cloud computing is very expensive relative to the solution in this post. You pay a Premium for the CPU AND the disk space (HD) AND just about everything else. I have a customer whose monthly AWS EBS drive cost was more than the EC2 compute cost. These costs reduce your profit and the good your organization can provide the world.
+**Problem #1:** Cloud computing is very expensive relative to the solution in this post. You pay a premium for the CPU AND the disk space (HD) AND just about everything else. I have a customer whose monthly AWS EBS drive cost was more than the EC2 compute cost. These costs reduce your profit and the good your organization can provide the world.
 
 **Problem #2:** The expertise needed to articulate a cloud architecture is expensive, and these skills and knowledge cannot be used throughout the rest of your organization. Said another way, typical cloud solutions force you to hire expensive cloud people and trap them in the cloud.
 
-## Hybrid Picture of Success
+## Hybrid Cloud Picture of Success
 
 This post helps you solve the problem statements listed above, drive better productivity across your whole organization, and make the most of your collective skills and knowledge.
 
@@ -135,20 +135,49 @@ If all worked as expected, you can exit back to your local machine and test your
 
 ## Taking Inventory of What We Accomplished
 
-I cannot put into words how excited I am about this concept. We created a global network (using Netbird) using a tool that can run anywhere (Incus) to provide service to our organization.
+I cannot put into words how excited I am about this solution. We created a global network (using Netbird) using a tool that can run anywhere (Incus) to provide service to our organization.
 
-We can test our services on a local desktop, deploy services to a local server, and replicate services to cloud servers... All using the same tools at every step!
+We can test our services on a local desktop, deploy services to a local server, and replicate services to cloud servers... All using the same tools and skills at every step!
 
-## Cloud Considerations
+## Cost Comparison
 
-- Should you create one or two servers in the cloud once you go into production?
-- Should you use Incus clustering?
+I previously stated this solutions costs between 1/3 and 1/4 that of AWS, Azure and other major cloud providers. The real savings is shockingly more!
 
-## Problems with AWS
+Let's break this down:
 
-- expensive (needlessly robs of profit)
-- isolated (traps talent and costs)
+- Compute: For a 96 core (192 vCPU) x86 with between about 300GiB of RAM as of the time of this writing:
+  - PhoenixNAP is 1/6 the compute cost of AWS
+    - PhoenixNAP (s4.x6.c6.Large): $21,000 total paid monthly over 3 years
+      - Intel Xeon 6 6731E
+      - 256 GiB RAM
+      - 4 TB NVMe
+      - 2x 25Gbps
+    - AWS (c6a.48xlarge): $131,775 (all upfront on a 3-year reservation standard - non-convertable)
+      - 384 GiB RAM
+      - No hard drive
+      - 50 Gbps
+- PhoenixNAP includes 4TB of storage versus AWS includes not storage. All storage puchased in AWS increases the margin.
+- PhoenixNAP (in our case) uses Incus for virtualization. This means the same virtualization is used everywhere. This means we only need one skillset. AWS has no on-premise or desktop virtualiztion solution that is consistent with its cloud offering. This means I now need double the number of experts.
+- Incus allows for on-premise computing using the exact same tools and expertise. [Per this page](./tool-incus.md#medium-cluster-rack), I can purchase 72 cores (144vCPU) of computing power accross 3 servers (redundancy) to run on-premise. We have now almost doubled AWS's computing power across multiple data centers, and we are will less than 1/3 the cost.
+- AND, we have way more flexibility.
+- AND, we still reserve the right to use AWS if need arises.
+
+## Frequently Asked Questions
+
+### One or Two Servers
+
+Should you create one or two servers in the cloud once you go into production? This is a great question. Understand you need some form of redundancy in case bad things happen. If you have on-premise computing, PhoenixNAP can be your redundancy, in which case you only need one PhoenixNAP server. The opposite is also true.
+
+If PhoenixNAP is your only computing source, you should use two servers. Both can be in production; however, the load/size needs to allow for one server to go offline and still provide all services on the remaining server for at least a period of time.
+
+### Should you use Incus clustering?
+
+Maybe. Only consider Incus clustering if you have 3 or more servers. Even if you have 3 servers, you should still critically question if you want to cluster. Creating a single cluster from 3 servers adds additional features AND it adds additional complexity. 
+
+The additional complexity needs to be justified. It is perfectly acceptable in many circumstances to maintain 3 isolated Incus instances.
 
 ## Learn More
 
 If you want help executing the topics in this article, join the [stack-academy](./stack-academy.md). Not ready to join... We can always [stay connected](../learn-more.html) to learn more.
+
+To discuss this content in more detail, go to <https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75>.

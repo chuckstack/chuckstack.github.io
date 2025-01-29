@@ -205,9 +205,9 @@
 <li>Maximize options for computing power</li>
 </ul>
 <h2 id="problem-statement"><a class="header" href="#problem-statement">Problem Statement</a></h2>
-<p><strong>Problem #1:</strong> Cloud computing is very expensive relative to the solution in this post. You pay a Premium for the CPU AND the disk space (HD) AND just about everything else. I have a customer whose monthly AWS EBS drive cost was more than the EC2 compute cost. These costs reduce your profit and the good your organization can provide the world.</p>
+<p><strong>Problem #1:</strong> Cloud computing is very expensive relative to the solution in this post. You pay a premium for the CPU AND the disk space (HD) AND just about everything else. I have a customer whose monthly AWS EBS drive cost was more than the EC2 compute cost. These costs reduce your profit and the good your organization can provide the world.</p>
 <p><strong>Problem #2:</strong> The expertise needed to articulate a cloud architecture is expensive, and these skills and knowledge cannot be used throughout the rest of your organization. Said another way, typical cloud solutions force you to hire expensive cloud people and trap them in the cloud.</p>
-<h2 id="hybrid-picture-of-success"><a class="header" href="#hybrid-picture-of-success">Hybrid Picture of Success</a></h2>
+<h2 id="hybrid-cloud-picture-of-success"><a class="header" href="#hybrid-cloud-picture-of-success">Hybrid Cloud Picture of Success</a></h2>
 <p>This post helps you solve the problem statements listed above, drive better productivity across your whole organization, and make the most of your collective skills and knowledge.</p>
 <p>Before we get into the details of the solution, I want to state a few importing points:</p>
 <ul>
@@ -300,20 +300,51 @@ sudo apt install nginx -y
 <li>Use your local browser to connect to your Debian server running nginx by simply pasting the Netbird URL in the browser.</li>
 </ul>
 <h2 id="taking-inventory-of-what-we-accomplished"><a class="header" href="#taking-inventory-of-what-we-accomplished">Taking Inventory of What We Accomplished</a></h2>
-<p>I cannot put into words how excited I am about this concept. We created a global network (using Netbird) using a tool that can run anywhere (Incus) to provide service to our organization.</p>
-<p>We can test our services on a local desktop, deploy services to a local server, and replicate services to cloud servers... All using the same tools at every step!</p>
-<h2 id="cloud-considerations"><a class="header" href="#cloud-considerations">Cloud Considerations</a></h2>
+<p>I cannot put into words how excited I am about this solution. We created a global network (using Netbird) using a tool that can run anywhere (Incus) to provide service to our organization.</p>
+<p>We can test our services on a local desktop, deploy services to a local server, and replicate services to cloud servers... All using the same tools and skills at every step!</p>
+<h2 id="cost-comparison"><a class="header" href="#cost-comparison">Cost Comparison</a></h2>
+<p>I previously stated this solutions costs between 1/3 and 1/4 that of AWS, Azure and other major cloud providers. The real savings is shockingly more!</p>
+<p>Let's break this down:</p>
 <ul>
-<li>Should you create one or two servers in the cloud once you go into production?</li>
-<li>Should you use Incus clustering?</li>
-</ul>
-<h2 id="problems-with-aws"><a class="header" href="#problems-with-aws">Problems with AWS</a></h2>
+<li>Compute: For a 96 core (192 vCPU) x86 with between about 300GiB of RAM as of the time of this writing:
 <ul>
-<li>expensive (needlessly robs of profit)</li>
-<li>isolated (traps talent and costs)</li>
+<li>PhoenixNAP is 1/6 the compute cost of AWS
+<ul>
+<li>PhoenixNAP (s4.x6.c6.Large): $21,000 total paid monthly over 3 years
+<ul>
+<li>Intel Xeon 6 6731E</li>
+<li>256 GiB RAM</li>
+<li>4 TB NVMe</li>
+<li>2x 25Gbps</li>
 </ul>
+</li>
+<li>AWS (c6a.48xlarge): $131,775 (all upfront on a 3-year reservation standard - non-convertable)
+<ul>
+<li>384 GiB RAM</li>
+<li>No hard drive</li>
+<li>50 Gbps</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>PhoenixNAP includes 4TB of storage versus AWS includes not storage. All storage puchased in AWS increases the margin.</li>
+<li>PhoenixNAP (in our case) uses Incus for virtualization. This means the same virtualization is used everywhere. This means we only need one skillset. AWS has no on-premise or desktop virtualiztion solution that is consistent with its cloud offering. This means I now need double the number of experts.</li>
+<li>Incus allows for on-premise computing using the exact same tools and expertise. <a href="./tool-incus.html#medium-cluster-rack">Per this page</a>, I can purchase 72 cores (144vCPU) of computing power accross 3 servers (redundancy) to run on-premise. We have now almost doubled AWS's computing power across multiple data centers, and we are will less than 1/3 the cost.</li>
+<li>AND, we have way more flexibility.</li>
+<li>AND, we still reserve the right to use AWS if need arises.</li>
+</ul>
+<h2 id="frequently-asked-questions"><a class="header" href="#frequently-asked-questions">Frequently Asked Questions</a></h2>
+<h3 id="one-or-two-servers"><a class="header" href="#one-or-two-servers">One or Two Servers</a></h3>
+<p>Should you create one or two servers in the cloud once you go into production? This is a great question. Understand you need some form of redundancy in case bad things happen. If you have on-premise computing, PhoenixNAP can be your redundancy, in which case you only need one PhoenixNAP server. The opposite is also true.</p>
+<p>If PhoenixNAP is your only computing source, you should use two servers. Both can be in production; however, the load/size needs to allow for one server to go offline and still provide all services on the remaining server for at least a period of time.</p>
+<h3 id="should-you-use-incus-clustering"><a class="header" href="#should-you-use-incus-clustering">Should you use Incus clustering?</a></h3>
+<p>Maybe. Only consider Incus clustering if you have 3 or more servers. Even if you have 3 servers, you should still critically question if you want to cluster. Creating a single cluster from 3 servers adds additional features AND it adds additional complexity.</p>
+<p>The additional complexity needs to be justified. It is perfectly acceptable in many circumstances to maintain 3 isolated Incus instances.</p>
 <h2 id="learn-more"><a class="header" href="#learn-more">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
+<p>To discuss this content in more detail, go to <a href="https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75">https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75</a>.</p>
 
                         <br>
                         <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script>, CHUBOE LLC. All rights reserved.</p> <!--chuboe changed-->

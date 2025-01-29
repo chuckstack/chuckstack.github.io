@@ -140,6 +140,8 @@ The hybrid virtualization scenario is why we love Incus. It gives your organizat
 
 Incus and [Netbird](./tool-netbird.md) have good synergy. Netbird gives you an easy to install and manage network overlay to connect all your Incus clusters around the world.
 
+Reference: [Hybrid Cloud Synergy: Incus + Netbird PhoenixNAP](./blog-incus-netbird-phoenixnap.md)
+
 ## Vocabulary
 
 This section defines important terms. The hope is to create better and more concise discussions below.
