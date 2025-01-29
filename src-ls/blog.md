@@ -6,7 +6,7 @@ Here is a list of recent blogs. The sidebar contains the full list.
 
 Reduce costs... Reduce complexity... Use existing talent (skills and knowledge) to provide services to a global workforce.
 
-This post helps you create a simple and effective hybrid cloud infrastructure to support your organization. I cannot put into how excited I am to prescribe such a solution. I hope this helps...
+This post helps you create a simple and effective hybrid cloud infrastructure to support your organization. I cannot put into words how excited I am to prescribe such a solution. I hope this helps...
 
 [Read more...](./blog-incus-netbird-phoenixnap.md)
 
