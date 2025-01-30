@@ -7,7 +7,7 @@
 
 ## Hybrid Cloud Synergy
 
-The purpose of this post is to highlight what you can accomplish when you combine [Incus](./tool-incus.md) with [Netbird](./tool-netbird.md) and [PhoenixNAP](https://phoenixnap.com/bare-metal-cloud) (a bare-metal cloud provider).
+The purpose of this post is to highlight what you can accomplish when you combine [Incus](./tool-incus.md) (virtualization) with [Netbird](./tool-netbird.md) (vpn network overlay) and [PhoenixNAP](https://phoenixnap.com/bare-metal-cloud) (bare-metal cloud provider).
 
 Here is the benefit short story:
 
