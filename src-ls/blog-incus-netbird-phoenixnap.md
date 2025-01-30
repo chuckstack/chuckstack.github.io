@@ -59,7 +59,7 @@ Here are the steps to accomplish my proposed hybrid cloud love story:
 - Create an account at [Netbird](./tool-netbird.md), and create a new setup key. This will take you about 2 minutes.
 - Create an account at [PhoenixNAP](https://phoenixnap.com/bare-metal-cloud) bare-metal service. This will take about 2 minutes.
 - Create a new PhoenixNAP hourly bare-metal Debian instance with a single CPU, medium core count and medium RAM. This will take you about 4 minutes for purchase and allocation, and it will cost you about $0.30 per hour.
-- ssh to the server and install [Incus](./tool-incus.md). This will take you about 2 minutes.
+- ssh to the server and install [Incus](./tool-incus.md#getting-started). This will take you about 2 minutes.
 - Install Netbird. This will take you about 1 minute.
   - Bring up Netbird with your setup key: `netbird up --setup-key xxxxx-xxxx-xxxx --allow-server-ssh`
   - 'Allow ssh' in your Netbird console in addition to the above `--allow-server-ssh`.
