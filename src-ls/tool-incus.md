@@ -10,6 +10,7 @@ We are leading with Incus and virtualization because we feel that virtualization
 - [Incus relation to Nix](#incus-relation-to-nix)
 - [Incus Use Cases](#incus-use-cases)
 - [Hardware Considerations](#hardware-considerations)
+- [Getting Started](#getting-started)
 
 ## What is Incus
 
@@ -219,3 +220,32 @@ The purpose of this section is to record thoughts and examples related to hardwa
   - Comes with 2x 10Gb (copper) networking
 
 This configuration represents a significant increase in CPU core count, memory and storage over the desktop cluster described above. It also represents a form factor that can be placed in almost any data center (local or cloud).
+
+## Getting Started
+
+Install as root on Debian ([official reference](https://github.com/zabbly/incus)):
+```bash
+curl -fsSL https://pkgs.zabbly.com/key.asc | gpg --show-keys --fingerprint
+mkdir -p /etc/apt/keyrings/
+curl -fsSL https://pkgs.zabbly.com/key.asc -o /etc/apt/keyrings/zabbly.asc
+sh -c 'cat <<EOF > /etc/apt/sources.list.d/zabbly-incus-stable.sources
+Enabled: yes
+Types: deb
+URIs: https://pkgs.zabbly.com/incus/stable
+Suites: $(. /etc/os-release && echo ${VERSION_CODENAME})
+Components: main
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/zabbly.asc
+
+EOF'
+apt-get update
+apt-get install incus -y
+```
+
+Configure as your typical user ([official reference](https://linuxcontainers.org/incus/docs/main/tutorial/first_steps/)):
+
+```bash
+YOUR_USERNAME=$(id -u -n)
+sudo adduser $YOUR_USERNAME incus-admin
+newgrp incus-admin
+```
