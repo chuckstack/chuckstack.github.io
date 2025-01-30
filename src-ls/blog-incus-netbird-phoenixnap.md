@@ -70,21 +70,42 @@ Congratulations! You now have a distributed hybrid cloud computing environment.
 
 ## Lock it Down
 
-After you prove you can connect via the Netbird network, let's lock down your server.
+After you prove you can connect via the Netbird network, let's lock down your server. ssh to the server via the Netbird IP, and issue the following firewall commands:
 
-- ssh to the server via the Netbird IP
-- Issue the following UFW firewall commands:
-  - sudo ufw allow in on wt0 to any # Netbird bridge adapter
-  - sudo ufw allow out on wt0 to any # Netbird bridge adapter
-  - sudo ufw allow in on incusbr0 from any # Incus bridge adapter
-  - sudo ufw allow out on incusbr0 from any # Incus bridge adapter
-  - \# sudo ufw allow from <your-ip-here> to any port 22 # commented out but convenient in case things go badly
-  - sudo ufw enable
+```bash
+# Install iptables-persistent to save rules
+sudo apt-get install iptables-persistent -y
+
+# Get network interface details
+MAIN_INTERFACE=$(ip route get 8.8.8.8 | grep -oP 'dev \K\S+')
+INCUS_SUBNET=$(ip -4 addr show incusbr0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}/\d+')
+INCUS_SUBNET_V6=$(ip -6 addr show incusbr0 | grep -oP '(?<=inet6\s)[0-9a-f:]+/\d+' | grep -v '^fe80')
+
+# Your existing UFW commands
+sudo ufw allow in on wt0 to any
+sudo ufw allow out on wt0 to any
+sudo ufw allow in on incusbr0 from any
+sudo ufw allow out on incusbr0 from any
+sudo ufw enable
+
+# Your iptables commands for NAT and forwarding
+sudo iptables -t nat -A POSTROUTING -s $INCUS_SUBNET -o $MAIN_INTERFACE -j MASQUERADE
+sudo iptables -A FORWARD -i incusbr0 -o $MAIN_INTERFACE -j ACCEPT
+sudo iptables -A FORWARD -i $MAIN_INTERFACE -o incusbr0 -j ACCEPT
+sudo ip6tables -t nat -A POSTROUTING -s $INCUS_SUBNET_V6 -o $MAIN_INTERFACE -j MASQUERADE
+sudo ip6tables -A FORWARD -i incusbr0 -o $MAIN_INTERFACE -j ACCEPT
+sudo ip6tables -A FORWARD -i $MAIN_INTERFACE -o incusbr0 -j ACCEPT
+
+# Save the iptables rules
+yes | sudo netfilter-persistent save
+```
+Note: generally is it not best practice to combine both UFW and iptables commands; however, I want you to get the benefit of UFW simplicity without needing to manually modify files. The iptables commands allow for easy scripting. Let me know if you have concerns with this approach.
 
 These commands configure and enable a firewall to do the following:
 
 - Allow nothing from the outside world to enter your server
 - Removes all restrictions around both the Netbird and Incus network adapters
+- Allows containers to use DNS to reach the outside world
 
 It is important to note that I am not a security advisor. You are well advised to validate any claims made here. Here is how I quickly tested the server from a remote machine:
 
