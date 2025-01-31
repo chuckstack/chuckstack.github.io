@@ -221,8 +221,15 @@
 <h2 id="incus-has-projects"><a class="header" href="#incus-has-projects">Incus has Projects</a></h2>
 <p>As your virtualization needs grow, you can use projects to keep your Incus server clean by grouping related instances together. In addition to isolated instances, each project can also have specific images, profiles, networks, and storage.</p>
 <p>This helps organizations support the growth of organizations in an organized manner.</p>
-<h2 id="incus-relation-to-docker"><a class="header" href="#incus-relation-to-docker">Incus Relation to Docker</a></h2>
-<p>Docker is a compelling option for virtualization. Here are the reason we prefer Incus over Docker:</p>
+<h2 id="incus-relation-to-docker-and-kubernetes"><a class="header" href="#incus-relation-to-docker-and-kubernetes">Incus Relation to Docker and Kubernetes</a></h2>
+<p>Kubernetes (K8s) is web-scale application platform designed to manage high numbers of single-purpose containers. Docker is the most common container used in Kubernetes.</p>
+<p>Docker (and container solutions like it) are designed to be the smallest portable unit of computing. It typically contains only the OS pieces critical to supporting a particular application.</p>
+<p>Incus is a virtualization platform whose containers are a good mix/compromise between docker (bare minimum) and virtual machines (a complete operating system). Incus containers are minimal; however, the have systemd enabled and the persist between reboots. I would consider Incus semi-ephemeral.</p>
+<p>Like DockerHub, Incus maintains a collection of images that can be downloaded, configured and launched to a useable state in a matter of seconds.</p>
+<p>Incus provides support for running OCI compliant containers. This means you can add DockerHub as an image repository to Incus and directly launch a Docker container in Incus.</p>
+<p>Incus provides support for both containers and virtual machines. Containers are smaller and share the hosts kernal and hardware resources. Virtual machines are completely abstracted away from the host's operating system. Virtual machines are larger (HD and RAM) and more portable between hosts as a result of their abstraction.</p>
+<p>As of time of this writing, there is no production quality Docker Compose solution; however, there is <a href="https://discuss.linuxcontainers.org/t/proof-of-concept-incus-compose/21455">one in proof of concept stage</a>.</p>
+<p>Here are the reason we prefer Incus over Docker:</p>
 <ul>
 <li>Incus gives us a single tool to deploy and manage almost all virtualization scenarios.</li>
 <li>Docker is great at application deployment. We need more than just application deployment.</li>

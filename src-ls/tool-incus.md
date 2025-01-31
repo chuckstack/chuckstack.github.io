@@ -53,9 +53,23 @@ As your virtualization needs grow, you can use projects to keep your Incus serve
 
 This helps organizations support the growth of organizations in an organized manner.
 
-## Incus Relation to Docker
+## Incus Relation to Docker and Kubernetes
 
-Docker is a compelling option for virtualization. Here are the reason we prefer Incus over Docker:
+Kubernetes (K8s) is web-scale application platform designed to manage high numbers of single-purpose containers. Docker is the most common container used in Kubernetes. 
+
+Docker (and container solutions like it) are designed to be the smallest portable unit of computing. It typically contains only the OS pieces critical to supporting a particular application.
+
+Incus is a virtualization platform whose containers are a good mix/compromise between docker (bare minimum) and virtual machines (a complete operating system). Incus containers are minimal; however, the have systemd enabled and the persist between reboots. I would consider Incus semi-ephemeral.
+
+Like DockerHub, Incus maintains a collection of images that can be downloaded, configured and launched to a useable state in a matter of seconds.
+
+Incus provides support for running OCI compliant containers. This means you can add DockerHub as an image repository to Incus and directly launch a Docker container in Incus.
+
+Incus provides support for both containers and virtual machines. Containers are smaller and share the hosts kernal and hardware resources. Virtual machines are completely abstracted away from the host's operating system. Virtual machines are larger (HD and RAM) and more portable between hosts as a result of their abstraction.
+
+As of time of this writing, there is no production quality Docker Compose solution; however, there is [one in proof of concept stage](https://discuss.linuxcontainers.org/t/proof-of-concept-incus-compose/21455).
+
+Here are the reason we prefer Incus over Docker:
 
 - Incus gives us a single tool to deploy and manage almost all virtualization scenarios.
 - Docker is great at application deployment. We need more than just application deployment.
