@@ -59,7 +59,7 @@ Kubernetes (K8s) is web-scale application platform designed to manage high numbe
 
 Docker (and container solutions like it) are designed to be the smallest portable unit of computing. It typically contains only the OS pieces critical to supporting a particular application.
 
-Incus is a virtualization platform whose containers are a good mix/compromise between docker (bare minimum) and virtual machines (a complete operating system). Incus containers are minimal; however, the have systemd enabled and the persist between reboots. I would consider Incus semi-ephemeral.
+Incus is a virtualization platform whose containers are a good mix/compromise between docker (bare minimum) and virtual machines (a complete operating system). Incus containers are minimal; however, the have systemd enabled and the persist between reboots. I would consider Incus containers to be semi-ephemeral.
 
 Like DockerHub, Incus maintains a collection of images that can be downloaded, configured and launched to a useable state in a matter of seconds.
 
