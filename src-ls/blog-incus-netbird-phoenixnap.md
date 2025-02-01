@@ -252,8 +252,9 @@ write_files:
     permissions: '0755'
     content: |
       #!/bin/bash
-      export MY_IP="YOUR.IP.ADDRESS.HERE"
 
+      # IPv4 rules
+      export MY_IPV4="YOUR.IP.ADDRESS.HERE"
       cat > /etc/network/iptables.rules << EOF
       *filter
       :INPUT DROP [0:0]
@@ -262,12 +263,28 @@ write_files:
 
       -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
       -A INPUT -i lo -j ACCEPT
-      -A INPUT -p tcp -s $MY_IP --dport 22 -j ACCEPT
+      -A INPUT -p tcp -s $MY_IPV4 --dport 22 -j ACCEPT
 
       COMMIT
       EOF
-
       iptables-restore < /etc/network/iptables.rules
+
+      # IPv6 rules
+      export MY_IPV6="YOUR:IPV6:ADDRESS:HERE"
+      cat > /etc/network/ip6tables.rules << EOF
+      *filter
+      :INPUT DROP [0:0]
+      :FORWARD DROP [0:0]
+      :OUTPUT ACCEPT [0:0]
+
+      -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+      -A INPUT -i lo -j ACCEPT
+      -A INPUT -p tcp -s $MY_IPV6 --dport 22 -j ACCEPT
+      -A INPUT -p ipv6-icmp -j ACCEPT
+
+      COMMIT
+      EOF
+      ip6tables-restore < /etc/network/ip6tables.rules
 
 runcmd:
   - apt-get update
