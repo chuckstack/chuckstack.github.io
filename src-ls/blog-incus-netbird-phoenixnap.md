@@ -224,7 +224,7 @@ Let's break this down:
 - Compute: For a 96 core (192 vCPU) x86 with between about 300GiB of RAM as of the time of this writing:
   - PhoenixNAP is 1/6 the compute cost of AWS
     - PhoenixNAP (s4.x6.c6.Large): $21,000 total paid monthly over 3 years
-      - Intel Xeon 6 6731E
+      - Intel Xeon 6 6731E - launched Q2 2024
       - 256 GiB RAM
       - 4 TB NVMe
       - 2x 25Gbps
@@ -234,7 +234,7 @@ Let's break this down:
       - No hard drive
       - 50 Gbps
     - AWS (m7i.48xlarge): $100,400 (all upfront on a 3-year reservation standard - non-convertable)
-      - 3.2 GHz 4th Generation Intel Xeon Scalable processor (Sapphire Rapids 8488C)
+      - 3.2 GHz 4th Generation Intel Xeon Scalable processor (Sapphire Rapids 8488C) - launched Q1 2023
       - 768 GiB RAM
       - No hard drive
       - 50 Gbps
