@@ -221,24 +221,24 @@ I previously stated this solutions costs between 1/3 and 1/4 that of AWS, Azure 
 
 Let's break this down:
 
-- Compute: For a 96 core (192 vCPU) x86 with between about 300GiB of RAM as of the time of this writing:
-  - PhoenixNAP is 1/6 the compute cost of AWS
+- Compute: For a 96 core x86 with between about 300GiB of RAM as of the time of this writing:
+  - PhoenixNAP is 1/5 the compute cost of AWS
     - PhoenixNAP (s4.x6.c6.Large): $21,000 total paid monthly over 3 years
-      - Intel Xeon 6 6731E - launched Q2 2024
+      - Intel Xeon 6 6731E (96 core) - launched Q2 2024
       - 256 GiB RAM
       - 4 TB NVMe
       - 2x 25Gbps
     - AWS (c6a.48xlarge): $131,775 (all upfront on a 3-year reservation standard - non-convertable)
-      - 3.6 GHz 3rd generation AMD EPYC processors (AMD EPYC 7R13)
+      - 3.6 GHz 3rd generation AMD EPYC processors (48 core AMD EPYC 7R13)
       - 384 GiB RAM
       - No hard drive
       - 50 Gbps
     - AWS (m7i.48xlarge): $100,400 (all upfront on a 3-year reservation standard - non-convertable)
-      - 3.2 GHz 4th Generation Intel Xeon Scalable processor (Sapphire Rapids 8488C) - launched Q1 2023
+      - 3.2 GHz 4th Generation Intel Xeon Scalable processor (48 core Sapphire Rapids 8488C) - launched Q1 2023
       - 768 GiB RAM
       - No hard drive
       - 50 Gbps
-    - Note that effort was made to make this comparison reasonably equivalent. If you have concerns this comparison, [please comment here](https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75).
+    - Note that effort was made to disclose details and make this comparison reasonable. If you have concerns about this comparison, [please comment here](https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75).
     - Note that the AWS m7i.48xlarge (virtualized) and m7i.metal-48xl (bare-metal) are approximately the same price.
 - PhoenixNAP includes 4TB of storage versus AWS includes not storage. All storage puchased in AWS increases the margin.
 - PhoenixNAP (in our case) uses Incus for virtualization. This means the same virtualization is used everywhere. This means we only need one skillset. AWS has no on-premise or desktop virtualiztion solution that is consistent with its cloud offering. This means I now need double the number of experts.
