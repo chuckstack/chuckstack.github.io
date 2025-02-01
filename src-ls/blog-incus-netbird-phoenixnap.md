@@ -79,8 +79,11 @@ DEBIAN_FRONTEND=noninteractive sudo apt-get install iptables-persistent -y
 
 # Set my IP if you wish to allow ssh from it - uncomment this and below statements if needed
 #MY_IP_ADDRESS=x.x.x.x
-#MY_IP6_ADDRESS=x.x.x.x
-##https://whatismyipaddress.com/ #gives both ipv4 and ipv6
+#MY_IP6_ADDRESS=x:x:x:x
+
+# Find my IP addresses
+##curl -4 ifconfig.me #ip-v4
+##curl -6 ifconfig.me #ip-v6
 
 # Get network interface details
 MAIN_INTERFACE=$(ip route get 8.8.8.8 | grep -oP 'dev \K\S+')
@@ -226,15 +229,22 @@ Let's break this down:
       - 4 TB NVMe
       - 2x 25Gbps
     - AWS (c6a.48xlarge): $131,775 (all upfront on a 3-year reservation standard - non-convertable)
+      - 3.6 GHz 3rd generation AMD EPYC processors (AMD EPYC 7R13)
       - 384 GiB RAM
       - No hard drive
       - 50 Gbps
+    - AWS (m7i.48xlarge): $100,400 (all upfront on a 3-year reservation standard - non-convertable)
+      - 3.2 GHz 4th Generation Intel Xeon Scalable processor (Sapphire Rapids 8488C)
+      - 768 GiB RAM
+      - No hard drive
+      - 50 Gbps
     - Note that effort was made to make this comparison reasonably equivalent. If you have concerns this comparison, [please comment here](https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75).
+    - Note that the AWS m7i.48xlarge (virtualized) and m7i.metal-48xl (bare-metal) are approximately the same price.
 - PhoenixNAP includes 4TB of storage versus AWS includes not storage. All storage puchased in AWS increases the margin.
 - PhoenixNAP (in our case) uses Incus for virtualization. This means the same virtualization is used everywhere. This means we only need one skillset. AWS has no on-premise or desktop virtualiztion solution that is consistent with its cloud offering. This means I now need double the number of experts.
 - Incus allows for on-premise computing using the exact same tools and expertise. [Per this page](./tool-incus.md#medium-cluster-rack), I can purchase 72 cores (144vCPU) of computing power accross 3 servers (redundancy) to run on-premise. We have now almost doubled AWS's computing power across multiple data centers, and we are will less than 1/3 the cost.
 - AND, we have way more flexibility.
-- AND, we still reserve the right to use AWS if need arises.
+- AND, we still reserve the right to use AWS if the need arises.
 
 ## cloud-init Lock Down
 
