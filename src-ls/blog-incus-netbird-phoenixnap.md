@@ -246,6 +246,9 @@ You can copy and paste the following into the 'Deploy New Server' process => 'Cl
 
 Do not forget to set the "YOUR.IP.ADDRESS.HERE" variable with you actual IP address. If you wish to use IPV6, simply uncomment that section and set your "YOUR.IPV6.ADDRESS.HERE" variable.
 
+Your IPV4 address: `curl -4 ifconfig.me`
+Your IPV6 address: `curl -6 ifconfig.me`
+
 ```yaml
 #cloud-config
 

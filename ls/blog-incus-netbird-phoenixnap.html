@@ -408,6 +408,8 @@ sudo apt install nginx -y
 <p>When you create a new instance in PhoenixNAP with a public IP, the machine's firewall is initially inactive/open. Below is a cloud-init script that will prevent anyone other than someone from you IP address from connecting to your machine's SSH port.</p>
 <p>You can copy and paste the following into the 'Deploy New Server' process =&gt; 'Cloud Init' section when you check the 'Add user-data to cloud-init configuration' checkbox.</p>
 <p>Do not forget to set the "YOUR.IP.ADDRESS.HERE" variable with you actual IP address. If you wish to use IPV6, simply uncomment that section and set your "YOUR.IPV6.ADDRESS.HERE" variable.</p>
+<p>Your IPV4 address: <code>curl -4 ifconfig.me</code>
+Your IPV6 address: <code>curl -6 ifconfig.me</code></p>
 <pre><code class="language-yaml">#cloud-config
 
 write_files:
