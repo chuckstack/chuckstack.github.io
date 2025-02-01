@@ -236,6 +236,45 @@ Let's break this down:
 - AND, we have way more flexibility.
 - AND, we still reserve the right to use AWS if need arises.
 
+## cloud-init Lock Down
+
+When you create a new instance in PhoenixNAP with a public IP, the machine's firewall is initially inactive/open. Below is a script that will prevent anyone other than someone from you IP address from connecting to SSH. 
+
+You can copy and paste into the 'Deploy New Server' process => 'Cloud Init' section when you check the 'Add user-data to cloud-init configuration' checkbox. Do not forget to set the "YOUR.IP.ADDRESS.HERE" variable with you actual IP address:
+
+```yaml
+#cloud-config
+
+write_files:
+  - path: /tmp/setup-iptables.sh
+    permissions: '0755'
+    content: |
+      #!/bin/bash
+      MY_IP="YOUR.IP.ADDRESS.HERE"
+
+      cat > /etc/network/iptables.rules << EOF
+      *filter
+      :INPUT DROP [0:0]
+      :FORWARD DROP [0:0]
+      :OUTPUT ACCEPT [0:0]
+
+      -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+      -A INPUT -i lo -j ACCEPT
+      -A INPUT -p tcp -s \${MY_IP} --dport 22 -j ACCEPT
+
+      COMMIT
+      EOF
+
+      iptables-restore < /etc/network/iptables.rules
+
+runcmd:
+  - apt-get update
+  - DEBIAN_FRONTEND=noninteractive apt-get install -y iptables-persistent
+  - /tmp/setup-iptables.sh
+  - netfilter-persistent save
+  - netfilter-persistent reload
+```
+
 ## Frequently Asked Questions
 
 ### One or Two Servers?
@@ -257,3 +296,9 @@ Reference: [Incus Clustering](./tool-incus.md#cluster-virtualization)
 If you want help executing the topics in this article, join the [stack-academy](./stack-academy.md). Not ready to join... We can always [stay connected](../learn-more.html) to learn more.
 
 To discuss this content in more detail, go to <https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75>.
+
+## TODO
+
+Here are the items I wish to improve upon:
+
+- PhoenixNAP cloudinit: need a quick cloudinit script to enable iptables to only allow ssh access from <my-ip>. This is needed because instances in PhoenixNAP do not have any firewall rules by default.

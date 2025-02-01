@@ -3419,6 +3419,40 @@ sudo apt install nginx -y
 <li>AND, we have way more flexibility.</li>
 <li>AND, we still reserve the right to use AWS if need arises.</li>
 </ul>
+<h2 id="cloud-init-lock-down"><a class="header" href="#cloud-init-lock-down">cloud-init Lock Down</a></h2>
+<p>When you create a new instance in PhoenixNAP with a public IP, the machine's firewall is initially inactive/open. Below is a script that will prevent anyone other than someone from you IP address from connecting to SSH.</p>
+<p>You can copy and paste into the 'Deploy New Server' process =&gt; 'Cloud Init' section when you check the 'Add user-data to cloud-init configuration' checkbox. Do not forget to set the "YOUR.IP.ADDRESS.HERE" variable with you actual IP address:</p>
+<pre><code class="language-yaml">#cloud-config
+
+write_files:
+  - path: /tmp/setup-iptables.sh
+    permissions: '0755'
+    content: |
+      #!/bin/bash
+      MY_IP="YOUR.IP.ADDRESS.HERE"
+
+      cat &gt; /etc/network/iptables.rules &lt;&lt; EOF
+      *filter
+      :INPUT DROP [0:0]
+      :FORWARD DROP [0:0]
+      :OUTPUT ACCEPT [0:0]
+
+      -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+      -A INPUT -i lo -j ACCEPT
+      -A INPUT -p tcp -s \${MY_IP} --dport 22 -j ACCEPT
+
+      COMMIT
+      EOF
+
+      iptables-restore &lt; /etc/network/iptables.rules
+
+runcmd:
+  - apt-get update
+  - DEBIAN_FRONTEND=noninteractive apt-get install -y iptables-persistent
+  - /tmp/setup-iptables.sh
+  - netfilter-persistent save
+  - netfilter-persistent reload
+</code></pre>
 <h2 id="frequently-asked-questions"><a class="header" href="#frequently-asked-questions">Frequently Asked Questions</a></h2>
 <h3 id="one-or-two-servers"><a class="header" href="#one-or-two-servers">One or Two Servers?</a></h3>
 <p>Should you create one or two servers in the cloud once you go into production? This is a great question. Understand you need some form of redundancy in case bad things happen. If you have on-premise computing, PhoenixNAP can be your redundancy, in which case you only need one PhoenixNAP server. The opposite is also true.</p>
@@ -3430,6 +3464,11 @@ sudo apt install nginx -y
 <h2 id="learn-more"><a class="header" href="#learn-more">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 <p>To discuss this content in more detail, go to <a href="https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75">https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75</a>.</p>
+<h2 id="todo"><a class="header" href="#todo">TODO</a></h2>
+<p>Here are the items I wish to improve upon:</p>
+<ul>
+<li>PhoenixNAP cloudinit: need a quick cloudinit script to enable iptables to only allow ssh access from <my-ip>. This is needed because instances in PhoenixNAP do not have any firewall rules by default.</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="letter-to-the-ceo-1"><a class="header" href="#letter-to-the-ceo-1">Letter to the CEO</a></h1>
 <ul>
 <li>Published: 2024-10-24</li>
