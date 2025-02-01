@@ -207,6 +207,12 @@
 <p>Even though you can completely self-host Netbird, you do have an option to keep things simple initially by using Netbird's hosted option.</p>
 <h2 id="everyone-needs-it"><a class="header" href="#everyone-needs-it">Everyone Needs It</a></h2>
 <p>The reason Netbird appears in to top level of chuck-stack tools is because virtually every organization needs a way to connect multiple people and locations. When you deploy the chuck-stack, Netbird (or something like it) needs to be in you plan.</p>
+<h2 id="ssh-using-netbird"><a class="header" href="#ssh-using-netbird">SSH using Netbird</a></h2>
+<p>There are two ways to connect to a remote Netbird machine using ssh:</p>
+<ul>
+<li>Normal <code>ssh</code> where you share a private key beforehand and connect using <code>ssh your-user@some-netbird-ip</code></li>
+<li>Special <code>netbird ssh</code> where you do not even need an ssh server running or a shared key on the remote machine using <code>netbird ssh your-user@some-netbird-ip</code></li>
+</ul>
 <h2 id="incus"><a class="header" href="#incus">Incus</a></h2>
 <p>Netbird and <a href="./tool-incus.html">Incus</a> have good synergy. It is common to use <a href="./tool-incus.html#incus-use-cases">Incus in multiple ways</a>. Netbird gives you an easy to install and manage network overlay to connect all your Incus clusters around the world.</p>
 <p>Reference: <a href="./blog-incus-netbird-phoenixnap.html">Hybrid Cloud Synergy: Incus + Netbird PhoenixNAP</a></p>

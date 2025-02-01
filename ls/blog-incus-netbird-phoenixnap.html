@@ -352,18 +352,23 @@ Nmap done: 1 IP address (1 host up) scanned in 6582.44 seconds
 <h2 id="first-incus-server"><a class="header" href="#first-incus-server">First Incus Server</a></h2>
 <p>Let's configure our first Incus cloud server and join it to the Netbird network.</p>
 <p>Connect to your Incus server via ssh and launch your first server:</p>
-<pre><code class="language-bash">incus launch images:debian/12/cloud debian-01 -d root,size=15GiB
+<pre><code class="language-bash">incus launch images:debian/12/cloud debian-guest-01 -d root,size=15GiB
 </code></pre>
 <p>Connect to your Debian server:</p>
-<pre><code class="language-bash">incus exec debian-01 bash
+<pre><code class="language-bash">incus exec debian-guest-01 bash
+</code></pre>
+<p>Install openssh Server if you wish to connect directly to this server via SSH (<a href="./tool-netbird.html#ssh-using-netbird">see Netbird SSH options</a>):</p>
+<pre><code class="language-bash">apt update
+apt install openssh-server
 </code></pre>
 <p>Install Netbird:</p>
 <pre><code class="language-bash">netbird up --setup-key xxxxx-xxxx-xxxx --allow-server-ssh
 </code></pre>
 <p>Install nginx so that we can see the default page:</p>
-<pre><code class="language-bash">sudo apt update
-sudo apt install nginx -y
+<pre><code class="language-bash">apt update
+apt install nginx -y
 </code></pre>
+<p>Note: New containers do not have any firewall rules enabled by default. While the outside world cannot see/find them, anyone on your Netbird network can access all open ports.</p>
 <p>If all worked as expected, you can exit back to your local machine and test your connection. Do the following:</p>
 <ul>
 <li>Confirm you can see your Debian machine in your Netbird web console and copy its Netbird URL.</li>

@@ -182,13 +182,20 @@ Let's configure our first Incus cloud server and join it to the Netbird network.
 Connect to your Incus server via ssh and launch your first server:
 
 ```bash
-incus launch images:debian/12/cloud debian-01 -d root,size=15GiB
+incus launch images:debian/12/cloud debian-guest-01 -d root,size=15GiB
 ```
 
 Connect to your Debian server:
 
 ```bash
-incus exec debian-01 bash
+incus exec debian-guest-01 bash
+```
+
+Install openssh Server if you wish to connect directly to this server via SSH ([see Netbird SSH options](./tool-netbird.md#ssh-using-netbird)):
+
+```bash
+apt update
+apt install openssh-server
 ```
 
 Install Netbird:
@@ -200,9 +207,11 @@ netbird up --setup-key xxxxx-xxxx-xxxx --allow-server-ssh
 Install nginx so that we can see the default page:
 
 ```bash
-sudo apt update
-sudo apt install nginx -y
+apt update
+apt install nginx -y
 ```
+
+Note: New containers do not have any firewall rules enabled by default. While the outside world cannot see/find them, anyone on your Netbird network can access all open ports.
 
 If all worked as expected, you can exit back to your local machine and test your connection. Do the following:
 

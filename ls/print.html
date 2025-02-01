@@ -1513,6 +1513,12 @@ newgrp incus-admin
 <p>Even though you can completely self-host Netbird, you do have an option to keep things simple initially by using Netbird's hosted option.</p>
 <h2 id="everyone-needs-it"><a class="header" href="#everyone-needs-it">Everyone Needs It</a></h2>
 <p>The reason Netbird appears in to top level of chuck-stack tools is because virtually every organization needs a way to connect multiple people and locations. When you deploy the chuck-stack, Netbird (or something like it) needs to be in you plan.</p>
+<h2 id="ssh-using-netbird"><a class="header" href="#ssh-using-netbird">SSH using Netbird</a></h2>
+<p>There are two ways to connect to a remote Netbird machine using ssh:</p>
+<ul>
+<li>Normal <code>ssh</code> where you share a private key beforehand and connect using <code>ssh your-user@some-netbird-ip</code></li>
+<li>Special <code>netbird ssh</code> where you do not even need an ssh server running or a shared key on the remote machine using <code>netbird ssh your-user@some-netbird-ip</code></li>
+</ul>
 <h2 id="incus-1"><a class="header" href="#incus-1">Incus</a></h2>
 <p>Netbird and <a href="./tool-incus.html">Incus</a> have good synergy. It is common to use <a href="./tool-incus.html#incus-use-cases">Incus in multiple ways</a>. Netbird gives you an easy to install and manage network overlay to connect all your Incus clusters around the world.</p>
 <p>Reference: <a href="./blog-incus-netbird-phoenixnap.html">Hybrid Cloud Synergy: Incus + Netbird PhoenixNAP</a></p>
@@ -3370,18 +3376,23 @@ Nmap done: 1 IP address (1 host up) scanned in 6582.44 seconds
 <h2 id="first-incus-server"><a class="header" href="#first-incus-server">First Incus Server</a></h2>
 <p>Let's configure our first Incus cloud server and join it to the Netbird network.</p>
 <p>Connect to your Incus server via ssh and launch your first server:</p>
-<pre><code class="language-bash">incus launch images:debian/12/cloud debian-01 -d root,size=15GiB
+<pre><code class="language-bash">incus launch images:debian/12/cloud debian-guest-01 -d root,size=15GiB
 </code></pre>
 <p>Connect to your Debian server:</p>
-<pre><code class="language-bash">incus exec debian-01 bash
+<pre><code class="language-bash">incus exec debian-guest-01 bash
+</code></pre>
+<p>Install openssh Server if you wish to connect directly to this server via SSH (<a href="./tool-netbird.html#ssh-using-netbird">see Netbird SSH options</a>):</p>
+<pre><code class="language-bash">apt update
+apt install openssh-server
 </code></pre>
 <p>Install Netbird:</p>
 <pre><code class="language-bash">netbird up --setup-key xxxxx-xxxx-xxxx --allow-server-ssh
 </code></pre>
 <p>Install nginx so that we can see the default page:</p>
-<pre><code class="language-bash">sudo apt update
-sudo apt install nginx -y
+<pre><code class="language-bash">apt update
+apt install nginx -y
 </code></pre>
+<p>Note: New containers do not have any firewall rules enabled by default. While the outside world cannot see/find them, anyone on your Netbird network can access all open ports.</p>
 <p>If all worked as expected, you can exit back to your local machine and test your connection. Do the following:</p>
 <ul>
 <li>Confirm you can see your Debian machine in your Netbird web console and copy its Netbird URL.</li>
