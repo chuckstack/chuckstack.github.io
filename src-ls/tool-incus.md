@@ -237,6 +237,8 @@ This configuration represents a significant increase in CPU core count, memory a
 
 ## Getting Started
 
+The following is provided as a quick reference. Please see the official references below for more and up to date details.
+
 Install as root on Debian ([official reference](https://github.com/zabbly/incus)):
 ```bash
 curl -fsSL https://pkgs.zabbly.com/key.asc | gpg --show-keys --fingerprint
@@ -263,3 +265,5 @@ YOUR_USERNAME=$(id -u -n)
 sudo adduser $YOUR_USERNAME incus-admin
 newgrp incus-admin
 ```
+
+[Here is a list of Incus scripts](https://bketelsen.github.io/IncusScripts/scripts) to help you get common applications up and running.
