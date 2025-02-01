@@ -75,7 +75,7 @@ After you prove you can connect via the Netbird network, let's lock down your se
 ```bash
 #!/bin/bash
 # Install iptables-persistent to save rules
-sudo apt-get install iptables-persistent -y
+DEBIAN_FRONTEND=noninteractive sudo apt-get install iptables-persistent -y
 
 # Set my IP if you wish to allow ssh from it - uncomment this and below statements if needed
 #MY_IP_ADDRESS=x.x.x.x
@@ -238,11 +238,13 @@ Let's break this down:
 
 ## cloud-init Lock Down
 
-When you create a new instance in PhoenixNAP with a public IP, the machine's firewall is initially inactive/open. Below is a script that will prevent anyone other than someone from you IP address from connecting to SSH. 
+Note that this step is not critical; however, it is good practice. It is offered for your consideration.
 
-You can copy and paste into the 'Deploy New Server' process => 'Cloud Init' section when you check the 'Add user-data to cloud-init configuration' checkbox. Do not forget to set the "YOUR.IP.ADDRESS.HERE" variable with you actual IP address:
+When you create a new instance in PhoenixNAP with a public IP, the machine's firewall is initially inactive/open. Below is a cloud-init script that will prevent anyone other than someone from you IP address from connecting to your machine's SSH port.
 
-Note: this is still a work in progress... I will remove this line when the below works.
+You can copy and paste the following into the 'Deploy New Server' process => 'Cloud Init' section when you check the 'Add user-data to cloud-init configuration' checkbox.
+
+Do not forget to set the "YOUR.IP.ADDRESS.HERE" variable with you actual IP address. If you wish to use IPV6, simply uncomment that section and set your "YOUR.IPV6.ADDRESS.HERE" variable.
 
 ```yaml
 #cloud-config
@@ -253,7 +255,9 @@ write_files:
     content: |
       #!/bin/bash
 
+      ###############
       # IPv4 rules
+      ###############
       export MY_IPV4="YOUR.IP.ADDRESS.HERE"
       cat > /etc/network/iptables.rules << EOF
       *filter
@@ -269,22 +273,24 @@ write_files:
       EOF
       iptables-restore < /etc/network/iptables.rules
 
-      # IPv6 rules
-      export MY_IPV6="YOUR:IPV6:ADDRESS:HERE"
-      cat > /etc/network/ip6tables.rules << EOF
-      *filter
-      :INPUT DROP [0:0]
-      :FORWARD DROP [0:0]
-      :OUTPUT ACCEPT [0:0]
+      ###############
+      ## IPv6 rules
+      ###############
+      #export MY_IPV6="YOUR:IPV6:ADDRESS:HERE"
+      #cat > /etc/network/ip6tables.rules << EOF
+      #*filter
+      #:INPUT DROP [0:0]
+      #:FORWARD DROP [0:0]
+      #:OUTPUT ACCEPT [0:0]
 
-      -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-      -A INPUT -i lo -j ACCEPT
-      -A INPUT -p tcp -s $MY_IPV6 --dport 22 -j ACCEPT
-      -A INPUT -p ipv6-icmp -j ACCEPT
+      #-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+      #-A INPUT -i lo -j ACCEPT
+      #-A INPUT -p tcp -s $MY_IPV6 --dport 22 -j ACCEPT
+      #-A INPUT -p ipv6-icmp -j ACCEPT
 
-      COMMIT
-      EOF
-      ip6tables-restore < /etc/network/ip6tables.rules
+      #COMMIT
+      #EOF
+      #ip6tables-restore < /etc/network/ip6tables.rules
 
 runcmd:
   - apt-get update

@@ -3271,7 +3271,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <p>After you prove you can connect via the Netbird network, let's lock down your server. ssh to the server via the Netbird IP, and issue the following firewall commands. You may execute them as many times as is needed.</p>
 <pre><code class="language-bash">#!/bin/bash
 # Install iptables-persistent to save rules
-sudo apt-get install iptables-persistent -y
+DEBIAN_FRONTEND=noninteractive sudo apt-get install iptables-persistent -y
 
 # Set my IP if you wish to allow ssh from it - uncomment this and below statements if needed
 #MY_IP_ADDRESS=x.x.x.x
@@ -3422,9 +3422,10 @@ sudo apt install nginx -y
 <li>AND, we still reserve the right to use AWS if need arises.</li>
 </ul>
 <h2 id="cloud-init-lock-down"><a class="header" href="#cloud-init-lock-down">cloud-init Lock Down</a></h2>
-<p>When you create a new instance in PhoenixNAP with a public IP, the machine's firewall is initially inactive/open. Below is a script that will prevent anyone other than someone from you IP address from connecting to SSH.</p>
-<p>You can copy and paste into the 'Deploy New Server' process =&gt; 'Cloud Init' section when you check the 'Add user-data to cloud-init configuration' checkbox. Do not forget to set the "YOUR.IP.ADDRESS.HERE" variable with you actual IP address:</p>
-<p>Note: this is still a work in progress... I will remove this line when the below works.</p>
+<p>Note that this step is not critical; however, it is good practice. It is offered for your consideration.</p>
+<p>When you create a new instance in PhoenixNAP with a public IP, the machine's firewall is initially inactive/open. Below is a cloud-init script that will prevent anyone other than someone from you IP address from connecting to your machine's SSH port.</p>
+<p>You can copy and paste the following into the 'Deploy New Server' process =&gt; 'Cloud Init' section when you check the 'Add user-data to cloud-init configuration' checkbox.</p>
+<p>Do not forget to set the "YOUR.IP.ADDRESS.HERE" variable with you actual IP address. If you wish to use IPV6, simply uncomment that section and set your "YOUR.IPV6.ADDRESS.HERE" variable.</p>
 <pre><code class="language-yaml">#cloud-config
 
 write_files:
@@ -3433,7 +3434,9 @@ write_files:
     content: |
       #!/bin/bash
 
+      ###############
       # IPv4 rules
+      ###############
       export MY_IPV4="YOUR.IP.ADDRESS.HERE"
       cat &gt; /etc/network/iptables.rules &lt;&lt; EOF
       *filter
@@ -3449,22 +3452,24 @@ write_files:
       EOF
       iptables-restore &lt; /etc/network/iptables.rules
 
-      # IPv6 rules
-      export MY_IPV6="YOUR:IPV6:ADDRESS:HERE"
-      cat &gt; /etc/network/ip6tables.rules &lt;&lt; EOF
-      *filter
-      :INPUT DROP [0:0]
-      :FORWARD DROP [0:0]
-      :OUTPUT ACCEPT [0:0]
+      ###############
+      ## IPv6 rules
+      ###############
+      #export MY_IPV6="YOUR:IPV6:ADDRESS:HERE"
+      #cat &gt; /etc/network/ip6tables.rules &lt;&lt; EOF
+      #*filter
+      #:INPUT DROP [0:0]
+      #:FORWARD DROP [0:0]
+      #:OUTPUT ACCEPT [0:0]
 
-      -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-      -A INPUT -i lo -j ACCEPT
-      -A INPUT -p tcp -s $MY_IPV6 --dport 22 -j ACCEPT
-      -A INPUT -p ipv6-icmp -j ACCEPT
+      #-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+      #-A INPUT -i lo -j ACCEPT
+      #-A INPUT -p tcp -s $MY_IPV6 --dport 22 -j ACCEPT
+      #-A INPUT -p ipv6-icmp -j ACCEPT
 
-      COMMIT
-      EOF
-      ip6tables-restore &lt; /etc/network/ip6tables.rules
+      #COMMIT
+      #EOF
+      #ip6tables-restore &lt; /etc/network/ip6tables.rules
 
 runcmd:
   - apt-get update
