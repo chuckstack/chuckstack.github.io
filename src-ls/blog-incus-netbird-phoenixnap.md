@@ -307,6 +307,7 @@ You can view your iptables settings after login using:
 
 ```bash
 sudo iptables -L -v
+sudo ip6tables -L -v
 ```
 
 You can see the cloud-init status:
