@@ -309,6 +309,24 @@ You can view your iptables settings after login using:
 sudo iptables -L -v
 ```
 
+You can see the cloud-init status:
+
+```bash
+cloud-init status
+```
+
+You can view the main cloud-init log file:
+
+```bash
+cat /var/log/cloud-init.log
+```
+
+You can view the cloud-init output log:
+
+```bash
+cat /var/log/cloud-init-output.log
+```
+
 ## Frequently Asked Questions
 
 ### One or Two Servers?
