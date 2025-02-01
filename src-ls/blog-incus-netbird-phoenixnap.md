@@ -1,7 +1,7 @@
 # Incus + Netbird + PhoenixNAP
 
 - Published: 2025-01-28
-- Updated: 2025-01-28
+- Updated: 2025-02-01
 - Author: Chuck Boecking
 - Discussion: <https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75>
 
