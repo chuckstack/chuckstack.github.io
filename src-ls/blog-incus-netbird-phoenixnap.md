@@ -303,6 +303,12 @@ runcmd:
   - netfilter-persistent reload
 ```
 
+You can view your iptables settings after login using:
+
+```bash
+sudo iptables -L -v
+```
+
 ## Frequently Asked Questions
 
 ### One or Two Servers?
@@ -327,6 +333,4 @@ To discuss this content in more detail, go to <https://team.chuck-stack.org/t/hy
 
 ## TODO
 
-Here are the items I wish to improve upon:
-
-- PhoenixNAP cloud-init: need a quick cloud-init script to enable iptables to only allow ssh access from <my-ip>. This is needed because instances in PhoenixNAP do not have any firewall rules by default.
+There are no open todo items.

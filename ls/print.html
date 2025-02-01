@@ -3480,6 +3480,9 @@ runcmd:
   - netfilter-persistent save
   - netfilter-persistent reload
 </code></pre>
+<p>You can view your iptables settings after login using:</p>
+<pre><code class="language-bash">sudo iptables -L -v
+</code></pre>
 <h2 id="frequently-asked-questions"><a class="header" href="#frequently-asked-questions">Frequently Asked Questions</a></h2>
 <h3 id="one-or-two-servers"><a class="header" href="#one-or-two-servers">One or Two Servers?</a></h3>
 <p>Should you create one or two servers in the cloud once you go into production? This is a great question. Understand you need some form of redundancy in case bad things happen. If you have on-premise computing, PhoenixNAP can be your redundancy, in which case you only need one PhoenixNAP server. The opposite is also true.</p>
@@ -3492,10 +3495,7 @@ runcmd:
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 <p>To discuss this content in more detail, go to <a href="https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75">https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75</a>.</p>
 <h2 id="todo"><a class="header" href="#todo">TODO</a></h2>
-<p>Here are the items I wish to improve upon:</p>
-<ul>
-<li>PhoenixNAP cloud-init: need a quick cloud-init script to enable iptables to only allow ssh access from <my-ip>. This is needed because instances in PhoenixNAP do not have any firewall rules by default.</li>
-</ul>
+<p>There are no open todo items.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="letter-to-the-ceo-1"><a class="header" href="#letter-to-the-ceo-1">Letter to the CEO</a></h1>
 <ul>
 <li>Published: 2024-10-24</li>
