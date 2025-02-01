@@ -242,6 +242,8 @@ When you create a new instance in PhoenixNAP with a public IP, the machine's fir
 
 You can copy and paste into the 'Deploy New Server' process => 'Cloud Init' section when you check the 'Add user-data to cloud-init configuration' checkbox. Do not forget to set the "YOUR.IP.ADDRESS.HERE" variable with you actual IP address:
 
+Note: this is still a work in progress... I will remove this line when the below works.
+
 ```yaml
 #cloud-config
 
@@ -301,4 +303,4 @@ To discuss this content in more detail, go to <https://team.chuck-stack.org/t/hy
 
 Here are the items I wish to improve upon:
 
-- PhoenixNAP cloudinit: need a quick cloudinit script to enable iptables to only allow ssh access from <my-ip>. This is needed because instances in PhoenixNAP do not have any firewall rules by default.
+- PhoenixNAP cloud-init: need a quick cloud-init script to enable iptables to only allow ssh access from <my-ip>. This is needed because instances in PhoenixNAP do not have any firewall rules by default.

@@ -3424,6 +3424,7 @@ sudo apt install nginx -y
 <h2 id="cloud-init-lock-down"><a class="header" href="#cloud-init-lock-down">cloud-init Lock Down</a></h2>
 <p>When you create a new instance in PhoenixNAP with a public IP, the machine's firewall is initially inactive/open. Below is a script that will prevent anyone other than someone from you IP address from connecting to SSH.</p>
 <p>You can copy and paste into the 'Deploy New Server' process =&gt; 'Cloud Init' section when you check the 'Add user-data to cloud-init configuration' checkbox. Do not forget to set the "YOUR.IP.ADDRESS.HERE" variable with you actual IP address:</p>
+<p>Note: this is still a work in progress... I will remove this line when the below works.</p>
 <pre><code class="language-yaml">#cloud-config
 
 write_files:
@@ -3469,7 +3470,7 @@ runcmd:
 <h2 id="todo"><a class="header" href="#todo">TODO</a></h2>
 <p>Here are the items I wish to improve upon:</p>
 <ul>
-<li>PhoenixNAP cloudinit: need a quick cloudinit script to enable iptables to only allow ssh access from <my-ip>. This is needed because instances in PhoenixNAP do not have any firewall rules by default.</li>
+<li>PhoenixNAP cloud-init: need a quick cloud-init script to enable iptables to only allow ssh access from <my-ip>. This is needed because instances in PhoenixNAP do not have any firewall rules by default.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="letter-to-the-ceo-1"><a class="header" href="#letter-to-the-ceo-1">Letter to the CEO</a></h1>
 <ul>
