@@ -251,6 +251,7 @@
 <p>Congratulations! You now have a distributed hybrid cloud computing environment.</p>
 <h2 id="lock-it-down"><a class="header" href="#lock-it-down">Lock it Down</a></h2>
 <p>After you prove you can connect via the Netbird network, let's lock down your server. ssh to the server via the Netbird IP, and issue the following firewall commands. You may execute them as many times as is needed.</p>
+<p>Note: the below script has comments you can use to keep SSH open to your IP giving you an additional connection options.</p>
 <pre><code class="language-bash">#!/bin/bash
 # Install iptables-persistent to save rules
 DEBIAN_FRONTEND=noninteractive sudo apt-get install iptables-persistent -y
