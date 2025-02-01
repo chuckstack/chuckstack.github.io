@@ -252,7 +252,7 @@ write_files:
     permissions: '0755'
     content: |
       #!/bin/bash
-      MY_IP="YOUR.IP.ADDRESS.HERE"
+      export MY_IP="YOUR.IP.ADDRESS.HERE"
 
       cat > /etc/network/iptables.rules << EOF
       *filter
@@ -262,7 +262,7 @@ write_files:
 
       -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
       -A INPUT -i lo -j ACCEPT
-      -A INPUT -p tcp -s \${MY_IP} --dport 22 -j ACCEPT
+      -A INPUT -p tcp -s $MY_IP --dport 22 -j ACCEPT
 
       COMMIT
       EOF
