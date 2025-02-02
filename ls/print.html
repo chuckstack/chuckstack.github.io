@@ -1519,7 +1519,11 @@ newgrp incus-admin
 <li>Normal <code>ssh</code> where you share a private key beforehand and connect using <code>ssh your-user@some-netbird-ip</code></li>
 <li>Special <code>netbird ssh</code> where you do not even need an ssh server running or a shared key on the remote machine using <code>netbird ssh your-user@some-netbird-ip</code></li>
 </ul>
-<p>Note: you need to use sudo privileges when using <code>netbird ssh</code>.</p>
+<p>Notes:</p>
+<ul>
+<li>You need to use sudo privileges when using <code>netbird ssh</code>.</li>
+<li><code>sudo netbird down &amp;&amp; sudo netbird up --allow-server-ssh</code> allows you to bounce a remote netbird service and allow <code>netbird ssh</code> without shut out of the Netbird network.</li>
+</ul>
 <h2 id="incus-1"><a class="header" href="#incus-1">Incus</a></h2>
 <p>Netbird and <a href="./tool-incus.html">Incus</a> have good synergy. It is common to use <a href="./tool-incus.html#incus-use-cases">Incus in multiple ways</a>. Netbird gives you an easy to install and manage network overlay to connect all your Incus clusters around the world.</p>
 <p>Reference: <a href="./blog-incus-netbird-phoenixnap.html">Hybrid Cloud Synergy: Incus + Netbird PhoenixNAP</a></p>

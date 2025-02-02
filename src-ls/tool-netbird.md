@@ -47,7 +47,10 @@ There are two ways to connect to a remote Netbird machine using ssh:
 - Normal `ssh` where you share a private key beforehand and connect using `ssh your-user@some-netbird-ip`
 - Special `netbird ssh` where you do not even need an ssh server running or a shared key on the remote machine using `netbird ssh your-user@some-netbird-ip`
 
-Note: you need to use sudo privileges when using `netbird ssh`.
+Notes: 
+
+- You need to use sudo privileges when using `netbird ssh`.
+- `sudo netbird down && sudo netbird up --allow-server-ssh` allows you to bounce a remote netbird service and allow `netbird ssh` without shut out of the Netbird network.
 
 ## Incus
 
