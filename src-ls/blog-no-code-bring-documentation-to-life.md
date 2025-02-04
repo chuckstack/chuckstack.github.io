@@ -7,7 +7,7 @@
 
 ## When Instructions Matter
 
-The purpose of this post is to demonstrate how to bring work instructions and documentation to life.
+The purpose of this post is to demonstrate how to bring work instructions and documentation to life using free and off-the-shelf tools with minimal effort.
 
 Here is the benefit short story:
 
@@ -30,7 +30,7 @@ As a result of this article, you can:
 
 **Problem #2:** People have a limited ability to hold information in their conscience context when performing a task. Sometimes we need to look things up for reference.
 
-**Problem #3:** It is easier to ask for help than to find the answer yourself. Much of an organization's efficiency is lost because institutional knowledge is either not written down, or it is located in an inconvenient location, or your organization has trained people to ask instead of self-help.
+**Problem #3:** It is often easier to ask for help than to find the answer yourself. Much of an organization's efficiency is lost because institutional knowledge is either not written down, it is located in an inconvenient location, or your organization has trained people to ask instead of self-help.
 
 **Problem #4:** Finding information is not always easy even when you know where to look. Understanding the information after you find it can be even more difficult.
 
@@ -40,340 +40,68 @@ As a result of this article, you can:
 
 This posts walks you through the steps to deploy a solution that solves the above problems using free tools.
 
-Before we get into the details of the solution, I want to state a few important points:
+Before we get into the details of the solution, I want to state a few important summary points about writing documentation and work instructions. You can find [more details here](./best-practices-operation.md#quality-program-principles).
 
 - Current foundation LLMs (like ChatGPT, Claude, Gemini, ...) know more about public topics that any one human. I have spent 20 years in ERP, and they know far more about this topic than I do. If a topic has been reasoned about on the internet, these LLMs know about it.
-- The goals of writing documentation have changed (min and direct vocab)
-
-## Target Audience
-
-This guide is designed for someone with some technical skills. If you are not that person, simply share this guide with someone who is.
-
-
-
-
-
-
-
-
-
-## Hybrid Cloud Picture of Success
-
-This post helps you solve the problem statements listed above, drive better productivity across your whole organization, and make the most of your collective skills and knowledge.
-
-Before we get into the details of the solution, I want to state a few importing points:
-
-- Virtualization is important to an organization's success - it helps you make the most of your resources
-- Virtualization should exist at all levels (cloud, on-premise, desktop, mobile)
-- The same virtualization tools, skills and knowledge should be applied at all levels (not just cloud)
+- The goals of writing documentation have changed. You no longer need to write down everything. Instead, you need to write just enough where the LLM knows what you are discussion and how you want it discussed. The LLM can fill in ancillary details.
+- [more...](./best-practices-operation.md#quality-program-principles)
 
 Here is what I am proposing:
 
-- Use a bare-metal cloud provider like [PhoenixNAP](https://phoenixnap.com/bare-metal-cloud) to execute your cloud strategy.
-  - They provide the minimum feature set needed to execute your cloud strategy at a more reasonable price (Compute, storage, network) with the ease of use expected from a cloud provider.
-- Use [Incus](./tool-incus.md) to execute your virtualization strategy so that you only need to learn one tool to provide your infrastructure.
-  - Use it in the cloud.
-  - Use it in each of your offices.
-  - Use it on desktops.
-  - Use it everywhere you need virtualization.
-- Connect every virtual server, every office and remote worker to your infrastructure using [Netbird](./tool-netbird.md).
+- Use [Obsidian](./tool-obsidian.md) to help your core documentation resources create your instructions as [markdown text](./blog-live-markdown-world.md).
+- Configure Obsidian to save your team's work in a [git repository](./tool-git.md). This will give your whole organization special powers to make continual changes in a controlled way.
+- Use [mdBook](./tool-mdbook.md) to publish your work instructions to your intended audience. See [Netbird](./tool-netbird.md) if you need to create a private network.
+- Use [AIChat](./tool-aichat.md) to a) ingest your work instructions so that an LLM/AI can answer question and b) make the LLM/AI/Chat available directly inside your mdBook website.
+
+## Target Audience
+
+This guide is designed for someone with some technical skills. If you are not that person, simply share this guide with someone who is so they can help you.
 
 ## Implementation Details
 
-Here are the steps to accomplish my proposed hybrid cloud love story:
-
-- Create an account at [Netbird](./tool-netbird.md), and create a new setup key. This will take you about 2 minutes.
-- Create an account at [PhoenixNAP](https://phoenixnap.com/bare-metal-cloud) bare-metal service. This will take about 2 minutes.
-- Create a new PhoenixNAP hourly bare-metal Debian instance with a single CPU, medium core count and medium RAM. This will take you about 4 minutes for purchase and allocation, and it will cost you about $0.30 per hour.
-- ssh to the server and install [Incus](./tool-incus.md#getting-started). This will take you about 2 minutes.
-- Install Netbird. This will take you about 1 minute.
-  - Bring up Netbird with your setup key: `netbird up --setup-key xxxxx-xxxx-xxxx --allow-server-ssh`
-  - 'Allow ssh' in your Netbird console in addition to the above `--allow-server-ssh`.
-- Install Netbird on a local machine so that you can test the connection.
-- Connect from your local machine to your cloud server via ssh using the Netbird IP/URL.
-
-Congratulations! You now have a distributed hybrid cloud computing environment.
-
-## Lock it Down
-
-After you prove you can connect via the Netbird network, let's lock down your server. ssh to the server via the Netbird IP, and issue the following firewall commands. You may execute them as many times as is needed.
-
-Note: the below script has comments you can use to keep SSH open to your IP giving you an additional connection options.
-
-```bash
-#!/bin/bash
-# Install iptables-persistent to save rules
-DEBIAN_FRONTEND=noninteractive sudo apt-get install iptables-persistent -y
-
-# Set my IP if you wish to allow ssh from it - uncomment this and below statements if needed
-#MY_IP_ADDRESS=x.x.x.x
-#MY_IP6_ADDRESS=x:x:x:x
-
-# Find my IP addresses
-##curl -4 ifconfig.me #ip-v4
-##curl -6 ifconfig.me #ip-v6
-
-# Get network interface details
-MAIN_INTERFACE=$(ip route get 8.8.8.8 | grep -oP 'dev \K\S+')
-INCUS_SUBNET=$(ip -4 addr show incusbr0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}/\d+')
-INCUS_SUBNET_V6=$(ip -6 addr show incusbr0 | grep -oP '(?<=inet6\s)[0-9a-f:]+/\d+' | grep -v '^fe80')
-
-# Flush existing rules
-sudo iptables -F
-sudo iptables -X
-sudo iptables -t nat -F
-sudo iptables -t nat -X
-sudo ip6tables -F
-sudo ip6tables -X
-sudo ip6tables -t nat -F
-sudo ip6tables -t nat -X
-
-# Set default policies to DROP
-sudo iptables -P INPUT DROP
-sudo iptables -P FORWARD DROP
-sudo iptables -P OUTPUT ACCEPT
-sudo ip6tables -P INPUT DROP
-sudo ip6tables -P FORWARD DROP
-sudo ip6tables -P OUTPUT ACCEPT
-
-# Allow loopback
-sudo iptables -A INPUT -i lo -j ACCEPT
-sudo iptables -A OUTPUT -o lo -j ACCEPT
-sudo ip6tables -A INPUT -i lo -j ACCEPT
-sudo ip6tables -A OUTPUT -o lo -j ACCEPT
-
-# Allow established and related connections
-sudo iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-sudo iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-sudo ip6tables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-sudo ip6tables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-
-# Allow wt0 interface
-sudo iptables -A INPUT -i wt0 -j ACCEPT
-sudo iptables -A OUTPUT -o wt0 -j ACCEPT
-sudo ip6tables -A INPUT -i wt0 -j ACCEPT
-sudo ip6tables -A OUTPUT -o wt0 -j ACCEPT
+Here are the steps to accomplish my proposed documentation and work instruction love story:
 
-# Allow incusbr0 interface
-sudo iptables -A INPUT -i incusbr0 -j ACCEPT
-sudo iptables -A OUTPUT -o incusbr0 -j ACCEPT
-sudo ip6tables -A INPUT -i incusbr0 -j ACCEPT
-sudo ip6tables -A OUTPUT -o incusbr0 -j ACCEPT
+- Install Obsidian on the machines documentation and work instruction power users. Follow [operation best practices](./best-practices-operation.md) and [Obsidian](./tool-obsidian.md) best practices.
+- Configure the following in Obsidian:
+  - Install the `git` community plugin. This allows you to easily sync all changes to a single place.
+  - Change the default Obsidian link method to use the markdown style: `[link name](./link-to-file)` instead of the default wikilinks style: `[[file-name]]`. This change is needed when you publish using mdBook.
+- Create a new server with [nginx](https://nginx.org/en/) and [AIChat](./tool-aichat.md) installed on your network to publish your documentation. See configuration below.
+- Create a scheduled script on your server to do the following (see details below):
+  - Download and publish the latest documentation changes
+  - Update your LLM with the latest changes to ensure it can answer questions correctly
 
-# NAT and forwarding rules
-sudo iptables -t nat -A POSTROUTING -s $INCUS_SUBNET -o $MAIN_INTERFACE -j MASQUERADE
-sudo iptables -A FORWARD -i incusbr0 -o $MAIN_INTERFACE -j ACCEPT
-sudo iptables -A FORWARD -i $MAIN_INTERFACE -o incusbr0 -j ACCEPT
-sudo ip6tables -t nat -A POSTROUTING -s $INCUS_SUBNET_V6 -o $MAIN_INTERFACE -j MASQUERADE
-sudo ip6tables -A FORWARD -i incusbr0 -o $MAIN_INTERFACE -j ACCEPT
-sudo ip6tables -A FORWARD -i $MAIN_INTERFACE -o incusbr0 -j ACCEPT
+Now, let's get into more detail.
 
-# Allow SSH from your specific IP (must set MY_IP_ADDRESS and MY_IP6_ADDRESS above)
-#sudo iptables -A INPUT -p tcp -s $MY_IP_ADDRESS --dport 22 -j ACCEPT
-#sudo ip6tables -A INPUT -p tcp -s $MY_IP6_ADDRESS --dport 22 -j ACCEPT
-
-# If you want to allow SSH from ANYWHERE (less secure)
-#sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
-#sudo ip6tables -A INPUT -p tcp --dport 22 -j ACCEPT
-
-# Allow SSH output
-sudo iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
-sudo ip6tables -A OUTPUT -p tcp --sport 22 -j ACCEPT
-
-# Save the iptables rules
-DEBIAN_FRONTEND=noninteractive sudo netfilter-persistent save
-```
+## AIChat Primer
 
-These commands configure and enable a firewall to do the following:
+Quick demonstration of power and simplicity
 
-- Allow nothing from the outside world to enter your server
-- Removes all restrictions around both the Netbird and Incus network adapters
-- Allows containers to use DNS to reach the outside world
+## Configure Your Server
 
-It is important to note that I am not a security advisor. You are well advised to validate any claims made here. Here is how I quickly tested the server from a remote machine:
+Only execute the steps in this section one time. Here is all you need to do to configure you server.
 
-```bash
-❯ nmap -Pn -p- -T4 <server-public-ip>
-Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-28 12:44 CST
-Nmap scan report for <server-public-ip>
-Host is up.
-All 65535 scanned ports on 131.153.231.201 are in ignored states.
-Not shown: 65535 filtered tcp ports (no-response)
+## Web Edit Workflow
 
-Nmap done: 1 IP address (1 host up) scanned in 6582.44 seconds
-```
+Above, we discuss how your power users are going to create documents. The purpose of this section is how you encourage everyone to contribute to documentation.
 
-## First Incus Server
+...
 
-Let's configure our first Incus cloud server and join it to the Netbird network.
+Now that you know why git is so important, let's discuss some important details around making git easy.
 
-Connect to your Incus server via ssh and launch your first server:
+## Git Details Worth Knowing
 
-```bash
-incus launch images:debian/12/cloud debian-guest-01 -d root,size=15GiB
-```
+## LLM-AI in Obsidian
 
-Connect to your Debian server:
+Discuss AI plugins and how to use
 
-```bash
-incus exec debian-guest-01 bash
-```
+## Why Not Use Google Docs
 
-Install openssh Server if you wish to connect directly to this server via SSH ([see Netbird SSH options](./tool-netbird.md#ssh-using-netbird)):
+## Vision of Things to Come Quickly
 
-```bash
-apt update
-apt install openssh-server
-```
 
-Install Netbird:
 
-```bash
-netbird up --setup-key xxxxx-xxxx-xxxx --allow-server-ssh
-```
 
-Install nginx so that we can see the default page:
 
-```bash
-apt update
-apt install nginx -y
-```
-
-Note: New containers do not have any firewall rules enabled by default. While the outside world cannot see/find them, anyone on your Netbird network can access all open ports.
-
-If all worked as expected, you can exit back to your local machine and test your connection. Do the following:
-
-- Confirm you can see your Debian machine in your Netbird web console and copy its Netbird URL.
-- Use your local browser to connect to your Debian server running nginx by simply pasting the Netbird URL in the browser.
-
-## Taking Inventory of What We Accomplished
-
-I cannot put into words how excited I am about this solution. We created a global network (using Netbird) using a tool that can run anywhere (Incus) to provide service to our organization.
-
-We can test our services on a local desktop, deploy services to a local server, and replicate services to cloud servers... All using the same tools and skills at every step!
-
-## Cost Comparison
-
-I previously stated this solutions costs between 1/3 and 1/4 that of AWS, Azure and other major cloud providers. The real savings is shockingly more!
-
-Let's break this down:
-
-- Compute: For a 96 core x86 with between about 300GiB of RAM as of the time of this writing:
-  - PhoenixNAP is 1/5 the compute cost of AWS
-    - PhoenixNAP (s4.x6.c6.Large): $21,000 total paid monthly over 3 years
-      - Intel Xeon 6 6731E (96 core) - launched Q2 2024
-      - 256 GiB RAM
-      - 4 TB NVMe
-      - 2x 25Gbps
-    - AWS (c6a.48xlarge): $131,775 (all upfront on a 3-year reservation standard - non-convertable)
-      - 3.6 GHz 3rd generation AMD EPYC processors (48 core AMD EPYC 7R13)
-      - 384 GiB RAM
-      - No hard drive
-      - 50 Gbps
-    - AWS (m7i.48xlarge): $100,400 (all upfront on a 3-year reservation standard - non-convertable)
-      - 3.2 GHz 4th Generation Intel Xeon Scalable processor (48 core Sapphire Rapids 8488C) - launched Q1 2023
-      - 768 GiB RAM
-      - No hard drive
-      - 50 Gbps
-    - Note that effort was made to disclose details and make this comparison reasonable. If you have concerns about this comparison, [please comment here](https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75).
-    - Note that the AWS m7i.48xlarge (virtualized) and m7i.metal-48xl (bare-metal) are approximately the same price.
-- PhoenixNAP includes 4TB of storage versus AWS includes not storage. All storage puchased in AWS increases the margin.
-- PhoenixNAP (in our case) uses Incus for virtualization. This means the same virtualization is used everywhere. This means we only need one skillset. AWS has no on-premise or desktop virtualiztion solution that is consistent with its cloud offering. This means I now need double the number of experts.
-- Incus allows for on-premise computing using the exact same tools and expertise. [Per this page](./tool-incus.md#medium-cluster-rack), I can purchase 72 cores (144vCPU) of computing power accross 3 servers (redundancy) to run on-premise. We have now almost doubled AWS's computing power across multiple data centers, and we are will less than 1/3 the cost.
-- AND, we have way more flexibility.
-- AND, we still reserve the right to use AWS if the need arises.
-
-## cloud-init Lock Down
-
-Note that this step is not critical; however, it is good practice. It is offered for your consideration.
-
-When you create a new instance in PhoenixNAP with a public IP, the machine's firewall is initially inactive/open. Below is a cloud-init script that will prevent anyone other than someone from you IP address from connecting to your machine's SSH port.
-
-You can copy and paste the following into the 'Deploy New Server' process => 'Cloud Init' section when you check the 'Add user-data to cloud-init configuration' checkbox.
-
-Do not forget to set the "YOUR.IP.ADDRESS.HERE" variable with you actual IP address. If you wish to use IPV6, simply uncomment that section and set your "YOUR.IPV6.ADDRESS.HERE" variable.
-
-Your IPV4 address: `curl -4 ifconfig.me`
-Your IPV6 address: `curl -6 ifconfig.me`
-
-```yaml
-#cloud-config
-
-write_files:
-  - path: /tmp/setup-iptables.sh
-    permissions: '0755'
-    content: |
-      #!/bin/bash
-
-      ###############
-      # IPv4 rules
-      ###############
-      export MY_IPV4="YOUR.IP.ADDRESS.HERE"
-      cat > /etc/network/iptables.rules << EOF
-      *filter
-      :INPUT DROP [0:0]
-      :FORWARD DROP [0:0]
-      :OUTPUT ACCEPT [0:0]
-
-      -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-      -A INPUT -i lo -j ACCEPT
-      -A INPUT -p tcp -s $MY_IPV4 --dport 22 -j ACCEPT
-
-      COMMIT
-      EOF
-      iptables-restore < /etc/network/iptables.rules
-
-      ###############
-      ## IPv6 rules
-      ###############
-      #export MY_IPV6="YOUR:IPV6:ADDRESS:HERE"
-      #cat > /etc/network/ip6tables.rules << EOF
-      #*filter
-      #:INPUT DROP [0:0]
-      #:FORWARD DROP [0:0]
-      #:OUTPUT ACCEPT [0:0]
-
-      #-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-      #-A INPUT -i lo -j ACCEPT
-      #-A INPUT -p tcp -s $MY_IPV6 --dport 22 -j ACCEPT
-      #-A INPUT -p ipv6-icmp -j ACCEPT
-
-      #COMMIT
-      #EOF
-      #ip6tables-restore < /etc/network/ip6tables.rules
-
-runcmd:
-  - apt-get update
-  - DEBIAN_FRONTEND=noninteractive apt-get install -y iptables-persistent
-  - /tmp/setup-iptables.sh
-  - netfilter-persistent save
-  - netfilter-persistent reload
-```
-
-You can view your iptables settings after login using:
-
-```bash
-sudo iptables -L -v
-sudo ip6tables -L -v
-```
-
-You can see the cloud-init status:
-
-```bash
-cloud-init status
-```
-
-You can view the main cloud-init log file:
-
-```bash
-cat /var/log/cloud-init.log
-```
-
-You can view the cloud-init output log:
-
-```bash
-cat /var/log/cloud-init-output.log
-```
 
 ## Frequently Asked Questions
 
