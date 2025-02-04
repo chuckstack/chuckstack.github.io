@@ -25,6 +25,7 @@ Special considerations for Obsidian:
 References:
 
 - [We live in a Markdown World](./blog-live-markdown-world.md)
+- [Obsidian good practices from someone we respect](https://www.youtube.com/watch?v=B0yAy2j-9V0)
 
 ## Obsidian Plugins
 

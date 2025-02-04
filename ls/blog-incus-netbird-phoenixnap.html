@@ -494,6 +494,12 @@ sudo ip6tables -L -v
 <p>You can view the cloud-init output log:</p>
 <pre><code class="language-bash">cat /var/log/cloud-init-output.log
 </code></pre>
+<h2 id="creating-an-emergency-backdoor"><a class="header" href="#creating-an-emergency-backdoor">Creating An Emergency Backdoor</a></h2>
+<p>Note that PhoenixNAP has a 'Launch Console' feature to help you connect to your server even if all other methods fail. Launching a console via the browser from the portal gets you to a login screen. You will need to either give your debian user a password, or find a different way to login per the PhoenixNAP support team.</p>
+<p>To give your debian user a password:</p>
+<pre><code class="language-bash">sudo passwd debian
+</code></pre>
+<p>Note that you must assign and record the password before you need it in an emergency scenario.</p>
 <h2 id="frequently-asked-questions"><a class="header" href="#frequently-asked-questions">Frequently Asked Questions</a></h2>
 <h3 id="one-or-two-servers"><a class="header" href="#one-or-two-servers">One or Two Servers?</a></h3>
 <p>Should you create one or two servers in the cloud once you go into production? This is a great question. Understand you need some form of redundancy in case bad things happen. If you have on-premise computing, PhoenixNAP can be your redundancy, in which case you only need one PhoenixNAP server. The opposite is also true.</p>

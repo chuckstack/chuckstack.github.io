@@ -1,35 +1,61 @@
-# Incus + Netbird + PhoenixNAP
+# Bring Documentation to Life with No Code
 
-- Published: 2025-01-28
-- Updated: 2025-02-01
+- Published: 2025-02-02
+- Updated: 2025-02-02
 - Author: Chuck Boecking
-- Discussion: <https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75>
+- Discussion: <>
 
-## Hybrid Cloud Synergy
+## When Instructions Matter
 
-The purpose of this post is to highlight what you can accomplish when you combine [Incus](./tool-incus.md) (virtualization) with [Netbird](./tool-netbird.md) (vpn network overlay) and [PhoenixNAP](https://phoenixnap.com/bare-metal-cloud) (bare-metal cloud provider).
+The purpose of this post is to demonstrate how to bring work instructions and documentation to life.
 
 Here is the benefit short story:
 
-- Create a cost-effective hybrid cloud server with good CPU core count, RAM, and HD at roughly 1/3 to 1/4 the 3-year cost of AWS or Azure
-- Hire compute skills and knowledge that can be used throughout your organization (not just in the cloud)
-- Secure your systems and hide them from the outside world
-- Use any application or service you deem appropriate at any location (Docker + containers + virtual machines)
-- Connect your world-wide workforce to these services (remote offices + remote workers)
+- Help your users answer their own questions
+- Help your users continually improve their work instructions and documentation every day
+- Use these tools to create a self-help automation platform
 
 > It is important to note that I am a champion of small to medium organizations. You are my target audience. This post was written for you! 
 
 As a result of this article, you can:
 
-- Minimize recurring costs
-- Minimize technology skills needed to run a global organization
-- Maximize options for computing power
+- Publish your work instructions and documentation to the web or local intranet.
+- Give users a chat interface to understand their documentation.
+- Provide workflow to easily update documentation.
+- Ensure your chat (AI/LLM) always knows the current instructions.
 
 ## Problem Statement
 
-**Problem #1:** Cloud computing is very expensive relative to the solution in this post. You pay a premium for the CPU AND the disk space (HD) AND just about everything else. I have a customer whose monthly AWS EBS drive cost was more than the EC2 compute cost. These costs reduce your profit and the good your organization can provide the world.
+**Problem #1:** People are generally not good at following directions with near perfect precision. We are creative, imaginative, and (as a result of these strengths) we are often distracted. These distractions sometimes result in mistakes when performing tasks.
 
-**Problem #2:** The expertise needed to articulate a cloud architecture is expensive, and these skills and knowledge cannot be used throughout the rest of your organization. Said another way, typical cloud solutions force you to hire expensive cloud people and trap them in the cloud.
+**Problem #2:** People have a limited ability to hold information in their conscience context when performing a task. Sometimes we need to look things up for reference.
+
+**Problem #3:** It is easier to ask for help than to find the answer yourself. Much of an organization's efficiency is lost because institutional knowledge is either not written down, or it is located in an inconvenient location, or your organization has trained people to ask instead of self-help.
+
+**Problem #4:** Finding information is not always easy even when you know where to look. Understanding the information after you find it can be even more difficult.
+
+**Problem #5:** The current solutions for solving these problems can be very expensive.
+
+## Free Picture of Success
+
+This posts walks you through the steps to deploy a solution that solves the above problems using free tools.
+
+Before we get into the details of the solution, I want to state a few important points:
+
+- Current foundation LLMs (like ChatGPT, Claude, Gemini, ...) know more about public topics that any one human. I have spent 20 years in ERP, and they know far more about this topic than I do. If a topic has been reasoned about on the internet, these LLMs know about it.
+- The goals of writing documentation have changed (min and direct vocab)
+
+## Target Audience
+
+This guide is designed for someone with some technical skills. If you are not that person, simply share this guide with someone who is.
+
+
+
+
+
+
+
+
 
 ## Hybrid Cloud Picture of Success
 
@@ -348,18 +374,6 @@ You can view the cloud-init output log:
 ```bash
 cat /var/log/cloud-init-output.log
 ```
-
-## Creating An Emergency Backdoor
-
-Note that PhoenixNAP has a 'Launch Console' feature to help you connect to your server even if all other methods fail. Launching a console via the browser from the portal gets you to a login screen. You will need to either give your debian user a password, or find a different way to login per the PhoenixNAP support team.
-
-To give your debian user a password:
-
-```bash
-sudo passwd debian
-```
-
-Note that you must assign and record the password before you need it in an emergency scenario.
 
 ## Frequently Asked Questions
 
