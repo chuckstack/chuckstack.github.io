@@ -72,7 +72,11 @@ Congratulations! You now have a distributed hybrid cloud computing environment.
 
 After you prove you can connect via the Netbird network, let's lock down your server. ssh to the server via the Netbird IP, and issue the following firewall commands. You may execute them as many times as is needed.
 
-Note: the below script has comments you can use to keep SSH open to your IP giving you an additional connection options.
+Notes about leaving SSH open to your IP: 
+
+- The below script has commented out lines you can use to keep SSH open to your IP giving you an additional connection options.
+- Your local IP can change if you have DHCP.
+- Opening SSH to an IP can open the server to an entire group of people that share your IP (local office).
 
 ```bash
 #!/bin/bash
