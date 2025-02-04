@@ -151,11 +151,25 @@ The hybrid virtualization scenario is why we love Incus. It gives your organizat
 
 > We believe the single greatest benefit to Incus is the ability to use the same tool across many use cases deployed anywhere in the world.
 
-## Netbird
+## Incus Storage
+
+Here is how I would describe Incus storage capabilities:
+
+- File system storage - An Incus instance can have one or more volumes. Any instance (container or VM) will connect to at least one volume.
+- S3 - An Incus instance can publish an S3 api endpoint.
+- Ceph - An Incus cluster and support one or more Ceph distributed storage volumes.
+
+## Netbird Networking
 
 Incus and [Netbird](./tool-netbird.md) have good synergy. Netbird gives you an easy to install and manage network overlay to connect all your Incus clusters around the world.
 
+Netbird tends to be our network overlay preference since it naturally extends to remote offices and people with no extra effort.
+
 Reference: [Hybrid Cloud Synergy: Incus + Netbird PhoenixNAP](./blog-incus-netbird-phoenixnap.md)
+
+## OVN Networking
+
+An Incus cluster can support an OVN network overlay.
 
 ## Vocabulary
 

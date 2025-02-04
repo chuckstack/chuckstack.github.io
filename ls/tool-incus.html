@@ -301,9 +301,19 @@
 <blockquote>
 <p>We believe the single greatest benefit to Incus is the ability to use the same tool across many use cases deployed anywhere in the world.</p>
 </blockquote>
-<h2 id="netbird"><a class="header" href="#netbird">Netbird</a></h2>
+<h2 id="incus-storage"><a class="header" href="#incus-storage">Incus Storage</a></h2>
+<p>Here is how I would describe Incus storage capabilities:</p>
+<ul>
+<li>File system storage - An Incus instance can have one or more volumes. Any instance (container or VM) will connect to at least one volume.</li>
+<li>S3 - An Incus instance can publish an S3 api endpoint.</li>
+<li>Ceph - An Incus cluster and support one or more Ceph distributed storage volumes.</li>
+</ul>
+<h2 id="netbird-networking"><a class="header" href="#netbird-networking">Netbird Networking</a></h2>
 <p>Incus and <a href="./tool-netbird.html">Netbird</a> have good synergy. Netbird gives you an easy to install and manage network overlay to connect all your Incus clusters around the world.</p>
+<p>Netbird tends to be our network overlay preference since it naturally extends to remote offices and people with no extra effort.</p>
 <p>Reference: <a href="./blog-incus-netbird-phoenixnap.html">Hybrid Cloud Synergy: Incus + Netbird PhoenixNAP</a></p>
+<h2 id="ovn-networking"><a class="header" href="#ovn-networking">OVN Networking</a></h2>
+<p>An Incus cluster can support an OVN network overlay.</p>
 <h2 id="vocabulary"><a class="header" href="#vocabulary">Vocabulary</a></h2>
 <p>This section defines important terms. The hope is to create better and more concise discussions below.</p>
 <ul>
