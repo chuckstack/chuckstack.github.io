@@ -31,16 +31,18 @@ Here are the more detailed guidelines for inclusion:
 - **REST centric** - we love scriptable interfaces that can be called from anywhere (not just the cli).
 - **Globally deployed** - supports any organization in an corner of the world on almost any hosting platform.
 
-## Preference for Rust Language
+## Language Preference
 
-You might observe that we have a preference for applications written in the Rust language. This preference is intentional for the following reasons:
+You might observe that we have a preference for applications written in the modern languages like Rust and Zig that a) compile directly to native binaries, b) run in a deterministic manner (example: no garbage collection), and c) create a tool chain that is both easy to use, script and reason about. 
 
-- Rust promotes writing safe applications by eliminating the majority of problems that have plagued developers for the last 30 years.
-- Rust applications typically compile down to a single binary.
-- The Rust tool chain is simple to understand and execute for both application development and deployment.
-- Rust applications tend to perform better and faster than their counterparts.
-- Rust supports full stack development thus minimizing the number of experts needed to solve a problem.
-- The Rust community practices and values align with the chuck-stack community. See our [code of conduct](./code-of-conduct.md) as an example.
+This preference is intentional for the following reasons:
+
+- Rust and Zig promote writing more safe applications by eliminating many of mistakes that have plagued developers for the last 30 years.
+- These applications typically compile down to a single binary.
+- These tool chains are simple to understand and execute for both application development and deployment.
+- These applications tend to perform better and faster than their counterparts.
+- These tool chains support full stack development thus minimizing the number of experts needed to solve a problem.
+- These community's practices and values align with the chuck-stack community. See our [code of conduct](./code-of-conduct.md) as an example.
 
 ## Critical Path Tools
 
