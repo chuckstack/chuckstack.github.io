@@ -1,0 +1,426 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Operations AI LLM Automation in 2025</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ul class="chapter">
+                    <li><a class="active" href="../">chuck-stack Home</a></li> <!--chuboe changed-->
+                </ul>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="picture-success.html"><strong aria-hidden="true">2.</strong> Picture of Success</a></li><li class="chapter-item expanded "><a href="success-factor.html"><strong aria-hidden="true">3.</strong> Success Factors</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="success-cli.html"><strong aria-hidden="true">3.1.</strong> Success with CLI</a></li><li class="chapter-item expanded "><a href="success-linux.html"><strong aria-hidden="true">3.2.</strong> Success with Linux</a></li><li class="chapter-item expanded "><a href="success-postgresql.html"><strong aria-hidden="true">3.3.</strong> Success with PostgreSQL</a></li><li class="chapter-item expanded "><a href="success-api.html"><strong aria-hidden="true">3.4.</strong> Success with API</a></li><li class="chapter-item expanded "><a href="success-ai.html"><strong aria-hidden="true">3.5.</strong> Success with AI</a></li></ol></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">4.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="stack-faq.html"><strong aria-hidden="true">5.</strong> Stack FAQ</a></li><li class="chapter-item expanded "><a href="stack-tools.html"><strong aria-hidden="true">6.</strong> Stack Tools</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tool-incus.html"><strong aria-hidden="true">6.1.</strong> Incus</a></li><li class="chapter-item expanded "><a href="tool-linux.html"><strong aria-hidden="true">6.2.</strong> Linux</a></li><li class="chapter-item expanded "><a href="tool-postgresql.html"><strong aria-hidden="true">6.3.</strong> PostgreSQL</a></li><li class="chapter-item expanded "><a href="tool-postgrest.html"><strong aria-hidden="true">6.4.</strong> PostgREST</a></li><li class="chapter-item expanded "><a href="tool-aichat.html"><strong aria-hidden="true">6.5.</strong> AIChat</a></li><li class="chapter-item expanded "><a href="tool-nushell.html"><strong aria-hidden="true">6.6.</strong> Nushell</a></li><li class="chapter-item expanded "><a href="tool-zellij.html"><strong aria-hidden="true">6.7.</strong> Zellij</a></li><li class="chapter-item expanded "><a href="tool-git.html"><strong aria-hidden="true">6.8.</strong> Git</a></li><li class="chapter-item expanded "><a href="tool-obsidian.html"><strong aria-hidden="true">6.9.</strong> Obsidian</a></li><li class="chapter-item expanded "><a href="tool-netbird.html"><strong aria-hidden="true">6.10.</strong> Netbird</a></li><li class="chapter-item expanded "><a href="tool-htmx.html"><strong aria-hidden="true">6.11.</strong> htmx</a></li><li class="chapter-item expanded "><a href="tool-discourse.html"><strong aria-hidden="true">6.12.</strong> Discourse</a></li><li class="chapter-item expanded "><a href="tool-mdbook.html"><strong aria-hidden="true">6.13.</strong> mdBook</a></li><li class="chapter-item expanded "><a href="tool-others.html"><strong aria-hidden="true">6.14.</strong> Others</a></li></ol></li><li class="chapter-item expanded "><a href="stack-architecture.html"><strong aria-hidden="true">7.</strong> Stack Architecture</a></li><li class="chapter-item expanded "><a href="stack-application.html"><strong aria-hidden="true">8.</strong> Stack Application</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="application-deploy.html"><strong aria-hidden="true">8.1.</strong> Deployment</a></li><li class="chapter-item expanded "><a href="application-workflow.html"><strong aria-hidden="true">8.2.</strong> Workflow</a></li><li class="chapter-item expanded "><a href="application-attribute.html"><strong aria-hidden="true">8.3.</strong> Attribute Tagging</a></li></ol></li><li class="chapter-item expanded "><a href="best-practices.html"><strong aria-hidden="true">9.</strong> Stack Best Practices</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="best-practices-operation.html"><strong aria-hidden="true">9.1.</strong> Operation Best Practices</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="best-practices-operation-say.html"><strong aria-hidden="true">9.1.1.</strong> Say What We Do</a></li><li class="chapter-item expanded "><a href="best-practices-operation-do.html"><strong aria-hidden="true">9.1.2.</strong> Do What We Said</a></li><li class="chapter-item expanded "><a href="best-practices-operation-prove.html"><strong aria-hidden="true">9.1.3.</strong> Prove We Did It</a></li><li class="chapter-item expanded "><a href="best-practices-operation-feedback.html"><strong aria-hidden="true">9.1.4.</strong> Welcome Feedback</a></li><li class="chapter-item expanded "><a href="best-practices-operation-improve.html"><strong aria-hidden="true">9.1.5.</strong> Continuously Improve</a></li></ol></li><li class="chapter-item expanded "><a href="postgres-conventions.html"><strong aria-hidden="true">9.2.</strong> Postgres Conventions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="postgres-convention/schema.html"><strong aria-hidden="true">9.2.1.</strong> Private and API Schema</a></li><li class="chapter-item expanded "><a href="postgres-convention/abbreviation.html"><strong aria-hidden="true">9.2.2.</strong> Abbreviation</a></li><li class="chapter-item expanded "><a href="postgres-convention/table-convention.html"><strong aria-hidden="true">9.2.3.</strong> Table Convention</a></li><li class="chapter-item expanded "><a href="postgres-convention/column-convention.html"><strong aria-hidden="true">9.2.4.</strong> Column Convention</a></li><li class="chapter-item expanded "><a href="postgres-convention/table-record-convention.html"><strong aria-hidden="true">9.2.5.</strong> Table and Record</a></li><li class="chapter-item expanded "><a href="postgres-convention/uuid.html"><strong aria-hidden="true">9.2.6.</strong> UUID</a></li><li class="chapter-item expanded "><a href="postgres-convention/json-array-table-column.html"><strong aria-hidden="true">9.2.7.</strong> JSON vs Array vs Table</a></li><li class="chapter-item expanded "><a href="postgres-convention/enum-type-convention.html"><strong aria-hidden="true">9.2.8.</strong> enum and Type</a></li><li class="chapter-item expanded "><a href="postgres-convention/system-configuration-convention.html"><strong aria-hidden="true">9.2.9.</strong> System Configuration</a></li><li class="chapter-item expanded "><a href="postgres-convention/attribute-tag.html"><strong aria-hidden="true">9.2.10.</strong> Attribute Tagging</a></li><li class="chapter-item expanded "><a href="postgres-convention/statistics-convention.html"><strong aria-hidden="true">9.2.11.</strong> Statistics</a></li><li class="chapter-item expanded "><a href="postgres-convention/partition-convention.html"><strong aria-hidden="true">9.2.12.</strong> Partition</a></li><li class="chapter-item expanded "><a href="postgres-convention/function-convention.html"><strong aria-hidden="true">9.2.13.</strong> Function</a></li><li class="chapter-item expanded "><a href="postgres-convention/trigger-convention.html"><strong aria-hidden="true">9.2.14.</strong> Trigger</a></li><li class="chapter-item expanded "><a href="postgres-convention/async.html"><strong aria-hidden="true">9.2.15.</strong> Async</a></li><li class="chapter-item expanded "><a href="postgres-convention/notify.html"><strong aria-hidden="true">9.2.16.</strong> Notify</a></li><li class="chapter-item expanded "><a href="postgres-convention/request.html"><strong aria-hidden="true">9.2.17.</strong> Request Workflow</a></li><li class="chapter-item expanded "><a href="postgres-convention/comment.html"><strong aria-hidden="true">9.2.18.</strong> Comments</a></li><li class="chapter-item expanded "><a href="postgres-convention/sample-table-convention.html"><strong aria-hidden="true">9.2.19.</strong> Sample Table</a></li><li class="chapter-item expanded "><a href="postgres-convention/scalability-convention.html"><strong aria-hidden="true">9.2.20.</strong> Scalability</a></li><li class="chapter-item expanded "><a href="postgres-convention/to-be-resolved-convention.html"><strong aria-hidden="true">9.2.21.</strong> To Be Resolved</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="stack-academy.html"><strong aria-hidden="true">10.</strong> Stack Academy</a></li><li class="chapter-item expanded "><a href="terminology.html"><strong aria-hidden="true">11.</strong> Terminology</a></li><li class="chapter-item expanded "><a href="roadmap.html"><strong aria-hidden="true">12.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="project-history.html"><strong aria-hidden="true">13.</strong> Project History</a></li><li class="chapter-item expanded "><a href="reference.html"><strong aria-hidden="true">14.</strong> References</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">15.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">16.</strong> Privacy Policy</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="blog.html"><strong aria-hidden="true">17.</strong> Blog</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="blog-llm-ai-operations-automation.html" class="active"><strong aria-hidden="true">17.1.</strong> Operations AI LLM Automation in 2025</a></li><li class="chapter-item expanded "><a href="blog-incus-netbird-phoenixnap.html"><strong aria-hidden="true">17.2.</strong> Hybrid Cloud Strategy: Incus + Netbird + PhoenixNAP</a></li><li class="chapter-item expanded "><a href="blog-letter-ceo.html"><strong aria-hidden="true">17.3.</strong> Letter to the CEO</a></li><li class="chapter-item expanded "><a href="blog-cli-better.html"><strong aria-hidden="true">17.4.</strong> The CLI is better than...</a></li><li class="chapter-item expanded "><a href="blog-conversational-enterprise-computing.html"><strong aria-hidden="true">17.5.</strong> Why Conversational Enterprise Computing Matters</a></li><li class="chapter-item expanded "><a href="blog-work-instruction-sexy.html"><strong aria-hidden="true">17.6.</strong> Work Instructions Make your Organization Sexy</a></li><li class="chapter-item expanded "><a href="blog-live-markdown-world.html"><strong aria-hidden="true">17.7.</strong> We Live in a Markdown World</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <!-- add things here that will go above the body navigation -->
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="operations-and-technology-in-2025"><a class="header" href="#operations-and-technology-in-2025">Operations and Technology in 2025</a></h1>
+<ul>
+<li>Published: 2025-02-12</li>
+<li>Updated: 2025-02-12</li>
+<li>Author: Chuck Boecking</li>
+<li>Discussion: &lt;&gt;</li>
+</ul>
+<h2 id="dont-just-survive---thrive-beyond-2025"><a class="header" href="#dont-just-survive---thrive-beyond-2025">Don't Just Survive - Thrive Beyond 2025</a></h2>
+<p>The purpose of this post is to provide a blueprint for operational efficiency and excellence in 2025 and beyond.</p>
+<ul>
+<li>We demonstrate how to quickly and easily leverage AI LLMs (large language models) to increase operational accuracy and precision.</li>
+<li>We propose tools that give you ultimate freedom, flexibility and power for your people to self-help within their roles.</li>
+<li>We give you a practical example of a company growing from 6 locations to 60 locations in rapid ...</li>
+</ul>
+<h2 id="quality-must-haves"><a class="header" href="#quality-must-haves">Quality Must Haves</a></h2>
+<p>We use organizational basics (like work instructions) to drive continuous improvement by deploying these instructions into our live systems. We expect everyone in the organization to improve them. With every improvement, the system continues to evolve.</p>
+<p>These basic quality concepts are more important today than ever before. We cannot state this strongly enough!</p>
+<p>Here are the foundations of any quality standard. If you do not currently have a quality manual, put these five bullets on a document and publish it everywhere. If you did nothing else, this would be an amazing start!</p>
+<ul>
+<li>Say what you do</li>
+<li>Do what you say</li>
+<li>Prove you did it</li>
+<li>Ask for feedback</li>
+<li>Continually improve</li>
+</ul>
+<p>References:</p>
+<ul>
+<li>Work instructions are not the same... See how 2025 represents a dramatic shift in how we create and maintain work instructions</li>
+<li>US Constitution - an original work instruction</li>
+</ul>
+<p>Point of reflection: if you are not willing to create the above one-page quality manual to drive your organization forward, do not bother reading further.</p>
+<h2 id="intro"><a class="header" href="#intro">Intro</a></h2>
+<video controls>
+  <source src="./video/01-gen-wi-demo-why-intro.mp4" type="video/mp4">
+</video>
+<h2 id="say-what-you-do"><a class="header" href="#say-what-you-do">Say What You Do</a></h2>
+<video controls>
+  <source src="./video/02-gen-wi-demo-say-what-you-do.mp4" type="video/mp4">
+</video>
+<h2 id="work-instruction-job-aid"><a class="header" href="#work-instruction-job-aid">Work Instruction Job Aid</a></h2>
+<video controls>
+  <source src="./video/03-gen-wi-demo-claude-demo-job-aid.mp4" type="video/mp4">
+</video>
+<h2 id="work-instruction-quiz"><a class="header" href="#work-instruction-quiz">Work Instruction Quiz</a></h2>
+<video controls>
+  <source src="./video/04-gen-wi-demo-claude-demo-quiz.mp4" type="video/mp4">
+</video>
+<h2 id="work-instruction-vision-and-goal"><a class="header" href="#work-instruction-vision-and-goal">Work Instruction Vision and Goal</a></h2>
+<video controls>
+  <source src="./video/05-gen-wi-demo-vision-goal.mp4" type="video/mp4">
+</video>
+<h2 id="obsidian"><a class="header" href="#obsidian">Obsidian</a></h2>
+<video controls>
+  <source src="./video/06-gen-wi-demo-obsidian-mdbook.mp4" type="video/mp4">
+</video>
+<h2 id="feedback-loop"><a class="header" href="#feedback-loop">Feedback Loop</a></h2>
+<video controls>
+  <source src="./video/07-gen-wi-demo-feedback-loop.mp4" type="video/mp4">
+</video>
+<h2 id="tools-and-more"><a class="header" href="#tools-and-more">Tools and More</a></h2>
+<video controls>
+  <source src="./video/08-gen-wi-demo-tools-context.mp4" type="video/mp4">
+</video>
+<h2 id="role-agency"><a class="header" href="#role-agency">Role Agency</a></h2>
+<p>If you want to survive over the next couple of years, give your roles agency to help themselves. Here is how to get started:</p>
+<ul>
+<li>Define your roles... What is a role?</li>
+<li>Change the role of IT - want self-help platform</li>
+<li>What does self-help look like</li>
+</ul>
+<p>References:</p>
+<ul>
+<li>I do not have an IT Department</li>
+</ul>
+<h2 id="tools-summary"><a class="header" href="#tools-summary">Tools Summary</a></h2>
+<p>Here are the tools we use to minimize effort and maximize agency:</p>
+<ul>
+<li>We use <a href="./tool-obsidian.html">Obsidian</a> to help your primary leaders 'say' what to do.</li>
+<li>We use <a href="./tool-aichat.html">AIChat</a> to
+<ul>
+<li>deliver a kind and patent 'chat' experience</li>
+<li>evaluate user interactions with 'chat'</li>
+<li>propose improvements to work instructions</li>
+</ul>
+</li>
+<li>We use <a href="./tool-mdbook.html">mdBook</a> to publish our instructions</li>
+<li>We use <a href="./tool-ttyd.html">ttyd</a> to expose AIChat and other tools</li>
+<li>We use <a href="./tool-netbird.html">Netbird</a> to ensure our work instructions and our tools are both private to our organization AND available to everyone in our organization</li>
+</ul>
+<h2 id="case-for-work-instructions"><a class="header" href="#case-for-work-instructions">Case for Work Instructions</a></h2>
+<ul>
+<li>US constitution</li>
+</ul>
+<p>Different than 20 years ago...</p>
+<h2 id="whats-next"><a class="header" href="#whats-next">What's next</a></h2>
+<p>tools
+automation</p>
+<h2 id="example-company"><a class="header" href="#example-company">Example Company</a></h2>
+<ul>
+<li>typical owner operator</li>
+<li>injection and reasons to believe</li>
+<li>Ask for training ...</li>
+</ul>
+<h1 id="bring-documentation-to-life-with-no-code"><a class="header" href="#bring-documentation-to-life-with-no-code">Bring Documentation to Life with No Code</a></h1>
+<ul>
+<li>Published: 2025-02-02</li>
+<li>Updated: 2025-02-02</li>
+<li>Author: Chuck Boecking</li>
+<li>Discussion: &lt;&gt;</li>
+</ul>
+<h2 id="when-instructions-matter"><a class="header" href="#when-instructions-matter">When Instructions Matter</a></h2>
+<p>The purpose of this post is to demonstrate how to bring work instructions and documentation to life using free and off-the-shelf tools with minimal effort.</p>
+<p>Here is the benefit short story:</p>
+<ul>
+<li>Help your users answer their own questions</li>
+<li>Help your users continually improve their work instructions and documentation every day</li>
+<li>Use these tools to create a self-help automation platform</li>
+</ul>
+<blockquote>
+<p>It is important to note that I am a champion of small to medium organizations. You are my target audience. This post was written for you!</p>
+</blockquote>
+<p>As a result of this article, you can:</p>
+<ul>
+<li>Publish your work instructions and documentation to the web or local intranet.</li>
+<li>Give users a chat interface to understand their documentation.</li>
+<li>Provide workflow to easily update documentation.</li>
+<li>Ensure your chat (AI/LLM) always knows the current instructions.</li>
+</ul>
+<h2 id="problem-statement"><a class="header" href="#problem-statement">Problem Statement</a></h2>
+<p><strong>Problem #1:</strong> People are generally not good at following directions with near perfect precision. We are creative, imaginative, and (as a result of these strengths) we are often distracted. These distractions sometimes result in mistakes when performing tasks.</p>
+<p><strong>Problem #2:</strong> People have a limited ability to hold information in their conscience context when performing a task. Sometimes we need to look things up for reference.</p>
+<p><strong>Problem #3:</strong> It is often easier to ask for help than to find the answer yourself. Much of an organization's efficiency is lost because institutional knowledge is either not written down, it is located in an inconvenient location, or your organization has trained people to ask instead of self-help.</p>
+<p><strong>Problem #4:</strong> Finding information is not always easy even when you know where to look. Understanding the information after you find it can be even more difficult.</p>
+<p><strong>Problem #5:</strong> The current solutions for solving these problems can be very expensive.</p>
+<h2 id="free-picture-of-success"><a class="header" href="#free-picture-of-success">Free Picture of Success</a></h2>
+<p>This posts walks you through the steps to deploy a solution that solves the above problems using free tools.</p>
+<p>Before we get into the details of the solution, I want to state a few important summary points about writing documentation and work instructions. You can find <a href="./best-practices-operation.html#quality-program-principles">more details here</a>.</p>
+<ul>
+<li>Current foundation LLMs (like ChatGPT, Claude, Gemini, ...) know more about public topics that any one human. I have spent 20 years in ERP, and they know far more about this topic than I do. If a topic has been reasoned about on the internet, these LLMs know about it.</li>
+<li>The goals of writing documentation have changed. You no longer need to write down everything. Instead, you need to write just enough where the LLM knows what you are discussion and how you want it discussed. The LLM can fill in ancillary details.</li>
+<li><a href="./best-practices-operation.html#quality-program-principles">more...</a></li>
+</ul>
+<p>Here is what I am proposing:</p>
+<ul>
+<li>Use <a href="./tool-obsidian.html">Obsidian</a> to help your core documentation resources create your instructions as <a href="./blog-live-markdown-world.html">markdown text</a>.</li>
+<li>Configure Obsidian to save your team's work in a <a href="./tool-git.html">git repository</a>. This will give your whole organization special powers to make continual changes in a controlled way.</li>
+<li>Use <a href="./tool-mdbook.html">mdBook</a> to publish your work instructions to your intended audience. See <a href="./tool-netbird.html">Netbird</a> if you need to create a private network.</li>
+<li>Use <a href="./tool-aichat.html">AIChat</a> to a) ingest your work instructions so that an LLM/AI can answer question and b) make the LLM/AI/Chat available directly inside your mdBook website.</li>
+</ul>
+<h2 id="target-audience"><a class="header" href="#target-audience">Target Audience</a></h2>
+<p>This guide is designed for someone with some technical skills. If you are not that person, simply share this guide with someone who is so they can help you.</p>
+<h2 id="implementation-details"><a class="header" href="#implementation-details">Implementation Details</a></h2>
+<p>Here are the steps to accomplish my proposed documentation and work instruction love story:</p>
+<ul>
+<li>Install Obsidian on the machines documentation and work instruction power users. Follow <a href="./best-practices-operation.html">operation best practices</a> and <a href="./tool-obsidian.html">Obsidian</a> best practices.</li>
+<li>Configure the following in Obsidian:
+<ul>
+<li>Install the <code>git</code> community plugin. This allows you to easily sync all changes to a single place.</li>
+<li>Change the default Obsidian link method to use the markdown style: <code>[link name](./link-to-file)</code> instead of the default wikilinks style: <code>[[file-name]]</code>. This change is needed when you publish using mdBook.</li>
+</ul>
+</li>
+<li>Create a new server with <a href="https://nginx.org/en/">nginx</a> and <a href="./tool-aichat.html">AIChat</a> installed on your network to publish your documentation. See configuration below.</li>
+<li>Create a scheduled script on your server to do the following (see details below):
+<ul>
+<li>Download and publish the latest documentation changes</li>
+<li>Update your LLM with the latest changes to ensure it can answer questions correctly</li>
+</ul>
+</li>
+</ul>
+<p>Now, let's get into more detail.</p>
+<h2 id="aichat-primer"><a class="header" href="#aichat-primer">AIChat Primer</a></h2>
+<p>Quick demonstration of power and simplicity</p>
+<h2 id="configure-your-server"><a class="header" href="#configure-your-server">Configure Your Server</a></h2>
+<p>Only execute the steps in this section one time. Here is all you need to do to configure you server.</p>
+<h2 id="web-edit-workflow"><a class="header" href="#web-edit-workflow">Web Edit Workflow</a></h2>
+<p>Above, we discuss how your power users are going to create documents. The purpose of this section is how you encourage everyone to contribute to documentation.</p>
+<p>...</p>
+<p>Now that you know why git is so important, let's discuss some important details around making git easy.</p>
+<h2 id="git-details-worth-knowing"><a class="header" href="#git-details-worth-knowing">Git Details Worth Knowing</a></h2>
+<h2 id="llm-ai-in-obsidian"><a class="header" href="#llm-ai-in-obsidian">LLM-AI in Obsidian</a></h2>
+<p>Discuss AI plugins and how to use</p>
+<h2 id="why-not-use-google-docs"><a class="header" href="#why-not-use-google-docs">Why Not Use Google Docs</a></h2>
+<h2 id="vision-of-things-to-come-quickly"><a class="header" href="#vision-of-things-to-come-quickly">Vision of Things to Come Quickly</a></h2>
+<h2 id="frequently-asked-questions"><a class="header" href="#frequently-asked-questions">Frequently Asked Questions</a></h2>
+<h3 id="question-one"><a class="header" href="#question-one">Question One</a></h3>
+<p>...</p>
+<h3 id="question-two"><a class="header" href="#question-two">Question Two</a></h3>
+<p>...</p>
+<h2 id="learn-more"><a class="header" href="#learn-more">Learn More</a></h2>
+<p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
+<p>To discuss this content in more detail, go to <a href="https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75">https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75</a>.</p>
+<h2 id="todo"><a class="header" href="#todo">TODO</a></h2>
+<p>This is a draft - need to complete</p>
+
+                        <br>
+                        <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script>, CHUBOE LLC. All rights reserved.</p> <!--chuboe changed-->
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="blog.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="blog-incus-netbird-phoenixnap.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="blog.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="blog-incus-netbird-phoenixnap.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

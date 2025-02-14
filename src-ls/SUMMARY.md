@@ -73,6 +73,7 @@
 ---
 
 - [Blog](./blog.md)
+  - [Operations AI LLM Automation in 2025](./blog-llm-ai-operations-automation.md)
   - [Hybrid Cloud Strategy: Incus + Netbird + PhoenixNAP](./blog-incus-netbird-phoenixnap.md)
   - [Letter to the CEO](.//blog-letter-ceo.md)
   - [The CLI is better than...](./blog-cli-better.md)

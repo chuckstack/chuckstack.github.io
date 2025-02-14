@@ -9,7 +9,7 @@ Imagine a world where your operations team writes [work instructions](./best-pra
 Modern AI has a magical ability to understand and use our language to offer valuable opinions and execute tasks. More specifically, it understands work instructions (role, task, and tool definitions), and it can help us automate tasks, increase velocity and improve efficiency.
 
 <video controls>
-  <source src="./chuck-stack-01-order-summary.mp4" type="video/mp4">
+  <source src="./video/chuck-stack-01-order-summary.mp4" type="video/mp4">
 </video>
 
 ## Problem - Too Many Windows and Fields

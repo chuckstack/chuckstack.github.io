@@ -2,6 +2,10 @@
 
 Here is a list of recent blogs. The sidebar contains the full list.
 
+## Operations AI LLM Automation in 2025
+
+[Read more...](./blog-llm-ai-operations-automation.md)
+
 ## Hybrid Cloud Strategy: Incus + Netbird + PhoenixNAP
 
 Reduce costs... Reduce complexity... Use existing talent (skills and knowledge) to provide services to a global workforce.

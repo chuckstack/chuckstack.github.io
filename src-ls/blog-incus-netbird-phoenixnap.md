@@ -255,9 +255,9 @@ Let's break this down:
       - 50 Gbps
     - Note that effort was made to disclose details and make this comparison reasonable. If you have concerns about this comparison, [please comment here](https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75).
     - Note that the AWS m7i.48xlarge (virtualized) and m7i.metal-48xl (bare-metal) are approximately the same price.
-- PhoenixNAP includes 4TB of storage versus AWS includes not storage. All storage puchased in AWS increases the margin.
-- PhoenixNAP (in our case) uses Incus for virtualization. This means the same virtualization is used everywhere. This means we only need one skillset. AWS has no on-premise or desktop virtualiztion solution that is consistent with its cloud offering. This means I now need double the number of experts.
-- Incus allows for on-premise computing using the exact same tools and expertise. [Per this page](./tool-incus.md#medium-cluster-rack), I can purchase 72 cores (144vCPU) of computing power accross 3 servers (redundancy) to run on-premise. We have now almost doubled AWS's computing power across multiple data centers, and we are will less than 1/3 the cost.
+- PhoenixNAP includes 4TB of storage versus AWS includes no storage. All storage purchased in AWS increases the margin.
+- PhoenixNAP (in our case) uses Incus for virtualization. This means the same virtualization is used everywhere. This means we only need one skillset. AWS has no on-premise or desktop virtualization solution that is consistent with its cloud offering. This means I now need double the number of experts.
+- Incus allows for on-premise computing using the exact same tools and expertise. [Per this page](./tool-incus.md#medium-cluster-rack), I can purchase 72 cores (144vCPU) of computing power across 3 servers (redundancy) to run on-premise. We have now almost doubled AWS's computing power across multiple data centers, and we are will less than 1/3 the cost.
 - AND, we have way more flexibility.
 - AND, we still reserve the right to use AWS if the need arises.
 
