@@ -4,6 +4,7 @@
 - Updated: 2025-02-12
 - Author: Chuck Boecking
 - Discussion: <>
+- Status: draft!!!
 
 ## Don't Just Survive - Thrive Beyond 2025
 
