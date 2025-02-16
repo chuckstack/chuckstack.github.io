@@ -1,9 +1,9 @@
-# Operations and Technology in 2025
+# Operations and AI LLM Technology in 2025
 
 - Published: 2025-02-12
 - Updated: 2025-02-12
 - Author: Chuck Boecking
-- Discussion: <>
+- Discussion: <https://team.chuck-stack.org/t/operations-and-technology-in-2025/76>
 - Status: draft!!!
 
 ## Don't Just Survive - Thrive Beyond 2025
@@ -176,11 +176,10 @@ Only after you have reached the point where your work instructions have reached 
 
 If you want help executing the topics in this article, join the [stack-academy](./stack-academy.md). Not ready to join... We can always [stay connected](../learn-more.html) to learn more.
 
-To discuss this content in more detail, go to <https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75>.
+To discuss this content in more detail, go to <https://team.chuck-stack.org/t/operations-and-technology-in-2025/76>.
 
 ## TODO
 
 This is a draft - need to complete
 - finish Example Company section
 - Add better blog.md describtion
-- create discussion link in team.chuck-stack.org (both in first section and last 'learn more' section)

@@ -2,7 +2,11 @@
 
 Here is a list of recent blogs. The sidebar contains the full list.
 
-## Operations AI LLM Automation in 2025
+## Operations AI LLM Technology in 2025
+
+How do you remain operationally efficient and competitive in 2025 and beyond?
+
+This post provides a blueprint for using AI LLMs and off-the-shelf tools to help you minimize effort and maximize your strategic operational advantage. Help your people create self-help augmentation and automation tools. Help your IT department create a platform of innovation instead of one-off tools.
 
 [Read more...](./blog-llm-ai-operations-automation.md)
 
