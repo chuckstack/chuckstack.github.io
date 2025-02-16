@@ -4,7 +4,7 @@
 - Updated: 2025-02-12
 - Author: Chuck Boecking
 - Discussion: <https://team.chuck-stack.org/t/operations-and-technology-in-2025/76>
-- Status: draft!!!
+- Status: draft - see [todo](#todo)
 
 ## Don't Just Survive - Thrive Beyond 2025
 
@@ -125,7 +125,7 @@ Said simply: LLMs help help you process more information, make better decisions,
 Said with more detail:
 
 - An LLM is a neural network with the ability to predict what should 'be' next based on a given context.
-- It can help you solve many if not all the above problem statements.
+- It can help you solve many if not all the above [problem statements](#problem-statements).
 - Your success with LLMs depends on how you empower your roles to use LLMs to augment and automate many of the routine operations of your organization.
 
 This video shows you an example of how you describe (in plain text) the steps of an operation, and it also shows how to instruct the LLM which tool accomplishes the task.
@@ -182,4 +182,3 @@ To discuss this content in more detail, go to <https://team.chuck-stack.org/t/op
 
 This is a draft - need to complete
 - finish Example Company section
-- Add better blog.md describtion
