@@ -149,7 +149,7 @@ Here are the tools we use to minimize effort and maximize agency:
 
 - We use [Obsidian](./tool-obsidian.md) to help your primary leaders 'say' what to do.
 - We use [AIChat](./tool-aichat.md) to 
-  - deliver a kind and patent 'chat' experience
+  - deliver a kind and patient 'chat' experience
   - evaluate user interactions with 'chat'
   - propose improvements to work instructions
 - We use [mdBook](./tool-mdbook.md) to publish our instructions
