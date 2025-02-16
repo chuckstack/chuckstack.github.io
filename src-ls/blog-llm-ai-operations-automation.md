@@ -183,4 +183,4 @@ To discuss this content in more detail, go to <https://team.chuck-stack.org/t/hy
 This is a draft - need to complete
 - finish Example Company section
 - Add better blog.md describtion
-- create discussion link in team.chuck-stack.org
+- create discussion link in team.chuck-stack.org (both in first section and last 'learn more' section)
