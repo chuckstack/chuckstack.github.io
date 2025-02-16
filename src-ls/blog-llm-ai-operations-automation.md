@@ -30,7 +30,7 @@ As a result of this article, you can:
 
 **Problem #1:** People are generally not good at following directions with near perfect precision. We are creative, imaginative, and (as a result of these strengths) we are often distracted. These distractions sometimes result in mistakes when performing tasks.
 
-**Problem #2:** People have a limited ability to hold information in their conscience context when performing a task. Sometimes we need to look things up for reference.
+**Problem #2:** People have a limited ability to hold information in their head when performing a task. Sometimes we need to look things up for reference.
 
 **Problem #3:** It is often easier to ask for help than to find the answer yourself. Much of an organization's efficiency is lost because institutional knowledge is either not written down, it is located in an inconvenient location, or your organization has trained people to ask instead of self-help.
 
@@ -128,7 +128,7 @@ Said with more detail:
 - It can help you solve many if not all the above problem statements.
 - Your success with LLMs depends on how you empower your roles to use LLMs to augment and automate many of the routine operations of your organization.
 
-This video shows you an example of how you describe (in plain text) the steps of an operation, and it also shows how you can tell the LLM which to accomplish the task.
+This video shows you an example of how you describe (in plain text) the steps of an operation, and it also shows how to instruct the LLM which tool accomplishes the task.
 
 <video controls>
   <source src="./video/08-gen-wi-demo-tools-context.mp4" type="video/mp4">
@@ -160,47 +160,13 @@ Here are the tools we use to minimize effort and maximize agency:
 
 - typical owner operator - injected with reason to grow
 
-
-
-## Free Picture of Success (consider)
-
-This posts walks you through the steps to deploy a solution that solves the above problems using free tools.
-
-Before we get into the details of the solution, I want to state a few important summary points about writing documentation and work instructions. You can find [more details here](./best-practices-operation.md#quality-program-principles).
-
-- Current foundation LLMs (like ChatGPT, Claude, Gemini, ...) know more about public topics that any one human. I have spent 20 years in ERP, and they know far more about this topic than I do. If a topic has been reasoned about on the internet, these LLMs know about it.
-- The goals of writing documentation have changed. You no longer need to write down everything. Instead, you need to write just enough where the LLM knows what you are discussion and how you want it discussed. The LLM can fill in ancillary details.
-- [more...](./best-practices-operation.md#quality-program-principles)
-
-Here is what I am proposing:
-
-- Use [Obsidian](./tool-obsidian.md) to help your core documentation resources create your instructions as [markdown text](./blog-live-markdown-world.md).
-- Configure Obsidian to save your team's work in a [git repository](./tool-git.md). This will give your whole organization special powers to make continual changes in a controlled way.
-- Use [mdBook](./tool-mdbook.md) to publish your work instructions to your intended audience. See [Netbird](./tool-netbird.md) if you need to create a private network.
-- Use [AIChat](./tool-aichat.md) to a) ingest your work instructions so that an LLM/AI can answer question and b) make the LLM/AI/Chat available directly inside your mdBook website.
-
-## Implementation Details (consider)
-
-Here are the steps to accomplish my proposed documentation and work instruction love story:
-
-- Install Obsidian on the machines documentation and work instruction power users. Follow [operation best practices](./best-practices-operation.md) and [Obsidian](./tool-obsidian.md) best practices.
-- Configure the following in Obsidian:
-  - Install the `git` community plugin. This allows you to easily sync all changes to a single place.
-  - Change the default Obsidian link method to use the markdown style: `[link name](./link-to-file)` instead of the default wikilinks style: `[[file-name]]`. This change is needed when you publish using mdBook.
-- Create a new server with [nginx](https://nginx.org/en/) and [AIChat](./tool-aichat.md) installed on your network to publish your documentation. See configuration below.
-- Create a scheduled script on your server to do the following (see details below):
-  - Download and publish the latest documentation changes
-  - Update your LLM with the latest changes to ensure it can answer questions correctly
-
-Now, let's get into more detail.
-
 ## Frequently Asked Questions
 
 ### Do we need an LMS?
 
 Maybe. Before you think about learning (LMS) or training systems, create your work instructions. Managers need to document roles. Users document tasks. Everyone documents tools.
 
-Only after you have reached the point where your work instructions have reached 'live' status, should you consider an LMS. Then, think critically about whether the learning/training system will slow you down or better your operations. 
+Only after you have reached the point where your work instructions have reached 'live' status as demonstrated above, should you consider an LMS. Then, think critically about whether the learning/training system will slow you down or better your operations.
 
 ### Question Two
 
@@ -215,5 +181,6 @@ To discuss this content in more detail, go to <https://team.chuck-stack.org/t/hy
 ## TODO
 
 This is a draft - need to complete
+- finish Example Company section
 - Add better blog.md describtion
 - create discussion link in team.chuck-stack.org
