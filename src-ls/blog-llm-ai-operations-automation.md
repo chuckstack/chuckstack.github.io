@@ -1,10 +1,10 @@
 # Operations and AI LLM Technology in 2025
 
 - Published: 2025-02-12
-- Updated: 2025-02-12
+- Updated: 2025-02-16
 - Author: Chuck Boecking
 - Discussion: <https://team.chuck-stack.org/t/operations-and-technology-in-2025/76>
-- Status: draft - see [todo](#todo)
+- Status: Released
 
 ## Don't Just Survive - Thrive Beyond 2025
 
@@ -158,7 +158,43 @@ Here are the tools we use to minimize effort and maximize agency:
 
 ## Example Company
 
-- typical owner operator - injected with reason to grow
+This is a story of a chuck-stack member. Imagine yourself in their shoes.
+
+You and your partner have spent over 10 year building a boutique retail professional services business. It took you a while and some nail-biting experiences; however, you finally settled into a good, repeatable and profitable business that has resulted in over 6 locations across multiple cities.
+
+You have done such a good job, that private equity has purchased your business, and they have retained your services to help grow it to the next level (with significant oversight). Keep in mind:
+
+- The private equity firm is not a domain expert in your business; they rely on you as an expert.
+- The private equity firm has domain expertise is helping profitable businesses with reasonably management grow beyond owner-operator status.
+- As an owner-operator, you are comfortable running the entire business as you have done for more than a decade.
+- All critical and many non-critical decisions come from you.
+- You have an emerging business manager; however, this person's influence is subject to the historical norms of the 'ask the owner' MO.
+- What you do is complex enough that it takes professionals with over 10 years of education and experience to effectively deliver your services.
+
+Now, your collective jobs are to grow the business 10x in about three years. Doing so successfully will profoundly impact the wealth of you and those around you. This means:
+
+- You location count will grow from 6 to about 60.
+- Your revenue will likely grow by more than 10x.
+- Your internal service departments (like accounting and IT) will grow from 1 to about 4.
+- Your customer's experiences will no longer be a direct result of your skills, knowledge, attitude or capacity to innovate.
+
+Said another way, you must build a sustainable business that effectively removes you from its operational systems. If you do not, failure is the likely outcome.
+
+There is a big difference between knowing what needs to be done and knowing how to accomplish the goal. Your entire existence to this day has been centered around you. You are being asked to change in a way that is completely foreign to your practicing norms.
+
+This post is your blueprint for how to move forward. It is both the starting point and the platform to begin your journey. Your job has effectively changed. You must inject your style of critical thinking into the system without needing to actually answer questions directly.
+
+## Principles before Mission Vision Values
+
+We are fans of understanding your "mission vision and values". We believe this knowledge represents an evolution in your ability to reliably deliver value to and extract profit from this world.
+
+**However**, principles are paramount! Principles are the foundation and the rules by which you make decisions at every level. The better you communicate your principles, the better the organization can establish a decision making framework that is consistent with the value you provide the world.
+
+We go down this path because inevitably, you will be asked a question about how to manage the business. You will be tempted to simply answer as you have always done. Instead, ask the question: "what is the principle; How do you make this decision"? If you or your people struggle to answer this question, you need to start writing your principles in your work instructions (roles, tasks, and tools).
+
+You might provide inconsistent messages in the beginning. Or, you might wrestle with the priority of the respective principles. That is OK. You have most likely not needed to vocalize them before. However, you need to start... You need to try...
+
+At some point, we will discuss the concept of "first things first". This phrase represents applying principles to strategy, but this is a topic of another day.
 
 ## Frequently Asked Questions
 
@@ -180,5 +216,4 @@ To discuss this content in more detail, go to <https://team.chuck-stack.org/t/op
 
 ## TODO
 
-This is a draft - need to complete
-- finish Example Company section
+No open todo
