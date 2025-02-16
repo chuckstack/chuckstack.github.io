@@ -58,13 +58,13 @@ Here are the foundations of any quality standard. If you do not currently have a
   <source src="./video/02-gen-wi-demo-say-what-you-do.mp4" type="video/mp4">
 </video>
 
-We use organizational basics (like work instructions) to drive continuous improvement by deploying these instructions into our live systems. We expect everyone in the organization to improve them. With every improvement, the system continues to evolve.
+We use organizational basics (like work instructions) to drive continuous improvement by deploying these instructions into our live systems. We expect everyone in the organization to improve them. With every improvement, the system evolves.
 
 Point of reflection: if you are not willing to create the above one-page quality manual to drive your organization forward, do not bother reading further.
 
 ## Create Training from Work Instructions
 
-There is no better way than to simply show you!
+There is no better way than to simply show you what is possible when you write it down!
 
 Here is an example where we create a job aid/visual from an existing work instruction document:
 
@@ -92,7 +92,7 @@ Were you aware that an LLM could create a visual job aid or an interactive quiz 
 
 ## Obsidian Plain Markdown Text
 
-LLMs are large language models. They have an incredible ability to understand text. When you write your work instructions in 'text' (not Work or Google Docs) just plain text, you gain the ability to use any and every LLM in the world.
+LLMs are large language models. They have an incredible ability to understand text. When you write your work instructions in 'text' (not Word or Google Docs) just plain text, you gain the ability to use any and every LLM in the world, and therefore, you gain the ability to use just about every tool.
 
 <video controls>
   <source src="./video/06-gen-wi-demo-obsidian-mdbook.mp4" type="video/mp4">
@@ -100,27 +100,48 @@ LLMs are large language models. They have an incredible ability to understand te
 
 ## Feedback Loop
 
+Notes about organizational evolution through continual feedback:
+
+- Quality standards ask you for follow your own directions.
+- These standards ask that you prove you followed the standards released at the moment the action was performed.
+- Most standards do not dictate the velocity at which you evolve.
+- They simply request you ask for feedback and act accordingly.
+- They often do ask you to reflect on the impact of your changes.
+
 <video controls>
   <source src="./video/07-gen-wi-demo-feedback-loop.mp4" type="video/mp4">
 </video>
 
+In the above video, we use github.com to manage all changes. GitHub provides Git services. You might not be familiar with Git; therefore, it is worth discussing a few points to consider in a later conversation:
+
+- Git tracks every change by every member, and as a result, you can report on these changes.
+- Git allows for making changes in an off-to-the-side branch where you can stage, test and review changes before they are released.
+- Git gives your organization the power to articulate exactly how you want to manage change.
+
 ## Tools and More
+
+Said simply: LLMs help help you process more information, make better decisions, and execute more tasks with greater velocity.
+
+Said with more detail:
+
+- An LLM is a neural network with the ability to predict what should 'be' next based on a given context.
+- It can help you solve many if not all the above problem statements.
+- Your success with LLMs depends on how you empower your roles to use LLMs to augment and automate many of the routine operations of your organization.
+
+This video shows you an example of how you describe (in plain text) the steps of an operation, and it also shows how you can tell the LLM which to accomplish the task.
 
 <video controls>
   <source src="./video/08-gen-wi-demo-tools-context.mp4" type="video/mp4">
 </video>
 
-## Role Agency
+## Next Steps
 
-If you want to survive over the next couple of years, give your roles agency to help themselves. Here is how to get started:
+If you want help implementing these concepts in your organization, join the [stack-academy](./stack-academy.md). We will walk you though the process of:
 
-- Define your roles... What is a role?
-- Change the role of IT - want self-help platform
-- What does self-help look like
-
-References:
-
-- I do not have an IT Department
+- deploying your first Obsidian + Git + website + chat solution in your organization
+- identifying and create your first set of work instructions for a target role
+- teaching your content writers how to write the fewest words possible to achieve the desired result
+- soliciting feedback from everyone after the initial deployment
 
 ## Tools Summary
 
@@ -135,56 +156,13 @@ Here are the tools we use to minimize effort and maximize agency:
 - We use [ttyd](./tool-ttyd.md) to expose AIChat and other tools
 - We use [Netbird](./tool-netbird.md) to ensure our work instructions and our tools are both private to our organization AND available to everyone in our organization
 
-## Case for Work Instructions
-
-- US constitution
-
-Different than 20 years ago...
-
-## What's next
-
-tools
-automation
-
 ## Example Company
 
-- typical owner operator
-- injection and reasons to believe
-- Ask for training ...
+- typical owner operator - injected with reason to grow
 
 
 
-
-
-
-
-# Bring Documentation to Life with No Code
-
-- Published: 2025-02-02
-- Updated: 2025-02-02
-- Author: Chuck Boecking
-- Discussion: <>
-
-## When Instructions Matter
-
-The purpose of this post is to demonstrate how to bring work instructions and documentation to life using free and off-the-shelf tools with minimal effort.
-
-Here is the benefit short story:
-
-- Help your users answer their own questions
-- Help your users continually improve their work instructions and documentation every day
-- Use these tools to create a self-help automation platform
-
-> It is important to note that I am a champion of small to medium organizations. You are my target audience. This post was written for you! 
-
-As a result of this article, you can:
-
-- Publish your work instructions and documentation to the web or local intranet.
-- Give users a chat interface to understand their documentation.
-- Provide workflow to easily update documentation.
-- Ensure your chat (AI/LLM) always knows the current instructions.
-
-## Free Picture of Success
+## Free Picture of Success (consider)
 
 This posts walks you through the steps to deploy a solution that solves the above problems using free tools.
 
@@ -201,11 +179,7 @@ Here is what I am proposing:
 - Use [mdBook](./tool-mdbook.md) to publish your work instructions to your intended audience. See [Netbird](./tool-netbird.md) if you need to create a private network.
 - Use [AIChat](./tool-aichat.md) to a) ingest your work instructions so that an LLM/AI can answer question and b) make the LLM/AI/Chat available directly inside your mdBook website.
 
-## Target Audience
-
-This guide is designed for someone with some technical skills. If you are not that person, simply share this guide with someone who is so they can help you.
-
-## Implementation Details
+## Implementation Details (consider)
 
 Here are the steps to accomplish my proposed documentation and work instruction love story:
 
@@ -220,37 +194,6 @@ Here are the steps to accomplish my proposed documentation and work instruction 
 
 Now, let's get into more detail.
 
-## AIChat Primer
-
-Quick demonstration of power and simplicity
-
-## Configure Your Server
-
-Only execute the steps in this section one time. Here is all you need to do to configure you server.
-
-## Web Edit Workflow
-
-Above, we discuss how your power users are going to create documents. The purpose of this section is how you encourage everyone to contribute to documentation.
-
-...
-
-Now that you know why git is so important, let's discuss some important details around making git easy.
-
-## Git Details Worth Knowing
-
-## LLM-AI in Obsidian
-
-Discuss AI plugins and how to use
-
-## Why Not Use Google Docs
-
-## Vision of Things to Come Quickly
-
-
-
-
-
-
 ## Frequently Asked Questions
 
 ### Do we need an LMS?
@@ -259,7 +202,7 @@ Maybe. Before you think about learning (LMS) or training systems, create your wo
 
 Only after you have reached the point where your work instructions have reached 'live' status, should you consider an LMS. Then, think critically about whether the learning/training system will slow you down or better your operations. 
 
-### Question Two 
+### Question Two
 
 ...
 
@@ -272,6 +215,5 @@ To discuss this content in more detail, go to <https://team.chuck-stack.org/t/hy
 ## TODO
 
 This is a draft - need to complete
-- add pictures to videos to ensure the still better represents the video
 - Add better blog.md describtion
 - create discussion link in team.chuck-stack.org
