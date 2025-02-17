@@ -21,9 +21,13 @@ It is important to understand that the chuck-stack is not a typical software pro
 
 ## Completed Milestone
 
-### Week of 2024-12-13
+### Week of 2024-12-13 through 2025-02-14
 
-- ...
+- Created [Incus + Netbird + PhoenixNAP blog](https://www.chuck-stack.org/ls/blog-incus-netbird-phoenixnap.html) - this required a fair amount to testing and communication to accomplish the finished state.
+- Created [Operations and AI LLM Technology in 2025](https://www.chuck-stack.org/ls/blog-llm-ai-operations-automation.html) - this also required a fair amount to testing and communication to accomplish the current state.
+- Experimented with and helped document [ai.nu](https://github.com/fj0r/ai.nu)
+- Experimented with and helped document [ragit](https://github.com/adaptaware/ragit)
+- Experimented with Nushell's builtin integration with SQLite. The goal is to better understand and model ideal syntax so that we can apply the same interaction model with `psql`.
 
 ### Week of 2024-11-08 through 2024-12-06
 
