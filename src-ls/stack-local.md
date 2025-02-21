@@ -39,7 +39,7 @@ Here is how to get started:
 - Support their membership in the [stack-academy](./stack-academy.md)
 - Create a local chuck-stack [benefit entity](#benefit-entity). 
 - The stack-academy will help the local benefit entity raise support for more local organizations.
-- The local benefit entity will become an expert is supporting and promoting more local organizations.
+- The local benefit entity will become an expert in supporting the chuck-stack and promoting more local organizations.
 
 ## Picture of Success
 

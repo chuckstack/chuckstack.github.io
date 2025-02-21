@@ -60,7 +60,7 @@
     - [Scalability](./postgres-convention/scalability-convention.md)
     - [To Be Resolved](./postgres-convention/to-be-resolved-convention.md)
 - [Stack Academy](./stack-academy.md)
-- [Your Country Benefit](./stack-local.md)
+- [Local Community Support](./stack-local.md)
 - [Terminology](./terminology.md)
 - [Roadmap](./roadmap.md)
 - [Project History](./project-history.md)
