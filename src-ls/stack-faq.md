@@ -54,16 +54,16 @@ Agentic orchestration tools like CrewAI do not fit well in a typical chuck-stack
   - make the right data available to the right role
   - help make the role easier to execute
   - help prevent mistakes
+- Need to create AI 'tools' quickly, simply and easily
+- Need to create simple workflows where neural networks make judgements and dispatch execution to simple tools
+
+Most organizations do not have complex BPMN-style workflows. A large percentage (say 70% to 90%) of operations execute a long a defined [happy path](./terminology.md#happy-path). The  task is simply 'follow the work instructions' and look for any scenarios the fall out of the happy path. If a scenario falls out of the happy path, follow the work instructions that define the error, exception or edge case scenario. If there are no work instructions, ask a human.
 
 Problem with Agentic frameworks:
 
-- Too hard for an everyday person to reason about
+- They are too hard for an everyday person to reason about
 - The complexity of coding modern agentic systems is prohibitively expensive
-- Agentic frameworks are the wrong tool for the problem/need.
-
-A better way to think about the needs of AI in a typical chuck-stack organization:
-
-- p
+- Agentic frameworks are the wrong tool for the problem/need as described above
 
 ## What about chuck-stack Revenue?
 

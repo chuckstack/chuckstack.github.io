@@ -71,6 +71,10 @@ See:
 
 An Entity is a chuck-stack domain dimension that refers to a legal or taxation group. A single [Tenant](./terminology.md#tenant) can have many Entities. An Entity can belong to only one Tenant. A special Entity named "*" (pronounced 'star') is created by default when the chuck-stack is installed. By convention, "*" means either default or shared depending on how the organization wishes to use it.
 
+## Happy Path
+
+The term "happy path" defines a project management or workflow scenario where everything works perfectly without any errors, exceptions or edge cases.
+
 ## Instance
 
 An instance is how the chuck-stack refers to an installation or a unit of something. 
