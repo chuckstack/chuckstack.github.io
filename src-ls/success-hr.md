@@ -32,7 +32,7 @@ There are tree types of work instructions as defined [here](./best-practices-ope
 - `Tasks` - actions to be performed by one or more roles
 - `Tools` - software or mechanical devices used to perform one or more tasks
 
-We want to focus on the `role` work instruction. This is your contract for what a person can do within an organization. It defines what you should and should not do. For example: 
+We want to focus on the `role` work instruction. This is your contract for what a person can (should or should not) do within an organization. For example: 
 
 - A CSR (customer service rep) probably SHOULD manipulate orders on behalf of a customer to foster customer loyalty.
 - A CSR probably should NOT create accounting payments to anyone they want.
@@ -43,7 +43,7 @@ If you take the time to accurately define roles, you can use AI to ensure users 
 
 A better way to discuss role work instructions is through human agency. Humans thrive to be relevant. One way we achieve this goal is by giving humans the autonomy to perform the tasks they understand well.
 
-Said another way, if we document roles is such a way that they provide user's autonomy to perform tasks, we get better engagement. If we build 'just ask' systems where users can start automating tasks, we create [superclerks](./stack-faq.md#superclerk).
+Said another way, if we document roles is such a way that they provide user's autonomy to perform tasks, we get better engagement. If we build 'just ask' systems where users can start automating tasks, we create [superclerks](./terminology.md#superclerk).
 
 In any given group of humans, some percentage will rise to the top of a performance scale. The super performers will start to automate tasks. Automation will reduce the need for as many humans.
 
@@ -64,7 +64,7 @@ Skills, knowledge, attitude and potential are 4 powerful attributes to measure h
 - Skills - the ability to perform a task with near perfection repeatedly
 - Knowledge - the ability to gain, retain, connect and apply information to a wide variety of scenarios
 - Attitude - your collective belief system built from every experience in your life
-- Potential - your ability to acquire new skills and knowledge
+- Potential - your ability to acquire new skills and knowledge and mold your attitude
 
 During a chuck-stack deployment, you are constantly coaching and measuring these attributes. 
 
@@ -80,6 +80,6 @@ Here is extreme example of the envisioned success of chuck-stack.
 - If we can give them an entry point to start adding value into their world in a way that is authentic to the person or organization...
 - If we can give them a way to be compensated for their value...
 
-We can see a way to create a decentralized version of amazon.com. We choose Amazon because it is not difficult for a reasonably intelligent human to imaging a world where Amazon tries to eliminate humans from the entire value chain. We want to part of this world.
+We can see a way to create a decentralized version of amazon.com. We choose Amazon because it is not difficult for a reasonably intelligent human to imaging a world where Amazon tries to eliminate humans from the entire value chain. We want no part of this world.
 
-History has proven that the masses seldom benefit from the charity of the elite. We need to create our own 'human-first' system.
+History has proven that the masses seldom benefit from the charity of the elite. We need to create our own 'human-first' systems.

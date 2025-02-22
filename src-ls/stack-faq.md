@@ -55,7 +55,7 @@ Agentic orchestration tools like CrewAI do not fit well in a typical chuck-stack
   - help make the role easier to execute
   - help prevent mistakes
 
-Problem with Agentic:
+Problem with Agentic frameworks:
 
 - Too hard for an everyday person to reason about
 - The complexity of coding modern agentic systems is prohibitively expensive
@@ -67,12 +67,12 @@ A better way to think about the needs of AI in a typical chuck-stack organizatio
 
 ## What about chuck-stack Revenue?
 
-We are commonly asked about the commercial viability of the chuck-stack. Specifically, people as about generating revenue from a broader audience. Here are our thoughts and experiences on revenue.
+We are commonly asked about the commercial viability of the chuck-stack. Specifically, people ask about generating revenue from a broader audience. Here are our thoughts and experiences on revenue.
 
-- We have supported our families and business partners over the last 14 years from traditional ERP services (learn, configure, audit, deploy, scales and support). While the world is changing quickly both in terms of training and consulting, there is an aspect to this model that will remain. Reference: <https://www.chuckboecking.com>
-- We believe there is value in providing chuck-stack hosting and configuration based on best practices. This follows the same life cycle (learn, configure, audit, deploy, scales and support) as ERP. This concept loosely follows a broadly accepted and successful Metabase, Netbird, Discourse, ... model; however, the chuck-stack is different since it is a collection of tools (not a single tool like discourse).
+- We have supported our families and business partners over the last 15 years from traditional ERP services (learn, configure, audit, deploy, scale and support). While the world is changing quickly both in terms of training and consulting, there is an aspect to this model that will remain. Reference: <https://www.chuckboecking.com>
+- We believe there is value in providing chuck-stack hosting and configuration based on best practices. This follows the same life cycle (learn, configure, audit, deploy, scale and support) as ERP. This concept loosely follows a broadly accepted and successful Metabase, Netbird, Discourse, ... model; however, the chuck-stack is different since it is a collection of tools (not a single tool like discourse).
 - Revenue to date is generated through a flat monthly '[professional services / training](./stack-academy.md)` fee plus project and hourly consulting services.
-- It is important to note that our general audience is small to medium organizations ($1M to $500M in annual revenue USD). Our target audience historically has been more narrowly organizations with $20M to $200M annual revenue. The chuck-stack seems to be consistent with the historical model and is following a similar trajectory.
+- It is important to note that our general audience is small to medium organizations. This group is commonly defined by annual revenues ranging from $1M to $500M USD. Our target chuck-stack audience is more narrowly defined by organizations with $20M to $200M annual revenue. Although, our smallest customer is below $1M USD annual revenue, and our largest customer topped over $800M USD annual revenue.
 
 ## What is a Superclerk?
 
