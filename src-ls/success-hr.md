@@ -8,7 +8,7 @@ The chuck-stack is a human-first approach to operational excellence. If humans, 
 
 ## Not Possible Today
 
-The current 'norm' in web-scale technology stacks has made the world a difficult place. It keeps innovation beyond the reach of the every-day person. We, members of chuck-stack, have lived in technology for the last 20 years, and we can barely contribute in this world of complexity.
+The current 'norm' in web-scale technology stacks has made the world a difficult place. It keeps innovation beyond the reach of the every-day person. We, members of chuck-stack, have lived in technology for the last 20 years, and we can barely contribute in this world of web-scale complexity.
 
 The chuck-stack focuses on the needs of small and medium organizations. Web-scale complexity has no value in these organizations. Web-scale tooling requires too many experts and too much effort.
 
@@ -68,11 +68,11 @@ Skills, knowledge, attitude and potential are 4 powerful attributes to measure h
 
 During a chuck-stack deployment, you are constantly coaching and measuring these attributes. 
 
-At any time, you might be coaching up, coaching out or both at the same time. Your responsibility as an organization is to always invite your team to join you. If they cannot, do all you can to help them achieve success elsewhere.
+At any time, you might be coaching up, coaching out or both at the same time. Your responsibility as an organization is to always invite your team to join you. Help them understand how to achieve success. If they cannot, do all you can to help them achieve success elsewhere.
 
 ## Decentralized Amazon
 
-Here is extreme example of the envisioned success of chuck-stack.
+Here is extreme example of the envisioned success of chuck-stack. It also paints a picture of why the chuck-stack matters.
 
 - If we can elevate the platform to allow everyday users to reason about language, technology and business (organizations)...
 - If we can give them a way to think about and demonstrate their natural talents (not passion - but talent)...

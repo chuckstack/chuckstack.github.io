@@ -59,6 +59,8 @@ Agentic orchestration tools like CrewAI do not fit well in a typical chuck-stack
 
 Most organizations do not have complex BPMN-style workflows. A large percentage (say 70% to 90%) of operations execute a long a defined [happy path](./terminology.md#happy-path). The  task is simply 'follow the work instructions' and look for any scenarios the fall out of the happy path. If a scenario falls out of the happy path, follow the work instructions that define the error, exception or edge case scenario. If there are no work instructions, ask a human.
 
+Said another way... work instructions are the best, easiest, and most concise way to communicate and guide what needs to happen. Agentic frameworks are not needed to simple follow work instructions and execute tools accordingly.
+
 Problem with Agentic frameworks:
 
 - They are too hard for an everyday person to reason about
