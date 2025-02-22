@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Success with HR</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ul class="chapter">
+                    <li><a class="active" href="../">chuck-stack Home</a></li> <!--chuboe changed-->
+                </ul>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="picture-success.html"><strong aria-hidden="true">2.</strong> Picture of Success</a></li><li class="chapter-item expanded "><a href="success-factor.html"><strong aria-hidden="true">3.</strong> Success Factors</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="success-hr.html" class="active"><strong aria-hidden="true">3.1.</strong> Success with HR</a></li><li class="chapter-item expanded "><a href="success-cli.html"><strong aria-hidden="true">3.2.</strong> Success with CLI</a></li><li class="chapter-item expanded "><a href="success-linux.html"><strong aria-hidden="true">3.3.</strong> Success with Linux</a></li><li class="chapter-item expanded "><a href="success-postgresql.html"><strong aria-hidden="true">3.4.</strong> Success with PostgreSQL</a></li><li class="chapter-item expanded "><a href="success-api.html"><strong aria-hidden="true">3.5.</strong> Success with API</a></li><li class="chapter-item expanded "><a href="success-ai.html"><strong aria-hidden="true">3.6.</strong> Success with AI</a></li></ol></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">4.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="stack-faq.html"><strong aria-hidden="true">5.</strong> Stack FAQ</a></li><li class="chapter-item expanded "><a href="stack-tools.html"><strong aria-hidden="true">6.</strong> Stack Tools</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tool-incus.html"><strong aria-hidden="true">6.1.</strong> Incus</a></li><li class="chapter-item expanded "><a href="tool-linux.html"><strong aria-hidden="true">6.2.</strong> Linux</a></li><li class="chapter-item expanded "><a href="tool-postgresql.html"><strong aria-hidden="true">6.3.</strong> PostgreSQL</a></li><li class="chapter-item expanded "><a href="tool-postgrest.html"><strong aria-hidden="true">6.4.</strong> PostgREST</a></li><li class="chapter-item expanded "><a href="tool-aichat.html"><strong aria-hidden="true">6.5.</strong> AIChat</a></li><li class="chapter-item expanded "><a href="tool-nushell.html"><strong aria-hidden="true">6.6.</strong> Nushell</a></li><li class="chapter-item expanded "><a href="tool-zellij.html"><strong aria-hidden="true">6.7.</strong> Zellij</a></li><li class="chapter-item expanded "><a href="tool-git.html"><strong aria-hidden="true">6.8.</strong> Git</a></li><li class="chapter-item expanded "><a href="tool-obsidian.html"><strong aria-hidden="true">6.9.</strong> Obsidian</a></li><li class="chapter-item expanded "><a href="tool-netbird.html"><strong aria-hidden="true">6.10.</strong> Netbird</a></li><li class="chapter-item expanded "><a href="tool-htmx.html"><strong aria-hidden="true">6.11.</strong> htmx</a></li><li class="chapter-item expanded "><a href="tool-discourse.html"><strong aria-hidden="true">6.12.</strong> Discourse</a></li><li class="chapter-item expanded "><a href="tool-mdbook.html"><strong aria-hidden="true">6.13.</strong> mdBook</a></li><li class="chapter-item expanded "><a href="tool-others.html"><strong aria-hidden="true">6.14.</strong> Others</a></li></ol></li><li class="chapter-item expanded "><a href="stack-architecture.html"><strong aria-hidden="true">7.</strong> Stack Architecture</a></li><li class="chapter-item expanded "><a href="stack-application.html"><strong aria-hidden="true">8.</strong> Stack Application</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="application-deploy.html"><strong aria-hidden="true">8.1.</strong> Deployment</a></li><li class="chapter-item expanded "><a href="application-workflow.html"><strong aria-hidden="true">8.2.</strong> Workflow</a></li><li class="chapter-item expanded "><a href="application-attribute.html"><strong aria-hidden="true">8.3.</strong> Attribute Tagging</a></li></ol></li><li class="chapter-item expanded "><a href="best-practices.html"><strong aria-hidden="true">9.</strong> Stack Best Practices</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="best-practices-operation.html"><strong aria-hidden="true">9.1.</strong> Operation Best Practices</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="best-practices-operation-say.html"><strong aria-hidden="true">9.1.1.</strong> Say What We Do</a></li><li class="chapter-item expanded "><a href="best-practices-operation-do.html"><strong aria-hidden="true">9.1.2.</strong> Do What We Said</a></li><li class="chapter-item expanded "><a href="best-practices-operation-prove.html"><strong aria-hidden="true">9.1.3.</strong> Prove We Did It</a></li><li class="chapter-item expanded "><a href="best-practices-operation-feedback.html"><strong aria-hidden="true">9.1.4.</strong> Welcome Feedback</a></li><li class="chapter-item expanded "><a href="best-practices-operation-improve.html"><strong aria-hidden="true">9.1.5.</strong> Continuously Improve</a></li></ol></li><li class="chapter-item expanded "><a href="postgres-conventions.html"><strong aria-hidden="true">9.2.</strong> Postgres Conventions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="postgres-convention/schema.html"><strong aria-hidden="true">9.2.1.</strong> Private and API Schema</a></li><li class="chapter-item expanded "><a href="postgres-convention/abbreviation.html"><strong aria-hidden="true">9.2.2.</strong> Abbreviation</a></li><li class="chapter-item expanded "><a href="postgres-convention/table-convention.html"><strong aria-hidden="true">9.2.3.</strong> Table Convention</a></li><li class="chapter-item expanded "><a href="postgres-convention/column-convention.html"><strong aria-hidden="true">9.2.4.</strong> Column Convention</a></li><li class="chapter-item expanded "><a href="postgres-convention/table-record-convention.html"><strong aria-hidden="true">9.2.5.</strong> Table and Record</a></li><li class="chapter-item expanded "><a href="postgres-convention/uuid.html"><strong aria-hidden="true">9.2.6.</strong> UUID</a></li><li class="chapter-item expanded "><a href="postgres-convention/json-array-table-column.html"><strong aria-hidden="true">9.2.7.</strong> JSON vs Array vs Table</a></li><li class="chapter-item expanded "><a href="postgres-convention/enum-type-convention.html"><strong aria-hidden="true">9.2.8.</strong> enum and Type</a></li><li class="chapter-item expanded "><a href="postgres-convention/system-configuration-convention.html"><strong aria-hidden="true">9.2.9.</strong> System Configuration</a></li><li class="chapter-item expanded "><a href="postgres-convention/attribute-tag.html"><strong aria-hidden="true">9.2.10.</strong> Attribute Tagging</a></li><li class="chapter-item expanded "><a href="postgres-convention/statistics-convention.html"><strong aria-hidden="true">9.2.11.</strong> Statistics</a></li><li class="chapter-item expanded "><a href="postgres-convention/partition-convention.html"><strong aria-hidden="true">9.2.12.</strong> Partition</a></li><li class="chapter-item expanded "><a href="postgres-convention/function-convention.html"><strong aria-hidden="true">9.2.13.</strong> Function</a></li><li class="chapter-item expanded "><a href="postgres-convention/trigger-convention.html"><strong aria-hidden="true">9.2.14.</strong> Trigger</a></li><li class="chapter-item expanded "><a href="postgres-convention/async.html"><strong aria-hidden="true">9.2.15.</strong> Async</a></li><li class="chapter-item expanded "><a href="postgres-convention/notify.html"><strong aria-hidden="true">9.2.16.</strong> Notify</a></li><li class="chapter-item expanded "><a href="postgres-convention/request.html"><strong aria-hidden="true">9.2.17.</strong> Request Workflow</a></li><li class="chapter-item expanded "><a href="postgres-convention/comment.html"><strong aria-hidden="true">9.2.18.</strong> Comments</a></li><li class="chapter-item expanded "><a href="postgres-convention/sample-table-convention.html"><strong aria-hidden="true">9.2.19.</strong> Sample Table</a></li><li class="chapter-item expanded "><a href="postgres-convention/scalability-convention.html"><strong aria-hidden="true">9.2.20.</strong> Scalability</a></li><li class="chapter-item expanded "><a href="postgres-convention/to-be-resolved-convention.html"><strong aria-hidden="true">9.2.21.</strong> To Be Resolved</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="stack-academy.html"><strong aria-hidden="true">10.</strong> Stack Academy</a></li><li class="chapter-item expanded "><a href="stack-local.html"><strong aria-hidden="true">11.</strong> Local Community Support</a></li><li class="chapter-item expanded "><a href="terminology.html"><strong aria-hidden="true">12.</strong> Terminology</a></li><li class="chapter-item expanded "><a href="roadmap.html"><strong aria-hidden="true">13.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="project-history.html"><strong aria-hidden="true">14.</strong> Project History</a></li><li class="chapter-item expanded "><a href="reference.html"><strong aria-hidden="true">15.</strong> References</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="code-of-conduct.html"><strong aria-hidden="true">16.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="privacy-policy.html"><strong aria-hidden="true">17.</strong> Privacy Policy</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="blog.html"><strong aria-hidden="true">18.</strong> Blog</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="blog-llm-ai-operations-automation.html"><strong aria-hidden="true">18.1.</strong> Operations AI LLM Automation in 2025</a></li><li class="chapter-item expanded "><a href="blog-incus-netbird-phoenixnap.html"><strong aria-hidden="true">18.2.</strong> Hybrid Cloud Strategy: Incus + Netbird + PhoenixNAP</a></li><li class="chapter-item expanded "><a href="blog-letter-ceo.html"><strong aria-hidden="true">18.3.</strong> Letter to the CEO</a></li><li class="chapter-item expanded "><a href="blog-cli-better.html"><strong aria-hidden="true">18.4.</strong> The CLI is better than...</a></li><li class="chapter-item expanded "><a href="blog-conversational-enterprise-computing.html"><strong aria-hidden="true">18.5.</strong> Why Conversational Enterprise Computing Matters</a></li><li class="chapter-item expanded "><a href="blog-work-instruction-sexy.html"><strong aria-hidden="true">18.6.</strong> Work Instructions Make your Organization Sexy</a></li><li class="chapter-item expanded "><a href="blog-live-markdown-world.html"><strong aria-hidden="true">18.7.</strong> We Live in a Markdown World</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <!-- add things here that will go above the body navigation -->
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="success-with-human-resource-capital"><a class="header" href="#success-with-human-resource-capital">Success with Human Resource Capital</a></h1>
+<p>The purpose of this page is to express how humans fit into the chuck-stack success story.</p>
+<h2 id="human-first"><a class="header" href="#human-first">Human First</a></h2>
+<p>The chuck-stack is a human-first approach to operational excellence. If humans, as a collective whole, are not 'driving the bus' toward a better existence for humanity, there is little reason to think beyond this sentence.</p>
+<h2 id="not-possible-today"><a class="header" href="#not-possible-today">Not Possible Today</a></h2>
+<p>The current 'norm' in web-scale technology stacks has made the world a difficult place. It keeps innovation beyond the reach of the every-day person. We, members of chuck-stack, have lived in technology for the last 20 years, and we can barely contribute in this world of complexity.</p>
+<p>The chuck-stack focuses on the needs of small and medium organizations. Web-scale complexity has no value in these organizations. Web-scale tooling requires too many experts and too much effort.</p>
+<p>We need thinly veiled systems that are easy for humans to operate and reason about.</p>
+<h2 id="just-ask"><a class="header" href="#just-ask">Just Ask</a></h2>
+<p>We need 'just ask' systems. Once we create these systems, we need to train users to 'just ask'.</p>
+<p>Generative AI is exposing more people to more skills and knowledge. chuck-stack uses AI to assemble off-the-shelf tools in a simple way to ultimately give humans (who might have performed a task in an organization for years) the ability to say 'Can you do X for me?'.</p>
+<p>These people know the nuances of the role. They know what works and what is acceptable. They are the experts! We need these people to help themselves.</p>
+<p>How do we make this happen?</p>
+<h2 id="bound-by-roles"><a class="header" href="#bound-by-roles">Bound by Roles</a></h2>
+<p>There are tree types of work instructions as defined <a href="./best-practices-operation-say.html">here</a>:</p>
+<ul>
+<li><code>Roles</code> - responsibilities of a person or system in an organization</li>
+<li><code>Tasks</code> - actions to be performed by one or more roles</li>
+<li><code>Tools</code> - software or mechanical devices used to perform one or more tasks</li>
+</ul>
+<p>We want to focus on the <code>role</code> work instruction. This is your contract for what a person can do within an organization. It defines what you should and should not do. For example:</p>
+<ul>
+<li>A CSR (customer service rep) probably SHOULD manipulate orders on behalf of a customer to foster customer loyalty.</li>
+<li>A CSR probably should NOT create accounting payments to anyone they want.</li>
+</ul>
+<p>If you take the time to accurately define roles, you can use AI to ensure users stay within the proper role guardrails.</p>
+<h2 id="human-agency"><a class="header" href="#human-agency">Human Agency</a></h2>
+<p>A better way to discuss role work instructions is through human agency. Humans thrive to be relevant. One way we achieve this goal is by giving humans the autonomy to perform the tasks they understand well.</p>
+<p>Said another way, if we document roles is such a way that they provide user's autonomy to perform tasks, we get better engagement. If we build 'just ask' systems where users can start automating tasks, we create <a href="./stack-faq.html#superclerk">superclerks</a>.</p>
+<p>In any given group of humans, some percentage will rise to the top of a performance scale. The super performers will start to automate tasks. Automation will reduce the need for as many humans.</p>
+<h2 id="human-ai-contradiction"><a class="header" href="#human-ai-contradiction">Human AI Contradiction</a></h2>
+<p>We are painfully aware that augmentation and automation create efficiencies. These efficiencies often reduce the need for human capital. Said another way, some people might lose their jobs. This was true during the last 15 year of ERP implementations, and it will be true moving forward.</p>
+<p>If people are going to lose jobs as a result of chuck-stack adoption, how can you claim to be 'human first'?</p>
+<p>This is a great question! In a chuck-stack deployment, we invite and educate everyone. We go to heroic efforts to help people see a different way of reasoning about their roles.</p>
+<p>The reality is that not everyone can adapt. Then the question is: how do you quantify who can adapt?</p>
+<h2 id="skills-knowledge-attitude-potential"><a class="header" href="#skills-knowledge-attitude-potential">Skills Knowledge Attitude Potential</a></h2>
+<p>Skills, knowledge, attitude and potential are 4 powerful attributes to measure human performance.</p>
+<ul>
+<li>Skills - the ability to perform a task with near perfection repeatedly</li>
+<li>Knowledge - the ability to gain, retain, connect and apply information to a wide variety of scenarios</li>
+<li>Attitude - your collective belief system built from every experience in your life</li>
+<li>Potential - your ability to acquire new skills and knowledge</li>
+</ul>
+<p>During a chuck-stack deployment, you are constantly coaching and measuring these attributes.</p>
+<p>At any time, you might be coaching up, coaching out or both at the same time. Your responsibility as an organization is to always invite your team to join you. If they cannot, do all you can to help them achieve success elsewhere.</p>
+<h2 id="decentralized-amazon"><a class="header" href="#decentralized-amazon">Decentralized Amazon</a></h2>
+<p>Here is extreme example of the envisioned success of chuck-stack.</p>
+<ul>
+<li>If we can elevate the platform to allow everyday users to reason about language, technology and business (organizations)...</li>
+<li>If we can give them a way to think about and demonstrate their natural talents (not passion - but talent)...</li>
+<li>If we can give them a way to understand how their talents fit into their world (neighborhood, city, state, country)...</li>
+<li>If we can give them an entry point to start adding value into their world in a way that is authentic to the person or organization...</li>
+<li>If we can give them a way to be compensated for their value...</li>
+</ul>
+<p>We can see a way to create a decentralized version of amazon.com. We choose Amazon because it is not difficult for a reasonably intelligent human to imaging a world where Amazon tries to eliminate humans from the entire value chain. We want to part of this world.</p>
+<p>History has proven that the masses seldom benefit from the charity of the elite. We need to create our own 'human-first' system.</p>
+
+                        <br>
+                        <p>Copyright &copy; 2024-<script>document.write(new Date().getFullYear())</script>, CHUBOE LLC. All rights reserved.</p> <!--chuboe changed-->
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="success-factor.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="success-cli.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="success-factor.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="success-cli.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
