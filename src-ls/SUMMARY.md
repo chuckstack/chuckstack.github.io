@@ -3,6 +3,7 @@
 - [Introduction](./introduction.md)
 - [Picture of Success](./picture-success.md)
 - [Success Factors](./success-factor.md)
+  - [Success with HR](./success-hr.md)
   - [Success with CLI](./success-cli.md)
   - [Success with Linux](./success-linux.md)
   - [Success with PostgreSQL](./success-postgresql.md)

@@ -35,4 +35,8 @@ You will be tempted to use Microsoft Word or Google Docs to capture your words. 
 
 Instead, we strongly recommend you use a tool named [Obsidian](./tools-obsidian.md) as your writing environment. It offers the same joyful writing tools; however, it saves your words in a plain text format called [markdown](https://en.wikipedia.org/wiki/Markdown). Markdown is quite possibly the most simple yet powerful tool you have in working with people and AI.
 
+### References
+
+- [Success with HR](./success-hr.md)
+
 ## Application Best Practices

@@ -36,6 +36,27 @@ Here are some bullets that are unique to PostgreSQL that make it significantly b
 - It is fast!
 - It can read from many foreign data containers via FDW (Foreign Data Wrappers) - [see the list](https://wiki.postgresql.org/wiki/Foreign_data_wrappers).
 
+## Supabase
+
+[Supabase.com](https://supabase.com/), a hosted PostgreSQL database and added-value services organization, deserves special acknowledgement here. They are in part why the chuck-stack exists. They helped us see and validate a better path forward.
+
+They proposed that the database is one of the best places to add your role and business logic management. Doing so has the following benefits:
+
+- PostgreSQL has an amazingly capable user/role archetypes, and it is quite possible one of the best in the world
+- If you maintain your roles in the database:
+  - You only define role and data access logic once
+  - If you can't see it in the database, you cannot see it anywhere (ERP, BI, web, ...)
+  - If users cannot violate data access policies in the database, why not let everyone connect directly
+  - AI knows SQL as well as any language
+  - Give users a kind AI with knowledge of your system, and let them ask for what they need
+- If you maintain your business logic in the database:
+  - Any tool can execute the appropriate logic on behalf of the user
+  - AI can start augmenting and automating tasks for you
+
+All the sudden, you can start imagining a world where users can start to self-help with minimal involvement from IT. IT can now create systems that are simply bound by roles, and the database and logic (in the DB) helps ensure integrity.
+
+You are left with a thinly veiled system that is easy to create, test, deploy, automate and improve. It is quite magical!
+
 ## PostgreSQL Primer
 
 Content below this section is intended to provide reference material that gets you up and running with PostgreSQL as quickly as possible.

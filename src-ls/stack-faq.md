@@ -36,6 +36,44 @@ The chuck-stack uses widely available and well understood tools (namely PostgreS
 
 Reference: [Postgresql Scalability](./postgres-convention/scalability-convention.md)
 
+## What about AI Agents
+
+I am commonly asked about AI agents and agentic frameworks (like CrewAI). Before we get into the discussion, it is important to remember that the chuck-stack serves small and medium organizations. The needs and abilities of these groups are significantly different than someone building the next web-scale product like tiktok.
+
+It is also important to note that the chuck-stack takes a very different approach to how an organization improves over time. The traditional approach is to have technical group (like IT) build tools for an organization based on documented needs. The problem statement is that IT people almost never fully understand the needs of the people who perform the nuanced work for years.
+
+The chuck-stack takes the approach that an IT department has only one primary focus: build a self-help platform. The IT goal is to enable the people who perform a task every day to reason, augment and automate their roles.
+
+Agentic orchestration tools like CrewAI do not fit well in a typical chuck-stack organization. To explain why, we need to explain what chuck-stack organizations need from AI. Note we are using the term 'AI' as a general catchall term for all AI-related topics and technologies.
+
+- Need AI to understand documented work instructions (specifically: RAG)
+- Need AI to help educate new people to roles (specifically: chat)
+- Need AI to understand operational/transactional systems (specifically: SQL schema)
+- Need AI to understand the intersection between work instructions and transactional system schema (specifically: context)
+- Need AI to help make real-time decisions that: 
+  - make the right data available to the right role
+  - help make the role easier to execute
+  - help prevent mistakes
+
+Problem with Agentic:
+
+- Too hard for an everyday person to reason about
+- The complexity of coding modern agentic systems is prohibitively expensive
+- Agentic frameworks are the wrong tool for the problem/need.
+
+A better way to think about the needs of AI in a typical chuck-stack organization:
+
+- p
+
+## What about chuck-stack Revenue?
+
+We are commonly asked about the commercial viability of the chuck-stack. Specifically, people as about generating revenue from a broader audience. Here are our thoughts and experiences on revenue.
+
+- We have supported our families and business partners over the last 14 years from traditional ERP services (learn, configure, audit, deploy, scales and support). While the world is changing quickly both in terms of training and consulting, there is an aspect to this model that will remain. Reference: <https://www.chuckboecking.com>
+- We believe there is value in providing chuck-stack hosting and configuration based on best practices. This follows the same life cycle (learn, configure, audit, deploy, scales and support) as ERP. This concept loosely follows a broadly accepted and successful Metabase, Netbird, Discourse, ... model; however, the chuck-stack is different since it is a collection of tools (not a single tool like discourse).
+- Revenue to date is generated through a flat monthly '[professional services / training](./stack-academy.md)` fee plus project and hourly consulting services.
+- It is important to note that our general audience is small to medium organizations ($1M to $500M in annual revenue USD). Our target audience historically has been more narrowly organizations with $20M to $200M annual revenue. The chuck-stack seems to be consistent with the historical model and is following a similar trajectory.
+
 ## What is a Superclerk?
 
 See [superclerk](./terminology.html#superclerk).
