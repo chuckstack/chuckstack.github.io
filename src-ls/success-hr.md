@@ -10,7 +10,7 @@ The chuck-stack is a human-first approach to operational excellence. If humans, 
 
 The current 'norm' in web-scale technology stacks has made the world a difficult place. It keeps innovation beyond the reach of the every-day person. We, members of chuck-stack, have lived in technology for the last 20 years, and we can barely contribute in this world of web-scale complexity.
 
-The chuck-stack focuses on the needs of small and medium organizations. Web-scale complexity has no value in these organizations. Web-scale tooling requires too many experts and too much effort.
+The chuck-stack focuses on the needs of small and medium organizations. Web-scale complexity has little to no value in these organizations. Web-scale tooling requires too many experts and too much effort.
 
 We need thinly veiled systems that are easy for humans to operate and reason about.
 
@@ -49,7 +49,7 @@ In any given group of humans, some percentage will rise to the top of a performa
 
 ## Human AI Contradiction
 
-We are painfully aware that augmentation and automation create efficiencies. These efficiencies often reduce the need for human capital. Said another way, some people might lose their jobs. This was true during the last 15 year of ERP implementations, and it will be true moving forward.
+We are painfully aware that augmentation and automation create efficiencies. These efficiencies often reduce the need for human capital. Said another way, some people might lose their jobs. This was true during the last 25+ years of ERP implementations, and it will be true moving forward.
 
 If people are going to lose jobs as a result of chuck-stack adoption, how can you claim to be 'human first'?
 
@@ -68,7 +68,7 @@ Skills, knowledge, attitude and potential are 4 powerful attributes to measure h
 
 During a chuck-stack deployment, you are constantly coaching and measuring these attributes. 
 
-At any time, you might be coaching up, coaching out or both at the same time. Your responsibility as an organization is to always invite your team to join you. Help them understand how to achieve success. If they cannot, do all you can to help them achieve success elsewhere.
+At any time, you might be coaching up, coaching out or both at the same time. Your responsibility as an organization is to invite your team to join you. Help them understand how to achieve success. If they cannot, do all you can to help them achieve success elsewhere.
 
 ## Decentralized Amazon
 
