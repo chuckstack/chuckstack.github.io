@@ -48,7 +48,7 @@ Here is the example:
 ...
 - System responds: "Our initial hypothesis seems to hold true that declining retention by subscribers with more than 24 months is the greatest source of declining revenue."
 - User asks: "What indicators do we have that can explain this decline?"
-- System responds: "Your documentation suggests the following three attributes relate to subscription rates: When was the last support ticket, Was the perceived resolution positive, frequency logins."
+- System responds: "Your documentation suggests the following three attributes relate to subscription rates: When was the last support ticket, Was the perceived resolution positive, frequency of logins."
 - User asks: "How do the prove these concepts are related?"
 - System responds: "causality, correlation and other metrics can be evaluated using the following tools: Chi test, heat maps, violin graphs, ...
 - User responds: "Make a recommendation and let's start..."
@@ -67,11 +67,11 @@ Responses should be driven by work instructions. The question is: is there an in
 
 Another question is: how would an AI have the opportunity to respond? A picture of solution is [presented here](./blog-llm-ai-operations-automation.md). Our goal is to provide a real-time assistant that is context aware. Here is what this looks like:
 
-Any time we engage an AI LLM, we want to make the following present and actionable:
+Any time we engage an AI LLM, we want to make the following is present and actionable:
 
 - Working memory (CLI and shell session engagement) - said another what, this is the current conversation thread
 - Context - what window do we have open, what record are we viewing, ...
-- Episodic/augmented Memory - attribute tagged/associated with this context (observations, actions, preferences, ...)
+- Episodic/augmented Memory - attribute tags/associations with this context (observations, actions, preferences, ...)
 - Semantic memory - work instruction retrieval
 - Procedural memory - tools, scripts and workflow given the context
 

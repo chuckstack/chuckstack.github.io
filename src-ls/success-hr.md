@@ -70,6 +70,21 @@ During a chuck-stack deployment, you are constantly coaching and measuring these
 
 At any time, you might be coaching up, coaching out or both at the same time. Your responsibility as an organization is to invite your team to join you. Help them understand how to achieve success. If they cannot, do all you can to help them achieve success elsewhere.
 
+## Strategic Advantage
+
+We believe the chuck-stack will give small and medium organizations a human resources strategic advantage. The goal is sub-linear employee growth as compared to revenue or complexity. Said another way:
+
+- Find, promote and retain elevated talent
+- Grow more with strategic employees
+
+## Beyond Owner Operator
+
+The chuck-stack acts as a blueprint for owner operator success. It helps you escape the "Owner Operator" value limiting trap.
+
+Many of not most small and medium organizations are trapped in an owner operator status. This means most strategic and tactical decisions are made by few in the organization. Many of the small and medium organizations are owned and operated by people over 55 years old. This means that the organization could face an uncertain future beyond the next 5 to 10 years.
+
+Here is a [more detailed discussion](./blog-llm-ai-operations-automation.md) about escaping the owner operator trap. Here is an [example scenario](./blog-llm-ai-operations-automation.md#example-company).
+
 ## Decentralized Amazon
 
 Here is extreme example of the envisioned success of chuck-stack. It also paints a picture of why the chuck-stack matters.
