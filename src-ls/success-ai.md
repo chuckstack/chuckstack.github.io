@@ -4,6 +4,16 @@ The purpose of this page is to describe how the chuck-stack uses AI to help smal
 
 While generative AI (specifically [aichat](./tool-aichat.md)) was the catalyst to create the chuck-stack, AI (in all its forms) is what drives conversational enterprise computing! We now have the ability to put more tools with less effort in the hand of the people who actually perform an organization's work.
 
+## TOC
+
+- [Self-Help](#self-help)
+- [AI in the chuck-stack](#ai-in-the-chuck-stack)
+  - [AI Data Insights](#ai-data-insights)
+  - [AI Real-Time Augmentation](#ai-real-time-augmentation)
+  - [AI Automation](#ai-automation)
+- [AI Principles](#ai-principles)
+- [AI as a System](#ai-as-a-system)
+
 ## Self-Help
 
 IT departments have historically served to create tools for organizations. Little more...

@@ -2,6 +2,19 @@
 
 The purpose of this page is to express how humans fit into the chuck-stack success story.
 
+## TOC
+
+- [Human First](#human-first)
+- [Not Possible Today](#not-possible-today)
+- [Just Ask](#just-ask)
+- [Bound by Roles](#bound-by-roles)
+- [Human Agency](#human-agency)
+- [Human AI Contradiction](#human-ai-contradiction)
+- [Skills Knowledge Attitude Potential](#skills-knowledge-attitude-potential)
+- [Strategic Advantage](#strategic-advantage)
+- [Beyond Owner Operator](#beyond-owner-operator)
+- [Decentralized Amazon](#decentralized-amazon)
+
 ## Human First
 
 The chuck-stack is a human-first approach to operational excellence. If humans, as a collective whole, are not 'driving the bus' toward a better existence for humanity, there is little reason to think beyond this sentence.

@@ -11,6 +11,24 @@ If your goal is to understand what is needed for us to succeed, view the [succes
 
 If you just want to start playing with the chuck-stack, read below. If you need help, join the [stack-academy](./stack-academy.md).
 
+## TOC
+
+- [Start with AI](#start-with-ai)
+  - [Get Your API Key](#get-your-api-key)
+  - [Ask AI First](#ask-ai-first)
+- [Get Linux](#get-linux)
+- [Which Linux Version](#which-linux-version)
+- [Get Nix](#get-nix)
+- [Rust Tools](#rust-tools)
+- [AIChat](#aichat)
+- [Best Practices](#best-practices)
+- [PostgreSQL](#postgresql)
+- [chuck-stack Test](#chuck-stack-test)
+- [Terminal in Browser](#terminal-in-browser)
+- [Netbird](#netbird)
+- [Incus](#incus)
+- [More to Come...](#more-to-come)
+
 ## Start with AI
 
 First, get your API key. Then, start using it to explore!
