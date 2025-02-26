@@ -30,6 +30,8 @@ We help organizations focus on what matters most - its people and value proposit
 - [chuck-stack Guiding Principles](#chuck-stack-guiding-principles)
 - [Why chuck-stack is Important](#why-chuck-stack-is-important)
 
+<!-- toc -->
+
 ## Purpose
 
 The purpose of the chuck-stack is to help organizations:

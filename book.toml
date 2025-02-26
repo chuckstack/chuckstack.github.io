@@ -6,3 +6,7 @@ src = "src-ls"
 
 [build]
 build-dir = "ls"
+
+[preprocessor.toc]
+command = "mdbook-toc"
+renderer = ["html"]

@@ -17,6 +17,9 @@ Page work instruction:
 - h1 title
 - all other headings at h2 or lower
 
+mdBook plugins:
+- mdbook-toc
+
 Blog Work Instruction:
 - file name begins with 'blog-'
 - h1 title ending with key word blog
