@@ -6,7 +6,7 @@ While generative AI (specifically [aichat](./tool-aichat.md)) was the catalyst t
 
 ## Self-Help
 
-IT departments have historically served to create tools for organizations. No more...
+IT departments have historically served to create tools for organizations. Little more...
 
 > The chuck-stack is singularly focused on creating a platform of self-help tools.
 >
@@ -16,7 +16,7 @@ IT departments have historically served to create tools for organizations. No mo
 
 The chuck-stack uses AI to help organizations is three high-level ways:
 
-- Data insights - using traditional BI and AI analytics to drive insights and operational objectives (mission, vision, values, principles)
+- Data insights - using traditional BI and AI analytics to drive insights and strategy (mission, vision, values, principles)
 - Real-time augmentation - helping users receive the right information, make the right decisions, execute the right actions, and eliminating mistakes
 - Role automation - helping users automate and monitor their role's tasks without the direct involvement of IT (classical tool generation)
 
@@ -43,9 +43,8 @@ Here is the example:
 - User asks: "Is this trend more about retention or new subscriptions?"
 - System responds: "Retention seems to be the biggest culprit. New subscription rates are stable within 1% of historical normal values."
 - User asks: "How do we validate these insights?"
-- System responds: "You organization has 15 documented ways revenue is profiled. Let's start my comparing these profiles. Shall we start?"
+- System responds: "You organization has 15 documented ways revenue is profiled. Shall we start by comparing these profiles?"
 - User responds: "yes"
-...
 - System responds: "Our initial hypothesis seems to hold true that declining retention by subscribers with more than 24 months is the greatest source of declining revenue."
 - User asks: "What indicators do we have that can explain this decline?"
 - System responds: "Your documentation suggests the following three attributes relate to subscription rates: When was the last support ticket, Was the perceived resolution positive, frequency of logins."
@@ -67,7 +66,7 @@ Responses should be driven by work instructions. The question is: is there an in
 
 Another question is: how would an AI have the opportunity to respond? A picture of solution is [presented here](./blog-llm-ai-operations-automation.md). Our goal is to provide a real-time assistant that is context aware. Here is what this looks like:
 
-Any time we engage an AI LLM, we want to make the following is present and actionable:
+Any time we engage an AI LLM, we want to make the following present and actionable:
 
 - Working memory (CLI and shell session engagement) - said another what, this is the current conversation thread
 - Context - what window do we have open, what record are we viewing, ...
@@ -94,7 +93,7 @@ The next logical step is simply to get the system to perform a workflow for you.
 - User Asks: "check in Anita"
 - System Responds: "process completed successfully - Anita is checked it"
 
-Because work instructions can also document short codes, a superuser would simply type the following to eliminate wasted time and effort:
+Because work instructions can also document short codes, a [superclerk](./terminology.md#superclerk) would simply type the following to eliminate wasted time and effort:
 
 - User Asks: "ci anita"
 - System Responds: "process completed successfully - Anita is checked it"

@@ -194,6 +194,16 @@
 <!-- keep just in case useful later
 **chuck-stack exists to solve a problem:** many (if not most) small to medium organizations do not have the knowledge and resources to automate their processes. This is largely because ERP and most development frameworks are too big, slow, expensive and complicated from almost every perspective (learn, configure, develop, audit, deploy, train, service, scale, enhance, etc...).
 -->
+<h2 id="toc"><a class="header" href="#toc">TOC</a></h2>
+<ul>
+<li><a href="introduction.html#purpose">Purpose</a></li>
+<li><a href="introduction.html#solution-summary">Solution Summary</a></li>
+<li><a href="introduction.html#small-and-medium-is-different">Small and Medium Is Different</a></li>
+<li><a href="introduction.html#education">Education</a></li>
+<li><a href="introduction.html#chuck-stack-customers">chuck-stack Customers</a></li>
+<li><a href="introduction.html#chuck-stack-guiding-principles">chuck-stack Guiding Principles</a></li>
+<li><a href="introduction.html#why-chuck-stack-is-important">Why chuck-stack is Important</a></li>
+</ul>
 <h2 id="purpose"><a class="header" href="#purpose">Purpose</a></h2>
 <p>The purpose of the chuck-stack is to help organizations:</p>
 <ul>
@@ -267,6 +277,17 @@
 <!-- copied_from_home_page -->
 <p>Imagine a world where your operations team writes <a href="./best-practices.html#organization-best-practices">work instructions</a> and both your system and people magically execute those work instructions with near perfection. Imagine a world where IT no longer builds tools but instead helps people build logic themselves while ensuring everyone is bound by their roles. You do not need to imagine much longer.</p>
 <!-- /copied_from_home_page -->
+<h2 id="toc-1"><a class="header" href="#toc-1">TOC</a></h2>
+<ul>
+<li><a href="picture-success.html#how-is-this-possible">How is This Possible</a></li>
+<li><a href="picture-success.html#problem---too-many-windows-and-fields">Problem - Too Many Windows and Fields</a></li>
+<li><a href="picture-success.html#chatgpt-showed-us-a-better-way">ChatGPT Showed Us a Better Way</a></li>
+<li><a href="picture-success.html#simple-example">Simple Example</a></li>
+<li><a href="picture-success.html#better-example">Better Example</a></li>
+<li><a href="picture-success.html#get-a-little-crazy">Get a Little Crazy</a></li>
+<li><a href="picture-success.html#not-that-crazy">Not that Crazy</a></li>
+<li><a href="picture-success.html#all-you-need-are-work-instructions">All You Need are Work Instructions</a></li>
+</ul>
 <h2 id="how-is-this-possible"><a class="header" href="#how-is-this-possible">How is This Possible</a></h2>
 <p>Modern AI has a magical ability to understand and use our language to offer valuable opinions and execute tasks. More specifically, it understands work instructions (role, task, and tool definitions), and it can help us automate tasks, increase velocity and improve efficiency.</p>
 <video controls>
@@ -351,7 +372,7 @@
 <li><code>Tasks</code> - actions to be performed by one or more roles</li>
 <li><code>Tools</code> - software or mechanical devices used to perform one or more tasks</li>
 </ul>
-<p>We want to focus on the <code>role</code> work instruction. This is your contract for what a person can (should or should not) do within an organization. For example:</p>
+<p>Let's focus on the <code>role</code> work instruction. This is your contract for what a person can (should or should not) do within an organization. For example:</p>
 <ul>
 <li>A CSR (customer service rep) probably SHOULD manipulate orders on behalf of a customer to foster customer loyalty.</li>
 <li>A CSR probably should NOT create accounting payments to anyone they want.</li>
@@ -401,7 +422,7 @@
 <p>The purpose of this page is to describe how the chuck-stack uses AI to help small and medium organization improve operational excellence.</p>
 <p>While generative AI (specifically <a href="./tool-aichat.html">aichat</a>) was the catalyst to create the chuck-stack, AI (in all its forms) is what drives conversational enterprise computing! We now have the ability to put more tools with less effort in the hand of the people who actually perform an organization's work.</p>
 <h2 id="self-help"><a class="header" href="#self-help">Self-Help</a></h2>
-<p>IT departments have historically served to create tools for organizations. No more...</p>
+<p>IT departments have historically served to create tools for organizations. Little more...</p>
 <blockquote>
 <p>The chuck-stack is singularly focused on creating a platform of self-help tools.</p>
 <p>Said another way, the chuck-stack changes how technical users serve an organization by moving away from tool creation and moving toward self-help augmentation and automation.</p>
@@ -409,7 +430,7 @@
 <h2 id="ai-in-the-chuck-stack"><a class="header" href="#ai-in-the-chuck-stack">AI in the chuck-stack</a></h2>
 <p>The chuck-stack uses AI to help organizations is three high-level ways:</p>
 <ul>
-<li>Data insights - using traditional BI and AI analytics to drive insights and operational objectives (mission, vision, values, principles)</li>
+<li>Data insights - using traditional BI and AI analytics to drive insights and strategy (mission, vision, values, principles)</li>
 <li>Real-time augmentation - helping users receive the right information, make the right decisions, execute the right actions, and eliminating mistakes</li>
 <li>Role automation - helping users automate and monitor their role's tasks without the direct involvement of IT (classical tool generation)</li>
 </ul>
@@ -432,9 +453,8 @@
 <li>User asks: "Is this trend more about retention or new subscriptions?"</li>
 <li>System responds: "Retention seems to be the biggest culprit. New subscription rates are stable within 1% of historical normal values."</li>
 <li>User asks: "How do we validate these insights?"</li>
-<li>System responds: "You organization has 15 documented ways revenue is profiled. Let's start my comparing these profiles. Shall we start?"</li>
-<li>User responds: "yes"
-...</li>
+<li>System responds: "You organization has 15 documented ways revenue is profiled. Shall we start by comparing these profiles?"</li>
+<li>User responds: "yes"</li>
 <li>System responds: "Our initial hypothesis seems to hold true that declining retention by subscribers with more than 24 months is the greatest source of declining revenue."</li>
 <li>User asks: "What indicators do we have that can explain this decline?"</li>
 <li>System responds: "Your documentation suggests the following three attributes relate to subscription rates: When was the last support ticket, Was the perceived resolution positive, frequency of logins."</li>
@@ -449,7 +469,7 @@
 <p>Our business partners interact with our people and systems in both real-time and asynchronous ways. We want to influence positive behaviors at the moment a user or system responds/acts.</p>
 <p>Responses should be driven by work instructions. The question is: is there an insight from above that might alter how we respond in the work instruction <a href="./terminology.html#happy-path">happy path</a>?</p>
 <p>Another question is: how would an AI have the opportunity to respond? A picture of solution is <a href="./blog-llm-ai-operations-automation.html">presented here</a>. Our goal is to provide a real-time assistant that is context aware. Here is what this looks like:</p>
-<p>Any time we engage an AI LLM, we want to make the following is present and actionable:</p>
+<p>Any time we engage an AI LLM, we want to make the following present and actionable:</p>
 <ul>
 <li>Working memory (CLI and shell session engagement) - said another what, this is the current conversation thread</li>
 <li>Context - what window do we have open, what record are we viewing, ...</li>
@@ -472,7 +492,7 @@
 <li>User Asks: "check in Anita"</li>
 <li>System Responds: "process completed successfully - Anita is checked it"</li>
 </ul>
-<p>Because work instructions can also document short codes, a superuser would simply type the following to eliminate wasted time and effort:</p>
+<p>Because work instructions can also document short codes, a <a href="./terminology.html#superclerk">superclerk</a> would simply type the following to eliminate wasted time and effort:</p>
 <ul>
 <li>User Asks: "ci anita"</li>
 <li>System Responds: "process completed successfully - Anita is checked it"</li>

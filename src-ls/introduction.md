@@ -20,6 +20,15 @@ We help organizations focus on what matters most - its people and value proposit
 **chuck-stack exists to solve a problem:** many (if not most) small to medium organizations do not have the knowledge and resources to automate their processes. This is largely because ERP and most development frameworks are too big, slow, expensive and complicated from almost every perspective (learn, configure, develop, audit, deploy, train, service, scale, enhance, etc...).
 -->
 
+## TOC
+
+- [Purpose](#purpose)
+- [Solution Summary](#solution-summary)
+- [Small and Medium Is Different](#small-and-medium-is-different)
+- [Education](#education)
+- [chuck-stack Customers](#chuck-stack-customers)
+- [chuck-stack Guiding Principles](#chuck-stack-guiding-principles)
+- [Why chuck-stack is Important](#why-chuck-stack-is-important)
 
 ## Purpose
 

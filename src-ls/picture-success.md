@@ -4,6 +4,17 @@
 Imagine a world where your operations team writes [work instructions](./best-practices.md#organization-best-practices) and both your system and people magically execute those work instructions with near perfection. Imagine a world where IT no longer builds tools but instead helps people build logic themselves while ensuring everyone is bound by their roles. You do not need to imagine much longer.
 <!-- /copied_from_home_page -->
 
+## TOC
+
+- [How is This Possible](#how-is-this-possible)
+- [Problem - Too Many Windows and Fields](#problem---too-many-windows-and-fields)
+- [ChatGPT Showed Us a Better Way](#chatgpt-showed-us-a-better-way)
+- [Simple Example](#simple-example)
+- [Better Example](#better-example)
+- [Get a Little Crazy](#get-a-little-crazy)
+- [Not that Crazy](#not-that-crazy)
+- [All You Need are Work Instructions](#all-you-need-are-work-instructions)
+
 ## How is This Possible
 
 Modern AI has a magical ability to understand and use our language to offer valuable opinions and execute tasks. More specifically, it understands work instructions (role, task, and tool definitions), and it can help us automate tasks, increase velocity and improve efficiency.

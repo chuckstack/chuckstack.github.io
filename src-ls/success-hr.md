@@ -32,7 +32,7 @@ There are tree types of work instructions as defined [here](./best-practices-ope
 - `Tasks` - actions to be performed by one or more roles
 - `Tools` - software or mechanical devices used to perform one or more tasks
 
-We want to focus on the `role` work instruction. This is your contract for what a person can (should or should not) do within an organization. For example: 
+Let's focus on the `role` work instruction. This is your contract for what a person can (should or should not) do within an organization. For example: 
 
 - A CSR (customer service rep) probably SHOULD manipulate orders on behalf of a customer to foster customer loyalty.
 - A CSR probably should NOT create accounting payments to anyone they want.
