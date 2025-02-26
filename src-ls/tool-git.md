@@ -2,6 +2,10 @@
 
 [Git](https://git-scm.com/) is a version control system designed to help you manage a collection of documents. It helps you publish the documents' current version as well as track the changes over time.
 
+## TOC
+
+<!-- toc -->
+
 ## Why We Love Git
 
 - It is commonly used and well documented.

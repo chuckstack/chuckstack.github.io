@@ -8,6 +8,8 @@ Source markdown is located in [./src-ls](./src-ls/).
 
 We use mdbook to maintain the published site to [./ls](./ls/).
 
+See ./src-ls/example.md for example markdown artifacts.
+
 md file names:
 - Use hyphen '-' to separate words
 - Use the first word as a classifier instead of using directories. For example use 'blog-' to start a file name instead of putting the file in a directory named 'blog/'.

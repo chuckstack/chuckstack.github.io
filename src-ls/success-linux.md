@@ -4,6 +4,10 @@ We have already explained the importance of the terminal to our success. The pur
 
 When the concepts in this page are fully implemented in the chuck-stack, this page will go away, and its contents will be move to other functional areas. Until then, this information represents our plan and our partial implementation.
 
+## TOC
+
+<!-- toc -->
+
 ## User and Role Management
 
 Our plan is to use a declarative approach to managing users and roles. 

@@ -8,6 +8,10 @@ This page is broken down into the following topics:
 - Architecture
 - Use Cases
 
+## TOC
+
+<!-- toc -->
+
 ## Summary
 
 The purpose of attribute tagging is to provide a simple and consistent way to describe events and details about a record.

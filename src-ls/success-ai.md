@@ -6,13 +6,7 @@ While generative AI (specifically [aichat](./tool-aichat.md)) was the catalyst t
 
 ## TOC
 
-- [Self-Help](#self-help)
-- [AI in the chuck-stack](#ai-in-the-chuck-stack)
-  - [AI Data Insights](#ai-data-insights)
-  - [AI Real-Time Augmentation](#ai-real-time-augmentation)
-  - [AI Automation](#ai-automation)
-- [AI Principles](#ai-principles)
-- [AI as a System](#ai-as-a-system)
+<!-- toc -->
 
 ## Self-Help
 

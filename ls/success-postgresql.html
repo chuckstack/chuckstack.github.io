@@ -180,6 +180,16 @@
                         <h1 id="success-using-postgresql"><a class="header" href="#success-using-postgresql">Success Using PostgreSQL</a></h1>
 <p>PostgreSQL plays a critical role in our success. How we plan to create that success is largely attributable to the documentation and practices of <a href="./tool-postgrest.html">PostgREST.org</a>. They paved a way to move user and organization logic previously trapped in an application server to the database itself. They proved the concept was more than possible, it was actually advantageous.</p>
 <p>When the concepts in this page are fully implemented in the chuck-stack, this page will go away, and its contents will be move to other functional areas. Until then, this information represents our plan and our partial implementation.</p>
+<h2 id="toc"><a class="header" href="#toc">TOC</a></h2>
+<ul>
+<li><a href="#user-and-role-management">User and Role Management</a></li>
+<li><a href="#session-variables">Session Variables</a></li>
+<li><a href="#sql-plus-psql">SQL plus psql</a></li>
+<li><a href="#case-for-psql">Case for psql</a></li>
+<li><a href="#sql-encapsulation">SQL Encapsulation</a></li>
+<li><a href="#configuration-management">Configuration Management</a></li>
+<li><a href="#technical-details-and-examples">Technical Details and Examples</a></li>
+</ul>
 <h2 id="user-and-role-management"><a class="header" href="#user-and-role-management">User and Role Management</a></h2>
 <p>User management plays a small part is how the chuck-stack operates. Almost all logic is tied to a role. PostgREST gives us a great roadmap for accomplishing this task.</p>
 <p>Here is a quick description of how chuck-stack manages users and roles:</p>

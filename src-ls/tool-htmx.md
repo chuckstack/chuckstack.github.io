@@ -2,6 +2,10 @@
 
 [htmx](https://htmx.org/) is the ideal rapid development web framework for small and medium organizations. It has great synergy with [PostgREST](./tool-postgrest.md) and [PostgreSQL](./tool-postgresql.md), and it allows a single person to prototype useful applications in minutes without introducing additional tools or unneeded complexity.
 
+## TOC
+
+<!-- toc -->
+
 ## Why We Love htmx
 
 The list of reasons we love htmx.

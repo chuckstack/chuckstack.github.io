@@ -2,6 +2,10 @@
 
 The purpose of this page is to help you understand what tools we choose to include in the chuck-stack and why we chose them. The chuck-stack has been cultivated over the last 25 years. Much effort, testing and production use has gone into this list of tools and its selection criteria.
 
+## TOC
+
+<!-- toc -->
+
 ## Selection Criteria Summary
 
 When choosing our stack tools, we:

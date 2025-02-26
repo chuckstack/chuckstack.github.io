@@ -13,21 +13,7 @@ If you just want to start playing with the chuck-stack, read below. If you need 
 
 ## TOC
 
-- [Start with AI](#start-with-ai)
-  - [Get Your API Key](#get-your-api-key)
-  - [Ask AI First](#ask-ai-first)
-- [Get Linux](#get-linux)
-- [Which Linux Version](#which-linux-version)
-- [Get Nix](#get-nix)
-- [Rust Tools](#rust-tools)
-- [AIChat](#aichat)
-- [Best Practices](#best-practices)
-- [PostgreSQL](#postgresql)
-- [chuck-stack Test](#chuck-stack-test)
-- [Terminal in Browser](#terminal-in-browser)
-- [Netbird](#netbird)
-- [Incus](#incus)
-- [More to Come...](#more-to-come)
+<!-- toc -->
 
 ## Start with AI
 

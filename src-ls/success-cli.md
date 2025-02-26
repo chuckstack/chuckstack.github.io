@@ -1,4 +1,3 @@
-
 # CLI Is Better
 
 Better than what? Better than a mouse and a webpage...
@@ -6,6 +5,10 @@ Better than what? Better than a mouse and a webpage...
 We are making an argument that the CLI is a better option for managing data and processes in small and medium organizations. Our success depends on it.
 
 The modern web browser is an impressive invention. It is pretty and engaging. It is the default tool to browse information the internet. However, it is a data trap. It silos data inside the browser with virtually no way to automate tasks without going to heroic efforts and/or paying for more tools.
+
+## TOC
+
+<!-- toc -->
 
 ## Grunts and Nudges
 

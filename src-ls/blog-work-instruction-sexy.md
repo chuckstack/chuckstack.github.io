@@ -8,6 +8,10 @@ Said no one ever... until now!
 
 This article describes how AI is changing how work instructions are created and increasing the value of your organization more than ever.
 
+## TOC
+
+<!-- toc -->
+
 ## Key Takeaways
 
 Here are the important points in this article. Work instructions:

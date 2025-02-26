@@ -191,6 +191,33 @@
 <li>PostgreSQL</li>
 </ol>
 <p>Both talents will become proficient in AI in their respective disciplines. Both talents are optimized to help <a href="./terminology.html#superclerk">superclerks</a> automate their own roles (self-help).</p>
+<h2 id="toc"><a class="header" href="#toc">TOC</a></h2>
+<ul>
+<li><a href="#configuration-over-code">Configuration Over Code</a>
+<ul>
+<li><a href="#nixos">NixOS</a></li>
+<li><a href="#nix-shell">nix-shell</a></li>
+<li><a href="#postgresql">PostgreSQL</a></li>
+<li><a href="#work-instructions">Work Instructions</a></li>
+</ul>
+</li>
+<li><a href="#user-experience">User Experience</a></li>
+<li><a href="#administration-experience">Administration Experience</a></li>
+<li><a href="#stk-application-example">Stk Application Example</a>
+<ul>
+<li><a href="#two-configurations">Two Configurations</a></li>
+<li><a href="#assumptions">Assumptions</a></li>
+<li><a href="#sql-migration">SQL Migration</a></li>
+<li><a href="#nix-configuration-review">Nix Configuration Review</a></li>
+</ul>
+</li>
+<li><a href="#all-in-one-server">All-In-One Server</a>
+<ul>
+<li><a href="#why-consider-an-all-in-one">Why Consider an All-In-One</a></li>
+<li><a href="#all-in-one-architecture">All-In-One Architecture</a></li>
+</ul>
+</li>
+</ul>
 <h2 id="configuration-over-code"><a class="header" href="#configuration-over-code">Configuration Over Code</a></h2>
 <p>One common theme you will find throughout the chuck-stack is the desire for configuration over code. This is true for both Linux and PostgreSQL. Inspecting the chuck-stack deployment highlights the extent of configuration. What little code that does exist comes in the form of high-value, human-readable work instructions and SQL DDL.</p>
 <p>Actions to deploy the chuck-stack:</p>

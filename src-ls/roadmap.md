@@ -2,6 +2,10 @@
 
 The purpose of this page is to describe the application framework progress and deployment roadmap.
 
+## TOC
+
+<!-- toc -->
+
 ## Summary
 
 <!-- TODO: link to goals -->

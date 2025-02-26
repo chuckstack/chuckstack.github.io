@@ -1,4 +1,3 @@
-
 # chuck-stack Operation Best Practices
 
 The single best thing you can do to increase operational velocity and efficiency is to implement basic quality practices. Doing so will help both your people and your AI augmentation. If you do not have a quality program/book already, the following bullets written on a single page should be your first version:
@@ -12,6 +11,10 @@ The single best thing you can do to increase operational velocity and efficiency
 >- Focus on continuous improvement
 
 If you said nothing else to summarize your quality program, this would be enough to start an incredible organization!
+
+## TOC
+
+<!-- toc -->
 
 ## Quality Program Principles
 

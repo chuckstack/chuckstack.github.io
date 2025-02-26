@@ -4,6 +4,10 @@
 
 The purpose of this page is to help your local community, state or country achieve operational excellence through AI in general and the chuck-stack specifically.
 
+## TOC
+
+<!-- toc -->
+
 ## Why Consider Local chuck-stack
 
 Here is why the chuck-stack matters to your local community:

@@ -4,16 +4,7 @@ The purpose of this page is to express how humans fit into the chuck-stack succe
 
 ## TOC
 
-- [Human First](#human-first)
-- [Not Possible Today](#not-possible-today)
-- [Just Ask](#just-ask)
-- [Bound by Roles](#bound-by-roles)
-- [Human Agency](#human-agency)
-- [Human AI Contradiction](#human-ai-contradiction)
-- [Skills Knowledge Attitude Potential](#skills-knowledge-attitude-potential)
-- [Strategic Advantage](#strategic-advantage)
-- [Beyond Owner Operator](#beyond-owner-operator)
-- [Decentralized Amazon](#decentralized-amazon)
+<!-- toc -->
 
 ## Human First
 

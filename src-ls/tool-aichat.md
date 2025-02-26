@@ -7,6 +7,10 @@ Discussion points:
 - Why AI + CLI matters so much
 - AIChat solution examples
 
+## TOC
+
+<!-- toc -->
+
 ## Why We Love AIChat
 
 - It is well documented.

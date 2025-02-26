@@ -2,6 +2,10 @@
 
 [Nushell](https://nushell.sh) is a Linux terminal shell that makes processing and visualizing data easier. For the chuck-stack, Nushell excels beyond others because of its preference for and usability with structured data and [data pipelines](./terminology.md#data-pipeline). 
 
+## TOC
+
+<!-- toc -->
+
 ## Why We Love Nushell
 
 Here are the reasons we love Nushell:

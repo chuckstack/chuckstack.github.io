@@ -6,14 +6,7 @@ Imagine a world where your operations team writes [work instructions](./best-pra
 
 ## TOC
 
-- [How is This Possible](#how-is-this-possible)
-- [Problem - Too Many Windows and Fields](#problem---too-many-windows-and-fields)
-- [ChatGPT Showed Us a Better Way](#chatgpt-showed-us-a-better-way)
-- [Simple Example](#simple-example)
-- [Better Example](#better-example)
-- [Get a Little Crazy](#get-a-little-crazy)
-- [Not that Crazy](#not-that-crazy)
-- [All You Need are Work Instructions](#all-you-need-are-work-instructions)
+<!-- toc -->
 
 ## How is This Possible
 

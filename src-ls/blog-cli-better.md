@@ -8,6 +8,10 @@ Better than what? Better than a web page? Better than the Python programming lan
 
 The CLI creates more value for managing data and processes in small and medium sized organizations than just about any alternative. How is that possible? The purpose of this post is to explain what it is better than and why.
 
+## TOC
+
+<!-- toc -->
+
 ## The CLI Offers Greater Value
 
 For small and medium organizations, a user can create more value for a given unit of time and effort from the CLI than with any other technology medium. At least that is what we believe based on our 25 years in ERP.

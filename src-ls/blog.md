@@ -2,6 +2,10 @@
 
 Here is a list of recent blogs. The sidebar contains the full list.
 
+## TOC
+
+<!-- toc -->
+
 ## Operations AI LLM Technology in 2025
 
 How do you remain operationally efficient and competitive in 2025 and beyond?

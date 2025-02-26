@@ -19,6 +19,10 @@ Here is the benefit story:
 
 As a result of this article, you can create your own instance as demonstrated [here](./blog-llm-ai-operations-automation.md).
 
+## TOC
+
+<!-- toc -->
+
 ## Problem Statements
 
 **Problem #1**: The internet is filled with Python programming examples of chat with your docs. Just about every one of them uses a different library or demonstrates a different technique. These examples make great teaching tools; however, they are difficult to turn into production applications. We need useful tools.

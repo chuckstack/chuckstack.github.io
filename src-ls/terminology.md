@@ -2,6 +2,10 @@
 
 The purpose of this page is to define terminology used in the chuck-stack.org.
 
+## TOC
+
+<!-- toc -->
+
 ## Conversational Enterprise Computing
 
 Conversational Enterprise Computing is where users manage enterprise data and processes through commanding and inquisitive interactions with the system using a keyboard or microphone. This conversational style is in stark contrast to ERP systems of the last 20 years where the users are inundated with tens of thousands of windows, tabs and fields.

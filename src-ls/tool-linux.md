@@ -2,6 +2,10 @@
 
 [Linux](https://en.wikipedia.org/wiki/Linux) is a well understood and documented operation system. Its benefits are equally as well documented; therefore, we do not need to attempt to repeat them here. However, it is important to discuss why we love Linux for the chuck-stack.
 
+## TOC
+
+<!-- toc -->
+
 ## Why We Love Linux
 
 - It is commonly used and well documented.

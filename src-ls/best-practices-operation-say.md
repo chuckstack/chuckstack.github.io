@@ -1,5 +1,13 @@
 # Say what we Do
 
+TODO: summary here
+
+## TOC
+
+<!-- toc -->
+
+## Work Instruction Types
+
 Work instructions are documents that state who does what and how. There are three work instruction types we need to document - that's it!
 
 - `Roles` - responsibilities of a person or system in an organization

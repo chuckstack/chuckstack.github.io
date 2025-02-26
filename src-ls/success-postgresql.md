@@ -4,6 +4,10 @@ PostgreSQL plays a critical role in our success. How we plan to create that succ
 
 When the concepts in this page are fully implemented in the chuck-stack, this page will go away, and its contents will be move to other functional areas. Until then, this information represents our plan and our partial implementation.
 
+## TOC
+
+<!-- toc -->
+
 ## User and Role Management
 
 User management plays a small part is how the chuck-stack operates. Almost all logic is tied to a role. PostgREST gives us a great roadmap for accomplishing this task.

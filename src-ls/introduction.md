@@ -22,14 +22,6 @@ We help organizations focus on what matters most - its people and value proposit
 
 ## TOC
 
-- [Purpose](#purpose)
-- [Solution Summary](#solution-summary)
-- [Small and Medium Is Different](#small-and-medium-is-different)
-- [Education](#education)
-- [chuck-stack Customers](#chuck-stack-customers)
-- [chuck-stack Guiding Principles](#chuck-stack-guiding-principles)
-- [Why chuck-stack is Important](#why-chuck-stack-is-important)
-
 <!-- toc -->
 
 ## Purpose

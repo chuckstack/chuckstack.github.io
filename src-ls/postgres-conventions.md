@@ -17,6 +17,10 @@ The below [convention summary](#convention-summary) creates a workflow and attri
 >
 >     It seems more secure to disable PostgreSQL's TCP service and require clients to connect via unix socket. Is this true?
 
+## TOC
+
+<!-- toc -->
+
 ## Convention Summary
 
 Here are the goals that drive our conventions:

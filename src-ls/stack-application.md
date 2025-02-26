@@ -2,6 +2,10 @@
 
 chuck-stack uses [tools](./stack-tools.md) and [best practices](./best-practices.md) to create an application framework for data and process management. The purpose of this page is to describe the chuck-stack application components.
 
+## TOC
+
+<!-- toc -->
+
 ## Framework Goals
 
 Running an organization goes beyond simple CRUD (create, read, update and delete) database operations and running processes. The system needs to make the right tools available to the right person at the right time to make their jobs easier and more enjoyable. 

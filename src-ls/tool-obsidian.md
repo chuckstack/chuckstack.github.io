@@ -2,6 +2,10 @@
 
 [Obsidian](https://obsidian.md) is a writing application that saves content in markdown format. It offers an enjoyable writing experience and a large collection of plugin tools to aid in the thinking, organizing and writing process. 
 
+## TOC
+
+<!-- toc -->
+
 ## Why We Love Obsidian
 
 Here are the reasons we love Obsidian:

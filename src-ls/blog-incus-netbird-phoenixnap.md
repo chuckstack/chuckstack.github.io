@@ -25,6 +25,10 @@ As a result of this article, you can:
 - Minimize technology skills needed to run a global organization
 - Maximize options for computing power
 
+## TOC
+
+<!-- toc -->
+
 ## Problem Statement
 
 **Problem #1:** Cloud computing is very expensive relative to the solution in this post. You pay a premium for the CPU AND the disk space (HD) AND just about everything else. I have a customer whose monthly AWS EBS drive cost was more than the EC2 compute cost. These costs reduce your profit and the good your organization can provide the world.

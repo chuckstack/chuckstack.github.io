@@ -6,6 +6,10 @@
 
 This article describes why markdown has become a better tool for documentation than both Microsoft Word and Google Docs. We believe that the use of markdown and the benefits you gain from it represent a point of inflection and a significant change in how documentation and training should be maintained and published.
 
+## TOC
+
+<!-- toc -->
+
 ## Call to Action: Use Markdown
 
 If you are working with the chuck-stack, all work instructions, content, documentation, instructions, tutorials, etc... should be created in markdown format.

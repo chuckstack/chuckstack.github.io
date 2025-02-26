@@ -2,15 +2,9 @@
 
 We are leading with Incus and virtualization because we feel that virtualization is a critical part of your small and medium organization stack. We prefer Incus; however, you can use any virtualization tool you are comfortable with such as AWS, GCP, Azure, etc... You simply need some form of virtualization. On this page, we will explain why Incus is a compelling option.
 
-## Page Contents
-- [What is Incus](#what-is-incus)
-- [Why we love Incus](#why-we-love-incus)
-- [Types of virtualization](#types-of-virtualization)
-- [Incus relation to Docker](#incus-relation-to-docker)
-- [Incus relation to Nix](#incus-relation-to-nix)
-- [Incus Use Cases](#incus-use-cases)
-- [Hardware Considerations](#hardware-considerations)
-- [Getting Started](#getting-started)
+## TOC
+
+<!-- toc -->
 
 ## What is Incus
 

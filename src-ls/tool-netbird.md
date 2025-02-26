@@ -2,6 +2,10 @@
 
 Organizations need a way to connect people and services separated by distance. [Netbird](https://netbird.io/) is a great tool to create these digital network connections.
 
+## TOC
+
+<!-- toc -->
+
 ## Why We Love Netbird
 
 - It is becoming more popular.

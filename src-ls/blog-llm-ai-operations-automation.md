@@ -26,6 +26,10 @@ As a result of this article, you can:
 - Provide workflow to easily update documentation
 - Ensure your chat (AI/LLM) always knows the current instructions
 
+## TOC
+
+<!-- toc -->
+
 ## Problem Statements
 
 **Problem #1:** People are generally not good at following directions with near perfect precision. We are creative, imaginative, and (as a result of these strengths) we are often distracted. These distractions sometimes result in mistakes when performing tasks.

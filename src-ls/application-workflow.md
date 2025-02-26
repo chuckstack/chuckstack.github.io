@@ -6,6 +6,10 @@ Just about everything you do in an ERP system involves some form of workflow and
 
 All chuck-stack workflow is stored and managed in PostgreSQL. Workflow can be anything from as simple as a PostgreSQL trigger to a highly orchestrated, multiple request process that resembles what you find in a BPMN diagram.
 
+## TOC
+
+<!-- toc -->
+
 ## Types of Workflow
 
 chuck-stack supports the following types of workflow:

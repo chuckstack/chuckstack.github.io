@@ -6,6 +6,10 @@ The purpose of this page is to highlight other tools in the chuck-stack. These t
 - Important but non critical path tools
 - Tools we are evaluating
 
+## TOC
+
+<!-- toc -->
+
 ## Additional Critical Path Tools
 
 Here are the tools we use every day:

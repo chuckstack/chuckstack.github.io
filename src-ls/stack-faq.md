@@ -4,22 +4,7 @@ The purpose of this page is to answer frequently asked questions (FAQ) about the
 
 ## TOC
 
-- [Why do we love the chuck-stack?](#why-do-we-love-the-chuck-stack)
-- [Is chuck-stack really the name of the project?](#is-chuck-stack-really-the-name-of-the-project)
-- [How do we choose stack components?](#how-do-we-choose-stack-components)
-- [What are the chuck-stack tools?](#what-are-the-chuck-stack-tools)
-- [What are the project guiding principles?](#what-are-the-project-guiding-principles)
-- [What is the stack-academy?](#what-is-the-stack-academy)
-- [What about scalability?](#what-about-scalability)
-- [What about AI Agents](#what-about-ai-agents)
-- [What about chuck-stack Revenue?](#what-about-chuck-stack-revenue)
-- [What is a Superclerk?](#what-is-a-superclerk)
-- [Saving Heartbeats](#saving-heartbeats)
-- [What is the current status of chuck-stack?](#what-is-the-current-status-of-chuck-stack)
-- [Is chuck-stack an ERP?](#is-chuck-stack-an-erp)
-- [What is capability sandboxing?](#what-is-capability-sandboxing)
-- [What are the most important pieces of the chuck-stack application framework?](#what-are-the-most-important-pieces-of-the-chuck-stack-application-framework)
-- [Why is the CLI so Important?](#why-is-the-cli-so-important)
+<!-- toc -->
 
 ## Why do we love the chuck-stack?
 

@@ -2,6 +2,10 @@
 
 The purpose of this page is to give you the back story behind how chuck-stack.org came to exist.
 
+## TOC
+
+<!-- toc -->
+
 ## People
 
 chuck-stack.org was created by Chuck Boecking.
