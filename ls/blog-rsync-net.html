@@ -203,6 +203,7 @@
 <li><a href="#how-many-rsyncnet-accounts-do-i-need">How many rsync.net accounts do I need?</a></li>
 <li><a href="#how-much-does-rsyncnet-cost">How much does rsync.net cost?</a></li>
 <li><a href="#does-rsyncnet-offer-multi-zone">Does rsync.net Offer Multi-Zone?</a></li>
+<li><a href="#how-do-i-see-my-rsyncnet-snapshots">How do I see my rsync.net snapshots?</a></li>
 </ul>
 </li>
 <li><a href="#learn-more">Learn More</a></li>
@@ -285,6 +286,10 @@
 <p>The 800GB is distributed/shared between all sub-accounts.</p>
 <h3 id="does-rsyncnet-offer-multi-zone"><a class="header" href="#does-rsyncnet-offer-multi-zone">Does rsync.net Offer Multi-Zone?</a></h3>
 <p>Yes, rsync.net offers geo-redundant automatic replication for an additional cost ($0.021/GB/month total).</p>
+<h3 id="how-do-i-see-my-rsyncnet-snapshots"><a class="header" href="#how-do-i-see-my-rsyncnet-snapshots">How do I see my rsync.net snapshots?</a></h3>
+<p>You can use <code>ssh</code> and <code>rsync</code> to gain access to your snapshot data. It is located in the drive's home .zfs directory. Here is an example:</p>
+<pre><code class="language-bash">ssh de19xxx@de19xxx.rsync.net ls -asl .zfs/snapshot/
+</code></pre>
 <h2 id="learn-more"><a class="header" href="#learn-more">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 <p>To discuss this content in more detail, go to <a href="https://team.chuck-stack.org/t/simplified-server-data-backup-with-rsync-net/79">https://team.chuck-stack.org/t/simplified-server-data-backup-with-rsync-net/79</a>.</p>

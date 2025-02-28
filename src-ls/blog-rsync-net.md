@@ -112,6 +112,14 @@ The 800GB is distributed/shared between all sub-accounts.
 
 Yes, rsync.net offers geo-redundant automatic replication for an additional cost ($0.021/GB/month total).
 
+### How do I see my rsync.net snapshots?
+
+You can use `ssh` and `rsync` to gain access to your snapshot data. It is located in the drive's home .zfs directory. Here is an example:
+
+```bash
+ssh de19xxx@de19xxx.rsync.net ls -asl .zfs/snapshot/
+```
+
 ## Learn More
 
 If you want help executing the topics in this article, join the [stack-academy](./stack-academy.md). Not ready to join... We can always [stay connected](../learn-more.html) to learn more.
