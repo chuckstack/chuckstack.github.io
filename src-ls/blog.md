@@ -6,6 +6,19 @@ Here is a list of recent blogs. The sidebar contains the full list.
 
 <!-- toc -->
 
+## Immutable Off-site Backups are Imperative
+
+The purpose of this post is to offer a simple and safe way to store your information off-site even in the extreme event of a cyber/ransom-ware attack.
+
+Here is why we love rsync.net:
+
+- The solution uses industry standard and best-in-class tools (authentication and file transfer efficiency).
+- The only client-side tools you need is probably already installed (rsync, ssh).
+- The default behavior includes periodic, immutable snapshots.
+- [click to learn more...](./blog-rsync-net.md)
+
+[Read more...](./blog-rsync-net.md)
+
 ## Operations AI LLM Technology in 2025
 
 How do you remain operationally efficient and competitive in 2025 and beyond?
