@@ -18,6 +18,7 @@ Here are the tools we use every day:
   - The website is simple
   - The account management panel is overly simple
   - The service is awesome!
+  - [See article](./blog-rsync-net.md) with more details and example backup strategy...
 - [iDempiere (ERP)](https://www.idempiere.org/) - ERP for managing orders, inventory, invoices, payments, accounting and much of the data you need to execute operations in your organization. iDempiere is a mature, stable and fully-featured ERP that runs on PostgreSQL. We have 23+ years experience with the iDempiere codebase.
 - [Pass (secrets)](https://passwordstore.org/) - is a command line tool that helps you manage secrets/passwords with gpg. It is simple, scriptable, auditable, distributed and secure. [gpg](https://gnupg.org/) is an encryption program that provides cryptographic privacy and authentication for data communication. The Pass repository is available on almost all platforms. It integrates well with github.
 - [Zabbix (monitoring)](https://www.zabbix.com/) -  monitor resources and respond to events.
