@@ -20,7 +20,7 @@ The purpose of this post is to offer a simple and safe way to store your informa
 
 **Problem #1:** There are many backup solutions available. Finding one that is cost effective and reasonable is difficult.
 
-**Problem #2:** Many backup solutions do not include immutable data feature as an easy and default option. If the backed up data is not immutable, we cannot use it.
+**Problem #2:** Many backup solutions do not include immutable data feature as an easy and default option. If the backed up data is not immutable, we cannot trust it.
 
 ## Why We Love rsync.net
 
