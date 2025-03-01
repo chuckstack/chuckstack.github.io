@@ -246,19 +246,25 @@
 </ul>
 <p>Any time you make a change to sync-backup.sh, be sure to run it manually to ensure all works as expected. You do not want your scheduled script failing silently because of a malformed change.</p>
 <h2 id="picture-of-success"><a class="header" href="#picture-of-success">Picture of Success</a></h2>
-<p>Disaster recover procedures should be monitored and tested frequently. Here is our picture of success. We strive to spend the least effort possible testing our disaster recovery as part of our day-to-day operations.</p>
+<p>Disaster recover procedures should be monitored and tested frequently. We strive to spend the least effort possible testing our disaster recovery as part of our day-to-day operations.</p>
 <p>Here is our picture of success:</p>
 <ul>
-<li>Search on the word 'ACTION' in sync-backup.sh and follow the directions to point the script to your desired remote location (rsync.net).</li>
-<li>Execute the sync-backup.sh script manually to ensure success, and copy the chuboe-system-backup-cron file to /etc/cron.d/ to schedule its automated execution.</li>
+<li>Search on the word 'ACTION' in <a href="https://github.com/chuboe/chuboe-system-configurator/blob/main/sync-backup.sh">sync-backup.sh</a> and follow the directions to point the script to your desired remote location (rsync.net).</li>
+<li>Execute the sync-backup.sh script manually to ensure success.</li>
+<li>Copy the chuboe-system-backup-cron file to /etc/cron.d/ to schedule its automated execution.</li>
 <li>Update your monitoring solution (Zabbix for example) to peek into the rsync.net repo to gather last updated and last file size(s).</li>
-<li>Create alarms for when rsync.net artifacts do not meet necessary criteria - example: a database backup file is 1/10th of the normal size.</li>
-<li>Populate your UAT servers directly from rsync.net so that if any UAT restore fails, you are immediately aware of an issue.</li>
-<li>It is ok to have a UAT server that refreshes every day.</li>
+<li>Create alarms for when rsync.net artifacts do not meet the necessary success criteria. Here are some example alarm conditions:
+<ul>
+<li>A database backup file is less than 95% of its normal size.</li>
+<li>The last sync date is older that 36 hours.</li>
+</ul>
+</li>
+<li>Populate your UAT servers directly from rsync.net (not production) so that if any UAT restore fails, you are immediately aware of an issue.</li>
+<li>We encourage you to have a UAT server that refreshes every day from rsync.net.</li>
 <li>Generally speaking, no restoration process should depend on a production instance - pull from rsync.net instead.</li>
 </ul>
 <h2 id="disaster-story"><a class="header" href="#disaster-story">Disaster Story</a></h2>
-<p>It is common to prepare for disaster (software corruption, machine failure, site availability, ...). These issues are relatively easy to recover from.</p>
+<p>It is common to prepare for disaster. Here are some common examples: software corruption, machine failure and site availability. These issues are relatively easy to recover from.</p>
 <p>But what happens when you are cyber attached? What happens when your machine is infected, and as a result, your machine backup images are infected. What happens when your backups are deleted. How do you know what to trust?</p>
 <p>We have suffered through this situation. We know how painful it can be. This solution was born from this pain.</p>
 <p>The reason the <a href="https://github.com/chuboe/chuboe-system-configurator/blob/main/sync-backup.sh">sync-backup.sh array</a> is so long is because there are many things you depend on to execute a service.</p>

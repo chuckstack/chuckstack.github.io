@@ -55,21 +55,24 @@ Any time you make a change to sync-backup.sh, be sure to run it manually to ensu
 
 ## Picture of Success
 
-Disaster recover procedures should be monitored and tested frequently. Here is our picture of success. We strive to spend the least effort possible testing our disaster recovery as part of our day-to-day operations.
+Disaster recover procedures should be monitored and tested frequently. We strive to spend the least effort possible testing our disaster recovery as part of our day-to-day operations.
 
 Here is our picture of success:
 
-- Search on the word 'ACTION' in sync-backup.sh and follow the directions to point the script to your desired remote location (rsync.net).
-- Execute the sync-backup.sh script manually to ensure success, and copy the chuboe-system-backup-cron file to /etc/cron.d/ to schedule its automated execution.
+- Search on the word 'ACTION' in [sync-backup.sh](https://github.com/chuboe/chuboe-system-configurator/blob/main/sync-backup.sh) and follow the directions to point the script to your desired remote location (rsync.net).
+- Execute the sync-backup.sh script manually to ensure success.
+- Copy the chuboe-system-backup-cron file to /etc/cron.d/ to schedule its automated execution.
 - Update your monitoring solution (Zabbix for example) to peek into the rsync.net repo to gather last updated and last file size(s).
-- Create alarms for when rsync.net artifacts do not meet necessary criteria - example: a database backup file is 1/10th of the normal size.
-- Populate your UAT servers directly from rsync.net so that if any UAT restore fails, you are immediately aware of an issue.
-- It is ok to have a UAT server that refreshes every day.
+- Create alarms for when rsync.net artifacts do not meet the necessary success criteria. Here are some example alarm conditions:
+  - A database backup file is less than 95% of its normal size.
+  - The last sync date is older that 36 hours.
+- Populate your UAT servers directly from rsync.net (not production) so that if any UAT restore fails, you are immediately aware of an issue.
+- We encourage you to have a UAT server that refreshes every day from rsync.net.
 - Generally speaking, no restoration process should depend on a production instance - pull from rsync.net instead.
 
 ## Disaster Story
 
-It is common to prepare for disaster (software corruption, machine failure, site availability, ...). These issues are relatively easy to recover from. 
+It is common to prepare for disaster. Here are some common examples: software corruption, machine failure and site availability. These issues are relatively easy to recover from.
 
 But what happens when you are cyber attached? What happens when your machine is infected, and as a result, your machine backup images are infected. What happens when your backups are deleted. How do you know what to trust?
 
