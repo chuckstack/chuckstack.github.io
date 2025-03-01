@@ -20,14 +20,14 @@ The purpose of this post is to offer a simple and safe way to store your informa
 
 **Problem #1:** There are many backup solutions available. Finding one that is cost effective and reasonable is difficult.
 
-**Problem #2:** Many backup solutions do not include immutable data feature as an easy default option. If the backed up data is not immutable, we cannot use it.
+**Problem #2:** Many backup solutions do not include immutable data feature as an easy and default option. If the backed up data is not immutable, we cannot use it.
 
 ## Why We Love rsync.net
 
 Here is why we love rsync.net:
 
 - The solution uses industry standard and best-in-class tools (authentication and file transfer efficiency).
-- The only client-side tools you need is probably already installed (rsync, ssh).
+- The only client-side tools you need are probably already installed (rsync, ssh).
 - The default behavior includes periodic, immutable snapshots.
 - the rsync.net storage rates are competitive.
 - rsync.net customer service and automated notices have performed flawlessly for years!
@@ -48,10 +48,10 @@ Included in the repo is a [single file that orchestrates and executes](https://g
   - Runs as part of [cron job](https://github.com/chuboe/chuboe-system-configurator/blob/main/chuboe-system-backup-cron)
   - Provides an array of commonly backed up artifacts so that you may simply pick the applicable objects
   - Creates a private backup directory that is only available to root
-  - Iterates across the array and creates symbolic links pointing to the respective back up objects
+  - Iterates across the artifact array and creates symbolic links pointing to the respective back up objects
   - Executes an rsync command against the private directory containing all the symbolic links
 
-Any time you make a change to sync-backup.sh, be sure to run it manually to ensure all works as expected.
+Any time you make a change to sync-backup.sh, be sure to run it manually to ensure all works as expected. You do not want your scheduled script failing silently because of a malformed change.
 
 ## Picture of Success
 
