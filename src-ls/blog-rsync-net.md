@@ -167,7 +167,7 @@ ssh de19xxx@de19xxx.rsync.net ls -asl .zfs/snapshot/
 
 More specifically, do ephemeral container technologies like Kubernetes reduce/change the disaster recovery needs as discussed here? We believe the answer is yes; however, we also believe that Kubernetes, and tools like it, do not serve the needs of our audience. They are too complex to learn, configure, audit, deploy, support and scale. They require too many exports.
 
-The needs of web-scale applications like tiktok drastically differ from the needs of small and medium organizations. We need applications that align with our [principles](./introduction.md#chuck-stack-guiding-principles). We need rapid delivery with minimal expertise.
+The needs of web-scale applications like tiktok drastically differ from the needs of small and medium organizations. We need applications that align with our [principles](./introduction.md#chuck-stack-guiding-principles). We need the rapid delivery of self-help tools with minimal expertise.
 
 ## Learn More
 
