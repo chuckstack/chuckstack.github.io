@@ -77,7 +77,7 @@ It is common to prepare for disaster. Here are some common examples: software co
 
 But what happens when you are cyber attached? What happens when your machine is infected, and as a result, your machine backup images are also infected. What happens when your backups are deleted. How do you know what to trust?
 
-We have suffered through this situation. We know how painful it can be. This document and its solution solution were born from this pain.
+We have suffered through this situation. We know how painful it can be. This document and its solution were born from this pain.
 
 ### Immutable is Mandatory
 
