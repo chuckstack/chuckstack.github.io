@@ -1,7 +1,7 @@
 # Simplified Server Data Backup with rsync.net
 
 - Published: 2025-02-28
-- Updated: 2025-02-28
+- Updated: 2025-03-01
 - Author: Chuck Boecking
 - Discussion: <https://team.chuck-stack.org/t/simplified-server-data-backup-with-rsync-net/79>
 - Status: Released
