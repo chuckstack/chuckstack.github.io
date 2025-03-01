@@ -22,6 +22,8 @@ The purpose of this post is to offer a simple and safe way to store your informa
 
 **Problem #2:** Many backup solutions do not include immutable data feature as an easy and default option. If the backed up data is not immutable, we cannot trust it.
 
+**Problem #3:** Just because you use good backup tools does not mean you have a good disaster recovery solution. Creating simple but proven/validated disaster recovery systems is difficult.
+
 ## Why We Love rsync.net
 
 Here is why we love rsync.net:
@@ -97,6 +99,10 @@ The reason the [sync-backup.sh array](https://github.com/chuboe/chuboe-system-co
 
 Operating system backup images can hide many secrets because of the OS complexity. The value of also backing up the individual artifacts is because they are easy to audit and reason about during disaster recovery.
 
+### Readme Changes
+
+You will find a readme.md included in the /opt/chuboe-system-backup directory. This file is included automatically in sync-backup.sh. Make a practice to log all changes to the server to this file. You will be incredible grateful in the case of disaster if you do.
+
 ## What to Do In Case of Disaster
 
 In case of disaster, you will first look to restore servers from images when possible. See Incus [images](https://linuxcontainers.org/incus/docs/main/howto/images_create/) and [snapshots](https://linuxcontainers.org/incus/docs/main/howto/instances_backup/#instances-snapshots) for details about managing machine backups.
@@ -110,11 +116,13 @@ Here are the steps:
 - Note that sync-backup.sh backs up a copy of itself.
   - This sync-backup.sh copy acts as your guide/roadmap to restore data.
   - It tells you what data was backed up and where it came from (proper location).
+  - It includes a readme.md that should include a time-stamped log of all changes to the server over all time.
 - Prioritize what artifacts need to be restored in what order.
+- Reconcile the backup data with the readme.md changes to your server to ensure you have accounted for everything.
 - Simply copy the files back to the appropriate location and ensure the file ownership is set accordingly.
 - Perform any additional app-specific tasks needed to restore services.
 
-If you adopted the above picture of success, you already have scripts that restore rsync.net artifacts in a UAT. Use these scripts to perform the same actions in your new to-be production system.
+If you adopted the above picture of success, you already have the scripts that restore rsync.net artifacts in a UAT. Use these scripts to perform the same actions in your new to-be production system.
 
 ## Frequently Asked Questions
 
