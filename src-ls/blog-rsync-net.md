@@ -8,7 +8,7 @@
 
 ## Immutable Off-site Backups are Imperative
 
-The purpose of this post is to offer a simple and safe way to store your information off-site even in the extreme event of a cyber/ransom-ware attack.
+The purpose of this post is to offer a simple and safe way to store your information off-site even in the extreme event of a cyber/ransom-ware attack. It can be used in any Linux scenario (cloud, hybrid, on-premise, desktop, ...).
 
 > It is important to note that I am a champion of small to medium organizations. You are my target audience. This post was written for you! 
 

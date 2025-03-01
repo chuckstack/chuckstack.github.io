@@ -186,7 +186,7 @@
 <li>Status: Released</li>
 </ul>
 <h2 id="immutable-off-site-backups-are-imperative"><a class="header" href="#immutable-off-site-backups-are-imperative">Immutable Off-site Backups are Imperative</a></h2>
-<p>The purpose of this post is to offer a simple and safe way to store your information off-site even in the extreme event of a cyber/ransom-ware attack.</p>
+<p>The purpose of this post is to offer a simple and safe way to store your information off-site even in the extreme event of a cyber/ransom-ware attack. It can be used in any Linux scenario (cloud, hybrid, on-premise, desktop, ...).</p>
 <blockquote>
 <p>It is important to note that I am a champion of small to medium organizations. You are my target audience. This post was written for you!</p>
 </blockquote>
@@ -200,6 +200,7 @@
 <ul>
 <li><a href="#immutable-is-mandatory">Immutable is Mandatory</a></li>
 <li><a href="#data-and-images">Data and Images</a></li>
+<li><a href="#readme-changes">Readme Changes</a></li>
 </ul>
 </li>
 <li><a href="#what-to-do-in-case-of-disaster">What to Do In Case of Disaster</a></li>
@@ -219,6 +220,7 @@
 <h2 id="problem-statements"><a class="header" href="#problem-statements">Problem Statements</a></h2>
 <p><strong>Problem #1:</strong> There are many backup solutions available. Finding one that is cost effective and reasonable is difficult.</p>
 <p><strong>Problem #2:</strong> Many backup solutions do not include immutable data feature as an easy and default option. If the backed up data is not immutable, we cannot trust it.</p>
+<p><strong>Problem #3:</strong> Just because you use good backup tools does not mean you have a good disaster recovery solution. Creating simple but proven/validated disaster recovery systems is difficult.</p>
 <h2 id="why-we-love-rsyncnet"><a class="header" href="#why-we-love-rsyncnet">Why We Love rsync.net</a></h2>
 <p>Here is why we love rsync.net:</p>
 <ul>
@@ -285,6 +287,8 @@
 <h3 id="data-and-images"><a class="header" href="#data-and-images">Data and Images</a></h3>
 <p>The reason the <a href="https://github.com/chuboe/chuboe-system-configurator/blob/main/sync-backup.sh">sync-backup.sh array</a> is so long is because there are many things you depend on to execute a service.</p>
 <p>Operating system backup images can hide many secrets because of the OS complexity. The value of also backing up the individual artifacts is because they are easy to audit and reason about during disaster recovery.</p>
+<h3 id="readme-changes"><a class="header" href="#readme-changes">Readme Changes</a></h3>
+<p>You will find a readme.md included in the /opt/chuboe-system-backup directory. This file is included automatically in sync-backup.sh. Make a practice to log all changes to the server to this file. You will be incredible grateful in the case of disaster if you do.</p>
 <h2 id="what-to-do-in-case-of-disaster"><a class="header" href="#what-to-do-in-case-of-disaster">What to Do In Case of Disaster</a></h2>
 <p>In case of disaster, you will first look to restore servers from images when possible. See Incus <a href="https://linuxcontainers.org/incus/docs/main/howto/images_create/">images</a> and <a href="https://linuxcontainers.org/incus/docs/main/howto/instances_backup/#instances-snapshots">snapshots</a> for details about managing machine backups.</p>
 <p>Even if you can restore from an image or snapshot, the data in the image may be stale. Let's look at the restoration process.</p>
@@ -296,13 +300,15 @@
 <ul>
 <li>This sync-backup.sh copy acts as your guide/roadmap to restore data.</li>
 <li>It tells you what data was backed up and where it came from (proper location).</li>
+<li>It includes a readme.md that should include a time-stamped log of all changes to the server over all time.</li>
 </ul>
 </li>
 <li>Prioritize what artifacts need to be restored in what order.</li>
+<li>Reconcile the backup data with the readme.md changes to your server to ensure you have accounted for everything.</li>
 <li>Simply copy the files back to the appropriate location and ensure the file ownership is set accordingly.</li>
 <li>Perform any additional app-specific tasks needed to restore services.</li>
 </ul>
-<p>If you adopted the above picture of success, you already have scripts that restore rsync.net artifacts in a UAT. Use these scripts to perform the same actions in your new to-be production system.</p>
+<p>If you adopted the above picture of success, you already have the scripts that restore rsync.net artifacts in a UAT. Use these scripts to perform the same actions in your new to-be production system.</p>
 <h2 id="frequently-asked-questions"><a class="header" href="#frequently-asked-questions">Frequently Asked Questions</a></h2>
 <h3 id="how-many-rsyncnet-accounts-do-i-need"><a class="header" href="#how-many-rsyncnet-accounts-do-i-need">How many rsync.net accounts do I need?</a></h3>
 <p>You will most likely only need one. rsync.net has the concept of sub-accounts. After you sign up, you can submit a ticket to request your sub-accounts. We recommend you create a minimum of 10 (at least on per server). We commonly ask for 20.</p>
