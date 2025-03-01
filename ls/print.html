@@ -3918,7 +3918,12 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <li><a href="blog-rsync-net.html#why-we-love-rsyncnet">Why We Love rsync.net</a></li>
 <li><a href="blog-rsync-net.html#system-configurator">System Configurator</a></li>
 <li><a href="blog-rsync-net.html#picture-of-success">Picture of Success</a></li>
-<li><a href="blog-rsync-net.html#disaster-story">Disaster Story</a></li>
+<li><a href="blog-rsync-net.html#disaster-story">Disaster Story</a>
+<ul>
+<li><a href="blog-rsync-net.html#immutable-is-mandatory">Immutable is Mandatory</a></li>
+<li><a href="blog-rsync-net.html#data-and-images">Data and Images</a></li>
+</ul>
+</li>
 <li><a href="blog-rsync-net.html#what-to-do-in-case-of-disaster">What to Do In Case of Disaster</a></li>
 <li><a href="blog-rsync-net.html#frequently-asked-questions">Frequently Asked Questions</a>
 <ul>
@@ -3927,6 +3932,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <li><a href="blog-rsync-net.html#does-rsyncnet-offer-multi-zone">Does rsync.net Offer Multi-Zone?</a></li>
 <li><a href="blog-rsync-net.html#how-do-i-see-my-rsyncnet-data">How do I see my rsync.net data?</a></li>
 <li><a href="blog-rsync-net.html#how-do-i-see-my-rsyncnet-snapshots">How do I see my rsync.net snapshots?</a></li>
+<li><a href="blog-rsync-net.html#what-if-we-host-our-services-on-window">What if we host our services on Window?</a></li>
 </ul>
 </li>
 <li><a href="blog-rsync-net.html#learn-more">Learn More</a></li>
@@ -3983,21 +3989,37 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 </li>
 <li>Populate your UAT servers directly from rsync.net (not production) so that if any UAT restore fails, you are immediately aware of an issue.</li>
 <li>We encourage you to have a UAT server that refreshes every day from rsync.net.</li>
-<li>Generally speaking, no restoration process should depend on a production instance - pull from rsync.net instead.</li>
+<li>Include at least on UAT server in your backup process so that you have a backup copy of your UAT restore scripts.</li>
+<li>Generally speaking, no restoration process should depend directly on a production instance - pull from rsync.net instead (repeated for emphasis)!</li>
 </ul>
 <h2 id="disaster-story"><a class="header" href="#disaster-story">Disaster Story</a></h2>
 <p>It is common to prepare for disaster. Here are some common examples: software corruption, machine failure and site availability. These issues are relatively easy to recover from.</p>
-<p>But what happens when you are cyber attached? What happens when your machine is infected, and as a result, your machine backup images are infected. What happens when your backups are deleted. How do you know what to trust?</p>
-<p>We have suffered through this situation. We know how painful it can be. This solution was born from this pain.</p>
+<p>But what happens when you are cyber attached? What happens when your machine is infected, and as a result, your machine backup images are also infected. What happens when your backups are deleted. How do you know what to trust?</p>
+<p>We have suffered through this situation. We know how painful it can be. This document and its solution solution were born from this pain.</p>
+<h3 id="immutable-is-mandatory"><a class="header" href="#immutable-is-mandatory">Immutable is Mandatory</a></h3>
+<p>Your production system needs write access to your backup solution. The challenge is:</p>
+<blockquote>
+<p>How do you keep your backup data current and easily writable/available without allowing bad people to corrupt your backups?</p>
+</blockquote>
+<p>Asked another way: How do you prevent bad people from destroying your backup data if your production system has write access and if bad people gain control of your production system?</p>
+<p>rsync.net makes the answer to this question simple. It takes immutable snapshots for you. If you are happy with the default rsync.net snapshot schedule, there is nothing more needed. It just magically works.</p>
+<p>AWS has an S3 solution to accomplish the same goal; however, we find it difficult to configure, difficult to reason about, and it requires special tooling. The default S3 bucket policy leaves your production backup data exposed to bad actors.</p>
+<h3 id="data-and-images"><a class="header" href="#data-and-images">Data and Images</a></h3>
 <p>The reason the <a href="https://github.com/chuboe/chuboe-system-configurator/blob/main/sync-backup.sh">sync-backup.sh array</a> is so long is because there are many things you depend on to execute a service.</p>
-<p>Operating system backup images can hide many secrets because of the OS complexity. The value of also backing up the individual artifacts is because they are easy to reason about during disaster recovery.</p>
+<p>Operating system backup images can hide many secrets because of the OS complexity. The value of also backing up the individual artifacts is because they are easy to audit and reason about during disaster recovery.</p>
 <h2 id="what-to-do-in-case-of-disaster"><a class="header" href="#what-to-do-in-case-of-disaster">What to Do In Case of Disaster</a></h2>
-<p>In case of disaster, you will first look to restore servers from images. See Incus <a href="https://linuxcontainers.org/incus/docs/main/howto/images_create/">images</a> and <a href="https://linuxcontainers.org/incus/docs/main/howto/instances_backup/#instances-snapshots">snapshots</a> for details about managing machine backups.</p>
-<p>Even if you can restore from an image or snapshot, the data in the image may be stale. Let's look at the restoration process. Here are the steps:</p>
+<p>In case of disaster, you will first look to restore servers from images when possible. See Incus <a href="https://linuxcontainers.org/incus/docs/main/howto/images_create/">images</a> and <a href="https://linuxcontainers.org/incus/docs/main/howto/instances_backup/#instances-snapshots">snapshots</a> for details about managing machine backups.</p>
+<p>Even if you can restore from an image or snapshot, the data in the image may be stale. Let's look at the restoration process.</p>
+<p>Here are the steps:</p>
 <ul>
 <li>Restore or rebuild your new server.</li>
-<li>Use rsync.net (rsync) to create a local copy of the data.</li>
-<li>Note that sync-backup.sh backs up a copy of itself. This copy acts as your guide/roadmap to restore data to the proper location.</li>
+<li>Use rsync.net (rsync) to create a local copy of the backup data.</li>
+<li>Note that sync-backup.sh backs up a copy of itself.
+<ul>
+<li>This sync-backup.sh copy acts as your guide/roadmap to restore data.</li>
+<li>It tells you what data was backed up and where it came from (proper location).</li>
+</ul>
+</li>
 <li>Prioritize what artifacts need to be restored in what order.</li>
 <li>Simply copy the files back to the appropriate location and ensure the file ownership is set accordingly.</li>
 <li>Perform any additional app-specific tasks needed to restore services.</li>
@@ -4025,6 +4047,8 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <p>You can use <code>ssh</code> and <code>rsync</code> to gain access to your snapshot data. It is located in the drive's home .zfs directory. Here is an example:</p>
 <pre><code class="language-bash">ssh de19xxx@de19xxx.rsync.net ls -asl .zfs/snapshot/
 </code></pre>
+<h3 id="what-if-we-host-our-services-on-window"><a class="header" href="#what-if-we-host-our-services-on-window">What if we host our services on Window?</a></h3>
+<p>We will apologize in advance... We are sorry you are using windows!</p>
 <h2 id="learn-more"><a class="header" href="#learn-more">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 <p>To discuss this content in more detail, go to <a href="https://team.chuck-stack.org/t/simplified-server-data-backup-with-rsync-net/79">https://team.chuck-stack.org/t/simplified-server-data-backup-with-rsync-net/79</a>.</p>

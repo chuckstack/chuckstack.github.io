@@ -68,29 +68,48 @@ Here is our picture of success:
   - The last sync date is older that 36 hours.
 - Populate your UAT servers directly from rsync.net (not production) so that if any UAT restore fails, you are immediately aware of an issue.
 - We encourage you to have a UAT server that refreshes every day from rsync.net.
-- Generally speaking, no restoration process should depend on a production instance - pull from rsync.net instead.
+- Include at least on UAT server in your backup process so that you have a backup copy of your UAT restore scripts.
+- Generally speaking, no restoration process should depend directly on a production instance - pull from rsync.net instead (repeated for emphasis)!
 
 ## Disaster Story
 
 It is common to prepare for disaster. Here are some common examples: software corruption, machine failure and site availability. These issues are relatively easy to recover from.
 
-But what happens when you are cyber attached? What happens when your machine is infected, and as a result, your machine backup images are infected. What happens when your backups are deleted. How do you know what to trust?
+But what happens when you are cyber attached? What happens when your machine is infected, and as a result, your machine backup images are also infected. What happens when your backups are deleted. How do you know what to trust?
 
-We have suffered through this situation. We know how painful it can be. This solution was born from this pain.
+We have suffered through this situation. We know how painful it can be. This document and its solution solution were born from this pain.
+
+### Immutable is Mandatory
+
+Your production system needs write access to your backup solution. The challenge is:
+
+> How do you keep your backup data current and easily writable/available without allowing bad people to corrupt your backups?
+
+Asked another way: How do you prevent bad people from destroying your backup data if your production system has write access and if bad people gain control of your production system?
+
+rsync.net makes the answer to this question simple. It takes immutable snapshots for you. If you are happy with the default rsync.net snapshot schedule, there is nothing more needed. It just magically works.
+
+AWS has an S3 solution to accomplish the same goal; however, we find it difficult to configure, difficult to reason about, and it requires special tooling. The default S3 bucket policy leaves your production backup data exposed to bad actors.
+
+### Data and Images
 
 The reason the [sync-backup.sh array](https://github.com/chuboe/chuboe-system-configurator/blob/main/sync-backup.sh) is so long is because there are many things you depend on to execute a service.
 
-Operating system backup images can hide many secrets because of the OS complexity. The value of also backing up the individual artifacts is because they are easy to reason about during disaster recovery.
+Operating system backup images can hide many secrets because of the OS complexity. The value of also backing up the individual artifacts is because they are easy to audit and reason about during disaster recovery.
 
 ## What to Do In Case of Disaster
 
-In case of disaster, you will first look to restore servers from images. See Incus [images](https://linuxcontainers.org/incus/docs/main/howto/images_create/) and [snapshots](https://linuxcontainers.org/incus/docs/main/howto/instances_backup/#instances-snapshots) for details about managing machine backups.
+In case of disaster, you will first look to restore servers from images when possible. See Incus [images](https://linuxcontainers.org/incus/docs/main/howto/images_create/) and [snapshots](https://linuxcontainers.org/incus/docs/main/howto/instances_backup/#instances-snapshots) for details about managing machine backups.
 
-Even if you can restore from an image or snapshot, the data in the image may be stale. Let's look at the restoration process. Here are the steps:
+Even if you can restore from an image or snapshot, the data in the image may be stale. Let's look at the restoration process. 
+
+Here are the steps:
 
 - Restore or rebuild your new server.
-- Use rsync.net (rsync) to create a local copy of the data.
-- Note that sync-backup.sh backs up a copy of itself. This copy acts as your guide/roadmap to restore data to the proper location.
+- Use rsync.net (rsync) to create a local copy of the backup data.
+- Note that sync-backup.sh backs up a copy of itself.
+  - This sync-backup.sh copy acts as your guide/roadmap to restore data.
+  - It tells you what data was backed up and where it came from (proper location).
 - Prioritize what artifacts need to be restored in what order.
 - Simply copy the files back to the appropriate location and ensure the file ownership is set accordingly.
 - Perform any additional app-specific tasks needed to restore services.
@@ -133,6 +152,10 @@ You can use `ssh` and `rsync` to gain access to your snapshot data. It is locate
 ```bash
 ssh de19xxx@de19xxx.rsync.net ls -asl .zfs/snapshot/
 ```
+
+### What if we host our services on Window?
+
+We will apologize in advance... We are sorry you are using windows!
 
 ## Learn More
 
