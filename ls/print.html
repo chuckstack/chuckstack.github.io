@@ -3933,7 +3933,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <li><a href="blog-rsync-net.html#does-rsyncnet-offer-multi-zone">Does rsync.net Offer Multi-Zone?</a></li>
 <li><a href="blog-rsync-net.html#how-do-i-see-my-rsyncnet-data">How do I see my rsync.net data?</a></li>
 <li><a href="blog-rsync-net.html#how-do-i-see-my-rsyncnet-snapshots">How do I see my rsync.net snapshots?</a></li>
-<li><a href="blog-rsync-net.html#what-if-we-host-our-services-on-window">What if we host our services on Window?</a></li>
+<li><a href="blog-rsync-net.html#what-about-k8s-docker-and-ephemeral-machines">What about K8s, Docker and ephemeral machines?</a></li>
 </ul>
 </li>
 <li><a href="blog-rsync-net.html#learn-more">Learn More</a></li>
@@ -3943,6 +3943,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <p><strong>Problem #1:</strong> There are many backup solutions available. Finding one that is cost effective and reasonable is difficult.</p>
 <p><strong>Problem #2:</strong> Many backup solutions do not include immutable data feature as an easy and default option. If the backed up data is not immutable, we cannot trust it.</p>
 <p><strong>Problem #3:</strong> Just because you use good backup tools does not mean you have a good disaster recovery solution. Creating simple but proven/validated disaster recovery systems is difficult.</p>
+<p><strong>Problem #4:</strong> Disaster recovery strategies that simply rely on machine images or snapshots are not enough.</p>
 <h2 id="why-we-love-rsyncnet"><a class="header" href="#why-we-love-rsyncnet">Why We Love rsync.net</a></h2>
 <p>Here is why we love rsync.net:</p>
 <ul>
@@ -4053,8 +4054,9 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <p>You can use <code>ssh</code> and <code>rsync</code> to gain access to your snapshot data. It is located in the drive's home .zfs directory. Here is an example:</p>
 <pre><code class="language-bash">ssh de19xxx@de19xxx.rsync.net ls -asl .zfs/snapshot/
 </code></pre>
-<h3 id="what-if-we-host-our-services-on-window"><a class="header" href="#what-if-we-host-our-services-on-window">What if we host our services on Window?</a></h3>
-<p>We will apologize in advance... We are sorry you are using windows!</p>
+<h3 id="what-about-k8s-docker-and-ephemeral-machines"><a class="header" href="#what-about-k8s-docker-and-ephemeral-machines">What about K8s, Docker and ephemeral machines?</a></h3>
+<p>More specifically, do ephemeral container technologies like Kubernetes reduce/change the disaster recovery needs as discussed here? We believe the answer is yes; however, we also believe that Kubernetes, and tools like it, do not serve the needs of our audience. They are too complex to learn, configure, audit, deploy, support and scale. They require too many exports.</p>
+<p>The needs of web-scale applications like tiktok drastically differ from the needs of small and medium organizations. We need applications that align with our <a href="./introduction.html#chuck-stack-guiding-principles">principles</a>. We need rapid delivery with minimal expertise.</p>
 <h2 id="learn-more"><a class="header" href="#learn-more">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 <p>To discuss this content in more detail, go to <a href="https://team.chuck-stack.org/t/simplified-server-data-backup-with-rsync-net/79">https://team.chuck-stack.org/t/simplified-server-data-backup-with-rsync-net/79</a>.</p>

@@ -24,6 +24,8 @@ The purpose of this post is to offer a simple and safe way to store your informa
 
 **Problem #3:** Just because you use good backup tools does not mean you have a good disaster recovery solution. Creating simple but proven/validated disaster recovery systems is difficult.
 
+**Problem #4:** Disaster recovery strategies that simply rely on machine images or snapshots are not enough.
+
 ## Why We Love rsync.net
 
 Here is why we love rsync.net:
@@ -161,9 +163,11 @@ You can use `ssh` and `rsync` to gain access to your snapshot data. It is locate
 ssh de19xxx@de19xxx.rsync.net ls -asl .zfs/snapshot/
 ```
 
-### What if we host our services on Window?
+### What about K8s, Docker and ephemeral machines?
 
-We will apologize in advance... We are sorry you are using windows!
+More specifically, do ephemeral container technologies like Kubernetes reduce/change the disaster recovery needs as discussed here? We believe the answer is yes; however, we also believe that Kubernetes, and tools like it, do not serve the needs of our audience. They are too complex to learn, configure, audit, deploy, support and scale. They require too many exports.
+
+The needs of web-scale applications like tiktok drastically differ from the needs of small and medium organizations. We need applications that align with our [principles](./introduction.md#chuck-stack-guiding-principles). We need rapid delivery with minimal expertise.
 
 ## Learn More
 
