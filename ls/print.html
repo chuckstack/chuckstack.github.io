@@ -3968,7 +3968,8 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 </ul>
 <p>Any time you make a change to sync-backup.sh, be sure to run it manually to ensure all works as expected. You do not want your scheduled script failing silently because of a malformed change.</p>
 <h2 id="picture-of-success-2"><a class="header" href="#picture-of-success-2">Picture of Success</a></h2>
-<p>Disaster recover procedures should be monitored and tested frequently. Here is our picture of success. We strive to spend the least effort possible testing our disaster recovery frequently (sometimes daily) as part of our day-to-day operations. Here the details:</p>
+<p>Disaster recover procedures should be monitored and tested frequently. Here is our picture of success. We strive to spend the least effort possible testing our disaster recovery as part of our day-to-day operations.</p>
+<p>Here is our picture of success:</p>
 <ul>
 <li>Search on the word 'ACTION' in sync-backup.sh and follow the directions to point the script to your desired remote location (rsync.net).</li>
 <li>Execute the sync-backup.sh script manually to ensure success, and copy the chuboe-system-backup-cron file to /etc/cron.d/ to schedule its automated execution.</li>

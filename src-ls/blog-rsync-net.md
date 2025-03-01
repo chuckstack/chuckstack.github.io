@@ -55,7 +55,9 @@ Any time you make a change to sync-backup.sh, be sure to run it manually to ensu
 
 ## Picture of Success
 
-Disaster recover procedures should be monitored and tested frequently. Here is our picture of success. We strive to spend the least effort possible testing our disaster recovery frequently (sometimes daily) as part of our day-to-day operations. Here the details:
+Disaster recover procedures should be monitored and tested frequently. Here is our picture of success. We strive to spend the least effort possible testing our disaster recovery as part of our day-to-day operations.
+
+Here is our picture of success:
 
 - Search on the word 'ACTION' in sync-backup.sh and follow the directions to point the script to your desired remote location (rsync.net).
 - Execute the sync-backup.sh script manually to ensure success, and copy the chuboe-system-backup-cron file to /etc/cron.d/ to schedule its automated execution.
