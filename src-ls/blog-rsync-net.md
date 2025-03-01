@@ -68,7 +68,7 @@ Here is our picture of success:
   - The last sync date is older that 36 hours.
 - Populate your UAT servers directly from rsync.net (not production) so that if any UAT restore fails, you are immediately aware of an issue.
 - We encourage you to have a UAT server that refreshes every day from rsync.net.
-- Include at least on UAT server in your backup process so that you have a backup copy of your UAT restore scripts.
+- Include at least one UAT server in your backup process so that you have a backup copy of your UAT restore scripts.
 - Generally speaking, no restoration process should depend directly on a production instance - pull from rsync.net instead (repeated for emphasis)!
 
 ## Disaster Story
