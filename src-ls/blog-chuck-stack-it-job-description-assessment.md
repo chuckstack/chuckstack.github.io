@@ -3,7 +3,7 @@
 - Published: 2025-03-03
 - Updated: 2025-03-03
 - Author: Chuck Boecking
-- Discussion: <>
+- Discussion: <https://team.chuck-stack.org/t/chuck-stack-it-job-description-and-assessment/80>
 - Status: Drafted
 
 ## Building Self-Help Automation IT Systems
@@ -133,17 +133,23 @@ The reason we ask for a Github username is so that we can validate the candidate
 
 Here is how easy it is to process a resume through an AI prompt...
 
-## Behavior Interviews
+TODO
+
+## Behavioral Interviews
+
+TODO
 
 Good and bad behaviors.
 
 3%
 
-Once - fluke
-Twice - probably
-Thrice - you can count on it
+- Once - fluke
+- Twice - probably
+- Thrice - you can count on it
 
 ## Potential
+
+TODO
 
 This comes after you hire someone.
 
@@ -151,7 +157,7 @@ Reference: [Success with HR](./success-hr.md)
 
 ## Frequently Asked Questions
 
-### question 1
+### no questions yet
 
 ...
 
@@ -159,8 +165,10 @@ Reference: [Success with HR](./success-hr.md)
 
 If you want help executing the topics in this article, join the [stack-academy](./stack-academy.md). Not ready to join... We can always [stay connected](../learn-more.html) to learn more.
 
-To discuss this content in more detail, go to <https://team.chuck-stack.org/t/simplified-server-data-backup-with-rsync-net/79>.
+To discuss this content in more detail, go to <https://team.chuck-stack.org/t/chuck-stack-it-job-description-and-assessment/80>.
 
 ## TODO
 
-No open todo
+- Need to finish Behavioral Interview Section
+- Need demo of processing resumes
+- Search document for TODO
