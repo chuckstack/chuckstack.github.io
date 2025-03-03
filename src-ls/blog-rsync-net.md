@@ -33,7 +33,7 @@ Here is why we love rsync.net:
 - The solution uses industry standard and best-in-class tools (authentication and file transfer efficiency).
 - The only client-side tools you need are probably already installed (rsync, ssh).
 - The default behavior includes periodic, immutable snapshots.
-- the rsync.net storage rates are competitive.
+- the rsync.net storage rates are competitive (800GB for $10 USD per month - this includes the default snapshots).
 - rsync.net customer service and automated notices have performed flawlessly for years!
 
 ## System Configurator
