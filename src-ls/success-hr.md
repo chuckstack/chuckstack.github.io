@@ -45,7 +45,7 @@ If you take the time to accurately define roles, you can use AI to ensure users 
 
 ## Human Agency
 
-A better way to discuss role work instructions is through human agency. Humans thrive to be relevant. One way we achieve this goal is by giving humans the autonomy to perform the tasks they understand well.
+A better way to discuss role work instructions is through human agency. Humans strive to be relevant. One way we achieve this goal is by giving humans the autonomy to perform the tasks they understand well.
 
 Said another way, if we document roles is such a way that they provide user's autonomy to perform tasks, we get better engagement. If we build 'just ask' systems where users can start automating tasks, we create [superclerks](./terminology.md#superclerk).
 
