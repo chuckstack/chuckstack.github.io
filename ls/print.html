@@ -3997,7 +3997,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 </ul>
 <h2 id="disaster-story"><a class="header" href="#disaster-story">Disaster Story</a></h2>
 <p>It is common to prepare for disaster. Here are some common examples: software corruption, machine failure and site availability. These issues are relatively easy to recover from.</p>
-<p>But what happens when you are cyber attached? What happens when your machine is infected, and as a result, your machine backup images are also infected. What happens when your backups are deleted. How do you know what to trust?</p>
+<p>But what happens when you are cyber attached? What happens when your machine is infected, and as a result, your machine backup images might also be infected. What happens when your backups are deleted. How do you know what to trust?</p>
 <p>We have suffered through this situation. We know how painful it can be. This document and its solution were born from this pain.</p>
 <h3 id="immutable-is-mandatory"><a class="header" href="#immutable-is-mandatory">Immutable is Mandatory</a></h3>
 <p>Your production system needs write access to your backup solution. The challenge is:</p>
@@ -4011,7 +4011,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <p>The reason the <a href="https://github.com/chuboe/chuboe-system-configurator/blob/main/sync-backup.sh">sync-backup.sh array</a> is so long is because there are many things you depend on to execute a service.</p>
 <p>Operating system backup images can hide many secrets because of the OS complexity. The value of also backing up the individual artifacts is because they are easy to audit and reason about during disaster recovery.</p>
 <h3 id="readme-changes"><a class="header" href="#readme-changes">Readme Changes</a></h3>
-<p>You will find a readme.md included in the /opt/chuboe-system-backup directory. This file is included automatically in sync-backup.sh. Make a practice to log all changes to the server to this file. You will be incredible grateful in the case of disaster if you do.</p>
+<p>You will find a readme.md included in the /opt/chuboe-system-backup directory. This file is included automatically in sync-backup.sh. Make a practice to log all changes to the server to this file. You will be incredibly grateful in the case of disaster if you do.</p>
 <h2 id="what-to-do-in-case-of-disaster"><a class="header" href="#what-to-do-in-case-of-disaster">What to Do In Case of Disaster</a></h2>
 <p>In case of disaster, you will first look to restore servers from images when possible. See Incus <a href="https://linuxcontainers.org/incus/docs/main/howto/images_create/">images</a> and <a href="https://linuxcontainers.org/incus/docs/main/howto/instances_backup/#instances-snapshots">snapshots</a> for details about managing machine backups.</p>
 <p>Even if you can restore from an image or snapshot, the data in the image may be stale. Let's look at the restoration process.</p>

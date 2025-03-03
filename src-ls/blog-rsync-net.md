@@ -79,7 +79,7 @@ Here is our picture of success:
 
 It is common to prepare for disaster. Here are some common examples: software corruption, machine failure and site availability. These issues are relatively easy to recover from.
 
-But what happens when you are cyber attached? What happens when your machine is infected, and as a result, your machine backup images are also infected. What happens when your backups are deleted. How do you know what to trust?
+But what happens when you are cyber attached? What happens when your machine is infected, and as a result, your machine backup images might also be infected. What happens when your backups are deleted. How do you know what to trust?
 
 We have suffered through this situation. We know how painful it can be. This document and its solution were born from this pain.
 
@@ -103,7 +103,7 @@ Operating system backup images can hide many secrets because of the OS complexit
 
 ### Readme Changes
 
-You will find a readme.md included in the /opt/chuboe-system-backup directory. This file is included automatically in sync-backup.sh. Make a practice to log all changes to the server to this file. You will be incredible grateful in the case of disaster if you do.
+You will find a readme.md included in the /opt/chuboe-system-backup directory. This file is included automatically in sync-backup.sh. Make a practice to log all changes to the server to this file. You will be incredibly grateful in the case of disaster if you do.
 
 ## What to Do In Case of Disaster
 
