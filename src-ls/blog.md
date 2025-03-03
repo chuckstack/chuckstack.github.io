@@ -6,6 +6,14 @@ Here is a list of recent blogs. The sidebar contains the full list.
 
 <!-- toc -->
 
+## chuck-stack IT Job Description and Assessment
+
+The purpose of this post is to help you hire the right IT (Information Technology) talent to support your small or medium organization. We will cover the desired attributes to help your organization create efficient, simple, self-help, automated systems.
+
+We need to make it easier for users to automate their tasks - this is the way!
+
+[Read more...](./blog-chuck-stack-it-job-description-assessment.md)
+
 ## Immutable Off-site Backups are Imperative
 
 The purpose of this post is to offer a simple and safe way to store your information off-site even in the extreme event of a cyber/ransom-ware attack.

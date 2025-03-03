@@ -75,6 +75,7 @@
 ---
 
 - [Blog](./blog.md)
+  - [chuck-stack IT Job Description](./blog-chuck-stack-it-job-description-assessment.md)
   - [Immutable Off-site Backups are Imperative](./blog-rsync-net.md)
   - [Operations AI LLM Automation in 2025](./blog-llm-ai-operations-automation.md)
   - [Hybrid Cloud Strategy: Incus + Netbird + PhoenixNAP](./blog-incus-netbird-phoenixnap.md)
