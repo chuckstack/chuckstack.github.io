@@ -74,6 +74,8 @@ During a chuck-stack deployment, you are constantly coaching and measuring these
 
 At any time, you might be coaching up, coaching out or both at the same time. Your responsibility as an organization is to invite your team to join you. Help them understand how to achieve success. If they cannot, do all you can to help them achieve success elsewhere.
 
+Here is an [IT job description](./blog-chuck-stack-it-job-description-assessment.md) illustrating how we use skills, knowledge and attitude.
+
 ## Strategic Advantage
 
 We believe the chuck-stack will give small and medium organizations a human resources strategic advantage. The goal is sub-linear employee growth as compared to revenue or complexity. Said another way:
