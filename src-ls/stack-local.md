@@ -85,7 +85,7 @@ One option to get started is to create a local technology co-op. The purpose of 
 Starting the co-op is incredibly simply:
 
 - Purchase a seat in the [stack-academy](./stack-academy.md) - you only need one.
-- Find 2 to 3 people people that [fit this description](./blog-chuck-stack-it-job-description-assessment.md).
+- Find 2 to 3 people from your local community that [fit this description](./blog-chuck-stack-it-job-description-assessment.md).
 - Make these people available to your local community in the same way the chuck-stack is organized (open discussion meeting, on-site support, deployment of best practices).
 
 We can help you evaluate and choose your people.
