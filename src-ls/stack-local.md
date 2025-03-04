@@ -82,7 +82,7 @@ We will use AI to amplify, augment and automate processes around each of these s
 
 One option to get started is to create a local technology co-op. The purpose of the co-op is to provide shared resources for the benefit of local organizations.
 
-Starting the co-op is incredibly simply:
+Starting the co-op is reasonably simply:
 
 - Purchase a seat in the [stack-academy](./stack-academy.md) - you only need one.
 - Find 2 to 3 people from your local community that [fit this description](./blog-chuck-stack-it-job-description-assessment.md).
