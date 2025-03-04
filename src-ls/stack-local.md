@@ -37,13 +37,20 @@ Here is why the chuck-stack matters to your local community:
 
 ## Get Started
 
+Let's discuss how to get started supporting your local community. 
+
+1. Begin by identifying someone in your local community to champion this effort.
+1. Determine how you with to start:
+  1. [Technology co-op](#technology-co-op)
+  1. [Founding organization(s)](#pick-your-founding-organization)
+  1. Both
+
 Here is how to get started:
 
-- Identify a couple of small or medium organizations in your country, state, or community that represent the types of organizations you want to see excel.
-- Support their membership in the [stack-academy](./stack-academy.md)
-- Create a local chuck-stack [benefit entity](#benefit-entity). 
+- Purchase a seat in the [stack-academy](./stack-academy.md). You only need one to get started.
+- Create a local chuck-stack [benefit entity](#benefit-entity) to amplify your local efforts.
 - The stack-academy will help the local benefit entity raise support for more local organizations.
-- The local benefit entity will become an expert in supporting the chuck-stack and promoting more local organizations.
+- The local benefit entity will become an expert in supporting the chuck-stack and empower more local organizations.
 
 ## Picture of Success
 
@@ -71,7 +78,21 @@ We will create a quality standard that adheres to:
 
 We will use AI to amplify, augment and automate processes around each of these steps.
 
+## Technology Co-op
+
+One option to get started is to create a local technology co-op. The purpose of the co-op is to provide shared resources for the benefit of local organizations.
+
+Starting the co-op is incredibly simply:
+
+- Purchase a seat in the [stack-academy](./stack-academy.md) - you only need one.
+- Find 2 to 3 people people that [fit this description](./blog-chuck-stack-it-job-description-assessment.md).
+- Make these people available to your local community in the same way the chuck-stack is organized (open discussion meeting, on-site support, deployment of best practices).
+
+We can help you evaluate and choose your people.
+
 ## Pick Your Founding Organization
+
+Another option to get started is by finding small or medium organizations in your country, state, or community that represent the types of organizations you want to see excel.
 
 Here are example criteria to help you pick your local small and medium organizations:
 
@@ -92,7 +113,7 @@ One purpose of the stack-academy is to help your local benefit entity apply for 
 
 ## Benefit Entity
 
-Legal organization owned by someone in your community for the benefit of your community. We purposefully use the word 'benefit' as a general term. The actual types of legal entities vary around the world. For example, you may choose a:
+A benefit entity is a legal organization owned by someone in your community for the benefit of your community. We purposefully use the word 'benefit' as a general term. The actual types of legal entities vary around the world. For example, you may choose a:
 
 - not-for-profit
 - for-profit benefit corporation
@@ -103,3 +124,7 @@ Legal organization owned by someone in your community for the benefit of your co
 There are also local certifications that help you assert your entity meets social and environmental standards.
 
 The point is that you should be aware of what types of local entities best serve your community's needs.
+
+## Learn More
+
+If you want help executing the topics in this article, join the [stack-academy](./stack-academy.md). Not ready to join... We can always [stay connected](../learn-more.html) to learn more.
