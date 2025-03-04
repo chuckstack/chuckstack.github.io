@@ -41,9 +41,9 @@ Let's discuss how to get started supporting your local community.
 
 1. Begin by identifying someone in your local community to champion this effort.
 1. Determine how you with to start:
-  1. [Technology co-op](#technology-co-op)
-  1. [Founding organization(s)](#pick-your-founding-organization)
-  1. Both
+  - [Technology co-op](#technology-co-op)
+  - [Founding organization(s)](#pick-your-founding-organization)
+  - Both
 
 Here is how to get started:
 
