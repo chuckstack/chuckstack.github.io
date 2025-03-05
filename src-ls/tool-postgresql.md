@@ -6,11 +6,6 @@
 
 <!-- toc -->
 
-## Page Contents
-
-- [Why we love Postgresql](#why-we-love-postgresql)
-- [Installation](#installation)
-
 ## Why We Love PostgreSQL
 
 The list of reasons we love PostgreSQL is long.
@@ -39,6 +34,10 @@ Here are some bullets that are unique to PostgreSQL that make it significantly b
 - There are PostgreSQL drivers, adapters, connectors for almost every major platform (OS and application).
 - It is fast!
 - It can read from many foreign data containers via FDW (Foreign Data Wrappers) - [see the list](https://wiki.postgresql.org/wiki/Foreign_data_wrappers).
+
+References;
+
+- [PostgreSQL for Everything](https://www.youtube.com/watch?v=3JW732GrMdg)
 
 ## Supabase
 
