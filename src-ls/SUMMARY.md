@@ -75,6 +75,7 @@
 ---
 
 - [Blog](./blog.md)
+  - [Production Open Source Chat with Work Instructions](./blog-llm-ai-production-deploy.md)
   - [chuck-stack IT Job Description](./blog-chuck-stack-it-job-description-assessment.md)
   - [Immutable Off-site Backups are Imperative](./blog-rsync-net.md)
   - [Operations AI LLM Automation in 2025](./blog-llm-ai-operations-automation.md)

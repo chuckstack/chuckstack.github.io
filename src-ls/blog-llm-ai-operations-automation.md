@@ -26,11 +26,15 @@ As a result of this article, you can:
 - Provide workflow to easily update documentation
 - Ensure your chat (AI/LLM) always knows the current instructions
 
+[View this article](./blog-llm-ai-production-deploy.md) to create this infrastructure yourself.
+
 ## TOC
 
 <!-- toc -->
 
 ## Problem Statements
+
+Here are the problem statements we want to address:
 
 **Problem #1:** People are generally not good at following directions with near perfect precision. We are creative, imaginative, and (as a result of these strengths) we are often distracted. These distractions sometimes result in mistakes when performing tasks.
 
@@ -217,6 +221,8 @@ Only after you have reached the point where your work instructions have reached 
 If you want help executing the topics in this article, join the [stack-academy](./stack-academy.md). Not ready to join... We can always [stay connected](../learn-more.html) to learn more.
 
 To discuss this content in more detail, go to <https://team.chuck-stack.org/t/operations-and-technology-in-2025/76>.
+
+[View this article](./blog-llm-ai-production-deploy.md) to create this infrastructure yourself.
 
 ## TODO
 

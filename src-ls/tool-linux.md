@@ -29,6 +29,8 @@ The chuck-stack standardizes on two distributions of Linux:
 - Debian
 - NixOS
 
+Reference: [Getting Started with Linux](./getting-started.md#get-linux)
+
 ### Debian
 
 [Debian](https://www.debian.org/) is a general purpose Linux distribution. It has been around for a long time. It is community driven. It works great on the server and the desktop. It is a cornerstone for the Linux community.
