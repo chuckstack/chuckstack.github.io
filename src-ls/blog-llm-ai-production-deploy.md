@@ -49,7 +49,9 @@ Here is what we will do:
 - We publish our work instruction with chat capabilities using these tools.
 - We will use Linux's scheduler (cron) to keep everything up to date over time.
 
-TODO: Video of success
+<video poster="./img/chat-with-work-instruction-part1-system-prep-final.png" controls>
+  <source src="./video/chat-with-work-instruction-part1-system-prep-final.mp4" type="video/mp4">
+</video>
 
 Here are the details discussed in the above video.
 
