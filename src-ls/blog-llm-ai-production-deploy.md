@@ -50,6 +50,9 @@ Here is what we will do:
 - We will use Linux's scheduler (cron) to keep everything up to date over time.
 
 TODO: video of picture of success
+- use anywhere in the world (cloud, hybrid, on-premise)
+- use almost any llm in the world
+- keep your data safe (local if needed and protected by your intranet)
 
 Here are the details discussed in the above video.
 
@@ -104,7 +107,9 @@ Follow the steps that appear on your screen as the process ends to finish the in
 
 You should now be able to see your documents via a webpage by simply clicking on the indicated link.
 
-TODO: video of configuration
+<video poster="./img/chat-with-work-instruction-part-sample-work-instruction..png" controls>
+  <source src="./video/chat-with-work-instruction-part-sample-work-instruction.mp4" type="video/mp4">
+</video>
 
 ### Lets Play
 
