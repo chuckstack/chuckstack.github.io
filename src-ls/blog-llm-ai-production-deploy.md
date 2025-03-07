@@ -107,7 +107,7 @@ Follow the steps that appear on your screen as the process ends to finish the in
 
 You should now be able to see your documents via a webpage by simply clicking on the indicated link.
 
-<video poster="./img/chat-with-work-instruction-part-sample-work-instruction..png" controls>
+<video poster="./img/chat-with-work-instruction-part-sample-work-instruction.png" controls>
   <source src="./video/chat-with-work-instruction-part-sample-work-instruction.mp4" type="video/mp4">
 </video>
 
