@@ -1,9 +1,9 @@
 # Production Open Source Chat with Work Instructions
 
 - Published: 2025-03-06
-- Updated: 2025-03-06
+- Updated: 2025-03-07
 - Author: Chuck Boecking
-- Discussion: <>
+- Discussion: <https://team.chuck-stack.org/t/production-open-source-chat-with-work-instructions/81>
 - Status: Drafted
 
 ## Create Your First Work Instruction Book with Chat
@@ -21,6 +21,7 @@ As a result of this article, you can:
 
 - deploy a production quality system in minutes
 - use a framework to publish work instructions with zero additional effort
+- connect to most (if not all) of the world's most powerful language models (LLM) with no code change
 - improve your work instructions with AI assistance at near real-time speed where changes are based on actual human usage and feedback
 
 ## TOC
@@ -33,7 +34,7 @@ Here are the problem statements we want to address:
 
 **Problem #1:** AI is complicated to understand much less create a solution around AI.
 
-**Problem #1:** The vast majority AI tutorials are based around writing code.
+**Problem #1:** The vast majority AI tutorials are based around writing code and they are limited to just a few LLMs.
 
 **Problem #2:** Deploying code to production is complicated if you do not have the expertise.
 
@@ -61,7 +62,7 @@ There are a couple of items you should note before we get started:
 
 ### Linux
 
-If you do not know how to create your first Linux server:
+If you do not know how to create your first Linux server, here are some resources to help you get started:
 
 - [Getting Started with Linux](./getting-started.md#get-linux)
 - Join the [stack-academy](./stack-academy.md) - we will walk you through getting started
@@ -84,6 +85,8 @@ cd chuboe-system-configurator
 ./init.sh
 ```
 
+TODO: video of configuration
+
 ### Install Sample Work Instruction
 
 We need to install the sample work instruction repository.
@@ -99,10 +102,13 @@ Follow the steps that appear on your screen as the process ends to finish the in
 
 You should now be able to see your documents via a webpage by simply clicking on the indicated link.
 
+TODO: video of configuration
+
 ### Lets Play
 
 Now that we have our system up and running. Let's play.
 
+Notes:
 - prompt shows both the role and the docs
 - Concept of Conversation - asking followup questions
 - copy/paste
@@ -159,7 +165,12 @@ Here are the tools we use to minimize effort and maximize agency:
 
 ## Frequently Asked Questions
 
-### Question One
+### Can I use Claude or other LLMs instead of OpenAI (ChatGPT)
+
+Two considerations:
+
+- embeddings (used to take your work instructions and prepare them)
+- prompting (used to answer questions)
 
 ...
 
@@ -171,7 +182,7 @@ Here are the tools we use to minimize effort and maximize agency:
 
 If you want help executing the topics in this article, join the [stack-academy](./stack-academy.md). Not ready to join... We can always [stay connected](../learn-more.html) to learn more.
 
-To discuss this content in more detail, go to <>.
+To discuss this content in more detail, go to <https://team.chuck-stack.org/t/production-open-source-chat-with-work-instructions/81>.
 
 ## TODO
 

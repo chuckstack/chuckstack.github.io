@@ -6,6 +6,17 @@ Here is a list of recent blogs. The sidebar contains the full list.
 
 <!-- toc -->
 
+## Production Open Source Chat with Work Instructions
+
+The purpose of this post is to help you get your first work instructions published with chat capabilities.
+
+Here is the benefit story:
+
+- You will thrust your AI capabilities ahead of 90% of all organizations in a single step.
+- You will create a platform for building future automation around your work instructions.
+
+[Read more...](./blog-llm-ai-production-deploy.md)
+
 ## chuck-stack IT Job Description and Assessment
 
 The purpose of this post is to help you hire the right IT (Information Technology) talent to support your small or medium organization. We will cover the desired attributes to help your organization create efficient, simple, self-help, automated systems.
