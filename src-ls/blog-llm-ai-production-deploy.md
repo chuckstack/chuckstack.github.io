@@ -114,7 +114,7 @@ You should now be able to see your documents via a webpage by simply clicking on
 Let's spend a moment discussing the airole-starter.md document. This text gets passed along side every prompt.
 
 <video controls>
-  <source src="./video/chat-with-work-instruction-part-sample-work-instruction.mp4" type="video/mp4">
+  <source src="./video/chat-with-work-instruction-part3-airole-start.mp4" type="video/mp4">
 </video>
 
 ### Lets Play
