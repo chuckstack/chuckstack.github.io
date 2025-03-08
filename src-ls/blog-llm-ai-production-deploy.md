@@ -119,11 +119,29 @@ Let's spend a moment discussing the airole-starter.md document. This text gets p
 
 Soon we will discuss advanced topics related to balancing concise responses with the ability to ask for more details.
 
+### Search Documents
+
+Search is a powerful feature of this solution. We use [mdBook](./tool-mdbook.md) to publish your work instructions and make them easily accessible to everyone in your organization.
+
+Here are the ways or searching:
+
+- ctrl+f (control + f key) to use the browser
+- 's' to search
+- simple and effective
+
+<video poster="./img/chat-with-work-instruction-part4-search-start.png" controls>
+  <source src="./video/chat-with-work-instruction-part4-search.mp4" type="video/mp4">
+</video>
+
 ### Lets Play
 
 Now that we have our system up and running. Let's play.
 
 Notes:
+- search (ctrl+f + search + chat)
+- talk like a pirate
+- short first response THEN tell me more
+- conversations ?? - up arrow
 - prompt shows both the role and the docs
 - Concept of Conversation - asking followup questions
 - copy/paste
@@ -147,6 +165,8 @@ TODO: image showing workflow (obsidian => publish => feedback => obsidian)
 TODO: use the same chat tool everywhere (iframe)
 
 Text (markdown) sent everywhere => Models, models, models...
+
+resembles the chuck-stack - why? because speed matters
 
 ## Next Step - Work Instructions Everywhere
 
@@ -189,7 +209,7 @@ Two considerations:
 
 ...
 
-### Question Two
+### Why Markdown - Why Not Google Docs or MS Word?
 
 ...
 
