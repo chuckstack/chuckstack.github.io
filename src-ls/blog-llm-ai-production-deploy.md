@@ -52,7 +52,9 @@ Here is what we will do:
 TODO: video of picture of success
 - use anywhere in the world (cloud, hybrid, on-premise)
 - use almost any llm in the world
+- Show example of how many releases from mdBook and aichat - newest models
 - keep your data safe (local if needed and protected by your intranet)
+- can run AI locally as well
 
 Here are the details discussed in the above video.
 
@@ -96,6 +98,8 @@ cd chuboe-system-configurator
 
 We need to install the sample work instruction repository.
 
+Note: if you forked this repository, please update the below reference to `chuckstack` with the name of your fork.
+
 ```bash
 cd ~
 git clone http://github.com/chuckstack/ai-llm-operations-wi-chat/
@@ -133,18 +137,34 @@ Here are the ways or searching:
   <source src="./video/chat-with-work-instruction-part4-search.mp4" type="video/mp4">
 </video>
 
+### Always Up to Date
+
+The goal is to keep your work instructions as up to date as is possible. Let's see how to automate updates.
+
+Here are the details:
+
+- Configure git
+- Run manually
+- Run via cron
+
+<video poster="./img/chat-with-work-instruction-part5-rebuild.png" controls>
+  <source src="./video/chat-with-work-instruction-part5-rebuild.mp4" type="video/mp4">
+</video>
+
 ### Lets Play
 
 Now that we have our system up and running. Let's play.
 
 Notes:
 - search (ctrl+f + search + chat)
+- edit online
 - talk like a pirate
-- short first response THEN tell me more
+- short first response THEN tell me more - prompting strategies
 - conversations ?? - up arrow
 - prompt shows both the role and the docs
 - Concept of Conversation - asking followup questions
 - copy/paste
+- fork for real
 
 ### Schedule Updates
 

@@ -212,6 +212,7 @@
 <li><a href="#system-preparation">System Preparation</a></li>
 <li><a href="#install-sample-work-instruction">Install Sample Work Instruction</a></li>
 <li><a href="#search-documents">Search Documents</a></li>
+<li><a href="#always-up-to-date">Always Up to Date</a></li>
 <li><a href="#lets-play">Lets Play</a></li>
 <li><a href="#schedule-updates">Schedule Updates</a></li>
 </ul>
@@ -249,7 +250,9 @@
 <ul>
 <li>use anywhere in the world (cloud, hybrid, on-premise)</li>
 <li>use almost any llm in the world</li>
+<li>Show example of how many releases from mdBook and aichat - newest models</li>
 <li>keep your data safe (local if needed and protected by your intranet)</li>
+<li>can run AI locally as well</li>
 </ul>
 <p>Here are the details discussed in the above video.</p>
 <h3 id="before-we-start"><a class="header" href="#before-we-start">Before We Start</a></h3>
@@ -281,6 +284,7 @@ cd chuboe-system-configurator
 </video>
 <h3 id="install-sample-work-instruction"><a class="header" href="#install-sample-work-instruction">Install Sample Work Instruction</a></h3>
 <p>We need to install the sample work instruction repository.</p>
+<p>Note: if you forked this repository, please update the below reference to <code>chuckstack</code> with the name of your fork.</p>
 <pre><code class="language-bash">cd ~
 git clone http://github.com/chuckstack/ai-llm-operations-wi-chat/
 cd ai-llm-operations-wi-chat/
@@ -307,17 +311,30 @@ cd ai-llm-operations-wi-chat/
 <video poster="./img/chat-with-work-instruction-part4-search-start.png" controls>
   <source src="./video/chat-with-work-instruction-part4-search.mp4" type="video/mp4">
 </video>
+<h3 id="always-up-to-date"><a class="header" href="#always-up-to-date">Always Up to Date</a></h3>
+<p>The goal is to keep your work instructions as up to date as is possible. Let's see how to automate updates.</p>
+<p>Here are the details:</p>
+<ul>
+<li>Configure git</li>
+<li>Run manually</li>
+<li>Run via cron</li>
+</ul>
+<video poster="./img/chat-with-work-instruction-part5-rebuild.png" controls>
+  <source src="./video/chat-with-work-instruction-part5-rebuild.mp4" type="video/mp4">
+</video>
 <h3 id="lets-play"><a class="header" href="#lets-play">Lets Play</a></h3>
 <p>Now that we have our system up and running. Let's play.</p>
 <p>Notes:</p>
 <ul>
 <li>search (ctrl+f + search + chat)</li>
+<li>edit online</li>
 <li>talk like a pirate</li>
-<li>short first response THEN tell me more</li>
+<li>short first response THEN tell me more - prompting strategies</li>
 <li>conversations ?? - up arrow</li>
 <li>prompt shows both the role and the docs</li>
 <li>Concept of Conversation - asking followup questions</li>
 <li>copy/paste</li>
+<li>fork for real</li>
 </ul>
 <h3 id="schedule-updates"><a class="header" href="#schedule-updates">Schedule Updates</a></h3>
 <p>TODO: update git for regular pulls and pushes and put on a schedule</p>
