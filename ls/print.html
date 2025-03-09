@@ -3940,7 +3940,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <div style="break-before: page; page-break-before: always;"></div><h1 id="production-open-source-chat-with-work-instructions-1"><a class="header" href="#production-open-source-chat-with-work-instructions-1">Production Open Source Chat with Work Instructions</a></h1>
 <ul>
 <li>Published: 2025-03-06</li>
-<li>Updated: 2025-03-07</li>
+<li>Updated: 2025-03-09</li>
 <li>Author: Chuck Boecking</li>
 <li>Discussion: <a href="https://team.chuck-stack.org/t/production-open-source-chat-with-work-instructions/81">https://team.chuck-stack.org/t/production-open-source-chat-with-work-instructions/81</a></li>
 <li>Status: Drafted</li>
@@ -4069,7 +4069,7 @@ cd ai-llm-operations-wi-chat/
 </video>
 <p>Soon we will discuss advanced topics related to balancing concise responses with the ability to ask for more details.</p>
 <h3 id="search-documents"><a class="header" href="#search-documents">Search Documents</a></h3>
-<p>Search is a powerful feature of this solution. We use <a href="./tool-mdbook.html">mdBook</a> to publish your work instructions and make them easily accessible to everyone in your organization.</p>
+<p>Chat is powerful; however, there are times when you need to simply search for something. Search is a powerful feature of this solution. We use <a href="./tool-mdbook.html">mdBook</a> to publish your work instructions and make them easily accessible to everyone in your organization.</p>
 <p>Here are the ways or searching:</p>
 <ul>
 <li><code>ctrl+f</code> (control + f key) to use the browser</li>
@@ -4085,9 +4085,7 @@ cd ai-llm-operations-wi-chat/
   <source src="./video/chat-with-work-instructions-part6-editing.mp4" type="video/mp4">
 </video>
 <p>In the video we are using <a href="./tool-git.html">GitHub</a> to host our work instructions. GitHub (and tools like it) provide online editing and advanced workflow to support change approval processes.</p>
-<ul>
-<li>Use <a href="./tool-obsidian.html">Obsidian</a> - perfect for those who are primarily responsible for creating and evolving.</li>
-</ul>
+<p>Reference: we recommend <a href="./tool-obsidian.html">Obsidian</a> for those who are primarily responsible for creating and evolving work instructions. Obsidian is ideal and enjoyable when writing high-connected content like work instructions.</p>
 <h3 id="always-up-to-date"><a class="header" href="#always-up-to-date">Always Up to Date</a></h3>
 <p>The goal is to keep your published work instructions as up to date as is possible. Let's see how to automate updates.</p>
 <p>Note: the rebuild section of the publish.sh script has git statements that need to be uncommented to support live updates. Look for <code>###change-me###</code> next to the git sections.</p>
@@ -4100,6 +4098,7 @@ cd ai-llm-operations-wi-chat/
 <video poster="./img/chat-with-work-instruction-part5-rebuild.png" controls>
   <source src="./video/chat-with-work-instruction-part5-rebuild.mp4" type="video/mp4">
 </video>
+<p>Note that your cron file might be named differently depending on what you are deploying.</p>
 <h3 id="lets-play"><a class="header" href="#lets-play">Lets Play</a></h3>
 <p>Now that we have our system up and running. Let's play.</p>
 <p>Notes:</p>

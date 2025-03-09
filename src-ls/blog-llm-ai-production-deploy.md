@@ -1,7 +1,7 @@
 # Production Open Source Chat with Work Instructions
 
 - Published: 2025-03-06
-- Updated: 2025-03-07
+- Updated: 2025-03-09
 - Author: Chuck Boecking
 - Discussion: <https://team.chuck-stack.org/t/production-open-source-chat-with-work-instructions/81>
 - Status: Drafted
@@ -129,7 +129,7 @@ Soon we will discuss advanced topics related to balancing concise responses with
 
 ### Search Documents
 
-Search is a powerful feature of this solution. We use [mdBook](./tool-mdbook.md) to publish your work instructions and make them easily accessible to everyone in your organization.
+Chat is powerful; however, there are times when you need to simply search for something. Search is a powerful feature of this solution. We use [mdBook](./tool-mdbook.md) to publish your work instructions and make them easily accessible to everyone in your organization.
 
 Here are the ways or searching:
 
@@ -152,7 +152,7 @@ Note that we are assuming that many of the work instructions already exist. We w
 
 In the video we are using [GitHub](./tool-git.md) to host our work instructions. GitHub (and tools like it) provide online editing and advanced workflow to support change approval processes.
 
-- Use [Obsidian](./tool-obsidian.md) - perfect for those who are primarily responsible for creating and evolving.
+Reference: we recommend [Obsidian](./tool-obsidian.md) for those who are primarily responsible for creating and evolving work instructions. Obsidian is ideal and enjoyable when writing high-connected content like work instructions.
 
 ### Always Up to Date
 
@@ -169,6 +169,8 @@ Here are the details:
 <video poster="./img/chat-with-work-instruction-part5-rebuild.png" controls>
   <source src="./video/chat-with-work-instruction-part5-rebuild.mp4" type="video/mp4">
 </video>
+
+Note that your cron file might be named differently depending on what you are deploying.
 
 ### Lets Play
 
