@@ -34,9 +34,9 @@ Here are the problem statements we want to address:
 
 **Problem #1:** AI is complicated to understand much less create a solution around AI.
 
-**Problem #1:** The vast majority AI tutorials are based around writing code and they are limited to just a few LLMs.
+**Problem #2:** The vast majority AI tutorials are based around writing code and they are limited to just a few LLMs and a few scenarios.
 
-**Problem #2:** Deploying code to production is complicated if you do not have the expertise.
+**Problem #3:** Deploying code to production is complicated if you do not have the expertise.
 
 **Problem #4:** Creating a plan for AI success in a small and medium organization is not obvious.
 
@@ -55,6 +55,10 @@ TODO: video of picture of success
 - Show example of how many releases from mdBook and aichat - newest models
 - keep your data safe (local if needed and protected by your intranet)
 - can run AI locally as well
+- Three types of AI use (puts you in the top 90% or much better)
+  - AI to help create work instructions
+  - AI to help answer questions
+  - AI to help review review results and recommend changes
 
 Here are the details discussed in the above video.
 
@@ -129,17 +133,32 @@ Search is a powerful feature of this solution. We use [mdBook](./tool-mdbook.md)
 
 Here are the ways or searching:
 
-- ctrl+f (control + f key) to use the browser
-- 's' to search
-- simple and effective
+- `ctrl+f` (control + f key) to use the browser
+- `s` to search
 
 <video poster="./img/chat-with-work-instruction-part4-search-start.png" controls>
   <source src="./video/chat-with-work-instruction-part4-search.mp4" type="video/mp4">
 </video>
 
+### Edit Online
+
+Everyone in your organization should be able to easily contribute. The purpose of this section is to highlight just how easy it is.
+
+Note that we are assuming that many of the work instructions already exist. We will talk about how to get started creating your work instructions from scratch in a different section.
+
+<video poster="./img/chat-with-work-instructions-part6-editing-end.png" controls>
+  <source src="./video/chat-with-work-instructions-part6-editing.mp4" type="video/mp4">
+</video>
+
+In the video we are using [GitHub](./tool-git.md) to host our work instructions. GitHub (and tools like it) provide online editing and advanced workflow to support change approval processes.
+
+- Use [Obsidian](./tool-obsidian.md) - perfect for those who are primarily responsible for creating and evolving.
+
 ### Always Up to Date
 
-The goal is to keep your work instructions as up to date as is possible. Let's see how to automate updates.
+The goal is to keep your published work instructions as up to date as is possible. Let's see how to automate updates.
+
+Note: the rebuild section of the publish.sh script has git statements that need to be uncommented to support live updates. Look for `###change-me###` next to the git sections.
 
 Here are the details:
 
@@ -156,7 +175,6 @@ Here are the details:
 Now that we have our system up and running. Let's play.
 
 Notes:
-- search (ctrl+f + search + chat)
 - edit online
 - talk like a pirate
 - short first response THEN tell me more - prompting strategies

@@ -3972,6 +3972,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <li><a href="blog-llm-ai-production-deploy.html#system-preparation">System Preparation</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#install-sample-work-instruction">Install Sample Work Instruction</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#search-documents">Search Documents</a></li>
+<li><a href="blog-llm-ai-production-deploy.html#edit-online">Edit Online</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#always-up-to-date">Always Up to Date</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#lets-play">Lets Play</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#schedule-updates">Schedule Updates</a></li>
@@ -3995,8 +3996,8 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <h2 id="problem-statements"><a class="header" href="#problem-statements">Problem Statements</a></h2>
 <p>Here are the problem statements we want to address:</p>
 <p><strong>Problem #1:</strong> AI is complicated to understand much less create a solution around AI.</p>
-<p><strong>Problem #1:</strong> The vast majority AI tutorials are based around writing code and they are limited to just a few LLMs.</p>
-<p><strong>Problem #2:</strong> Deploying code to production is complicated if you do not have the expertise.</p>
+<p><strong>Problem #2:</strong> The vast majority AI tutorials are based around writing code and they are limited to just a few LLMs and a few scenarios.</p>
+<p><strong>Problem #3:</strong> Deploying code to production is complicated if you do not have the expertise.</p>
 <p><strong>Problem #4:</strong> Creating a plan for AI success in a small and medium organization is not obvious.</p>
 <h2 id="getting-started-2"><a class="header" href="#getting-started-2">Getting Started</a></h2>
 <p>Here is what we will do:</p>
@@ -4013,6 +4014,13 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <li>Show example of how many releases from mdBook and aichat - newest models</li>
 <li>keep your data safe (local if needed and protected by your intranet)</li>
 <li>can run AI locally as well</li>
+<li>Three types of AI use (puts you in the top 90% or much better)
+<ul>
+<li>AI to help create work instructions</li>
+<li>AI to help answer questions</li>
+<li>AI to help review review results and recommend changes</li>
+</ul>
+</li>
 </ul>
 <p>Here are the details discussed in the above video.</p>
 <h3 id="before-we-start"><a class="header" href="#before-we-start">Before We Start</a></h3>
@@ -4064,15 +4072,25 @@ cd ai-llm-operations-wi-chat/
 <p>Search is a powerful feature of this solution. We use <a href="./tool-mdbook.html">mdBook</a> to publish your work instructions and make them easily accessible to everyone in your organization.</p>
 <p>Here are the ways or searching:</p>
 <ul>
-<li>ctrl+f (control + f key) to use the browser</li>
-<li>'s' to search</li>
-<li>simple and effective</li>
+<li><code>ctrl+f</code> (control + f key) to use the browser</li>
+<li><code>s</code> to search</li>
 </ul>
 <video poster="./img/chat-with-work-instruction-part4-search-start.png" controls>
   <source src="./video/chat-with-work-instruction-part4-search.mp4" type="video/mp4">
 </video>
+<h3 id="edit-online"><a class="header" href="#edit-online">Edit Online</a></h3>
+<p>Everyone in your organization should be able to easily contribute. The purpose of this section is to highlight just how easy it is.</p>
+<p>Note that we are assuming that many of the work instructions already exist. We will talk about how to get started creating your work instructions from scratch in a different section.</p>
+<video poster="./img/chat-with-work-instructions-part6-editing-end.png" controls>
+  <source src="./video/chat-with-work-instructions-part6-editing.mp4" type="video/mp4">
+</video>
+<p>In the video we are using <a href="./tool-git.html">GitHub</a> to host our work instructions. GitHub (and tools like it) provide online editing and advanced workflow to support change approval processes.</p>
+<ul>
+<li>Use <a href="./tool-obsidian.html">Obsidian</a> - perfect for those who are primarily responsible for creating and evolving.</li>
+</ul>
 <h3 id="always-up-to-date"><a class="header" href="#always-up-to-date">Always Up to Date</a></h3>
-<p>The goal is to keep your work instructions as up to date as is possible. Let's see how to automate updates.</p>
+<p>The goal is to keep your published work instructions as up to date as is possible. Let's see how to automate updates.</p>
+<p>Note: the rebuild section of the publish.sh script has git statements that need to be uncommented to support live updates. Look for <code>###change-me###</code> next to the git sections.</p>
 <p>Here are the details:</p>
 <ul>
 <li>Configure git</li>
@@ -4086,7 +4104,6 @@ cd ai-llm-operations-wi-chat/
 <p>Now that we have our system up and running. Let's play.</p>
 <p>Notes:</p>
 <ul>
-<li>search (ctrl+f + search + chat)</li>
 <li>edit online</li>
 <li>talk like a pirate</li>
 <li>short first response THEN tell me more - prompting strategies</li>
