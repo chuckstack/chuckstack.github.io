@@ -4,7 +4,7 @@
 - Updated: 2025-03-09
 - Author: Chuck Boecking
 - Discussion: <https://team.chuck-stack.org/t/production-open-source-chat-with-work-instructions/81>
-- Status: Drafted
+- Status: Drafted (more coming...)
 
 ## Create Your First Work Instruction Book with Chat
 
@@ -79,7 +79,7 @@ If you do not know how to create your first Linux server, here are some resource
 
 Note that we will be using either Debian or Ubuntu on x86 (not ARM).
 
-### System Preparation
+### Prepare System
 
 We need to install a few applications. The single easiest way to get your system prepared is using the [chuboe system configurator](https://github.com/chuboe/chuboe-system-configurator).
 
@@ -177,22 +177,18 @@ Note that your cron file might be named differently depending on what you are de
 Now that we have our system up and running. Let's play.
 
 Notes:
-- edit online
+- talk to any llm
 - talk like a pirate
-- short first response THEN tell me more - prompting strategies
-- conversations ?? - up arrow
-- prompt shows both the role and the docs
-- Concept of Conversation - asking followup questions
+- prompting strategies
+  - short first response THEN tell me more - prompting strategies
+  - conversations ?? - up arrow
+  - prompt shows both the role and the docs
+  - Concept of Conversation - asking followup questions
 - copy/paste
 - fork for real
-
-### Schedule Updates
-
-TODO: update git for regular pulls and pushes and put on a schedule
-
-creates the one direction flow. (to be improved below)
-
-demo change on timer
+- Review process back to Obsidian
+- Prompt in iDempiere
+- note about why this looks just like the chuck-stack - speed matters - chuck-stack is a giant set of work instructions
 
 ## Architecture Overview 
 
@@ -205,8 +201,6 @@ TODO: image showing workflow (obsidian => publish => feedback => obsidian)
 TODO: use the same chat tool everywhere (iframe)
 
 Text (markdown) sent everywhere => Models, models, models...
-
-resembles the chuck-stack - why? because speed matters
 
 ## Next Step - Work Instructions Everywhere
 
