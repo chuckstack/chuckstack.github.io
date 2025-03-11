@@ -70,6 +70,8 @@ The above command shows what can happen when you develop superclerks and you giv
 
 You do not need to understand the details of the above scenario; however, you **DO** need to understand that a single person (superclerk) can write the above one-line string to perform the work of hundreds or even thousands or people hours. This is the power of a purposeful organization using the chuck-stack to find and promote [superclerks](./terminology.md#superclerk)!
 
+More importantly, you need to understand that an AI LLM will be there to guide users until they can use the tools independently ([see above video](#how-is-this-possible)).
+
 ## All You Need are Work Instructions
 
 ChatGPT (and LLMs in general) are very good at understanding languages. This ability goes far beyond English and Spanish. SQL (databases) is a language. If you write it down, a LLM can understand what you want. This is true for both English work instructions and code like SQL, python and rust.
