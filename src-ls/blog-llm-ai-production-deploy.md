@@ -198,6 +198,13 @@ Notes:
 
 ## Architecture Overview 
 
+### ttyd
+
+<video poster="./img/chat-with-work-instructions-part8-splash.png" controls>
+  <source src="./video/chat-with-work-instructions-part8.mp4" type="video/mp4">
+</video>
+
+
 TODO: image showing server concepts/connections (nginx + ttyd + mdbook)
 
 TODO: image showing workflow (obsidian => publish => feedback => obsidian)
