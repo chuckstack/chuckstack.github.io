@@ -3976,23 +3976,23 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <li><a href="blog-llm-ai-production-deploy.html#edit-online">Edit Online</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#always-up-to-date">Always Up to Date</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#talk-to-any-llm">Talk to Any LLM</a></li>
-<li><a href="blog-llm-ai-production-deploy.html#lets-play">Lets Play</a></li>
+<li><a href="blog-llm-ai-production-deploy.html#control-the-user-experience">Control the User Experience</a></li>
+<li><a href="blog-llm-ai-production-deploy.html#review-responses-and-improve">Review Responses and Improve</a></li>
+<li><a href="blog-llm-ai-production-deploy.html#obsidian-workflow">Obsidian Workflow</a></li>
 </ul>
 </li>
 <li><a href="blog-llm-ai-production-deploy.html#architecture-overview">Architecture Overview</a>
 <ul>
+<li><a href="blog-llm-ai-production-deploy.html#tools">Tools</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#ttyd">ttyd</a></li>
 </ul>
 </li>
-<li><a href="blog-llm-ai-production-deploy.html#why-this-matters">Why This Matters</a></li>
-<li><a href="blog-llm-ai-production-deploy.html#next-step---work-instructions-everywhere">Next Step - Work Instructions Everywhere</a></li>
-<li><a href="blog-llm-ai-production-deploy.html#feedback-loop">Feedback Loop</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#next-steps">Next Steps</a></li>
-<li><a href="blog-llm-ai-production-deploy.html#tools-summary">Tools Summary</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#frequently-asked-questions">Frequently Asked Questions</a>
 <ul>
 <li><a href="blog-llm-ai-production-deploy.html#can-i-use-claude-or-other-llms-instead-of-openai-chatgpt">Can I use Claude or other LLMs instead of OpenAI (ChatGPT)</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#why-markdown---why-not-google-docs-or-ms-word">Why Markdown - Why Not Google Docs or MS Word?</a></li>
+<li><a href="blog-llm-ai-production-deploy.html#why-does-this-example-look-like-the-chuck-stack">Why does this example look like the chuck-stack</a></li>
 </ul>
 </li>
 <li><a href="blog-llm-ai-production-deploy.html#learn-more">Learn More</a></li>
@@ -4023,6 +4023,18 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <li>AI to help create work instructions</li>
 <li>AI to help answer questions</li>
 <li>AI to help review review results and recommend changes</li>
+</ul>
+</li>
+<li>Script
+<ul>
+<li>there is going to be a day when much of what we do is automated.</li>
+<li>systems will magically assist or perform much of the manual work.</li>
+<li>How do we tell it what to do?</li>
+<li>How do we start getting ready for that day - today?</li>
+<li>Asked another way, what is the minimum amount of effort I can do today to produce the most benefit in tomorrow's world</li>
+<li>This outline will thrust you ahead of 90% of other companies,</li>
+<li>We will combine best practice that align you with quality awards like the Baldrige award and start the augmentation/automation path?</li>
+<li>We will get your people ready for the rapidly approaching ai augmented workforce!</li>
 </ul>
 </li>
 </ul>
@@ -4108,61 +4120,51 @@ cd ai-llm-operations-wi-chat/
 <video poster="./img/chat-with-work-instructions-part7-models-splash.png" controls>
   <source src="./video/chat-with-work-instructions-part7-models.mp4" type="video/mp4">
 </video>
-<h3 id="lets-play"><a class="header" href="#lets-play">Lets Play</a></h3>
-<p>Now that we have our system up and running. Let's play.</p>
-<p>Notes:</p>
+<h3 id="control-the-user-experience"><a class="header" href="#control-the-user-experience">Control the User Experience</a></h3>
 <ul>
-<li>talk like a pirate - show you just how much control you have</li>
-<li>prompting strategies
+<li>Talk like a parrot.</li>
+<li>short then long (tell me more when requested)</li>
+<li>Asking followup questions (include this?)</li>
+</ul>
+<h3 id="review-responses-and-improve"><a class="header" href="#review-responses-and-improve">Review Responses and Improve</a></h3>
+<p>Rebuild process also reviews interactions and suggests improvements</p>
+<p>TODO: video</p>
+<h3 id="obsidian-workflow"><a class="header" href="#obsidian-workflow">Obsidian Workflow</a></h3>
+<p>Here is a video to help you visualize what its like to use <a href="./tool-obsidian.html">Obsidian</a> to manage work instructions.</p>
+<p>TODO: video</p>
+<h2 id="architecture-overview"><a class="header" href="#architecture-overview">Architecture Overview</a></h2>
+<p>Here are the tools we use to minimize effort and maximize agency.</p>
+<h3 id="tools"><a class="header" href="#tools">Tools</a></h3>
 <ul>
-<li>short first response THEN tell me more - prompting strategies</li>
-<li>conversations ?? - up arrow</li>
-<li>prompt shows both the role and the docs</li>
-<li>Concept of Conversation - asking followup questions</li>
+<li>We use <a href="./tool-obsidian.html">Obsidian</a> to help our work instruction creators write most documents in markdown.
+<ul>
+<li>It includes AI assisted writing plugins.</li>
+<li>It includes <a href="./tool-git.html">git</a> plugins to automatically track and publish changes to the website.</li>
 </ul>
 </li>
-<li>copy/paste</li>
-<li>fork for real</li>
-<li>Review process back to Obsidian</li>
-<li>Prompt in iDempiere</li>
-<li>note about why this looks just like the chuck-stack - speed matters - chuck-stack is a giant set of work instructions</li>
+<li>We use <a href="./tool-mdbook.html">mdBook</a> to convert our published markdown work instructions into a website.</li>
+<li>We use <a href="./tool-aichat.html">AIChat</a> to:
+<ul>
+<li>embed the work instructions</li>
+<li>deliver a kind and patient 'chat' experience</li>
+<li>evaluate user interactions with the 'chat' tool</li>
+<li>propose improvements to work instructions</li>
 </ul>
-<h2 id="architecture-overview"><a class="header" href="#architecture-overview">Architecture Overview</a></h2>
+</li>
+<li>We use <a href="./tool-ttyd.html">ttyd</a> to expose AIChat and other terminal tools to our people.</li>
+<li>We use <code>nginx</code> to host the mdBook website, reverse proxy <code>ttyd</code>, and terminate https/ssl connections.</li>
+</ul>
 <h3 id="ttyd"><a class="header" href="#ttyd">ttyd</a></h3>
 <video poster="./img/chat-with-work-instructions-part8-splash.png" controls>
   <source src="./video/chat-with-work-instructions-part8.mp4" type="video/mp4">
 </video>
-<p>TODO: image showing server concepts/connections (nginx + ttyd + mdbook)</p>
-<p>TODO: image showing workflow (obsidian =&gt; publish =&gt; feedback =&gt; obsidian)</p>
-<h2 id="why-this-matters"><a class="header" href="#why-this-matters">Why This Matters</a></h2>
-<p>TODO: use the same chat tool everywhere (iframe)</p>
-<p>Text (markdown) sent everywhere =&gt; Models, models, models...</p>
-<h2 id="next-step---work-instructions-everywhere"><a class="header" href="#next-step---work-instructions-everywhere">Next Step - Work Instructions Everywhere</a></h2>
-<p>example: iDempiere</p>
-<h2 id="feedback-loop"><a class="header" href="#feedback-loop">Feedback Loop</a></h2>
-<p>Show example of actual feedback and how to support primary contributors with improvement</p>
 <h2 id="next-steps"><a class="header" href="#next-steps">Next Steps</a></h2>
 <p>If you want help implementing these concepts in your organization, join the <a href="./stack-academy.html">stack-academy</a>. We will walk you though the process of:</p>
 <ul>
-<li>deploying your first Obsidian + Git + website + chat solution in your organization</li>
-<li>identifying and create your first set of work instructions for a target role</li>
+<li>deploying your first Obsidian + Git + website + chat solution in your organization - how to fork and deploy this example...</li>
+<li>identifying and creating your first set of work instructions for a target role</li>
 <li>teaching your content writers how to write the fewest words possible to achieve the desired result</li>
 <li>soliciting feedback from everyone after the initial deployment</li>
-</ul>
-<h2 id="tools-summary"><a class="header" href="#tools-summary">Tools Summary</a></h2>
-<p>Here are the tools we use to minimize effort and maximize agency:</p>
-<ul>
-<li>We use <a href="./tool-obsidian.html">Obsidian</a> to help your primary leaders 'say' what to do.</li>
-<li>We use <a href="./tool-aichat.html">AIChat</a> to
-<ul>
-<li>deliver a kind and patient 'chat' experience</li>
-<li>evaluate user interactions with 'chat'</li>
-<li>propose improvements to work instructions</li>
-</ul>
-</li>
-<li>We use <a href="./tool-mdbook.html">mdBook</a> to publish our instructions</li>
-<li>We use <a href="./tool-ttyd.html">ttyd</a> to expose AIChat and other tools</li>
-<li>We use <a href="./tool-netbird.html">Netbird</a> to ensure our work instructions and our tools are both private to our organization AND available to everyone in our organization</li>
 </ul>
 <h2 id="frequently-asked-questions"><a class="header" href="#frequently-asked-questions">Frequently Asked Questions</a></h2>
 <h3 id="can-i-use-claude-or-other-llms-instead-of-openai-chatgpt"><a class="header" href="#can-i-use-claude-or-other-llms-instead-of-openai-chatgpt">Can I use Claude or other LLMs instead of OpenAI (ChatGPT)</a></h3>
@@ -4174,6 +4176,8 @@ cd ai-llm-operations-wi-chat/
 <p>...</p>
 <h3 id="why-markdown---why-not-google-docs-or-ms-word"><a class="header" href="#why-markdown---why-not-google-docs-or-ms-word">Why Markdown - Why Not Google Docs or MS Word?</a></h3>
 <p>...</p>
+<h3 id="why-does-this-example-look-like-the-chuck-stack"><a class="header" href="#why-does-this-example-look-like-the-chuck-stack">Why does this example look like the chuck-stack</a></h3>
+<p>speed matters - chuck-stack is a giant set of work instructions</p>
 <h2 id="learn-more-1"><a class="header" href="#learn-more-1">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 <p>To discuss this content in more detail, go to <a href="https://team.chuck-stack.org/t/production-open-source-chat-with-work-instructions/81">https://team.chuck-stack.org/t/production-open-source-chat-with-work-instructions/81</a>.</p>
@@ -4620,7 +4624,7 @@ cd ai-llm-operations-wi-chat/
 <video controls>
   <source src="./video/06-gen-wi-demo-obsidian-mdbook.mp4" type="video/mp4">
 </video>
-<h2 id="feedback-loop-1"><a class="header" href="#feedback-loop-1">Feedback Loop</a></h2>
+<h2 id="feedback-loop"><a class="header" href="#feedback-loop">Feedback Loop</a></h2>
 <p>Notes about organizational evolution through continual feedback:</p>
 <ul>
 <li>Quality standards ask you for follow your own directions.</li>
@@ -4658,7 +4662,7 @@ cd ai-llm-operations-wi-chat/
 <li>teaching your content writers how to write the fewest words possible to achieve the desired result</li>
 <li>soliciting feedback from everyone after the initial deployment</li>
 </ul>
-<h2 id="tools-summary-1"><a class="header" href="#tools-summary-1">Tools Summary</a></h2>
+<h2 id="tools-summary"><a class="header" href="#tools-summary">Tools Summary</a></h2>
 <p>Here are the tools we use to minimize effort and maximize agency:</p>
 <ul>
 <li>We use <a href="./tool-obsidian.html">Obsidian</a> to help your primary leaders 'say' what to do.</li>

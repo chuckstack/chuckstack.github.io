@@ -58,6 +58,15 @@ TODO: video of picture of success
   - AI to help create work instructions
   - AI to help answer questions
   - AI to help review review results and recommend changes
+- Script
+  - there is going to be a day when much of what we do is automated.
+  - systems will magically assist or perform much of the manual work.
+  - How do we tell it what to do?
+  - How do we start getting ready for that day - today?
+  - Asked another way, what is the minimum amount of effort I can do today to produce the most benefit in tomorrow's world
+  - This outline will thrust you ahead of 90% of other companies,
+  - We will combine best practice that align you with quality awards like the Baldrige award and start the augmentation/automation path?
+  - We will get your people ready for the rapidly approaching ai augmented workforce!
 
 Here are the details discussed in the above video.
 
@@ -179,24 +188,42 @@ Quickly switch between almost any large language model (LLM) including local mod
   <source src="./video/chat-with-work-instructions-part7-models.mp4" type="video/mp4">
 </video>
 
-### Lets Play
+### Control the User Experience
 
-Now that we have our system up and running. Let's play.
+- Talk like a parrot.
+- short then long (tell me more when requested)
+- Asking followup questions (include this?)
 
-Notes:
-- talk like a pirate - show you just how much control you have
-- prompting strategies
-  - short first response THEN tell me more - prompting strategies
-  - conversations ?? - up arrow
-  - prompt shows both the role and the docs
-  - Concept of Conversation - asking followup questions
-- copy/paste
-- fork for real
-- Review process back to Obsidian
-- Prompt in iDempiere
-- note about why this looks just like the chuck-stack - speed matters - chuck-stack is a giant set of work instructions
+
+### Review Responses and Improve
+
+Rebuild process also reviews interactions and suggests improvements
+
+TODO: video
+
+### Obsidian Workflow
+
+Here is a video to help you visualize what its like to use [Obsidian](./tool-obsidian.md) to manage work instructions.
+
+TODO: video
 
 ## Architecture Overview 
+
+Here are the tools we use to minimize effort and maximize agency.
+
+### Tools
+
+- We use [Obsidian](./tool-obsidian.md) to help our work instruction creators write most documents in markdown.
+  - It includes AI assisted writing plugins.
+  - It includes [git](./tool-git.md) plugins to automatically track and publish changes to the website.
+- We use [mdBook](./tool-mdbook.md) to convert our published markdown work instructions into a website.
+- We use [AIChat](./tool-aichat.md) to:
+  - embed the work instructions
+  - deliver a kind and patient 'chat' experience
+  - evaluate user interactions with the 'chat' tool
+  - propose improvements to work instructions
+- We use [ttyd](./tool-ttyd.md) to expose AIChat and other terminal tools to our people.
+- We use `nginx` to host the mdBook website, reverse proxy `ttyd`, and terminate https/ssl connections.
 
 ### ttyd
 
@@ -204,46 +231,14 @@ Notes:
   <source src="./video/chat-with-work-instructions-part8.mp4" type="video/mp4">
 </video>
 
-
-TODO: image showing server concepts/connections (nginx + ttyd + mdbook)
-
-TODO: image showing workflow (obsidian => publish => feedback => obsidian)
-
-## Why This Matters
-
-TODO: use the same chat tool everywhere (iframe)
-
-Text (markdown) sent everywhere => Models, models, models...
-
-## Next Step - Work Instructions Everywhere
-
-example: iDempiere
-
-## Feedback Loop
-
-Show example of actual feedback and how to support primary contributors with improvement
-
 ## Next Steps
 
 If you want help implementing these concepts in your organization, join the [stack-academy](./stack-academy.md). We will walk you though the process of:
 
-- deploying your first Obsidian + Git + website + chat solution in your organization
-- identifying and create your first set of work instructions for a target role
+- deploying your first Obsidian + Git + website + chat solution in your organization - how to fork and deploy this example...
+- identifying and creating your first set of work instructions for a target role
 - teaching your content writers how to write the fewest words possible to achieve the desired result
 - soliciting feedback from everyone after the initial deployment
-
-## Tools Summary
-
-Here are the tools we use to minimize effort and maximize agency:
-
-- We use [Obsidian](./tool-obsidian.md) to help your primary leaders 'say' what to do.
-- We use [AIChat](./tool-aichat.md) to 
-  - deliver a kind and patient 'chat' experience
-  - evaluate user interactions with 'chat'
-  - propose improvements to work instructions
-- We use [mdBook](./tool-mdbook.md) to publish our instructions
-- We use [ttyd](./tool-ttyd.md) to expose AIChat and other tools
-- We use [Netbird](./tool-netbird.md) to ensure our work instructions and our tools are both private to our organization AND available to everyone in our organization
 
 ## Frequently Asked Questions
 
@@ -259,6 +254,11 @@ Two considerations:
 ### Why Markdown - Why Not Google Docs or MS Word?
 
 ...
+
+
+### Why does this example look like the chuck-stack
+
+speed matters - chuck-stack is a giant set of work instructions
 
 ## Learn More
 
