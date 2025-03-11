@@ -51,10 +51,9 @@ Here is what we will do:
 
 TODO: video of picture of success
 - use anywhere in the world (cloud, hybrid, on-premise)
-- use almost any llm in the world
+- use almost any llm in the world (including local llm)
 - Show example of how many releases from mdBook and aichat - newest models
 - keep your data safe (local if needed and protected by your intranet)
-- can run AI locally as well
 - Three types of AI use (puts you in the top 90% or much better)
   - AI to help create work instructions
   - AI to help answer questions
@@ -152,7 +151,7 @@ Note that we are assuming that many of the work instructions already exist. We w
 
 In the video we are using [GitHub](./tool-git.md) to host our work instructions. GitHub (and tools like it) provide online editing and advanced workflow to support change approval processes.
 
-Reference: we recommend [Obsidian](./tool-obsidian.md) for those who are primarily responsible for creating and evolving work instructions. Obsidian is ideal and enjoyable when writing high-connected content like work instructions.
+Reference: we recommend [Obsidian](./tool-obsidian.md) for those who are primarily responsible for creating and evolving work instructions. Obsidian is ideal and enjoyable when writing highly-connected content like work instructions.
 
 ### Always Up to Date
 
@@ -171,6 +170,14 @@ Here are the details:
 </video>
 
 Note that your cron file might be named differently depending on what you are deploying.
+
+### Talk to Any LLM
+
+Quickly switch between almost any large language model (LLM) including local models. [AIChat](./tool-aichat.md) helps you focus on choosing the best model for the task making the testing and deploy almost trivial. AIChat not only powers this article, it is also one of the inspirations for creating the chuck-stack.
+
+<video poster="./img/chat-with-work-instructions-part7-models-splash.png" controls>
+  <source src="./video/chat-with-work-instructions-part7-models.mp4" type="video/mp4">
+</video>
 
 ### Lets Play
 
