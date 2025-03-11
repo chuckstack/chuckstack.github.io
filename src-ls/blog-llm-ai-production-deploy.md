@@ -139,7 +139,7 @@ Soon we will discuss advanced topics related to balancing concise responses with
 
 Chat is powerful; however, there are times when you need to simply search for something. Search is a powerful feature of this solution. We use [mdBook](./tool-mdbook.md) to publish your work instructions and make them easily accessible to everyone in your organization.
 
-Here are the ways or searching:
+Here are the ways to search:
 
 - `ctrl+f` (control + f key) to use the browser
 - `s` to search
@@ -152,7 +152,7 @@ Here are the ways or searching:
 
 Everyone in your organization should be able to easily contribute. The purpose of this section is to highlight just how easy it is.
 
-Note that we are assuming that many of the work instructions already exist. We will talk about how to get started creating your work instructions from scratch in a different section.
+Note that this example assumes many of the work instructions already exist. We will talk about how to get started creating your work instructions from scratch in a different section.
 
 <video poster="./img/chat-with-work-instructions-part6-editing-end.png" controls>
   <source src="./video/chat-with-work-instructions-part6-editing.mp4" type="video/mp4">
@@ -160,7 +160,7 @@ Note that we are assuming that many of the work instructions already exist. We w
 
 In the video we are using [GitHub](./tool-git.md) to host our work instructions. GitHub (and tools like it) provide online editing and advanced workflow to support change approval processes.
 
-Reference: we recommend [Obsidian](./tool-obsidian.md) for those who are primarily responsible for creating and evolving work instructions. Obsidian is ideal and enjoyable when writing highly-connected content like work instructions.
+See the below [FAQ](#frequently-asked-questions) for how to create a new work instruction from scratch.
 
 ### Always Up to Date
 
@@ -255,10 +255,13 @@ Two considerations:
 
 ...
 
-
-### Why does this example look like the chuck-stack
+### Why does this example look like the chuck-stack?
 
 speed matters - chuck-stack is a giant set of work instructions
+
+### How do you create a new work instruction document from scratch?
+
+We recommend [Obsidian](./tool-obsidian.md) for those who are primarily responsible for creating and evolving work instructions. Obsidian is ideal and enjoyable when writing highly-connected content like work instructions.
 
 ## Learn More
 

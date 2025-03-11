@@ -3992,7 +3992,8 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <ul>
 <li><a href="blog-llm-ai-production-deploy.html#can-i-use-claude-or-other-llms-instead-of-openai-chatgpt">Can I use Claude or other LLMs instead of OpenAI (ChatGPT)</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#why-markdown---why-not-google-docs-or-ms-word">Why Markdown - Why Not Google Docs or MS Word?</a></li>
-<li><a href="blog-llm-ai-production-deploy.html#why-does-this-example-look-like-the-chuck-stack">Why does this example look like the chuck-stack</a></li>
+<li><a href="blog-llm-ai-production-deploy.html#why-does-this-example-look-like-the-chuck-stack">Why does this example look like the chuck-stack?</a></li>
+<li><a href="blog-llm-ai-production-deploy.html#how-do-you-create-a-new-work-instruction-document-from-scratch">How do you create a new work instruction document from scratch?</a></li>
 </ul>
 </li>
 <li><a href="blog-llm-ai-production-deploy.html#learn-more">Learn More</a></li>
@@ -4086,7 +4087,7 @@ cd ai-llm-operations-wi-chat/
 <p>Soon we will discuss advanced topics related to balancing concise responses with the ability to ask for more details.</p>
 <h3 id="search-documents"><a class="header" href="#search-documents">Search Documents</a></h3>
 <p>Chat is powerful; however, there are times when you need to simply search for something. Search is a powerful feature of this solution. We use <a href="./tool-mdbook.html">mdBook</a> to publish your work instructions and make them easily accessible to everyone in your organization.</p>
-<p>Here are the ways or searching:</p>
+<p>Here are the ways to search:</p>
 <ul>
 <li><code>ctrl+f</code> (control + f key) to use the browser</li>
 <li><code>s</code> to search</li>
@@ -4096,12 +4097,12 @@ cd ai-llm-operations-wi-chat/
 </video>
 <h3 id="edit-online"><a class="header" href="#edit-online">Edit Online</a></h3>
 <p>Everyone in your organization should be able to easily contribute. The purpose of this section is to highlight just how easy it is.</p>
-<p>Note that we are assuming that many of the work instructions already exist. We will talk about how to get started creating your work instructions from scratch in a different section.</p>
+<p>Note that this example assumes many of the work instructions already exist. We will talk about how to get started creating your work instructions from scratch in a different section.</p>
 <video poster="./img/chat-with-work-instructions-part6-editing-end.png" controls>
   <source src="./video/chat-with-work-instructions-part6-editing.mp4" type="video/mp4">
 </video>
 <p>In the video we are using <a href="./tool-git.html">GitHub</a> to host our work instructions. GitHub (and tools like it) provide online editing and advanced workflow to support change approval processes.</p>
-<p>Reference: we recommend <a href="./tool-obsidian.html">Obsidian</a> for those who are primarily responsible for creating and evolving work instructions. Obsidian is ideal and enjoyable when writing highly-connected content like work instructions.</p>
+<p>See the below <a href="blog-llm-ai-production-deploy.html#frequently-asked-questions">FAQ</a> for how to create a new work instruction from scratch.</p>
 <h3 id="always-up-to-date"><a class="header" href="#always-up-to-date">Always Up to Date</a></h3>
 <p>The goal is to keep your published work instructions as up to date as is possible. Let's see how to automate updates.</p>
 <p>Note: the rebuild section of the publish.sh script has git statements that need to be uncommented to support live updates. Look for <code>###change-me###</code> next to the git sections.</p>
@@ -4176,8 +4177,10 @@ cd ai-llm-operations-wi-chat/
 <p>...</p>
 <h3 id="why-markdown---why-not-google-docs-or-ms-word"><a class="header" href="#why-markdown---why-not-google-docs-or-ms-word">Why Markdown - Why Not Google Docs or MS Word?</a></h3>
 <p>...</p>
-<h3 id="why-does-this-example-look-like-the-chuck-stack"><a class="header" href="#why-does-this-example-look-like-the-chuck-stack">Why does this example look like the chuck-stack</a></h3>
+<h3 id="why-does-this-example-look-like-the-chuck-stack"><a class="header" href="#why-does-this-example-look-like-the-chuck-stack">Why does this example look like the chuck-stack?</a></h3>
 <p>speed matters - chuck-stack is a giant set of work instructions</p>
+<h3 id="how-do-you-create-a-new-work-instruction-document-from-scratch"><a class="header" href="#how-do-you-create-a-new-work-instruction-document-from-scratch">How do you create a new work instruction document from scratch?</a></h3>
+<p>We recommend <a href="./tool-obsidian.html">Obsidian</a> for those who are primarily responsible for creating and evolving work instructions. Obsidian is ideal and enjoyable when writing highly-connected content like work instructions.</p>
 <h2 id="learn-more-1"><a class="header" href="#learn-more-1">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 <p>To discuss this content in more detail, go to <a href="https://team.chuck-stack.org/t/production-open-source-chat-with-work-instructions/81">https://team.chuck-stack.org/t/production-open-source-chat-with-work-instructions/81</a>.</p>
