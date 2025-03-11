@@ -3974,6 +3974,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <li><a href="blog-llm-ai-production-deploy.html#search-documents">Search Documents</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#edit-online">Edit Online</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#always-up-to-date">Always Up to Date</a></li>
+<li><a href="blog-llm-ai-production-deploy.html#talk-to-any-llm">Talk to Any LLM</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#lets-play">Lets Play</a></li>
 </ul>
 </li>
@@ -4009,10 +4010,9 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <p>TODO: video of picture of success</p>
 <ul>
 <li>use anywhere in the world (cloud, hybrid, on-premise)</li>
-<li>use almost any llm in the world</li>
+<li>use almost any llm in the world (including local llm)</li>
 <li>Show example of how many releases from mdBook and aichat - newest models</li>
 <li>keep your data safe (local if needed and protected by your intranet)</li>
-<li>can run AI locally as well</li>
 <li>Three types of AI use (puts you in the top 90% or much better)
 <ul>
 <li>AI to help create work instructions</li>
@@ -4084,7 +4084,7 @@ cd ai-llm-operations-wi-chat/
   <source src="./video/chat-with-work-instructions-part6-editing.mp4" type="video/mp4">
 </video>
 <p>In the video we are using <a href="./tool-git.html">GitHub</a> to host our work instructions. GitHub (and tools like it) provide online editing and advanced workflow to support change approval processes.</p>
-<p>Reference: we recommend <a href="./tool-obsidian.html">Obsidian</a> for those who are primarily responsible for creating and evolving work instructions. Obsidian is ideal and enjoyable when writing high-connected content like work instructions.</p>
+<p>Reference: we recommend <a href="./tool-obsidian.html">Obsidian</a> for those who are primarily responsible for creating and evolving work instructions. Obsidian is ideal and enjoyable when writing highly-connected content like work instructions.</p>
 <h3 id="always-up-to-date"><a class="header" href="#always-up-to-date">Always Up to Date</a></h3>
 <p>The goal is to keep your published work instructions as up to date as is possible. Let's see how to automate updates.</p>
 <p>Note: the rebuild section of the publish.sh script has git statements that need to be uncommented to support live updates. Look for <code>###change-me###</code> next to the git sections.</p>
@@ -4098,6 +4098,11 @@ cd ai-llm-operations-wi-chat/
   <source src="./video/chat-with-work-instruction-part5-rebuild.mp4" type="video/mp4">
 </video>
 <p>Note that your cron file might be named differently depending on what you are deploying.</p>
+<h3 id="talk-to-any-llm"><a class="header" href="#talk-to-any-llm">Talk to Any LLM</a></h3>
+<p>Quickly switch between almost any large language model (LLM) including local models. <a href="./tool-aichat.html">AIChat</a> helps you focus on choosing the best model for the task making the testing and deploy almost trivial. AIChat not only powers this article, it is also one of the inspirations for creating the chuck-stack.</p>
+<video poster="./img/chat-with-work-instructions-part7-models-splash.png" controls>
+  <source src="./video/chat-with-work-instructions-part7-models.mp4" type="video/mp4">
+</video>
 <h3 id="lets-play"><a class="header" href="#lets-play">Lets Play</a></h3>
 <p>Now that we have our system up and running. Let's play.</p>
 <p>Notes:</p>
