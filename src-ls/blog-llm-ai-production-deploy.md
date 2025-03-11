@@ -184,8 +184,7 @@ Quickly switch between almost any large language model (LLM) including local mod
 Now that we have our system up and running. Let's play.
 
 Notes:
-- talk to any llm
-- talk like a pirate
+- talk like a pirate - show you just how much control you have
 - prompting strategies
   - short first response THEN tell me more - prompting strategies
   - conversations ?? - up arrow
