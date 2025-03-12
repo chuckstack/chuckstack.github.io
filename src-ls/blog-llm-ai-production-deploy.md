@@ -197,25 +197,19 @@ TODO: next
 - Asking followup questions (include this?)
 
 
-### Review Responses and Improve
+### Responses and Improvement Workflow
 
 We use AI LLM to help you review and improve the previous day's questions and answers in an incredibly convenient way.
 
-- It is built into the [Always Up to Date](#always-up-to-date) automated deploy process.
+- The review process is built into the [Always Up to Date](#always-up-to-date) automated deploy process.
 - The actual questions, responses and AI assessment are automatically uploaded to Obsidian so that work instruction creators can use the feedback directly in the same tool.
-- You use this feedback to a) improve the LLM prompt, b) improve the work instructions, and c) improve the [airole-message-review.md](https://github.com/chuckstack/ai-llm-operations-wi-chat/blob/main/src-work-instructions/airole-message-review.md).
+- We use this feedback to a) improve the LLM prompt, b) improve the work instructions, and c) improve the [airole-message-review.md](https://github.com/chuckstack/ai-llm-operations-wi-chat/blob/main/src-work-instructions/airole-message-review.md).
 
-Note the below video is pulled from [here](./blog-llm-ai-operations-automation.md#feedback-loop) to help demonstrate how the work instruction creators interact with the AI feedback.
+Note the below video is pulled from [here](./blog-llm-ai-operations-automation.md#feedback-loop) to help demonstrate how the work instruction creators interact with the AI feedback directly inside Obsidian.
 
 <video poster="./img/07-gen-wi-demo-feedback-loop-splash.png" controls>
   <source src="./video/07-gen-wi-demo-feedback-loop.mp4" type="video/mp4">
 </video>
-
-### Obsidian Workflow
-
-Here is a video to help you visualize what its like to use [Obsidian](./tool-obsidian.md) to manage work instructions.
-
-TODO: video
 
 ## Architecture Overview 
 

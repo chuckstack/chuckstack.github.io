@@ -3978,8 +3978,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <li><a href="blog-llm-ai-production-deploy.html#always-up-to-date">Always Up to Date</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#talk-to-any-llm">Talk to Any LLM</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#control-the-user-experience">Control the User Experience</a></li>
-<li><a href="blog-llm-ai-production-deploy.html#review-responses-and-improve">Review Responses and Improve</a></li>
-<li><a href="blog-llm-ai-production-deploy.html#obsidian-workflow">Obsidian Workflow</a></li>
+<li><a href="blog-llm-ai-production-deploy.html#responses-and-improvement-workflow">Responses and Improvement Workflow</a></li>
 </ul>
 </li>
 <li><a href="blog-llm-ai-production-deploy.html#architecture-overview">Architecture Overview</a>
@@ -4129,20 +4128,17 @@ cd ai-llm-operations-wi-chat/
 <li>short then long (tell me more when requested)</li>
 <li>Asking followup questions (include this?)</li>
 </ul>
-<h3 id="review-responses-and-improve"><a class="header" href="#review-responses-and-improve">Review Responses and Improve</a></h3>
+<h3 id="responses-and-improvement-workflow"><a class="header" href="#responses-and-improvement-workflow">Responses and Improvement Workflow</a></h3>
 <p>We use AI LLM to help you review and improve the previous day's questions and answers in an incredibly convenient way.</p>
 <ul>
-<li>It is built into the <a href="blog-llm-ai-production-deploy.html#always-up-to-date">Always Up to Date</a> automated deploy process.</li>
+<li>The review process is built into the <a href="blog-llm-ai-production-deploy.html#always-up-to-date">Always Up to Date</a> automated deploy process.</li>
 <li>The actual questions, responses and AI assessment are automatically uploaded to Obsidian so that work instruction creators can use the feedback directly in the same tool.</li>
-<li>You use this feedback to a) improve the LLM prompt, b) improve the work instructions, and c) improve the <a href="https://github.com/chuckstack/ai-llm-operations-wi-chat/blob/main/src-work-instructions/airole-message-review.md">airole-message-review.md</a>.</li>
+<li>We use this feedback to a) improve the LLM prompt, b) improve the work instructions, and c) improve the <a href="https://github.com/chuckstack/ai-llm-operations-wi-chat/blob/main/src-work-instructions/airole-message-review.md">airole-message-review.md</a>.</li>
 </ul>
-<p>Note the below video is pulled from <a href="./blog-llm-ai-operations-automation.html#feedback-loop">here</a> to help demonstrate how the work instruction creators interact with the AI feedback.</p>
+<p>Note the below video is pulled from <a href="./blog-llm-ai-operations-automation.html#feedback-loop">here</a> to help demonstrate how the work instruction creators interact with the AI feedback directly inside Obsidian.</p>
 <video poster="./img/07-gen-wi-demo-feedback-loop-splash.png" controls>
   <source src="./video/07-gen-wi-demo-feedback-loop.mp4" type="video/mp4">
 </video>
-<h3 id="obsidian-workflow"><a class="header" href="#obsidian-workflow">Obsidian Workflow</a></h3>
-<p>Here is a video to help you visualize what its like to use <a href="./tool-obsidian.html">Obsidian</a> to manage work instructions.</p>
-<p>TODO: video</p>
 <h2 id="architecture-overview"><a class="header" href="#architecture-overview">Architecture Overview</a></h2>
 <p>Here are the tools we use to minimize effort and maximize agency.</p>
 <h3 id="tools"><a class="header" href="#tools">Tools</a></h3>
