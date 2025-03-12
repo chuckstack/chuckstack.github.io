@@ -201,6 +201,7 @@
 <li>use a framework to publish work instructions with zero additional effort</li>
 <li>connect to most (if not all) of the world's most powerful language models (LLM) with no code change</li>
 <li>improve your work instructions with AI assistance at near real-time speed where changes are based on actual human usage and feedback</li>
+<li>set your organization on a path to achieve the world highest quality awards</li>
 </ul>
 <h2 id="toc"><a class="header" href="#toc">TOC</a></h2>
 <ul>
@@ -354,7 +355,7 @@ cd ai-llm-operations-wi-chat/
 <video poster="./img/chat-with-work-instruction-part5-rebuild.png" controls>
   <source src="./video/chat-with-work-instruction-part5-rebuild.mp4" type="video/mp4">
 </video>
-<p>Note that your cron file might be named differently depending on what you are deploying.</p>
+<p>Note that your cron file might be named differently depending on what you are deploying. It will always start with 'cron-...'.</p>
 <h3 id="talk-to-any-llm"><a class="header" href="#talk-to-any-llm">Talk to Any LLM</a></h3>
 <p>Quickly switch between almost any large language model (LLM) including local models. <a href="./tool-aichat.html">AIChat</a> helps you focus on choosing the best model for the task making the testing and deploy almost trivial. AIChat not only powers this article, it is also one of the inspirations for creating the chuck-stack.</p>
 <video poster="./img/chat-with-work-instructions-part7-models-splash.png" controls>
@@ -391,7 +392,7 @@ cd ai-llm-operations-wi-chat/
 <li>propose improvements to work instructions</li>
 </ul>
 </li>
-<li>We use <a href="./tool-ttyd.html">ttyd</a> to expose AIChat and other terminal tools to our people.</li>
+<li>We use <a href="./tool-others.html#important-tools">ttyd</a> to expose AIChat and other terminal tools to our people.</li>
 <li>We use <code>nginx</code> to host the mdBook website, reverse proxy <code>ttyd</code>, and terminate https/ssl connections.</li>
 </ul>
 <h3 id="ttyd"><a class="header" href="#ttyd">ttyd</a></h3>

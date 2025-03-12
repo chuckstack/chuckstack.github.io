@@ -23,6 +23,7 @@ As a result of this article, you can:
 - use a framework to publish work instructions with zero additional effort
 - connect to most (if not all) of the world's most powerful language models (LLM) with no code change
 - improve your work instructions with AI assistance at near real-time speed where changes are based on actual human usage and feedback
+- set your organization on a path to achieve the world highest quality awards
 
 ## TOC
 
@@ -178,7 +179,7 @@ Here are the details:
   <source src="./video/chat-with-work-instruction-part5-rebuild.mp4" type="video/mp4">
 </video>
 
-Note that your cron file might be named differently depending on what you are deploying.
+Note that your cron file might be named differently depending on what you are deploying. It will always start with 'cron-...'.
 
 ### Talk to Any LLM
 
@@ -222,7 +223,7 @@ Here are the tools we use to minimize effort and maximize agency.
   - deliver a kind and patient 'chat' experience
   - evaluate user interactions with the 'chat' tool
   - propose improvements to work instructions
-- We use [ttyd](./tool-ttyd.md) to expose AIChat and other terminal tools to our people.
+- We use [ttyd](./tool-others.md#important-tools) to expose AIChat and other terminal tools to our people.
 - We use `nginx` to host the mdBook website, reverse proxy `ttyd`, and terminate https/ssl connections.
 
 ### ttyd
