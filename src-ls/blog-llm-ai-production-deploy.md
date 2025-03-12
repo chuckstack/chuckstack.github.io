@@ -191,6 +191,7 @@ Quickly switch between almost any large language model (LLM) including local mod
 
 ### Control the User Experience
 
+TODO: next
 - Talk like a parrot.
 - short then long (tell me more when requested)
 - Asking followup questions (include this?)
@@ -198,9 +199,17 @@ Quickly switch between almost any large language model (LLM) including local mod
 
 ### Review Responses and Improve
 
-Rebuild process also reviews interactions and suggests improvements
+We use AI LLM to help you review and improve the previous day's questions and answers in an incredibly convenient way.
 
-TODO: video
+- It is built into the [Always Up to Date](#always-up-to-date) automated deploy process.
+- The actual questions, responses and AI assessment are automatically uploaded to Obsidian so that work instruction creators can use the feedback directly in the same tool.
+- You use this feedback to a) improve the LLM prompt, b) improve the work instructions, and c) improve the [airole-message-review.md](https://github.com/chuckstack/ai-llm-operations-wi-chat/blob/main/src-work-instructions/airole-message-review.md).
+
+Note the below video is pulled from [here](./blog-llm-ai-operations-automation.md#feedback-loop) to help demonstrate how the work instruction creators interact with the AI feedback.
+
+<video poster="./img/07-gen-wi-demo-feedback-loop-splash.png" controls>
+  <source src="./video/07-gen-wi-demo-feedback-loop.mp4" type="video/mp4">
+</video>
 
 ### Obsidian Workflow
 
