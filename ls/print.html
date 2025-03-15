@@ -447,6 +447,7 @@
 </ul>
 </li>
 <li><a href="success-ai.html#ai-principles">AI Principles</a></li>
+<li><a href="success-ai.html#ai-llm-providers">AI LLM Providers</a></li>
 <li><a href="success-ai.html#ai-as-a-system">AI as a System</a></li>
 </ul>
 <h2 id="self-help"><a class="header" href="#self-help">Self-Help</a></h2>
@@ -532,6 +533,19 @@
 <li>Bring the model and code to the data</li>
 <li>Make the models and code useful to those who actually perform the work</li>
 </ul>
+<h2 id="ai-llm-providers"><a class="header" href="#ai-llm-providers">AI LLM Providers</a></h2>
+<p>The purpose of this section is to highlight the LLM providers that stand out above the rest.</p>
+<ul>
+<li><a href="https://www.anthropic.com/claude">Anthropic/Claude</a> - does a great job of consistently providing leading LLM models in a more safe, open and transparent way. Here are examples:
+<ul>
+<li>They expose <a href="https://docs.anthropic.com/en/release-notes/system-prompts">system prompts</a> as a means to helps others learn how to guide LLMs.</li>
+<li>They expose how <a href="https://docs.anthropic.com/en/docs/about-claude/models/extended-thinking-models">thinking models</a> reason about prompts.</li>
+<li>They <a href="https://www.youtube.com/live/esCSpbDPJik?si=zmoxvST2GeGzjpgS">communicate well</a> about the future of AI.</li>
+</ul>
+</li>
+<li><a href="https://www.together.ai/">Together.ai</a> - does a good job of providing LLM services around open models such as Llama, DeepSeek, Qwen, Mistrel, ...</li>
+</ul>
+<p>We believe there are some AI LLM providers that stand out above the rest.</p>
 <h2 id="ai-as-a-system"><a class="header" href="#ai-as-a-system">AI as a System</a></h2>
 <p><a href="https://www.youtube.com/watch?v=vRTcE19M-KE">This video</a> does a great job of characterizing our approach to AI systems deployment. Any one model by itself does not help an organization. Instead, the chuck-stack's use of work instructions, database conventions, tool deployment, multi-model prompting, and best practices drive success with the chuck-stack.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="cli-is-better"><a class="header" href="#cli-is-better">CLI Is Better</a></h1>
@@ -3979,6 +3993,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <li><a href="blog-llm-ai-production-deploy.html#talk-to-any-llm">Talk to Any LLM</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#control-the-user-experience">Control the User Experience</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#responses-and-improvement-workflow">Responses and Improvement Workflow</a></li>
+<li><a href="blog-llm-ai-production-deploy.html#local-aichat">Local AIChat</a></li>
 </ul>
 </li>
 <li><a href="blog-llm-ai-production-deploy.html#architecture-overview">Architecture Overview</a>
@@ -3992,6 +4007,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <ul>
 <li><a href="blog-llm-ai-production-deploy.html#can-i-use-claude-or-other-llms-instead-of-openai-chatgpt">Can I use Claude or other LLMs instead of OpenAI (ChatGPT)</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#why-markdown---why-not-google-docs-or-ms-word">Why Markdown - Why Not Google Docs or MS Word?</a></li>
+<li><a href="blog-llm-ai-production-deploy.html#i-cannot-access-my-website">I cannot access my website</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#why-does-this-example-look-like-the-chuck-stack">Why does this example look like the chuck-stack?</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#how-do-you-create-a-new-work-instruction-document-from-scratch">How do you create a new work instruction document from scratch?</a></li>
 </ul>
@@ -4080,6 +4096,11 @@ cd ai-llm-operations-wi-chat/
 <video poster="./img/chat-with-work-instruction-part-sample-work-instruction.png" controls>
   <source src="./video/chat-with-work-instruction-part-sample-work-instruction.mp4" type="video/mp4">
 </video>
+<p>Here are some notes about the installation based on user feedback:</p>
+<ul>
+<li>The script attempts to get your IP. If you are installing the sample work instructions using AWS, the observed IP will be your server's <strong>private</strong> IP. This will most likely prevent you from connecting from your AWS server since you need to use its <strong>public</strong> IP.</li>
+<li>If you need to use a different IP, be sure to update the following file accordingly: /opt/work-instruction/chuckstack/ai-llm-operations-wi-chat/theme/head.hbs</li>
+</ul>
 <p>Let's spend a moment discussing the airole-starter.md document. This text gets passed along side every prompt. This document gives you control over the user experience.</p>
 <video controls>
   <source src="./video/chat-with-work-instruction-part3-airole-start.mp4" type="video/mp4">
@@ -4122,12 +4143,14 @@ cd ai-llm-operations-wi-chat/
   <source src="./video/chat-with-work-instructions-part7-models.mp4" type="video/mp4">
 </video>
 <h3 id="control-the-user-experience"><a class="header" href="#control-the-user-experience">Control the User Experience</a></h3>
+<p>You can greatly influence how your chat responds to users.</p>
 <p>TODO: next</p>
 <ul>
 <li>Talk like a parrot.</li>
 <li>short then long (tell me more when requested)</li>
 <li>Asking followup questions (include this?)</li>
 </ul>
+<p>Reference: <a href="https://docs.anthropic.com/en/release-notes/system-prompts">Claude system prompts</a> - This is a great study guide to help you understand how to talk to the LLM and get what you want. We are fortunate that Claude makes these prompts available to the public!</p>
 <h3 id="responses-and-improvement-workflow"><a class="header" href="#responses-and-improvement-workflow">Responses and Improvement Workflow</a></h3>
 <p>We use AI LLM to help you review and improve the previous day's questions and answers in an incredibly convenient way.</p>
 <ul>
@@ -4139,6 +4162,8 @@ cd ai-llm-operations-wi-chat/
 <video poster="./img/07-gen-wi-demo-feedback-loop-splash.png" controls>
   <source src="./video/07-gen-wi-demo-feedback-loop.mp4" type="video/mp4">
 </video>
+<h3 id="local-aichat"><a class="header" href="#local-aichat">Local AIChat</a></h3>
+<p>TODO</p>
 <h2 id="architecture-overview"><a class="header" href="#architecture-overview">Architecture Overview</a></h2>
 <p>Here are the tools we use to minimize effort and maximize user agency.</p>
 <h3 id="tools"><a class="header" href="#tools">Tools</a></h3>
@@ -4176,14 +4201,12 @@ cd ai-llm-operations-wi-chat/
 </ul>
 <h2 id="frequently-asked-questions"><a class="header" href="#frequently-asked-questions">Frequently Asked Questions</a></h2>
 <h3 id="can-i-use-claude-or-other-llms-instead-of-openai-chatgpt"><a class="header" href="#can-i-use-claude-or-other-llms-instead-of-openai-chatgpt">Can I use Claude or other LLMs instead of OpenAI (ChatGPT)</a></h3>
-<p>Two considerations:</p>
-<ul>
-<li>embeddings (used to take your work instructions and prepare them)</li>
-<li>prompting (used to answer questions)</li>
-</ul>
-<p>...</p>
+<p>Yes. In fact, we recommend you use Claude. It offers a great balance of performance and cost.</p>
+<p>Note that at the time of this writing, Claude does not offer an embedding service. This means you will most likely use both OpenAI (for embeddings) and Claude (for prompting).</p>
 <h3 id="why-markdown---why-not-google-docs-or-ms-word"><a class="header" href="#why-markdown---why-not-google-docs-or-ms-word">Why Markdown - Why Not Google Docs or MS Word?</a></h3>
-<p>...</p>
+<p>See <a href="./blog-live-markdown-world.html">We live in a markdown world</a> for why markdown is so important.</p>
+<h3 id="i-cannot-access-my-website"><a class="header" href="#i-cannot-access-my-website">I cannot access my website</a></h3>
+<p>See the <a href="blog-llm-ai-production-deploy.html#install-sample-work-instruction">Install Sample Work Instruction</a> section below the video for notes about user feedback and issues.</p>
 <h3 id="why-does-this-example-look-like-the-chuck-stack"><a class="header" href="#why-does-this-example-look-like-the-chuck-stack">Why does this example look like the chuck-stack?</a></h3>
 <p>speed matters - chuck-stack is a giant set of work instructions</p>
 <h3 id="how-do-you-create-a-new-work-instruction-document-from-scratch"><a class="header" href="#how-do-you-create-a-new-work-instruction-document-from-scratch">How do you create a new work instruction document from scratch?</a></h3>
