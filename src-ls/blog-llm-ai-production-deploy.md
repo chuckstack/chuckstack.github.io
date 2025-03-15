@@ -128,6 +128,11 @@ You should now be able to see your documents via a webpage by simply clicking on
   <source src="./video/chat-with-work-instruction-part-sample-work-instruction.mp4" type="video/mp4">
 </video>
 
+Here are some notes about the installation based on user feedback:
+
+- The script attempts to get your IP. If you are installing the sample work instructions using AWS, the observed IP will be your server's **private** IP. This will most likely prevent you from connecting from your AWS server since you need to use its **public** IP.
+- If you need to use a different IP, be sure to update the following file accordingly: /opt/work-instruction/chuckstack/ai-llm-operations-wi-chat/theme/head.hbs
+
 Let's spend a moment discussing the airole-starter.md document. This text gets passed along side every prompt. This document gives you control over the user experience.
 
 <video controls>
@@ -191,11 +196,14 @@ Quickly switch between almost any large language model (LLM) including local mod
 
 ### Control the User Experience
 
+You can greatly influence how your chat responds to users.
+
 TODO: next
 - Talk like a parrot.
 - short then long (tell me more when requested)
 - Asking followup questions (include this?)
 
+Reference: [Claude system prompts](https://docs.anthropic.com/en/release-notes/system-prompts) - This is a great study guide to help you understand how to talk to the LLM and get what you want. We are fortunate that Claude makes these prompts available to the public!
 
 ### Responses and Improvement Workflow
 
@@ -210,6 +218,10 @@ Note the below video is pulled from [here](./blog-llm-ai-operations-automation.m
 <video poster="./img/07-gen-wi-demo-feedback-loop-splash.png" controls>
   <source src="./video/07-gen-wi-demo-feedback-loop.mp4" type="video/mp4">
 </video>
+
+### Local AIChat
+
+TODO
 
 ## Architecture Overview 
 
@@ -250,16 +262,17 @@ If you want help implementing these concepts in your organization, join the [sta
 
 ### Can I use Claude or other LLMs instead of OpenAI (ChatGPT)
 
-Two considerations:
+Yes. In fact, we recommend you use Claude. It offers a great balance of performance and cost.
 
-- embeddings (used to take your work instructions and prepare them)
-- prompting (used to answer questions)
-
-...
+Note that at the time of this writing, Claude does not offer an embedding service. This means you will most likely use both OpenAI (for embeddings) and Claude (for prompting).
 
 ### Why Markdown - Why Not Google Docs or MS Word?
 
-...
+See [We live in a markdown world](./blog-live-markdown-world.md) for why markdown is so important.
+
+### I cannot access my website
+
+See the [Install Sample Work Instruction](#install-sample-work-instruction) section below the video for notes about user feedback and issues.
 
 ### Why does this example look like the chuck-stack?
 

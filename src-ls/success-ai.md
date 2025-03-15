@@ -110,6 +110,18 @@ Here are the AI principles that drive our decisions:
 - Bring the model and code to the data
 - Make the models and code useful to those who actually perform the work
 
+## AI LLM Providers
+
+The purpose of this section is to highlight the LLM providers that stand out above the rest.
+
+- [Anthropic/Claude](https://www.anthropic.com/claude) - does a great job of consistently providing leading LLM models in a more safe, open and transparent way. Here are examples:
+  - They expose [system prompts](https://docs.anthropic.com/en/release-notes/system-prompts) as a means to helps others learn how to guide LLMs.
+  - They expose how [thinking models](https://docs.anthropic.com/en/docs/about-claude/models/extended-thinking-models) reason about prompts.
+  - They [communicate well](https://www.youtube.com/live/esCSpbDPJik?si=zmoxvST2GeGzjpgS) about the future of AI.
+- [Together.ai](https://www.together.ai/) - does a good job of providing LLM services around open models such as Llama, DeepSeek, Qwen, Mistrel, ...
+
+We believe there are some AI LLM providers that stand out above the rest. 
+
 ## AI as a System
 
 [This video](https://www.youtube.com/watch?v=vRTcE19M-KE) does a great job of characterizing our approach to AI systems deployment. Any one model by itself does not help an organization. Instead, the chuck-stack's use of work instructions, database conventions, tool deployment, multi-model prompting, and best practices drive success with the chuck-stack.
