@@ -78,3 +78,13 @@ How does someone learn to perform the above steps? More specifically, how did we
 - figure out how to create a new role in AIChat? We asked AIChat.
 
 You are probably starting to see a pattern....
+
+## Talk to Any LLM
+
+Below is a video from the [Production Open Source Chat with Work Instructions](./blog-llm-ai-production-deploy.md#talk-to-any-llm) blog post.
+
+Quickly switch between almost any large language model (LLM) including local models. AIChat helps you focus on choosing the best model for the task making the testing and deploy almost trivial. AIChat one of the inspirations for creating the chuck-stack.
+
+<video poster="./img/chat-with-work-instructions-part7-models-splash.png" controls>
+  <source src="./video/chat-with-work-instructions-part7-models.mp4" type="video/mp4">
+</video>
