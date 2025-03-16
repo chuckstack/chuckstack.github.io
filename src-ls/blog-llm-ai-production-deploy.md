@@ -4,7 +4,7 @@
 - Updated: 2025-03-09
 - Author: Chuck Boecking
 - Discussion: <https://team.chuck-stack.org/t/production-open-source-chat-with-work-instructions/81>
-- Status: Drafted (more coming...)
+- Status: Drafted (TODO: more coming...)
 
 ## Create Your First Work Instruction Book with Chat
 
@@ -241,6 +241,10 @@ Here are the tools we use to minimize effort and maximize user agency.
 - We use [ttyd](./tool-others.md#important-tools) to expose AIChat and other terminal tools to our people.
 - We use `nginx` to host the mdBook website, reverse proxy `ttyd`, and terminate https/ssl connections.
 
+References:
+
+- See [Incus-Netbird-PhoenixNAP](./blog-incus-netbird-phoenixnap.md) for how to create a multi-location, cloud-hybrid network to expose this chat feature to all your locations and remote users in a secure and private way.
+
 ### ttyd
 
 ttyd is a simple command line tool to convert a terminal into a website. We use ttyd to make AIChat available everywhere.
@@ -277,6 +281,7 @@ See the [Install Sample Work Instruction](#install-sample-work-instruction) sect
 ### Why does this example look like the chuck-stack?
 
 speed matters - chuck-stack is a giant set of work instructions
+TODO: expand
 
 ### How do you create a new work instruction document from scratch?
 
@@ -287,7 +292,3 @@ We recommend [Obsidian](./tool-obsidian.md) for those who are primarily responsi
 If you want help executing the topics in this article, join the [stack-academy](./stack-academy.md). Not ready to join... We can always [stay connected](../learn-more.html) to learn more.
 
 To discuss this content in more detail, go to <https://team.chuck-stack.org/t/production-open-source-chat-with-work-instructions/81>.
-
-## TODO
-
-- add video of success
