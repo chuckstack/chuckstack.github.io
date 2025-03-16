@@ -198,12 +198,15 @@ Quickly switch between almost any large language model (LLM) including local mod
 
 You can greatly influence how your chat responds to users.
 
-TODO: next
-- Talk like a parrot.
-- short then long (tell me more when requested)
-- Asking followup questions (include this?)
+<video poster="./img/chat-with-work-instructions-part10-prompt-splash.png" controls>
+  <source src="./video/chat-with-work-instructions-part10-prompt.mp4" type="video/mp4">
+</video>
 
-Reference: [Claude system prompts](https://docs.anthropic.com/en/release-notes/system-prompts) - This is a great study guide to help you understand how to talk to the LLM and get what you want. We are fortunate that Claude makes these prompts available to the public!
+References:
+
+- You can find the above prompt in your /opt/work-instruction/chuckstack/ai-llm-operations-wi-chat/src-work-instructions/airole-starter.md.
+- AIChat has a symbolic link that connects the /home/cathy/.config/aichat/roles/ to the airole-starter.md prompt.
+- [Claude system prompts](https://docs.anthropic.com/en/release-notes/system-prompts) - This is a great study guide to help you understand how to talk to the LLM and get what you want. We are fortunate that Claude makes these prompts available to the public!
 
 ### Responses and Improvement Workflow
 
