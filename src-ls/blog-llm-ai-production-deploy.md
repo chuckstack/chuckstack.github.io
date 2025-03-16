@@ -295,12 +295,13 @@ See the [Install Sample Work Instruction](#install-sample-work-instruction) sect
 
 ### Why does this example look like the chuck-stack?
 
-speed matters - chuck-stack is a giant set of work instructions
-TODO: expand
+We do not have time to waste. We want to use as few tools and as few experts as possible to create our self-help chuck-stack. The chuck-stack is just like your work instructions. It is a giant set of work instructions to create your own stack as quickly and easily as possible.
 
 ### How do you create a new work instruction document from scratch?
 
 We recommend [Obsidian](./tool-obsidian.md) for those who are primarily responsible for creating and evolving work instructions. Obsidian is ideal and enjoyable when writing highly-connected content like work instructions.
+
+Watch this [series of videos](./blog-llm-ai-operations-automation.md) to see how we use Obsidian to work instruction authoring easier.
 
 ## Learn More
 
