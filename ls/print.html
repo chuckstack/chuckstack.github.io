@@ -3999,7 +3999,9 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <li><a href="blog-llm-ai-production-deploy.html#architecture-overview">Architecture Overview</a>
 <ul>
 <li><a href="blog-llm-ai-production-deploy.html#tools">Tools</a></li>
+<li><a href="blog-llm-ai-production-deploy.html#walk-through">Walk Through</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#ttyd">ttyd</a></li>
+<li><a href="blog-llm-ai-production-deploy.html#global-vpn">Global VPN</a></li>
 </ul>
 </li>
 <li><a href="blog-llm-ai-production-deploy.html#next-steps">Next Steps</a></li>
@@ -4166,6 +4168,7 @@ cd ai-llm-operations-wi-chat/
 <h2 id="architecture-overview"><a class="header" href="#architecture-overview">Architecture Overview</a></h2>
 <p>Here are the tools we use to minimize effort and maximize user agency.</p>
 <h3 id="tools"><a class="header" href="#tools">Tools</a></h3>
+<p>Here are the tools we use:</p>
 <ul>
 <li>We use <a href="./tool-obsidian.html">Obsidian</a> to help our work instruction creators write documents in markdown.
 <ul>
@@ -4185,15 +4188,24 @@ cd ai-llm-operations-wi-chat/
 <li>We use <a href="./tool-others.html#important-tools">ttyd</a> to expose AIChat and other terminal tools to our people.</li>
 <li>We use <code>nginx</code> to host the mdBook website, reverse proxy <code>ttyd</code>, and terminate https/ssl connections.</li>
 </ul>
-<p>References:</p>
+<h3 id="walk-through"><a class="header" href="#walk-through">Walk Through</a></h3>
+<p>The purpose of this section is to help you see how the tools fit together. It is important to note that just about any Linux admin in the world will understand these bullets and how they fit together.</p>
+<p>Note, the following details assume you did not modify the default publish installation variables.</p>
 <ul>
-<li>See <a href="./blog-incus-netbird-phoenixnap.html">Incus-Netbird-PhoenixNAP</a> for how to create a multi-location, cloud-hybrid network to expose this chat feature to all your locations and remote users in a secure and private way.</li>
+<li>When you navigate to https://your.ip/chat.html, you see a static site being hosted by nginx showing chat.html with an iframe that embeds the ttyd chat feature in the collapsed section.</li>
+<li>The iframe is made available via /opt/work-instruction/chuckstack/ai-llm-operations-wi-chat/src-work-instructions/chat.md whose class name is associated with javascript inside /opt/work-instruction/chuckstack/ai-llm-operations-wi-chat/theme/head.hbs.</li>
+<li>The iframe calls on an nginx reverse proxy to publishing ttyd.</li>
+<li>nginx (both static and reverse proxy) is configured in /etc/nginx/sites-available/ai-llm-operations-wi-chat-airole-starter.</li>
+<li>ttyd is made available via a systemd service whose service name is <code>ai-llm-operations-wi-chat-airole-starter.service</code></li>
+<li>The <code>ai-llm-operations-wi-chat-airole-starter.service</code> is configured in cat /etc/systemd/system/ai-llm-operations-wi-chat-airole-starter.service.</li>
 </ul>
 <h3 id="ttyd"><a class="header" href="#ttyd">ttyd</a></h3>
-<p>ttyd is a simple command line tool to convert a terminal into a website. We use ttyd to make AIChat available everywhere.</p>
+<p>ttyd is an important and simple command line tool to convert a terminal into a website. We use ttyd to make AIChat available everywhere.</p>
 <video poster="./img/chat-with-work-instructions-part8-splash.png" controls>
   <source src="./video/chat-with-work-instructions-part8.mp4" type="video/mp4">
 </video>
+<h3 id="global-vpn"><a class="header" href="#global-vpn">Global VPN</a></h3>
+<p>See <a href="./blog-incus-netbird-phoenixnap.html">Incus-Netbird-PhoenixNAP</a> for how to create a multi-location, cloud-hybrid network to expose this chat feature to all your locations and remote users in a secure and private way.</p>
 <h2 id="next-steps"><a class="header" href="#next-steps">Next Steps</a></h2>
 <p>If you want help implementing these concepts in your organization, join the <a href="./stack-academy.html">stack-academy</a>. We will walk you though the process of:</p>
 <ul>

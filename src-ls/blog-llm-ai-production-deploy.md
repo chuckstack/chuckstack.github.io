@@ -229,6 +229,8 @@ Here are the tools we use to minimize effort and maximize user agency.
 
 ### Tools
 
+Here are the tools we use:
+
 - We use [Obsidian](./tool-obsidian.md) to help our work instruction creators write documents in markdown.
   - It includes AI assisted writing plugins.
   - It includes [git](./tool-git.md) plugins to automatically track and publish changes to the website.
@@ -241,17 +243,30 @@ Here are the tools we use to minimize effort and maximize user agency.
 - We use [ttyd](./tool-others.md#important-tools) to expose AIChat and other terminal tools to our people.
 - We use `nginx` to host the mdBook website, reverse proxy `ttyd`, and terminate https/ssl connections.
 
-References:
+### Walk Through
 
-- See [Incus-Netbird-PhoenixNAP](./blog-incus-netbird-phoenixnap.md) for how to create a multi-location, cloud-hybrid network to expose this chat feature to all your locations and remote users in a secure and private way.
+The purpose of this section is to help you see how the tools fit together. It is important to note that just about any Linux admin in the world will understand these bullets and how they fit together.
+
+Note, the following details assume you did not modify the default publish installation variables.
+
+- When you navigate to https://your.ip/chat.html, you see a static site being hosted by nginx showing chat.html with an iframe that embeds the ttyd chat feature in the collapsed section.
+- The iframe is made available via /opt/work-instruction/chuckstack/ai-llm-operations-wi-chat/src-work-instructions/chat.md whose class name is associated with javascript inside /opt/work-instruction/chuckstack/ai-llm-operations-wi-chat/theme/head.hbs.
+- The iframe calls on an nginx reverse proxy to publishing ttyd.
+- nginx (both static and reverse proxy) is configured in /etc/nginx/sites-available/ai-llm-operations-wi-chat-airole-starter.
+- ttyd is made available via a systemd service whose service name is `ai-llm-operations-wi-chat-airole-starter.service`
+- The `ai-llm-operations-wi-chat-airole-starter.service` is configured in cat /etc/systemd/system/ai-llm-operations-wi-chat-airole-starter.service.
 
 ### ttyd
 
-ttyd is a simple command line tool to convert a terminal into a website. We use ttyd to make AIChat available everywhere.
+ttyd is an important and simple command line tool to convert a terminal into a website. We use ttyd to make AIChat available everywhere.
 
 <video poster="./img/chat-with-work-instructions-part8-splash.png" controls>
   <source src="./video/chat-with-work-instructions-part8.mp4" type="video/mp4">
 </video>
+
+### Global VPN
+
+See [Incus-Netbird-PhoenixNAP](./blog-incus-netbird-phoenixnap.md) for how to create a multi-location, cloud-hybrid network to expose this chat feature to all your locations and remote users in a secure and private way.
 
 ## Next Steps
 
