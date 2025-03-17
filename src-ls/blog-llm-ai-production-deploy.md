@@ -43,6 +43,8 @@ Here are the problem statements we want to address:
 
 ## Getting Started
 
+If you want help implementing these concepts in your organization, join the [stack-academy](./stack-academy.md).
+
 Here is what we will do:
 
 - We are going to implement [the system you see here](./blog-llm-ai-operations-automation.md). Please watch the videos on this link first to see the big picture if you have not done so yet.
@@ -68,8 +70,6 @@ TODO: video of picture of success
   - This outline will thrust you ahead of 90% of other companies,
   - We will combine best practice that align you with quality awards like the Baldrige award and start the augmentation/automation path?
   - We will get your people ready for the rapidly approaching ai augmented workforce!
-
-Here are the details discussed in the above video.
 
 ### Before We Start
 
@@ -283,7 +283,7 @@ aichat -- how do I get started using AI LLMs to automate
 
 ## More Possibilities
 
-The sample work instructions represent the starting point. Let's talk about how you can easily extend this sample into your organization.
+The sample work instructions in this article represent a starting point. Let's talk about how you can easily extend this sample into your organization.
 
 ### Multiple Roles
 
