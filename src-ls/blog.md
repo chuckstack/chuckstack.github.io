@@ -6,6 +6,14 @@ Here is a list of recent blogs. The sidebar contains the full list.
 
 <!-- toc -->
 
+## Local AI Funding - Time to Bring Back the Co-op
+
+The purpose of this post is to help fund the improvement of your community through cooperative (co-op) AI understanding and deployment.
+
+We've worked hard to make AI easy to understand, easy to deploy, and easy to scale inside your organization and community. We want to use our abilities to help you raise funds to extend these abilities to your organization and community.
+
+[Read more...](./blog-local-co-op-funding-help.md)
+
 ## Production Open Source Chat with Work Instructions
 
 The purpose of this post is to help you get your first work instructions published with chat capabilities.

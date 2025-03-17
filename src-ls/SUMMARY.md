@@ -75,6 +75,7 @@
 ---
 
 - [Blog](./blog.md)
+  - [Local AI Funding - Time to Bring Back the Co-op](./blog-local-co-op-funding-help.md)
   - [Production Open Source Chat with Work Instructions](./blog-llm-ai-production-deploy.md)
   - [chuck-stack IT Job Description](./blog-chuck-stack-it-job-description-assessment.md)
   - [Immutable Off-site Backups are Imperative](./blog-rsync-net.md)

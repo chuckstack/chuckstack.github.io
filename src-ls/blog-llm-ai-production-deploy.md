@@ -1,7 +1,7 @@
 # Production Open Source Chat with Work Instructions
 
 - Published: 2025-03-06
-- Updated: 2025-03-09
+- Updated: 2025-03-17
 - Author: Chuck Boecking
 - Discussion: <https://team.chuck-stack.org/t/production-open-source-chat-with-work-instructions/81>
 - Status: Drafted (TODO: more coming...)
