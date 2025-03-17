@@ -41,9 +41,10 @@ Let's discuss how to get started supporting your local community.
 
 1. Begin by identifying someone in your local community to champion this effort.
 1. Determine how you wish to start:
-    1. [Technology co-op](#technology-co-op)
+    1. [Technology Co-op](#technology-co-op)
+    1. [Operational Co-op](#operational-co-op)
     1. [Founding organization(s)](#pick-your-founding-organization)
-    1. Both
+    1. Some combination of all three
 
 Here is how to get started:
 
@@ -108,7 +109,7 @@ Here are example criteria to help you pick your local small and medium organizat
 
 - Desire - find organizations to desire to remain relevant in the next decade
 - Spirit - find those who can prove a spirit of willingness and innovation
-- Basic capabilities - find those to have access to the minimum technology skill needed (Linux and SQL)
+- Basic capabilities - find those to have access to the minimum technology skill needed (Linux and SQL) - or at least the desire and spirit to adobpt
 
 ## Funding
 
