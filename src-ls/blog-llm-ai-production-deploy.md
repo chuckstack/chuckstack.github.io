@@ -281,6 +281,35 @@ aichat -- how do I get started using AI LLMs to automate
 
 [Here is an example](./picture-success.md#how-is-this-possible) were we use AIChat to automate creating an order in an ERP.
 
+## More Possibilities
+
+The sample work instructions represent the starting point. Let's talk about how you can easily extend this sample into your organization.
+
+### Multiple Roles
+
+You may support as many roles as you wish. The ttyd systemd service supports the role-based chat. To create more than one role chat:
+
+- create more ttyd systemd services on different ports
+- create more entries in nginx for the respective reverse proxies
+- include more entries in /opt/work-instruction/chuckstack/ai-llm-operations-wi-chat/theme/head.hbs to call the services
+
+### Multiple Work Instructions
+
+The sample repository in the article only includes a single set of work instruction documents; however, you may maintain and publish as many sets of independent documents as you wish.
+
+You simply iterate across each directory or repository and call `mdBook build` to publish each of your sets of work instructions. You will have an entry in nginx for each published directory.
+
+### Multiple Chats
+
+The below code embeds an expandable chat window. You may add this code anywhere in your work instructions. For example, you can have a chat window on every page for convenience.
+
+```html
+<details ontoggle="handleToggle(this)">
+     <summary>Expand this to start asking...</summary>
+     <div class="ttyd-container"></div>
+ </details>
+```
+
 ## Next Steps
 
 If you want help implementing these concepts in your organization, join the [stack-academy](./stack-academy.md). We will walk you though the process of:

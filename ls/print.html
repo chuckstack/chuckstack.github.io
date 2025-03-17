@@ -4020,6 +4020,13 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <li><a href="blog-llm-ai-production-deploy.html#local-aichat">Local AIChat</a></li>
 </ul>
 </li>
+<li><a href="blog-llm-ai-production-deploy.html#more-possibilities">More Possibilities</a>
+<ul>
+<li><a href="blog-llm-ai-production-deploy.html#multiple-roles">Multiple Roles</a></li>
+<li><a href="blog-llm-ai-production-deploy.html#multiple-work-instructions">Multiple Work Instructions</a></li>
+<li><a href="blog-llm-ai-production-deploy.html#multiple-chats">Multiple Chats</a></li>
+</ul>
+</li>
 <li><a href="blog-llm-ai-production-deploy.html#next-steps">Next Steps</a></li>
 <li><a href="blog-llm-ai-production-deploy.html#frequently-asked-questions">Frequently Asked Questions</a>
 <ul>
@@ -4231,6 +4238,25 @@ cd ai-llm-operations-wi-chat/
 <pre><code class="language-bash">aichat -- how do I get started using AI LLMs to automate 
 </code></pre>
 <p><a href="./picture-success.html#how-is-this-possible">Here is an example</a> were we use AIChat to automate creating an order in an ERP.</p>
+<h2 id="more-possibilities"><a class="header" href="#more-possibilities">More Possibilities</a></h2>
+<p>The sample work instructions represent the starting point. Let's talk about how you can easily extend this sample into your organization.</p>
+<h3 id="multiple-roles"><a class="header" href="#multiple-roles">Multiple Roles</a></h3>
+<p>You may support as many roles as you wish. The ttyd systemd service supports the role-based chat. To create more than one role chat:</p>
+<ul>
+<li>create more ttyd systemd services on different ports</li>
+<li>create more entries in nginx for the respective reverse proxies</li>
+<li>include more entries in /opt/work-instruction/chuckstack/ai-llm-operations-wi-chat/theme/head.hbs to call the services</li>
+</ul>
+<h3 id="multiple-work-instructions"><a class="header" href="#multiple-work-instructions">Multiple Work Instructions</a></h3>
+<p>The sample repository in the article only includes a single set of work instruction documents; however, you may maintain and publish as many sets of independent documents as you wish.</p>
+<p>You simply iterate across each directory or repository and call <code>mdBook build</code> to publish each of your sets of work instructions. You will have an entry in nginx for each published directory.</p>
+<h3 id="multiple-chats"><a class="header" href="#multiple-chats">Multiple Chats</a></h3>
+<p>The below code embeds an expandable chat window. You may add this code anywhere in your work instructions. For example, you can have a chat window on every page for convenience.</p>
+<pre><code class="language-html">&lt;details ontoggle="handleToggle(this)"&gt;
+     &lt;summary&gt;Expand this to start asking...&lt;/summary&gt;
+     &lt;div class="ttyd-container"&gt;&lt;/div&gt;
+ &lt;/details&gt;
+</code></pre>
 <h2 id="next-steps"><a class="header" href="#next-steps">Next Steps</a></h2>
 <p>If you want help implementing these concepts in your organization, join the <a href="./stack-academy.html">stack-academy</a>. We will walk you though the process of:</p>
 <ul>
