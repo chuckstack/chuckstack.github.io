@@ -3,8 +3,8 @@
 - Published: 2025-03-18
 - Updated: 2025-03-18
 - Author: Chuck Boecking
-- Discussion: <>
-- Status: Drafted (TODO: more coming...)
+- Discussion: <https://team.chuck-stack.org/t/local-ai-funding-time-to-bring-back-the-co-op/82>
+- Status: Released
 
 ## Build AI Co-op Capabilities in Your Community
 
