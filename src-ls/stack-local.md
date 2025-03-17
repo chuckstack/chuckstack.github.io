@@ -90,6 +90,16 @@ Starting the co-op is reasonably simply:
 
 We can help you evaluate and choose your people.
 
+## Operational Co-op
+
+One of the benefits of AI is the decentralization of information and abilities. Said another way, your local community will be able to do more to support itself with less.
+
+There is a reason why Warren Buffet likes to own insurance companies. They are some of the most profitable organizations in the world, and they provide meaningful reserves of cash. The challenge is that running an insurance company relies on the execution of a complex set of rules and regulations.
+
+AI will soon embody these complex abilities (like insurance), and return the ability to keep local funds in local hands. Said another way, AI and the chuck-stack will foster the return of local services supporting local communities.
+
+We need to help local communities develop these local abilities. We need the ability to reason about AI as fast as possible.
+
 ## Pick Your Founding Organization
 
 Another option to get started is by finding small or medium organizations in your country, state, or community that represent the types of organizations you want to see excel.
