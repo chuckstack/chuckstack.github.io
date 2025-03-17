@@ -222,10 +222,6 @@ Note the below video is pulled from [here](./blog-llm-ai-operations-automation.m
   <source src="./video/07-gen-wi-demo-feedback-loop.mp4" type="video/mp4">
 </video>
 
-### Local AIChat
-
-TODO
-
 ## Architecture Overview 
 
 Here are the tools we use to minimize effort and maximize user agency.
@@ -270,6 +266,20 @@ ttyd is an important and simple command line tool to convert a terminal into a w
 ### Global VPN
 
 See [Incus-Netbird-PhoenixNAP](./blog-incus-netbird-phoenixnap.md) for how to create a multi-location, cloud-hybrid network to expose this chat feature to all your locations and remote users in a secure and private way.
+
+### Local AIChat
+
+AIChat can be run almost anywhere. It works on Windows, Mac, Linux and more. This means the same tool that you use on a server inside your website, ERP and other tools can also run locally. 
+
+> It truly is a "learn once and run everywhere" tool.
+
+We (chuck-stack) run AIChat on almost every machine. We use the `super+t` (windows key + the letter t) from anywhere to instantly open a terminal and ask any question. Here is an example:
+
+```bash
+aichat -- how do I get started using AI LLMs to automate 
+```
+
+[Here is an example](./picture-success.md#how-is-this-possible) were we use AIChat to automate creating an order in an ERP.
 
 ## Next Steps
 

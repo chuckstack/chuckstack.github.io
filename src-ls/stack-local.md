@@ -102,7 +102,7 @@ Here are example criteria to help you pick your local small and medium organizat
 
 ## Funding
 
-The purpose of this section is to discuss local entity funding. Funding can come from many places:
+The purpose of this section is to discuss local entity funding. AI funding and support can come from many places:
 
 - Federal government
 - State government
@@ -110,6 +110,10 @@ The purpose of this section is to discuss local entity funding. Funding can come
 - Foundations
 
 One purpose of the stack-academy is to help your local benefit entity apply for funding to support more local organizations.
+
+[Here is an example](./blog-llm-ai-production-deploy.md) of what everyone should have as the minimum AI capabilities. These are the exact capabilities the above funding agencies are striving to support in their local communities.
+
+We have put in the work to create the examples. We will help you turn the examples into applications for funding.
 
 ## Benefit Entity
 
