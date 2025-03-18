@@ -4179,7 +4179,8 @@ cd ai-llm-operations-wi-chat/
 <p>Here are some notes about the installation based on user feedback:</p>
 <ul>
 <li>The script attempts to get your IP. If you are installing the sample work instructions using AWS, the observed IP will be your server's <strong>private</strong> IP. This will most likely prevent you from connecting from your AWS server since you need to use its <strong>public</strong> IP.</li>
-<li>If you need to use a different IP, be sure to update the following file accordingly: /opt/work-instruction/chuckstack/ai-llm-operations-wi-chat/theme/head.hbs</li>
+<li>Also regarding AWS, make sure your security group allows for communication from only your IP. If you are not familiar with security groups, join the <a href="./stack-academy.html">stack-academy</a>, and we will help you configure your server securely.</li>
+<li>If you need to use a different IP, be sure to update the following file accordingly: /opt/work-instruction/chuckstack/ai-llm-operations-wi-chat/theme/head.hbs and execute the <code>./publish.sh rebuild</code> command.</li>
 </ul>
 <p>Let's spend a moment discussing the airole-starter.md document. This text gets passed along side every prompt. This document gives you control over the user experience.</p>
 <video controls>

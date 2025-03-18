@@ -131,7 +131,8 @@ You should now be able to see your documents via a webpage by simply clicking on
 Here are some notes about the installation based on user feedback:
 
 - The script attempts to get your IP. If you are installing the sample work instructions using AWS, the observed IP will be your server's **private** IP. This will most likely prevent you from connecting from your AWS server since you need to use its **public** IP.
-- If you need to use a different IP, be sure to update the following file accordingly: /opt/work-instruction/chuckstack/ai-llm-operations-wi-chat/theme/head.hbs
+- Also regarding AWS, make sure your security group allows for communication from only your IP. If you are not familiar with security groups, join the [stack-academy](./stack-academy.md), and we will help you configure your server securely.
+- If you need to use a different IP, be sure to update the following file accordingly: /opt/work-instruction/chuckstack/ai-llm-operations-wi-chat/theme/head.hbs and execute the `./publish.sh rebuild` command.
 
 Let's spend a moment discussing the airole-starter.md document. This text gets passed along side every prompt. This document gives you control over the user experience.
 
