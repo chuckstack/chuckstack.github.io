@@ -106,7 +106,9 @@ You need to practice your best practices in [Obsidian](./tool-obsidian.md). Get 
 
 [PostgreSQL](./tool-postgresql.md) also plays a big role in the chuck-stack. You want to be able to be able to use psql (PostgreSQL's command line tool - CLI) to connect to a local database and issue a few commands.
 
-Examples to come soon... [Join the stack-academy](./stack-academy.md) for quicker options to get started.
+This is the single best overview showing [why PostgreSQL is so important to the chuck-stack](https://www.youtube.com/watch?v=3JW732GrMdg).
+
+More examples to come soon... [Join the stack-academy](./stack-academy.md) for quicker options to get started.
 
 ## chuck-stack Test
 
