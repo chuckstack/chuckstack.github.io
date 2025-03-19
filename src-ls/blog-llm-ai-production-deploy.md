@@ -53,7 +53,8 @@ Here is what we will do:
 - We will use Linux's scheduler (cron) to keep everything up to date over time.
 
 TODO: video of picture of success
-- use anywhere in the world (cloud, hybrid, on-premise)
+- use anywhere in the world (cloud, hybrid, on-premise, desktop)
+- this is just the beginning... (roles, context, tools, ...)
 - use almost any llm in the world (including local llm)
 - Show example of how many releases from mdBook and aichat - newest models
 - keep your data safe (local if needed and protected by your intranet)
@@ -264,11 +265,26 @@ ttyd is an important and simple command line tool to convert a terminal into a w
   <source src="./video/chat-with-work-instructions-part8.mp4" type="video/mp4">
 </video>
 
+### AIChat Tools
+
+AIChat has the ability to call on additional tools to get additional information and perform additional tasks. We demonstrate this feature in the following way:
+
+- The chat.md page passes the name of the page when expanding the chat section.
+- The theme/head.hbs script passes the page name as an argument when loading the iframe.
+- ttyd systemd service (that runs in the iframe) passes the argument to the util/ai-launcher.sh where it exports it to an environment variable.
+- The airole-starter.md knows about the get_env_var (AIChat) tool and it is instructed to use it to get the page name.
+
+This is just a silly example of a very powerful concept. We can now use AIChat to:
+
+- Capture current user context
+- Get live or historical information from anywhere on the local network or world-wide internet based on context
+- Perform tasks on behalf of the user based on context + live data + historical information
+
 ### Global VPN
 
 See [Incus-Netbird-PhoenixNAP](./blog-incus-netbird-phoenixnap.md) for how to create a multi-location, cloud-hybrid network to expose this chat feature to all your locations and remote users in a secure and private way.
 
-### Local AIChat
+### Local Chat and More
 
 AIChat can be run almost anywhere. It works on Windows, Mac, Linux and more. This means the same tool that you use on a server inside your website, ERP and other tools can also run locally. 
 
@@ -277,7 +293,7 @@ AIChat can be run almost anywhere. It works on Windows, Mac, Linux and more. Thi
 We (chuck-stack) run AIChat on almost every machine. We use the `super+t` (windows key + the letter t) from anywhere to instantly open a terminal and ask any question. Here is an example:
 
 ```bash
-aichat -- how do I get started using AI LLMs to automate 
+aichat -- how do I get started using AI LLMs to automate my work instructions?
 ```
 
 [Here is an example](./picture-success.md#how-is-this-possible) were we use AIChat to automate creating an order in an ERP.

@@ -225,8 +225,9 @@
 <li><a href="#tools">Tools</a></li>
 <li><a href="#walk-through">Walk Through</a></li>
 <li><a href="#ttyd">ttyd</a></li>
+<li><a href="#aichat-tools">AIChat Tools</a></li>
 <li><a href="#global-vpn">Global VPN</a></li>
-<li><a href="#local-aichat">Local AIChat</a></li>
+<li><a href="#local-chat-and-more">Local Chat and More</a></li>
 </ul>
 </li>
 <li><a href="#more-possibilities">More Possibilities</a>
@@ -265,7 +266,8 @@
 </ul>
 <p>TODO: video of picture of success</p>
 <ul>
-<li>use anywhere in the world (cloud, hybrid, on-premise)</li>
+<li>use anywhere in the world (cloud, hybrid, on-premise, desktop)</li>
+<li>this is just the beginning... (roles, context, tools, ...)</li>
 <li>use almost any llm in the world (including local llm)</li>
 <li>Show example of how many releases from mdBook and aichat - newest models</li>
 <li>keep your data safe (local if needed and protected by your intranet)</li>
@@ -437,15 +439,29 @@ cd ai-llm-operations-wi-chat/
 <video poster="./img/chat-with-work-instructions-part8-splash.png" controls>
   <source src="./video/chat-with-work-instructions-part8.mp4" type="video/mp4">
 </video>
+<h3 id="aichat-tools"><a class="header" href="#aichat-tools">AIChat Tools</a></h3>
+<p>AIChat has the ability to call on additional tools to get additional information and perform additional tasks. We demonstrate this feature in the following way:</p>
+<ul>
+<li>The chat.md page passes the name of the page when expanding the chat section.</li>
+<li>The theme/head.hbs script passes the page name as an argument when loading the iframe.</li>
+<li>ttyd systemd service (that runs in the iframe) passes the argument to the util/ai-launcher.sh where it exports it to an environment variable.</li>
+<li>The airole-starter.md knows about the get_env_var (AIChat) tool and it is instructed to use it to get the page name.</li>
+</ul>
+<p>This is just a silly example of a very powerful concept. We can now use AIChat to:</p>
+<ul>
+<li>Capture current user context</li>
+<li>Get live or historical information from anywhere on the local network or world-wide internet based on context</li>
+<li>Perform tasks on behalf of the user based on context + live data + historical information</li>
+</ul>
 <h3 id="global-vpn"><a class="header" href="#global-vpn">Global VPN</a></h3>
 <p>See <a href="./blog-incus-netbird-phoenixnap.html">Incus-Netbird-PhoenixNAP</a> for how to create a multi-location, cloud-hybrid network to expose this chat feature to all your locations and remote users in a secure and private way.</p>
-<h3 id="local-aichat"><a class="header" href="#local-aichat">Local AIChat</a></h3>
+<h3 id="local-chat-and-more"><a class="header" href="#local-chat-and-more">Local Chat and More</a></h3>
 <p>AIChat can be run almost anywhere. It works on Windows, Mac, Linux and more. This means the same tool that you use on a server inside your website, ERP and other tools can also run locally.</p>
 <blockquote>
 <p>It truly is a "learn once and run everywhere" tool.</p>
 </blockquote>
 <p>We (chuck-stack) run AIChat on almost every machine. We use the <code>super+t</code> (windows key + the letter t) from anywhere to instantly open a terminal and ask any question. Here is an example:</p>
-<pre><code class="language-bash">aichat -- how do I get started using AI LLMs to automate 
+<pre><code class="language-bash">aichat -- how do I get started using AI LLMs to automate my work instructions?
 </code></pre>
 <p><a href="./picture-success.html#how-is-this-possible">Here is an example</a> were we use AIChat to automate creating an order in an ERP.</p>
 <h2 id="more-possibilities"><a class="header" href="#more-possibilities">More Possibilities</a></h2>
