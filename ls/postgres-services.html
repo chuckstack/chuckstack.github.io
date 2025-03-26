@@ -178,6 +178,19 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="postgres-services"><a class="header" href="#postgres-services">Postgres Services</a></h1>
+<p>The chuck-stack services section aims to provide the most common services needed by an ERP-like application. We provide these services in a consistent and reasonable manner as described in the <a href="./postgres-conventions.html">conventions section</a>.</p>
+<h2 id="services-goals"><a class="header" href="#services-goals">Services Goals</a></h2>
+<p>We created the chuck-stack services to allow users to:</p>
+<ul>
+<li>Spawn asynchronous tasks/jobs (<a href="./postgres-convention/async.html">Async</a>)</li>
+<li>Tag any record with any number of attributes (<a href="./postgres-convention/attribute-tag.html">Attribute Tagging</a>)</li>
+<li>Record events as they occur (<a href="./postgres-convention/event.html">Events</a>)</li>
+<li>Notify users and other systems of any state change (<a href="./postgres-convention/notify.html">Notify</a>)</li>
+<li>Execute any request/workflow (state management) against any record (<a href="./postgres-convention/request.html">Request Workflow</a>)</li>
+<li>Track any statistics against any record without creating a spider web of foreign keys (<a href="./postgres-convention/statistics-convention.html">Statistics</a>)</li>
+<li>Store system variables and reference them in code without referencing a record's _uu directly from code (<a href="./postgres-convention/system-configuration-convention.html">System Configuration</a>)</li>
+</ul>
+<h2 id="create-your-own-service"><a class="header" href="#create-your-own-service">Create your Own Service</a></h2>
 
                         <br>
                         <p>Copyright &copy; 2024-<script>document.write(new Date().getFullYear())</script>, CHUBOE LLC. All rights reserved.</p> <!--chuboe changed-->
