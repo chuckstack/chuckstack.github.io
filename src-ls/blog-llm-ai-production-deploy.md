@@ -63,6 +63,7 @@ TODO: video of picture of success
   - AI to help answer questions
   - AI to help review review results and recommend changes
 - Script
+  - at first look - just another chat with docs, this is just the first step... We want augmentation and automation at the hands of everyday users
   - there is going to be a day when much of what we do is automated.
   - systems will magically assist or perform much of the manual work.
   - How do we tell it what to do?
@@ -71,6 +72,7 @@ TODO: video of picture of success
   - This outline will thrust you ahead of 90% of other companies,
   - We will combine best practice that align you with quality awards like the Baldrige award and start the augmentation/automation path?
   - We will get your people ready for the rapidly approaching ai augmented workforce!
+  - Starting augmenting and automating today
 
 ### Before We Start
 
