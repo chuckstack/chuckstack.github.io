@@ -182,7 +182,7 @@
 <li>Published: 2025-04-08</li>
 <li>Updated: 2025-04-08</li>
 <li>Author: Chuck Boecking</li>
-<li>Discussion: &lt;&gt;</li>
+<li>Discussion: <a href="https://team.chuck-stack.org/t/create-isolated-public-facing-services-in-incus-netbird-phoenixnap/83">https://team.chuck-stack.org/t/create-isolated-public-facing-services-in-incus-netbird-phoenixnap/83</a></li>
 </ul>
 <h2 id="host-public-applications"><a class="header" href="#host-public-applications">Host Public Applications</a></h2>
 <p>The purpose of this post is to extend the <a href="./blog-incus-netbird-phoenixnap.html">Incus + Netbird + PhoenixNAP</a> article to create a safe place to host public-facing applications and services.</p>
@@ -203,7 +203,7 @@
 <li><a href="#making-an-service-public">Making an Service Public</a></li>
 <li><a href="#frequently-asked-questions">Frequently Asked Questions</a>
 <ul>
-<li><a href="#first-question">first question?</a></li>
+<li><a href="#can-you-make-a-publicly-available-netbird-tunnel">Can you make a publicly available Netbird tunnel?</a></li>
 </ul>
 </li>
 <li><a href="#learn-more">Learn More</a></li>
@@ -293,22 +293,25 @@ incus network acl delete $INCUS_ACL
 </code></pre>
 <h2 id="multiple-isolated-network-bridges"><a class="header" href="#multiple-isolated-network-bridges">Multiple Isolated Network Bridges</a></h2>
 <p>You can create as many isolated bridges as is needed. The above example (with its single network bridge) is great at creating completely isolated instances; however, you might have scenarios where you need more than one instance to support a service or application.</p>
-<p>An easy adaptation of the above script is to create a dedicated network bridge per service (collection of instances). The only change you make is to alter the acl rules according to how you want your instances to communicate with each other. Otherwise, you simply change the variables at the top of the script and execute accordingly.</p>
+<p>An easy adaptation of the above script is to create a dedicated network bridge per service (collection of instances). The only change you make is to alter the acl rules according to how you want your instances to communicate with each other.</p>
+<p>You simply change the variables at the top of the script and execute accordingly.</p>
 <h2 id="making-an-service-public"><a class="header" href="#making-an-service-public">Making an Service Public</a></h2>
 <p>The easiest way to make an isolated service or application public is to use a Cloudflare tunnel and application.</p>
 <ul>
 <li>The Cloudflare tunnel creates a publicly available entry point.</li>
 <li>The Cloudflare application shares the same URL as the tunnel and creates a hook for adding additional features/filters to your URL.</li>
 </ul>
+<p>The details of creating a publicly available secure tunnel using Cloudflare are outside of the scope of this article; however, the process is quite simple. Join below, and we will create a video demonstration just for you.</p>
 <h2 id="frequently-asked-questions"><a class="header" href="#frequently-asked-questions">Frequently Asked Questions</a></h2>
-<h3 id="first-question"><a class="header" href="#first-question">first question?</a></h3>
-<p>First question goes here...</p>
+<h3 id="can-you-make-a-publicly-available-netbird-tunnel"><a class="header" href="#can-you-make-a-publicly-available-netbird-tunnel">Can you make a publicly available Netbird tunnel?</a></h3>
+<p>Not as of the time of this writing. We will watch for this feature.</p>
 <h2 id="learn-more"><a class="header" href="#learn-more">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
-<p>To discuss this content in more detail, go to &lt;&gt;.</p>
+<p>To discuss this content in more detail, go to <a href="https://team.chuck-stack.org/t/create-isolated-public-facing-services-in-incus-netbird-phoenixnap/83">https://team.chuck-stack.org/t/create-isolated-public-facing-services-in-incus-netbird-phoenixnap/83</a>.</p>
 <h2 id="todo"><a class="header" href="#todo">TODO</a></h2>
 <ul>
 <li>Change firewall scripts to use nftables (similar to how acl rules work) only. Doing so ensures there are no conflicts between nftables and iptables. Change on this post and the original Incus + Netbird + PhoenixNAP post.</li>
+<li>Create an example firewall rule to ensure the incusbr-iso cannot reach incusbr0.</li>
 </ul>
 
                         <br>

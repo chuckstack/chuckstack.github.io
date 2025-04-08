@@ -116,7 +116,9 @@ incus network acl delete $INCUS_ACL
 
 You can create as many isolated bridges as is needed. The above example (with its single network bridge) is great at creating completely isolated instances; however, you might have scenarios where you need more than one instance to support a service or application.
 
-An easy adaptation of the above script is to create a dedicated network bridge per service (collection of instances). The only change you make is to alter the acl rules according to how you want your instances to communicate with each other. Otherwise, you simply change the variables at the top of the script and execute accordingly.
+An easy adaptation of the above script is to create a dedicated network bridge per service (collection of instances). The only change you make is to alter the acl rules according to how you want your instances to communicate with each other.
+
+You simply change the variables at the top of the script and execute accordingly.
 
 ## Making an Service Public
 
@@ -125,11 +127,13 @@ The easiest way to make an isolated service or application public is to use a Cl
 - The Cloudflare tunnel creates a publicly available entry point.
 - The Cloudflare application shares the same URL as the tunnel and creates a hook for adding additional features/filters to your URL.
 
+The details of creating a publicly available secure tunnel using Cloudflare are outside of the scope of this article; however, the process is quite simple. Join below, and we will create a video demonstration just for you.
+
 ## Frequently Asked Questions
 
-### first question?
+### Can you make a publicly available Netbird tunnel?
 
-First question goes here...
+Not as of the time of this writing. We will watch for this feature.
 
 ## Learn More
 
@@ -140,3 +144,4 @@ To discuss this content in more detail, go to <https://team.chuck-stack.org/t/cr
 ## TODO
 
 - Change firewall scripts to use nftables (similar to how acl rules work) only. Doing so ensures there are no conflicts between nftables and iptables. Change on this post and the original Incus + Netbird + PhoenixNAP post.
+- Create an example firewall rule to ensure the incusbr-iso cannot reach incusbr0.
