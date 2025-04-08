@@ -3,7 +3,7 @@
 - Published: 2025-04-08
 - Updated: 2025-04-08
 - Author: Chuck Boecking
-- Discussion: <>
+- Discussion: <https://team.chuck-stack.org/t/create-isolated-public-facing-services-in-incus-netbird-phoenixnap/83>
 
 ## Host Public Applications
 
@@ -135,7 +135,7 @@ First question goes here...
 
 If you want help executing the topics in this article, join the [stack-academy](./stack-academy.md). Not ready to join... We can always [stay connected](../learn-more.html) to learn more.
 
-To discuss this content in more detail, go to <>.
+To discuss this content in more detail, go to <https://team.chuck-stack.org/t/create-isolated-public-facing-services-in-incus-netbird-phoenixnap/83>.
 
 ## TODO
 
