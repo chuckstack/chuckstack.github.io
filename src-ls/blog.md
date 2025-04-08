@@ -6,6 +6,18 @@ Here is a list of recent blogs. The sidebar contains the full list.
 
 <!-- toc -->
 
+## Create Isolated Public Facing Services in Incus + Netbird + PhoenixNAP
+
+The purpose of this post is to extend the [Incus + Netbird + PhoenixNAP](./blog-incus-netbird-phoenixnap.md) article to create a safe and isolated place to host public-facing applications and services.
+
+Here is the benefit short story:
+
+- Use your existing Incus infrastructure
+- Create one or more isolated networks
+- Host a public facing service in an isolated network
+
+[Read more...](./blog-incus-netbird-phoenixnap-isolated.md)
+
 ## Local AI Funding - Time to Bring Back the Co-op
 
 The purpose of this post is to help fund the improvement of your community through cooperative (co-op) AI understanding and deployment.
