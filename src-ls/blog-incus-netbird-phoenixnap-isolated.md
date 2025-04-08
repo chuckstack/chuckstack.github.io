@@ -1,4 +1,4 @@
-# Isolated Networks in Incus PhoenixNAP
+# Create Isolated Public Facing Services in Incus + Netbird + PhoenixNAP
 
 - Published: 2025-04-08
 - Updated: 2025-04-08
