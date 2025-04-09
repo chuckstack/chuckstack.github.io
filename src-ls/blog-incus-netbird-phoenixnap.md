@@ -99,10 +99,14 @@ DEBIAN_FRONTEND=noninteractive sudo apt-get install iptables-persistent -y
 ##curl -4 ifconfig.me #ip-v4
 ##curl -6 ifconfig.me #ip-v6
 
+# Variables - these should not change
+NETBIRD_NETWORK=wt0
+INCUS_NETWORK=incusbr0
+
 # Get network interface details
 MAIN_INTERFACE=$(ip route get 8.8.8.8 | grep -oP 'dev \K\S+')
-INCUS_SUBNET=$(ip -4 addr show incusbr0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}/\d+')
-INCUS_SUBNET_V6=$(ip -6 addr show incusbr0 | grep -oP '(?<=inet6\s)[0-9a-f:]+/\d+' | grep -v '^fe80')
+INCUS_SUBNET=$(ip -4 addr show $INCUS_NETWORK | grep -oP '(?<=inet\s)\d+(\.\d+){3}/\d+')
+INCUS_SUBNET_V6=$(ip -6 addr show $INCUS_NETWORK | grep -oP '(?<=inet6\s)[0-9a-f:]+/\d+' | grep -v '^fe80')
 
 # Flush existing rules
 sudo iptables -F
@@ -134,25 +138,25 @@ sudo iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 sudo ip6tables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 sudo ip6tables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
-# Allow wt0 interface
-sudo iptables -A INPUT -i wt0 -j ACCEPT
-sudo iptables -A OUTPUT -o wt0 -j ACCEPT
-sudo ip6tables -A INPUT -i wt0 -j ACCEPT
-sudo ip6tables -A OUTPUT -o wt0 -j ACCEPT
+# Allow $NETBIRD_NETWORK interface
+sudo iptables -A INPUT -i $NETBIRD_NETWORK -j ACCEPT
+sudo iptables -A OUTPUT -o $NETBIRD_NETWORK -j ACCEPT
+sudo ip6tables -A INPUT -i $NETBIRD_NETWORK -j ACCEPT
+sudo ip6tables -A OUTPUT -o $NETBIRD_NETWORK -j ACCEPT
 
-# Allow incusbr0 interface
-sudo iptables -A INPUT -i incusbr0 -j ACCEPT
-sudo iptables -A OUTPUT -o incusbr0 -j ACCEPT
-sudo ip6tables -A INPUT -i incusbr0 -j ACCEPT
-sudo ip6tables -A OUTPUT -o incusbr0 -j ACCEPT
+# Allow $INCUS_NETWORK interface
+sudo iptables -A INPUT -i $INCUS_NETWORK -j ACCEPT
+sudo iptables -A OUTPUT -o $INCUS_NETWORK -j ACCEPT
+sudo ip6tables -A INPUT -i $INCUS_NETWORK -j ACCEPT
+sudo ip6tables -A OUTPUT -o $INCUS_NETWORK -j ACCEPT
 
 # NAT and forwarding rules
 sudo iptables -t nat -A POSTROUTING -s $INCUS_SUBNET -o $MAIN_INTERFACE -j MASQUERADE
-sudo iptables -A FORWARD -i incusbr0 -o $MAIN_INTERFACE -j ACCEPT
-sudo iptables -A FORWARD -i $MAIN_INTERFACE -o incusbr0 -j ACCEPT
+sudo iptables -A FORWARD -i $INCUS_NETWORK -o $MAIN_INTERFACE -j ACCEPT
+sudo iptables -A FORWARD -i $MAIN_INTERFACE -o $INCUS_NETWORK -j ACCEPT
 sudo ip6tables -t nat -A POSTROUTING -s $INCUS_SUBNET_V6 -o $MAIN_INTERFACE -j MASQUERADE
-sudo ip6tables -A FORWARD -i incusbr0 -o $MAIN_INTERFACE -j ACCEPT
-sudo ip6tables -A FORWARD -i $MAIN_INTERFACE -o incusbr0 -j ACCEPT
+sudo ip6tables -A FORWARD -i $INCUS_NETWORK -o $MAIN_INTERFACE -j ACCEPT
+sudo ip6tables -A FORWARD -i $MAIN_INTERFACE -o $INCUS_NETWORK -j ACCEPT
 
 # Allow SSH from your specific IP (must set MY_IP_ADDRESS and MY_IP6_ADDRESS above)
 #sudo iptables -A INPUT -p tcp -s $MY_IP_ADDRESS --dport 22 -j ACCEPT
