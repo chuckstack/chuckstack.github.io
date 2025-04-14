@@ -3450,7 +3450,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <div style="break-before: page; page-break-before: always;"></div><h1 id="statistics"><a class="header" href="#statistics">Statistics</a></h1>
 <p>The purpose of this page is to describe how the chuck-stack supports statistics.</p>
 <h2 id="summary-9"><a class="header" href="#summary-9">Summary</a></h2>
-<p>Statistics are a summary or measurement about a records. Statistics are often derived or pre-computed data that is made available for quick and easy reference.</p>
+<p>Statistics are a summary or measurement about a records. Statistics are often derived or pre-computed data that are made available for quick and easy reference.</p>
 <p>The purpose of the statistics convention is to remove denormalized data/columns from transactional tables. By doing so, we improve performance, reduce locking potential, reduce transactional complexity, and reduce change log activity for statistical data.</p>
 <h2 id="transaction-tentacles"><a class="header" href="#transaction-tentacles">Transaction Tentacles</a></h2>
 <p>Here is a picture describing why the dedicated statistics table is so important. The following scenario is commonly found in ERP systems.</p>

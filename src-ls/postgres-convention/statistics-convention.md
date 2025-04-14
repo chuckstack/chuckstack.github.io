@@ -4,7 +4,7 @@ The purpose of this page is to describe how the chuck-stack supports statistics.
 
 ## Summary
 
-Statistics are a summary or measurement about a records. Statistics are often derived or pre-computed data that is made available for quick and easy reference.
+Statistics are a summary or measurement about a records. Statistics are often derived or pre-computed data that are made available for quick and easy reference.
 
 The purpose of the statistics convention is to remove denormalized data/columns from transactional tables. By doing so, we improve performance, reduce locking potential, reduce transactional complexity, and reduce change log activity for statistical data.
 
