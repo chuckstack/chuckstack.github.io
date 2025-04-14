@@ -29,6 +29,7 @@ You need an API account from one of the foundation AI LLM providers, including:
 - [TogetherAI](https://www.together.ai/) - preferred
 
 >Note:
+>
 >There is a difference between the flat-rate, consumer-facing website offerings (like OpenAI's ChatGPT) and a pay-as-you-go API service.
 
 You need the API version of the service. Here are the reasons:
