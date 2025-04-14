@@ -3438,7 +3438,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <ul>
 <li>Requests are stored in <code>stk_request</code></li>
 <li>A request can exist in isolation of either other record</li>
-<li>A request can be linked to any other record in the chuck-stack using the <a href="postgres-convention/./table-record-convention.html#linking-convention">table and record</a></li>
+<li>A request can be linked to any other record in the chuck-stack using the <a href="postgres-convention/./table-record-convention.html#linking-convention">table and record</a> convention.</li>
 </ul>
 <h2 id="details-3"><a class="header" href="#details-3">Details</a></h2>
 <p>Tables:</p>
@@ -3451,20 +3451,23 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <p>The purpose of this page is to describe how the chuck-stack supports statistics.</p>
 <h2 id="summary-9"><a class="header" href="#summary-9">Summary</a></h2>
 <p>Statistics are a summary or measurement about a records. Statistics are often derived or pre-computed data that is made available for quick and easy reference.</p>
-<p>Keeping statistics in a separate table greatly improved system performance and stability by reducing the number of foreign keys to high-volume tables.</p>
-<p>Said another way: The <code>stk_statistic</code> table holds statistical details about a record. The goal of this table is to remove denormalized data/columns from transactional tables. By doing so, we improve performance, reduce locking potential and reduce change log activity for data that is derived from other normalized data.</p>
+<p>The purpose of the statistics convention is to remove denormalized data/columns from transactional tables. By doing so, we improve performance, reduce locking potential, reduce transactional complexity, and reduce change log activity for statistical data.</p>
 <h2 id="transaction-tentacles"><a class="header" href="#transaction-tentacles">Transaction Tentacles</a></h2>
-<p>Here is a picture of describing why the dedicated statistics table is so important. The following scenario is common in ERP systems.</p>
-<p>When completing an Invoice the following often happens:</p>
+<p>Here is a picture describing why the dedicated statistics table is so important. The following scenario is commonly found in ERP systems.</p>
+<p>When completing an Invoice the following happens:</p>
 <ul>
 <li>Update the business partner =&gt; lifetime revenue statistic</li>
 <li>Update the business partner =&gt; aging open amount statistic</li>
-<li>Update the purchase order line =&gt; quantity invoiced statistic</li>
-<li>Update the material receipt line =&gt; quantity invoiced statistic</li>
-<li>Update the product =&gt; quantity invoiced statistic</li>
+<li>Update the purchase order line =&gt; invoiced quantity statistic</li>
+<li>Update the material receipt line =&gt; invoiced quantity statistic</li>
+<li>Update the product =&gt; invoiced quantity statistic</li>
 </ul>
 <p>The business partner, product, purchase order and material receipt tables are all high-volume. Updating this many high-volume tables in a single transaction is a recipe for disaster in terms of performance and stability.</p>
-<p>Having a dedicated statistics table ensures only a single record in the table gets locked during transactions. It also helps prevent circular dependencies.</p>
+<p>Having a dedicated statistics table:</p>
+<ul>
+<li>Ensures only a single record per statistic gets locked during transactions</li>
+<li>Prevent circular dependencies</li>
+</ul>
 <h2 id="post-processing-bi"><a class="header" href="#post-processing-bi">Post Processing BI</a></h2>
 <p>One could argue that the above calculated data should be created and maintained in post-processing tools like dbt and BI. However, the reality is that some statistics need to be maintained in real-time. For this reason, we make the statistics service available to you.</p>
 <h2 id="details-4"><a class="header" href="#details-4">Details</a></h2>

@@ -6,25 +6,25 @@ The purpose of this page is to describe how the chuck-stack supports statistics.
 
 Statistics are a summary or measurement about a records. Statistics are often derived or pre-computed data that is made available for quick and easy reference.
 
-Keeping statistics in a separate table greatly improved system performance and stability by reducing the number of foreign keys to high-volume tables.
-
-Said another way: The `stk_statistic` table holds statistical details about a record. The goal of this table is to remove denormalized data/columns from transactional tables. By doing so, we improve performance, reduce locking potential and reduce change log activity for data that is derived from other normalized data.
+The purpose of the statistics convention is to remove denormalized data/columns from transactional tables. By doing so, we improve performance, reduce locking potential, reduce transactional complexity, and reduce change log activity for statistical data.
 
 ## Transaction Tentacles
 
-Here is a picture of describing why the dedicated statistics table is so important. The following scenario is common in ERP systems.
+Here is a picture describing why the dedicated statistics table is so important. The following scenario is commonly found in ERP systems.
 
-When completing an Invoice the following often happens:
+When completing an Invoice the following happens:
 
 - Update the business partner => lifetime revenue statistic
 - Update the business partner => aging open amount statistic
-- Update the purchase order line => quantity invoiced statistic
-- Update the material receipt line => quantity invoiced statistic
-- Update the product => quantity invoiced statistic
+- Update the purchase order line => invoiced quantity statistic
+- Update the material receipt line => invoiced quantity statistic
+- Update the product => invoiced quantity statistic
 
 The business partner, product, purchase order and material receipt tables are all high-volume. Updating this many high-volume tables in a single transaction is a recipe for disaster in terms of performance and stability.
 
-Having a dedicated statistics table ensures only a single record in the table gets locked during transactions. It also helps prevent circular dependencies.
+Having a dedicated statistics table:
+- Ensures only a single record per statistic gets locked during transactions
+- Prevent circular dependencies
 
 ## Post Processing BI
 
