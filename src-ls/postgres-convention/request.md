@@ -13,3 +13,12 @@ Here are some details about the request architecture:
 - Requests are stored in `stk_request`
 - A request can exist in isolation of either other record
 - A request can be linked to any other record in the chuck-stack using the [table and record](./table-record-convention.md#linking-convention)
+
+## Details
+
+Tables:
+
+- stk_request
+- stk_request_type
+
+We use the [Table and Record Reference](./table-record-convention.md) approach to associate a request with any given record.

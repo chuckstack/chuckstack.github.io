@@ -3399,6 +3399,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <li>stk_attribute_tag</li>
 <li>stk_attribute_tag_type</li>
 </ul>
+<p>We use the <a href="postgres-convention/./table-record-convention.html">Table and Record Reference</a> approach to associate an attribute tag with any given record.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="event"><a class="header" href="#event">Event</a></h1>
 <p>The purpose of this page is to describe how the chuck-stack captures events.</p>
 <h2 id="summary-6"><a class="header" href="#summary-6">Summary</a></h2>
@@ -3439,9 +3440,40 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <li>A request can exist in isolation of either other record</li>
 <li>A request can be linked to any other record in the chuck-stack using the <a href="postgres-convention/./table-record-convention.html#linking-convention">table and record</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="statistics-convention"><a class="header" href="#statistics-convention">Statistics Convention</a></h1>
-<p>The <code>stk_statistic</code> table holds statistical details about a record. The goal of this table is to remove denormalized data/columns from transactional tables. By doing so, we improve performance, reduce locking potential and reduce change log activity for data that is derived from other normalized data.</p>
-<p>You use the <a href="postgres-convention/./table-record-convention.html">Table and Record Reference</a> approach to associate a statistic to any given record.</p>
+<h2 id="details-3"><a class="header" href="#details-3">Details</a></h2>
+<p>Tables:</p>
+<ul>
+<li>stk_request</li>
+<li>stk_request_type</li>
+</ul>
+<p>We use the <a href="postgres-convention/./table-record-convention.html">Table and Record Reference</a> approach to associate a request with any given record.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="statistics"><a class="header" href="#statistics">Statistics</a></h1>
+<p>The purpose of this page is to describe how the chuck-stack supports statistics.</p>
+<h2 id="summary-9"><a class="header" href="#summary-9">Summary</a></h2>
+<p>Statistics are a summary or measurement about a records. Statistics are often derived or pre-computed data that is made available for quick and easy reference.</p>
+<p>Keeping statistics in a separate table greatly improved system performance and stability by reducing the number of foreign keys to high-volume tables.</p>
+<p>Said another way: The <code>stk_statistic</code> table holds statistical details about a record. The goal of this table is to remove denormalized data/columns from transactional tables. By doing so, we improve performance, reduce locking potential and reduce change log activity for data that is derived from other normalized data.</p>
+<h2 id="transaction-tentacles"><a class="header" href="#transaction-tentacles">Transaction Tentacles</a></h2>
+<p>Here is a picture of describing why the dedicated statistics table is so important. The following scenario is common in ERP systems.</p>
+<p>When completing an Invoice the following often happens:</p>
+<ul>
+<li>Update the business partner =&gt; lifetime revenue statistic</li>
+<li>Update the business partner =&gt; aging open amount statistic</li>
+<li>Update the purchase order line =&gt; quantity invoiced statistic</li>
+<li>Update the material receipt line =&gt; quantity invoiced statistic</li>
+<li>Update the product =&gt; quantity invoiced statistic</li>
+</ul>
+<p>The business partner, product, purchase order and material receipt tables are all high-volume. Updating this many high-volume tables in a single transaction is a recipe for disaster in terms of performance and stability.</p>
+<p>Having a dedicated statistics table ensures only a single record in the table gets locked during transactions. It also helps prevent circular dependencies.</p>
+<h2 id="post-processing-bi"><a class="header" href="#post-processing-bi">Post Processing BI</a></h2>
+<p>One could argue that the above calculated data should be created and maintained in post-processing tools like dbt and BI. However, the reality is that some statistics need to be maintained in real-time. For this reason, we make the statistics service available to you.</p>
+<h2 id="details-4"><a class="header" href="#details-4">Details</a></h2>
+<p>Tables:</p>
+<ul>
+<li>stk_statistic</li>
+<li>stk_statistic_type</li>
+</ul>
+<p>We use the <a href="postgres-convention/./table-record-convention.html">Table and Record Reference</a> approach to associate a statistic with any given record.</p>
 <p>Recent versions of PostgreSQL introduced the <code>upsert</code> option to easily find and update an existing record or insert a new statistic in a single command. A unique index on the foreign key pointing to its namesake table prevents duplicate records.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="system-configuration-convention"><a class="header" href="#system-configuration-convention">System Configuration Convention</a></h1>
 <p>The purpose of this section is to describe a way to save and reference configuration settings without referencing a record's <code>_uu</code> directly from code.</p>
@@ -3479,7 +3511,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 </ul>
 <p>We look forward to working wth your organization! <a href="https://buy.stripe.com/fZebLI7Qw2kPfnifYZ">Join Now</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ai-and-operational-excellence-in-your-community"><a class="header" href="#ai-and-operational-excellence-in-your-community">AI and Operational Excellence In Your Community</a></h1>
-<h2 id="summary-9"><a class="header" href="#summary-9">Summary</a></h2>
+<h2 id="summary-10"><a class="header" href="#summary-10">Summary</a></h2>
 <p>The purpose of this page is to help your local community, state or country achieve operational excellence through AI in general and the chuck-stack specifically.</p>
 <h2 id="toc-27"><a class="header" href="#toc-27">TOC</a></h2>
 <ul>
@@ -3754,7 +3786,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 </ul>
 </li>
 </ul>
-<h2 id="summary-10"><a class="header" href="#summary-10">Summary</a></h2>
+<h2 id="summary-11"><a class="header" href="#summary-11">Summary</a></h2>
 <!-- TODO: link to goals -->
 <p>It is important to understand that the chuck-stack is not a typical software project. The goals are to support small and medium sized organizations by bringing together existing tools to create a platform. As such, most of the advancements of this project relate more to convention, configuration, documentation and deployment rather than coding.</p>
 <h2 id="upcoming-milestones"><a class="header" href="#upcoming-milestones">Upcoming Milestones</a></h2>
@@ -4595,7 +4627,7 @@ cd ai-llm-operations-wi-chat/
 <li><a href="blog-chuck-stack-it-job-description-assessment.html#learn-more">Learn More</a></li>
 <li><a href="blog-chuck-stack-it-job-description-assessment.html#todo">TODO</a></li>
 </ul>
-<h2 id="summary-11"><a class="header" href="#summary-11">Summary</a></h2>
+<h2 id="summary-12"><a class="header" href="#summary-12">Summary</a></h2>
 <p>We want to hire people who understand the following areas well:</p>
 <ul>
 <li>Linux scripting and administration</li>

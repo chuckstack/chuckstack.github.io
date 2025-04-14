@@ -45,3 +45,5 @@ Tables:
 
 - stk_attribute_tag
 - stk_attribute_tag_type
+
+We use the [Table and Record Reference](./table-record-convention.md) approach to associate an attribute tag with any given record.
