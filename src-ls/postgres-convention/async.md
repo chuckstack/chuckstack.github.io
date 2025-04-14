@@ -30,4 +30,7 @@ Here are the steps to perform an asynchronous operation:
 
 ## Details
 
-Table: `stk_async`;`stk_async_type`
+Tables:
+
+- `stk_async`
+- `stk_async_type`

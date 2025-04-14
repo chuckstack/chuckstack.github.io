@@ -38,3 +38,10 @@ In addition to adding simple attribute tags like `color` or `height`, you can al
 ## Attribute Type
 
 You can define any number of attribute tag types. Each type defines the desire shape (and restriction) of an actual tag's JSON using the JSON schema standard. See the [JSON](./json-array-table-column.md#json-type) page for more implementation details.
+
+## Details
+
+Tables:
+
+- stk_attribute_tag
+- stk_attribute_tag_type

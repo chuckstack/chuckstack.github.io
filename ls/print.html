@@ -3355,7 +3355,11 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 </li>
 </ul>
 <h2 id="details"><a class="header" href="#details">Details</a></h2>
-<p>Table: <code>stk_async</code>;<code>stk_async_type</code></p>
+<p>Tables:</p>
+<ul>
+<li><code>stk_async</code></li>
+<li><code>stk_async_type</code></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="attribute-tagging"><a class="header" href="#attribute-tagging">Attribute Tagging</a></h1>
 <p>The chuck-stack makes heavy use of <a href="postgres-convention/./json-array-table-column.html#json-type">JSON</a> and attributing tagging as a means to describe database objects and workflow. The attribute tag architecture begins with the <code>stk_attribute_tag</code> table. This architecture allows you to associate any collection of attributes with any record in the database.</p>
 <h2 id="example-json"><a class="header" href="#example-json">Example JSON</a></h2>
@@ -3389,10 +3393,35 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 </code></pre>
 <h2 id="attribute-type"><a class="header" href="#attribute-type">Attribute Type</a></h2>
 <p>You can define any number of attribute tag types. Each type defines the desire shape (and restriction) of an actual tag's JSON using the JSON schema standard. See the <a href="postgres-convention/./json-array-table-column.html#json-type">JSON</a> page for more implementation details.</p>
+<h2 id="details-1"><a class="header" href="#details-1">Details</a></h2>
+<p>Tables:</p>
+<ul>
+<li>stk_attribute_tag</li>
+<li>stk_attribute_tag_type</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="event"><a class="header" href="#event">Event</a></h1>
+<p>The purpose of this page is to describe how the chuck-stack captures events.</p>
+<h2 id="summary-6"><a class="header" href="#summary-6">Summary</a></h2>
+<p>There are a significant number of events that occur during the operation of an organization. You need an easy, fast and reliable way to capture these events for future audit or analysis.</p>
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<p>Here are examples of events you might wish to capture:</p>
+<ul>
+<li><strong>Operation</strong> - such as system outage/restoration, equipment activity, inventory changes, ...</li>
+<li><strong>Security</strong> - such as system access, permission changes, ...</li>
+<li><strong>Compliance</strong> - process acknowledgement, training completion, risk threshold, review completion, ...</li>
+<li><strong>more</strong> - IT system events, employee events, project events, quality system events, ...</li>
+</ul>
+<h2 id="usage-1"><a class="header" href="#usage-1">Usage</a></h2>
+<p>Logging an event is as simple as inserting a record into the <code>stk_event</code> table with the desired type.</p>
+<h2 id="details-2"><a class="header" href="#details-2">Details</a></h2>
+<p>Tables:</p>
+<ul>
+<li>stk_event</li>
+<li>stk_event_type</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="notify"><a class="header" href="#notify">Notify</a></h1>
 <p>The purpose of this page is to describe how the chuck-stack supports notifications.</p>
-<h2 id="summary-6"><a class="header" href="#summary-6">Summary</a></h2>
+<h2 id="summary-7"><a class="header" href="#summary-7">Summary</a></h2>
 <p>The chuck-stack uses <a href="https://www.postgresql.org/docs/current/sql-notify.html">PostgreSQL's notify</a> to provide notifications to other systems. The <code>t70100_stk_notify()</code> trigger function provides a generic chuck-stack notify implementation. By default, only the <code>stk_async</code> and <code>stk_async_type</code> tables include this trigger definition.</p>
 <p>To include additional tables in the <code>t70100_stk_notify()</code> execution:</p>
 <ul>
@@ -3401,7 +3430,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="request-workflow-1"><a class="header" href="#request-workflow-1">Request Workflow</a></h1>
 <p>The purpose of this page is to help you understand the request workflow architecture.</p>
-<h2 id="summary-7"><a class="header" href="#summary-7">Summary</a></h2>
+<h2 id="summary-8"><a class="header" href="#summary-8">Summary</a></h2>
 <p>The chuck-stack workflow is build around PostgreSQL tables, foreign keys, triggers and the concept of atomic transactions. This means the state of any request workflow is persisted and any workflow action is guaranteed to either complete/commit or rollback.</p>
 <h2 id="implementation-details"><a class="header" href="#implementation-details">Implementation Details</a></h2>
 <p>Here are some details about the request architecture:</p>
@@ -3450,7 +3479,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 </ul>
 <p>We look forward to working wth your organization! <a href="https://buy.stripe.com/fZebLI7Qw2kPfnifYZ">Join Now</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ai-and-operational-excellence-in-your-community"><a class="header" href="#ai-and-operational-excellence-in-your-community">AI and Operational Excellence In Your Community</a></h1>
-<h2 id="summary-8"><a class="header" href="#summary-8">Summary</a></h2>
+<h2 id="summary-9"><a class="header" href="#summary-9">Summary</a></h2>
 <p>The purpose of this page is to help your local community, state or country achieve operational excellence through AI in general and the chuck-stack specifically.</p>
 <h2 id="toc-27"><a class="header" href="#toc-27">TOC</a></h2>
 <ul>
@@ -3725,7 +3754,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 </ul>
 </li>
 </ul>
-<h2 id="summary-9"><a class="header" href="#summary-9">Summary</a></h2>
+<h2 id="summary-10"><a class="header" href="#summary-10">Summary</a></h2>
 <!-- TODO: link to goals -->
 <p>It is important to understand that the chuck-stack is not a typical software project. The goals are to support small and medium sized organizations by bringing together existing tools to create a platform. As such, most of the advancements of this project relate more to convention, configuration, documentation and deployment rather than coding.</p>
 <h2 id="upcoming-milestones"><a class="header" href="#upcoming-milestones">Upcoming Milestones</a></h2>
@@ -4566,7 +4595,7 @@ cd ai-llm-operations-wi-chat/
 <li><a href="blog-chuck-stack-it-job-description-assessment.html#learn-more">Learn More</a></li>
 <li><a href="blog-chuck-stack-it-job-description-assessment.html#todo">TODO</a></li>
 </ul>
-<h2 id="summary-10"><a class="header" href="#summary-10">Summary</a></h2>
+<h2 id="summary-11"><a class="header" href="#summary-11">Summary</a></h2>
 <p>We want to hire people who understand the following areas well:</p>
 <ul>
 <li>Linux scripting and administration</li>
