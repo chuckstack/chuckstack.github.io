@@ -17,17 +17,21 @@ If you just want to start playing with the chuck-stack, read below. If you need 
 
 ## Start with AI
 
-First, get your API key. Then, start using it to explore!
+First, get your AI LLM API key. Then, start using it to explore!
 
-### Get Your API Key
+### Get Your AI LLM API Key
 
-You need an API account from one of the foundation LLM providers, including:
+You need an API account from one of the foundation AI LLM providers, including:
 
 - [Anthropic/Claude](https://www.anthropic.com/api) - preferred
 - [Gemini](https://ai.google.dev/)
 - [OpenAI](https://openai.com/api/)
+- [TogetherAI](https://www.together.ai/) - preferred
 
-There is a difference between the flat-rate, consumer-facing website offerings (like OpenAI's ChatGPT) and a pay-as-you-go API service. You need the API version of the service. Here are the reasons:
+>Note:
+>There is a difference between the flat-rate, consumer-facing website offerings (like OpenAI's ChatGPT) and a pay-as-you-go API service.
+
+You need the API version of the service. Here are the reasons:
 
 - One reason is that you will most likely not spend the equivalent $20/month when using the API - at least not in the beginning.
 - The second reason is that you need API access to accomplish the goals of this stack.
