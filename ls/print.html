@@ -3396,8 +3396,8 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <h2 id="details-1"><a class="header" href="#details-1">Details</a></h2>
 <p>Tables:</p>
 <ul>
-<li>stk_attribute_tag</li>
-<li>stk_attribute_tag_type</li>
+<li><code>stk_attribute_tag</code></li>
+<li><code>stk_attribute_tag_type</code></li>
 </ul>
 <p>We use the <a href="postgres-convention/./table-record-convention.html">Table and Record Reference</a> approach to associate an attribute tag with any given record.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="event"><a class="header" href="#event">Event</a></h1>
@@ -3443,8 +3443,8 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <h2 id="details-3"><a class="header" href="#details-3">Details</a></h2>
 <p>Tables:</p>
 <ul>
-<li>stk_request</li>
-<li>stk_request_type</li>
+<li><code>stk_request</code></li>
+<li><code>stk_request_type</code></li>
 </ul>
 <p>We use the <a href="postgres-convention/./table-record-convention.html">Table and Record Reference</a> approach to associate a request with any given record.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="statistics"><a class="header" href="#statistics">Statistics</a></h1>
@@ -3470,8 +3470,8 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <h2 id="details-4"><a class="header" href="#details-4">Details</a></h2>
 <p>Tables:</p>
 <ul>
-<li>stk_statistic</li>
-<li>stk_statistic_type</li>
+<li><code>stk_statistic</code></li>
+<li><code>stk_statistic_type</code></li>
 </ul>
 <p>We use the <a href="postgres-convention/./table-record-convention.html">Table and Record Reference</a> approach to associate a statistic with any given record.</p>
 <p>Recent versions of PostgreSQL introduced the <code>upsert</code> option to easily find and update an existing record or insert a new statistic in a single command. A unique index on the foreign key pointing to its namesake table prevents duplicate records.</p>

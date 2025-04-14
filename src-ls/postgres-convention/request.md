@@ -18,7 +18,7 @@ Here are some details about the request architecture:
 
 Tables:
 
-- stk_request
-- stk_request_type
+- `stk_request`
+- `stk_request_type`
 
 We use the [Table and Record Reference](./table-record-convention.md) approach to associate a request with any given record.

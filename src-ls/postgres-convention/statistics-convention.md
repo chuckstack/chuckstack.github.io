@@ -34,8 +34,8 @@ One could argue that the above calculated data should be created and maintained 
 
 Tables:
 
-- stk_statistic
-- stk_statistic_type
+- `stk_statistic`
+- `stk_statistic_type`
 
 We use the [Table and Record Reference](./table-record-convention.md) approach to associate a statistic with any given record.
 

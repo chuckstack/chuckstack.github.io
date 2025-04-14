@@ -200,8 +200,8 @@
 <h2 id="details"><a class="header" href="#details">Details</a></h2>
 <p>Tables:</p>
 <ul>
-<li>stk_statistic</li>
-<li>stk_statistic_type</li>
+<li><code>stk_statistic</code></li>
+<li><code>stk_statistic_type</code></li>
 </ul>
 <p>We use the <a href="./table-record-convention.html">Table and Record Reference</a> approach to associate a statistic with any given record.</p>
 <p>Recent versions of PostgreSQL introduced the <code>upsert</code> option to easily find and update an existing record or insert a new statistic in a single command. A unique index on the foreign key pointing to its namesake table prevents duplicate records.</p>

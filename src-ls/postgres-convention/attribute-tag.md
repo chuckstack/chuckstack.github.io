@@ -43,7 +43,7 @@ You can define any number of attribute tag types. Each type defines the desire s
 
 Tables:
 
-- stk_attribute_tag
-- stk_attribute_tag_type
+- `stk_attribute_tag`
+- `stk_attribute_tag_type`
 
 We use the [Table and Record Reference](./table-record-convention.md) approach to associate an attribute tag with any given record.
