@@ -1,0 +1,15 @@
+The `log prefix "nftables-input-dropped: " drop` line serves two important purposes:
+
+1. **Logging**: The `log prefix` part creates a log entry in your system logs (typically viewable in `/var/log/syslog` or through `journalctl`) whenever a packet is dropped. The text "nftables-input-dropped: " serves as an identifiable prefix in the log entries, making it easier to filter and search for these specific events.
+
+2. **Dropping**: The `drop` at the end explicitly drops the packet after logging it.
+
+This is particularly useful for:
+- Debugging network issues
+- Security monitoring
+- Understanding which traffic is being blocked
+- Identifying potential attacks or misconfigured services
+
+For example, if you add this line to your input chain, you might see log entries like:
+```
+Jan 1 12:00:00 

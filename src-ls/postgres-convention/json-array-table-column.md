@@ -68,6 +68,6 @@ This additional requirement allows us to use features like [attribute tagging](.
 
 We make heavy use of the JSON schema standard to validate the proper use and structure of stored JSON objects.
 
-The [attribute tag](./attribute-tag.md) architecture is a example use case of this schema standard so that we may represent complex data in a simplified manner. It is also an example of the [enum + type](./enum-type-convention.md) convention where the type record (`stk_attribute_tag_type_json` column) contains the JSON schema definition and the actual `stk_attribute_tag` table (`stk_attribute_tag_json` column) contains the instance or actual value of that JSON schema.
+The [attribute tag](./attribute-tag.md) architecture is a example use case of this schema standard so that we may represent complex data in a simplified manner. It is also an example of the [enum + type](./enum-type-convention.md) convention where the type record (`stk_attribute_tag_type.record_json` column) contains the JSON schema definition and the actual `stk_attribute_tag` table (`stk_attribute_tag.record_json` column) contains the instance or actual value of that JSON schema.
 
 The [above referenced videos](#json-references) help illustrate these concepts.
