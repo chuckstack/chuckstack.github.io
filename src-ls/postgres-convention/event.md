@@ -23,5 +23,5 @@ Logging an event is as simple as inserting a record into the `stk_event` table w
 
 Tables:
 
-- stk_event
-- stk_event_type
+- `stk_event`
+- `stk_event_type`
