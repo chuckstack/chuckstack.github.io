@@ -1,7 +1,7 @@
 (function() {
     function addCopyright() {
         var currentYear = new Date().getFullYear();
-        var copyrightText = "Copyright © " + currentYear + ", CHUBOE LLC. All Rights Reserved.";
+        var copyrightText = "Copyright © 2024-" + currentYear + ", CHUBOE LLC. All Rights Reserved.";
         var copyrightElement = document.getElementById('copyright');
         copyrightElement.textContent = copyrightText;
     }
