@@ -78,7 +78,7 @@ To make getting started as easy as possible, we created a list of options beginn
 
 ## Which Linux Version
 
-- PopOS is our preference for laptops and desktops. PopOS is an Debian variant.
+- PopOS is our strong preference for laptops and desktops. PopOS is an Debian variant that gives you many usability improvements over vanilla gnome.
 - [Debian](./tool-linux.md#debian) is our preference for servers, containers and headless virtual machines.
 - [NixOS](./tool-linux.md#nix) is a more challenging and more capable option.
 - Ubuntu is also acceptable. Ubuntu is a Debian variant.

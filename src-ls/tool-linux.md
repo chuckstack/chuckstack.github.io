@@ -22,7 +22,7 @@
 - It does its job (compute) quite well.
 - And, most importantly it has great synergy with the rest of the chuck-stack.
 
-## Linux Distributions
+## Linux Server Distributions
 
 The chuck-stack standardizes on two distributions of Linux:
 
@@ -58,17 +58,22 @@ References:
 - See how NixOS is used in the [chuck-stack architecture](./stack-architecture.md#nixos)
 - [Nix explained](https://www.youtube.com/watch?v=X_jMqi-0SrM) - provides an overview of the Nix ecosystem
 
-## Linux Desktop
+## Linux Desktop Distributions
 
 The chuck-stack standardizes on two Linux desktops:
 
-- PopOS Shell (Cosmic)
+- PopOS Shell
 - Gnome
 
 ### PopOS Shell
 
-We are most excited about the [PopOS shell desktop](https://github.com/pop-os/shell), and we have used it for more than 2 year; however, it is currently in transition from gnome-based to an independent, pure-rust desktop. Because of this transition and the instability the transition creates, we also support Gnome.
+We strongly recommend PopOS. We have used it for more than 2 year with great success. 
+
+Note that it is currently in transition from gnome-based to an independent, pure-rust desktop. Here are the important details:
+
+- [PopOS](https://system76.com/pop/) - what we currently use...
+- [PopOS Cosmic](https://system76.com/cosmic/) - what we will transition to when released beyond alpha...
 
 ### Gnome
 
-Gnome is a good and well understood Linux desktop.
+Gnome is a good and well understood Linux desktop. Note that Gnome does not configure `super + t` to open a terminal by default. This may seem silly; however, to us, it is a big deal to have the terminal at our fingertips from anywhere and everywhere.

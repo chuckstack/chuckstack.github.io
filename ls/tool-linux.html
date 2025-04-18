@@ -182,13 +182,13 @@
 <h2 id="toc"><a class="header" href="#toc">TOC</a></h2>
 <ul>
 <li><a href="#why-we-love-linux">Why We Love Linux</a></li>
-<li><a href="#linux-distributions">Linux Distributions</a>
+<li><a href="#linux-server-distributions">Linux Server Distributions</a>
 <ul>
 <li><a href="#debian">Debian</a></li>
 <li><a href="#nix">Nix</a></li>
 </ul>
 </li>
-<li><a href="#linux-desktop">Linux Desktop</a>
+<li><a href="#linux-desktop-distributions">Linux Desktop Distributions</a>
 <ul>
 <li><a href="#popos-shell">PopOS Shell</a></li>
 <li><a href="#gnome">Gnome</a></li>
@@ -211,7 +211,7 @@
 <li>It does its job (compute) quite well.</li>
 <li>And, most importantly it has great synergy with the rest of the chuck-stack.</li>
 </ul>
-<h2 id="linux-distributions"><a class="header" href="#linux-distributions">Linux Distributions</a></h2>
+<h2 id="linux-server-distributions"><a class="header" href="#linux-server-distributions">Linux Server Distributions</a></h2>
 <p>The chuck-stack standardizes on two distributions of Linux:</p>
 <ul>
 <li>Debian</li>
@@ -241,16 +241,21 @@
 <li>See how NixOS is used in the <a href="./stack-architecture.html#nixos">chuck-stack architecture</a></li>
 <li><a href="https://www.youtube.com/watch?v=X_jMqi-0SrM">Nix explained</a> - provides an overview of the Nix ecosystem</li>
 </ul>
-<h2 id="linux-desktop"><a class="header" href="#linux-desktop">Linux Desktop</a></h2>
+<h2 id="linux-desktop-distributions"><a class="header" href="#linux-desktop-distributions">Linux Desktop Distributions</a></h2>
 <p>The chuck-stack standardizes on two Linux desktops:</p>
 <ul>
-<li>PopOS Shell (Cosmic)</li>
+<li>PopOS Shell</li>
 <li>Gnome</li>
 </ul>
 <h3 id="popos-shell"><a class="header" href="#popos-shell">PopOS Shell</a></h3>
-<p>We are most excited about the <a href="https://github.com/pop-os/shell">PopOS shell desktop</a>, and we have used it for more than 2 year; however, it is currently in transition from gnome-based to an independent, pure-rust desktop. Because of this transition and the instability the transition creates, we also support Gnome.</p>
+<p>We strongly recommend PopOS. We have used it for more than 2 year with great success.</p>
+<p>Note that it is currently in transition from gnome-based to an independent, pure-rust desktop. Here are the important details:</p>
+<ul>
+<li><a href="https://system76.com/pop/">PopOS</a> - what we currently use...</li>
+<li><a href="https://system76.com/cosmic/">PopOS Cosmic</a> - what we will transition to when released beyond alpha...</li>
+</ul>
 <h3 id="gnome"><a class="header" href="#gnome">Gnome</a></h3>
-<p>Gnome is a good and well understood Linux desktop.</p>
+<p>Gnome is a good and well understood Linux desktop. Note that Gnome does not configure <code>super + t</code> to open a terminal by default. This may seem silly; however, to us, it is a big deal to have the terminal at our fingertips from anywhere and everywhere.</p>
 
                         <br>
                         <p>Copyright &copy; 2024-<script>document.write(new Date().getFullYear())</script>, CHUBOE LLC. All rights reserved.</p> <!--chuboe changed-->

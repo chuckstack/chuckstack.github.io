@@ -825,8 +825,8 @@ select current_setting('test.test.test.one',true);
 <li><a href="https://www.together.ai/">TogetherAI</a> - preferred</li>
 </ul>
 <blockquote>
-<p>Note:
-There is a difference between the flat-rate, consumer-facing website offerings (like OpenAI's ChatGPT) and a pay-as-you-go API service.</p>
+<p>Note:</p>
+<p>There is a difference between the flat-rate, consumer-facing website offerings (like OpenAI's ChatGPT) and a pay-as-you-go API service.</p>
 </blockquote>
 <p>You need the API version of the service. Here are the reasons:</p>
 <ul>
@@ -872,7 +872,7 @@ There is a difference between the flat-rate, consumer-facing website offerings (
 </ul>
 <h2 id="which-linux-version"><a class="header" href="#which-linux-version">Which Linux Version</a></h2>
 <ul>
-<li>PopOS is our preference for laptops and desktops. PopOS is an Debian variant.</li>
+<li>PopOS is our strong preference for laptops and desktops. PopOS is an Debian variant that gives you many usability improvements over vanilla gnome.</li>
 <li><a href="./tool-linux.html#debian">Debian</a> is our preference for servers, containers and headless virtual machines.</li>
 <li><a href="./tool-linux.html#nix">NixOS</a> is a more challenging and more capable option.</li>
 <li>Ubuntu is also acceptable. Ubuntu is a Debian variant.</li>
@@ -1340,13 +1340,13 @@ newgrp incus-admin
 <h2 id="toc-11"><a class="header" href="#toc-11">TOC</a></h2>
 <ul>
 <li><a href="tool-linux.html#why-we-love-linux">Why We Love Linux</a></li>
-<li><a href="tool-linux.html#linux-distributions">Linux Distributions</a>
+<li><a href="tool-linux.html#linux-server-distributions">Linux Server Distributions</a>
 <ul>
 <li><a href="tool-linux.html#debian">Debian</a></li>
 <li><a href="tool-linux.html#nix">Nix</a></li>
 </ul>
 </li>
-<li><a href="tool-linux.html#linux-desktop">Linux Desktop</a>
+<li><a href="tool-linux.html#linux-desktop-distributions">Linux Desktop Distributions</a>
 <ul>
 <li><a href="tool-linux.html#popos-shell">PopOS Shell</a></li>
 <li><a href="tool-linux.html#gnome">Gnome</a></li>
@@ -1369,7 +1369,7 @@ newgrp incus-admin
 <li>It does its job (compute) quite well.</li>
 <li>And, most importantly it has great synergy with the rest of the chuck-stack.</li>
 </ul>
-<h2 id="linux-distributions"><a class="header" href="#linux-distributions">Linux Distributions</a></h2>
+<h2 id="linux-server-distributions"><a class="header" href="#linux-server-distributions">Linux Server Distributions</a></h2>
 <p>The chuck-stack standardizes on two distributions of Linux:</p>
 <ul>
 <li>Debian</li>
@@ -1399,16 +1399,21 @@ newgrp incus-admin
 <li>See how NixOS is used in the <a href="./stack-architecture.html#nixos">chuck-stack architecture</a></li>
 <li><a href="https://www.youtube.com/watch?v=X_jMqi-0SrM">Nix explained</a> - provides an overview of the Nix ecosystem</li>
 </ul>
-<h2 id="linux-desktop"><a class="header" href="#linux-desktop">Linux Desktop</a></h2>
+<h2 id="linux-desktop-distributions"><a class="header" href="#linux-desktop-distributions">Linux Desktop Distributions</a></h2>
 <p>The chuck-stack standardizes on two Linux desktops:</p>
 <ul>
-<li>PopOS Shell (Cosmic)</li>
+<li>PopOS Shell</li>
 <li>Gnome</li>
 </ul>
 <h3 id="popos-shell"><a class="header" href="#popos-shell">PopOS Shell</a></h3>
-<p>We are most excited about the <a href="https://github.com/pop-os/shell">PopOS shell desktop</a>, and we have used it for more than 2 year; however, it is currently in transition from gnome-based to an independent, pure-rust desktop. Because of this transition and the instability the transition creates, we also support Gnome.</p>
+<p>We strongly recommend PopOS. We have used it for more than 2 year with great success.</p>
+<p>Note that it is currently in transition from gnome-based to an independent, pure-rust desktop. Here are the important details:</p>
+<ul>
+<li><a href="https://system76.com/pop/">PopOS</a> - what we currently use...</li>
+<li><a href="https://system76.com/cosmic/">PopOS Cosmic</a> - what we will transition to when released beyond alpha...</li>
+</ul>
 <h3 id="gnome"><a class="header" href="#gnome">Gnome</a></h3>
-<p>Gnome is a good and well understood Linux desktop.</p>
+<p>Gnome is a good and well understood Linux desktop. Note that Gnome does not configure <code>super + t</code> to open a terminal by default. This may seem silly; however, to us, it is a big deal to have the terminal at our fingertips from anywhere and everywhere.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postgresql-1"><a class="header" href="#postgresql-1">PostgreSQL</a></h1>
 <p><a href="https://www.postgresql.org/">PostgreSQL</a> is an open source database, and it is quite possibly the best general purpose tool for managing data in the world. We realize this is a bold statement; however, after almost 30 years in mid-market ERP (Enterprise Resource Planning), we know a thing about managing data. PostgreSQL is our preferred tool in its category for some very good reasons.</p>
 <h2 id="toc-12"><a class="header" href="#toc-12">TOC</a></h2>
