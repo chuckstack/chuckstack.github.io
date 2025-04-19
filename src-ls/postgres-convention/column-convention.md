@@ -22,6 +22,8 @@ The purpose of this section is to list the columns that appear in every table th
 - `updated_by_uu` - uuid foreign key reference to the database user/role that last updated the record.
 - `table_name` - generated column that hard-codes the name of the table.
 - `stk_session_uu` - (not implemented yet) must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.
+- `revoked` - timestamptz indicating if a record has been soft deleted and can no longer be modified.
+- `is_revoked` - boolean derived/generated from `revoked` indicating if a record has been revoked. If a record has an `is_revoked`=true, the record should not be be returned as an option for selection in future lists and drop down fields.
 
 Notes:
 
@@ -31,7 +33,6 @@ Notes:
 
 The purpose of this section is to list the columns you commonly find in chuck-stack tables. Many of the below columns are used in the [sample table](./sample-table-convention.md).
 
-- `is_active` - boolean that indicates if a record can be modified. is_active also acts as a soft-delete. If a record has an is_active=false, the record should be be returned as an option for selection in future lists and drop down fields. This column must be present to update it after the initial save; therefore, it appears in most tables.
 - `name` - `text` representing the name of the record.
 - `description` - `text` representing the description of the record.
 - `search_key` - user defined `text`. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.
@@ -50,7 +51,7 @@ The purpose of this section is to list the columns you commonly find in chuck-st
 - `is_valid` - boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow -->
 - `is_include` - boolean that indicates if a record is of type include. Including a record could potentially impact all records that are not included. Said another way, including a record could potentially exclude all other records.
 - `is_exclude` - boolean that indicates if a record is of type exclude. Excluding a record only impacts that specified record.
-- `is_singleton` - indicates that only a single record or object should exist for group or category. Used for example to indicate if more than one attribute tag is allowed for given combination of table_name, uu, stk_attribute_tag_type_uu. If `is_singleton`=Y, then only one instance of an attribute tag type is allowed per record.
+- `is_singleton` - indicates that only a single record or object should exist for group or category. Used for example to indicate if more than one attribute tag is allowed for given combination of table_name, uu, stk_attribute_tag_type_uu. If `is_singleton`=true, then only one instance of an attribute tag type is allowed per record.
 - `batch_id` - `text` indicating this record was processed as part of a batch operation. A single record couple participate in multiple batches. if so, use the noun_adjective approach (example: batch_import_id).
 - `table_name` - `text` referencing the name of a table. This column is often generated.
 - `column_name` - `text` referencing the name of a column.

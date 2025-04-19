@@ -199,6 +199,8 @@
 <li><code>updated_by_uu</code> - uuid foreign key reference to the database user/role that last updated the record.</li>
 <li><code>table_name</code> - generated column that hard-codes the name of the table.</li>
 <li><code>stk_session_uu</code> - (not implemented yet) must be set with every insert and update. This tells events (and everything else) what where the details (user,role,docdate, etc...) surrounding this change.</li>
+<li><code>revoked</code> - timestamptz indicating if a record has been soft deleted and can no longer be modified.</li>
+<li><code>is_revoked</code> - boolean derived/generated from <code>revoked</code> indicating if a record has been revoked. If a record has an <code>is_revoked</code>=true, the record should not be be returned as an option for selection in future lists and drop down fields.</li>
 </ul>
 <p>Notes:</p>
 <ul>
@@ -207,7 +209,6 @@
 <h3 id="optional-columns"><a class="header" href="#optional-columns">Optional Columns</a></h3>
 <p>The purpose of this section is to list the columns you commonly find in chuck-stack tables. Many of the below columns are used in the <a href="./sample-table-convention.html">sample table</a>.</p>
 <ul>
-<li><code>is_active</code> - boolean that indicates if a record can be modified. is_active also acts as a soft-delete. If a record has an is_active=false, the record should be be returned as an option for selection in future lists and drop down fields. This column must be present to update it after the initial save; therefore, it appears in most tables.</li>
 <li><code>name</code> - <code>text</code> representing the name of the record.</li>
 <li><code>description</code> - <code>text</code> representing the description of the record.</li>
 <li><code>search_key</code> - user defined <code>text</code>. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.</li>
@@ -226,7 +227,7 @@
 <li><code>is_valid</code> - boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow --></li>
 <li><code>is_include</code> - boolean that indicates if a record is of type include. Including a record could potentially impact all records that are not included. Said another way, including a record could potentially exclude all other records.</li>
 <li><code>is_exclude</code> - boolean that indicates if a record is of type exclude. Excluding a record only impacts that specified record.</li>
-<li><code>is_singleton</code> - indicates that only a single record or object should exist for group or category. Used for example to indicate if more than one attribute tag is allowed for given combination of table_name, uu, stk_attribute_tag_type_uu. If <code>is_singleton</code>=Y, then only one instance of an attribute tag type is allowed per record.</li>
+<li><code>is_singleton</code> - indicates that only a single record or object should exist for group or category. Used for example to indicate if more than one attribute tag is allowed for given combination of table_name, uu, stk_attribute_tag_type_uu. If <code>is_singleton</code>=true, then only one instance of an attribute tag type is allowed per record.</li>
 <li><code>batch_id</code> - <code>text</code> indicating this record was processed as part of a batch operation. A single record couple participate in multiple batches. if so, use the noun_adjective approach (example: batch_import_id).</li>
 <li><code>table_name</code> - <code>text</code> referencing the name of a table. This column is often generated.</li>
 <li><code>column_name</code> - <code>text</code> referencing the name of a column.</li>
