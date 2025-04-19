@@ -92,8 +92,8 @@ CREATE TABLE private.stk_changeme (
   ----Prompt: ask the user if they need to store json
   --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   ----Prompt: ask the user if they need to know when/if a record was processed
-  --date_processed TIMESTAMPTZ,
-  --is_processed BOOLEAN GENERATED ALWAYS AS (date_processed IS NOT NULL) STORED,
+  --processed TIMESTAMPTZ,
+  --is_processed BOOLEAN GENERATED ALWAYS AS (processed IS NOT NULL) STORED,
   search_key TEXT NOT NULL UNIQUE DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   description TEXT
@@ -148,8 +148,8 @@ CREATE TABLE private.stk_changeme_part (
   ----Prompt: ask the user if they need to store json
   --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   ----Prompt: ask the user if they need to know when/if a record was processed
-  --date_processed TIMESTAMPTZ,
-  --is_processed BOOLEAN GENERATED ALWAYS AS (date_processed IS NOT NULL) STORED,
+  --processed TIMESTAMPTZ,
+  --is_processed BOOLEAN GENERATED ALWAYS AS (processed IS NOT NULL) STORED,
   search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   description TEXT,
