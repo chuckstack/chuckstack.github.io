@@ -57,6 +57,7 @@
   - [Postgres Services](./postgres-services.md)
     - [Async](./postgres-convention/async.md)
     - [Attribute Tagging](./postgres-convention/attribute-tag.md)
+    - [Change Log](./postgres-convention/change-log.md)
     - [Event](./postgres-convention/event.md)
     - [Notify](./postgres-convention/notify.md)
     - [Request Workflow](./postgres-convention/request.md)
