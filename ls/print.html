@@ -2851,8 +2851,8 @@ There are two key process features that make this vision a reality: 1) workflow 
 <li><code>record_json</code> - the record's jsonb column that holds less structured data.</li>
 <li><code>table_name_uu_json</code> - jsonb object referencing <code>{"table_name": "","uu": ""}</code>. This is used by services tables (like <a href="postgres-convention/./attribute-tag.html">attribute tagging</a>) to link to the serviced record.</li>
 <li><code>is_default</code> - boolean that indicates if a record should represent a default option. Typically, only one records can have is_default=true; however, there are circumstances where multiple records in the same table can have is_default=true based on unique record attributes. Implementors chose the unique criteria for any given table with a is_default column.</li>
-<li><code>date_processed</code> - timestamptz indicating when the record was processed.</li>
-<li><code>is_processed</code> - boolean derived/generated from <code>date_processed</code> automatically indicating if a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column.</li>
+<li><code>processed</code> - timestamptz indicating when the record was processed.</li>
+<li><code>is_processed</code> - boolean derived/generated from <code>processed</code> automatically indicating if a record has reached its final state. Said another way, if a record's is_processed=true, then no part of the record should updated or deleted. TODO: we need a way to prevent children of processed records to also be assumed to be processed unless the record has its own is_processed column.</li>
 <li><code>is_summary</code> - boolean that indicates if a record is intended to be a parent to other records in the same table.</li>
 <li><code>is_template</code> - boolean that indicates if a record exists for the purpose of cloning to create new records.</li>
 <li><code>is_valid</code> - boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow --></li>
@@ -3151,7 +3151,8 @@ CREATE TABLE private.stk_changeme_type (
   created_by_uu UUID NOT NULL, -- no FK by convention
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_by_uu UUID NOT NULL, -- no FK by convention
-  is_active BOOLEAN NOT NULL DEFAULT true,
+  revoked TIMESTAMPTZ,
+  is_revoked BOOLEAN GENERATED ALWAYS AS (revoked IS NOT NULL) STORED,
   is_default BOOLEAN NOT NULL DEFAULT false,
   type_enum private.stk_changeme_type_enum NOT NULL,
   ----Prompt: ask the user if they need to store json
@@ -3179,7 +3180,8 @@ CREATE TABLE private.stk_changeme (
   created_by_uu UUID NOT NULL, -- no FK by convention
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_by_uu UUID NOT NULL, -- no FK by convention
-  is_active BOOLEAN NOT NULL DEFAULT true,
+  revoked TIMESTAMPTZ,
+  is_revoked BOOLEAN GENERATED ALWAYS AS (revoked IS NOT NULL) STORED,
   ----Prompt: ask the user if they need to create templates
   --is_template BOOLEAN NOT NULL DEFAULT false,
   ----Prompt: ask the user if they need validation
@@ -3190,8 +3192,8 @@ CREATE TABLE private.stk_changeme (
   ----Prompt: ask the user if they need to store json
   --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   ----Prompt: ask the user if they need to know when/if a record was processed
-  --date_processed TIMESTAMPTZ,
-  --is_processed BOOLEAN GENERATED ALWAYS AS (date_processed IS NOT NULL) STORED,
+  --processed TIMESTAMPTZ,
+  --is_processed BOOLEAN GENERATED ALWAYS AS (processed IS NOT NULL) STORED,
   search_key TEXT NOT NULL UNIQUE DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   description TEXT
@@ -3230,7 +3232,8 @@ CREATE TABLE private.stk_changeme_part (
   created_by_uu UUID NOT NULL, -- no FK by convention
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_by_uu UUID NOT NULL, -- no FK by convention
-  is_active BOOLEAN NOT NULL DEFAULT true,
+  revoked TIMESTAMPTZ,
+  is_revoked BOOLEAN GENERATED ALWAYS AS (revoked IS NOT NULL) STORED,
   ----Prompt: ask the user if they need to create templates
   --is_template BOOLEAN NOT NULL DEFAULT false,
   ----Prompt: ask the user if they need validation
@@ -3241,8 +3244,8 @@ CREATE TABLE private.stk_changeme_part (
   ----Prompt: ask the user if they need to store json
   --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   ----Prompt: ask the user if they need to know when/if a record was processed
-  --date_processed TIMESTAMPTZ,
-  --is_processed BOOLEAN GENERATED ALWAYS AS (date_processed IS NOT NULL) STORED,
+  --processed TIMESTAMPTZ,
+  --is_processed BOOLEAN GENERATED ALWAYS AS (processed IS NOT NULL) STORED,
   search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   description TEXT,
