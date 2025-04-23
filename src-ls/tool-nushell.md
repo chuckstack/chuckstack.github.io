@@ -143,4 +143,5 @@ Nushell is powerful. The easiest to learn the Nushell way of thinking is using N
 - Nushell demonstrations and explanations
   - [DevOps part 1](https://youtu.be/uJsZATwQ3R8)
   - [DevOps part 2](https://youtu.be/LFBOLx5KiME)
+- [Nushell todo script - highlighted picture of success](https://github.com/Mrfiregem/nushell-config/tree/master/scripts/todo-txt)
 - [Nushell using AI](https://github.com/cablehead/gpt2099.nu)
