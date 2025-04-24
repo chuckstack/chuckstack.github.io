@@ -56,7 +56,8 @@ The chuck-stack make extensive use of both NixOS and nix-shell because they give
 References: 
 
 - See how NixOS is used in the [chuck-stack architecture](./stack-architecture.md#nixos)
-- [Nix explained](https://www.youtube.com/watch?v=X_jMqi-0SrM) - provides an overview of the Nix ecosystem
+- [Nix introduction](https://youtu.be/FJVFXsNzYZQ) - fast introduction
+- [Nix explained](https://youtu.be/X_jMqi-0SrM) - provides an overview of the Nix ecosystem
 
 ## Linux Desktop Distributions
 
