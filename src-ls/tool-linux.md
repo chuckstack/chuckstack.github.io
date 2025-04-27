@@ -58,6 +58,7 @@ References:
 - See how NixOS is used in the [chuck-stack architecture](./stack-architecture.md#nixos)
 - [Nix introduction](https://youtu.be/FJVFXsNzYZQ) - fast introduction
 - [Nix explained](https://youtu.be/X_jMqi-0SrM) - provides an overview of the Nix ecosystem
+- [Nix value explained from a devops perspective](https://www.youtube.com/watch?v=f-x5cB6qCzA)
 
 ## Linux Desktop Distributions
 
