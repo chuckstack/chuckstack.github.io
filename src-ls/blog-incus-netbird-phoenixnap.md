@@ -68,14 +68,13 @@ Here are the steps to accomplish my proposed hybrid cloud love story:
   - Create a new PhoenixNAP hourly bare-metal Ubuntu or Debian instance with a single CPU, medium core count and medium RAM (about $0.30/hr)
   - Optionally, see below [cloud-init Lock Down](#cloud-init-lock-down) section for added temporary security.
   - This step will take about 6 minutes.
-- Create an account at [Netbird](./tool-netbird.md)
-  - Create a new Netbird 'Setup Key' and note the install commands that include the key.
-  - This step will take you about 4 minutes.
 - `ssh` to the server and install [Incus - getting started](./tool-incus.md#getting-started) as root user.
   - This step will take you about 4 minutes.
-- Install Netbird using the previously created key as ubuntu user.
+- Create an account at [Netbird](./tool-netbird.md)
+  - Create a new Netbird 'Setup Key' and note the install commands that include the key.
+  - `ssh' to the server and install Netbird using the previously created setup key as ubuntu user.
   - Bring up Netbird with your setup key: `netbird up --setup-key xxxxx-xxxx-xxxx`
-  - This will take you about 2 minute.
+  - This will take you about 6 minute.
 - Install Netbird on a local machine so that you can test the connection.
 - Connect from your local machine to your cloud server via ssh using the Netbird IP/URL.
 
