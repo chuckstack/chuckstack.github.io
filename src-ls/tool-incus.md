@@ -247,7 +247,7 @@ This configuration represents a significant increase in CPU core count, memory a
 
 The following is provided as a quick reference. Please see the official references below for more and up to date details.
 
-Install as root on Debian ([official reference](https://github.com/zabbly/incus)):
+Install as root on Debian or Ubuntu ([official reference](https://github.com/zabbly/incus)):
 ```bash
 curl -fsSL https://pkgs.zabbly.com/key.asc | gpg --show-keys --fingerprint
 mkdir -p /etc/apt/keyrings/

@@ -64,18 +64,26 @@ Here is what I am proposing:
 
 Here are the steps to accomplish my proposed hybrid cloud love story:
 
-- Create an account at [Netbird](./tool-netbird.md), and create a new setup key. This will take you about 2 minutes.
-- Create an account at [PhoenixNAP](https://phoenixnap.com/bare-metal-cloud) bare-metal service. This will take about 2 minutes.
-  - Create a new PhoenixNAP hourly bare-metal Debian instance with a single CPU, medium core count and medium RAM.
-  - This will take you about 4 minutes for purchase and allocation, and it will cost you about $0.30 per hour.
-  - Optionally, see below [cloud-init Lock Down](#cloud-init-lock-down) section for added security
-- ssh to the server and install [Incus](./tool-incus.md#getting-started). This will take you about 2 minutes.
-- Install Netbird. This will take you about 1 minute.
+- Create an account at [PhoenixNAP](https://phoenixnap.com/bare-metal-cloud) bare-metal service.
+  - Create a new PhoenixNAP hourly bare-metal Ubuntu or Debian instance with a single CPU, medium core count and medium RAM (about $0.30/hr)
+  - Optionally, see below [cloud-init Lock Down](#cloud-init-lock-down) section for added temporary security.
+  - This step will take about 6 minutes.
+- Create an account at [Netbird](./tool-netbird.md)
+  - Create a new Netbird 'Setup Key' and note the install commands that include the key.
+  - This step will take you about 4 minutes.
+- `ssh` to the server and install [Incus - getting started](./tool-incus.md#getting-started) as root user.
+  - This step will take you about 4 minutes.
+- Install Netbird using the previously created key as ubuntu user.
   - Bring up Netbird with your setup key: `netbird up --setup-key xxxxx-xxxx-xxxx`
+  - This will take you about 2 minute.
 - Install Netbird on a local machine so that you can test the connection.
 - Connect from your local machine to your cloud server via ssh using the Netbird IP/URL.
 
 Congratulations! You now have a distributed hybrid cloud computing environment. You can now add as many Netbird remote users and offices as you deem appropriate and keep your services private.
+
+## Learn More
+
+If you want help executing the topics in this article, join the [stack-academy](./stack-academy.md). We will walk you through the process.
 
 ## Code Repository
 

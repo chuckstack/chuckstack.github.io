@@ -209,6 +209,7 @@
 <li><a href="#problem-statement">Problem Statement</a></li>
 <li><a href="#hybrid-cloud-picture-of-success">Hybrid Cloud Picture of Success</a></li>
 <li><a href="#implementation-details">Implementation Details</a></li>
+<li><a href="#learn-more">Learn More</a></li>
 <li><a href="#code-repository">Code Repository</a></li>
 <li><a href="#lock-it-down">Lock it Down</a></li>
 <li><a href="#first-incus-server">First Incus Server</a></li>
@@ -222,7 +223,7 @@
 <li><a href="#should-you-use-incus-clustering">Should you use Incus clustering?</a></li>
 </ul>
 </li>
-<li><a href="#learn-more">Learn More</a></li>
+<li><a href="#learn-more-1">Learn More</a></li>
 <li><a href="#todo">TODO</a></li>
 </ul>
 <h2 id="references"><a class="header" href="#references">References</a></h2>
@@ -260,24 +261,36 @@
 <h2 id="implementation-details"><a class="header" href="#implementation-details">Implementation Details</a></h2>
 <p>Here are the steps to accomplish my proposed hybrid cloud love story:</p>
 <ul>
-<li>Create an account at <a href="./tool-netbird.html">Netbird</a>, and create a new setup key. This will take you about 2 minutes.</li>
-<li>Create an account at <a href="https://phoenixnap.com/bare-metal-cloud">PhoenixNAP</a> bare-metal service. This will take about 2 minutes.
+<li>Create an account at <a href="https://phoenixnap.com/bare-metal-cloud">PhoenixNAP</a> bare-metal service.
 <ul>
-<li>Create a new PhoenixNAP hourly bare-metal Debian instance with a single CPU, medium core count and medium RAM.</li>
-<li>This will take you about 4 minutes for purchase and allocation, and it will cost you about $0.30 per hour.</li>
-<li>Optionally, see below <a href="#cloud-init-lock-down">cloud-init Lock Down</a> section for added security</li>
+<li>Create a new PhoenixNAP hourly bare-metal Ubuntu or Debian instance with a single CPU, medium core count and medium RAM (about $0.30/hr)</li>
+<li>Optionally, see below <a href="#cloud-init-lock-down">cloud-init Lock Down</a> section for added temporary security.</li>
+<li>This step will take about 6 minutes.</li>
 </ul>
 </li>
-<li>ssh to the server and install <a href="./tool-incus.html#getting-started">Incus</a>. This will take you about 2 minutes.</li>
-<li>Install Netbird. This will take you about 1 minute.
+<li>Create an account at <a href="./tool-netbird.html">Netbird</a>
+<ul>
+<li>Create a new Netbird 'Setup Key' and note the install commands that include the key.</li>
+<li>This step will take you about 4 minutes.</li>
+</ul>
+</li>
+<li><code>ssh</code> to the server and install <a href="./tool-incus.html#getting-started">Incus - getting started</a> as root user.
+<ul>
+<li>This step will take you about 4 minutes.</li>
+</ul>
+</li>
+<li>Install Netbird using the previously created key as ubuntu user.
 <ul>
 <li>Bring up Netbird with your setup key: <code>netbird up --setup-key xxxxx-xxxx-xxxx</code></li>
+<li>This will take you about 2 minute.</li>
 </ul>
 </li>
 <li>Install Netbird on a local machine so that you can test the connection.</li>
 <li>Connect from your local machine to your cloud server via ssh using the Netbird IP/URL.</li>
 </ul>
 <p>Congratulations! You now have a distributed hybrid cloud computing environment. You can now add as many Netbird remote users and offices as you deem appropriate and keep your services private.</p>
+<h2 id="learn-more"><a class="header" href="#learn-more">Learn More</a></h2>
+<p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. We will walk you through the process.</p>
 <h2 id="code-repository"><a class="header" href="#code-repository">Code Repository</a></h2>
 <p>The code and details needed to complete the following steps are <a href="https://github.com/chuckstack/incus-netbird-phoenixnap-firewall">provided here</a> for your reference.</p>
 <h2 id="lock-it-down"><a class="header" href="#lock-it-down">Lock it Down</a></h2>
@@ -411,7 +424,7 @@ apt install nginx -y
 <p>Maybe. Only consider Incus clustering if you have 3 or more servers. Even if you have 3 servers, you should still critically question if you want to cluster. Creating a single cluster from 3 servers adds additional features AND it adds additional complexity.</p>
 <p>The additional complexity needs to be justified. It is perfectly acceptable in many circumstances to maintain 3 isolated Incus instances.</p>
 <p>Reference: <a href="./tool-incus.html#cluster-virtualization">Incus Clustering</a></p>
-<h2 id="learn-more"><a class="header" href="#learn-more">Learn More</a></h2>
+<h2 id="learn-more-1"><a class="header" href="#learn-more-1">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 <p>To discuss this content in more detail, go to <a href="https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75">https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75</a>.</p>
 <h2 id="todo"><a class="header" href="#todo">TODO</a></h2>

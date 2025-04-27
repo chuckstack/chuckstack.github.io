@@ -1312,7 +1312,7 @@ select current_setting('test.test.test.one',true);
 <p>This configuration represents a significant increase in CPU core count, memory and storage over the desktop cluster described above. It also represents a form factor that can be placed in almost any data center (local or cloud).</p>
 <h2 id="getting-started-1"><a class="header" href="#getting-started-1">Getting Started</a></h2>
 <p>The following is provided as a quick reference. Please see the official references below for more and up to date details.</p>
-<p>Install as root on Debian (<a href="https://github.com/zabbly/incus">official reference</a>):</p>
+<p>Install as root on Debian or Ubuntu (<a href="https://github.com/zabbly/incus">official reference</a>):</p>
 <pre><code class="language-bash">curl -fsSL https://pkgs.zabbly.com/key.asc | gpg --show-keys --fingerprint
 mkdir -p /etc/apt/keyrings/
 curl -fsSL https://pkgs.zabbly.com/key.asc -o /etc/apt/keyrings/zabbly.asc
@@ -5201,6 +5201,7 @@ cd ai-llm-operations-wi-chat/
 <li><a href="blog-incus-netbird-phoenixnap.html#problem-statement">Problem Statement</a></li>
 <li><a href="blog-incus-netbird-phoenixnap.html#hybrid-cloud-picture-of-success">Hybrid Cloud Picture of Success</a></li>
 <li><a href="blog-incus-netbird-phoenixnap.html#implementation-details">Implementation Details</a></li>
+<li><a href="blog-incus-netbird-phoenixnap.html#learn-more">Learn More</a></li>
 <li><a href="blog-incus-netbird-phoenixnap.html#code-repository">Code Repository</a></li>
 <li><a href="blog-incus-netbird-phoenixnap.html#lock-it-down">Lock it Down</a></li>
 <li><a href="blog-incus-netbird-phoenixnap.html#first-incus-server">First Incus Server</a></li>
@@ -5214,7 +5215,7 @@ cd ai-llm-operations-wi-chat/
 <li><a href="blog-incus-netbird-phoenixnap.html#should-you-use-incus-clustering">Should you use Incus clustering?</a></li>
 </ul>
 </li>
-<li><a href="blog-incus-netbird-phoenixnap.html#learn-more">Learn More</a></li>
+<li><a href="blog-incus-netbird-phoenixnap.html#learn-more-1">Learn More</a></li>
 <li><a href="blog-incus-netbird-phoenixnap.html#todo">TODO</a></li>
 </ul>
 <h2 id="references-5"><a class="header" href="#references-5">References</a></h2>
@@ -5252,24 +5253,36 @@ cd ai-llm-operations-wi-chat/
 <h2 id="implementation-details-1"><a class="header" href="#implementation-details-1">Implementation Details</a></h2>
 <p>Here are the steps to accomplish my proposed hybrid cloud love story:</p>
 <ul>
-<li>Create an account at <a href="./tool-netbird.html">Netbird</a>, and create a new setup key. This will take you about 2 minutes.</li>
-<li>Create an account at <a href="https://phoenixnap.com/bare-metal-cloud">PhoenixNAP</a> bare-metal service. This will take about 2 minutes.
+<li>Create an account at <a href="https://phoenixnap.com/bare-metal-cloud">PhoenixNAP</a> bare-metal service.
 <ul>
-<li>Create a new PhoenixNAP hourly bare-metal Debian instance with a single CPU, medium core count and medium RAM.</li>
-<li>This will take you about 4 minutes for purchase and allocation, and it will cost you about $0.30 per hour.</li>
-<li>Optionally, see below <a href="blog-incus-netbird-phoenixnap.html#cloud-init-lock-down">cloud-init Lock Down</a> section for added security</li>
+<li>Create a new PhoenixNAP hourly bare-metal Ubuntu or Debian instance with a single CPU, medium core count and medium RAM (about $0.30/hr)</li>
+<li>Optionally, see below <a href="blog-incus-netbird-phoenixnap.html#cloud-init-lock-down">cloud-init Lock Down</a> section for added temporary security.</li>
+<li>This step will take about 6 minutes.</li>
 </ul>
 </li>
-<li>ssh to the server and install <a href="./tool-incus.html#getting-started">Incus</a>. This will take you about 2 minutes.</li>
-<li>Install Netbird. This will take you about 1 minute.
+<li>Create an account at <a href="./tool-netbird.html">Netbird</a>
+<ul>
+<li>Create a new Netbird 'Setup Key' and note the install commands that include the key.</li>
+<li>This step will take you about 4 minutes.</li>
+</ul>
+</li>
+<li><code>ssh</code> to the server and install <a href="./tool-incus.html#getting-started">Incus - getting started</a> as root user.
+<ul>
+<li>This step will take you about 4 minutes.</li>
+</ul>
+</li>
+<li>Install Netbird using the previously created key as ubuntu user.
 <ul>
 <li>Bring up Netbird with your setup key: <code>netbird up --setup-key xxxxx-xxxx-xxxx</code></li>
+<li>This will take you about 2 minute.</li>
 </ul>
 </li>
 <li>Install Netbird on a local machine so that you can test the connection.</li>
 <li>Connect from your local machine to your cloud server via ssh using the Netbird IP/URL.</li>
 </ul>
 <p>Congratulations! You now have a distributed hybrid cloud computing environment. You can now add as many Netbird remote users and offices as you deem appropriate and keep your services private.</p>
+<h2 id="learn-more-6"><a class="header" href="#learn-more-6">Learn More</a></h2>
+<p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. We will walk you through the process.</p>
 <h2 id="code-repository"><a class="header" href="#code-repository">Code Repository</a></h2>
 <p>The code and details needed to complete the following steps are <a href="https://github.com/chuckstack/incus-netbird-phoenixnap-firewall">provided here</a> for your reference.</p>
 <h2 id="lock-it-down"><a class="header" href="#lock-it-down">Lock it Down</a></h2>
@@ -5403,7 +5416,7 @@ apt install nginx -y
 <p>Maybe. Only consider Incus clustering if you have 3 or more servers. Even if you have 3 servers, you should still critically question if you want to cluster. Creating a single cluster from 3 servers adds additional features AND it adds additional complexity.</p>
 <p>The additional complexity needs to be justified. It is perfectly acceptable in many circumstances to maintain 3 isolated Incus instances.</p>
 <p>Reference: <a href="./tool-incus.html#cluster-virtualization">Incus Clustering</a></p>
-<h2 id="learn-more-6"><a class="header" href="#learn-more-6">Learn More</a></h2>
+<h2 id="learn-more-7"><a class="header" href="#learn-more-7">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 <p>To discuss this content in more detail, go to <a href="https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75">https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75</a>.</p>
 <h2 id="todo-4"><a class="header" href="#todo-4">TODO</a></h2>
@@ -5433,7 +5446,7 @@ apt install nginx -y
 <li>easy to measure results</li>
 </ul>
 <p>Does this help paint a picture of how to start creating AI success? Thanks again for your support!!!</p>
-<h2 id="learn-more-7"><a class="header" href="#learn-more-7">Learn More</a></h2>
+<h2 id="learn-more-8"><a class="header" href="#learn-more-8">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="the-cli-is-better-1"><a class="header" href="#the-cli-is-better-1">The CLI is Better</a></h1>
 <ul>
@@ -5492,7 +5505,7 @@ apt install nginx -y
 <p>We basically took two general purpose tools, combined them together with a single character "|" and created a unique solution.</p>
 <h2 id="everyone-needs-this"><a class="header" href="#everyone-needs-this">Everyone Needs This</a></h2>
 <p>Our vision of success is enabling every user in small and medium organizations to gain and use high-value, low-effort tools like ddgr and AIChat to help themselves and solve problems in their everyday roles.</p>
-<h2 id="learn-more-8"><a class="header" href="#learn-more-8">Learn More</a></h2>
+<h2 id="learn-more-9"><a class="header" href="#learn-more-9">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="why-conversational-enterprise-computing-matters-1"><a class="header" href="#why-conversational-enterprise-computing-matters-1">Why Conversational Enterprise Computing Matters</a></h1>
 <ul>
@@ -5517,7 +5530,7 @@ apt install nginx -y
 </blockquote>
 <p>Note that conversational enterprise computing makes no references to what tools are used to create the application or how the application is delivered (web versus terminal). It is just a style or a type computing that sits in stark contrast to the last 20 years of ERP.</p>
 <p>The chuck-stack positions itself as a leader in conversational enterprise computing by putting in the work to assemble the tools, document the best practices in one place, and teach anyone who is willing to learn. Said another way, we go to heroic efforts to make this style of computing available to everyone in every corner of the world.</p>
-<h2 id="learn-more-9"><a class="header" href="#learn-more-9">Learn More</a></h2>
+<h2 id="learn-more-10"><a class="header" href="#learn-more-10">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="work-instructions-make-your-organization-sexy-1"><a class="header" href="#work-instructions-make-your-organization-sexy-1">Work Instructions Make your Organization Sexy</a></h1>
 <ul>
@@ -5587,7 +5600,7 @@ apt install nginx -y
 </ul>
 <p>What's changed is how we do it. If you can do what this article suggests, it stands to reason that you will greatly increase the value of your organization. Better documentation with more automation results in more value. Anyone can make 1 + 1 = 2. It takes synergy (like with work instruction + automation) to make 1 + 1 = 11. That is what we do.</p>
 <p>We take easy to understand <a href="./best-practices.html">concepts</a> and <a href="./stack-tools.html">tools</a> and create synergy that drives your operational and transactional velocity and efficiency. We make you more valuable!</p>
-<h2 id="learn-more-10"><a class="header" href="#learn-more-10">Learn More</a></h2>
+<h2 id="learn-more-11"><a class="header" href="#learn-more-11">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 <h3 id="percentage-who-read-the-us-constitution"><a class="header" href="#percentage-who-read-the-us-constitution">Percentage Who Read The US Constitution</a></h3>
 <p>It's difficult to provide an exact percentage of US citizens who have not read the Constitution, as I am not aware of a nationwide survey that has measured this specific information. However, various polls and studies over the years have indicated that a significant portion of Americans have not read the entire Constitution. If you want to know more about sources that would either prove or disprove these comments, I encourage you to ask AI.</p>
@@ -5618,7 +5631,7 @@ apt install nginx -y
 <li>Markdown docs can easily be turned into private and public project websites using tools like <a href="https://rust-lang.github.io/mdBook/">mdBook</a> with virtually no effort and almost no tooling. The resulting mdbook website augments the git pull request for edits from the whole team by providing a quick edit link on every page.</li>
 </ul>
 <p>For more reasons to consider markdown, see the <a href="./best-practices.html">chuck-stack best practices</a>.</p>
-<h2 id="learn-more-11"><a class="header" href="#learn-more-11">Learn More</a></h2>
+<h2 id="learn-more-12"><a class="header" href="#learn-more-12">Learn More</a></h2>
 <p>If you want help executing the topics in this article, join the <a href="./stack-academy.html">stack-academy</a>. Not ready to join... We can always <a href="../learn-more.html">stay connected</a> to learn more.</p>
 
                         <br>
