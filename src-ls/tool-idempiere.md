@@ -10,7 +10,7 @@
 
 Here are the reasons we love iDempiere:
 
-- Mature, stable and full featured
+- Mature, stable and full featured ERP
 - Runs on a small server
 - Runs headless behind an API
 - Scales to hundreds of users
