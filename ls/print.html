@@ -5253,8 +5253,13 @@ cd ai-llm-operations-wi-chat/
 <p>Here are the steps to accomplish my proposed hybrid cloud love story:</p>
 <ul>
 <li>Create an account at <a href="./tool-netbird.html">Netbird</a>, and create a new setup key. This will take you about 2 minutes.</li>
-<li>Create an account at <a href="https://phoenixnap.com/bare-metal-cloud">PhoenixNAP</a> bare-metal service. This will take about 2 minutes.</li>
-<li>Create a new PhoenixNAP hourly bare-metal Debian instance with a single CPU, medium core count and medium RAM. This will take you about 4 minutes for purchase and allocation, and it will cost you about $0.30 per hour.</li>
+<li>Create an account at <a href="https://phoenixnap.com/bare-metal-cloud">PhoenixNAP</a> bare-metal service. This will take about 2 minutes.
+<ul>
+<li>Create a new PhoenixNAP hourly bare-metal Debian instance with a single CPU, medium core count and medium RAM.</li>
+<li>This will take you about 4 minutes for purchase and allocation, and it will cost you about $0.30 per hour.</li>
+<li>Optionally, see below <a href="blog-incus-netbird-phoenixnap.html#cloud-init-lock-down">cloud-init Lock Down</a> section for added security</li>
+</ul>
+</li>
 <li>ssh to the server and install <a href="./tool-incus.html#getting-started">Incus</a>. This will take you about 2 minutes.</li>
 <li>Install Netbird. This will take you about 1 minute.
 <ul>
@@ -5272,7 +5277,9 @@ cd ai-llm-operations-wi-chat/
 <p><code>ssh</code> to the server via the Netbird IP, and issue the following commands:</p>
 <pre><code class="language-bash">git clone https://github.com/chuckstack/incus-netbird-phoenixnap-firewall.git
 cd incus-netbird-phoenixnap-firewall
-sudo cp ./chuck-stack.conf /etc/nftables.conf
+sudo nft -f ./chuck-stack.conf # make new rules active immediately
+sudo cp ./chuck-stack.conf /etc/nftables.conf # make new rules persist in future
+sudo nft delete table inet chuck-stack-temp # delete temp rules created during cloud-init if applicable
 </code></pre>
 <p>These commands configure and enable an nftables firewall to do the following:</p>
 <ul>
@@ -5309,7 +5316,7 @@ Nmap done: 1 IP address (1 host up) scanned in 6582.44 seconds
 apt install openssh-server
 </code></pre>
 <p>Install Netbird:</p>
-<pre><code class="language-bash">netbird up --setup-key xxxxx-xxxx-xxxx --allow-server-ssh
+<pre><code class="language-bash">netbird up --setup-key xxxxx-xxxx-xxxx
 </code></pre>
 <p>Install nginx so that we can see the default page:</p>
 <pre><code class="language-bash">apt update

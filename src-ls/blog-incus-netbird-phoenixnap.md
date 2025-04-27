@@ -66,7 +66,9 @@ Here are the steps to accomplish my proposed hybrid cloud love story:
 
 - Create an account at [Netbird](./tool-netbird.md), and create a new setup key. This will take you about 2 minutes.
 - Create an account at [PhoenixNAP](https://phoenixnap.com/bare-metal-cloud) bare-metal service. This will take about 2 minutes.
-- Create a new PhoenixNAP hourly bare-metal Debian instance with a single CPU, medium core count and medium RAM. This will take you about 4 minutes for purchase and allocation, and it will cost you about $0.30 per hour.
+  - Create a new PhoenixNAP hourly bare-metal Debian instance with a single CPU, medium core count and medium RAM.
+  - This will take you about 4 minutes for purchase and allocation, and it will cost you about $0.30 per hour.
+  - Optionally, see below [cloud-init Lock Down](#cloud-init-lock-down) section for added security
 - ssh to the server and install [Incus](./tool-incus.md#getting-started). This will take you about 2 minutes.
 - Install Netbird. This will take you about 1 minute.
   - Bring up Netbird with your setup key: `netbird up --setup-key xxxxx-xxxx-xxxx`
@@ -88,7 +90,9 @@ After you prove you can connect via the Netbird network, let's lock down your se
 ```bash
 git clone https://github.com/chuckstack/incus-netbird-phoenixnap-firewall.git
 cd incus-netbird-phoenixnap-firewall
-sudo cp ./chuck-stack.conf /etc/nftables.conf
+sudo nft -f ./chuck-stack.conf # make new rules active immediately
+sudo cp ./chuck-stack.conf /etc/nftables.conf # make new rules persist in future
+sudo nft delete table inet chuck-stack-temp # delete temp rules created during cloud-init if applicable
 ```
 
 These commands configure and enable an nftables firewall to do the following:
@@ -144,7 +148,7 @@ apt install openssh-server
 Install Netbird:
 
 ```bash
-netbird up --setup-key xxxxx-xxxx-xxxx --allow-server-ssh
+netbird up --setup-key xxxxx-xxxx-xxxx
 ```
 
 Install nginx so that we can see the default page:
