@@ -20,7 +20,7 @@ Here are the reasons we love iDempiere:
 - Supports multiple entities (sets of books) inside a single login
 - Commonly used around the world
 - Supported by a large community
-- Costs a fraction of proprietary ERP
+- Costs a fraction of proprietary ERP to deploy and support
 
 ## 20+ Years with iDempiere
 
