@@ -269,8 +269,7 @@ apt-get install incus -y
 Configure as your typical user ([official reference](https://linuxcontainers.org/incus/docs/main/tutorial/first_steps/)):
 
 ```bash
-YOUR_USERNAME=$(id -u -n)
-sudo adduser $YOUR_USERNAME incus-admin
+sudo adduser $USER incus-admin
 newgrp incus-admin
 ```
 

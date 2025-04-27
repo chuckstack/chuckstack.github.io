@@ -1330,8 +1330,7 @@ apt-get update
 apt-get install incus -y
 </code></pre>
 <p>Configure as your typical user (<a href="https://linuxcontainers.org/incus/docs/main/tutorial/first_steps/">official reference</a>):</p>
-<pre><code class="language-bash">YOUR_USERNAME=$(id -u -n)
-sudo adduser $YOUR_USERNAME incus-admin
+<pre><code class="language-bash">sudo adduser $USER incus-admin
 newgrp incus-admin
 </code></pre>
 <p><a href="https://bketelsen.github.io/IncusScripts/scripts">Here is a list of Incus scripts</a> to help you get common applications up and running.</p>
