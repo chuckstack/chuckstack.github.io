@@ -59,9 +59,9 @@ References:
 - [Nix introduction](https://youtu.be/FJVFXsNzYZQ) - fast introduction
 - [Nix explained](https://youtu.be/X_jMqi-0SrM) - provides an overview of the Nix ecosystem
 - [Nix value explained from a devops perspective](https://www.youtube.com/watch?v=f-x5cB6qCzA) - Here are our thoughts:
-  - This is a long video, and it might not seem directly applicable at first.
+  - This is a long video, and it might not seem directly applicable at first - but it is!
   - We assert that configuring a homelab as described in this video and configuring an application environment for a small and medium organization is virtually the same.
-  - We agree with the reasons for using NixOS (specifically around using systemd for service delivery - as opposed to Docker)
+  - We agree with the reasons for using NixOS service delivery (as compared to Docker and Ansible).
 
 ## Linux Desktop Distributions
 
