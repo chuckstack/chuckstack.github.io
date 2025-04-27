@@ -273,6 +273,7 @@ Configure as your typical (debian or ubuntu) user ([official reference](https://
 echo "run as debian/ubuntu"
 sudo adduser $USER incus-admin
 newgrp incus-admin
+incus admin init
 ```
 
 [Here is a list of Incus scripts](https://bketelsen.github.io/IncusScripts/scripts) to help you get common applications up and running.
