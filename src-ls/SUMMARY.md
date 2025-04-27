@@ -22,6 +22,7 @@
   - [Git](./tool-git.md)
   - [Obsidian](./tool-obsidian.md)
   - [Netbird](./tool-netbird.md)
+  - [iDempiere](./tool-idempiere.md)
   - [htmx](./tool-htmx.md)
   - [Discourse](./tool-discourse.md)
   - [mdBook](./tool-mdbook.md)
