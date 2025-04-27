@@ -69,118 +69,43 @@ Here are the steps to accomplish my proposed hybrid cloud love story:
 - Create a new PhoenixNAP hourly bare-metal Debian instance with a single CPU, medium core count and medium RAM. This will take you about 4 minutes for purchase and allocation, and it will cost you about $0.30 per hour.
 - ssh to the server and install [Incus](./tool-incus.md#getting-started). This will take you about 2 minutes.
 - Install Netbird. This will take you about 1 minute.
-  - Bring up Netbird with your setup key: `netbird up --setup-key xxxxx-xxxx-xxxx --allow-server-ssh`
-  - 'Allow ssh' in your Netbird console in addition to the above `--allow-server-ssh`.
+  - Bring up Netbird with your setup key: `netbird up --setup-key xxxxx-xxxx-xxxx`
 - Install Netbird on a local machine so that you can test the connection.
 - Connect from your local machine to your cloud server via ssh using the Netbird IP/URL.
 
-Congratulations! You now have a distributed hybrid cloud computing environment.
+Congratulations! You now have a distributed hybrid cloud computing environment. You can now add as many Netbird remote users and offices as you deem appropriate and keep your services private.
+
+## Code Repository
+
+The code and details needed to complete the following steps are [provided here](https://github.com/chuckstack/incus-netbird-phoenixnap-firewall) for your reference.
 
 ## Lock it Down
 
-After you prove you can connect via the Netbird network, let's lock down your server. ssh to the server via the Netbird IP, and issue the following firewall commands. You may execute them as many times as is needed.
+After you prove you can connect via the Netbird network, let's lock down your server to prevent the outside world from seeing your services. 
+
+`ssh` to the server via the Netbird IP, and issue the following commands:
+
+```bash
+git clone https://github.com/chuckstack/incus-netbird-phoenixnap-firewall.git
+cd incus-netbird-phoenixnap-firewall
+sudo cp ./chuck-stack.conf /etc/nftables.conf
+```
+
+These commands configure and enable an nftables firewall to do the following:
+
+- Allow nothing from the outside world to enter your server
+- Adds no additional restrictions around the default Netbird and Incus network adapters/bridges
+
+Notice the simplicity and comments of the [firewall file](https://github.com/chuckstack/incus-netbird-phoenixnap-firewall/blob/main/chuck-stack.conf). 
+
+Here is an nftables example of how to open ssh to only your IP if needed: <https://github.com/chuckstack/incus-netbird-phoenixnap-firewall/blob/main/cloud-init.md>
 
 Notes about leaving SSH open to your IP: 
 
-- The below script has commented out lines you can use to keep SSH open to your IP giving you an additional connection options.
 - Your local IP can change if you have DHCP.
 - Opening SSH to an IP can open the server to an entire group of people that share your IP (local office).
 
-```bash
-#!/bin/bash
-# Install iptables-persistent to save rules
-DEBIAN_FRONTEND=noninteractive sudo apt-get install iptables-persistent -y
-
-# Set my IP if you wish to allow ssh from it - uncomment this and below statements if needed
-#MY_IP_ADDRESS=x.x.x.x
-#MY_IP6_ADDRESS=x:x:x:x
-
-# Find my IP addresses
-##curl -4 ifconfig.me #ip-v4
-##curl -6 ifconfig.me #ip-v6
-
-# Variables - these should not change
-NETBIRD_NETWORK=wt0
-INCUS_NETWORK=incusbr0
-
-# Get network interface details
-MAIN_INTERFACE=$(ip route get 8.8.8.8 | grep -oP 'dev \K\S+')
-INCUS_SUBNET=$(ip -4 addr show $INCUS_NETWORK | grep -oP '(?<=inet\s)\d+(\.\d+){3}/\d+')
-INCUS_SUBNET_V6=$(ip -6 addr show $INCUS_NETWORK | grep -oP '(?<=inet6\s)[0-9a-f:]+/\d+' | grep -v '^fe80')
-
-# Flush existing rules
-sudo iptables -F
-sudo iptables -X
-sudo iptables -t nat -F
-sudo iptables -t nat -X
-sudo ip6tables -F
-sudo ip6tables -X
-sudo ip6tables -t nat -F
-sudo ip6tables -t nat -X
-
-# Set default policies to DROP
-sudo iptables -P INPUT DROP
-sudo iptables -P FORWARD DROP
-sudo iptables -P OUTPUT ACCEPT
-sudo ip6tables -P INPUT DROP
-sudo ip6tables -P FORWARD DROP
-sudo ip6tables -P OUTPUT ACCEPT
-
-# Allow loopback
-sudo iptables -A INPUT -i lo -j ACCEPT
-sudo iptables -A OUTPUT -o lo -j ACCEPT
-sudo ip6tables -A INPUT -i lo -j ACCEPT
-sudo ip6tables -A OUTPUT -o lo -j ACCEPT
-
-# Allow established and related connections
-sudo iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-sudo iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-sudo ip6tables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-sudo ip6tables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-
-# Allow $NETBIRD_NETWORK interface
-sudo iptables -A INPUT -i $NETBIRD_NETWORK -j ACCEPT
-sudo iptables -A OUTPUT -o $NETBIRD_NETWORK -j ACCEPT
-sudo ip6tables -A INPUT -i $NETBIRD_NETWORK -j ACCEPT
-sudo ip6tables -A OUTPUT -o $NETBIRD_NETWORK -j ACCEPT
-
-# Allow $INCUS_NETWORK interface
-sudo iptables -A INPUT -i $INCUS_NETWORK -j ACCEPT
-sudo iptables -A OUTPUT -o $INCUS_NETWORK -j ACCEPT
-sudo ip6tables -A INPUT -i $INCUS_NETWORK -j ACCEPT
-sudo ip6tables -A OUTPUT -o $INCUS_NETWORK -j ACCEPT
-
-# NAT and forwarding rules
-sudo iptables -t nat -A POSTROUTING -s $INCUS_SUBNET -o $MAIN_INTERFACE -j MASQUERADE
-sudo iptables -A FORWARD -i $INCUS_NETWORK -o $MAIN_INTERFACE -j ACCEPT
-sudo iptables -A FORWARD -i $MAIN_INTERFACE -o $INCUS_NETWORK -j ACCEPT
-sudo ip6tables -t nat -A POSTROUTING -s $INCUS_SUBNET_V6 -o $MAIN_INTERFACE -j MASQUERADE
-sudo ip6tables -A FORWARD -i $INCUS_NETWORK -o $MAIN_INTERFACE -j ACCEPT
-sudo ip6tables -A FORWARD -i $MAIN_INTERFACE -o $INCUS_NETWORK -j ACCEPT
-
-# Allow SSH from your specific IP (must set MY_IP_ADDRESS and MY_IP6_ADDRESS above)
-#sudo iptables -A INPUT -p tcp -s $MY_IP_ADDRESS --dport 22 -j ACCEPT
-#sudo ip6tables -A INPUT -p tcp -s $MY_IP6_ADDRESS --dport 22 -j ACCEPT
-
-# If you want to allow SSH from ANYWHERE (less secure)
-#sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
-#sudo ip6tables -A INPUT -p tcp --dport 22 -j ACCEPT
-
-# Allow SSH output
-sudo iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
-sudo ip6tables -A OUTPUT -p tcp --sport 22 -j ACCEPT
-
-# Save the iptables rules
-DEBIAN_FRONTEND=noninteractive sudo netfilter-persistent save
-```
-
-These commands configure and enable a firewall to do the following:
-
-- Allow nothing from the outside world to enter your server
-- Removes all restrictions around both the Netbird and Incus network adapters
-- Allows containers to use DNS to reach the outside world
-
-It is important to note that I am not a security advisor. You are well advised to validate any claims made here. Here is how I quickly tested the server from a remote machine:
+It is important to note that we am not a security advisors. You are well advised to validate any claims made here. Here is how we quickly tested the server from a remote machine:
 
 ```bash
 ❯ nmap -Pn -p- -T4 <server-public-ip>
@@ -200,7 +125,7 @@ Let's configure our first Incus cloud server and join it to the Netbird network.
 Connect to your Incus server via ssh and launch your first server:
 
 ```bash
-incus launch images:debian/12/cloud debian-guest-01 -d root,size=15GiB
+incus launch images:debian/12/cloud debian-guest-01 -d root,size=12GiB
 ```
 
 Connect to your Debian server:
@@ -238,7 +163,7 @@ If all worked as expected, you can exit back to your local machine and test your
 
 ## Taking Inventory of What We Accomplished
 
-I cannot put into words how excited I am about this solution. We created a global network (using Netbird) using a tool that can run anywhere (Incus) to provide service to our organization.
+I cannot put into words how excited I am about this solution. We created a global network (using Netbird) using a tool that can run anywhere (Incus) to provide service to our organization at a fraction of the cloud cost (PhoenixNAP).
 
 We can test our services on a local desktop, deploy services to a local server, and replicate services to cloud servers... All using the same tools and skills at every step!
 
@@ -277,75 +202,11 @@ Let's break this down:
 
 Note that this step is not critical; however, it is good practice. It is offered for your consideration.
 
-When you create a new instance in PhoenixNAP with a public IP, the machine's firewall is initially inactive/open. Below is a cloud-init script that will prevent anyone other than someone from you IP address from connecting to your machine's SSH port.
+When you create a new instance in PhoenixNAP with a public IP, the machine's firewall is initially inactive/open. [Here](https://github.com/chuckstack/incus-netbird-phoenixnap-firewall/blob/main/cloud-init.md) is a cloud-init script that will prevent anyone other than someone from you IP address from connecting to your machine's SSH port.
 
-You can copy and paste the following into the 'Deploy New Server' process => 'Cloud Init' section when you check the 'Add user-data to cloud-init configuration' checkbox.
+You can copy and paste this text into the 'Deploy New Server' process => 'Cloud Init' section when you check the 'Add user-data to cloud-init configuration' checkbox.
 
-Do not forget to set the "YOUR.IP.ADDRESS.HERE" variable with you actual IP address. If you wish to use IPV6, simply uncomment that section and set your "YOUR.IPV6.ADDRESS.HERE" variable.
-
-Your IPV4 address: `curl -4 ifconfig.me`
-Your IPV6 address: `curl -6 ifconfig.me`
-
-```yaml
-#cloud-config
-
-write_files:
-  - path: /tmp/setup-iptables.sh
-    permissions: '0755'
-    content: |
-      #!/bin/bash
-
-      ###############
-      # IPv4 rules
-      ###############
-      export MY_IPV4="YOUR.IP.ADDRESS.HERE"
-      cat > /etc/network/iptables.rules << EOF
-      *filter
-      :INPUT DROP [0:0]
-      :FORWARD DROP [0:0]
-      :OUTPUT ACCEPT [0:0]
-
-      -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-      -A INPUT -i lo -j ACCEPT
-      -A INPUT -p tcp -s $MY_IPV4 --dport 22 -j ACCEPT
-
-      COMMIT
-      EOF
-      iptables-restore < /etc/network/iptables.rules
-
-      ###############
-      ## IPv6 rules
-      ###############
-      #export MY_IPV6="YOUR:IPV6:ADDRESS:HERE"
-      #cat > /etc/network/ip6tables.rules << EOF
-      #*filter
-      #:INPUT DROP [0:0]
-      #:FORWARD DROP [0:0]
-      #:OUTPUT ACCEPT [0:0]
-
-      #-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-      #-A INPUT -i lo -j ACCEPT
-      #-A INPUT -p tcp -s $MY_IPV6 --dport 22 -j ACCEPT
-      #-A INPUT -p ipv6-icmp -j ACCEPT
-
-      #COMMIT
-      #EOF
-      #ip6tables-restore < /etc/network/ip6tables.rules
-
-runcmd:
-  - apt-get update
-  - DEBIAN_FRONTEND=noninteractive apt-get install -y iptables-persistent
-  - /tmp/setup-iptables.sh
-  - netfilter-persistent save
-  - netfilter-persistent reload
-```
-
-You can view your iptables settings after login using:
-
-```bash
-sudo iptables -L -v
-sudo ip6tables -L -v
-```
+Do not forget to follow the directions at the [top of the page](https://github.com/chuckstack/incus-netbird-phoenixnap-firewall/blob/main/cloud-init.md).
 
 You can see the cloud-init status:
 
