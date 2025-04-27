@@ -1,6 +1,6 @@
 # iDempiere
 
-[iDempiere](https://idempiere.org) is an open source ERP (accounting, inventory, order, invoice, payment, bank management) that is exceptionally well suited for small and medium organizations. It is commonly used multi-entity, multi-currency and multi-national organizations.
+[iDempiere](https://idempiere.org) is an open source ERP (for managing accounting, inventory, order, invoice, payment, bank management) that is exceptionally well suited for small and medium organizations. It is commonly used multi-entity, multi-currency and multi-national organizations.
 
 ## TOC
 
@@ -10,6 +10,7 @@
 
 Here are the reasons we love iDempiere:
 
+- Mature, stable and full featured
 - Runs on a small server
 - Runs headless behind an API
 - Scales to hundreds of users
