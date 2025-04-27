@@ -1313,7 +1313,8 @@ select current_setting('test.test.test.one',true);
 <h2 id="getting-started-1"><a class="header" href="#getting-started-1">Getting Started</a></h2>
 <p>The following is provided as a quick reference. Please see the official references below for more and up to date details.</p>
 <p>Install as root on Debian or Ubuntu (<a href="https://github.com/zabbly/incus">official reference</a>):</p>
-<pre><code class="language-bash">curl -fsSL https://pkgs.zabbly.com/key.asc | gpg --show-keys --fingerprint
+<pre><code class="language-bash">echo "run as root"
+curl -fsSL https://pkgs.zabbly.com/key.asc | gpg --show-keys --fingerprint
 mkdir -p /etc/apt/keyrings/
 curl -fsSL https://pkgs.zabbly.com/key.asc -o /etc/apt/keyrings/zabbly.asc
 sh -c 'cat &lt;&lt;EOF &gt; /etc/apt/sources.list.d/zabbly-incus-stable.sources
@@ -1329,8 +1330,9 @@ EOF'
 apt-get update
 apt-get install incus -y
 </code></pre>
-<p>Configure as your typical user (<a href="https://linuxcontainers.org/incus/docs/main/tutorial/first_steps/">official reference</a>):</p>
-<pre><code class="language-bash">sudo adduser $USER incus-admin
+<p>Configure as your typical (debian or ubuntu) user (<a href="https://linuxcontainers.org/incus/docs/main/tutorial/first_steps/">official reference</a>):</p>
+<pre><code class="language-bash">echo "run as debian/ubuntu"
+sudo adduser $USER incus-admin
 newgrp incus-admin
 </code></pre>
 <p><a href="https://bketelsen.github.io/IncusScripts/scripts">Here is a list of Incus scripts</a> to help you get common applications up and running.</p>

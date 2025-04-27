@@ -249,6 +249,7 @@ The following is provided as a quick reference. Please see the official referenc
 
 Install as root on Debian or Ubuntu ([official reference](https://github.com/zabbly/incus)):
 ```bash
+echo "run as root"
 curl -fsSL https://pkgs.zabbly.com/key.asc | gpg --show-keys --fingerprint
 mkdir -p /etc/apt/keyrings/
 curl -fsSL https://pkgs.zabbly.com/key.asc -o /etc/apt/keyrings/zabbly.asc
@@ -266,9 +267,10 @@ apt-get update
 apt-get install incus -y
 ```
 
-Configure as your typical user ([official reference](https://linuxcontainers.org/incus/docs/main/tutorial/first_steps/)):
+Configure as your typical (debian or ubuntu) user ([official reference](https://linuxcontainers.org/incus/docs/main/tutorial/first_steps/)):
 
 ```bash
+echo "run as debian/ubuntu"
 sudo adduser $USER incus-admin
 newgrp incus-admin
 ```
