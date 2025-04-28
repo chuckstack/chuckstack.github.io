@@ -8,7 +8,7 @@
 
 ## Host Public Applications
 
-The purpose of this post is to extend the [Incus + Netbird + PhoenixNAP](./blog-incus-netbird-phoenixnap.md) article to create a safe place to host public-facing applications and services.
+The purpose of this post is to describe how the [Incus + Netbird + PhoenixNAP](./blog-incus-netbird-phoenixnap.md) article has been updated to automatically include a safe place to host public-facing applications and services.
 
 Here is the benefit short story:
 
@@ -24,98 +24,31 @@ Here is the benefit short story:
 
 ## Isolated Bridge
 
-Below is a script that does the following:
+[This script](https://github.com/chuckstack/incus-netbird-phoenixnap-firewall/blob/main/isolate.sh) does the following:
 
 - Creates a new isolated Linux/Incus network bridge
-- Creates a new Incus isolated profile
+- Creates a new Incus isolated profile (that makes use of the isolated network bridge)
 - Creates a new Incus ACL to ensure a container cannot communicate with anyone except the outside world
 
-```
-# variables
-INCUS_NETWORK=incusbr-iso
-INCUS_PROFILE=isolated
-INCUS_ACL=public-only
+Update the variables at the top of the script according to your preferences.
 
-# Create artifacts
-incus network create $INCUS_NETWORK
-incus profile show default | incus profile create $INCUS_PROFILE
-incus profile device set $INCUS_PROFILE eth0 network=$INCUS_NETWORK
-incus network acl create $INCUS_ACL
-
-# Get network interface details
-MAIN_INTERFACE=$(ip route get 8.8.8.8 | grep -oP 'dev \K\S+')
-echo MAIN_INTERFACE=$MAIN_INTERFACE
-INCUS_ISO_SUBNET=$(ip -4 addr show $INCUS_NETWORK | grep -oP '(?<=inet\s)\d+(\.\d+){3}/\d+')
-echo INCUS_ISO_SUBNET=$INCUS_ISO_SUBNET
-INCUS_ISO_SUBNET_V6=$(ip -6 addr show $INCUS_NETWORK | grep -oP '(?<=inet6\s)[0-9a-f:]+/\d+' | grep -v '^fe80')
-echo INCUS_ISO_SUBNET_V6=$INCUS_ISO_SUBNET_V6
-INCUS_ISO_DNS=${INCUS_ISO_SUBNET%/*}
-echo INCUS_ISO_DNS=$INCUS_ISO_DNS
-
-# Create and configure an incus acl and apply it to our isolated network bridge
-incus network acl rule add $INCUS_ACL ingress action=allow
-incus network acl rule add $INCUS_ACL egress action=allow
-#incus network acl rule add $INCUS_ACL egress action=allow destination=$INCUS_ISO_DNS/32
-#incus network acl rule add $INCUS_ACL egress action=allow destination=$INCUS_ISO_DNS/32 protocol=udp destination_port=53
-#incus network acl rule add $INCUS_ACL egress action=allow destination=$INCUS_ISO_DNS/32 protocol=tcp destination_port=53
-
-# Block private networks
-incus network acl rule add $INCUS_ACL egress action=reject destination=10.0.0.0/8
-incus network acl rule add $INCUS_ACL egress action=reject destination=192.168.0.0/16
-incus network acl rule add $INCUS_ACL egress action=reject destination=172.16.0.0/12
-
-incus network set $INCUS_NETWORK security.acls=$INCUS_ACL
-incus profile device set $INCUS_PROFILE eth0 security.acls=$INCUS_ACL
-incus profile show $INCUS_PROFILE
-
-# Allow $INCUS_NETWORK interface
-sudo iptables -A INPUT -i $INCUS_NETWORK -j ACCEPT
-sudo iptables -A OUTPUT -o $INCUS_NETWORK -j ACCEPT
-sudo ip6tables -A INPUT -i $INCUS_NETWORK -j ACCEPT
-sudo ip6tables -A OUTPUT -o $INCUS_NETWORK -j ACCEPT
-
-# NAT and forwarding rules
-sudo iptables -t nat -A POSTROUTING -s $INCUS_ISO_SUBNET -o $MAIN_INTERFACE -j MASQUERADE
-sudo iptables -A FORWARD -i $INCUS_NETWORK -o $MAIN_INTERFACE -j ACCEPT
-sudo iptables -A FORWARD -i $MAIN_INTERFACE -o $INCUS_NETWORK -j ACCEPT
-sudo ip6tables -t nat -A POSTROUTING -s $INCUS_ISO_SUBNET_V6 -o $MAIN_INTERFACE -j MASQUERADE
-sudo ip6tables -A FORWARD -i $INCUS_NETWORK -o $MAIN_INTERFACE -j ACCEPT
-sudo ip6tables -A FORWARD -i $MAIN_INTERFACE -o $INCUS_NETWORK -j ACCEPT
-
-## lauch instances in this isolated bridge
-#incus launch images:debian/12/cloud delme-debian-isolated-01 --profile isolated
-## show acl
-#incus network acl show public-only
-```
-
-Use the following to create a new instance in the `isolated` profile:
+Use the following to create a new instance in the `isolated-aa` profile:
 
 ```bash
-incus launch images:debian/12/cloud delme-debian-isolated-01 --profile isolated
+incus launch images:debian/12/cloud delme-debian-isolated-01 --profile isolated-aa
 ```
 
 ## Undo Button
 
-To remove the above artifacts:
+[Use this script](https://github.com/chuckstack/incus-netbird-phoenixnap-firewall/blob/main/isolate-remove.sh) to remove the above artifacts. Here are the steps:
 
-- Delete a newly created instances that use the above
-- Run the below script
-
-```bash
-# variables
-INCUS_NETWORK=incusbr-iso
-INCUS_PROFILE=isolated
-INCUS_ACL=public-only
-
-# delete artifacts
-incus profile delete $INCUS_PROFILE
-incus network delete $INCUS_NETWORK
-incus network acl delete $INCUS_ACL
-```
+- Delete instances that use the `isolated-aa` profile
+- [Update the script variables](https://github.com/chuckstack/incus-netbird-phoenixnap-firewall/blob/main/isolate-remove.sh) accordingly (if needed)
+- Run the script
 
 ## Multiple Isolated Network Bridges
 
-You can create as many isolated bridges as is needed. The above example (with its single network bridge) is great at creating completely isolated instances; however, you might have scenarios where you need more than one instance to support a service or application.
+You can create as many isolated bridges as is needed. The above example (with its single network bridge) is great at creating completely isolated instances; however, you might have scenarios where you need more than one instance/container to support a service or application.
 
 An easy adaptation of the above script is to create a dedicated network bridge per service (collection of instances). The only change you make is to alter the acl rules according to how you want your instances to communicate with each other.
 
@@ -127,6 +60,8 @@ The easiest way to make an isolated service or application public is to use a Cl
 
 - The Cloudflare tunnel creates a publicly available entry point.
 - The Cloudflare application shares the same URL as the tunnel and creates a hook for adding additional features/filters to your URL.
+  - Additional features includes forcing email authentication and/or OTP.
+  - Additional filters includes limiting access based on a URL path mask.
 
 The details of creating a publicly available secure tunnel using Cloudflare are outside of the scope of this article; however, the process is quite simple. Join below, and we will create a video demonstration just for you.
 
