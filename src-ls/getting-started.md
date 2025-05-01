@@ -19,6 +19,12 @@ If you just want to start playing with the chuck-stack, read below. If you need 
 
 First, get your AI LLM API key. Then, start using it to explore!
 
+### Understand Key Concepts
+
+Here are a list of references to help you quickly get up to speed:
+
+- [RAG vs Fine-Tuning vs Prompt Engineering: Optimizing AI Models](https://www.youtube.com/watch?v=zYGDpG-pTho)
+
 ### Get Your AI LLM API Key
 
 You need an API account from one of the foundation AI LLM providers, including:
