@@ -23,6 +23,7 @@ First, get your AI LLM API key. Then, start using it to explore!
 
 Here are a list of references to help you quickly get up to speed:
 
+- [What is a Large Language Model (LLM)](https://www.youtube.com/watch?v=5sLYAQS9sWQ)
 - [RAG vs Fine-Tuning vs Prompt Engineering: Optimizing AI Models](https://www.youtube.com/watch?v=zYGDpG-pTho)
 
 ### Get Your AI LLM API Key
