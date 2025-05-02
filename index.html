@@ -15,7 +15,7 @@
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.0.6/css/pico.min.css"
     />
     <script src="js/htmx.min.js"></script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script>
 
     <!-- used to submit form via json -->
     <script>
@@ -177,5 +177,16 @@
     <!-- Form validation/ -->
     <script src="js/form-validation.js"></script>
 
+    <script>
+      // if using synchronous loading, will be called once the DOM is ready
+      turnstile.ready(function () {
+        turnstile.render("#example-container", {
+          sitekey: "<YOUR_SITE_KEY>",
+          callback: function (token) {
+            console.log(`Challenge Success ${token}`);
+          },
+        });
+      });     
+    </script>
   </body>
 </html> 
