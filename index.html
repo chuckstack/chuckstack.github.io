@@ -79,6 +79,7 @@
         <p> Not ready to join yet? That is OK! Submit your name and email to receive updates, releases, events, training and more.  </p>
 
         <form id="stayInTouchForm" hx-post="https://ws-form.chuck-stack-cf.org/rpc/stk_form_post_fn" hx-ext="submitjson" hx-trigger="submit" hx-target="#form-response" hx-indicator="#loading" hx-swap="outerHTML" hx-on="htmx:afterRequest: this.reset()">
+          <div class="cf-turnstile" data-sitekey="<0x4AAAAAABZGYiBLBGnc4FLg>"></div>
           <input type="hidden" name="source_page" value="index">
           <input type="hidden" name="action" value="learn-add">
           <div class="grid">
@@ -97,7 +98,6 @@
               autocomplete="email"
               required
             />
-            <div class="cf-turnstile" data-sitekey="<0x4AAAAAABZGYiBLBGnc4FLg>"></div>
             <button type="submit">Get Team Updates</button>
           </div>
           <fieldset>
