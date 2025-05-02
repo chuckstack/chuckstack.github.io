@@ -181,7 +181,7 @@
     <script>
       // if using synchronous loading, will be called once the DOM is ready
       turnstile.ready(function () {
-        turnstile.render("#example-container", {
+        turnstile.render("container", {
           sitekey: "0x4AAAAAABZGYiBLBGnc4FLg",
           callback: function (token) {
             console.log(`Challenge Success ${token}`);
