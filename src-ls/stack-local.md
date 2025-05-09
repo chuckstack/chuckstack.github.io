@@ -20,10 +20,11 @@ Here is why the chuck-stack matters to your local community:
   - Large organizations are getting larger.
   - Large organizations are using AI to be everywhere all at once.
   - Small and medium organizations are facing rapidly increasing direct competition from large organizations.
-  - Small and medium organizations account for about 96 of all entities around the world.
+  - Small and medium organizations account for about 96% of all entities around the world.
   - Small and medium organizations are your neighbors.
   - Small and medium organizations are the people who matter to the most to your local community.
   - Small and medium states and countries facing these same threats and challenges from large countries.
+  - If want to keep more money and more resources in community, we want to help!
 - Age and wisdom matter.
   - We have aging workforce.
   - We need this group to remain relevant and productive.
@@ -32,19 +33,24 @@ Here is why the chuck-stack matters to your local community:
   - We make free and open source tools available to everyone in every corner of the globe.
   - We minimize the expertise needed to use AI in your organization.
   - We build a community of shared support (skills and knowledge).
-  - We build the attitude of collective wealth and prosperity.
-  - We increase and organization's future potential and competitive advantage.
+  - We build the attitude of collective prosperity.
+  - We increase and organization's potential and competitive advantage.
+  - We help communities grow and retain wealth and resources.
 
 ## Get Started
 
 Let's discuss how to get started supporting your local community. 
 
-1. Begin by identifying someone in your local community to champion this effort.
+1. Begin by identifying someone in your local community to champion this effort. Examples include:
+    1. EDC - Economic Development Council
+    1. CoC - Chamber of Commerce
+    1. Quality Organizations
+    1. Manufacturing Organizations
 1. Determine how you wish to start:
     1. [Technology Co-op](#technology-co-op)
     1. [Operational Co-op](#operational-co-op)
     1. [Founding organization(s)](#pick-your-founding-organization)
-    1. Some combination of all three
+    1. Some combination of all the above
 
 Here is how to get started:
 
@@ -103,13 +109,13 @@ We need to help local communities develop these local abilities. We need the abi
 
 ## Pick Your Founding Organization
 
-Another option to get started is by finding small or medium organizations in your country, state, or community that represent the types of organizations you want to see excel.
+Another option to get started is by finding small or medium organizations in your country, state, or community that represent the types of organizations you want to see excel. These organizations can be for-profit, not-for-profit or any organized entity.
 
 Here are example criteria to help you pick your local small and medium organizations:
 
 - Desire - find organizations to desire to remain relevant in the next decade
 - Spirit - find those who can prove a spirit of willingness and innovation
-- Basic capabilities - find those to have access to the minimum technology skill needed (Linux and SQL) - or at least the desire and spirit to adobpt
+- Basic capabilities - find those to have access to the minimum technology skill needed (Linux and SQL) - or at least the desire and spirit to adopt them.
 
 ## Funding
 
