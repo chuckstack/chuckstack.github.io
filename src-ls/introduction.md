@@ -34,6 +34,10 @@ The purpose of the chuck-stack is to help organizations:
 
 If we succeed executing our purpose, we will give small and medium sized organizations a competitive advantage against both its peers as well as larger organizations.
 
+<video controls>
+  <source src="./video/chuck-stack-introduction.mp4" type="video/mp4">
+</video>
+
 ## Solution Summary
 
 The chuck-stack consists of three parts:
