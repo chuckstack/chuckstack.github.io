@@ -84,6 +84,8 @@ CREATE TABLE private.stk_changeme (
   updated_by_uu UUID NOT NULL, -- no FK by convention
   revoked TIMESTAMPTZ,
   is_revoked BOOLEAN GENERATED ALWAYS AS (revoked IS NOT NULL) STORED,
+  ----Prompt: ask the user if this table needs to reference another table's record
+  --table_name_uu_json JSONB NOT NULL DEFAULT '{"table_name": "","uu": ""}'::jsonb,
   ----Prompt: ask the user if they need to create templates
   --is_template BOOLEAN NOT NULL DEFAULT false,
   ----Prompt: ask the user if they need validation
@@ -141,6 +143,8 @@ CREATE TABLE private.stk_changeme_part (
   updated_by_uu UUID NOT NULL, -- no FK by convention
   revoked TIMESTAMPTZ,
   is_revoked BOOLEAN GENERATED ALWAYS AS (revoked IS NOT NULL) STORED,
+  ----Prompt: ask the user if this table needs to reference another table's record
+  --table_name_uu_json JSONB NOT NULL DEFAULT '{"table_name": "","uu": ""}'::jsonb,
   ----Prompt: ask the user if they need to create templates
   --is_template BOOLEAN NOT NULL DEFAULT false,
   ----Prompt: ask the user if they need validation

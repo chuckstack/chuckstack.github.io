@@ -15,7 +15,6 @@ These sections list the mandatory and optional columns found in chuck-stack tabl
 The purpose of this section is to list the columns that appear in every table that holds chuck-stack data.
 
 - primary key - `uu`
-- `stk_entity_uu` - financial set of books that owns the record
 - `created` - `timestamptz` indicating when the record was created.
 - `created_by_uu` - uuid foreign key reference to the database user/role that created the record.
 - `updated` - timestamptz indicating when the record was last updated.
@@ -33,6 +32,7 @@ Notes:
 
 The purpose of this section is to list the columns you commonly find in chuck-stack tables. Many of the below columns are used in the [sample table](./sample-table-convention.md).
 
+- `stk_entity_uu` - financial set of books that owns the record. Note this column is mandatory for all records that post to the general ledger (when the GL is created).
 - `name` - `text` representing the name of the record.
 - `description` - `text` representing the description of the record.
 - `search_key` - user defined `text`. The purpose of this column is to allow users to create keys that are more easily remembered by humans. It is up to the implementor to determine if the search_key should be unique for any given table. If it should be unique, the implementor determines the unique criteria. search_key columns are most appropriate for tables that maintain a primary concept but the record is not considered transactional. Examples of non-transactional records include users, business partners, and products.
