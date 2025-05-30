@@ -1,6 +1,6 @@
 # Sample Table
 
-The purpose of this section is to make it as easy as possible to create a new entity. All you need to do is copy the below SQL and perform a replace-all on 'changeme' to set the desired name. Once you are happy with the new SQL, add it to your sqlx migration script repository.
+The purpose of this section is to make it as easy as possible to create a new chuck-stack concept. All you need to do is copy the below SQL and perform a replace-all on 'changeme' to set the desired name. Once you are happy with the new SQL, add it to your sqlx migration script repository.
 
 ## Variable Substitution
 
@@ -14,7 +14,7 @@ The resulting tables and objects would resemble `stk_request`.
 
 ## Normal Sample Table
 
-This section represents a template for creating a new entity that does not use partitioning (aka normal table/entity). The below SQL code does the following:
+This section represents a template for creating a new chuck-stack concept that does not use partitioning (aka normal table). The below SQL code does the following:
 
 - follows the ([table conventions](./table-convention.md))
 - follows the ([table and record conventions](./table-record-convention.md))
@@ -48,7 +48,8 @@ INSERT INTO private.enum_comment (enum_type, enum_value, comment, is_default) VA
 CREATE TABLE private.stk_changeme_type (
   uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   table_name TEXT GENERATED ALWAYS AS ('stk_changeme_type') STORED,
-  stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(uu),
+  ----Prompt: ask the user if they need to assign this record to a specific entity
+  --stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(uu),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   created_by_uu UUID NOT NULL, -- no FK by convention
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -77,7 +78,8 @@ SELECT private.stk_table_type_create('stk_changeme_type');
 CREATE TABLE private.stk_changeme (
   uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   table_name TEXT generated always AS ('stk_changeme') stored,
-  stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(uu),
+  ----Prompt: ask the user if they need to assign this record to a specific entity
+  --stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(uu),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   created_by_uu UUID NOT NULL, -- no FK by convention
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -114,9 +116,9 @@ SELECT private.stk_trigger_create();
 
 ## Partition Table Changes
 
-There are times when you know in advance that a table will be large. As a result, you can create the entity as a collection of [partitioned tables](./partition-convention.md) in advance to prevent future work.
+There are times when you know in advance that a table will be large. As a result, you can create the chuck-stack concept as a collection of [partitioned tables](./partition-convention.md) in advance to prevent future work.
 
-Below represents the changes needed to the `---- primary_section ----` to create a partitioned table. Here is the process to create a partitioned entity:
+Below represents the changes needed to the `---- primary_section ----` to create a partitioned table. Here is the process to create a partitioned chuck-stack concept:
 
 - Copy the above 'normal' script
 - Delete the `---- primary_section ----` section
@@ -193,7 +195,7 @@ CREATE TRIGGER t00030_generic_partition_delete
 
 ## Test Transactions
 
-Below are some sql statements you should be able to successfully execute through the api schema against your newly created entity.
+Below are some sql statements you should be able to successfully execute through the api schema against your newly created chuck-stack concept.
 
 ```sql
 insert into api.stk_changeme (name, type_uu) values ('test1',(select uu from api.stk_changeme_type limit 1)) returning uu;
