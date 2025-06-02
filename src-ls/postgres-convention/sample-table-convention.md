@@ -12,6 +12,16 @@ Here is an example vim substitute command to update 'changeme' to 'request':
 
 The resulting tables and objects would resemble `stk_request`.
 
+## Prompting Process
+
+When creating a new concept, prompt the user in the following way:
+
+- Do you want to start with a normal table or a partitioned table?
+- Do you want to include the stk_entity_uu column? Yes if this table is involved in accounting.
+- Do you want to include the record_json column? Yes if this table will include metadata in the form of json.
+...
+- Perform these prompts for each of the below sample table 'prompts:'
+
 ## Normal Sample Table
 
 This section represents a template for creating a new chuck-stack concept that does not use partitioning (aka normal table). The below SQL code does the following:
