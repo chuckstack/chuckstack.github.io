@@ -54,6 +54,7 @@
     - [Comments](./postgres-convention/comment.md)
     - [Sample Table](./postgres-convention/sample-table-convention.md)
     - [Scalability](./postgres-convention/scalability-convention.md)
+    - [Nushell psql](./postgres-convention/nushell.md)
     - [To Be Resolved](./postgres-convention/to-be-resolved-convention.md)
   - [Postgres Services](./postgres-services.md)
     - [Async](./postgres-convention/async.md)

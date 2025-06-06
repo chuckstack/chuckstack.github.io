@@ -1,0 +1,403 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Nushell psql</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ul class="chapter">
+                    <li><a class="active" href="../">chuck-stack Home</a></li> <!--chuboe changed-->
+                </ul>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../picture-success.html"><strong aria-hidden="true">2.</strong> Picture of Success</a></li><li class="chapter-item expanded "><a href="../success-factor.html"><strong aria-hidden="true">3.</strong> Success Factors</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../success-hr.html"><strong aria-hidden="true">3.1.</strong> Success with HR</a></li><li class="chapter-item expanded "><a href="../success-ai.html"><strong aria-hidden="true">3.2.</strong> Success with AI</a></li><li class="chapter-item expanded "><a href="../success-cli.html"><strong aria-hidden="true">3.3.</strong> Success with CLI</a></li><li class="chapter-item expanded "><a href="../success-linux.html"><strong aria-hidden="true">3.4.</strong> Success with Linux</a></li><li class="chapter-item expanded "><a href="../success-postgresql.html"><strong aria-hidden="true">3.5.</strong> Success with PostgreSQL</a></li><li class="chapter-item expanded "><a href="../success-api.html"><strong aria-hidden="true">3.6.</strong> Success with API</a></li></ol></li><li class="chapter-item expanded "><a href="../getting-started.html"><strong aria-hidden="true">4.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="../stack-faq.html"><strong aria-hidden="true">5.</strong> Stack FAQ</a></li><li class="chapter-item expanded "><a href="../stack-tools.html"><strong aria-hidden="true">6.</strong> Stack Tools</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tool-incus.html"><strong aria-hidden="true">6.1.</strong> Incus</a></li><li class="chapter-item expanded "><a href="../tool-linux.html"><strong aria-hidden="true">6.2.</strong> Linux</a></li><li class="chapter-item expanded "><a href="../tool-postgresql.html"><strong aria-hidden="true">6.3.</strong> PostgreSQL</a></li><li class="chapter-item expanded "><a href="../tool-postgrest.html"><strong aria-hidden="true">6.4.</strong> PostgREST</a></li><li class="chapter-item expanded "><a href="../tool-aichat.html"><strong aria-hidden="true">6.5.</strong> AIChat</a></li><li class="chapter-item expanded "><a href="../tool-nushell.html"><strong aria-hidden="true">6.6.</strong> Nushell</a></li><li class="chapter-item expanded "><a href="../tool-zellij.html"><strong aria-hidden="true">6.7.</strong> Zellij</a></li><li class="chapter-item expanded "><a href="../tool-git.html"><strong aria-hidden="true">6.8.</strong> Git</a></li><li class="chapter-item expanded "><a href="../tool-obsidian.html"><strong aria-hidden="true">6.9.</strong> Obsidian</a></li><li class="chapter-item expanded "><a href="../tool-netbird.html"><strong aria-hidden="true">6.10.</strong> Netbird</a></li><li class="chapter-item expanded "><a href="../tool-idempiere.html"><strong aria-hidden="true">6.11.</strong> iDempiere</a></li><li class="chapter-item expanded "><a href="../tool-htmx.html"><strong aria-hidden="true">6.12.</strong> htmx</a></li><li class="chapter-item expanded "><a href="../tool-discourse.html"><strong aria-hidden="true">6.13.</strong> Discourse</a></li><li class="chapter-item expanded "><a href="../tool-mdbook.html"><strong aria-hidden="true">6.14.</strong> mdBook</a></li><li class="chapter-item expanded "><a href="../tool-others.html"><strong aria-hidden="true">6.15.</strong> Others</a></li></ol></li><li class="chapter-item expanded "><a href="../stack-architecture.html"><strong aria-hidden="true">7.</strong> Stack Architecture</a></li><li class="chapter-item expanded "><a href="../stack-application.html"><strong aria-hidden="true">8.</strong> Stack Application</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../application-deploy.html"><strong aria-hidden="true">8.1.</strong> Deployment</a></li><li class="chapter-item expanded "><a href="../application-workflow.html"><strong aria-hidden="true">8.2.</strong> Workflow</a></li><li class="chapter-item expanded "><a href="../application-attribute.html"><strong aria-hidden="true">8.3.</strong> Attribute Tagging</a></li></ol></li><li class="chapter-item expanded "><a href="../best-practices.html"><strong aria-hidden="true">9.</strong> Stack Best Practices</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../best-practices-operation.html"><strong aria-hidden="true">9.1.</strong> Operation Best Practices</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../best-practices-operation-say.html"><strong aria-hidden="true">9.1.1.</strong> Say What We Do</a></li><li class="chapter-item expanded "><a href="../best-practices-operation-do.html"><strong aria-hidden="true">9.1.2.</strong> Do What We Said</a></li><li class="chapter-item expanded "><a href="../best-practices-operation-prove.html"><strong aria-hidden="true">9.1.3.</strong> Prove We Did It</a></li><li class="chapter-item expanded "><a href="../best-practices-operation-feedback.html"><strong aria-hidden="true">9.1.4.</strong> Welcome Feedback</a></li><li class="chapter-item expanded "><a href="../best-practices-operation-improve.html"><strong aria-hidden="true">9.1.5.</strong> Continuously Improve</a></li></ol></li><li class="chapter-item expanded "><a href="../postgres-conventions.html"><strong aria-hidden="true">9.2.</strong> Postgres Conventions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../postgres-convention/schema.html"><strong aria-hidden="true">9.2.1.</strong> Private and API Schema</a></li><li class="chapter-item expanded "><a href="../postgres-convention/abbreviation.html"><strong aria-hidden="true">9.2.2.</strong> Abbreviation</a></li><li class="chapter-item expanded "><a href="../postgres-convention/table-convention.html"><strong aria-hidden="true">9.2.3.</strong> Table Convention</a></li><li class="chapter-item expanded "><a href="../postgres-convention/column-convention.html"><strong aria-hidden="true">9.2.4.</strong> Column Convention</a></li><li class="chapter-item expanded "><a href="../postgres-convention/table-record-convention.html"><strong aria-hidden="true">9.2.5.</strong> Table and Record</a></li><li class="chapter-item expanded "><a href="../postgres-convention/uuid.html"><strong aria-hidden="true">9.2.6.</strong> UUID</a></li><li class="chapter-item expanded "><a href="../postgres-convention/json-array-table-column.html"><strong aria-hidden="true">9.2.7.</strong> JSON vs Array vs Table</a></li><li class="chapter-item expanded "><a href="../postgres-convention/enum-type-convention.html"><strong aria-hidden="true">9.2.8.</strong> enum and Type</a></li><li class="chapter-item expanded "><a href="../postgres-convention/partition-convention.html"><strong aria-hidden="true">9.2.9.</strong> Partition</a></li><li class="chapter-item expanded "><a href="../postgres-convention/function-convention.html"><strong aria-hidden="true">9.2.10.</strong> Function</a></li><li class="chapter-item expanded "><a href="../postgres-convention/trigger-convention.html"><strong aria-hidden="true">9.2.11.</strong> Trigger</a></li><li class="chapter-item expanded "><a href="../postgres-convention/comment.html"><strong aria-hidden="true">9.2.12.</strong> Comments</a></li><li class="chapter-item expanded "><a href="../postgres-convention/sample-table-convention.html"><strong aria-hidden="true">9.2.13.</strong> Sample Table</a></li><li class="chapter-item expanded "><a href="../postgres-convention/scalability-convention.html"><strong aria-hidden="true">9.2.14.</strong> Scalability</a></li><li class="chapter-item expanded "><a href="../postgres-convention/nushell.html" class="active"><strong aria-hidden="true">9.2.15.</strong> Nushell psql</a></li><li class="chapter-item expanded "><a href="../postgres-convention/to-be-resolved-convention.html"><strong aria-hidden="true">9.2.16.</strong> To Be Resolved</a></li></ol></li><li class="chapter-item expanded "><a href="../postgres-services.html"><strong aria-hidden="true">9.3.</strong> Postgres Services</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../postgres-convention/async.html"><strong aria-hidden="true">9.3.1.</strong> Async</a></li><li class="chapter-item expanded "><a href="../postgres-convention/attribute-tag.html"><strong aria-hidden="true">9.3.2.</strong> Attribute Tagging</a></li><li class="chapter-item expanded "><a href="../postgres-convention/change-log.html"><strong aria-hidden="true">9.3.3.</strong> Change Log</a></li><li class="chapter-item expanded "><a href="../postgres-convention/event.html"><strong aria-hidden="true">9.3.4.</strong> Event</a></li><li class="chapter-item expanded "><a href="../postgres-convention/notify.html"><strong aria-hidden="true">9.3.5.</strong> Notify</a></li><li class="chapter-item expanded "><a href="../postgres-convention/request.html"><strong aria-hidden="true">9.3.6.</strong> Request Workflow</a></li><li class="chapter-item expanded "><a href="../postgres-convention/statistics-convention.html"><strong aria-hidden="true">9.3.7.</strong> Statistics</a></li><li class="chapter-item expanded "><a href="../postgres-convention/system-configuration-convention.html"><strong aria-hidden="true">9.3.8.</strong> System Configuration</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../stack-academy.html"><strong aria-hidden="true">10.</strong> Stack Academy</a></li><li class="chapter-item expanded "><a href="../stack-local.html"><strong aria-hidden="true">11.</strong> Local Community Support</a></li><li class="chapter-item expanded "><a href="../terminology.html"><strong aria-hidden="true">12.</strong> Terminology</a></li><li class="chapter-item expanded "><a href="../roadmap.html"><strong aria-hidden="true">13.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="../project-history.html"><strong aria-hidden="true">14.</strong> Project History</a></li><li class="chapter-item expanded "><a href="../reference.html"><strong aria-hidden="true">15.</strong> References</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="../code-of-conduct.html"><strong aria-hidden="true">16.</strong> Code of Conduct</a></li><li class="chapter-item expanded "><a href="../privacy-policy.html"><strong aria-hidden="true">17.</strong> Privacy Policy</a></li><li class="chapter-item expanded affix "><li class="spacer"></li><li class="chapter-item expanded "><a href="../blog.html"><strong aria-hidden="true">18.</strong> Blog</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../blog-incus-netbird-phoenixnap-isolated.html"><strong aria-hidden="true">18.1.</strong> Isolated Public-Facing Services in Incus</a></li><li class="chapter-item expanded "><a href="../blog-local-co-op-funding-help.html"><strong aria-hidden="true">18.2.</strong> Local AI Funding - Time to Bring Back the Co-op</a></li><li class="chapter-item expanded "><a href="../blog-llm-ai-production-deploy.html"><strong aria-hidden="true">18.3.</strong> Production Open Source Chat with Work Instructions</a></li><li class="chapter-item expanded "><a href="../blog-chuck-stack-it-job-description-assessment.html"><strong aria-hidden="true">18.4.</strong> chuck-stack IT Job Description</a></li><li class="chapter-item expanded "><a href="../blog-rsync-net.html"><strong aria-hidden="true">18.5.</strong> Immutable Off-site Backups are Imperative</a></li><li class="chapter-item expanded "><a href="../blog-llm-ai-operations-automation.html"><strong aria-hidden="true">18.6.</strong> Operations AI LLM Automation in 2025</a></li><li class="chapter-item expanded "><a href="../blog-incus-netbird-phoenixnap.html"><strong aria-hidden="true">18.7.</strong> Hybrid Cloud Strategy: Incus + Netbird + PhoenixNAP</a></li><li class="chapter-item expanded "><a href="../blog-letter-ceo.html"><strong aria-hidden="true">18.8.</strong> Letter to the CEO</a></li><li class="chapter-item expanded "><a href="../blog-cli-better.html"><strong aria-hidden="true">18.9.</strong> The CLI is better than...</a></li><li class="chapter-item expanded "><a href="../blog-conversational-enterprise-computing.html"><strong aria-hidden="true">18.10.</strong> Why Conversational Enterprise Computing Matters</a></li><li class="chapter-item expanded "><a href="../blog-work-instruction-sexy.html"><strong aria-hidden="true">18.11.</strong> Work Instructions Make your Organization Sexy</a></li><li class="chapter-item expanded "><a href="../blog-live-markdown-world.html"><strong aria-hidden="true">18.12.</strong> We Live in a Markdown World</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <!-- add things here that will go above the body navigation -->
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="nushell--postgresql-best-practices"><a class="header" href="#nushell--postgresql-best-practices">Nushell + PostgreSQL Best Practices</a></h1>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>The purpose of this page is to highlight common chuck-stack practices with using <code>psql</code> with Nushell. If you have questions, comments or concerns about this content, do not hesitate to offer feedback or create an issue at https://github.com/chuckstack/chuckstack.github.io</p>
+<h2 id="critical-rule-escape-opening-parentheses-in-sql"><a class="header" href="#critical-rule-escape-opening-parentheses-in-sql">Critical Rule: Escape Opening Parentheses in SQL</a></h2>
+<p>When using nushell string interpolation (<code>$"..."</code>), escape opening parentheses that need to appear in the final SQL string:</p>
+<pre><code class="language-nushell"># ✅ Correct - variable interpolation (no escape needed)
+$"SELECT * FROM ($table_name)"
+
+# ✅ Correct - SQL syntax (escape needed)  
+$"SELECT COUNT\(*) FROM ($table_name)"
+$"INSERT INTO users \(name, email) VALUES \('($name)', '($email)')"
+$"WHERE id IN \(1, 2, 3)"
+
+# ❌ Wrong - will cause parser errors
+$"SELECT COUNT(*) FROM table"
+$"INSERT INTO users (name, email)"
+</code></pre>
+<p><strong>Error you'll see:</strong> <code>nu::parser::assignment_requires_variable</code></p>
+<h2 id="command-execution"><a class="header" href="#command-execution">Command Execution</a></h2>
+<p>Use input piping, avoid <code>echo</code>:</p>
+<pre><code class="language-nushell"># ✅ Best practice
+$sql | psql
+
+# ✅ Acceptable (redundant but works)
+echo $sql | psql  
+
+# ❌ Avoid  
+psql -c $sql
+</code></pre>
+<h2 id="foundation-pattern-psql-exec"><a class="header" href="#foundation-pattern-psql-exec">Foundation Pattern: psql exec</a></h2>
+<p>Create a common <code>psql exec</code> command to encapsulate best practices:</p>
+<pre><code class="language-nushell"># Centralized execution with automatic type conversion
+export def "psql exec" [query: string] {
+    with-env {PSQLRC: ".psqlrc-nu"} {
+        mut result = $query | psql | from csv --no-infer
+        
+        # Auto-convert common column patterns
+        let date_cols = $result | columns | where {|x| $x == 'created' or $x == 'updated'}
+        if not ($date_cols | is-empty) {
+            for col in $date_cols { $result = $result | into datetime $col }
+        }
+        
+        let bool_cols = $result | columns | where {|x| $x | str starts-with 'is_'}
+        if not ($bool_cols | is-empty) {
+            for col in $bool_cols { $result = $result | update $col { $in == "t" } }
+        }
+        
+        $result
+    }
+}
+</code></pre>
+<h2 id="configuration-psqlrc-nu"><a class="header" href="#configuration-psqlrc-nu">Configuration: .psqlrc-nu</a></h2>
+<p>Use dedicated psql configuration for nushell integration:</p>
+<pre><code class="language-bash"># .psqlrc-nu file
+\set QUIET 1
+\set ON_ERROR_ROLLBACK
+\pset null 'null'
+\pset footer off  
+\pset format csv
+</code></pre>
+<h2 id="module-architecture-pattern"><a class="header" href="#module-architecture-pattern">Module Architecture Pattern</a></h2>
+<p>Build reusable generic commands, then compose them:</p>
+<pre><code class="language-nushell"># Generic foundation
+export def "psql list-records" [
+    schema: string, table: string, columns: string, limit: int = 10
+] {
+    psql exec $"SELECT ($columns) FROM ($schema).($table) ORDER BY created DESC LIMIT ($limit)"
+}
+
+# Module-specific wrapper  
+export def "event list" [] {
+    psql list-records "api" "stk_event" "name, created, uu" 10
+}
+</code></pre>
+<h2 id="common-patterns"><a class="header" href="#common-patterns">Common Patterns</a></h2>
+<pre><code class="language-nushell"># Table exists check
+$"SELECT EXISTS \(SELECT FROM information_schema.tables WHERE table_name = '($table)');" | psql exec | get 0.exists
+
+# Row count
+$"SELECT COUNT\(*) FROM ($table);" | psql exec | get 0.count
+
+# Function call with parameters
+$"SELECT api.create_user\('($name)', '($email)');" | psql exec
+
+# Soft delete pattern
+$"UPDATE ($table) SET revoked = now\() WHERE uu = '($uu)' RETURNING uu, is_revoked" | psql exec
+</code></pre>
+<h2 id="environment-setup"><a class="header" href="#environment-setup">Environment Setup</a></h2>
+<pre><code class="language-nushell"># Set connection variables
+$env.PGHOST = "localhost"
+$env.PGDATABASE = "mydb"  
+$env.PGUSER = "myuser"
+
+# Use dedicated role and session
+$env.STK_PG_ROLE = "stk_role"
+$env.STK_PG_SESSION = "session_id"
+</code></pre>
+<h2 id="error-handling"><a class="header" href="#error-handling">Error Handling</a></h2>
+<pre><code class="language-nushell"># Let psql exec handle the details, check for empty results
+let result = psql exec $sql
+if ($result | is-empty) {
+    error make { msg: "No results found" }
+}
+$result
+</code></pre>
+<h2 id="debug-tip"><a class="header" href="#debug-tip">Debug Tip</a></h2>
+<p>Always print complex SQL first:</p>
+<pre><code class="language-nushell">let sql = $"SELECT EXISTS \(SELECT FROM table WHERE name = '($name)');"
+print $sql  # Verify escaping looks correct
+$sql | psql exec
+</code></pre>
+<h2 id="leveraging-psql-advanced-features"><a class="header" href="#leveraging-psql-advanced-features">Leveraging psql Advanced Features</a></h2>
+<p>Use psql variables to give SQL files superpowers:</p>
+<pre><code class="language-nushell"># Set psql variables from nushell
+$"\\set user_id ($user_id)\n\\set table_name ($table)" | psql -f complex_query.sql
+
+# Use psql conditionals and variables in SQL files
+let sql = $"
+\\set ON_ERROR_STOP on
+\\if :{?debug}
+  \\echo 'Debug mode enabled'
+\\endif
+
+SELECT * FROM :table_name WHERE user_id = :user_id;
+
+\\if :{?verbose}
+  \\echo 'Query completed'
+\\endif
+"
+$sql | psql --set debug=1 --set verbose=1
+</code></pre>
+<p>Example SQL file with psql superpowers:</p>
+<pre><code class="language-sql">-- migration.sql
+\set migration_name 'add_user_table'
+\echo 'Starting migration:' :migration_name
+
+\if :{?dry_run}
+  \echo 'DRY RUN MODE - No changes will be made'
+  BEGIN;
+\endif
+
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL
+);
+
+\if :{?dry_run}
+  ROLLBACK;
+  \echo 'DRY RUN completed - changes rolled back'
+\else
+  \echo 'Migration' :migration_name 'completed successfully'
+\endif
+</code></pre>
+<p>Call from nushell:</p>
+<pre><code class="language-nushell"># Normal execution
+psql -f migration.sql
+
+# Dry run mode  
+psql -f migration.sql --set dry_run=1
+
+# With custom variables
+psql -f migration.sql --set table_prefix=prod_
+</code></pre>
+<h2 id="memory-aid"><a class="header" href="#memory-aid">Memory Aid</a></h2>
+<ul>
+<li><code>($variable)</code> = nushell processes it → no escape</li>
+<li><code>\(sql syntax)</code> = literal character → escape needed</li>
+<li>Build foundation commands, compose them in modules</li>
+<li>Use <code>.psqlrc-nu</code> for consistent formatting</li>
+<li>Leverage psql variables (<code>:variable</code>) for advanced SQL scripting</li>
+</ul>
+
+                        <br>
+                        <p>Copyright &copy; 2024-<script>document.write(new Date().getFullYear())</script>, CHUBOE LLC. All rights reserved.</p> <!--chuboe changed-->
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../postgres-convention/scalability-convention.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../postgres-convention/to-be-resolved-convention.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../postgres-convention/scalability-convention.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../postgres-convention/to-be-resolved-convention.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
