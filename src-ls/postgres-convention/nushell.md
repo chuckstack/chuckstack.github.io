@@ -4,6 +4,12 @@
 
 The purpose of this page is to highlight common chuck-stack practices with using `psql` with Nushell. If you have questions, comments or concerns about this content, do not hesitate to offer feedback or create an issue at https://github.com/chuckstack/chuckstack.github.io
 
+## Example Usage
+
+See the following example usage of these concepts:
+
+- [stk-app-sql](https://github.com/chuckstack/stk-app-sql/tree/main/modules/stk_psql)
+
 ## Critical Rule: Escape Opening Parentheses in SQL
 
 When using nushell string interpolation (`$"..."`), escape opening parentheses that need to appear in the final SQL string:
@@ -206,6 +212,35 @@ psql -f migration.sql --set dry_run=1
 psql -f migration.sql --set table_prefix=prod_
 ```
 
+## Chuck-Stack Specific: JSON Column Handling
+
+**CRITICAL**: JSON fields in chuck-stack return empty strings `''` instead of `NULL` for missing values.
+
+```nushell
+# ❌ Wrong - will not work for chuck-stack JSON columns
+| where ($it.table_name_uu_json?.api?.stk_request? | is-empty)  # Won't find parents
+
+# ✅ Correct - handles empty strings
+| where ($it.table_name_uu_json.uu | is-empty)
+```
+
+```sql
+-- ❌ Wrong SQL approach
+WHERE table_name_uu_json->>'uu' IS NULL          -- Won't find parents
+
+-- ✅ Correct SQL approach  
+WHERE table_name_uu_json->>'uu' = ''             -- Check for empty string
+```
+
+This affects all JSON columns ending with `_json` and impacts parent/child relationship detection throughout chuck-stack modules.
+
+## Data Type Conversion
+
+The `psql exec` command automatically converts PostgreSQL data types:
+- **Datetime columns**: `created`, `updated`, and columns starting with `date_` 
+- **JSON columns**: All columns ending with `_json` are parsed from JSON strings to nushell structures
+- **Boolean columns**: Columns starting with `is_` are converted from PostgreSQL's `t`/`f` to nushell's `true`/`false`
+
 ## Memory Aid
 
 - `($variable)` = nushell processes it → no escape
@@ -213,3 +248,4 @@ psql -f migration.sql --set table_prefix=prod_
 - Build foundation commands, compose them in modules
 - Use `.psqlrc-nu` for consistent formatting
 - Leverage psql variables (`:variable`) for advanced SQL scripting
+- JSON columns return `''` not `NULL` for missing values in chuck-stack
