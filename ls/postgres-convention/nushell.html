@@ -254,8 +254,8 @@ export def "psql exec" [query: string] {
 <p>Note the use of PostgreSQL impersonation. Even though users are maintained in PostgreSQL, users only have one ability: to assume a role. All application logic is created against roles.</p>
 <p>References:</p>
 <ul>
-<li>.psqlrc-nu uses <code>SET ROLE</code> to automatically assume a role on every connection - (see .psqlrc-nu)[./#configuration-psqlrc-nu]</li>
-<li>Environment variables dictate the to-be-used role - (see environment setup)[./#environment-setup]</li>
+<li>.psqlrc-nu uses <code>SET ROLE</code> to automatically assume a role on every connection - <a href="./#configuration-psqlrc-nu">see .psqlrc-nu</a></li>
+<li>Environment variables dictate the to-be-used role - <a href="./#environment-setup">see environment setup</a></li>
 </ul>
 <h2 id="module-architecture-pattern"><a class="header" href="#module-architecture-pattern">Module Architecture Pattern</a></h2>
 <p>Build reusable generic commands, then compose them:</p>
