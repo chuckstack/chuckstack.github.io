@@ -98,8 +98,8 @@ Note the use of PostgreSQL impersonation. Even though users are maintained in Po
 
 References:
 
-- .psqlrc-nu uses `SET ROLE` to automatically assume a role on every connection (see .psqlrc-nu)[#configuration-psqlrc-nu]
-- Environment variables dictate the to-be-used role (see environment setup)[#environment-setup]
+- .psqlrc-nu uses `SET ROLE` to automatically assume a role on every connection <#configuration-psqlrc-nu>
+- Environment variables dictate the to-be-used role <#environment-setup>
 
 ## Module Architecture Pattern
 
