@@ -3,7 +3,7 @@
 - Published: 2025-04-08
 - Updated: 2025-04-08
 - Author: Chuck Boecking
-- Discussion: <https://team.chuck-stack.org/t/create-isolated-public-facing-services-in-incus-netbird-phoenixnap/83>
+- Discussion: <https://team.chuck-stack.org/t/example-extract-json-from-postgresql/85>
 - Status: Released
 
 ## How to Extract JSON from PostgreSQL 
