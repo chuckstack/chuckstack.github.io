@@ -2,7 +2,7 @@
 
 ## Summary
 
-The purpose of this page is to highlight common chuck-stack practices with using `psql` with Nushell. If you have questions, comments or concerns about this content, do not hesitate to offer feedback or create an issue at https://github.com/chuckstack/chuckstack.github.io
+The purpose of this page is to highlight common chuck-stack practices with using `psql` with Nushell. If you have questions, comments or concerns about this content, do not hesitate to offer feedback or create an issue at <https://github.com/chuckstack/chuckstack.github.io>
 
 ## Example Usage
 
