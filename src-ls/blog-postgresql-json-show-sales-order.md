@@ -164,3 +164,7 @@ Here is what you should expect to see from the above select statement.
   ]
 }
 ```
+
+## Getting Started
+
+To get started using AI to augment and automate your organization, join the [stack-academy](./stack-academy.md). We meet 4 times per week, and its time for you to join the AI conversation.
