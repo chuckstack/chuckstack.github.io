@@ -71,6 +71,10 @@ export def "psql exec" [query: string] {
 }
 ```
 
+References:
+
+- <https://github.com/chuckstack/stk-app-sql/blob/main/modules/stk_psql/mod.nu>
+
 ## Configuration: .psqlrc-nu
 
 Use dedicated psql configuration for nushell integration:
@@ -83,6 +87,19 @@ Use dedicated psql configuration for nushell integration:
 \pset footer off  
 \pset format csv
 ```
+
+References:
+
+- <https://github.com/chuckstack/stk-app-sql/blob/main/test/.psqlrc-nu>
+
+## PostgreSQL Impersonation
+
+Note the use of PostgreSQL impersonation. Even though users are maintained in PostgreSQL, users only have one ability: to assume a role. All application logic is created against roles.
+
+References:
+
+- .psqlrc-nu uses `SET ROLE` to automatically assume a role on every connection
+- Environment variables dictate the to-be-used role
 
 ## Module Architecture Pattern
 
