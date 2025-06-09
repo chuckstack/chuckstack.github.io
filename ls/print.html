@@ -3414,12 +3414,12 @@ export def "psql exec" [query: string] {
         
         # Auto-convert common column patterns
         let date_cols = $result | columns | where {|x| $x == 'created' or $x == 'updated'}
-        if not ($date_cols | is-empty) {
-            for col in $date_cols { $result = $result | into datetime $col }
+        if ($date_cols | is-not-empty) {
+            $result = $result | into datetime ...$date_cols
         }
         
         let bool_cols = $result | columns | where {|x| $x | str starts-with 'is_'}
-        if not ($bool_cols | is-empty) {
+        if ($bool_cols | is-not-empty) {
             for col in $bool_cols { $result = $result | update $col { $in == "t" } }
         }
         
