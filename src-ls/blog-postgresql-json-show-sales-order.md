@@ -1,8 +1,18 @@
 # JSON Aggregation Example: Sales Order with Lines
 
+- Published: 2025-04-08
+- Updated: 2025-04-08
+- Author: Chuck Boecking
+- Discussion: <https://team.chuck-stack.org/t/create-isolated-public-facing-services-in-incus-netbird-phoenixnap/83>
+- Status: Released
+
+## How to Extract JSON from PostgreSQL 
+
 This example demonstrates how to create PostgreSQL tables and a view that returns compound structured data as JSON, combining order headers with their lines in a single JSON column.
 
 ## Table Definitions
+
+Let's create sample sales order header and line tables.
 
 ### Sales Order Header Table
 ```sql
@@ -34,6 +44,8 @@ CREATE TABLE sales_order_lines (
 ```
 
 ## View with CTE for JSON Aggregation
+
+Let's create a view that exposes a sales order (along with all of its lines) as a JSON object.
 
 ```sql
 -- View with CTE for better readability and performance
@@ -74,7 +86,7 @@ FROM sales_order_header h
 LEFT JOIN order_lines_json l ON h.order_id = l.order_id;
 ```
 
-## Why Both json_agg() and json_build_object() Are Needed
+## Why json_agg and json_build_object Functions Are Needed
 
 The CTE uses both functions for different purposes:
 
@@ -97,6 +109,8 @@ Without `json_agg()`, we'd have individual JSON objects but no way to combine mu
 
 ## Sample Data and Usage
 
+Let's create some sample data.
+
 ```sql
 -- Sample data for testing
 INSERT INTO sales_order_header (order_number, customer_name, order_date, total_amount, status) VALUES
@@ -113,6 +127,8 @@ SELECT order_json FROM order_with_lines_json WHERE order_id = 1;
 ```
 
 ## Expected JSON Output
+
+Here is what you should expect to see from the above select statement.
 
 ```json
 {

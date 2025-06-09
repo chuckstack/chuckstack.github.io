@@ -4,6 +4,7 @@
 - Updated: 2025-02-01
 - Author: Chuck Boecking
 - Discussion: <https://team.chuck-stack.org/t/hybrid-cloud-strategy-incus-netbird-phoenixnap/75>
+- Status: Released
 
 ## Hybrid Cloud Synergy
 

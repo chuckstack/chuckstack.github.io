@@ -80,6 +80,7 @@
 ---
 
 - [Blog](./blog.md)
+  - [How to Extract JSON from PostgreSQL](./blog-postgresql-json-show-sales-order.md)
   - [Isolated Public-Facing Services in Incus](./blog-incus-netbird-phoenixnap-isolated.md)
   - [Local AI Funding - Time to Bring Back the Co-op](./blog-local-co-op-funding-help.md)
   - [Production Open Source Chat with Work Instructions](./blog-llm-ai-production-deploy.md)

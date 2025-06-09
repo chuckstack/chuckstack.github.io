@@ -4,7 +4,7 @@
 - Updated: 2025-04-08
 - Author: Chuck Boecking
 - Discussion: <https://team.chuck-stack.org/t/create-isolated-public-facing-services-in-incus-netbird-phoenixnap/83>
-- Status: Drafted (TODO: fix dns...)
+- Status: Released
 
 ## Host Public Applications
 
