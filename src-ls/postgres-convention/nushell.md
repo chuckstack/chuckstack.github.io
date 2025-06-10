@@ -122,6 +122,14 @@ export def "event list" [] {
 ## Common Patterns
 
 ```nushell
+# Null coalescing (equivalent to SQL COALESCE)
+null | "" | default -e "fallback_value"
+$some_variable | default -e "fallback_when_null"
+
+# Real-world example with database results
+let user_name = $result.0.name | default -e "Unknown User"
+let description = $record.description | default -e ""
+
 # Table exists check
 $"SELECT EXISTS \(SELECT FROM information_schema.tables WHERE table_name = '($table)');" | psql exec | get 0.exists
 
