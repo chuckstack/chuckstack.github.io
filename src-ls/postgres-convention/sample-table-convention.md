@@ -28,6 +28,7 @@ For each `----Prompt:` comment in the sample tables below, provide your decision
 - **Do you need to create templates?** (is_template column)
 - **Do you need validation?** (is_valid column)
 - **Do you need to create parent child relationships inside the table?** (parent_uu column)
+- **Does this table represent lines that belong to a header record?** (header_uu column)
 - **Do you need to know when/if a record was processed?** (processed/is_processed columns)
 
 ### Example Thinking Process
@@ -41,7 +42,8 @@ Here's an example for a `stk_project_line` concept:
 5. **Do you need to create templates?** - Yes, for reusable project line templates
 6. **Do you need validation?** - Yes, for project line validation
 7. **Do you need to create parent child relationships inside the table?** - No, project lines are children of projects, not hierarchical among themselves
-8. **Do you need to know when/if a record was processed?** - No, not mentioned in requirements
+8. **Does this table represent lines that belong to a header record?** - Yes, project lines belong to a project header (stk_project)
+9. **Do you need to know when/if a record was processed?** - No, not mentioned in requirements
 
 This systematic approach ensures consistency and proper adherence to chuck-stack conventions.
 
@@ -158,6 +160,8 @@ CREATE TABLE private.stk_changeme (
   type_uu UUID NOT NULL REFERENCES private.stk_changeme_type(uu),
   ----Prompt: ask the user if they need to create parent child relationships inside the table
   --parent_uu UUID REFERENCES private.stk_changeme(uu),
+  ----Prompt: ask the user if this table represents lines that belong to a header record
+  --header_uu UUID NOT NULL REFERENCES private.stk_changeme(uu),
   ----Prompt: ask the user if they need to store json
   --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   ----Prompt: ask the user if they need to know when/if a record was processed
@@ -217,6 +221,8 @@ CREATE TABLE private.stk_changeme_part (
   type_uu UUID NOT NULL REFERENCES private.stk_changeme_type(uu),
   ----Prompt: ask the user if they need to create parent child relationships inside the table
   --parent_uu UUID REFERENCES private.stk_changeme(uu),
+  ----Prompt: ask the user if this table represents lines that belong to a header record
+  --header_uu UUID NOT NULL REFERENCES private.stk_changeme(uu),
   ----Prompt: ask the user if they need to store json
   --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   ----Prompt: ask the user if they need to know when/if a record was processed
