@@ -14,13 +14,66 @@ The resulting tables and objects would resemble `stk_request`.
 
 ## Prompting Process
 
-When creating a new concept, prompt the user in the following way:
+When creating a new chuck-stack concept, follow this systematic "thinking out loud" approach to ensure proper decision-making and documentation. Work through each prompt below and document both your decision AND reasoning.
 
-- Do you want to start with a normal table or a partitioned table?
-- Do you want to include the stk_entity_uu column? Yes if this table is involved in accounting.
-- Do you want to include the record_json column? Yes if this table will include metadata in the form of json.
-...
-- Perform these prompts for each of the below sample table 'prompts:'
+### Step 1: Initial Table Structure Decision
+- **Normal table or partitioned table?** - State your choice and explain why based on expected volume and usage patterns
+
+### Step 2: Work Through Each Sample Table Prompt
+For each `----Prompt:` comment in the sample tables below, provide your decision with reasoning:
+
+- **Do you need to assign this record to a specific entity?** (stk_entity_uu column)
+- **Do you need to store json?** (record_json column) 
+- **Does this table need to reference another table's record?** (table_name_uu_json column)
+- **Do you need to create templates?** (is_template column)
+- **Do you need validation?** (is_valid column)
+- **Do you need to create parent child relationships inside the table?** (parent_uu column)
+- **Do you need to know when/if a record was processed?** (processed/is_processed columns)
+
+### Example Thinking Process
+
+Here's an example for a `stk_project_line` concept:
+
+1. **Normal table or partitioned table?** - Normal table, project lines are typically not high-volume enough to require partitioning
+2. **Do you need to assign this record to a specific entity?** - Yes, project lines may be involved in billing/accounting when tagged with stk_item
+3. **Do you need to store json?** - Yes, project lines may need flexible metadata for tracking additional details
+4. **Does this table need to reference another table's record?** - Yes, needs stk_project_uu to reference the parent project
+5. **Do you need to create templates?** - Yes, for reusable project line templates
+6. **Do you need validation?** - Yes, for project line validation
+7. **Do you need to create parent child relationships inside the table?** - No, project lines are children of projects, not hierarchical among themselves
+8. **Do you need to know when/if a record was processed?** - No, not mentioned in requirements
+
+This systematic approach ensures consistency and proper adherence to chuck-stack conventions.
+
+## Foreign Key Philosophy
+
+Chuck-stack follows a deliberate foreign key strategy that differs from traditional ERP systems to prevent massive, unwieldy tables and give end-users more control over relationships.
+
+### When to CREATE Foreign Keys
+Create foreign keys when the relationship is **always required and permanent**:
+- ✅ `stk_project_line.stk_project_uu` - A project line will ALWAYS belong to a project
+- ✅ `stk_actor.type_uu` - Every actor will ALWAYS have a type
+- ✅ `stk_item.type_uu` - Every item will ALWAYS have a type
+
+### When to AVOID Foreign Keys
+Avoid foreign keys when the relationship is **optional or might change**:
+- ❌ Don't create `stk_project.business_partner_uu` - Some projects may not have a business partner
+- ❌ Don't create `stk_project.contact_uu` - Projects might have multiple contacts or none
+- ❌ Don't create optional relationship columns that lead to wide tables
+
+### Alternative Approaches for Optional Relationships
+Use chuck-stack's flexible relationship systems instead:
+
+1. **stk_attribute_tag** - For flexible metadata and optional simple relationships
+2. **stk_link** - For optional complex relationships between any two records
+
+### Benefits of This Approach
+- **Prevents table bloat** - Tables stay focused and maintainable (vs iDempiere's c_order with 100+ columns)
+- **User control** - End-users can create and maintain their own attributes and links
+- **Flexibility** - Relationships can evolve without schema changes
+- **Performance** - Smaller, focused tables perform better
+
+This philosophy is based on 25 years of ERP development experience and addresses real-world problems with traditional normalized database designs in business applications.
 
 ## Normal Sample Table
 
