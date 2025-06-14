@@ -113,8 +113,6 @@ INSERT INTO private.enum_comment (enum_type, enum_value, comment, is_default) VA
 CREATE TABLE private.stk_changeme_type (
   uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   table_name TEXT GENERATED ALWAYS AS ('stk_changeme_type') STORED,
-  ----Prompt: ask the user if they need to assign this record to a specific entity
-  --stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(uu),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   created_by_uu UUID NOT NULL, -- no FK by convention
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -123,8 +121,7 @@ CREATE TABLE private.stk_changeme_type (
   is_revoked BOOLEAN GENERATED ALWAYS AS (revoked IS NOT NULL) STORED,
   is_default BOOLEAN NOT NULL DEFAULT false,
   type_enum private.stk_changeme_type_enum NOT NULL,
-  ----Prompt: ask the user if they need to store json
-  --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
+  record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   search_key TEXT NOT NULL UNIQUE DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   description TEXT
