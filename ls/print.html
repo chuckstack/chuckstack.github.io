@@ -2686,7 +2686,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 <p>We provide two high-level features by which most applications are built:</p>
 <ul>
 <li>Workflow - build around the <code>stk_wf_request</code> table and surrounding architecture</li>
-<li>Attribute Tagging - build around the <code>stk_attribute_tag</code> architecture</li>
+<li>Attribute Tagging - build around the <code>stk_tag</code> architecture</li>
 </ul>
 <p>The below <a href="postgres-conventions.html#convention-summary">convention summary</a> creates a workflow and attributing tagging system that is both:</p>
 <ul>
@@ -2765,7 +2765,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 <p>Attribute Tagging:</p>
 <ul>
 <li>Makes use of the <code>table_name</code> and <code>record_uu</code> convention to associate an attribute tag to any record</li>
-<li>Use JSON for flexible attribute storage (<code>stk_attribute_tag</code> table)</li>
+<li>Use JSON for flexible attribute storage (<code>stk_tag</code> table)</li>
 </ul>
 </li>
 <li>
@@ -2904,7 +2904,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 <li><code>is_valid</code> - boolean that indicates if a record has passed all validators <!-- TODO: define workflow validator - type of event workflow --></li>
 <li><code>is_include</code> - boolean that indicates if a record is of type include. Including a record could potentially impact all records that are not included. Said another way, including a record could potentially exclude all other records.</li>
 <li><code>is_exclude</code> - boolean that indicates if a record is of type exclude. Excluding a record only impacts that specified record.</li>
-<li><code>is_singleton</code> - indicates that only a single record or object should exist for group or category. Used for example to indicate if more than one attribute tag is allowed for given combination of table_name, uu, stk_attribute_tag_type_uu. If <code>is_singleton</code>=true, then only one instance of an attribute tag type is allowed per record.</li>
+<li><code>is_singleton</code> - indicates that only a single record or object should exist for group or category. Used for example to indicate if more than one attribute tag is allowed for given combination of table_name, uu, stk_tag_type_uu. If <code>is_singleton</code>=true, then only one instance of an attribute tag type is allowed per record.</li>
 <li><code>batch_id</code> - <code>text</code> indicating this record was processed as part of a batch operation. A single record couple participate in multiple batches. if so, use the noun_adjective approach (example: batch_import_id).</li>
 <li><code>table_name</code> - <code>text</code> referencing the name of a table. This column is often generated.</li>
 <li><code>column_name</code> - <code>text</code> referencing the name of a column.</li>
@@ -2987,7 +2987,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 </ul>
 <p>When a simple array no longer supports the nature of the reference, you can consider using either <a href="postgres-convention/json-array-table-column.html#json-usage">json</a> or a <a href="postgres-convention/json-array-table-column.html#link-table-usage">link table</a>.</p>
 <h2 id="json-usage"><a class="header" href="#json-usage">JSON Usage</a></h2>
-<p>An alternative to adding an additional column is to make use of an <a href="postgres-convention/./attribute-tag.html">attribute tag</a> architecture like <code>stk_attribute_tag</code> where you can tag any record with as many attributes as you wish. In addition to adding simple attribute tags like <code>color</code> or <code>height</code>, you can also create compound attributes like this one that describes product packaging:</p>
+<p>An alternative to adding an additional column is to make use of an <a href="postgres-convention/./attribute-tag.html">attribute tag</a> architecture like <code>stk_tag</code> where you can tag any record with as many attributes as you wish. In addition to adding simple attribute tags like <code>color</code> or <code>height</code>, you can also create compound attributes like this one that describes product packaging:</p>
 <pre><code class="language-json">{
   "packagingType": "Bag",
   "material": "Kraft paper with aluminum lining",
@@ -3028,7 +3028,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 <p>This additional requirement allows us to use features like <a href="postgres-convention/./attribute-tag.html">attribute tagging</a> and <a href="postgres-convention/./statistics-convention.html">statistics</a> on link tables. Said another way, this convention promotes link tables to first class citizens of the chuck-stack.</p>
 <h2 id="json-type"><a class="header" href="#json-type">JSON Type</a></h2>
 <p>We make heavy use of the JSON schema standard to validate the proper use and structure of stored JSON objects.</p>
-<p>The <a href="postgres-convention/./attribute-tag.html">attribute tag</a> architecture is a example use case of this schema standard so that we may represent complex data in a simplified manner. It is also an example of the <a href="postgres-convention/./enum-type-convention.html">enum + type</a> convention where the type record (<code>stk_attribute_tag_type.record_json</code> column) contains the JSON schema definition and the actual <code>stk_attribute_tag</code> table (<code>stk_attribute_tag.record_json</code> column) contains the instance or actual value of that JSON schema.</p>
+<p>The <a href="postgres-convention/./attribute-tag.html">attribute tag</a> architecture is a example use case of this schema standard so that we may represent complex data in a simplified manner. It is also an example of the <a href="postgres-convention/./enum-type-convention.html">enum + type</a> convention where the type record (<code>stk_tag_type.record_json</code> column) contains the JSON schema definition and the actual <code>stk_tag</code> table (<code>stk_tag.record_json</code> column) contains the instance or actual value of that JSON schema.</p>
 <p>The <a href="postgres-convention/json-array-table-column.html#json-references">above referenced videos</a> help illustrate these concepts.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="enum-and-type-convention"><a class="header" href="#enum-and-type-convention">enum and Type Convention</a></h1>
 <p>enums and types work closely in the chuck-stack. The enum is a developer tool used in code. A type record is an end-user tool used in transactions. Type tables contain enums thus creating the connection between the concepts.</p>
@@ -3160,14 +3160,67 @@ There are two key process features that make this vision a reality: 1) workflow 
 </code></pre>
 <p>The resulting tables and objects would resemble <code>stk_request</code>.</p>
 <h2 id="prompting-process"><a class="header" href="#prompting-process">Prompting Process</a></h2>
-<p>When creating a new concept, prompt the user in the following way:</p>
+<p>When creating a new chuck-stack concept, follow this systematic "thinking out loud" approach to ensure proper decision-making and documentation. Work through each prompt below and document both your decision AND reasoning.</p>
+<h3 id="step-1-initial-table-structure-decision"><a class="header" href="#step-1-initial-table-structure-decision">Step 1: Initial Table Structure Decision</a></h3>
 <ul>
-<li>Do you want to start with a normal table or a partitioned table?</li>
-<li>Do you want to include the stk_entity_uu column? Yes if this table is involved in accounting.</li>
-<li>Do you want to include the record_json column? Yes if this table will include metadata in the form of json.
-...</li>
-<li>Perform these prompts for each of the below sample table 'prompts:'</li>
+<li><strong>Normal table or partitioned table?</strong> - State your choice and explain why based on expected volume and usage patterns</li>
 </ul>
+<h3 id="step-2-work-through-each-sample-table-prompt"><a class="header" href="#step-2-work-through-each-sample-table-prompt">Step 2: Work Through Each Sample Table Prompt</a></h3>
+<p>For each <code>----Prompt:</code> comment in the sample tables below, provide your decision with reasoning:</p>
+<ul>
+<li><strong>Do you need to assign this record to a specific entity?</strong> (stk_entity_uu column)</li>
+<li><strong>Do you need to store json?</strong> (record_json column)</li>
+<li><strong>Does this table need to reference another table's record?</strong> (table_name_uu_json column)</li>
+<li><strong>Do you need to create templates?</strong> (is_template column)</li>
+<li><strong>Do you need validation?</strong> (is_valid column)</li>
+<li><strong>Do you need to create parent child relationships inside the table?</strong> (parent_uu column)</li>
+<li><strong>Does this table represent lines that belong to a header record?</strong> (header_uu column)</li>
+<li><strong>Do you need to know when/if a record was processed?</strong> (processed/is_processed columns)</li>
+</ul>
+<h3 id="example-thinking-process"><a class="header" href="#example-thinking-process">Example Thinking Process</a></h3>
+<p>Here's an example for a <code>stk_project_line</code> concept:</p>
+<ol>
+<li><strong>Normal table or partitioned table?</strong> - Normal table, project lines are typically not high-volume enough to require partitioning</li>
+<li><strong>Do you need to assign this record to a specific entity?</strong> - Yes, project lines may be involved in billing/accounting when tagged with stk_item</li>
+<li><strong>Do you need to store json?</strong> - Yes, project lines may need flexible metadata for tracking additional details</li>
+<li><strong>Does this table need to reference another table's record?</strong> - Yes, needs stk_project_uu to reference the parent project</li>
+<li><strong>Do you need to create templates?</strong> - Yes, for reusable project line templates</li>
+<li><strong>Do you need validation?</strong> - Yes, for project line validation</li>
+<li><strong>Do you need to create parent child relationships inside the table?</strong> - No, project lines are children of projects, not hierarchical among themselves</li>
+<li><strong>Does this table represent lines that belong to a header record?</strong> - Yes, project lines belong to a project header (stk_project)</li>
+<li><strong>Do you need to know when/if a record was processed?</strong> - No, not mentioned in requirements</li>
+</ol>
+<p>This systematic approach ensures consistency and proper adherence to chuck-stack conventions.</p>
+<h2 id="foreign-key-philosophy"><a class="header" href="#foreign-key-philosophy">Foreign Key Philosophy</a></h2>
+<p>Chuck-stack follows a deliberate foreign key strategy that differs from traditional ERP systems to prevent massive, unwieldy tables and give end-users more control over relationships.</p>
+<h3 id="when-to-create-foreign-keys"><a class="header" href="#when-to-create-foreign-keys">When to CREATE Foreign Keys</a></h3>
+<p>Create foreign keys when the relationship is <strong>always required and permanent</strong>:</p>
+<ul>
+<li>✅ <code>stk_project_line.stk_project_uu</code> - A project line will ALWAYS belong to a project</li>
+<li>✅ <code>stk_actor.type_uu</code> - Every actor will ALWAYS have a type</li>
+<li>✅ <code>stk_item.type_uu</code> - Every item will ALWAYS have a type</li>
+</ul>
+<h3 id="when-to-avoid-foreign-keys"><a class="header" href="#when-to-avoid-foreign-keys">When to AVOID Foreign Keys</a></h3>
+<p>Avoid foreign keys when the relationship is <strong>optional or might change</strong>:</p>
+<ul>
+<li>❌ Don't create <code>stk_project.business_partner_uu</code> - Some projects may not have a business partner</li>
+<li>❌ Don't create <code>stk_project.contact_uu</code> - Projects might have multiple contacts or none</li>
+<li>❌ Don't create optional relationship columns that lead to wide tables</li>
+</ul>
+<h3 id="alternative-approaches-for-optional-relationships"><a class="header" href="#alternative-approaches-for-optional-relationships">Alternative Approaches for Optional Relationships</a></h3>
+<p>Use chuck-stack's flexible relationship systems instead:</p>
+<ol>
+<li><strong>stk_tag</strong> - For flexible metadata and optional simple relationships</li>
+<li><strong>stk_link</strong> - For optional complex relationships between any two records</li>
+</ol>
+<h3 id="benefits-of-this-approach"><a class="header" href="#benefits-of-this-approach">Benefits of This Approach</a></h3>
+<ul>
+<li><strong>Prevents table bloat</strong> - Tables stay focused and maintainable (vs iDempiere's c_order with 100+ columns)</li>
+<li><strong>User control</strong> - End-users can create and maintain their own attributes and links</li>
+<li><strong>Flexibility</strong> - Relationships can evolve without schema changes</li>
+<li><strong>Performance</strong> - Smaller, focused tables perform better</li>
+</ul>
+<p>This philosophy is based on 25 years of ERP development experience and addresses real-world problems with traditional normalized database designs in business applications.</p>
 <h2 id="normal-sample-table"><a class="header" href="#normal-sample-table">Normal Sample Table</a></h2>
 <p>This section represents a template for creating a new chuck-stack concept that does not use partitioning (aka normal table). The below SQL code does the following:</p>
 <ul>
@@ -3201,8 +3254,6 @@ INSERT INTO private.enum_comment (enum_type, enum_value, comment, is_default) VA
 CREATE TABLE private.stk_changeme_type (
   uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   table_name TEXT GENERATED ALWAYS AS ('stk_changeme_type') STORED,
-  ----Prompt: ask the user if they need to assign this record to a specific entity
-  --stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(uu),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   created_by_uu UUID NOT NULL, -- no FK by convention
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -3211,8 +3262,7 @@ CREATE TABLE private.stk_changeme_type (
   is_revoked BOOLEAN GENERATED ALWAYS AS (revoked IS NOT NULL) STORED,
   is_default BOOLEAN NOT NULL DEFAULT false,
   type_enum private.stk_changeme_type_enum NOT NULL,
-  ----Prompt: ask the user if they need to store json
-  --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
+  record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   search_key TEXT NOT NULL UNIQUE DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   description TEXT
@@ -3248,6 +3298,8 @@ CREATE TABLE private.stk_changeme (
   type_uu UUID NOT NULL REFERENCES private.stk_changeme_type(uu),
   ----Prompt: ask the user if they need to create parent child relationships inside the table
   --parent_uu UUID REFERENCES private.stk_changeme(uu),
+  ----Prompt: ask the user if this table represents lines that belong to a header record
+  --header_uu UUID NOT NULL REFERENCES private.stk_changeme(uu),
   ----Prompt: ask the user if they need to store json
   --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   ----Prompt: ask the user if they need to know when/if a record was processed
@@ -3302,6 +3354,8 @@ CREATE TABLE private.stk_changeme_part (
   type_uu UUID NOT NULL REFERENCES private.stk_changeme_type(uu),
   ----Prompt: ask the user if they need to create parent child relationships inside the table
   --parent_uu UUID REFERENCES private.stk_changeme(uu),
+  ----Prompt: ask the user if this table represents lines that belong to a header record
+  --header_uu UUID NOT NULL REFERENCES private.stk_changeme(uu),
   ----Prompt: ask the user if they need to store json
   --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   ----Prompt: ask the user if they need to know when/if a record was processed
@@ -3466,7 +3520,15 @@ export def "event list" [] {
 }
 </code></pre>
 <h2 id="common-patterns"><a class="header" href="#common-patterns">Common Patterns</a></h2>
-<pre><code class="language-nushell"># Table exists check
+<pre><code class="language-nushell"># Null coalescing (equivalent to SQL COALESCE)
+null | "" | default -e "fallback_value"
+$some_variable | default -e "fallback_when_null"
+
+# Real-world example with database results
+let user_name = $result.0.name | default -e "Unknown User"
+let description = $record.description | default -e ""
+
+# Table exists check
 $"SELECT EXISTS \(SELECT FROM information_schema.tables WHERE table_name = '($table)');" | psql exec | get 0.exists
 
 # Row count
@@ -3649,7 +3711,7 @@ WHERE table_name_uu_json-&gt;&gt;'uu' = ''             -- Check for empty string
 <li><code>stk_async_type</code></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="attribute-tagging"><a class="header" href="#attribute-tagging">Attribute Tagging</a></h1>
-<p>The chuck-stack makes heavy use of <a href="postgres-convention/./json-array-table-column.html#json-type">JSON</a> and attributing tagging as a means to describe database objects and workflow. The attribute tag architecture begins with the <code>stk_attribute_tag</code> table. This architecture allows you to associate any collection of attributes with any record in the database.</p>
+<p>The chuck-stack makes heavy use of <a href="postgres-convention/./json-array-table-column.html#json-type">JSON</a> and attributing tagging as a means to describe database objects and workflow. The attribute tag architecture begins with the <code>stk_tag</code> table. This architecture allows you to associate any collection of attributes with any record in the database.</p>
 <h2 id="example-json"><a class="header" href="#example-json">Example JSON</a></h2>
 <p>In addition to adding simple attribute tags like <code>color</code> or <code>height</code>, you can also create compound attributes like this one that describes product packaging:</p>
 <pre><code class="language-json">{
@@ -3684,8 +3746,8 @@ WHERE table_name_uu_json-&gt;&gt;'uu' = ''             -- Check for empty string
 <h2 id="details-1"><a class="header" href="#details-1">Details</a></h2>
 <p>Tables:</p>
 <ul>
-<li><code>stk_attribute_tag</code></li>
-<li><code>stk_attribute_tag_type</code></li>
+<li><code>stk_tag</code></li>
+<li><code>stk_tag_type</code></li>
 </ul>
 <p>We use the <a href="postgres-convention/./table-record-convention.html">Table and Record Reference</a> approach to associate an attribute tag with any given record.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="change-log"><a class="header" href="#change-log">Change Log</a></h1>

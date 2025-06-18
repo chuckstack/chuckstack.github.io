@@ -178,7 +178,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="attribute-tagging"><a class="header" href="#attribute-tagging">Attribute Tagging</a></h1>
-<p>The chuck-stack makes heavy use of <a href="./json-array-table-column.html#json-type">JSON</a> and attributing tagging as a means to describe database objects and workflow. The attribute tag architecture begins with the <code>stk_attribute_tag</code> table. This architecture allows you to associate any collection of attributes with any record in the database.</p>
+<p>The chuck-stack makes heavy use of <a href="./json-array-table-column.html#json-type">JSON</a> and attributing tagging as a means to describe database objects and workflow. The attribute tag architecture begins with the <code>stk_tag</code> table. This architecture allows you to associate any collection of attributes with any record in the database.</p>
 <h2 id="example-json"><a class="header" href="#example-json">Example JSON</a></h2>
 <p>In addition to adding simple attribute tags like <code>color</code> or <code>height</code>, you can also create compound attributes like this one that describes product packaging:</p>
 <pre><code class="language-json">{
@@ -213,8 +213,8 @@
 <h2 id="details"><a class="header" href="#details">Details</a></h2>
 <p>Tables:</p>
 <ul>
-<li><code>stk_attribute_tag</code></li>
-<li><code>stk_attribute_tag_type</code></li>
+<li><code>stk_tag</code></li>
+<li><code>stk_tag_type</code></li>
 </ul>
 <p>We use the <a href="./table-record-convention.html">Table and Record Reference</a> approach to associate an attribute tag with any given record.</p>
 

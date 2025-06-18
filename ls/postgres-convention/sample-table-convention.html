@@ -185,14 +185,67 @@
 </code></pre>
 <p>The resulting tables and objects would resemble <code>stk_request</code>.</p>
 <h2 id="prompting-process"><a class="header" href="#prompting-process">Prompting Process</a></h2>
-<p>When creating a new concept, prompt the user in the following way:</p>
+<p>When creating a new chuck-stack concept, follow this systematic "thinking out loud" approach to ensure proper decision-making and documentation. Work through each prompt below and document both your decision AND reasoning.</p>
+<h3 id="step-1-initial-table-structure-decision"><a class="header" href="#step-1-initial-table-structure-decision">Step 1: Initial Table Structure Decision</a></h3>
 <ul>
-<li>Do you want to start with a normal table or a partitioned table?</li>
-<li>Do you want to include the stk_entity_uu column? Yes if this table is involved in accounting.</li>
-<li>Do you want to include the record_json column? Yes if this table will include metadata in the form of json.
-...</li>
-<li>Perform these prompts for each of the below sample table 'prompts:'</li>
+<li><strong>Normal table or partitioned table?</strong> - State your choice and explain why based on expected volume and usage patterns</li>
 </ul>
+<h3 id="step-2-work-through-each-sample-table-prompt"><a class="header" href="#step-2-work-through-each-sample-table-prompt">Step 2: Work Through Each Sample Table Prompt</a></h3>
+<p>For each <code>----Prompt:</code> comment in the sample tables below, provide your decision with reasoning:</p>
+<ul>
+<li><strong>Do you need to assign this record to a specific entity?</strong> (stk_entity_uu column)</li>
+<li><strong>Do you need to store json?</strong> (record_json column)</li>
+<li><strong>Does this table need to reference another table's record?</strong> (table_name_uu_json column)</li>
+<li><strong>Do you need to create templates?</strong> (is_template column)</li>
+<li><strong>Do you need validation?</strong> (is_valid column)</li>
+<li><strong>Do you need to create parent child relationships inside the table?</strong> (parent_uu column)</li>
+<li><strong>Does this table represent lines that belong to a header record?</strong> (header_uu column)</li>
+<li><strong>Do you need to know when/if a record was processed?</strong> (processed/is_processed columns)</li>
+</ul>
+<h3 id="example-thinking-process"><a class="header" href="#example-thinking-process">Example Thinking Process</a></h3>
+<p>Here's an example for a <code>stk_project_line</code> concept:</p>
+<ol>
+<li><strong>Normal table or partitioned table?</strong> - Normal table, project lines are typically not high-volume enough to require partitioning</li>
+<li><strong>Do you need to assign this record to a specific entity?</strong> - Yes, project lines may be involved in billing/accounting when tagged with stk_item</li>
+<li><strong>Do you need to store json?</strong> - Yes, project lines may need flexible metadata for tracking additional details</li>
+<li><strong>Does this table need to reference another table's record?</strong> - Yes, needs stk_project_uu to reference the parent project</li>
+<li><strong>Do you need to create templates?</strong> - Yes, for reusable project line templates</li>
+<li><strong>Do you need validation?</strong> - Yes, for project line validation</li>
+<li><strong>Do you need to create parent child relationships inside the table?</strong> - No, project lines are children of projects, not hierarchical among themselves</li>
+<li><strong>Does this table represent lines that belong to a header record?</strong> - Yes, project lines belong to a project header (stk_project)</li>
+<li><strong>Do you need to know when/if a record was processed?</strong> - No, not mentioned in requirements</li>
+</ol>
+<p>This systematic approach ensures consistency and proper adherence to chuck-stack conventions.</p>
+<h2 id="foreign-key-philosophy"><a class="header" href="#foreign-key-philosophy">Foreign Key Philosophy</a></h2>
+<p>Chuck-stack follows a deliberate foreign key strategy that differs from traditional ERP systems to prevent massive, unwieldy tables and give end-users more control over relationships.</p>
+<h3 id="when-to-create-foreign-keys"><a class="header" href="#when-to-create-foreign-keys">When to CREATE Foreign Keys</a></h3>
+<p>Create foreign keys when the relationship is <strong>always required and permanent</strong>:</p>
+<ul>
+<li>✅ <code>stk_project_line.stk_project_uu</code> - A project line will ALWAYS belong to a project</li>
+<li>✅ <code>stk_actor.type_uu</code> - Every actor will ALWAYS have a type</li>
+<li>✅ <code>stk_item.type_uu</code> - Every item will ALWAYS have a type</li>
+</ul>
+<h3 id="when-to-avoid-foreign-keys"><a class="header" href="#when-to-avoid-foreign-keys">When to AVOID Foreign Keys</a></h3>
+<p>Avoid foreign keys when the relationship is <strong>optional or might change</strong>:</p>
+<ul>
+<li>❌ Don't create <code>stk_project.business_partner_uu</code> - Some projects may not have a business partner</li>
+<li>❌ Don't create <code>stk_project.contact_uu</code> - Projects might have multiple contacts or none</li>
+<li>❌ Don't create optional relationship columns that lead to wide tables</li>
+</ul>
+<h3 id="alternative-approaches-for-optional-relationships"><a class="header" href="#alternative-approaches-for-optional-relationships">Alternative Approaches for Optional Relationships</a></h3>
+<p>Use chuck-stack's flexible relationship systems instead:</p>
+<ol>
+<li><strong>stk_tag</strong> - For flexible metadata and optional simple relationships</li>
+<li><strong>stk_link</strong> - For optional complex relationships between any two records</li>
+</ol>
+<h3 id="benefits-of-this-approach"><a class="header" href="#benefits-of-this-approach">Benefits of This Approach</a></h3>
+<ul>
+<li><strong>Prevents table bloat</strong> - Tables stay focused and maintainable (vs iDempiere's c_order with 100+ columns)</li>
+<li><strong>User control</strong> - End-users can create and maintain their own attributes and links</li>
+<li><strong>Flexibility</strong> - Relationships can evolve without schema changes</li>
+<li><strong>Performance</strong> - Smaller, focused tables perform better</li>
+</ul>
+<p>This philosophy is based on 25 years of ERP development experience and addresses real-world problems with traditional normalized database designs in business applications.</p>
 <h2 id="normal-sample-table"><a class="header" href="#normal-sample-table">Normal Sample Table</a></h2>
 <p>This section represents a template for creating a new chuck-stack concept that does not use partitioning (aka normal table). The below SQL code does the following:</p>
 <ul>
@@ -226,8 +279,6 @@ INSERT INTO private.enum_comment (enum_type, enum_value, comment, is_default) VA
 CREATE TABLE private.stk_changeme_type (
   uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   table_name TEXT GENERATED ALWAYS AS ('stk_changeme_type') STORED,
-  ----Prompt: ask the user if they need to assign this record to a specific entity
-  --stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(uu),
   created TIMESTAMPTZ NOT NULL DEFAULT now(),
   created_by_uu UUID NOT NULL, -- no FK by convention
   updated TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -236,8 +287,7 @@ CREATE TABLE private.stk_changeme_type (
   is_revoked BOOLEAN GENERATED ALWAYS AS (revoked IS NOT NULL) STORED,
   is_default BOOLEAN NOT NULL DEFAULT false,
   type_enum private.stk_changeme_type_enum NOT NULL,
-  ----Prompt: ask the user if they need to store json
-  --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
+  record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   search_key TEXT NOT NULL UNIQUE DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
   description TEXT
@@ -273,6 +323,8 @@ CREATE TABLE private.stk_changeme (
   type_uu UUID NOT NULL REFERENCES private.stk_changeme_type(uu),
   ----Prompt: ask the user if they need to create parent child relationships inside the table
   --parent_uu UUID REFERENCES private.stk_changeme(uu),
+  ----Prompt: ask the user if this table represents lines that belong to a header record
+  --header_uu UUID NOT NULL REFERENCES private.stk_changeme(uu),
   ----Prompt: ask the user if they need to store json
   --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   ----Prompt: ask the user if they need to know when/if a record was processed
@@ -327,6 +379,8 @@ CREATE TABLE private.stk_changeme_part (
   type_uu UUID NOT NULL REFERENCES private.stk_changeme_type(uu),
   ----Prompt: ask the user if they need to create parent child relationships inside the table
   --parent_uu UUID REFERENCES private.stk_changeme(uu),
+  ----Prompt: ask the user if this table represents lines that belong to a header record
+  --header_uu UUID NOT NULL REFERENCES private.stk_changeme(uu),
   ----Prompt: ask the user if they need to store json
   --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
   ----Prompt: ask the user if they need to know when/if a record was processed
