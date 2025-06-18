@@ -18,7 +18,7 @@ Note that an array is a simple homogeneous structure. An array works well when a
 When a simple array no longer supports the nature of the reference, you can consider using either [json](#json-usage) or a [link table](#link-table-usage).
 
 ## JSON Usage
-An alternative to adding an additional column is to make use of an [attribute tag](./attribute-tag.md) architecture like `stk_attribute_tag` where you can tag any record with as many attributes as you wish. In addition to adding simple attribute tags like `color` or `height`, you can also create compound attributes like this one that describes product packaging:
+An alternative to adding an additional column is to make use of an [attribute tag](./attribute-tag.md) architecture like `stk_tag` where you can tag any record with as many attributes as you wish. In addition to adding simple attribute tags like `color` or `height`, you can also create compound attributes like this one that describes product packaging:
 
 ```json
 {
@@ -68,6 +68,6 @@ This additional requirement allows us to use features like [attribute tagging](.
 
 We make heavy use of the JSON schema standard to validate the proper use and structure of stored JSON objects.
 
-The [attribute tag](./attribute-tag.md) architecture is a example use case of this schema standard so that we may represent complex data in a simplified manner. It is also an example of the [enum + type](./enum-type-convention.md) convention where the type record (`stk_attribute_tag_type.record_json` column) contains the JSON schema definition and the actual `stk_attribute_tag` table (`stk_attribute_tag.record_json` column) contains the instance or actual value of that JSON schema.
+The [attribute tag](./attribute-tag.md) architecture is a example use case of this schema standard so that we may represent complex data in a simplified manner. It is also an example of the [enum + type](./enum-type-convention.md) convention where the type record (`stk_tag_type.record_json` column) contains the JSON schema definition and the actual `stk_tag` table (`stk_tag.record_json` column) contains the instance or actual value of that JSON schema.
 
 The [above referenced videos](#json-references) help illustrate these concepts.

@@ -53,7 +53,7 @@ https://zellij.dev/old-documentation/layouts-templates
 • **stk_actor** - Actor/user records with role and authentication details
 
 **Capabilities Tables:**
-• **stk_attribute_tag** - Flexible attribute/tag system (partitioned table)
+• **stk_tag** - Flexible attribute/tag system (partitioned table)
 • **stk_link** - Link records between different table records
 • **stk_abbreviation** - Abbreviation lookup/definition records
 • **stk_change_log** - Change tracking records for audit trail

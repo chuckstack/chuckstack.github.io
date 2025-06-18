@@ -66,7 +66,7 @@ Avoid foreign keys when the relationship is **optional or might change**:
 ### Alternative Approaches for Optional Relationships
 Use chuck-stack's flexible relationship systems instead:
 
-1. **stk_attribute_tag** - For flexible metadata and optional simple relationships
+1. **stk_tag** - For flexible metadata and optional simple relationships
 2. **stk_link** - For optional complex relationships between any two records
 
 ### Benefits of This Approach

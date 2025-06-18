@@ -1,6 +1,6 @@
 # Attribute Tagging
 
-The chuck-stack makes heavy use of [JSON](./json-array-table-column.md#json-type) and attributing tagging as a means to describe database objects and workflow. The attribute tag architecture begins with the `stk_attribute_tag` table. This architecture allows you to associate any collection of attributes with any record in the database. 
+The chuck-stack makes heavy use of [JSON](./json-array-table-column.md#json-type) and attributing tagging as a means to describe database objects and workflow. The attribute tag architecture begins with the `stk_tag` table. This architecture allows you to associate any collection of attributes with any record in the database. 
 
 ## Example JSON
 
@@ -43,7 +43,7 @@ You can define any number of attribute tag types. Each type defines the desire s
 
 Tables:
 
-- `stk_attribute_tag`
-- `stk_attribute_tag_type`
+- `stk_tag`
+- `stk_tag_type`
 
 We use the [Table and Record Reference](./table-record-convention.md) approach to associate an attribute tag with any given record.
