@@ -35,7 +35,7 @@ Before we discuss NixOS, you should know a little about the [Nix package managem
 
 The chuck-stack uses NixOS to deploy server applications because of its ability to simply describe the tools and configuration needed. Nix takes care of the deployment for us. This concept is true the day we deploy and anytime we perform maintenance thereafter. You simply declare what you want, and Nix makes that configuration come into existence.
 
-Here are the [chuck-stack NixOS repository configurations](https://github.com/chuckstack/chuck-stack-nix/tree/main/nixos).
+Here are the [chuck-stack NixOS repository configurations](https://github.com/chuckstack/chuck-stack-nixos/tree/main/nixos).
 
 Below is a diagram illustrating how you can simply add a NixOS configuration file to a server to create and configure important services.
 
@@ -45,7 +45,7 @@ diagram: nixos TODO
 
 The chuck-stack uses nix-shell to apply the proper role tools and configuration to the right users. Said another way, when a user connects to the chuck-stack, nix-shell applies all assigned roles and ensures the environment is configured so that the user can fulfill the role's duties.
 
-Just like NixOS, nix-shell is configuration based. Here is a sample [nix.shell](https://github.com/chuckstack/chuck-stack-nix/blob/main/nix-shell/postgresql-local/shell.nix) that installs and configures PostgreSQL. <!--TODO: need a better example that focuses on a role--> 
+Just like NixOS, nix-shell is configuration based. <!--TODO: need a better example that focuses on a role--> 
 
 Here is a diagram showing how we use nix-shell.
 
@@ -101,22 +101,22 @@ The Git PR (pull request) feature plays a big role in organizations where change
 
 ## Stk Application Example
 
-Let's review the [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix) example chuck-stack application configuration to better understand how the pieces come together. The stk-todo-app.nix is an example of a simple yet usable chuck-stack application.
+Let's review the [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-todo-app.nix) example chuck-stack application configuration to better understand how the pieces come together. The stk-todo-app.nix is an example of a simple yet usable chuck-stack application.
 
 ### Two Configurations
 
 The stk-todo-app has two configuration components:
 
-1. [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix) - the nix configuration file
+1. [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-todo-app.nix) - the nix configuration file
 1. [chuck-stack-core](https://github.com/chuckstack/chuck-stack-core) - the database migrations repository
 
-The [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix) configuration file creates a service to automatically clone and deploy the [chuck-stack-core](https://github.com/chuckstack/chuck-stack-core) database migrations every time the service is started.
+The [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-todo-app.nix) configuration file creates a service to automatically clone and deploy the [chuck-stack-core](https://github.com/chuckstack/chuck-stack-core) database migrations every time the service is started.
 
 We want to make sure you understand just how incredible this scenario is... You simply update a brand new NixOS configuration to point to a nix application file and the system will automatically install, configure and run your application. Not only during installation, but it will do this as you make changes throughout time. That is almost magical.
 
 ### Assumptions
 
-This section assumes [system.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/system.nix) and [postgresql.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/postgresql.nix) are also deployed at the same time. Said another way, stk-todo-app depends on these services. By separating the system and the postgresql nix configurations, the stk-todo-app remains as simple and ease to understand as possible.
+This section assumes [system.nix](https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/system.nix) and [postgresql.nix](https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/postgresql.nix) are also deployed at the same time. Said another way, stk-todo-app depends on these services. By separating the system and the postgresql nix configurations, the stk-todo-app remains as simple and ease to understand as possible.
 
 ### SQL Migration
 
@@ -133,7 +133,7 @@ One might argue that the user.nix should be moved to the SQL migration repositor
 
 ### Nix Configuration Review
 
-Here is a breakdown of the [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix) file. Before we get into the details, let's first start with the highlights. Here is what the stk-todo-app.nix configuration does for you:
+Here is a breakdown of the [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-todo-app.nix) file. Before we get into the details, let's first start with the highlights. Here is what the stk-todo-app.nix configuration does for you:
 
 - Updates the PostgreSQL configuration to include the stk-todo-db database
 - Creates a service to deploy database migrations

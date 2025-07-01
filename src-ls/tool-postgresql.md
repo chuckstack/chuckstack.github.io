@@ -75,15 +75,14 @@ There are two scenarios when you want to install PostgreSQL related to chuck-sta
 
 The chuck-stack uses NixOS to manage server packages and configuration. Here are two Nix configuration files that work together to install and configure PostgreSQL for the chuck-stack.
 
-- [postgresql.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/postgresql.nix) - base PostgreSQL installation
-- [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix) - extends the base PostgreSQL installation with a simple todo application.
+- [postgresql.nix](https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/postgresql.nix) - base PostgreSQL installation
+- [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-todo-app.nix) - extends the base PostgreSQL installation with a simple todo application.
 
 ### Local Installation
 
 The chuck-stack uses the Nix package manager's `nix-shell` feature to deploy and configure a local base PostgreSQL installation. Here are two different examples of nix-shell installing and configuring PostgreSQL.
 
-- Basic [shell.nix](https://github.com/chuckstack/chuck-stack-nix/blob/main/nix-shell/postgresql-local/shell.nix) - performs the most basic PostgreSQL install
-- chuck-stack todo test [shell.nix](https://github.com/chuckstack/chuck-stack-core/blob/main/test/shell.nix) - installs PostgreSQL and configures it with a specific database and runs database migrations. This files is used as part if the [chuck-stack-core](https://github.com/chuckstack/chuck-stack-core) test suite.
+The chuck-stack todo test [shell.nix](https://github.com/chuckstack/chuck-stack-core/blob/main/test/shell.nix) installs PostgreSQL and configures it with a specific database and runs database migrations. This file is used as part of the [chuck-stack-core](https://github.com/chuckstack/chuck-stack-core) test suite.
 
 ### Installation Notes
 
