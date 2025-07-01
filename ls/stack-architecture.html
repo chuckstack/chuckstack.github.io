@@ -239,7 +239,7 @@
 <p>Here is a diagram showing how we use nix-shell.</p>
 <p>diagram: nix-shell TODO</p>
 <p>It is worth noting that both chuck-stack users and developers use nix-shell to perform their respective roles. While these role's tasks and tools may differ, we deliver the role work instructions and tools in the exact same way to all roles. This is an important point, and it differentiates the chuck-stack from its historical alternatives.</p>
-<p>Here is an example of how a developer can use nix-shell to <a href="https://github.com/chuckstack/stk-app-sql/blob/main/test/shell.nix">test a SQL migration</a> in a matter of seconds.</p>
+<p>Here is an example of how a developer can use nix-shell to <a href="https://github.com/chuckstack/chuck-stack-core/blob/main/test/shell.nix">test a SQL migration</a> in a matter of seconds.</p>
 <h3 id="postgresql"><a class="header" href="#postgresql">PostgreSQL</a></h3>
 <p>The chuck-stack uses <a href="./tool-postgresql.html">PostgreSQL</a> to manage data, users, roles, records, workflows, attributes, documents, and more...</p>
 <p>SQL is one of the most expressive and well-known data and data-access standards in the world. The chuck-stack creates simplicity by moving almost all application configuration and logic into the database, and using PostgreSQL where it excels the most. We challenge you to find a more popular, better documented, more capable, and more secure user/role system (other than Linux itself).</p>
@@ -276,9 +276,9 @@
 <p>The stk-todo-app has two configuration components:</p>
 <ol>
 <li><a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> - the nix configuration file</li>
-<li><a href="https://github.com/chuckstack/stk-app-sql">stk-app-sql</a> - the database migrations repository</li>
+<li><a href="https://github.com/chuckstack/chuck-stack-core">chuck-stack-core</a> - the database migrations repository</li>
 </ol>
-<p>The <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> configuration file creates a service to automatically clone and deploy the <a href="https://github.com/chuckstack/stk-app-sql">stk-app-sql</a> database migrations every time the service is started.</p>
+<p>The <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> configuration file creates a service to automatically clone and deploy the <a href="https://github.com/chuckstack/chuck-stack-core">chuck-stack-core</a> database migrations every time the service is started.</p>
 <p>We want to make sure you understand just how incredible this scenario is... You simply update a brand new NixOS configuration to point to a nix application file and the system will automatically install, configure and run your application. Not only during installation, but it will do this as you make changes throughout time. That is almost magical.</p>
 <h3 id="assumptions"><a class="header" href="#assumptions">Assumptions</a></h3>
 <p>This section assumes <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/system.nix">system.nix</a> and <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/postgresql.nix">postgresql.nix</a> are also deployed at the same time. Said another way, stk-todo-app depends on these services. By separating the system and the postgresql nix configurations, the stk-todo-app remains as simple and ease to understand as possible.</p>
@@ -320,7 +320,7 @@
     export DATABASE_URL="postgres:///stk_todo_db"
 
     # Set the Git repository URL and the local path where it should be cloned
-    REPO_URL="https://github.com/chuckstack/stk-app-sql.git"
+    REPO_URL="https://github.com/chuckstack/chuck-stack-core.git"
     CLONE_PATH="/tmp/db-migrations"
 
     # Ensure the clone directory is empty

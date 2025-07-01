@@ -183,7 +183,7 @@
 <h2 id="example-usage"><a class="header" href="#example-usage">Example Usage</a></h2>
 <p>See the following example usage of these concepts:</p>
 <ul>
-<li><a href="https://github.com/chuckstack/stk-app-sql/tree/main/modules/stk_psql">stk-app-sql</a></li>
+<li><a href="https://github.com/chuckstack/chuck-stack-core/tree/main/modules/stk_psql">chuck-stack-core</a></li>
 </ul>
 <h2 id="critical-rule-escape-opening-parentheses-in-sql"><a class="header" href="#critical-rule-escape-opening-parentheses-in-sql">Critical Rule: Escape Opening Parentheses in SQL</a></h2>
 <p>When using nushell string interpolation (<code>$"..."</code>), escape opening parentheses that need to appear in the final SQL string:</p>
@@ -235,7 +235,7 @@ export def "psql exec" [query: string] {
 </code></pre>
 <p>References:</p>
 <ul>
-<li><a href="https://github.com/chuckstack/stk-app-sql/blob/main/modules/stk_psql/mod.nu">https://github.com/chuckstack/stk-app-sql/blob/main/modules/stk_psql/mod.nu</a></li>
+<li><a href="https://github.com/chuckstack/chuck-stack-core/blob/main/modules/stk_psql/mod.nu">https://github.com/chuckstack/chuck-stack-core/blob/main/modules/stk_psql/mod.nu</a></li>
 </ul>
 <h2 id="configuration-psqlrc-nu"><a class="header" href="#configuration-psqlrc-nu">Configuration: .psqlrc-nu</a></h2>
 <p>Use dedicated psql configuration for nushell integration:</p>
@@ -248,7 +248,7 @@ export def "psql exec" [query: string] {
 </code></pre>
 <p>References:</p>
 <ul>
-<li><a href="https://github.com/chuckstack/stk-app-sql/blob/main/test/.psqlrc-nu">https://github.com/chuckstack/stk-app-sql/blob/main/test/.psqlrc-nu</a></li>
+<li><a href="https://github.com/chuckstack/chuck-stack-core/blob/main/test/.psqlrc-nu">https://github.com/chuckstack/chuck-stack-core/blob/main/test/.psqlrc-nu</a></li>
 </ul>
 <h2 id="postgresql-impersonation"><a class="header" href="#postgresql-impersonation">PostgreSQL Impersonation</a></h2>
 <p>Note the use of PostgreSQL impersonation. Even though users are maintained in PostgreSQL, users only have one ability: to assume a role. All application logic is created against roles.</p>

@@ -719,7 +719,7 @@ $$ LANGUAGE plpgsql;
 <li>a private (<code>private</code>) facing schema to allow to data representation encapsulation.</li>
 </ul>
 <h2 id="configuration-management"><a class="header" href="#configuration-management">Configuration Management</a></h2>
-<p>The chuck-stack uses sqlx-cli to track and deploy SQL migration scripts. Here is a <a href="https://github.com/chuckstack/stk-app-sql/tree/main">sample todo chuck-stack migration repository</a>. It is part of the <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">chuck-stack todo sample application</a>.</p>
+<p>The chuck-stack uses sqlx-cli to track and deploy SQL migration scripts. Here is a <a href="https://github.com/chuckstack/chuck-stack-core/tree/main">sample todo chuck-stack migration repository</a>. It is part of the <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">chuck-stack todo sample application</a>.</p>
 <p>Note that we use a NixOS service to manage and automatically deploy migrations when needed.</p>
 <h2 id="technical-details-and-examples"><a class="header" href="#technical-details-and-examples">Technical Details and Examples</a></h2>
 <p>The purpose of this section is to highlight simple examples that demonstrate the concepts described above.</p>
@@ -904,7 +904,7 @@ select current_setting('test.test.test.one',true);
 <p>This is the single best overview showing <a href="https://www.youtube.com/watch?v=3JW732GrMdg">why PostgreSQL is so important to the chuck-stack</a>.</p>
 <p>More examples to come soon... <a href="./stack-academy.html">Join the stack-academy</a> for quicker options to get started.</p>
 <h2 id="chuck-stack-test"><a class="header" href="#chuck-stack-test">chuck-stack Test</a></h2>
-<p>Now that we have the basics covered, let's play with the chuck-stack using <a href="%5Bhttps://github.com/chuckstack/stk-app-sql%5D">stk-app-sql</a>.</p>
+<p>Now that we have the basics covered, let's play with the chuck-stack using <a href="%5Bhttps://github.com/chuckstack/chuck-stack-core%5D">chuck-stack-core</a>.</p>
 <p>This repository helps you install and configure PostgreSQL and the chuck-stack tools.</p>
 <h2 id="terminal-in-browser"><a class="header" href="#terminal-in-browser">Terminal in Browser</a></h2>
 <p>There are times when you want others to play with what you are creating. An easy way to make your terminal available through the browser is by using the <code>ttyd</code> application. It allows you to simply host a webpage that looks and feels like your machine's terminal. It is reasonably well documented and easy to use.</p>
@@ -1522,7 +1522,7 @@ incus admin init
 <p>The chuck-stack uses the Nix package manager's <code>nix-shell</code> feature to deploy and configure a local base PostgreSQL installation. Here are two different examples of nix-shell installing and configuring PostgreSQL.</p>
 <ul>
 <li>Basic <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nix-shell/postgresql-local/shell.nix">shell.nix</a> - performs the most basic PostgreSQL install</li>
-<li>chuck-stack todo test <a href="https://github.com/chuckstack/stk-app-sql/blob/main/test/shell.nix">shell.nix</a> - installs PostgreSQL and configures it with a specific database and runs database migrations. This files is used as part if the <a href="https://github.com/chuckstack/stk-app-sql">stk-app-sql</a> test suite.</li>
+<li>chuck-stack todo test <a href="https://github.com/chuckstack/chuck-stack-core/blob/main/test/shell.nix">shell.nix</a> - installs PostgreSQL and configures it with a specific database and runs database migrations. This files is used as part if the <a href="https://github.com/chuckstack/chuck-stack-core">chuck-stack-core</a> test suite.</li>
 </ul>
 <h3 id="installation-notes"><a class="header" href="#installation-notes">Installation Notes</a></h3>
 <p>Notes about installing and using PostgreSQL:</p>
@@ -2212,7 +2212,7 @@ incus admin init
 <p>Here is a diagram showing how we use nix-shell.</p>
 <p>diagram: nix-shell TODO</p>
 <p>It is worth noting that both chuck-stack users and developers use nix-shell to perform their respective roles. While these role's tasks and tools may differ, we deliver the role work instructions and tools in the exact same way to all roles. This is an important point, and it differentiates the chuck-stack from its historical alternatives.</p>
-<p>Here is an example of how a developer can use nix-shell to <a href="https://github.com/chuckstack/stk-app-sql/blob/main/test/shell.nix">test a SQL migration</a> in a matter of seconds.</p>
+<p>Here is an example of how a developer can use nix-shell to <a href="https://github.com/chuckstack/chuck-stack-core/blob/main/test/shell.nix">test a SQL migration</a> in a matter of seconds.</p>
 <h3 id="postgresql-2"><a class="header" href="#postgresql-2">PostgreSQL</a></h3>
 <p>The chuck-stack uses <a href="./tool-postgresql.html">PostgreSQL</a> to manage data, users, roles, records, workflows, attributes, documents, and more...</p>
 <p>SQL is one of the most expressive and well-known data and data-access standards in the world. The chuck-stack creates simplicity by moving almost all application configuration and logic into the database, and using PostgreSQL where it excels the most. We challenge you to find a more popular, better documented, more capable, and more secure user/role system (other than Linux itself).</p>
@@ -2249,9 +2249,9 @@ incus admin init
 <p>The stk-todo-app has two configuration components:</p>
 <ol>
 <li><a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> - the nix configuration file</li>
-<li><a href="https://github.com/chuckstack/stk-app-sql">stk-app-sql</a> - the database migrations repository</li>
+<li><a href="https://github.com/chuckstack/chuck-stack-core">chuck-stack-core</a> - the database migrations repository</li>
 </ol>
-<p>The <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> configuration file creates a service to automatically clone and deploy the <a href="https://github.com/chuckstack/stk-app-sql">stk-app-sql</a> database migrations every time the service is started.</p>
+<p>The <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> configuration file creates a service to automatically clone and deploy the <a href="https://github.com/chuckstack/chuck-stack-core">chuck-stack-core</a> database migrations every time the service is started.</p>
 <p>We want to make sure you understand just how incredible this scenario is... You simply update a brand new NixOS configuration to point to a nix application file and the system will automatically install, configure and run your application. Not only during installation, but it will do this as you make changes throughout time. That is almost magical.</p>
 <h3 id="assumptions"><a class="header" href="#assumptions">Assumptions</a></h3>
 <p>This section assumes <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/system.nix">system.nix</a> and <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/postgresql.nix">postgresql.nix</a> are also deployed at the same time. Said another way, stk-todo-app depends on these services. By separating the system and the postgresql nix configurations, the stk-todo-app remains as simple and ease to understand as possible.</p>
@@ -2293,7 +2293,7 @@ incus admin init
     export DATABASE_URL="postgres:///stk_todo_db"
 
     # Set the Git repository URL and the local path where it should be cloned
-    REPO_URL="https://github.com/chuckstack/stk-app-sql.git"
+    REPO_URL="https://github.com/chuckstack/chuck-stack-core.git"
     CLONE_PATH="/tmp/db-migrations"
 
     # Ensure the clone directory is empty
@@ -3431,7 +3431,7 @@ delete from api.stk_changeme where name = 'test1a' returning uu;
 <h2 id="example-usage"><a class="header" href="#example-usage">Example Usage</a></h2>
 <p>See the following example usage of these concepts:</p>
 <ul>
-<li><a href="https://github.com/chuckstack/stk-app-sql/tree/main/modules/stk_psql">stk-app-sql</a></li>
+<li><a href="https://github.com/chuckstack/chuck-stack-core/tree/main/modules/stk_psql">chuck-stack-core</a></li>
 </ul>
 <h2 id="critical-rule-escape-opening-parentheses-in-sql"><a class="header" href="#critical-rule-escape-opening-parentheses-in-sql">Critical Rule: Escape Opening Parentheses in SQL</a></h2>
 <p>When using nushell string interpolation (<code>$"..."</code>), escape opening parentheses that need to appear in the final SQL string:</p>
@@ -3483,7 +3483,7 @@ export def "psql exec" [query: string] {
 </code></pre>
 <p>References:</p>
 <ul>
-<li><a href="https://github.com/chuckstack/stk-app-sql/blob/main/modules/stk_psql/mod.nu">https://github.com/chuckstack/stk-app-sql/blob/main/modules/stk_psql/mod.nu</a></li>
+<li><a href="https://github.com/chuckstack/chuck-stack-core/blob/main/modules/stk_psql/mod.nu">https://github.com/chuckstack/chuck-stack-core/blob/main/modules/stk_psql/mod.nu</a></li>
 </ul>
 <h2 id="configuration-psqlrc-nu"><a class="header" href="#configuration-psqlrc-nu">Configuration: .psqlrc-nu</a></h2>
 <p>Use dedicated psql configuration for nushell integration:</p>
@@ -3496,7 +3496,7 @@ export def "psql exec" [query: string] {
 </code></pre>
 <p>References:</p>
 <ul>
-<li><a href="https://github.com/chuckstack/stk-app-sql/blob/main/test/.psqlrc-nu">https://github.com/chuckstack/stk-app-sql/blob/main/test/.psqlrc-nu</a></li>
+<li><a href="https://github.com/chuckstack/chuck-stack-core/blob/main/test/.psqlrc-nu">https://github.com/chuckstack/chuck-stack-core/blob/main/test/.psqlrc-nu</a></li>
 </ul>
 <h2 id="postgresql-impersonation"><a class="header" href="#postgresql-impersonation">PostgreSQL Impersonation</a></h2>
 <p>Note the use of PostgreSQL impersonation. Even though users are maintained in PostgreSQL, users only have one ability: to assume a role. All application logic is created against roles.</p>
@@ -4231,7 +4231,7 @@ WHERE table_name_uu_json-&gt;&gt;'uu' = ''             -- Check for empty string
 <h3 id="week-of-2024-10-11"><a class="header" href="#week-of-2024-10-11">Week of 2024-10-11</a></h3>
 <ul>
 <li>postgrest service up and running</li>
-<li>sqlx-cli test nix-shell (<a href="https://github.com/chuckstack/stk-app-sql/blob/main/test/shell.nix">link</a>)</li>
+<li>sqlx-cli test nix-shell (<a href="https://github.com/chuckstack/chuck-stack-core/blob/main/test/shell.nix">link</a>)</li>
 <li>implemented best practice for creating and hosting work instructions</li>
 </ul>
 <h3 id="prior"><a class="header" href="#prior">Prior</a></h3>
