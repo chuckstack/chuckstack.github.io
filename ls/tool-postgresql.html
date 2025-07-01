@@ -258,15 +258,12 @@
 <h3 id="server-installation"><a class="header" href="#server-installation">Server Installation</a></h3>
 <p>The chuck-stack uses NixOS to manage server packages and configuration. Here are two Nix configuration files that work together to install and configure PostgreSQL for the chuck-stack.</p>
 <ul>
-<li><a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/postgresql.nix">postgresql.nix</a> - base PostgreSQL installation</li>
-<li><a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> - extends the base PostgreSQL installation with a simple todo application.</li>
+<li><a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/postgresql.nix">postgresql.nix</a> - base PostgreSQL installation</li>
+<li><a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> - extends the base PostgreSQL installation with a simple todo application.</li>
 </ul>
 <h3 id="local-installation"><a class="header" href="#local-installation">Local Installation</a></h3>
 <p>The chuck-stack uses the Nix package manager's <code>nix-shell</code> feature to deploy and configure a local base PostgreSQL installation. Here are two different examples of nix-shell installing and configuring PostgreSQL.</p>
-<ul>
-<li>Basic <a href="https://github.com/chuckstack/chuck-stack-nix/blob/main/nix-shell/postgresql-local/shell.nix">shell.nix</a> - performs the most basic PostgreSQL install</li>
-<li>chuck-stack todo test <a href="https://github.com/chuckstack/chuck-stack-core/blob/main/test/shell.nix">shell.nix</a> - installs PostgreSQL and configures it with a specific database and runs database migrations. This files is used as part if the <a href="https://github.com/chuckstack/chuck-stack-core">chuck-stack-core</a> test suite.</li>
-</ul>
+<p>The chuck-stack todo test <a href="https://github.com/chuckstack/chuck-stack-core/blob/main/test/shell.nix">shell.nix</a> installs PostgreSQL and configures it with a specific database and runs database migrations. This file is used as part of the <a href="https://github.com/chuckstack/chuck-stack-core">chuck-stack-core</a> test suite.</p>
 <h3 id="installation-notes"><a class="header" href="#installation-notes">Installation Notes</a></h3>
 <p>Notes about installing and using PostgreSQL:</p>
 <ul>
