@@ -127,8 +127,6 @@ Since the SQL migration concept is easier to explain, let's start here first. Da
 - Fixing an error in a SQL table
 - Anything related to SQL data that needs change control and a permanent record
 
-The chuck-stack uses sqlx-cli to manage database migrations. Notice in the below nix configuration file that Nix only creates the database and nothing else. All other database configuration responsibilities are executed by sqlx-cli. This decision was made because sqlx-cli ensures a particular migration script is executed one time.
-
 One might argue that the user.nix should be moved to the SQL migration repository at the time of deployment so that all user and role management changes are managed in the same repository. This change is under consideration.
 
 ### Nix Configuration Review

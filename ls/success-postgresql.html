@@ -245,8 +245,7 @@ $$ LANGUAGE plpgsql;
 <li>a private (<code>private</code>) facing schema to allow to data representation encapsulation.</li>
 </ul>
 <h2 id="configuration-management"><a class="header" href="#configuration-management">Configuration Management</a></h2>
-<p>The chuck-stack uses sqlx-cli to track and deploy SQL migration scripts. Here is a <a href="https://github.com/chuckstack/chuck-stack-core/tree/main">sample todo chuck-stack migration repository</a>. It is part of the <a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-todo-app.nix">chuck-stack todo sample application</a>.</p>
-<p>Note that we use a NixOS service to manage and automatically deploy migrations when needed.</p>
+<p>The chuck-stack uses a <a href="https://github.com/chuckstack/chuck-stack-nushell-psql-migration">SQL migration tool</a> to track and deploy SQL migration scripts. We use a NixOS service to manage and automatically deploy migrations when needed.</p>
 <h2 id="technical-details-and-examples"><a class="header" href="#technical-details-and-examples">Technical Details and Examples</a></h2>
 <p>The purpose of this section is to highlight simple examples that demonstrate the concepts described above.</p>
 <p>References:</p>

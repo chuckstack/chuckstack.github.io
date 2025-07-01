@@ -719,8 +719,7 @@ $$ LANGUAGE plpgsql;
 <li>a private (<code>private</code>) facing schema to allow to data representation encapsulation.</li>
 </ul>
 <h2 id="configuration-management"><a class="header" href="#configuration-management">Configuration Management</a></h2>
-<p>The chuck-stack uses sqlx-cli to track and deploy SQL migration scripts. Here is a <a href="https://github.com/chuckstack/chuck-stack-core/tree/main">sample todo chuck-stack migration repository</a>. It is part of the <a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-todo-app.nix">chuck-stack todo sample application</a>.</p>
-<p>Note that we use a NixOS service to manage and automatically deploy migrations when needed.</p>
+<p>The chuck-stack uses a <a href="https://github.com/chuckstack/chuck-stack-nushell-psql-migration">SQL migration tool</a> to track and deploy SQL migration scripts. We use a NixOS service to manage and automatically deploy migrations when needed.</p>
 <h2 id="technical-details-and-examples"><a class="header" href="#technical-details-and-examples">Technical Details and Examples</a></h2>
 <p>The purpose of this section is to highlight simple examples that demonstrate the concepts described above.</p>
 <p>References:</p>
@@ -2113,7 +2112,6 @@ incus admin init
 <li><a href="https://passwordstore.org/">Pass (secrets)</a> - is a command line tool that helps you manage secrets/passwords with gpg. It is simple, scriptable, auditable, distributed and secure. <a href="https://gnupg.org/">gpg</a> is an encryption program that provides cryptographic privacy and authentication for data communication. The Pass repository is available on almost all platforms. It integrates well with github.</li>
 <li><a href="https://www.zabbix.com/">Zabbix (monitoring)</a> -  monitor resources and respond to events.</li>
 <li><a href="https://github.com/jarun/buku">buku</a> - awesome terminal bookmark manager</li>
-<li><a href="https://github.com/launchbadge/sqlx/tree/main/sqlx-cli">sqlx-cli</a> - sql migration tool</li>
 <li><a href="https://signal.org/">Signal</a> - instant message focused on privacy and availability. Signal excels by supporting communication on most platforms (mobile, web, desktop). While Discourse has direct messaging, signal's simplicity and availability makes real-time and ephemeral communication pleasurable.</li>
 <li><a href="https://matrix.org/">Matrix</a> - competitor to Signal and complementary with Discourse (via SSO) - clients (element,cinny,chats) - <a href="https://www.youtube.com/watch?v=6iMi5BiQcoI">good demo</a></li>
 <li><a href="https://www.metabase.com/">Metabase (BI)</a> - BI tool for visualizing and publishing data that runs on PostgreSQL.</li>
@@ -2260,7 +2258,6 @@ incus admin init
 <li>Fixing an error in a SQL table</li>
 <li>Anything related to SQL data that needs change control and a permanent record</li>
 </ul>
-<p>The chuck-stack uses sqlx-cli to manage database migrations. Notice in the below nix configuration file that Nix only creates the database and nothing else. All other database configuration responsibilities are executed by sqlx-cli. This decision was made because sqlx-cli ensures a particular migration script is executed one time.</p>
 <p>One might argue that the user.nix should be moved to the SQL migration repository at the time of deployment so that all user and role management changes are managed in the same repository. This change is under consideration.</p>
 <h3 id="nix-configuration-review"><a class="header" href="#nix-configuration-review">Nix Configuration Review</a></h3>
 <p>Here is a breakdown of the <a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> file. Before we get into the details, let's first start with the highlights. Here is what the stk-todo-app.nix configuration does for you:</p>
@@ -3150,7 +3147,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 <li>Since we maintain two schemas, and each schema object can hold a comment, where is the best place to comment (api vs private schema vs both)? One could argue the private schema comments are for developers/maintainers of the system while api schema object comments are for users of the system.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sample-table"><a class="header" href="#sample-table">Sample Table</a></h1>
-<p>The purpose of this section is to make it as easy as possible to create a new chuck-stack concept. All you need to do is copy the below SQL and perform a replace-all on 'changeme' to set the desired name. Once you are happy with the new SQL, add it to your sqlx migration script repository.</p>
+<p>The purpose of this section is to make it as easy as possible to create a new chuck-stack concept. All you need to do is copy the below SQL and perform a replace-all on 'changeme' to set the desired name. Once you are happy with the new SQL, add it to your migration script repository.</p>
 <h2 id="variable-substitution"><a class="header" href="#variable-substitution">Variable Substitution</a></h2>
 <p>Here is an example vim substitute command to update 'changeme' to 'request':</p>
 <pre><code class="language-vim">:%s/changeme/request/g

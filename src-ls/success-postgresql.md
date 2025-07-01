@@ -82,9 +82,7 @@ The [PostgreSQL Convention](./postgres-conventions.md#schema) highlights how we 
 
 ## Configuration Management
 
-The chuck-stack uses sqlx-cli to track and deploy SQL migration scripts. Here is a [sample todo chuck-stack migration repository](https://github.com/chuckstack/chuck-stack-core/tree/main). It is part of the [chuck-stack todo sample application](https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-todo-app.nix).
-
-Note that we use a NixOS service to manage and automatically deploy migrations when needed.
+The chuck-stack uses a [SQL migration tool](https://github.com/chuckstack/chuck-stack-nushell-psql-migration) to track and deploy SQL migration scripts. We use a NixOS service to manage and automatically deploy migrations when needed.
 
 ## Technical Details and Examples
 
