@@ -78,7 +78,7 @@ It is important to understand that the chuck-stack is not a typical software pro
 ### Week of 2024-10-11
 
 - postgrest service up and running
-- sqlx-cli test nix-shell ([link](https://github.com/chuckstack/stk-app-sql/blob/main/test/shell.nix))
+- sqlx-cli test nix-shell ([link](https://github.com/chuckstack/chuck-stack-core/blob/main/test/shell.nix))
 - implemented best practice for creating and hosting work instructions
 
 ### Prior

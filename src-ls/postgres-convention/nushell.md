@@ -8,7 +8,7 @@ The purpose of this page is to highlight common chuck-stack practices with using
 
 See the following example usage of these concepts:
 
-- [stk-app-sql](https://github.com/chuckstack/stk-app-sql/tree/main/modules/stk_psql)
+- [chuck-stack-core](https://github.com/chuckstack/chuck-stack-core/tree/main/modules/stk_psql)
 
 ## Critical Rule: Escape Opening Parentheses in SQL
 
@@ -73,7 +73,7 @@ export def "psql exec" [query: string] {
 
 References:
 
-- <https://github.com/chuckstack/stk-app-sql/blob/main/modules/stk_psql/mod.nu>
+- <https://github.com/chuckstack/chuck-stack-core/blob/main/modules/stk_psql/mod.nu>
 
 ## Configuration: .psqlrc-nu
 
@@ -90,7 +90,7 @@ Use dedicated psql configuration for nushell integration:
 
 References:
 
-- <https://github.com/chuckstack/stk-app-sql/blob/main/test/.psqlrc-nu>
+- <https://github.com/chuckstack/chuck-stack-core/blob/main/test/.psqlrc-nu>
 
 ## PostgreSQL Impersonation
 

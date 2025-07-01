@@ -124,7 +124,7 @@ More examples to come soon... [Join the stack-academy](./stack-academy.md) for q
 
 ## chuck-stack Test
 
-Now that we have the basics covered, let's play with the chuck-stack using [stk-app-sql]([https://github.com/chuckstack/stk-app-sql]).
+Now that we have the basics covered, let's play with the chuck-stack using [chuck-stack-core]([https://github.com/chuckstack/chuck-stack-core]).
 
 This repository helps you install and configure PostgreSQL and the chuck-stack tools.
 
