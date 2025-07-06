@@ -65,6 +65,7 @@
     - [Request Workflow](./postgres-convention/request.md)
     - [Statistics](./postgres-convention/statistics-convention.md)
     - [System Configuration](./postgres-convention/system-configuration-convention.md)
+- [Stack Tutor](./cli-tutor.md)
 - [Stack Academy](./stack-academy.md)
 - [Local Community Support](./stack-local.md)
 - [Terminology](./terminology.md)
