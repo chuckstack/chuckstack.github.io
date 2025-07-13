@@ -178,7 +178,12 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="enum-and-type-convention"><a class="header" href="#enum-and-type-convention">enum and Type Convention</a></h1>
-<p>enums and types work closely in the chuck-stack. The enum is a developer tool used in code. A type record is an end-user tool used in transactions. Type tables contain enums thus creating the connection between the concepts.</p>
+<p>enums and types work closely in the chuck-stack.</p>
+<ul>
+<li>The enum is a developer tool used in code.</li>
+<li>A type record is an end-user tool used in transactions.</li>
+<li>Type tables contain enums thus creating the connection between the concepts.</li>
+</ul>
 <h2 id="enum-convention"><a class="header" href="#enum-convention">enum Convention</a></h2>
 <p>The chuck-stack makes heavy use of enums to minimize the amount of code and reduce the code's dependencies on transaction data.</p>
 <p>No <code>uu</code> record should ever be referred to in code. Instead, create a record with a enum column representing how the code should behave and switch/case/if-else based on the value of the enum.</p>
@@ -186,7 +191,7 @@
 <h2 id="type-convention"><a class="header" href="#type-convention">Type Convention</a></h2>
 <p>The purpose of this section is to describe a way to ensure no transactional table directly contains an enum.</p>
 <p>The proper convention to reference an enum is to create a facade table with a <code>_type</code> suffix that contains the enum. Transactional tables then reference the <code>type_uu</code> record. The purpose of this convention is to allow users to create multiple <code>type</code> records without requiring any changes to enums or code.</p>
-<p>An enum is typically named the same as the type table with <code>_enum</code> suffix. For example, the <code>stk_doc_type</code> table has an enum column named <code>stk_doc_type_enum</code>.</p>
+<p>An enum is named the same as the type table with <code>_enum</code> suffix. For example, the <code>stk_doc_type</code> table has an enum column named <code>stk_doc_type_enum</code>.</p>
 
                         <br>
                         <p>Copyright &copy; 2024-<script>document.write(new Date().getFullYear())</script>, CHUBOE LLC. All rights reserved.</p> <!--chuboe changed-->

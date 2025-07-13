@@ -3025,7 +3025,12 @@ There are two key process features that make this vision a reality: 1) workflow 
 <p>The <a href="postgres-convention/./attribute-tag.html">attribute tag</a> architecture is a example use case of this schema standard so that we may represent complex data in a simplified manner. It is also an example of the <a href="postgres-convention/./enum-type-convention.html">enum + type</a> convention where the type record (<code>stk_tag_type.record_json</code> column) contains the JSON schema definition and the actual <code>stk_tag</code> table (<code>stk_tag.record_json</code> column) contains the instance or actual value of that JSON schema.</p>
 <p>The <a href="postgres-convention/json-array-table-column.html#json-references">above referenced videos</a> help illustrate these concepts.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="enum-and-type-convention"><a class="header" href="#enum-and-type-convention">enum and Type Convention</a></h1>
-<p>enums and types work closely in the chuck-stack. The enum is a developer tool used in code. A type record is an end-user tool used in transactions. Type tables contain enums thus creating the connection between the concepts.</p>
+<p>enums and types work closely in the chuck-stack.</p>
+<ul>
+<li>The enum is a developer tool used in code.</li>
+<li>A type record is an end-user tool used in transactions.</li>
+<li>Type tables contain enums thus creating the connection between the concepts.</li>
+</ul>
 <h2 id="enum-convention"><a class="header" href="#enum-convention">enum Convention</a></h2>
 <p>The chuck-stack makes heavy use of enums to minimize the amount of code and reduce the code's dependencies on transaction data.</p>
 <p>No <code>uu</code> record should ever be referred to in code. Instead, create a record with a enum column representing how the code should behave and switch/case/if-else based on the value of the enum.</p>
@@ -3033,7 +3038,7 @@ There are two key process features that make this vision a reality: 1) workflow 
 <h2 id="type-convention"><a class="header" href="#type-convention">Type Convention</a></h2>
 <p>The purpose of this section is to describe a way to ensure no transactional table directly contains an enum.</p>
 <p>The proper convention to reference an enum is to create a facade table with a <code>_type</code> suffix that contains the enum. Transactional tables then reference the <code>type_uu</code> record. The purpose of this convention is to allow users to create multiple <code>type</code> records without requiring any changes to enums or code.</p>
-<p>An enum is typically named the same as the type table with <code>_enum</code> suffix. For example, the <code>stk_doc_type</code> table has an enum column named <code>stk_doc_type_enum</code>.</p>
+<p>An enum is named the same as the type table with <code>_enum</code> suffix. For example, the <code>stk_doc_type</code> table has an enum column named <code>stk_doc_type_enum</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="partition-1"><a class="header" href="#partition-1">Partition</a></h1>
 <p>The purpose of this page is to discuss partition conventions and strategies.</p>
 <h2 id="partition-types"><a class="header" href="#partition-types">Partition Types</a></h2>
@@ -3185,36 +3190,6 @@ There are two key process features that make this vision a reality: 1) workflow 
 <li><strong>Do you need to know when/if a record was processed?</strong> - No, not mentioned in requirements</li>
 </ol>
 <p>This systematic approach ensures consistency and proper adherence to chuck-stack conventions.</p>
-<h2 id="foreign-key-philosophy"><a class="header" href="#foreign-key-philosophy">Foreign Key Philosophy</a></h2>
-<p>Chuck-stack follows a deliberate foreign key strategy that differs from traditional ERP systems to prevent massive, unwieldy tables and give end-users more control over relationships.</p>
-<h3 id="when-to-create-foreign-keys"><a class="header" href="#when-to-create-foreign-keys">When to CREATE Foreign Keys</a></h3>
-<p>Create foreign keys when the relationship is <strong>always required and permanent</strong>:</p>
-<ul>
-<li>✅ <code>stk_project_line.stk_project_uu</code> - A project line will ALWAYS belong to a project</li>
-<li>✅ <code>stk_actor.type_uu</code> - Every actor will ALWAYS have a type</li>
-<li>✅ <code>stk_item.type_uu</code> - Every item will ALWAYS have a type</li>
-</ul>
-<h3 id="when-to-avoid-foreign-keys"><a class="header" href="#when-to-avoid-foreign-keys">When to AVOID Foreign Keys</a></h3>
-<p>Avoid foreign keys when the relationship is <strong>optional or might change</strong>:</p>
-<ul>
-<li>❌ Don't create <code>stk_project.business_partner_uu</code> - Some projects may not have a business partner</li>
-<li>❌ Don't create <code>stk_project.contact_uu</code> - Projects might have multiple contacts or none</li>
-<li>❌ Don't create optional relationship columns that lead to wide tables</li>
-</ul>
-<h3 id="alternative-approaches-for-optional-relationships"><a class="header" href="#alternative-approaches-for-optional-relationships">Alternative Approaches for Optional Relationships</a></h3>
-<p>Use chuck-stack's flexible relationship systems instead:</p>
-<ol>
-<li><strong>stk_tag</strong> - For flexible metadata and optional simple relationships</li>
-<li><strong>stk_link</strong> - For optional complex relationships between any two records</li>
-</ol>
-<h3 id="benefits-of-this-approach"><a class="header" href="#benefits-of-this-approach">Benefits of This Approach</a></h3>
-<ul>
-<li><strong>Prevents table bloat</strong> - Tables stay focused and maintainable (vs iDempiere's c_order with 100+ columns)</li>
-<li><strong>User control</strong> - End-users can create and maintain their own attributes and links</li>
-<li><strong>Flexibility</strong> - Relationships can evolve without schema changes</li>
-<li><strong>Performance</strong> - Smaller, focused tables perform better</li>
-</ul>
-<p>This philosophy is based on 25 years of ERP development experience and addresses real-world problems with traditional normalized database designs in business applications.</p>
 <h2 id="normal-sample-table"><a class="header" href="#normal-sample-table">Normal Sample Table</a></h2>
 <p>This section represents a template for creating a new chuck-stack concept that does not use partitioning (aka normal table). The below SQL code does the following:</p>
 <ul>
