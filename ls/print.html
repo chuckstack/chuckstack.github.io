@@ -3152,226 +3152,140 @@ There are two key process features that make this vision a reality: 1) workflow 
 <li>Since we maintain two schemas, and each schema object can hold a comment, where is the best place to comment (api vs private schema vs both)? One could argue the private schema comments are for developers/maintainers of the system while api schema object comments are for users of the system.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sample-table"><a class="header" href="#sample-table">Sample Table</a></h1>
-<p>The purpose of this section is to make it as easy as possible to create a new chuck-stack concept. All you need to do is copy the below SQL and perform a replace-all on 'changeme' to set the desired name. Once you are happy with the new SQL, add it to your migration script repository.</p>
-<h2 id="variable-substitution"><a class="header" href="#variable-substitution">Variable Substitution</a></h2>
-<p>Here is an example vim substitute command to update 'changeme' to 'request':</p>
-<pre><code class="language-vim">:%s/changeme/request/g
-</code></pre>
-<p>The resulting tables and objects would resemble <code>stk_request</code>.</p>
-<h2 id="prompting-process"><a class="header" href="#prompting-process">Prompting Process</a></h2>
-<p>When creating a new chuck-stack concept, follow this systematic "thinking out loud" approach to ensure proper decision-making and documentation. Work through each prompt below and document both your decision AND reasoning.</p>
-<h3 id="step-1-initial-table-structure-decision"><a class="header" href="#step-1-initial-table-structure-decision">Step 1: Initial Table Structure Decision</a></h3>
+<p>The purpose of this page is to guide you through creating a new chuck-stack concept. Chuck-stack has developed a streamlined migration creation process with templates and tools that make table creation systematic and consistent.</p>
+<h2 id="migration-creation-process"><a class="header" href="#migration-creation-process">Migration Creation Process</a></h2>
+<p>Chuck-stack uses a template-based approach for creating new database tables. The process and tools are maintained in the chuck-stack-core repository:</p>
 <ul>
-<li><strong>Normal table or partitioned table?</strong> - State your choice and explain why based on expected volume and usage patterns</li>
+<li><strong>Migration Template</strong>: <code>chuck-stack-core/migrations/sample-table.sql.template</code></li>
+<li><strong>Partition Converter</strong>: <code>chuck-stack-core/migrations/sample-table-convert-to-partition.sh</code></li>
+<li><strong>Process Documentation</strong>: <code>chuck-stack-core/migrations/MIGRATION_NOTES.md</code></li>
 </ul>
-<h3 id="step-2-work-through-each-sample-table-prompt"><a class="header" href="#step-2-work-through-each-sample-table-prompt">Step 2: Work Through Each Sample Table Prompt</a></h3>
-<p>For each <code>----Prompt:</code> comment in the sample tables below, provide your decision with reasoning:</p>
+<p>For detailed instructions on creating migrations, see the <a href="https://github.com/chuckstack/chuck-stack-core/blob/main/migrations/MIGRATION_NOTES.md">MIGRATION_NOTES.md</a> which provides:</p>
 <ul>
-<li><strong>Do you need to assign this record to a specific entity?</strong> (stk_entity_uu column)</li>
-<li><strong>Do you need to store json?</strong> (record_json column)</li>
-<li><strong>Does this table need to reference another table's record?</strong> (table_name_uu_json column)</li>
-<li><strong>Do you need to create templates?</strong> (is_template column)</li>
-<li><strong>Do you need validation?</strong> (is_valid column)</li>
-<li><strong>Do you need to create parent child relationships inside the table?</strong> (parent_uu column)</li>
-<li><strong>Does this table represent lines that belong to a header record?</strong> (header_uu column)</li>
-<li><strong>Do you need to know when/if a record was processed?</strong> (processed/is_processed columns)</li>
+<li>Quick start commands</li>
+<li>Step-by-step process</li>
+<li>Design decision guidance</li>
+<li>Testing instructions</li>
 </ul>
-<h3 id="example-thinking-process"><a class="header" href="#example-thinking-process">Example Thinking Process</a></h3>
-<p>Here's an example for a <code>stk_project_line</code> concept:</p>
+<h2 id="quick-overview"><a class="header" href="#quick-overview">Quick Overview</a></h2>
 <ol>
-<li><strong>Normal table or partitioned table?</strong> - Normal table, project lines are typically not high-volume enough to require partitioning</li>
-<li><strong>Do you need to assign this record to a specific entity?</strong> - Yes, project lines may be involved in billing/accounting when tagged with stk_item</li>
-<li><strong>Do you need to store json?</strong> - Yes, project lines may need flexible metadata for tracking additional details</li>
-<li><strong>Does this table need to reference another table's record?</strong> - Yes, needs stk_project_uu to reference the parent project</li>
-<li><strong>Do you need to create templates?</strong> - Yes, for reusable project line templates</li>
-<li><strong>Do you need validation?</strong> - Yes, for project line validation</li>
-<li><strong>Do you need to create parent child relationships inside the table?</strong> - No, project lines are children of projects, not hierarchical among themselves</li>
-<li><strong>Does this table represent lines that belong to a header record?</strong> - Yes, project lines belong to a project header (stk_project)</li>
-<li><strong>Do you need to know when/if a record was processed?</strong> - No, not mentioned in requirements</li>
+<li><strong>Get timestamp</strong>: <code>date +%Y%m%d%H%M%S</code></li>
+<li><strong>Copy template</strong>: <code>cp sample-table.sql.template YYYYMMDDHHMMSS_core_stk-tablename.sql</code></li>
+<li><strong>Convert to partitioned</strong> (if needed): <code>./sample-table-convert-to-partition.sh YYYYMMDDHHMMSS_core_stk-tablename.sql</code></li>
+<li><strong>Replace changeme</strong>: <code>sed -i 's/changeme/tablename/g' YYYYMMDDHHMMSS_core_stk-tablename.sql</code></li>
+<li><strong>Make design decisions</strong>: Search for <code>----Prompt:</code> and work through each decision</li>
+<li><strong>Test locally</strong>: Use the test environment</li>
 </ol>
-<p>This systematic approach ensures consistency and proper adherence to chuck-stack conventions.</p>
-<h2 id="normal-sample-table"><a class="header" href="#normal-sample-table">Normal Sample Table</a></h2>
-<p>This section represents a template for creating a new chuck-stack concept that does not use partitioning (aka normal table). The below SQL code does the following:</p>
+<h2 id="design-decision-process"><a class="header" href="#design-decision-process">Design Decision Process</a></h2>
+<p>The migration template includes prompts that guide you through key design decisions. Each <code>----Prompt:</code> comment asks about a specific feature your table might need:</p>
 <ul>
-<li>follows the (<a href="postgres-convention/./table-convention.html">table conventions</a>)</li>
-<li>follows the (<a href="postgres-convention/./table-record-convention.html">table and record conventions</a>)</li>
-<li>creates typical columns (<a href="postgres-convention/./column-convention.html">see column convention</a>)</li>
-<li>creates an enum (for code) (<a href="postgres-convention/./enum-type-convention.html#enum-convention">see enum</a>)</li>
-<li>adds comments to each enum value</li>
-<li>creates a facade type table around the enum (for users) (<a href="postgres-convention/./enum-type-convention.html#type-convention">see type</a>)</li>
-<li>creates the actual table with a reference to the type</li>
-<li>exposes the tables to the api schema (<a href="postgres-convention/./schema.html">see schema</a>)</li>
-<li>adds comments to each table (<a href="postgres-convention/./comment.html">see comments</a>)</li>
-<li>adds triggers to each table to set session data (<a href="postgres-convention/./trigger-convention.html">see trigger</a>)</li>
+<li><strong>Entity assignment</strong>: For accounting/posting records</li>
+<li><strong>JSON storage</strong>: For flexible metadata</li>
+<li><strong>Table references</strong>: For linking to other tables</li>
+<li><strong>Templates</strong>: For reusable configurations</li>
+<li><strong>Validation</strong>: For data validation needs</li>
+<li><strong>Hierarchies</strong>: For parent/child relationships</li>
+<li><strong>Master/detail</strong>: For header/line structures</li>
+<li><strong>Processing status</strong>: For workflow tracking</li>
 </ul>
-<p>Simply copy and paste this script into a SQL editor and execute with the above substituted variables.</p>
-<pre><code class="language-sql">-- set session to show stk_superuser as the actor performing all the tasks
-SET stk.session = '{\"psql_user\": \"stk_superuser\"}';
-
----- type_section start ----
-CREATE TYPE private.stk_changeme_type_enum AS ENUM (
-    'NONE',
-    'ACTION'
-);
-COMMENT ON TYPE private.stk_changeme_type_enum IS 'Enum used in code to automate and validate changeme types.';
-
-INSERT INTO private.enum_comment (enum_type, enum_value, comment, is_default) VALUES
-('stk_changeme_type_enum', 'NONE', 'General purpose with no automation or validation', true),
-('stk_changeme_type_enum', 'ACTION', 'Action purpose with no automation or validation', false)
-;
-
-CREATE TABLE private.stk_changeme_type (
-  uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  table_name TEXT GENERATED ALWAYS AS ('stk_changeme_type') STORED,
-  created TIMESTAMPTZ NOT NULL DEFAULT now(),
-  created_by_uu UUID NOT NULL, -- no FK by convention
-  updated TIMESTAMPTZ NOT NULL DEFAULT now(),
-  updated_by_uu UUID NOT NULL, -- no FK by convention
-  revoked TIMESTAMPTZ,
-  is_revoked BOOLEAN GENERATED ALWAYS AS (revoked IS NOT NULL) STORED,
-  is_default BOOLEAN NOT NULL DEFAULT false,
-  type_enum private.stk_changeme_type_enum NOT NULL,
-  record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
-  search_key TEXT NOT NULL UNIQUE DEFAULT gen_random_uuid(),
-  name TEXT NOT NULL,
-  description TEXT
-);
-COMMENT ON TABLE private.stk_changeme_type IS 'Holds the types of stk_changeme records. To see a list of all stk_changeme_type_enum enums and their comments, select from api.enum_value where enum_name is stk_changeme_type_enum.';
-
-CREATE VIEW api.stk_changeme_type AS SELECT * FROM private.stk_changeme_type;
-COMMENT ON VIEW api.stk_changeme_type IS 'Holds the types of stk_changeme records.';
-
--- create triggers and type records for newly created tables
-SELECT private.stk_trigger_create();
-SELECT private.stk_table_type_create('stk_changeme_type');
----- type_section end ----
-
----- primary_section start ----
-CREATE TABLE private.stk_changeme (
-  uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  table_name TEXT generated always AS ('stk_changeme') stored,
-  ----Prompt: ask the user if they need to assign this record to a specific entity
-  --stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(uu),
-  created TIMESTAMPTZ NOT NULL DEFAULT now(),
-  created_by_uu UUID NOT NULL, -- no FK by convention
-  updated TIMESTAMPTZ NOT NULL DEFAULT now(),
-  updated_by_uu UUID NOT NULL, -- no FK by convention
-  revoked TIMESTAMPTZ,
-  is_revoked BOOLEAN GENERATED ALWAYS AS (revoked IS NOT NULL) STORED,
-  ----Prompt: ask the user if this table needs to reference another table's record
-  --table_name_uu_json JSONB NOT NULL DEFAULT '{"table_name": "","uu": ""}'::jsonb,
-  ----Prompt: ask the user if they need to create templates
-  --is_template BOOLEAN NOT NULL DEFAULT false,
-  ----Prompt: ask the user if they need validation
-  --is_valid BOOLEAN NOT NULL DEFAULT true,
-  type_uu UUID NOT NULL REFERENCES private.stk_changeme_type(uu),
-  ----Prompt: ask the user if they need to create parent child relationships inside the table
-  --parent_uu UUID REFERENCES private.stk_changeme(uu),
-  ----Prompt: ask the user if this table represents lines that belong to a header record
-  --header_uu UUID NOT NULL REFERENCES private.stk_changeme(uu),
-  ----Prompt: ask the user if they need to store json
-  --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
-  ----Prompt: ask the user if they need to know when/if a record was processed
-  --processed TIMESTAMPTZ,
-  --is_processed BOOLEAN GENERATED ALWAYS AS (processed IS NOT NULL) STORED,
-  search_key TEXT NOT NULL UNIQUE DEFAULT gen_random_uuid(),
-  name TEXT NOT NULL,
-  description TEXT
-);
-COMMENT ON TABLE private.stk_changeme IS 'Holds changeme records';
-
-CREATE VIEW api.stk_changeme AS SELECT * FROM private.stk_changeme;
-COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
----- primary_section end ----
-
--- create triggers for newly created tables
-SELECT private.stk_trigger_create();
-</code></pre>
-<h2 id="partition-table-changes"><a class="header" href="#partition-table-changes">Partition Table Changes</a></h2>
-<p>There are times when you know in advance that a table will be large. As a result, you can create the chuck-stack concept as a collection of <a href="postgres-convention/./partition-convention.html">partitioned tables</a> in advance to prevent future work.</p>
-<p>Below represents the changes needed to the <code>---- primary_section ----</code> to create a partitioned table. Here is the process to create a partitioned chuck-stack concept:</p>
+<p>Work through each prompt methodically, considering your specific use case before uncommenting features.</p>
+<h2 id="what-the-template-creates"><a class="header" href="#what-the-template-creates">What The Template Creates</a></h2>
+<p>The migration template follows chuck-stack conventions to create a complete database structure:</p>
 <ul>
-<li>Copy the above 'normal' script</li>
-<li>Delete the <code>---- primary_section ----</code> section</li>
-<li>Replace it with the following</li>
+<li><strong>Enum type</strong> for code automation (<a href="postgres-convention/./enum-type-convention.html#enum-convention">enum conventions</a>)</li>
+<li><strong>Type table</strong> as user-facing facade (<a href="postgres-convention/./enum-type-convention.html#type-convention">type conventions</a>)</li>
+<li><strong>Main table</strong> with standard columns (<a href="postgres-convention/./column-convention.html">column conventions</a>)</li>
+<li><strong>API views</strong> for controlled access (<a href="postgres-convention/./schema.html">schema conventions</a>)</li>
+<li><strong>Triggers</strong> for audit and session tracking (<a href="postgres-convention/./trigger-convention.html">trigger conventions</a>)</li>
+<li><strong>Comments</strong> for documentation (<a href="postgres-convention/./comment.html">comment conventions</a>)</li>
 </ul>
-<p>See the <a href="postgres-convention/./uuid.html#partition">UUID page</a> for more details about partitioning, primary keys, and the below structure.</p>
-<pre><code class="language-sql">---- primary_section start ----
--- primary table
--- this table is needed to support both (1) partitioning and (2) being able to maintain a single primary key and single foreign key references
-CREATE TABLE private.stk_changeme (
-  uu UUID PRIMARY KEY DEFAULT gen_random_uuid()
-);
+<h2 id="example-creating-a-request-table"><a class="header" href="#example-creating-a-request-table">Example: Creating a Request Table</a></h2>
+<p>Here's a concrete example of the migration process:</p>
+<pre><code class="language-bash"># 1. Generate timestamp
+date +%Y%m%d%H%M%S
+# Output: 20250713120000
 
--- partition table
-CREATE TABLE private.stk_changeme_part (
-  uu UUID NOT NULL REFERENCES private.stk_changeme(uu),
-  table_name TEXT generated always AS ('stk_changeme') stored,
-  stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(uu),
-  created TIMESTAMPTZ NOT NULL DEFAULT now(),
-  created_by_uu UUID NOT NULL, -- no FK by convention
-  updated TIMESTAMPTZ NOT NULL DEFAULT now(),
-  updated_by_uu UUID NOT NULL, -- no FK by convention
-  revoked TIMESTAMPTZ,
-  is_revoked BOOLEAN GENERATED ALWAYS AS (revoked IS NOT NULL) STORED,
-  ----Prompt: ask the user if this table needs to reference another table's record
-  --table_name_uu_json JSONB NOT NULL DEFAULT '{"table_name": "","uu": ""}'::jsonb,
-  ----Prompt: ask the user if they need to create templates
-  --is_template BOOLEAN NOT NULL DEFAULT false,
-  ----Prompt: ask the user if they need validation
-  --is_valid BOOLEAN NOT NULL DEFAULT true,
-  type_uu UUID NOT NULL REFERENCES private.stk_changeme_type(uu),
-  ----Prompt: ask the user if they need to create parent child relationships inside the table
-  --parent_uu UUID REFERENCES private.stk_changeme(uu),
-  ----Prompt: ask the user if this table represents lines that belong to a header record
-  --header_uu UUID NOT NULL REFERENCES private.stk_changeme(uu),
-  ----Prompt: ask the user if they need to store json
-  --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
-  ----Prompt: ask the user if they need to know when/if a record was processed
-  --processed TIMESTAMPTZ,
-  --is_processed BOOLEAN GENERATED ALWAYS AS (processed IS NOT NULL) STORED,
-  search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
-  name TEXT NOT NULL,
-  description TEXT,
-  primary key (uu, type_uu)
-) PARTITION BY LIST (type_uu);
-COMMENT ON TABLE private.stk_changeme_part IS 'Holds changeme records';
+# 2. Copy template
+cd chuck-stack-core/migrations
+cp sample-table.sql.template 20250713120000_core_stk-request.sql
 
--- first partitioned table to hold the actual data -- others can be created later
-CREATE TABLE private.stk_changeme_part_default PARTITION OF private.stk_changeme_part DEFAULT;
+# 3. Replace changeme with request
+sed -i 's/changeme/request/g' 20250713120000_core_stk-request.sql
 
-CREATE VIEW api.stk_changeme AS
-SELECT stkp.* -- note all values reside in and are pulled from the stk_changeme_part table (not the primary stk_changeme table)
-FROM private.stk_changeme stk
-JOIN private.stk_changeme_part stkp on stk.uu = stkp.uu
-;
-COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
+# 4. Search for design prompts
+grep -n "----Prompt:" 20250713120000_core_stk-request.sql
 
-CREATE TRIGGER t00010_generic_partition_insert
-    INSTEAD OF INSERT ON api.stk_changeme
-    FOR EACH ROW
-    EXECUTE FUNCTION private.t00010_generic_partition_insert();
+# 5. Make decisions for each prompt:
+# - Entity assignment? Yes - requests tied to customers
+# - JSON storage? Yes - flexible request metadata
+# - Templates? No - each request is unique
+# - Validation? Yes - ensure request data integrity
+# - Hierarchies? No - flat structure
+# - Processing? Yes - track request fulfillment
 
-CREATE TRIGGER t00020_generic_partition_update
-    INSTEAD OF UPDATE ON api.stk_changeme
-    FOR EACH ROW
-    EXECUTE FUNCTION private.t00020_generic_partition_update();
-
-CREATE TRIGGER t00030_generic_partition_delete
-    INSTEAD OF DELETE ON api.stk_changeme
-    FOR EACH ROW
-    EXECUTE FUNCTION private.t00030_generic_partition_delete();
----- primary_section end ----
+# 6. Test the migration
+cd ../test
+nix-shell
+# Run migration and test
 </code></pre>
+<h2 id="partitioning-considerations"><a class="header" href="#partitioning-considerations">Partitioning Considerations</a></h2>
+<p>Most chuck-stack tables don't require partitioning. Consider partitioning only for:</p>
+<ul>
+<li>High-volume transactional data (millions of records)</li>
+<li>Time-series data requiring efficient archival</li>
+<li>Tables with clear partition boundaries (by type, date, etc.)</li>
+</ul>
+<p>To convert to partitioned table:</p>
+<pre><code class="language-bash">./sample-table-convert-to-partition.sh your-migration-file.sql
+</code></pre>
+<p>The converter automatically:</p>
+<ul>
+<li>Creates primary/partition table structure</li>
+<li>Sets up proper foreign key relationships</li>
+<li>Adds partition management triggers</li>
+<li>Maintains chuck-stack conventions</li>
+</ul>
+<h2 id="migration-testing"><a class="header" href="#migration-testing">Migration Testing</a></h2>
+<p>Always test migrations in the local environment before deployment:</p>
+<ol>
+<li>Use the test environment: <code>cd chuck-stack-core/test &amp;&amp; nix-shell</code></li>
+<li>Apply your migration</li>
+<li>Verify table creation and constraints</li>
+<li>Test CRUD operations through API views</li>
+<li>Confirm triggers fire correctly</li>
+</ol>
+<p>See <a href="https://github.com/chuckstack/chuck-stack-core/blob/main/test/TESTING_NOTES.md">TESTING_NOTES.md</a> for complete testing guidance.</p>
 <h2 id="test-transactions"><a class="header" href="#test-transactions">Test Transactions</a></h2>
-<p>Below are some sql statements you should be able to successfully execute through the api schema against your newly created chuck-stack concept.</p>
-<pre><code class="language-sql">insert into api.stk_changeme (name, type_uu) values ('test1',(select uu from api.stk_changeme_type limit 1)) returning uu;
-update api.stk_changeme set name = 'test1a' where name = 'test1' returning name;
-select * from api.stk_changeme;
-delete from api.stk_changeme where name = 'test1a' returning uu;
+<p>After creating your table, verify it works correctly with these test statements:</p>
+<pre><code class="language-sql">-- Insert test record
+insert into api.stk_changeme (name, type_uu) 
+values ('test1', (select uu from api.stk_changeme_type limit 1)) 
+returning uu;
 
--- sample json if you include a json column: {"id": 123, "name": "John Doe", "email": "john@example.com", "active": true, "metadata": {"age": 30, "city": "New York"}}
+-- Update record
+update api.stk_changeme 
+set name = 'test1a' 
+where name = 'test1' 
+returning name;
+
+-- Query records
+select * from api.stk_changeme;
+
+-- Delete record
+delete from api.stk_changeme 
+where name = 'test1a' 
+returning uu;
+
+-- If using record_json column:
+-- {"id": 123, "name": "John Doe", "email": "john@example.com", "active": true, "metadata": {"age": 30, "city": "New York"}}
 </code></pre>
+<h2 id="related-documentation"><a class="header" href="#related-documentation">Related Documentation</a></h2>
+<ul>
+<li><strong>Migration Process</strong>: <a href="https://github.com/chuckstack/chuck-stack-core/blob/main/migrations/MIGRATION_NOTES.md">MIGRATION_NOTES.md</a> - Complete migration guide</li>
+<li><strong>Testing</strong>: <a href="https://github.com/chuckstack/chuck-stack-core/blob/main/test/TESTING_NOTES.md">TESTING_NOTES.md</a> - Test environment setup</li>
+<li><strong>Modules</strong>: <a href="https://github.com/chuckstack/chuck-stack-core/blob/main/modules/MODULE_DEVELOPMENT.md">MODULE_DEVELOPMENT.md</a> - Creating nushell modules</li>
+<li><strong>Conventions</strong>: See other pages in this postgres-convention section for detailed conventions</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="scalability-considerations"><a class="header" href="#scalability-considerations">Scalability Considerations</a></h1>
 <p>We consider the following topics when scaling PostgreSQL from just a couple of users through thousands of concurrent users.</p>
 <ul>

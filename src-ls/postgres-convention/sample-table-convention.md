@@ -1,243 +1,150 @@
 # Sample Table
 
-The purpose of this section is to make it as easy as possible to create a new chuck-stack concept. All you need to do is copy the below SQL and perform a replace-all on 'changeme' to set the desired name. Once you are happy with the new SQL, add it to your migration script repository.
+The purpose of this page is to guide you through creating a new chuck-stack concept. Chuck-stack has developed a streamlined migration creation process with templates and tools that make table creation systematic and consistent.
 
-## Variable Substitution
+## Migration Creation Process
 
-Here is an example vim substitute command to update 'changeme' to 'request':
+Chuck-stack uses a template-based approach for creating new database tables. The process and tools are maintained in the chuck-stack-core repository:
 
-```vim
-:%s/changeme/request/g
+- **Migration Template**: `chuck-stack-core/migrations/sample-table.sql.template`
+- **Partition Converter**: `chuck-stack-core/migrations/sample-table-convert-to-partition.sh`
+- **Process Documentation**: `chuck-stack-core/migrations/MIGRATION_NOTES.md`
+
+For detailed instructions on creating migrations, see the [MIGRATION_NOTES.md](https://github.com/chuckstack/chuck-stack-core/blob/main/migrations/MIGRATION_NOTES.md) which provides:
+- Quick start commands
+- Step-by-step process
+- Design decision guidance
+- Testing instructions
+
+## Quick Overview
+
+1. **Get timestamp**: `date +%Y%m%d%H%M%S`
+2. **Copy template**: `cp sample-table.sql.template YYYYMMDDHHMMSS_core_stk-tablename.sql`
+3. **Convert to partitioned** (if needed): `./sample-table-convert-to-partition.sh YYYYMMDDHHMMSS_core_stk-tablename.sql`
+4. **Replace changeme**: `sed -i 's/changeme/tablename/g' YYYYMMDDHHMMSS_core_stk-tablename.sql`
+5. **Make design decisions**: Search for `----Prompt:` and work through each decision
+6. **Test locally**: Use the test environment
+
+## Design Decision Process
+
+The migration template includes prompts that guide you through key design decisions. Each `----Prompt:` comment asks about a specific feature your table might need:
+
+- **Entity assignment**: For accounting/posting records
+- **JSON storage**: For flexible metadata
+- **Table references**: For linking to other tables
+- **Templates**: For reusable configurations
+- **Validation**: For data validation needs
+- **Hierarchies**: For parent/child relationships
+- **Master/detail**: For header/line structures
+- **Processing status**: For workflow tracking
+
+Work through each prompt methodically, considering your specific use case before uncommenting features.
+
+## What The Template Creates
+
+The migration template follows chuck-stack conventions to create a complete database structure:
+
+- **Enum type** for code automation ([enum conventions](./enum-type-convention.md#enum-convention))
+- **Type table** as user-facing facade ([type conventions](./enum-type-convention.md#type-convention))
+- **Main table** with standard columns ([column conventions](./column-convention.md))
+- **API views** for controlled access ([schema conventions](./schema.md))
+- **Triggers** for audit and session tracking ([trigger conventions](./trigger-convention.md))
+- **Comments** for documentation ([comment conventions](./comment.md))
+
+## Example: Creating a Request Table
+
+Here's a concrete example of the migration process:
+
+```bash
+# 1. Generate timestamp
+date +%Y%m%d%H%M%S
+# Output: 20250713120000
+
+# 2. Copy template
+cd chuck-stack-core/migrations
+cp sample-table.sql.template 20250713120000_core_stk-request.sql
+
+# 3. Replace changeme with request
+sed -i 's/changeme/request/g' 20250713120000_core_stk-request.sql
+
+# 4. Search for design prompts
+grep -n "----Prompt:" 20250713120000_core_stk-request.sql
+
+# 5. Make decisions for each prompt:
+# - Entity assignment? Yes - requests tied to customers
+# - JSON storage? Yes - flexible request metadata
+# - Templates? No - each request is unique
+# - Validation? Yes - ensure request data integrity
+# - Hierarchies? No - flat structure
+# - Processing? Yes - track request fulfillment
+
+# 6. Test the migration
+cd ../test
+nix-shell
+# Run migration and test
 ```
 
-The resulting tables and objects would resemble `stk_request`.
+## Partitioning Considerations
 
-## Prompting Process
+Most chuck-stack tables don't require partitioning. Consider partitioning only for:
+- High-volume transactional data (millions of records)
+- Time-series data requiring efficient archival
+- Tables with clear partition boundaries (by type, date, etc.)
 
-When creating a new chuck-stack concept, follow this systematic "thinking out loud" approach to ensure proper decision-making and documentation. Work through each prompt below and document both your decision AND reasoning.
-
-### Step 1: Initial Table Structure Decision
-- **Normal table or partitioned table?** - State your choice and explain why based on expected volume and usage patterns
-
-### Step 2: Work Through Each Sample Table Prompt
-For each `----Prompt:` comment in the sample tables below, provide your decision with reasoning:
-
-- **Do you need to assign this record to a specific entity?** (stk_entity_uu column)
-- **Do you need to store json?** (record_json column) 
-- **Does this table need to reference another table's record?** (table_name_uu_json column)
-- **Do you need to create templates?** (is_template column)
-- **Do you need validation?** (is_valid column)
-- **Do you need to create parent child relationships inside the table?** (parent_uu column)
-- **Does this table represent lines that belong to a header record?** (header_uu column)
-- **Do you need to know when/if a record was processed?** (processed/is_processed columns)
-
-### Example Thinking Process
-
-Here's an example for a `stk_project_line` concept:
-
-1. **Normal table or partitioned table?** - Normal table, project lines are typically not high-volume enough to require partitioning
-2. **Do you need to assign this record to a specific entity?** - Yes, project lines may be involved in billing/accounting when tagged with stk_item
-3. **Do you need to store json?** - Yes, project lines may need flexible metadata for tracking additional details
-4. **Does this table need to reference another table's record?** - Yes, needs stk_project_uu to reference the parent project
-5. **Do you need to create templates?** - Yes, for reusable project line templates
-6. **Do you need validation?** - Yes, for project line validation
-7. **Do you need to create parent child relationships inside the table?** - No, project lines are children of projects, not hierarchical among themselves
-8. **Does this table represent lines that belong to a header record?** - Yes, project lines belong to a project header (stk_project)
-9. **Do you need to know when/if a record was processed?** - No, not mentioned in requirements
-
-This systematic approach ensures consistency and proper adherence to chuck-stack conventions.
-
-## Normal Sample Table
-
-This section represents a template for creating a new chuck-stack concept that does not use partitioning (aka normal table). The below SQL code does the following:
-
-- follows the ([table conventions](./table-convention.md))
-- follows the ([table and record conventions](./table-record-convention.md))
-- creates typical columns ([see column convention](./column-convention.md))
-- creates an enum (for code) ([see enum](./enum-type-convention.md#enum-convention))
-- adds comments to each enum value
-- creates a facade type table around the enum (for users) ([see type](./enum-type-convention.md#type-convention))
-- creates the actual table with a reference to the type
-- exposes the tables to the api schema ([see schema](./schema.md))
-- adds comments to each table ([see comments](./comment.md))
-- adds triggers to each table to set session data ([see trigger](./trigger-convention.md))
-
-Simply copy and paste this script into a SQL editor and execute with the above substituted variables.
-
-```sql
--- set session to show stk_superuser as the actor performing all the tasks
-SET stk.session = '{\"psql_user\": \"stk_superuser\"}';
-
----- type_section start ----
-CREATE TYPE private.stk_changeme_type_enum AS ENUM (
-    'NONE',
-    'ACTION'
-);
-COMMENT ON TYPE private.stk_changeme_type_enum IS 'Enum used in code to automate and validate changeme types.';
-
-INSERT INTO private.enum_comment (enum_type, enum_value, comment, is_default) VALUES
-('stk_changeme_type_enum', 'NONE', 'General purpose with no automation or validation', true),
-('stk_changeme_type_enum', 'ACTION', 'Action purpose with no automation or validation', false)
-;
-
-CREATE TABLE private.stk_changeme_type (
-  uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  table_name TEXT GENERATED ALWAYS AS ('stk_changeme_type') STORED,
-  created TIMESTAMPTZ NOT NULL DEFAULT now(),
-  created_by_uu UUID NOT NULL, -- no FK by convention
-  updated TIMESTAMPTZ NOT NULL DEFAULT now(),
-  updated_by_uu UUID NOT NULL, -- no FK by convention
-  revoked TIMESTAMPTZ,
-  is_revoked BOOLEAN GENERATED ALWAYS AS (revoked IS NOT NULL) STORED,
-  is_default BOOLEAN NOT NULL DEFAULT false,
-  type_enum private.stk_changeme_type_enum NOT NULL,
-  record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
-  search_key TEXT NOT NULL UNIQUE DEFAULT gen_random_uuid(),
-  name TEXT NOT NULL,
-  description TEXT
-);
-COMMENT ON TABLE private.stk_changeme_type IS 'Holds the types of stk_changeme records. To see a list of all stk_changeme_type_enum enums and their comments, select from api.enum_value where enum_name is stk_changeme_type_enum.';
-
-CREATE VIEW api.stk_changeme_type AS SELECT * FROM private.stk_changeme_type;
-COMMENT ON VIEW api.stk_changeme_type IS 'Holds the types of stk_changeme records.';
-
--- create triggers and type records for newly created tables
-SELECT private.stk_trigger_create();
-SELECT private.stk_table_type_create('stk_changeme_type');
----- type_section end ----
-
----- primary_section start ----
-CREATE TABLE private.stk_changeme (
-  uu UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  table_name TEXT generated always AS ('stk_changeme') stored,
-  ----Prompt: ask the user if they need to assign this record to a specific entity
-  --stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(uu),
-  created TIMESTAMPTZ NOT NULL DEFAULT now(),
-  created_by_uu UUID NOT NULL, -- no FK by convention
-  updated TIMESTAMPTZ NOT NULL DEFAULT now(),
-  updated_by_uu UUID NOT NULL, -- no FK by convention
-  revoked TIMESTAMPTZ,
-  is_revoked BOOLEAN GENERATED ALWAYS AS (revoked IS NOT NULL) STORED,
-  ----Prompt: ask the user if this table needs to reference another table's record
-  --table_name_uu_json JSONB NOT NULL DEFAULT '{"table_name": "","uu": ""}'::jsonb,
-  ----Prompt: ask the user if they need to create templates
-  --is_template BOOLEAN NOT NULL DEFAULT false,
-  ----Prompt: ask the user if they need validation
-  --is_valid BOOLEAN NOT NULL DEFAULT true,
-  type_uu UUID NOT NULL REFERENCES private.stk_changeme_type(uu),
-  ----Prompt: ask the user if they need to create parent child relationships inside the table
-  --parent_uu UUID REFERENCES private.stk_changeme(uu),
-  ----Prompt: ask the user if this table represents lines that belong to a header record
-  --header_uu UUID NOT NULL REFERENCES private.stk_changeme(uu),
-  ----Prompt: ask the user if they need to store json
-  --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
-  ----Prompt: ask the user if they need to know when/if a record was processed
-  --processed TIMESTAMPTZ,
-  --is_processed BOOLEAN GENERATED ALWAYS AS (processed IS NOT NULL) STORED,
-  search_key TEXT NOT NULL UNIQUE DEFAULT gen_random_uuid(),
-  name TEXT NOT NULL,
-  description TEXT
-);
-COMMENT ON TABLE private.stk_changeme IS 'Holds changeme records';
-
-CREATE VIEW api.stk_changeme AS SELECT * FROM private.stk_changeme;
-COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
----- primary_section end ----
-
--- create triggers for newly created tables
-SELECT private.stk_trigger_create();
+To convert to partitioned table:
+```bash
+./sample-table-convert-to-partition.sh your-migration-file.sql
 ```
 
-## Partition Table Changes
+The converter automatically:
+- Creates primary/partition table structure
+- Sets up proper foreign key relationships
+- Adds partition management triggers
+- Maintains chuck-stack conventions
 
-There are times when you know in advance that a table will be large. As a result, you can create the chuck-stack concept as a collection of [partitioned tables](./partition-convention.md) in advance to prevent future work.
+## Migration Testing
 
-Below represents the changes needed to the `---- primary_section ----` to create a partitioned table. Here is the process to create a partitioned chuck-stack concept:
+Always test migrations in the local environment before deployment:
 
-- Copy the above 'normal' script
-- Delete the `---- primary_section ----` section
-- Replace it with the following
+1. Use the test environment: `cd chuck-stack-core/test && nix-shell`
+2. Apply your migration
+3. Verify table creation and constraints
+4. Test CRUD operations through API views
+5. Confirm triggers fire correctly
 
-See the [UUID page](./uuid.md#partition) for more details about partitioning, primary keys, and the below structure.
-
-```sql
----- primary_section start ----
--- primary table
--- this table is needed to support both (1) partitioning and (2) being able to maintain a single primary key and single foreign key references
-CREATE TABLE private.stk_changeme (
-  uu UUID PRIMARY KEY DEFAULT gen_random_uuid()
-);
-
--- partition table
-CREATE TABLE private.stk_changeme_part (
-  uu UUID NOT NULL REFERENCES private.stk_changeme(uu),
-  table_name TEXT generated always AS ('stk_changeme') stored,
-  stk_entity_uu UUID NOT NULL REFERENCES private.stk_entity(uu),
-  created TIMESTAMPTZ NOT NULL DEFAULT now(),
-  created_by_uu UUID NOT NULL, -- no FK by convention
-  updated TIMESTAMPTZ NOT NULL DEFAULT now(),
-  updated_by_uu UUID NOT NULL, -- no FK by convention
-  revoked TIMESTAMPTZ,
-  is_revoked BOOLEAN GENERATED ALWAYS AS (revoked IS NOT NULL) STORED,
-  ----Prompt: ask the user if this table needs to reference another table's record
-  --table_name_uu_json JSONB NOT NULL DEFAULT '{"table_name": "","uu": ""}'::jsonb,
-  ----Prompt: ask the user if they need to create templates
-  --is_template BOOLEAN NOT NULL DEFAULT false,
-  ----Prompt: ask the user if they need validation
-  --is_valid BOOLEAN NOT NULL DEFAULT true,
-  type_uu UUID NOT NULL REFERENCES private.stk_changeme_type(uu),
-  ----Prompt: ask the user if they need to create parent child relationships inside the table
-  --parent_uu UUID REFERENCES private.stk_changeme(uu),
-  ----Prompt: ask the user if this table represents lines that belong to a header record
-  --header_uu UUID NOT NULL REFERENCES private.stk_changeme(uu),
-  ----Prompt: ask the user if they need to store json
-  --record_json JSONB NOT NULL DEFAULT '{}'::jsonb,
-  ----Prompt: ask the user if they need to know when/if a record was processed
-  --processed TIMESTAMPTZ,
-  --is_processed BOOLEAN GENERATED ALWAYS AS (processed IS NOT NULL) STORED,
-  search_key TEXT NOT NULL DEFAULT gen_random_uuid(),
-  name TEXT NOT NULL,
-  description TEXT,
-  primary key (uu, type_uu)
-) PARTITION BY LIST (type_uu);
-COMMENT ON TABLE private.stk_changeme_part IS 'Holds changeme records';
-
--- first partitioned table to hold the actual data -- others can be created later
-CREATE TABLE private.stk_changeme_part_default PARTITION OF private.stk_changeme_part DEFAULT;
-
-CREATE VIEW api.stk_changeme AS
-SELECT stkp.* -- note all values reside in and are pulled from the stk_changeme_part table (not the primary stk_changeme table)
-FROM private.stk_changeme stk
-JOIN private.stk_changeme_part stkp on stk.uu = stkp.uu
-;
-COMMENT ON VIEW api.stk_changeme IS 'Holds changeme records';
-
-CREATE TRIGGER t00010_generic_partition_insert
-    INSTEAD OF INSERT ON api.stk_changeme
-    FOR EACH ROW
-    EXECUTE FUNCTION private.t00010_generic_partition_insert();
-
-CREATE TRIGGER t00020_generic_partition_update
-    INSTEAD OF UPDATE ON api.stk_changeme
-    FOR EACH ROW
-    EXECUTE FUNCTION private.t00020_generic_partition_update();
-
-CREATE TRIGGER t00030_generic_partition_delete
-    INSTEAD OF DELETE ON api.stk_changeme
-    FOR EACH ROW
-    EXECUTE FUNCTION private.t00030_generic_partition_delete();
----- primary_section end ----
-```
+See [TESTING_NOTES.md](https://github.com/chuckstack/chuck-stack-core/blob/main/test/TESTING_NOTES.md) for complete testing guidance.
 
 ## Test Transactions
 
-Below are some sql statements you should be able to successfully execute through the api schema against your newly created chuck-stack concept.
+After creating your table, verify it works correctly with these test statements:
 
 ```sql
-insert into api.stk_changeme (name, type_uu) values ('test1',(select uu from api.stk_changeme_type limit 1)) returning uu;
-update api.stk_changeme set name = 'test1a' where name = 'test1' returning name;
-select * from api.stk_changeme;
-delete from api.stk_changeme where name = 'test1a' returning uu;
+-- Insert test record
+insert into api.stk_changeme (name, type_uu) 
+values ('test1', (select uu from api.stk_changeme_type limit 1)) 
+returning uu;
 
--- sample json if you include a json column: {"id": 123, "name": "John Doe", "email": "john@example.com", "active": true, "metadata": {"age": 30, "city": "New York"}}
+-- Update record
+update api.stk_changeme 
+set name = 'test1a' 
+where name = 'test1' 
+returning name;
+
+-- Query records
+select * from api.stk_changeme;
+
+-- Delete record
+delete from api.stk_changeme 
+where name = 'test1a' 
+returning uu;
+
+-- If using record_json column:
+-- {"id": 123, "name": "John Doe", "email": "john@example.com", "active": true, "metadata": {"age": 30, "city": "New York"}}
 ```
+
+## Related Documentation
+
+- **Migration Process**: [MIGRATION_NOTES.md](https://github.com/chuckstack/chuck-stack-core/blob/main/migrations/MIGRATION_NOTES.md) - Complete migration guide
+- **Testing**: [TESTING_NOTES.md](https://github.com/chuckstack/chuck-stack-core/blob/main/test/TESTING_NOTES.md) - Test environment setup
+- **Modules**: [MODULE_DEVELOPMENT.md](https://github.com/chuckstack/chuck-stack-core/blob/main/modules/MODULE_DEVELOPMENT.md) - Creating nushell modules
+- **Conventions**: See other pages in this postgres-convention section for detailed conventions
