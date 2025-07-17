@@ -4,7 +4,7 @@ The purpose of this page is to guide you through creating a new chuck-stack conc
 
 ## Migration Creation Process
 
-Chuck-stack uses a template-based approach for creating new database tables. The process and tools are maintained in the chuck-stack-core repository:
+Chuck-stack uses a template-based approach for creating new database tables. The process and tools are maintained in the [chuck-stack-core repository](https://github.com/chuckstack/chuck-stack-core):
 
 - **Migration Template**: `chuck-stack-core/migrations/sample-table.sql.template`
 - **Partition Converter**: `chuck-stack-core/migrations/sample-table-convert-to-partition.sh`
