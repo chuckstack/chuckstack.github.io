@@ -147,4 +147,4 @@ returning uu;
 - **Migration Process**: [MIGRATION_NOTES.md](https://github.com/chuckstack/chuck-stack-core/blob/main/migrations/MIGRATION_NOTES.md) - Complete migration guide
 - **Testing**: [TESTING_NOTES.md](https://github.com/chuckstack/chuck-stack-core/blob/main/test/TESTING_NOTES.md) - Test environment setup
 - **Modules**: [MODULE_DEVELOPMENT.md](https://github.com/chuckstack/chuck-stack-core/blob/main/modules/MODULE_DEVELOPMENT.md) - Creating nushell modules
-- **Conventions**: See other pages in this postgres-convention section for detailed conventions
+- **Conventions**: See other pages in this [postgres-convention](./postgres-conventions.md) section for detailed conventions
