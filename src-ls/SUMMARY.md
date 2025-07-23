@@ -39,6 +39,7 @@
     - [Prove We Did It](./best-practices-operation-prove.md)
     - [Welcome Feedback](./best-practices-operation-feedback.md)
     - [Continuously Improve](./best-practices-operation-improve.md)
+  - [Data Management Philosophy](./data-management-philosophy.md)
   - [Postgres Conventions](./postgres-conventions.md)
     - [Private and API Schema](./postgres-convention/schema.md)
     - [Abbreviation](./postgres-convention/abbreviation.md)
