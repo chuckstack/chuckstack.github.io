@@ -2808,20 +2808,10 @@ There are two key process features that make this vision a reality: 1) workflow 
 </ul>
 <p>This isn't about avoiding structure - it's about putting structure in the right place to maximize both flexibility and integrity.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="postgresql-convention"><a class="header" href="#postgresql-convention">PostgreSQL Convention</a></h1>
-<p>The chuck-stack PostgreSQL conventions aim to create a consistent, convention-based, scalable, and maintainable database structure.</p>
-<p>We provide two high-level features by which most applications are built:</p>
-<ul>
-<li>Workflow - build around the <code>stk_wf_request</code> table and surrounding architecture</li>
-<li>Attribute Tagging - build around the <code>stk_tag</code> architecture</li>
-</ul>
-<p>The below <a href="postgres-conventions.html#convention-summary">convention summary</a> creates a workflow and attributing tagging system that is both:</p>
-<ul>
-<li>Generic enough to support a wide variety of use cases</li>
-<li>Simple enough to support rapid adoption</li>
-</ul>
+<p>The chuck-stack PostgreSQL conventions aim to create a consistent, convention-based, scalable, and maintainable database structure that supports our <a href="./data-management-philosophy.html">data management philosophy</a>.</p>
 <blockquote>
-<p>You can always ask AI (using AIChat) about any chuck-stack specific convention or PostgreSQL best practices and options. For example, you can ask AI:</p>
-<pre><code>It seems more secure to disable PostgreSQL's TCP service and require clients to connect via unix socket. Is this true?
+<p>You can always ask AI (using Claude Code or AIChat) about any chuck-stack specific convention or PostgreSQL best practices and options. For example, you can ask AI:</p>
+<pre><code>Should I create an address table to hold references to addresses?
 </code></pre>
 </blockquote>
 <h2 id="toc-27"><a class="header" href="#toc-27">TOC</a></h2>

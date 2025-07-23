@@ -1,21 +1,10 @@
 # PostgreSQL Convention
 
-The chuck-stack PostgreSQL conventions aim to create a consistent, convention-based, scalable, and maintainable database structure. 
+The chuck-stack PostgreSQL conventions aim to create a consistent, convention-based, scalable, and maintainable database structure that supports our [data management philosophy](./data-management-philosophy.md).
 
-We provide two high-level features by which most applications are built:
-
-- Workflow - build around the `stk_wf_request` table and surrounding architecture
-- Attribute Tagging - build around the `stk_tag` architecture
-
-The below [convention summary](#convention-summary) creates a workflow and attributing tagging system that is both:
-
-- Generic enough to support a wide variety of use cases
-- Simple enough to support rapid adoption
-
-
-> You can always ask AI (using AIChat) about any chuck-stack specific convention or PostgreSQL best practices and options. For example, you can ask AI:
+> You can always ask AI (using Claude Code or AIChat) about any chuck-stack specific convention or PostgreSQL best practices and options. For example, you can ask AI:
 >
->     It seems more secure to disable PostgreSQL's TCP service and require clients to connect via unix socket. Is this true?
+>     Should I create an address table to hold references to addresses?
 
 ## TOC
 
