@@ -271,17 +271,17 @@
 <p>The Git branching feature dictates what environments get updated. A change to the 'Test1' branch will deploy changes to the 'Test1' UAT environment. A change to the 'Prod' branch will update the 'Prod' environment.</p>
 <p>The Git PR (pull request) feature plays a big role in organizations where changes need to be vetted and approved by both AI and/or humans.</p>
 <h2 id="stk-application-example"><a class="header" href="#stk-application-example">Stk Application Example</a></h2>
-<p>Let's review the <a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> example chuck-stack application configuration to better understand how the pieces come together. The stk-todo-app.nix is an example of a simple yet usable chuck-stack application.</p>
+<p>Let's review the <a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-core.nix">stk-core.nix</a> example chuck-stack application configuration to better understand how the pieces come together. The stk-core.nix is an example of a simple yet usable chuck-stack application.</p>
 <h3 id="two-configurations"><a class="header" href="#two-configurations">Two Configurations</a></h3>
-<p>The stk-todo-app has two configuration components:</p>
+<p>The stk-core has two configuration components:</p>
 <ol>
-<li><a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> - the nix configuration file</li>
+<li><a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-core.nix">stk-core.nix</a> - the nix configuration file</li>
 <li><a href="https://github.com/chuckstack/chuck-stack-core">chuck-stack-core</a> - the database migrations repository</li>
 </ol>
-<p>The <a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> configuration file creates a service to automatically clone and deploy the <a href="https://github.com/chuckstack/chuck-stack-core">chuck-stack-core</a> database migrations every time the service is started.</p>
+<p>The <a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-core.nix">stk-core.nix</a> configuration file creates a service to automatically clone and deploy the <a href="https://github.com/chuckstack/chuck-stack-core">chuck-stack-core</a> database migrations every time the service is started.</p>
 <p>We want to make sure you understand just how incredible this scenario is... You simply update a brand new NixOS configuration to point to a nix application file and the system will automatically install, configure and run your application. Not only during installation, but it will do this as you make changes throughout time. That is almost magical.</p>
 <h3 id="assumptions"><a class="header" href="#assumptions">Assumptions</a></h3>
-<p>This section assumes <a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/system.nix">system.nix</a> and <a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/postgresql.nix">postgresql.nix</a> are also deployed at the same time. Said another way, stk-todo-app depends on these services. By separating the system and the postgresql nix configurations, the stk-todo-app remains as simple and ease to understand as possible.</p>
+<p>This section assumes <a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/system.nix">system.nix</a> and <a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/postgresql.nix">postgresql.nix</a> are also deployed at the same time. Said another way, stk-core depends on these services. By separating the system and the postgresql nix configurations, the stk-core remains as simple and ease to understand as possible.</p>
 <h3 id="sql-migration"><a class="header" href="#sql-migration">SQL Migration</a></h3>
 <p>Since the SQL migration concept is easier to explain, let's start here first. Database migrations are held in a dedicated Git repository. The typical chuck-stack organization will make frequent additions to the SQL migration repository. The reasons to make additions to migrations include:</p>
 <ul>
@@ -292,9 +292,9 @@
 </ul>
 <p>One might argue that the user.nix should be moved to the SQL migration repository at the time of deployment so that all user and role management changes are managed in the same repository. This change is under consideration.</p>
 <h3 id="nix-configuration-review"><a class="header" href="#nix-configuration-review">Nix Configuration Review</a></h3>
-<p>Here is a breakdown of the <a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-todo-app.nix">stk-todo-app.nix</a> file. Before we get into the details, let's first start with the highlights. Here is what the stk-todo-app.nix configuration does for you:</p>
+<p>Here is a breakdown of the <a href="https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-core.nix">stk-core.nix</a> file. Before we get into the details, let's first start with the highlights. Here is what the stk-core.nix configuration does for you:</p>
 <ul>
-<li>Updates the PostgreSQL configuration to include the stk-todo-db database</li>
+<li>Updates the PostgreSQL configuration to include the stk_db database</li>
 <li>Creates a service to deploy database migrations</li>
 <li>Creates the <a href="./tool-postgrest.html">PostgREST</a> user and service to expose an API in addition to the CLI</li>
 </ul>

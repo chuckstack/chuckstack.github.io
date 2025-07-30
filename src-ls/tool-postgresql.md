@@ -76,7 +76,7 @@ There are two scenarios when you want to install PostgreSQL related to chuck-sta
 The chuck-stack uses NixOS to manage server packages and configuration. Here are two Nix configuration files that work together to install and configure PostgreSQL for the chuck-stack.
 
 - [postgresql.nix](https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/postgresql.nix) - base PostgreSQL installation
-- [stk-todo-app.nix](https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-todo-app.nix) - extends the base PostgreSQL installation with a simple todo application.
+- [stk-core.nix](https://github.com/chuckstack/chuck-stack-nixos/blob/main/nixos/stk-core.nix) - extends the base PostgreSQL installation with the chuck-stack core application framework.
 
 ### Local Installation
 
