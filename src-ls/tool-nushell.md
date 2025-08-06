@@ -31,7 +31,7 @@ One of the benefits of Nushell is how it can visualize data in just about any si
 
 Here is an example showing an order summary. Few ERP systems can produces summaries with this information density:
 
-![nushell-visualize-order](./img/nushell-order-visualize-20250806.png)
+[![nushell-visualize-order](./img/nushell-order-visualize-20250806.png)](./img/nushell-order-visualize-20250806.png)
 
 Here is a json representation of the same data:
 
@@ -144,7 +144,7 @@ Notice how NUON is cleaner than JSON:
 
 Here is an example showing a project summary. Few ERP systems can as succinctly visualize project management data with sub-projects and line items:
 
-![nushell-visualize-project](./img/nushell-project-visualize-20250806.png)
+[![nushell-visualize-project](./img/nushell-project-visualize-20250806.png)](./img/nushell-project-visualize-20250806.png)
 
 Here is a JSON representation of project data:
 
