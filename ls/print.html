@@ -1658,7 +1658,11 @@ incus admin init
 <ul>
 <li><a href="tool-nushell.html#why-we-love-nushell">Why We Love Nushell</a></li>
 <li><a href="tool-nushell.html#visualize-erp-data">Visualize ERP Data</a></li>
+<li><a href="tool-nushell.html#visualize-orderinvoice-data">Visualize Order/Invoice Data</a>
+<ul>
 <li><a href="tool-nushell.html#visualize-project-data">Visualize Project Data</a></li>
+</ul>
+</li>
 <li><a href="tool-nushell.html#nu-tutor">Nu Tutor</a></li>
 <li><a href="tool-nushell.html#notes-and-references">Notes and References</a></li>
 </ul>
@@ -1681,7 +1685,8 @@ incus admin init
 <li>Nushell data visualization can be read by anyone (technical and non-technical)</li>
 <li>Configuring/customizing what data is presented is quite simple</li>
 </ul>
-<p>Here is an example:</p>
+<h2 id="visualize-orderinvoice-data"><a class="header" href="#visualize-orderinvoice-data">Visualize Order/Invoice Data</a></h2>
+<p>Here is an example showing an order summary. Few ERP systems can produces summaries with this information density:</p>
 <p><img src="./img/nushell-order-visualize-20250105.png" alt="nushell-visualize-order" /></p>
 <p>Here is a json representation of the same data:</p>
 <pre><code class="language-json">{
@@ -1785,8 +1790,9 @@ incus admin init
 <li>Only multi-word strings need quotes</li>
 <li>Native support in Nushell for direct loading and manipulation</li>
 </ul>
-<h2 id="visualize-project-data"><a class="header" href="#visualize-project-data">Visualize Project Data</a></h2>
-<p>Here's another example showing how Nushell can visualize project management data with sub-projects and line items:</p>
+<h3 id="visualize-project-data"><a class="header" href="#visualize-project-data">Visualize Project Data</a></h3>
+<p>Here is an example showing a project summary. Few ERP systems can as succinctly visualize project management data with sub-projects and line items:</p>
+<p><img src="./img/nushell-order-visualize-20250105.png" alt="nushell-visualize-order" /></p>
 <p>Here is a JSON representation of project data:</p>
 <pre><code class="language-json">{
   "project": {
