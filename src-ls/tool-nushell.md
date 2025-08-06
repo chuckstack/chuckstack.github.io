@@ -81,52 +81,200 @@ Here is a json representation of the same data:
 }
 ```
 
-Here is a [KDL](https://kdl.dev/) representation of the same data:
+Here is a NUON (Nushell Object Notation) representation of the same data:
 
-```kdl
-order "ORD-12345" {
-    customer {
-        id "CUST-789"
-        name "John Smith"
-        email "john.smith@email.com"
-        address {
-            street "123 Main St"
-            city "Springfield"
-            state "IL"
-            zip "62701"
-        }
+```nuon
+{
+  order: {
+    id: ORD-12345
+    customer: {
+      id: CUST-789
+      name: "John Smith"
+      email: john.smith@email.com
+      address: {
+        street: "123 Main St"
+        city: Springfield
+        state: IL
+        zip: 62701
+      }
     }
-    items {
-        item {
-            id "PROD-001"
-            name "Coffee Mug"
-            quantity 2
-            price 12.99
-            subtotal 25.98
-        }
-        item {
-            id "PROD-002"
-            name "Tea Set"
-            quantity 1
-            price 45.00
-            subtotal 45.00
-        }
+    items: [
+      {
+        id: PROD-001
+        name: "Coffee Mug"
+        quantity: 2
+        price: 12.99
+        subtotal: 25.98
+      }
+      {
+        id: PROD-002
+        name: "Tea Set"
+        quantity: 1
+        price: 45.00
+        subtotal: 45.00
+      }
+    ]
+    payment: {
+      method: credit-card
+      status: completed
+      transaction-id: TXN-456789
     }
-    payment {
-        method "credit-card"
-        status "completed"
-        transaction-id "TXN-456789"
+    summary: {
+      subtotal: 70.98
+      tax: 4.26
+      shipping: 5.99
+      total: 81.23
     }
-    summary {
-        subtotal 70.98
-        tax 4.26
-        shipping 5.99
-        total 81.23
-    }
-    status "processing"
-    created-at "2023-05-15T14:30:00Z"
+    status: processing
+    created-at: 2023-05-15T14:30:00Z
+  }
 }
 ```
+
+Notice how NUON is cleaner than JSON:
+- No quotes needed for keys
+- No quotes for simple strings (IDs, emails, single words)
+- No commas between fields
+- Only multi-word strings need quotes
+- Native support in Nushell for direct loading and manipulation
+
+## Visualize Project Data
+
+Here's another example showing how Nushell can visualize project management data with sub-projects and line items:
+
+Here is a JSON representation of project data:
+
+```json
+{
+  "project": {
+    "search_key": "PROJ-2025-001",
+    "client": {
+      "search_key": "CLIENT-456",
+      "name": "TechCorp Industries",
+      "contact": "sarah.johnson@techcorp.com"
+    },
+    "sub_projects": [
+      {
+        "search_key": "SUB-001",
+        "name": "Database Migration",
+        "lines": [
+          {
+            "search_key": "LINE-001",
+            "task": "Schema Analysis",
+            "hours": 40,
+            "rate": 175.00,
+            "amount": 7000.00
+          },
+          {
+            "search_key": "LINE-002",
+            "task": "Data Scripts",
+            "hours": 80,
+            "rate": 150.00,
+            "amount": 12000.00
+          }
+        ],
+        "total": 19000.00
+      },
+      {
+        "search_key": "SUB-002",
+        "name": "API Development",
+        "lines": [
+          {
+            "search_key": "LINE-003",
+            "task": "REST Design",
+            "hours": 32,
+            "rate": 180.00,
+            "amount": 5760.00
+          },
+          {
+            "search_key": "LINE-004",
+            "task": "Implementation",
+            "hours": 120,
+            "rate": 140.00,
+            "amount": 16800.00
+          }
+        ],
+        "total": 22560.00
+      }
+    ],
+    "summary": {
+      "budget": 50000.00,
+      "spent": 41560.00,
+      "hours": 272
+    },
+    "status": "active",
+    "created_at": "2025-01-10T09:00:00Z"
+  }
+}
+```
+
+Here is the same data in NUON format:
+
+```nuon
+{
+  project: {
+    search_key: PROJ-2025-001
+    client: {
+      search_key: CLIENT-456
+      name: "TechCorp Industries"
+      contact: sarah.johnson@techcorp.com
+    }
+    sub_projects: [
+      {
+        search_key: SUB-001
+        name: "Database Migration"
+        lines: [
+          {
+            search_key: LINE-001
+            task: "Schema Analysis"
+            hours: 40
+            rate: 175.00
+            amount: 7000.00
+          }
+          {
+            search_key: LINE-002
+            task: "Data Scripts"
+            hours: 80
+            rate: 150.00
+            amount: 12000.00
+          }
+        ]
+        total: 19000.00
+      }
+      {
+        search_key: SUB-002
+        name: "API Development"
+        lines: [
+          {
+            search_key: LINE-003
+            task: "REST Design"
+            hours: 32
+            rate: 180.00
+            amount: 5760.00
+          }
+          {
+            search_key: LINE-004
+            task: Implementation
+            hours: 120
+            rate: 140.00
+            amount: 16800.00
+          }
+        ]
+        total: 22560.00
+      }
+    ]
+    summary: {
+      budget: 50000.00
+      spent: 41560.00
+      hours: 272
+    }
+    status: active
+    created_at: 2025-01-10T09:00:00Z
+  }
+}
+```
+
+When visualized in Nushell, this hierarchical project structure displays cleanly with sub-projects expanded inline and line items shown in tabular format, making it easy to scan project costs and resource allocation at a glance.
 
 ## Nu Tutor
 
@@ -138,6 +286,8 @@ Nushell is powerful. The easiest to learn the Nushell way of thinking is using N
 - Nushell compliments PostgreSQL in that Nushell can perform many of the same data tasks as PostgreSQL without requiring data first be inserted into a database. 
   - Said another way, Nushell gives you many of the same data processing abilities prior to persisting it in a database.
   - Nushell also makes persisting data in PostgreSQL easier.
+- NUON (Nushell Object Notation) is Nushell's native data format, similar to JSON but with cleaner syntax
+- For comparison with other data formats like KDL, see [KDL documentation](https://kdl.dev/)
 - Nushell plugin for visualizing and plotting data [https://github.com/Euphrasiologist/nu_plugin_plot](https://github.com/Euphrasiologist/nu_plugin_plot)
   - Also reference: gnuplot
 - Nushell demonstrations and explanations
