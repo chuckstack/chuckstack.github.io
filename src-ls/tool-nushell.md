@@ -27,7 +27,9 @@ One of the benefits of Nushell is how it can visualize data in just about any si
 - Nushell data visualization can be read by anyone (technical and non-technical)
 - Configuring/customizing what data is presented is quite simple
 
-Here is an example:
+## Visualize Order/Invoice Data
+
+Here is an example showing an order summary. Few ERP systems can produces summaries with this information density:
 
 ![nushell-visualize-order](./img/nushell-order-visualize-20250105.png)
 
@@ -138,9 +140,11 @@ Notice how NUON is cleaner than JSON:
 - Only multi-word strings need quotes
 - Native support in Nushell for direct loading and manipulation
 
-## Visualize Project Data
+### Visualize Project Data
 
-Here's another example showing how Nushell can visualize project management data with sub-projects and line items:
+Here is an example showing a project summary. Few ERP systems can as succinctly visualize project management data with sub-projects and line items:
+
+![nushell-visualize-order](./img/nushell-order-visualize-20250105.png)
 
 Here is a JSON representation of project data:
 
