@@ -291,7 +291,6 @@ Nushell is powerful. The easiest to learn the Nushell way of thinking is using N
   - Said another way, Nushell gives you many of the same data processing abilities prior to persisting it in a database.
   - Nushell also makes persisting data in PostgreSQL easier.
 - NUON (Nushell Object Notation) is Nushell's native data format, similar to JSON but with cleaner syntax
-- For comparison with other data formats like KDL, see [KDL documentation](https://kdl.dev/)
 - Nushell plugin for visualizing and plotting data [https://github.com/Euphrasiologist/nu_plugin_plot](https://github.com/Euphrasiologist/nu_plugin_plot)
   - Also reference: gnuplot
 - Nushell demonstrations and explanations
