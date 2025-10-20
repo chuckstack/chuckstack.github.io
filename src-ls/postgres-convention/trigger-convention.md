@@ -52,9 +52,15 @@ Here are the recommended trigger sequence conventions:
 
 ## Considerations
 
-Trigger execution depends heavily on the `NEW` and `OLD` records. Because PostgreSQL does not like updating `NEW` and `OLD` records using dynamically evaluated column names, the chuck-stack names columns without any dependency on the column's table name. 
+Trigger execution depends heavily on the `NEW` and `OLD` records. Because PostgreSQL does not like updating `NEW` and `OLD` records using dynamically evaluated column names, the chuck-stack names columns without any dependency on the column's table name.
 
 For example, we name the primary key `uu` and not `some_table_uu`, and we name the reference to its type record `type_uu` and not `some_table_type_uu`. Doing so allows us to reference common table/records by a known name convention instead of deriving the name of the column from its table name.
+
+## Security and Permissions
+
+**All trigger functions require SECURITY DEFINER** to access `private` schema tables, since triggers run in the invoking user's context.
+
+See [Function Convention - SECURITY DEFINER Functions](./function-convention.md#security-definer-functions) for security requirements and examples.
 
 ## Trigger Utilities
 
